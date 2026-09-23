@@ -1,30 +1,25 @@
 # HomeProjectWise
 
-HomeProjectWise is an Android application for DIY home improvement and smart home guidance.
+A warmer, smarter way to improve your home.
 
-## Phase 1
+HomeProjectWise is being built as a useful English-language home improvement destination: practical projects, honest guidance, smart-home ideas, and content that helps people make better decisions with less waste.
 
-This repository contains the first buildable Android foundation:
-- Native Android app
-- Java 17
-- Android SDK 35
-- Minimum Android SDK 23
-- Automated Debug APK builds with GitHub Actions
-
-## Build
-
-GitHub Actions builds the Debug APK on pushes to `main` and can also be started manually.
-
-The generated artifact is named **HomeProjectWise-debug**.
+## Principles
+- Friendly, human English.
+- Every article solves a real problem.
+- Practical steps and clear trade-offs.
+- Strong visual storytelling.
+- Value first; monetization follows trust.
+- Continuous improvement.
 
 ## Roadmap
+1. Reliable foundation
+2. Premium editorial website
+3. Projects, guides, materials and tools
+4. Search and discoverability
+5. Mobile experience
+6. Audience growth
+7. Ethical monetization
+8. Continuous publishing
 
-1. Foundation and automated APK build
-2. UI/UX and navigation
-3. Projects
-4. Materials and tools
-5. Ideas and guides
-6. Local storage
-7. Accounts and cloud sync
-8. Smart home features
-9. Release preparation
+The business target is $1,500/month after six months. This is a goal, not a guarantee; reader value and trust come first.
