@@ -12,14 +12,10 @@ HomeProjectWise is an English-language home-improvement destination focused on p
 - IndexNow submits each newly published article automatically.
 - robots.txt points to the sitemap.
 - GoatCounter analytics uses the homeprojectwise property.
-- Pinterest automation uses OAuth refresh before publishing.
 - Google Search Console and Bing Webmaster verification are prepared in website/ with setup docs in docs/.
 
 ## Required one-time secrets
 
-- PINTEREST_CLIENT_ID
-- PINTEREST_CLIENT_SECRET
-- PINTEREST_REFRESH_TOKEN
 - INDEXNOW_KEY (value documented in docs/INDEXNOW.md)
 
 ## Principles
@@ -38,6 +34,5 @@ HomeProjectWise is an English-language home-improvement destination focused on p
 - IndexNow: docs/INDEXNOW.md
 - GoatCounter: docs/GOATCOUNTER.md
 - RSS: docs/RSS.md
-- Pinterest OAuth: docs/PINTEREST_SETUP.md
 
 The business target is $1,500/month after six months. This is an operating goal, not a guarantee; reader value and trust come first.
