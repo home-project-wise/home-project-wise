@@ -1,0 +1,35 @@
+name: Editorial Publish Engine
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: editorial-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Publish next due article
+        run: python automation/publish.py
+      - name: Commit published article and discovery feeds
+        run: |
+          git config user.name 'HomeProjectWise Editorial Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/queue website/articles website/guides.html website/sitemap.xml website/feed.xml
+          if git diff --cached --quiet; then
+            echo 'No publication changes to commit.'
+          else
+            git commit -m 'publish: scheduled editorial article'
+            git push
+          fi
