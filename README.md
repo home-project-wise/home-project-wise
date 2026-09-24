@@ -2,9 +2,28 @@
 
 A warmer, smarter way to improve your home.
 
-HomeProjectWise is being built as a useful English-language home improvement destination: practical projects, honest guidance, smart-home ideas, and content that helps people make better decisions with less waste.
+HomeProjectWise is an English-language home-improvement destination focused on practical projects, honest guidance, smart-home ideas and useful content.
+
+## Automation & discovery
+
+- Two daily editorial publishing runs.
+- RSS regenerated automatically after publication.
+- XML sitemap regenerated automatically.
+- IndexNow submits each newly published article automatically.
+- robots.txt points to the sitemap.
+- GoatCounter analytics uses the homeprojectwise property.
+- Pinterest automation uses OAuth refresh before publishing.
+- Google Search Console and Bing Webmaster verification are prepared in website/ with setup docs in docs/.
+
+## Required one-time secrets
+
+- PINTEREST_CLIENT_ID
+- PINTEREST_CLIENT_SECRET
+- PINTEREST_REFRESH_TOKEN
+- INDEXNOW_KEY (value documented in docs/INDEXNOW.md)
 
 ## Principles
+
 - Friendly, human English.
 - Every article solves a real problem.
 - Practical steps and clear trade-offs.
@@ -12,24 +31,13 @@ HomeProjectWise is being built as a useful English-language home improvement des
 - Value first; monetization follows trust.
 - Continuous improvement.
 
-## Pinterest automation
+## Key documentation
 
-Pinterest uses a one-time OAuth authorization followed by automatic access-token refresh before each publish. The workflow uses these GitHub Actions secrets:
+- Google Search Console: docs/GOOGLE_SEARCH_CONSOLE.md
+- Bing Webmaster Tools: docs/BING_WEBMASTER.md
+- IndexNow: docs/INDEXNOW.md
+- GoatCounter: docs/GOATCOUNTER.md
+- RSS: docs/RSS.md
+- Pinterest OAuth: docs/PINTEREST_SETUP.md
 
-- `PINTEREST_CLIENT_ID`
-- `PINTEREST_CLIENT_SECRET`
-- `PINTEREST_REFRESH_TOKEN`
-
-The old static access-token approach is not used by the Pinterest workflow. See [docs/PINTEREST_SETUP.md](docs/PINTEREST_SETUP.md).
-
-## Roadmap
-1. Reliable foundation
-2. Premium editorial website
-3. Projects, guides, materials and tools
-4. Search and discoverability
-5. Mobile experience
-6. Audience growth
-7. Ethical monetization
-8. Continuous publishing
-
-The business target is $1,500/month after six months. This is a goal, not a guarantee; reader value and trust come first.
+The business target is $1,500/month after six months. This is an operating goal, not a guarantee; reader value and trust come first.
