@@ -1,0 +1,19 @@
+name: Site Health Monitor
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check live endpoints
+        run: |
+          set -euo pipefail
+          base='https://home-project-wise.github.io/home-project-wise'
+          for path in '/' '/guides.html' '/feed.xml' '/sitemap.xml' '/robots.txt'; do curl --fail --silent --show-error --location --retry 5 --retry-delay 2 "$base$path" >/dev/null; done
+      - name: Check publishing buffer
+        run: test "$(find content/queue -maxdepth 1 -name '*.json' | wc -l)" -ge 2
