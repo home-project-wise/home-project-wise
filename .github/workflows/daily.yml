@@ -1,0 +1,53 @@
+name: Daily Editorial Publisher
+on:
+  schedule:
+    - cron: '0 5 * * *'
+    - cron: '0 17 * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'automation/**'
+      - 'content/queue/**'
+permissions:
+  contents: write
+concurrency:
+  group: editorial-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Publish next due article
+        run: python automation/publish.py
+      - name: Detect new article
+        id: article
+        run: |
+          file=$(git diff --name-only | grep '^website/articles/.*\.html$' | head -n 1 || true)
+          if [ -z "$file" ]; then echo "published=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+          slug=$(basename "$file" .html)
+          echo "published=true" >> "$GITHUB_OUTPUT"
+          echo "url=https://home-project-wise.github.io/home-project-wise/articles/$slug.html" >> "$GITHUB_OUTPUT"
+      - name: Submit to IndexNow
+        if: steps.article.outputs.published == 'true'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          NEW_URL: ${{ steps.article.outputs.url }}
+        run: |
+          test -n "$INDEXNOW_KEY"
+          python - <<'PY'
+          import json,os
+          from urllib.request import Request,urlopen
+          key=os.environ["INDEXNOW_KEY"]; url=os.environ["NEW_URL"]
+          body={"host":"home-project-wise.github.io","key":key,"keyLocation":f"https://home-project-wise.github.io/home-project-wise/{key}.txt","urlList":[url]}
+          req=Request("https://api.indexnow.org/indexnow",data=json.dumps(body).encode(),headers={"Content-Type":"application/json; charset=utf-8"},method="POST")
+          with urlopen(req,timeout=30) as r: print("IndexNow:",r.status)
+          PY
+      - name: Commit publication
+        run: |
+          git config user.name 'HomeProjectWise Editorial Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/queue website
+          if git diff --cached --quiet; then echo 'No publication changes.'; else git commit -m 'publish: scheduled editorial article'; git push; fi
