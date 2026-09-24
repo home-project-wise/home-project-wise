@@ -1,0 +1,30 @@
+name: Site Health Monitor
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check live pages and discovery endpoints
+        run: |
+          set -euo pipefail
+          base='https://home-project-wise.github.io/home-project-wise'
+          for path in '/' '/guides.html' '/feed.xml' '/sitemap.xml' '/articles/calm-room.html' '/articles/smart-lighting.html'; do
+            echo "Checking $base$path"
+            curl --fail --silent --show-error --location --retry 5 --retry-delay 2 "$base$path" >/dev/null
+          done
+          echo 'Core site checks passed.'
+      - name: Check publishing queue depth
+        run: |
+          count=$(find content/queue -maxdepth 1 -name '*.json' | wc -l)
+          echo "Queued articles: $count"
+          test "$count" -ge 2
+          echo 'Publishing buffer is healthy.'
