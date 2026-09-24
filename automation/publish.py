@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import json
-import os
 import re
 from datetime import datetime, timezone
 from html import escape
@@ -53,7 +52,7 @@ def article_html(item):
 <script type="application/ld+json">{json.dumps({"@context":"https://schema.org","@type":"Article","headline":item["title"],"description":item["description"],"image":item["image"],"datePublished":published,"author":{"@type":"Organization","name":"HomeProjectWise Editorial"},"publisher":{"@type":"Organization","name":"HomeProjectWise Editorial"},"mainEntityOfPage":canonical}, ensure_ascii=False)}</script>
 </head>
 <body>
-<header class="nav"><a class="brand" href="../"><span class="mark">H</span><span>HomeProjectWise</span></a><nav><a href="../#projects">Projects</a><a href="../guides.html">Guides</a><a href="../#ideas">Ideas</a><a href="../about.html">About</a></nav><a class="nav-cta" href="../#newsletter">Get the good stuff</a></header>
+<header class="nav"><a class="brand" href="../"><span class="mark">H</span><span>HomeProjectWise</span></a><nav><a href="../#projects">Projects</a><a href="../guides.html">Guides</a><a href="../#ideas">Ideas</a><a href="../about.html">About</a></nav><a class="nav-cta" href="../guides.html">Explore guides</a></header>
 <main class="section article-page">
 <p class="eyebrow">{category}</p>
 <h1>{title}</h1>
@@ -68,21 +67,22 @@ def article_html(item):
 
 def extract_articles():
     rows = []
-    pattern = re.compile(r'<meta name="description" content="([^"]*)">.*?<title>(.*?) — HomeProjectWise</title>', re.S)
     for path in sorted(ARTICLES.glob("*.html")):
+        text = path.read_text(encoding="utf-8")
         if path.name == "index.html":
             continue
-        text = path.read_text(encoding="utf-8")
-        m = pattern.search(text)
-        if not m:
+        desc = re.search(r'<meta name="description" content="([^"]*)"', text, re.S)
+        title = re.search(r'<title>(.*?)</title>', text, re.S)
+        if not desc or not title:
             continue
-        rows.append({"slug": path.stem, "description": m.group(1), "title": re.sub(r"<[^>]+>", "", m.group(2)), "url": f"articles/{path.name}"})
+        clean_title = re.sub(r"\s*[|—-]\s*HomeProjectWise.*$", "", re.sub(r"<[^>]+>", "", title.group(1))).strip()
+        rows.append({"slug": path.stem, "description": desc.group(1), "title": clean_title, "url": f"articles/{path.name}"})
     return rows
 
 
 def write_guides(rows):
     cards = "\n".join(f'''<article class="card"><div class="card-body"><span class="tag">GUIDE</span><h3>{escape(r['title'])}</h3><p>{escape(r['description'])}</p><a href="{r['url']}">Read the guide →</a></div></article>''' for r in rows)
-    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Practical HomeProjectWise guides for real home problems, projects and smart-home decisions."><link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/guides.html"><link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Guides — HomeProjectWise</title><link rel="stylesheet" href="style.css"></head><body><header class="nav"><a class="brand" href="./"><span class="mark">H</span><span>HomeProjectWise</span></a><nav><a href="index.html#projects">Projects</a><a href="guides.html">Guides</a><a href="index.html#ideas">Ideas</a><a href="about.html">About</a></nav><a class="nav-cta" href="index.html#newsletter">Get the good stuff</a></header><main class="section"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p class="lead">Practical, specific advice designed to help you make a better decision before you spend money or start a project.</p><div class="cards">{cards}</div></main><footer><div class="brand"><span class="mark">H</span><span>HomeProjectWise</span></div><p>Better decisions. Better projects. A better home.</p><a href="about.html">About the editorial team</a></footer></body></html>'''
+    html = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Practical HomeProjectWise guides for real home problems, projects and smart-home decisions."><link rel="alternate" type="application/rss+xml" title="HomeProjectWise" href="feed.xml"><link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/guides.html"><link rel="icon" href="favicon.svg" type="image/svg+xml"><title>Guides — HomeProjectWise</title><link rel="stylesheet" href="style.css"></head><body><header class="nav"><a class="brand" href="./"><span class="mark">H</span><span>HomeProjectWise</span></a><nav><a href="index.html#projects">Projects</a><a href="guides.html">Guides</a><a href="index.html#ideas">Ideas</a><a href="about.html">About</a></nav><a class="nav-cta" href="feed.xml">Follow the feed</a></header><main class="section"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p class="lead">Practical, specific advice designed to help you make a better decision before you spend money or start a project.</p><div class="cards">{cards}</div></main><footer><div class="brand"><span class="mark">H</span><span>HomeProjectWise</span></div><p>Better decisions. Better projects. A better home.</p><a href="about.html">About the editorial team</a></footer></body></html>'''
     (WEBSITE / "guides.html").write_text(html, encoding="utf-8")
 
 
