@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://home-project-wise.github.io/home-project-wise/sitemap.xml

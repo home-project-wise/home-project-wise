@@ -12,6 +12,16 @@ HomeProjectWise is being built as a useful English-language home improvement des
 - Value first; monetization follows trust.
 - Continuous improvement.
 
+## Pinterest automation
+
+Pinterest uses a one-time OAuth authorization followed by automatic access-token refresh before each publish. The workflow uses these GitHub Actions secrets:
+
+- `PINTEREST_CLIENT_ID`
+- `PINTEREST_CLIENT_SECRET`
+- `PINTEREST_REFRESH_TOKEN`
+
+The old static access-token approach is not used by the Pinterest workflow. See [docs/PINTEREST_SETUP.md](docs/PINTEREST_SETUP.md).
+
 ## Roadmap
 1. Reliable foundation
 2. Premium editorial website
