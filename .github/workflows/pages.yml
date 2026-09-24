@@ -15,7 +15,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${steps.deployment.outputs.page_url}
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -26,3 +26,10 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify published site
+        env:
+          DEPLOY_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          echo "Checking: $DEPLOY_URL"
+          curl --fail --silent --show-error --location --retry 10 --retry-delay 3 --retry-all-errors "$DEPLOY_URL"
+          echo "Pages site returned HTTP success."
