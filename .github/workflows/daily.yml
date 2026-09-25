@@ -1,14 +1,10 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '0 6 * * *'
-      timezone: 'Africa/Tunis'
-    - cron: '7 6 * * *'
-      timezone: 'Africa/Tunis'
-    - cron: '0 18 * * *'
-      timezone: 'Africa/Tunis'
-    - cron: '7 18 * * *'
-      timezone: 'Africa/Tunis'
+    - cron: '0 5 * * *'
+    - cron: '7 5 * * *'
+    - cron: '0 17 * * *'
+    - cron: '7 17 * * *'
   workflow_dispatch:
   push:
     branches: [main]
