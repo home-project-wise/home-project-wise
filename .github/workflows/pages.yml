@@ -7,6 +7,9 @@ permissions:
   contents: read
   pages: write
   id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 jobs:
   deploy:
     environment:
@@ -19,7 +22,6 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./website
-      # Production deploy path: the editorial publisher also deploys when it publishes.
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
