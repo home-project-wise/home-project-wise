@@ -1,8 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 80" role="img" aria-labelledby="title desc">
-<title id="title">HomeProjectWise</title><desc id="desc">HomeProjectWise logo</desc>
-<rect x="0" y="8" width="64" height="64" rx="16" fill="#243238"/>
-<path d="M14 31.5 32 15l18 16.5v19H38V39H26v11.5H14z" fill="#f7f5f0"/>
-<path d="M24 29h16v10H24z" fill="#d97745"/>
-<path d="M47.5 12.5v9M43 17h9" stroke="#d97745" stroke-width="3" stroke-linecap="round"/>
-<text x="82" y="51" font-family="DM Sans,Arial,sans-serif" font-size="32" font-weight="700" fill="#243238">HomeProjectWise</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 96" role="img" aria-labelledby="title desc"><title id="title">HomeProjectWise</title><desc id="desc">HomeProjectWise premium home improvement and smart home editorial mark</desc><rect x="4" y="4" width="88" height="88" rx="24" fill="#243238"/><path d="M22 44 48 21l26 23v27H59V55H37v16H22z" fill="#f7f5f0"/><path d="M48 21v11" stroke="#d97745" stroke-width="5" stroke-linecap="round"/><path d="M31 47h34" stroke="#d97745" stroke-width="4" stroke-linecap="round"/><path d="m42 68 6 7 12-14" fill="none" stroke="#243238" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><text x="116" y="61" font-family="DM Sans,Arial,sans-serif" font-size="43" font-weight="700" letter-spacing="-1.5" fill="#243238">HomeProjectWise</text></svg>
