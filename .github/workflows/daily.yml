@@ -1,8 +1,16 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '0 5 * * *'
-    - cron: '0 17 * * *'
+    # Primary publishing slots: 06:00 and 18:00 Africa/Tunis.
+    # A 5-minute fallback run reduces the chance of a GitHub Actions scheduling delay.
+    - cron: '0 6 * * *'
+      timezone: 'Africa/Tunis'
+    - cron: '5 6 * * *'
+      timezone: 'Africa/Tunis'
+    - cron: '0 18 * * *'
+      timezone: 'Africa/Tunis'
+    - cron: '5 18 * * *'
+      timezone: 'Africa/Tunis'
   workflow_dispatch:
   push:
     paths:
