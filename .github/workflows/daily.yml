@@ -1,10 +1,9 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '0 5 * * *'
-    - cron: '7 5 * * *'
-    - cron: '0 17 * * *'
-    - cron: '7 17 * * *'
+    # Multiple scheduled attempts protect the 06:00/18:00 Tunisia publication windows from GitHub Actions scheduler delays.
+    - cron: '*/5 5 * * *'
+    - cron: '*/5 17 * * *'
   workflow_dispatch:
   push:
     branches: [main]
