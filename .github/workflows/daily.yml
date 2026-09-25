@@ -1,23 +1,25 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    # Primary publishing slots: 06:00 and 18:00 Africa/Tunis.
-    # A 5-minute fallback run reduces the chance of a GitHub Actions scheduling delay.
     - cron: '0 6 * * *'
       timezone: 'Africa/Tunis'
-    - cron: '5 6 * * *'
+    - cron: '7 6 * * *'
       timezone: 'Africa/Tunis'
     - cron: '0 18 * * *'
       timezone: 'Africa/Tunis'
-    - cron: '5 18 * * *'
+    - cron: '7 18 * * *'
       timezone: 'Africa/Tunis'
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - 'automation/**'
       - 'content/queue/**'
+      - '.github/workflows/daily.yml'
 permissions:
   contents: write
+  pages: write
+  id-token: write
 concurrency:
   group: editorial-publish
   cancel-in-progress: false
@@ -30,6 +32,8 @@ jobs:
           fetch-depth: 0
       - name: Publish next due article
         run: python automation/publish.py
+      - name: Run editorial quality gate before publication
+        run: node scripts/quality-gate.mjs
       - name: Detect new article
         id: article
         run: |
@@ -59,3 +63,14 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add content/queue website
           if git diff --cached --quiet; then echo 'No publication changes.'; else git commit -m 'publish: scheduled editorial article'; git push; fi
+      - name: Configure Pages
+        if: steps.article.outputs.published == 'true'
+        uses: actions/configure-pages@v5
+      - name: Upload published site
+        if: steps.article.outputs.published == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./website
+      - name: Deploy published site
+        if: steps.article.outputs.published == 'true'
+        uses: actions/deploy-pages@v4
