@@ -1,10 +1,13 @@
 name: Site Health Monitor
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: site-health
+  cancel-in-progress: true
 jobs:
   health:
     runs-on: ubuntu-latest
@@ -36,6 +39,8 @@ jobs:
                   if r.status >= 400: raise SystemExit(f'FAIL: {url} HTTP {r.status}')
           print(f'Live article URLs verified: {len(articles)}')
           PY
+      - name: Audit queue, image uniqueness and content safety
+        run: python scripts/queue_audit.py
       - name: Check publishing queue and overdue items
         run: |
           set -euo pipefail
