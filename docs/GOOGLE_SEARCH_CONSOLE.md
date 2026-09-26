@@ -1,13 +1,19 @@
 # Google Search Console
 
-The site is prepared with a live XML sitemap at `https://home-project-wise.github.io/home-project-wise/sitemap.xml` and `robots.txt` points to it.
+The repository contains the Google Search Console verification configuration and a live XML sitemap. The homepage includes the verification meta tag, and the site also contains a verification HTML file. `robots.txt` points to the sitemap.
 
-## One human step
-Add the site in Google Search Console and choose HTML file or HTML tag verification. Google supplies the exact token/file name; it cannot be safely invented. For file verification, replace `website/google-site-verification.html` with Google's exact file and redeploy.
+## What can be verified from this repository
+- Verification markup/file is present in the deployed source.
+- Sitemap is generated at `https://home-project-wise.github.io/home-project-wise/sitemap.xml`.
+- New article URLs are included automatically by the Publisher when an article is published.
 
-## After verification
-1. Open **Sitemaps**.
-2. Submit `sitemap.xml`.
-3. Use URL Inspection for the homepage and important new articles.
-4. Request indexing for new, ready pages.
-5. Monitor indexing, impressions, clicks and Core Web Vitals.
+## Account status
+The actual Google Search Console account state (property verified, sitemap processed, indexed URLs, impressions and clicks) is not exposed by GitHub. Do not treat repository presence as proof that Google has verified or indexed the property.
+
+## After account verification
+1. Open **Sitemaps** and submit `sitemap.xml`.
+2. Use URL Inspection for the homepage and each important new article.
+3. Request indexing for ready pages when appropriate.
+4. Monitor indexed pages, impressions, clicks and Core Web Vitals.
+
+The daily traffic report must report Search Console numbers only when an authenticated Search Console data source is actually available; otherwise it must say that Search Console data is unavailable.
