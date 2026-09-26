@@ -1,0 +1,25 @@
+name: Daily Traffic Report
+on:
+  schedule:
+    - cron: '55 23 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: daily-traffic-report
+  cancel-in-progress: false
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate traffic snapshot
+        env:
+          GOATCOUNTER_API_KEY: ${{ secrets.GOATCOUNTER_API_KEY }}
+        run: python scripts/traffic_report.py
+      - name: Commit traffic snapshot
+        run: |
+          git config user.name 'HomeProjectWise Traffic Bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/traffic/latest.json
+          if git diff --cached --quiet; then echo 'No traffic report change.'; else git commit -m 'monitor: daily traffic snapshot'; git push; fi
