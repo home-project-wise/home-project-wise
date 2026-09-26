@@ -26,12 +26,12 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Publish all due articles (including same-day catch-up)
+      - name: Generate due articles into the staging workspace
         run: |
           python automation/publish.py
           python automation/publish.py
-      - name: Run editorial quality gate before publication
-        run: node scripts/quality-gate.mjs
+      - name: Quality gate — block weak articles before commit/deploy
+        run: python scripts/quality_gate.py
       - name: Detect new article
         id: article
         run: |
