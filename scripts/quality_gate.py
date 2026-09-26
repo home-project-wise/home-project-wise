@@ -11,7 +11,9 @@ REQUIRED=['index.html','guides.html','about.html','robots.txt','sitemap.xml','fe
 def visible_text(html):
     html=re.sub(r'<script\b[^>]*>.*?</script>',' ',html,flags=re.I|re.S); html=re.sub(r'<style\b[^>]*>.*?</style>',' ',html,flags=re.I|re.S); return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',html)).strip()
 def internal_links(html): return [u for u in re.findall(r'href=["\']([^"\']+)["\']',html,re.I) if not u.startswith(('http://','https://','//','#','mailto:'))]
-def image_urls(html): return re.findall(r'<img\b[^>]+src=["\']([^"\']+)["\']',html,re.I)
+def image_urls(html):
+    urls=re.findall(r'<img\b[^>]+src=["\']([^"\']+)["\']',html,re.I)
+    return [u for u in urls if not re.search(r'(?:^|/)(?:logo|favicon)\.(?:svg|png|jpg|jpeg|webp)$',u,re.I)]
 def image_ids(html):
     out=[]
     for url in image_urls(html):
@@ -50,8 +52,10 @@ def check(path,recent_ids):
     required=[('application/ld+json' in html and '"@type": "BlogPosting"' in html,'missing BlogPosting JSON-LD'),('"@type": "FAQPage"' in html,'missing FAQPage schema'),(bool(re.search(r'<meta\s+name=["\']description["\']',html,re.I)),'missing meta description'),(bool(re.search(r'<link\s+rel=["\']canonical["\']',html,re.I)),'missing canonical'),(bool(re.search(r'<h1\b',html,re.I)),'missing H1'),('BreadcrumbList' in html,'missing BreadcrumbList schema'),(GOAT_MARKER in html,'missing GoatCounter tracking')]
     failures.extend(message for ok,message in required if not ok)
     for img in re.findall(r'<img\b[^>]*>',html,re.I):
+        src=re.search(r'\bsrc=["\']([^"\']+)["\']',img,re.I); url=src.group(1) if src else ''
+        if re.search(r'(?:^|/)(?:logo|favicon)\.(?:svg|png|jpg|jpeg|webp)$',url,re.I): continue
         alt=re.search(r'\balt=["\']([^"\']*)["\']',img,re.I)
-        if not alt or len(alt.group(1).strip())<8 or alt.group(1).strip().lower() in {'image','photo','home improvement project'}: failures.append('every image needs a descriptive, non-generic alt text'); break
+        if not alt or len(alt.group(1).strip())<8 or alt.group(1).strip().lower() in {'image','photo','home improvement project'}: failures.append('every article image needs a descriptive, non-generic alt text'); break
     for href in links:
         target=link_target(path,href)
         if target is not None and href.lower().endswith('.html') and not target.exists(): failures.append(f'broken internal link: {href}')
