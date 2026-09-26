@@ -10,10 +10,51 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check live endpoints
+      - name: Check live core endpoints
         run: |
           set -euo pipefail
           base='https://home-project-wise.github.io/home-project-wise'
-          for path in '/' '/guides.html' '/feed.xml' '/sitemap.xml' '/robots.txt'; do curl --fail --silent --show-error --location --retry 5 --retry-delay 2 "$base$path" >/dev/null; done
-      - name: Check publishing buffer
-        run: test "$(find content/queue -maxdepth 1 -name '*.json' | wc -l)" -ge 2
+          for path in '/' '/guides.html' '/feed.xml' '/sitemap.xml' '/robots.txt'; do
+            echo "Checking $base$path"
+            curl --fail --silent --show-error --location --retry 5 --retry-delay 2 "$base$path" >/dev/null
+          done
+      - name: Check published article URLs from sitemap
+        run: |
+          set -euo pipefail
+          base='https://home-project-wise.github.io/home-project-wise'
+          curl --fail --silent --show-error --location "$base/sitemap.xml" -o /tmp/sitemap.xml
+          python - <<'PY'
+          import re
+          from urllib.request import Request, urlopen
+          xml=open('/tmp/sitemap.xml', encoding='utf-8').read()
+          urls=re.findall(r'<loc>(.*?)</loc>', xml)
+          articles=[u for u in urls if '/articles/' in u]
+          if not articles:
+              raise SystemExit('FAIL: sitemap contains no article URLs')
+          for url in articles:
+              with urlopen(Request(url, headers={'User-Agent':'HomeProjectWise-Health/1.0'}), timeout=20) as r:
+                  if r.status >= 400: raise SystemExit(f'FAIL: {url} HTTP {r.status}')
+          print(f'Live article URLs verified: {len(articles)}')
+          PY
+      - name: Check publishing queue and overdue items
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          queue=Path('content/queue'); now=datetime.now(timezone.utc); total=0; overdue=[]
+          for p in queue.glob('*.json'):
+              total += 1
+              try:
+                  d=json.loads(p.read_text(encoding='utf-8'))
+                  when=datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
+                  if when <= now: overdue.append(p.name)
+              except Exception as exc:
+                  raise SystemExit(f'FAIL: invalid queue item {p.name}: {exc}')
+          print(f'Queued articles: {total}')
+          if overdue:
+              raise SystemExit('FAIL: overdue queue items: ' + ', '.join(overdue))
+          if total < 1:
+              raise SystemExit('FAIL: publishing buffer is empty')
+          PY
