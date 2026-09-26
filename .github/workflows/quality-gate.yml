@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: node scripts/quality-gate.mjs
+      - name: Validate site structure and quality-gate script
+        run: |
+          python -m py_compile scripts/quality_gate.py
+          python scripts/quality_gate.py
