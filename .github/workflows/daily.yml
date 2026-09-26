@@ -30,6 +30,28 @@ jobs:
         run: python automation/publish.py
       - name: Quality gate — block weak articles before commit/deploy
         run: python scripts/quality_gate.py
+      - name: Finalize successful queue items
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+          root = Path('.')
+          queue = root / 'content/queue'
+          articles = root / 'website/articles'
+          now = datetime.now(timezone.utc)
+          removed = []
+          for p in queue.glob('*.json'):
+              try:
+                  d = json.loads(p.read_text(encoding='utf-8'))
+                  dt = datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
+                  if dt <= now and (articles / (d['slug'] + '.html')).exists():
+                      p.unlink()
+                      removed.append(p.name)
+              except Exception:
+                  pass
+          print('Finalized queue items:', ', '.join(removed) if removed else 'none')
+          PY
       - name: Detect new articles
         id: article
         shell: bash
