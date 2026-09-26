@@ -87,11 +87,13 @@ jobs:
           git push
   deploy:
     needs: publish
-    if: needs.publish.outputs.published == 'true'
+    if: needs.publish.result == 'success'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with: {ref: main, fetch-depth: 1}
+      - name: Rebuild guides, sitemap, RSS and homepage index
+        run: python scripts/rebuild_site_indexes.py
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with: {path: ./website}
@@ -99,6 +101,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
       - name: Verify published URLs are live
+        if: needs.publish.outputs.published == 'true'
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -110,6 +113,7 @@ jobs:
               print('LIVE:',item['url'])
           PY
       - name: Validate IndexNow key and submit new URLs
+        if: needs.publish.outputs.published == 'true'
         env:
           INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
         run: |
