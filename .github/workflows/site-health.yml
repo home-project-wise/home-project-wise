@@ -74,6 +74,7 @@ jobs:
               raise SystemExit('FAIL: publishing buffer is empty')
           PY
       - name: One bounded automatic recovery attempt for a failed publisher
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -81,16 +82,7 @@ jobs:
           run=$(gh run list --workflow daily.yml --limit 1 --json databaseId,status,conclusion,runAttempt,createdAt --jq '.[0] // empty')
           if [ -z "$run" ]; then echo 'No publisher run found; nothing to recover.'; exit 0; fi
           echo "$run"
-          python - <<'PY' > /tmp/recover.txt
-          import json, os
-          from datetime import datetime, timezone, timedelta
-          d=json.loads(os.environ['RUN_JSON']) if os.environ.get('RUN_JSON') else {}
-          now=datetime.now(timezone.utc)
-          created=datetime.fromisoformat(d['createdAt'].replace('Z','+00:00')) if d else now
-          recover=bool(d and d.get('status')=='completed' and d.get('conclusion') in {'failure','timed_out'} and d.get('runAttempt',1)==1 and now-created <= timedelta(minutes=20))
-          print('yes' if recover else 'no')
-          PY
-          if RUN_JSON="$run" RUN_JSON="$run" python - <<'PY'
+          if RUN_JSON="$run" python - <<'PY'
           import json, os
           from datetime import datetime, timezone, timedelta
           d=json.loads(os.environ['RUN_JSON']); now=datetime.now(timezone.utc); created=datetime.fromisoformat(d['createdAt'].replace('Z','+00:00'))
