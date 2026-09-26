@@ -1,23 +1,16 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '0 5 * * *'
-    - cron: '5 5 * * *'
-    - cron: '0 17 * * *'
-    - cron: '5 17 * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'automation/**'
       - 'content/queue/**'
-      - '.github/workflows/daily.yml'
 permissions:
   contents: write
-  pages: write
-  id-token: write
 concurrency:
-  group: editorial-publish
+  group: editorial-publish-main
   cancel-in-progress: false
 jobs:
   publish:
@@ -25,84 +18,110 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
-      - name: Generate due articles into the staging workspace
-        run: python automation/publish.py
-      - name: Quality gate — block weak articles before commit/deploy
-        run: python scripts/quality_gate.py
-      - name: Finalize successful queue items
+          fetch-depth: 2
+      - name: Guard Publisher-generated queue deletion commits
+        id: queue_guard
+        if: github.event_name == 'push'
+        shell: bash
         run: |
+          set -euo pipefail
+          if git diff-tree --no-commit-id --name-status -r HEAD | awk '$1 ~ /^(A|M|R|C)/ && $2 ~ /^content\/queue\// {found=1} END {exit(found ? 0 : 1)}'; then
+            echo 'skip=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'skip=true' >> "$GITHUB_OUTPUT"
+            echo 'Publisher queue deletion commit detected; no second publication.'
+          fi
+      - name: Stage due articles according to publish_at
+        if: steps.queue_guard.outputs.skip != 'true'
+        run: python automation/publish.py
+      - name: Discover staged article paths
+        id: staged
+        if: steps.queue_guard.outputs.skip != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('data/pending_publications.json')
+          if p.exists():
+              for item in json.loads(p.read_text(encoding='utf-8')):
+                  print('website/articles/' + item['slug'] + '.html')
+          PY
+          )
+          if [ "${#files[@]}" -eq 0 ]; then echo 'published=false' >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo 'published=true' >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${files[@]}" | tee /tmp/staged_articles.txt
+      - name: Quality Gate for staged articles
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
+        run: xargs -r python scripts/quality_gate.py < /tmp/staged_articles.txt
+      - name: Finalize only after Quality Gate passes
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
+        run: |
+          set -euo pipefail
           python - <<'PY'
           import json
           from datetime import datetime, timezone
           from pathlib import Path
-          root = Path('.')
-          queue = root / 'content/queue'
-          articles = root / 'website/articles'
-          now = datetime.now(timezone.utc)
-          removed = []
-          for p in queue.glob('*.json'):
+          root=Path('.'); queue=root/'content/queue'; articles=root/'website/articles'; pending=root/'data/pending_publications.json'; now=datetime.now(timezone.utc); items=json.loads(pending.read_text(encoding='utf-8')); report=[]
+          for item in items:
+              slug=item['slug']; removed=False
+              for path in queue.glob('*.json'):
+                  try: data=json.loads(path.read_text(encoding='utf-8'))
+                  except Exception: continue
+                  if data.get('slug')==slug and (articles/f'{slug}.html').exists(): path.unlink(); removed=True; break
+              if not removed: raise SystemExit(f'Could not finalize queue item safely: {slug}')
+              scheduled=datetime.fromisoformat(item['scheduled_time'].replace('Z','+00:00')); report.append({**item,'status':'published','actual_publish_time':now.isoformat(),'delay_seconds':max(0,int((now-scheduled).total_seconds()))})
+          (root/'data/publish_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); pending.unlink(); print(json.dumps(report,indent=2))
+          remaining=[]
+          for path in queue.glob('*.json'):
               try:
-                  d = json.loads(p.read_text(encoding='utf-8'))
-                  dt = datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
-                  if dt <= now and (articles / (d['slug'] + '.html')).exists():
-                      p.unlink()
-                      removed.append(p.name)
-              except Exception:
-                  pass
-          print('Finalized queue items:', ', '.join(removed) if removed else 'none')
+                  dt=datetime.fromisoformat(json.loads(path.read_text(encoding='utf-8'))['publish_at'].replace('Z','+00:00'))
+                  if dt<=now: remaining.append(path.name)
+              except Exception: pass
+          if remaining: raise SystemExit('FAIL: due queue items remain after publication: '+', '.join(remaining))
           PY
-      - name: Detect new articles
-        id: article
-        shell: bash
-        run: |
-          files=$(git diff --name-only | grep '^website/articles/.*\.html$' || true)
-          if [ -z "$files" ]; then
-            echo "published=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "published=true" >> "$GITHUB_OUTPUT"
-          printf '%s\n' "$files"
-          : > /tmp/new_urls.txt
-          while IFS= read -r file; do
-            slug=$(basename "$file" .html)
-            echo "https://home-project-wise.github.io/home-project-wise/articles/$slug.html" >> /tmp/new_urls.txt
-          done <<< "$files"
-      - name: Submit new articles to IndexNow
-        if: steps.article.outputs.published == 'true'
-        env:
-          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-        run: |
-          test -n "$INDEXNOW_KEY"
-          python - <<'PY'
-          import json, os
-          from urllib.request import Request, urlopen
-          key = os.environ['INDEXNOW_KEY']
-          urls = [x.strip() for x in open('/tmp/new_urls.txt', encoding='utf-8') if x.strip()]
-          body = {
-              'host': 'home-project-wise.github.io',
-              'key': key,
-              'keyLocation': f'https://home-project-wise.github.io/home-project-wise/{key}.txt',
-              'urlList': urls,
-          }
-          req = Request('https://api.indexnow.org/indexnow', data=json.dumps(body).encode(), headers={'Content-Type': 'application/json; charset=utf-8'}, method='POST')
-          with urlopen(req, timeout=30) as r:
-              print('IndexNow:', r.status, 'URLs:', len(urls))
-          PY
-      - name: Commit publication
+      - name: Commit publication, image registry and report
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
         run: |
           git config user.name 'HomeProjectWise Editorial Bot'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content/queue website
-          if git diff --cached --quiet; then echo 'No publication changes.'; else git commit -m 'publish: scheduled editorial article'; git push; fi
-      - name: Configure Pages
-        if: steps.article.outputs.published == 'true'
-        uses: actions/configure-pages@v5
-      - name: Upload published site
-        if: steps.article.outputs.published == 'true'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./website
-      - name: Deploy published site
-        if: steps.article.outputs.published == 'true'
-        uses: actions/deploy-pages@v4
+          git add content/queue website data/used_images.json data/publish_report.json
+          git diff --cached --quiet && { echo 'FAIL: staged publication produced no commit changes.'; exit 1; }
+          git commit -m 'publish: scheduled editorial article'
+          git push
+      - name: Wait for Pages deployment and verify new URLs
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in {1..18}; do
+            ok=1
+            while IFS= read -r file; do
+              slug=$(basename "$file" .html)
+              if ! curl --fail --silent --show-error --location --retry 2 "https://home-project-wise.github.io/home-project-wise/articles/$slug.html" >/dev/null; then ok=0; fi
+            done < /tmp/staged_articles.txt
+            if [ "$ok" -eq 1 ]; then echo 'Published URLs are live.'; exit 0; fi
+            sleep 10
+          done
+          echo 'FAIL: Pages deployment did not expose every new article.'; exit 1
+      - name: Validate IndexNow key and submit new URLs
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$INDEXNOW_KEY"
+          live_key=$(curl --fail --silent --show-error "https://home-project-wise.github.io/home-project-wise/${INDEXNOW_KEY}.txt" | tr -d '\r\n')
+          test "$live_key" = "$INDEXNOW_KEY"
+          python - <<'PY'
+          import json, os
+          from urllib.request import Request, urlopen
+          urls=[]
+          for line in open('/tmp/staged_articles.txt',encoding='utf-8'):
+              slug=line.strip().split('/')[-1].removesuffix('.html'); urls.append(f'https://home-project-wise.github.io/home-project-wise/articles/{slug}.html')
+          key=os.environ['INDEXNOW_KEY']; body={'host':'home-project-wise.github.io','key':key,'keyLocation':f'https://home-project-wise.github.io/home-project-wise/{key}.txt','urlList':urls}
+          req=Request('https://api.indexnow.org/indexnow',data=json.dumps(body).encode(),headers={'Content-Type':'application/json; charset=utf-8'},method='POST')
+          with urlopen(req,timeout=30) as r: print(f'IndexNow: HTTP {r.status}; URLs={len(urls)}')
+          PY
