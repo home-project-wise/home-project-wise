@@ -38,9 +38,11 @@ def main():
         }
     else:
         try:
+            common = {'start': start.isoformat(), 'end': now.isoformat(), 'limit': 100}
             total = get('stats/total', {'start': start.isoformat(), 'end': now.isoformat()})
-            hits = get('stats/hits', {'start': start.isoformat(), 'end': now.isoformat(), 'limit': 100})
-            refs = get('stats/toprefs', {'start': start.isoformat(), 'end': now.isoformat(), 'limit': 100})
+            hits = get('stats/hits', common)
+            refs = get('stats/toprefs', common)
+            locations = get('stats/locations', common)
             prev = get('stats/total', {'start': previous_start.isoformat(), 'end': start.isoformat()})
             payload = {
                 'status': 'OK',
@@ -51,6 +53,7 @@ def main():
                 'pageviews': total,
                 'paths': hits,
                 'referrers': refs,
+                'locations': locations,
                 'previous_period_visitors': prev.get('total') if isinstance(prev, dict) else None,
                 'previous_period_pageviews': prev,
             }
