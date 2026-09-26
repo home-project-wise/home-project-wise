@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "publisher-smoke-test",
+    "scheduled_time": "2026-09-26T14:00:00Z",
+    "staged_time": "2026-09-26T14:11:24.367665+00:00",
+    "status": "published",
+    "url": "https://home-project-wise.github.io/home-project-wise/articles/publisher-smoke-test.html",
+    "image_count": 3,
+    "actual_publish_time": "2026-09-26T14:11:24.649940+00:00",
+    "delay_seconds": 684
+  }
+]
