@@ -29,6 +29,9 @@ jobs:
         run: |
           set -euo pipefail
           if git diff-tree --no-commit-id --name-status -r HEAD | awk '$1 ~ /^(A|M|R|C)/ && $2 ~ /^content\/queue\// {found=1} END {exit(found ? 0 : 1)}'; then echo 'skip=false' >> "$GITHUB_OUTPUT"; else echo 'skip=true' >> "$GITHUB_OUTPUT"; echo 'Publisher queue deletion commit detected; no second publication.'; fi
+      - name: Audit queue before staging
+        if: steps.queue_guard.outputs.skip != 'true'
+        run: python scripts/queue_audit.py
       - name: Stage due articles according to publish_at
         if: steps.queue_guard.outputs.skip != 'true'
         run: python automation/publish.py
@@ -51,7 +54,10 @@ jobs:
       - name: Quality Gate for staged articles
         if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
         run: xargs -r python scripts/quality_gate.py < /tmp/staged_articles.txt
-      - name: Finalize only after Quality Gate passes
+      - name: Content Similarity Gate
+        if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
+        run: xargs -r python scripts/content_similarity.py < /tmp/staged_articles.txt
+      - name: Finalize only after all gates pass
         if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
         run: |
           set -euo pipefail
