@@ -41,6 +41,15 @@ jobs:
           PY
       - name: Audit queue, image uniqueness and content safety
         run: python scripts/queue_audit.py
+      - name: Check IndexNow key configuration without inventing a key
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          set -euo pipefail
+          test -n "$INDEXNOW_KEY" || { echo 'FAIL: INDEXNOW_KEY secret is missing; no key will be invented.'; exit 1; }
+          test -f "website/${INDEXNOW_KEY}.txt" || { echo 'FAIL: live IndexNow key file is missing from website/.'; exit 1; }
+          test "$(tr -d '\r\n' < "website/${INDEXNOW_KEY}.txt")" = "$INDEXNOW_KEY" || { echo 'FAIL: IndexNow key secret and published key file do not match.'; exit 1; }
+          echo 'IndexNow key configuration: PASS'
       - name: Check publishing queue and overdue items
         run: |
           set -euo pipefail
