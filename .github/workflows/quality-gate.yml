@@ -11,5 +11,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate site structure and quality-gate script
         run: |
-          python -m py_compile scripts/quality_gate.py
+          python -m py_compile scripts/quality_gate.py scripts/queue_audit.py scripts/content_similarity.py
           python scripts/quality_gate.py
+          python scripts/content_similarity.py
