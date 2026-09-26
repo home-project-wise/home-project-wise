@@ -1,10 +1,5 @@
-name: Deploy HomeProjectWise Website
+name: Manual HomeProjectWise Pages Deployment
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'website/**'
-      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
