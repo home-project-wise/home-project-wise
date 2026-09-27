@@ -13,3 +13,10 @@ The Planner sees the existing queue and archive before selection. The Writer doe
 
 ## Provider strategy
 Gemini is the primary text engine because GEMINI_API_KEY is configured. The architecture is provider-aware so another generator can be added later without changing publishing.
+
+
+## Handoff and continuity
+Generator exhaustion is never a reset. Every stage writes a durable handoff packet containing the article brief, draft, critic findings, revision instructions, image requirements, reserved assets, validation results and remaining tasks. If a provider reaches its limit, the next available provider resumes from that packet and continues the same article; it must not restart from a new topic unless the handoff is corrupt or explicitly rejected.
+
+## OpenAI supervisor
+OpenAI is the supervisory layer, not a competing bulk writer. It monitors generator health, handoff continuity, recent posts, recent commits, workflow outcomes, site structure and UI checks. It may request targeted revisions, block unsafe/low-quality publication, or repair deterministic site/indexing problems. It should not repeatedly regenerate an article that already has a valid handoff.
