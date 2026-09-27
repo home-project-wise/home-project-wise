@@ -87,6 +87,7 @@ Rules: 650-2400 visible words; 4-8 H2; answer part of the problem in first ~100 
         valid(d)
         if (ARTICLES/(d["slug"]+".html")).exists() or (QUEUE/(d["slug"]+".json")).exists() or (STAGING/(d["slug"]+".json")).exists():
             raise RuntimeError("duplicate slug refused: "+d["slug"])
+        d["handoff"]={"stage":"writer+critic-complete","brief":prompt,"critic":d.get("critic",{}),"revision_instructions":[],"image_requirements":d.get("image_queries",[]),"reserved_assets":[],"validation":"passed","remaining_tasks":["image_curation","publisher_quality_gate"]}
         d["publish_at"]=next_slot().isoformat().replace("+00:00","Z")
         d["images"]=[]
         d["editorial_status"]="approved-awaiting-images"
