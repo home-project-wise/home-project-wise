@@ -1,0 +1,24 @@
+name: OpenAI Site Supervisor
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: openai-supervisor
+  cancel-in-progress: true
+jobs:
+  supervise:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect recent work and UI artifacts
+        run: python automation/openai_supervisor.py
+      - name: Save supervision report
+        run: |
+          git config user.name 'HomeProjectWise OpenAI Supervisor'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/openai_supervisor.json
+          git diff --cached --quiet || git commit -m 'ops: update OpenAI supervision report'
+          git push
