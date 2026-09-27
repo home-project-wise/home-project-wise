@@ -1,5 +1,11 @@
 name: Manual HomeProjectWise Pages Deployment
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'website/**'
+      - 'scripts/rebuild_site_indexes.py'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
