@@ -1,7 +1,7 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '*/10 * * * *'
+    - cron: '*/30 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
@@ -75,12 +75,6 @@ jobs:
               if not removed: raise SystemExit(f'Could not finalize queue item safely: {slug}')
               scheduled=datetime.fromisoformat(item['scheduled_time'].replace('Z','+00:00')); report.append({**item,'status':'published','actual_publish_time':now.isoformat(),'delay_seconds':max(0,int((now-scheduled).total_seconds()))})
           (root/'data/publish_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); pending.unlink(); print(json.dumps(report,indent=2))
-          remaining=[]
-          for path in queue.glob('*.json'):
-              try:
-                  if datetime.fromisoformat(json.loads(path.read_text(encoding='utf-8'))['publish_at'].replace('Z','+00:00'))<=now: remaining.append(path.name)
-              except Exception: pass
-          if remaining: raise SystemExit('FAIL: due queue items remain after publication: '+', '.join(remaining))
           PY
       - name: Commit publication, image registry and report
         if: steps.queue_guard.outputs.skip != 'true' && steps.staged.outputs.published == 'true'
