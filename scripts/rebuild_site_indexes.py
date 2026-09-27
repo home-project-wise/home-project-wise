@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from html import escape, unescape
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 ROOT=Path(__file__).resolve().parents[1]; WEBSITE=ROOT/"website"; ARTICLES=WEBSITE/"articles"; BASE="https://home-project-wise.github.io/home-project-wise"; GOAT='<script data-goatcounter="https://homeprojectwise.goatcounter.com/count" async src="//gc.zgo.at/count.v5.js" crossorigin="anonymous"></script>'
 
 def article_date(text):
@@ -12,7 +12,7 @@ def article_date(text):
         if m:
             try:return datetime.fromisoformat(m.group(1).replace("Z","+00:00"))
             except Exception:pass
-    return datetime.min
+    return datetime.min.replace(tzinfo=timezone.utc)
 
 def rows():
     out=[]
