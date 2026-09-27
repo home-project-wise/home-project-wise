@@ -1,8 +1,6 @@
 name: Editorial Team Orchestrator
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '15 */6 * * *'
 permissions:
   contents: write
 concurrency:
@@ -20,10 +18,10 @@ jobs:
           EDITORIAL_BUFFER: "6"
           ALLOW_GENERATION_DURING_FREEZE: "0"
         run: python automation/editorial_orchestrator.py
-      - name: Commit staging and editorial log
+      - name: Commit only real editorial changes
         run: |
           git config user.name 'HomeProjectWise Editorial Team'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add content/staging data/editorial_state.json data/editorial_team.jsonl
           git diff --cached --quiet || git commit -m 'editorial: update coordinated content staging'
-          git push
+          git diff --cached --quiet || git push
