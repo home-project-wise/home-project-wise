@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Resolve unused relevant images
         env:
-          PEXELS_API_KEY: \${{ secrets.PEXELS_API_KEY }}
-          UNSPLASH_ACCESS_KEY: \${{ secrets.UNSPLASH_ACCESS_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: python automation/image_curator.py
       - name: Commit approved queue items
         run: |
