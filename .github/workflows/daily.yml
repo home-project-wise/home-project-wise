@@ -1,12 +1,8 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '10 6,18 * * *'
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'content/queue/**'
 permissions:
   contents: write
   pages: write
@@ -39,7 +35,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git diff-tree --no-commit-id --name-status -r HEAD | awk '$1 ~ /^(A|M|R|C)/ && $2 ~ /^content\/queue\// {found=1} END {exit(found ? 0 : 1)}'; then echo 'skip=false' >> "$GITHUB_OUTPUT"; else echo 'skip=true' >> "$GITHUB_OUTPUT"; echo 'Publisher queue deletion commit detected; no second publication.'; fi
+          if git diff-tree --no-commit-id --name-status -r HEAD | awk '$1 ~ /^(A|M|R|C)/ && $2 ~ /^content\/queue\// {found=1} END {exit(found ? 0 : 1)}'; then echo 'skip=false' >> "$GITHUB_OUTPUT"; else echo 'skip=true' >> "$GITHUB_OUTPUT"; fi
       - name: Audit queue before staging
         if: steps.queue_guard.outputs.skip != 'true'
         run: python scripts/queue_audit.py
