@@ -29,15 +29,17 @@ jobs:
           python - <<'PY'
           import re
           from urllib.request import Request, urlopen
-          xml=open('/tmp/sitemap.xml', encoding='utf-8').read()
-          urls=re.findall(r'<loc>(.*?)</loc>', xml)
-          articles=[u for u in urls if '/articles/' in u]
+          xml=open('/tmp/sitemap.xml', encoding='utf-8').read(); urls=re.findall(r'<loc>(.*?)</loc>',xml); articles=[u for u in urls if '/articles/' in u]
           if not articles: raise SystemExit('FAIL: sitemap contains no article URLs')
           for url in articles:
-              with urlopen(Request(url, headers={'User-Agent':'HomeProjectWise-Health/1.0'}), timeout=20) as r:
-                  if r.status >= 400: raise SystemExit(f'FAIL: {url} HTTP {r.status}')
+              with urlopen(Request(url,headers={'User-Agent':'HomeProjectWise-Health/2.0'}),timeout=20) as r:
+                  if r.status>=400: raise SystemExit(f'FAIL: {url} HTTP {r.status}')
           print(f'Live article URLs verified: {len(articles)}')
           PY
+      - name: Full editorial quality audit
+        run: |
+          python scripts/quality_gate.py --all
+          python scripts/content_similarity.py $(find website/articles -maxdepth 1 -name '*.html' -printf '%p\n' | sort)
       - name: Audit queue, image uniqueness and content safety
         run: python scripts/queue_audit.py
       - name: Check IndexNow key configuration without inventing a key
@@ -49,23 +51,16 @@ jobs:
           test -f "website/${INDEXNOW_KEY}.txt" || { echo 'FAIL: live IndexNow key file is missing from website/.'; exit 1; }
           test "$(tr -d '\r\n' < "website/${INDEXNOW_KEY}.txt")" = "$INDEXNOW_KEY" || { echo 'FAIL: IndexNow key secret and published key file do not match.'; exit 1; }
           echo 'IndexNow key configuration: PASS'
-      - name: Check publishing queue without treating normal backlog as a failure
+      - name: Check publishing queue without allowing volume drift
         run: |
           set -euo pipefail
           python - <<'PY'
           import json
-          from datetime import datetime, timezone
+          from datetime import datetime,timezone
           from pathlib import Path
-          queue=Path('content/queue'); now=datetime.now(timezone.utc); total=0; overdue=[]
-          for p in queue.glob('*.json'):
-              total += 1
-              try:
-                  d=json.loads(p.read_text(encoding='utf-8'))
-                  when=datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
-                  if when <= now: overdue.append(p.name)
-              except Exception as exc:
-                  raise SystemExit(f'FAIL: invalid queue item {p.name}: {exc}')
-          print(f'Queued articles: {total}')
-          if total < 1: raise SystemExit('FAIL: publishing buffer is empty')
-          if overdue: print('NOTICE: publisher will process overdue queue items on its next scheduled run: ' + ', '.join(overdue))
+          queue=Path('content/queue');now=datetime.now(timezone.utc);items=list(queue.glob('*.json'));print(f'Queued articles: {len(items)}')
+          if len(items)>2: raise SystemExit('FAIL: editorial queue exceeds the two-article quality buffer')
+          for p in items:
+              d=json.loads(p.read_text(encoding='utf-8'));datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
+          if not items: print('NOTICE: queue is intentionally empty while editorial freeze is active')
           PY
