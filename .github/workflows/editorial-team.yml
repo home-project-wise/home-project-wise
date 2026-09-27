@@ -1,0 +1,29 @@
+name: Editorial Team Orchestrator
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '15 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: editorial-team
+  cancel-in-progress: true
+jobs:
+  editorial-team:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate coordinated drafts
+        env:
+          GEMINI_API_KEY: \${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
+          EDITORIAL_BUFFER: "6"
+          ALLOW_GENERATION_DURING_FREEZE: "0"
+        run: python automation/editorial_orchestrator.py
+      - name: Commit staging and editorial log
+        run: |
+          git config user.name 'HomeProjectWise Editorial Team'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/staging data/editorial_state.json data/editorial_team.jsonl
+          git diff --cached --quiet || git commit -m 'editorial: update coordinated content staging'
+          git push
