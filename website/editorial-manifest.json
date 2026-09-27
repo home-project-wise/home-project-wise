@@ -1,1 +1,10 @@
-{"site":"HomeProjectWise","editorialIdentity":"HomeProjectWise Editorial","rules":{"language":"en","imagesPerArticleMax":7,"faqQuestions":{"min":4,"max":6},"internalLinksMinimum":2,"noDuplicateTitlePhrases":true,"noKeywordStuffing":true,"practicalTakeawayRequired":true},"topicClusters":[{"name":"Storage","topics":["small-space storage","closet storage","bathroom storage","kitchen storage","entryway storage"]},{"name":"Home Design","topics":["calm rooms","lighting","layout","colour","decluttering"]},{"name":"Smart Home","topics":["smart lighting","simple automation","energy-aware routines","home controls"]},{"name":"Projects","topics":["planning","materials","tools","budgeting","common mistakes"]}],"imagePolicy":{"purposeRequired":true,"duplicateUrlsForbidden":true,"altTextRequired":true,"decorativeFillerDiscouraged":true}}
+{
+  "site":"HomeProjectWise",
+  "editorialIdentity":"HomeProjectWise Editorial Team",
+  "language":"en",
+  "publishing":{"timezone":"Africa/Tunis","morning":"06:00","evening":"18:00","freezeFile":".editorial-freeze"},
+  "team":{"planner":"editorial-planner","leadWriter":"gemini","critic":"editorial-critic","imageCurator":"image-curator","qualityGate":"deterministic-quality-gate","publisher":"daily-editorial-publisher"},
+  "rules":{"minWords":650,"maxWords":2400,"minH2":4,"minImages":3,"maxImages":7,"faqQuestions":{"min":4,"max":6},"internalLinksMinimum":2,"noDuplicateTitlePhrases":true,"noKeywordStuffing":true,"practicalTakeawayRequired":true},
+  "topicClusters":[{"name":"Storage","topics":["small-space storage","closet storage","bathroom storage","kitchen storage","entryway storage"]},{"name":"Home Design","topics":["calm rooms","lighting","layout","colour","decluttering"]},{"name":"Smart Home","topics":["smart lighting","simple automation","energy-aware routines","home controls"]},{"name":"Projects","topics":["planning","materials","tools","budgeting","common mistakes"]}],
+  "imagePolicy":{"purposeRequired":true,"duplicateUrlsForbidden":true,"altTextRequired":true,"decorativeFillerDiscouraged":true}
+}
