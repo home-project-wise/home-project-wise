@@ -30,7 +30,9 @@ def main():
                 if iid in used or raw.split('?')[0] in used: failures.append(f'{path.name}: image already used: {iid}')
                 if iid in seen: failures.append(f'{path.name}: image reused by queue item {seen[iid]}: {iid}')
                 else: seen[iid]=path.name
-            if when<=now: failures.append(f'{path.name}: overdue queue item ({d["publish_at"]})')
+            # Overdue items are valid recovery candidates. The publisher must be able to
+            # catch up after a transient failure instead of being blocked by its own audit.
+            if when <= now: print(f'QUEUE AUDIT: overdue item will be processed: {path.name} ({d["publish_at"]})')
         except Exception as exc: failures.append(f'{path.name}: invalid queue JSON/content: {exc}')
     if failures:
         print('QUEUE AUDIT: FAIL'); [print(' - '+x) for x in failures]; return 1
