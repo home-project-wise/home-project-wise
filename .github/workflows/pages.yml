@@ -6,6 +6,7 @@ on:
       - 'website/**'
       - 'scripts/rebuild_site_indexes.py'
       - '.github/workflows/pages.yml'
+      - 'website/article-overrides.css'
   workflow_dispatch:
 permissions:
   contents: read
@@ -24,6 +25,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Rebuild guide library, sitemap, RSS and homepage
         run: python scripts/rebuild_site_indexes.py
+      - name: Apply article presentation layer
+        run: cat website/article-overrides.css >> website/style.css
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -31,3 +34,9 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify deployed homepage
+        env:
+          DEPLOY_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          curl --fail --silent --show-error --location --retry 10 --retry-delay 3 --retry-all-errors "$DEPLOY_URL"
+          echo "HomeProjectWise Pages deployment verified."
