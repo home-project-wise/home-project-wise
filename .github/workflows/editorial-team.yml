@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Generate coordinated drafts
         env:
-          GEMINI_API_KEY: \${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
           EDITORIAL_BUFFER: "6"
           ALLOW_GENERATION_DURING_FREEZE: "0"
