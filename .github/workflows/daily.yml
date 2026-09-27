@@ -16,15 +16,13 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
+    if: ${{ hashFiles('.editorial-freeze') == '' }}
     runs-on: ubuntu-latest
     outputs:
       published: ${{ steps.staged.outputs.published }}
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 2}
-      - name: Editorial freeze
-        run: |
-          if [ -f .editorial-freeze ]; then echo 'Editorial freeze is active; publishing is intentionally paused.'; exit 0; fi
       - name: Guard Publisher-generated queue deletion commits
         id: queue_guard
         if: github.event_name == 'push'
