@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "principles": [
+    "Every article must solve a concrete reader problem and add practical value.",
+    "No article is published merely to increase volume or target keywords.",
+    "Every image must support the section or heading immediately before it; decorative or generic images fail review.",
+    "Repeated images across recent articles fail the image gate unless there is a documented editorial reason.",
+    "The website must be visually coherent: typography, spacing, cards, images, navigation and mobile layout are reviewed as one system.",
+    "Existing published articles are subject to repair; publication does not imply editorial approval.",
+    "Two high-quality articles per day is the target only after the repair gates are green.",
+    "Gemini may generate drafts, but it cannot bypass the editorial, image, duplicate-content or deployment gates.",
+    "A failed gate stops publication rather than lowering the quality threshold."
+  ]
+}
