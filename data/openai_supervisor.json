@@ -1,0 +1,18 @@
+{
+  "generated_by": "openai-supervisor",
+  "commit": "b203afa0e5b16b5a44f2510152091ffefe84e551",
+  "recent_commits": [
+    "b203afa feat: schedule OpenAI site supervision"
+  ],
+  "queue_count": 5,
+  "staging_count": 0,
+  "article_count": 15,
+  "ui_checks": {
+    "homepage_exists": true,
+    "guides_exists": true,
+    "sitemap_exists": true,
+    "feed_exists": true
+  },
+  "handoffs": [],
+  "actions": []
+}
