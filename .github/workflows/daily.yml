@@ -1,7 +1,7 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '10 6,18 * * *'
+    - cron: '10 6 * * *'
   workflow_dispatch:
 permissions:
   contents: write
@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: {fetch-depth: 2}
-      - name: Guard Publisher-generated queue deletion commits
+      - name: Guard publisher-generated queue commits
         id: queue_guard
         if: github.event_name == 'push'
         shell: bash
