@@ -5,7 +5,7 @@ from datetime import datetime,timezone
 from html import escape
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; QUEUE=ROOT/'content/queue'; ARTICLES=ROOT/'website/articles'; WEBSITE=ROOT/'website'; REGISTRY=ROOT/'data/used_images.json'; PENDING=ROOT/'data/pending_publications.json'; BASE='https://home-project-wise.github.io/home-project-wise'
-GOAT='<script data-goatcounter="https://homeprojectwise.goatcounter.com/count" async src="//gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PqBvDqV5yQ2Y4v7q4i1k2z8m2hJf1nQ2c5vQ"></script>'
+GOAT='<script data-goatcounter="https://homeprojectwise.goatcounter.com/count.v5.js" async src="//gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PqBvDqdlJAmxMm+wYelFmeR6EmLP5bYeoRVQ"></script>'
 
 def image_key(url):
     m=re.search(r'photo-([A-Za-z0-9_-]+)',url); return m.group(1) if m else url.split('?')[0]
@@ -61,7 +61,6 @@ def main():
         except Exception as e:print('Skipping',p,e)
     due=sorted((x for x in items if x['_dt']<=datetime.now(timezone.utc)),key=lambda x:x['_dt'])
     if not due:print('No due article in queue.');return 0
-    # Deliberately publish at most one article per run. A backlog must never become a burst.
     d=due[0]
     if (ARTICLES/f'{d["slug"]}.html').exists():raise RuntimeError('Refusing duplicate slug: '+d['slug'])
     images=normalise_images(d);keys=[image_key(i['url']) for i in images]
