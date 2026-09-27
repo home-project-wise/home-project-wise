@@ -1,0 +1,27 @@
+name: Editorial Image Curator
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 */6 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: editorial-image-curator
+  cancel-in-progress: false
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve unused relevant images
+        env:
+          PEXELS_API_KEY: \${{ secrets.PEXELS_API_KEY }}
+          UNSPLASH_ACCESS_KEY: \${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: python automation/image_curator.py
+      - name: Commit approved queue items
+        run: |
+          git config user.name 'HomeProjectWise Image Curator'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/staging content/queue data/used_images.json
+          git diff --cached --quiet || git commit -m 'editorial: curate approved article images'
+          git push
