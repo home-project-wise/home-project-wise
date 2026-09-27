@@ -1,11 +1,10 @@
 name: Site Health Monitor
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '0 */6 * * *'
   workflow_dispatch:
 permissions:
   contents: read
-  actions: write
 concurrency:
   group: site-health
   cancel-in-progress: true
@@ -50,7 +49,7 @@ jobs:
           test -f "website/${INDEXNOW_KEY}.txt" || { echo 'FAIL: live IndexNow key file is missing from website/.'; exit 1; }
           test "$(tr -d '\r\n' < "website/${INDEXNOW_KEY}.txt")" = "$INDEXNOW_KEY" || { echo 'FAIL: IndexNow key secret and published key file do not match.'; exit 1; }
           echo 'IndexNow key configuration: PASS'
-      - name: Check publishing queue
+      - name: Check publishing queue without treating normal backlog as a failure
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -68,28 +67,5 @@ jobs:
                   raise SystemExit(f'FAIL: invalid queue item {p.name}: {exc}')
           print(f'Queued articles: {total}')
           if total < 1: raise SystemExit('FAIL: publishing buffer is empty')
-          if overdue: print('NOTICE: publisher recovery is processing overdue items: ' + ', '.join(overdue))
+          if overdue: print('NOTICE: publisher will process overdue queue items on its next scheduled run: ' + ', '.join(overdue))
           PY
-      - name: One bounded automatic recovery attempt for a failed publisher
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          run=$(gh run list --workflow daily.yml --limit 1 --json databaseId,status,conclusion,attempt,createdAt --jq '.[0] // empty')
-          if [ -z "$run" ]; then echo 'No publisher run found; nothing to recover.'; exit 0; fi
-          echo "$run"
-          if RUN_JSON="$run" python - <<'PY'
-          import json, os
-          from datetime import datetime, timezone, timedelta
-          d=json.loads(os.environ['RUN_JSON']); now=datetime.now(timezone.utc); created=datetime.fromisoformat(d['createdAt'].replace('Z','+00:00'))
-          recover=(d.get('status')=='completed' and d.get('conclusion') in {'failure','timed_out'} and d.get('attempt',1)==1 and now-created <= timedelta(minutes=20))
-          raise SystemExit(0 if recover else 1)
-          PY
-          then
-            run_id=$(echo "$run" | jq -r '.databaseId')
-            echo "Bounded recovery: re-running failed jobs for publisher run $run_id"
-            gh run rerun "$run_id" --failed
-          else
-            echo 'No eligible failed publisher run for automatic recovery.'
-          fi
