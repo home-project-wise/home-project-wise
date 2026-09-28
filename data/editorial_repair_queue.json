@@ -1,0 +1,125 @@
+{
+  "version": 1,
+  "purpose": "repair existing library before new publishing",
+  "count": 13,
+  "articles": [
+    {
+      "slug": "better-evening-home-lighting-without-overcomplicating-it",
+      "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "entryway-drop-zone",
+      "title": "How to Create an Entryway Drop Zone That Stays Tidy | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "five-minute-home-reset-that-prevents-clutter",
+      "title": "The Five-Minute Home Reset That Prevents Clutter From Taking Over | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "fix-wobbly-furniture",
+      "title": "A Simple Way to Fix Wobbly Furniture Without Guessing | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "kitchen-counter-zone-that-stays-clear",
+      "title": "How to Keep the Kitchen Counter Clear Without Constant Cleaning | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "motion-lighting-that-actually-helps",
+      "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "quiet-entryway-storage",
+      "title": "How to Fix an Entryway That Always Feels Cluttered | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "reduce-bathroom-condensation",
+      "title": "How to Reduce Bathroom Condensation Before It Becomes a Bigger Problem | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "reduce-cable-clutter",
+      "title": "How to Reduce Cable Clutter Without Hiding Everything in a Box | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "simple-home-reset-that-prevents-weekend-chaos",
+      "title": "A Simple Home Reset That Prevents Weekend Chaos | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "stop-a-drafty-door-without-replacing-it",
+      "title": "How to Stop a Drafty Door Without Replacing the Whole Door | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "stop-kitchen-counter-clutter",
+      "title": "How to Stop Kitchen Counter Clutter from Coming Back | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "thin-content"
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "stop-musty-bathroom-towels",
+      "title": "How to Stop Bathroom Towels Smelling Musty | HomeProjectWise",
+      "priority": "high",
+      "issues": [
+        "insufficient-images",
+        "thin-content"
+      ],
+      "image_count": 2
+    }
+  ]
+}
