@@ -1,7 +1,7 @@
 {
   "version": 1,
   "purpose": "repair existing library before new publishing",
-  "count": 13,
+  "count": 12,
   "articles": [
     {
       "slug": "better-evening-home-lighting-without-overcomplicating-it",
@@ -15,15 +15,6 @@
     {
       "slug": "entryway-drop-zone",
       "title": "How to Create an Entryway Drop Zone That Stays Tidy | HomeProjectWise",
-      "priority": "medium",
-      "issues": [
-        "thin-content"
-      ],
-      "image_count": 3
-    },
-    {
-      "slug": "five-minute-home-reset-that-prevents-clutter",
-      "title": "The Five-Minute Home Reset That Prevents Clutter From Taking Over | HomeProjectWise",
       "priority": "medium",
       "issues": [
         "thin-content"
