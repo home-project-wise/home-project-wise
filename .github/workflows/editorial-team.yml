@@ -1,11 +1,14 @@
 name: Editorial Team Orchestrator
 on:
+  schedule:
+    - cron: '30 3 * * *'
+    - cron: '30 15 * * *'
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: editorial-team
-  cancel-in-progress: true
+  group: main-automation
+  cancel-in-progress: false
 jobs:
   editorial-team:
     runs-on: ubuntu-latest
@@ -15,7 +18,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_MODEL: gemini-2.5-flash
-          EDITORIAL_BUFFER: "6"
+          EDITORIAL_BUFFER: "2"
           ALLOW_GENERATION_DURING_FREEZE: "0"
         run: python automation/editorial_orchestrator.py
       - name: Commit only real editorial changes
