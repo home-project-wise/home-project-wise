@@ -1,14 +1,15 @@
 name: Daily Editorial Publisher
 on:
   schedule:
-    - cron: '10 6 * * *'
+    - cron: '10 5 * * *'
+    - cron: '10 17 * * *'
   workflow_dispatch:
 permissions:
   contents: write
   pages: write
   id-token: write
 concurrency:
-  group: editorial-publish-main
+  group: main-automation
   cancel-in-progress: false
 jobs:
   freeze:
