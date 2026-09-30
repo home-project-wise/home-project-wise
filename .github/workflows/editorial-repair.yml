@@ -8,6 +8,8 @@ on:
       - 'scripts/repair_editorial_quality.py'
       - 'scripts/repair_editorial_quality_v2.py'
       - 'scripts/quality_gate.py'
+      - 'scripts/close_group1.py'
+      - 'scripts/fix_group1_figures.py'
       - '.github/workflows/editorial-repair.yml'
 permissions:
   contents: write
@@ -19,6 +21,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Close group 1 editorial depth
+        run: |
+          python scripts/close_group1.py
+          python scripts/fix_group1_figures.py
+      - name: Run actual Quality Gate
+        run: |
+          python scripts/quality_gate.py \
+            website/articles/better-evening-home-lighting-without-overcomplicating-it.html \
+            website/articles/kitchen-counter-zone-that-stays-clear.html \
+            website/articles/quiet-entryway-storage.html \
+            website/articles/simple-home-reset-that-prevents-weekend-chaos.html
+      - name: Commit group 1 article closure
+        run: |
+          git config user.name 'HomeProjectWise Editorial Team'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add website/articles data/editorial_repair_queue.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'editorial: close group 1 quality gate'
+          git push
       - name: Run existing-library audit
         run: python scripts/repair_editorial_quality_v2.py
       - name: Store repair queue
