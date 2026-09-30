@@ -10,6 +10,11 @@ def once(path, heading, figure, extra=''):
     if extra and extra not in s: s=s.replace('<h2>Frequently Asked Questions</h2>',extra+'<h2>Frequently Asked Questions</h2>',1)
     path.write_text(s,encoding='utf-8')
 
+def before_faq(path, figure):
+    s=path.read_text(encoding='utf-8'); src=figure.split('src="',1)[1].split('"',1)[0]
+    if src not in s: s=s.replace('<h2>Frequently Asked Questions</h2>',figure+'<h2>Frequently Asked Questions</h2>',1)
+    path.write_text(s,encoding='utf-8')
+
 def patch(path,repls):
     s=path.read_text(encoding='utf-8')
     for old,new in repls:
@@ -20,8 +25,8 @@ once(ART/'better-evening-home-lighting-without-overcomplicating-it.html','13. Ke
 once(ART/'kitchen-counter-zone-that-stays-clear.html','13. Make the clear zone easy for other people to follow','<figure><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82" alt="clear kitchen counter with simple shared storage rules" loading="lazy"><figcaption>A shared counter system should remain clear when another person uses it. — Unsplash</figcaption></figure>','''<h2>16. Leave enough spare capacity</h2><p>A useful counter zone needs a little empty capacity. If every inch is assigned to an appliance, container, tray, or decorative object, one normal grocery delivery can break the system. Keep the center working area open and allow a small amount of temporary space for items that are genuinely in use. This makes the routine more forgiving and reduces the temptation to create another pile elsewhere.</p><p>After a normal week, remove only what still causes friction. If an item is rarely used, store it away. If a daily item is awkward to return, move its home closer. If the clear zone works during the busiest meal and can be reset in a few minutes, stop. The goal is a reliable preparation surface, not an endlessly optimized kitchen.</p>''')
 once(ART/'quiet-entryway-storage.html','12. Make the storage forgiving on bad days','<figure><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=82" alt="practical entryway storage with a clear walking path on a busy day" loading="lazy"><figcaption>Keep the entryway storage forgiving while protecting the walking path. — Unsplash</figcaption></figure>')
 once(ART/'simple-home-reset-that-prevents-weekend-chaos.html','13. Use a different standard on genuinely busy days','<figure><img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=82" alt="short home reset focused on practical daily tasks" loading="lazy"><figcaption>A short minimum reset keeps the routine alive on a busy day. — Unsplash</figcaption></figure>')
-once(ART/'quiet-entryway-storage.html','Practical checklist','<figure><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=82" alt="practical entryway storage checklist with simple everyday organization" loading="lazy"><figcaption>A practical entryway checklist keeps everyday storage simple.</figcaption></figure>')
-once(ART/'simple-home-reset-that-prevents-weekend-chaos.html','Practical checklist','<figure><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=82" alt="practical home reset checklist for everyday tasks" loading="lazy"><figcaption>A practical home reset checklist focuses on repeatable everyday tasks.</figcaption></figure>')
+before_faq(ART/'quiet-entryway-storage.html','<figure><img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=82" alt="practical entryway storage checklist with simple everyday organization" loading="lazy"><figcaption>A practical entryway checklist keeps everyday storage simple. — Unsplash</figcaption></figure>')
+before_faq(ART/'simple-home-reset-that-prevents-weekend-chaos.html','<figure><img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=82" alt="practical home reset checklist for everyday tasks" loading="lazy"><figcaption>A practical home reset checklist focuses on repeatable everyday tasks. — Unsplash</figcaption></figure>')
 
 b=ART/'better-evening-home-lighting-without-overcomplicating-it.html'
 patch(b,[('alt="Reading chair with a task lamp beside the seat"','alt="Reading chair task lamp beside the activity for evening reading"'),('alt="Simple living and dining area using more than one light level"','alt="Simple room with separate lighting layers for evening tasks"'),('alt="Simple lamp used as a focused evening light source"','alt="Focused lamp used to reduce evening glare"'),('alt="Simple living room with soft low evening light"','alt="Living room with soft low task light for evening work"'),('alt="Small warm night light used for safe nighttime movement"','alt="Small warm lower light used for safe nighttime movement"')])
@@ -30,4 +35,4 @@ patch(k,[('alt="Plain kitchen counter ready for everyday food preparation"','alt
 s=k.read_text(encoding='utf-8'); dup='https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=82'
 if s.count(dup)>1:
     first=s.find(dup); second=s.find(dup,first+1); s=s[:second]+s[second:].replace(dup,'https://images.unsplash.com/photo-1556912167-f556f1f39fdf?auto=format&fit=crop&w=1400&q=82',1); k.write_text(s,encoding='utf-8')
-print('Group 1 finalization v5 complete.')
+print('Group 1 finalization v6 complete.')
