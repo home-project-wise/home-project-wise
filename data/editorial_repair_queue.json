@@ -1,21 +1,8 @@
 {
   "version": 2,
   "purpose": "repair existing library before new publishing",
-  "count": 16,
+  "count": 15,
   "articles": [
-    {
-      "slug": "better-evening-home-lighting-without-overcomplicating-it",
-      "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content"
-      ],
-      "word_count": 501,
-      "h2_count": 8,
-      "image_count": 3
-    },
     {
       "slug": "calm-room",
       "title": "How to Make a Room Feel Calmer Without Buying Everything New | HomeProjectWise",
