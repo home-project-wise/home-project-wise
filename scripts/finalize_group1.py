@@ -16,6 +16,7 @@ for name in FILES:
     s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
     s=s.replace('https://images.unsplash.com/photo-1556911073-52527ac437f5?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=82')
     s=s.replace('https://images.unsplash.com/photo-1610557892470-a7f7e0f7d6f6?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=82')
+    s=s.replace('https://images.unsplash.com/photo-1600566753051-3d2f0b6b2c8f?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1400&q=82')
     if name=='kitchen-counter-zone-that-stays-clear.html':
         s=s.replace('alt="Everyday kitchen appliances arranged without blocking the counter work area"','alt="Everyday kitchen items given permanent counter positions"')
         s=s.replace('The clear counter zone during a normal meal, when the kitchen is actually under pressure.','The kitchen counter system is tested during the busiest meal, when the space is under real pressure.')
