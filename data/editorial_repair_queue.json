@@ -17,17 +17,15 @@
     },
     {
       "slug": "entryway-drop-zone",
-      "title": "How to Create an Entryway Drop Zone That Stays Tidy | HomeProjectWise",
+      "title": "Entryway Drop Zone: A Simple Setup That Stays Tidy | HomeProjectWise",
       "priority": "high",
       "issues": [
         "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content",
-        "weak-structure"
+        "insufficient-images"
       ],
-      "word_count": 473,
-      "h2_count": 7,
-      "image_count": 3
+      "word_count": 1510,
+      "h2_count": 14,
+      "image_count": 6
     },
     {
       "slug": "five-minute-home-reset-that-prevents-clutter",
@@ -93,15 +91,15 @@
     },
     {
       "slug": "reduce-cable-clutter",
-      "title": "How to Reduce Cable Clutter Without Hiding Everything in a Box | HomeProjectWise",
+      "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable | HomeProjectWise",
       "priority": "high",
       "issues": [
-        "insufficient-images",
-        "thin-content"
+        "image-heading-mismatch",
+        "insufficient-images"
       ],
-      "word_count": 558,
-      "h2_count": 8,
-      "image_count": 3
+      "word_count": 1390,
+      "h2_count": 16,
+      "image_count": 6
     },
     {
       "slug": "smart-lighting",
@@ -117,15 +115,15 @@
     },
     {
       "slug": "stop-a-drafty-door-without-replacing-it",
-      "title": "How to Stop a Drafty Door Without Replacing the Whole Door | HomeProjectWise",
+      "title": "Stop a Drafty Door Without Replacing It | HomeProjectWise",
       "priority": "high",
       "issues": [
-        "insufficient-images",
-        "thin-content"
+        "image-heading-mismatch",
+        "insufficient-images"
       ],
-      "word_count": 581,
-      "h2_count": 8,
-      "image_count": 3
+      "word_count": 1326,
+      "h2_count": 15,
+      "image_count": 6
     },
     {
       "slug": "stop-kitchen-counter-clutter",
