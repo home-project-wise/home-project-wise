@@ -1,0 +1,92 @@
+name: One-time Group 1 Image Repair
+
+on:
+  push:
+    paths:
+      - .github/repair-group1-images.trigger
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace group 1 images with practical contextual set
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          fixes = {
+            'website/articles/better-evening-home-lighting-without-overcomplicating-it.html': [
+              ('https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&h=1500&q=85', 'Simple living room with a warm lamp used for evening lighting', 'A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture.'),
+              ('https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&fit=crop&w=1400&q=82', 'Reading chair with a task lamp beside the seat', 'A task light belongs beside the activity so reading does not require making the whole room brighter.'),
+              ('https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&fit=crop&w=1400&q=82', 'Simple living and dining area using more than one light level', 'Different light levels let the same room support movement, conversation and quieter evening tasks.'),
+              ('https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1400&q=82', 'Simple lamp used as a focused evening light source', 'A small focused lamp can solve a local lighting problem without increasing brightness everywhere.'),
+              ('https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1400&q=82', 'Simple living room with soft low evening light', 'A lower light level is useful for the final part of the evening when detailed work is finished.'),
+              ('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=82', 'Small warm night light used for safe nighttime movement', 'A small low-level light can make a nighttime path easier to use without turning on the main fixture.')
+            ],
+            'website/articles/kitchen-counter-zone-that-stays-clear.html': [
+              ('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&h=1500&q=85', 'Kitchen counter with a usable clear preparation area', 'A clear preparation surface is more useful than a perfectly empty kitchen.'),
+              ('https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=82', 'Plain kitchen counter ready for everyday food preparation', 'The working zone should be easy to reach and large enough for the tasks you actually repeat.'),
+              ('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=82', 'Kitchen counter with a cutting board and everyday preparation tools', 'Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter.'),
+              ('https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=1400&q=82', 'Simple cleaning supplies beside a kitchen work surface', 'A small, defined cleaning setup can support a quick reset without taking over the preparation zone.'),
+              ('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=82', 'Everyday cooking activity on a practical kitchen counter', 'Real cooking pressure is the best test of whether the counter layout actually works.'),
+              ('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=82', 'Kitchen work area with everyday tools kept within reach', 'Keep frequently used tools close enough to save steps while protecting the main preparation surface.')
+            ]
+          }
+
+          for filename, images in fixes.items():
+              p = Path(filename)
+              text = p.read_text()
+              figures = []
+              for i, (url, alt, caption) in enumerate(images):
+                  loading = 'eager' if i == 0 else 'lazy'
+                  figures.append(f'<figure><img src="{url}" alt="{alt}" loading="{loading}"><figcaption>{caption} — Unsplash</figcaption></figure>')
+              new_figures = ''.join(figures)
+              text, count = re.subn(r'<figure><img .*?</figure>', lambda m, it=iter(figures): next(it), text, count=6, flags=re.S)
+              if count != 6:
+                  raise SystemExit(f'{filename}: expected at least 6 existing figures, found {count}')
+              # Remove any remaining figure blocks so each article has exactly six images.
+              text = re.sub(r'<figure><img .*?</figure>', '', text, flags=re.S)
+              # Replace all old image references in SEO metadata with the new hero.
+              hero = images[0][0]
+              text = re.sub(r'(?<=<meta property="og:image" content=")[^"]+', hero, text)
+              text = re.sub(r'(?<=<meta name="twitter:image" content=")[^"]+', hero, text)
+              text = re.sub(r'(?<="image":")[^"]+(?="</script>)', hero, text, count=1)
+              p.write_text(text)
+
+          PY
+      - name: Verify repaired image counts and uniqueness
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          paths = [
+            Path('website/articles/better-evening-home-lighting-without-overcomplicating-it.html'),
+            Path('website/articles/kitchen-counter-zone-that-stays-clear.html')
+          ]
+          seen = set()
+          for p in paths:
+            t = p.read_text()
+            imgs = re.findall(r'<img src="([^"]+)"', t)
+            if len(imgs) != 6:
+              raise SystemExit(f'{p}: image count {len(imgs)} != 6')
+            if len(set(imgs)) != 6:
+              raise SystemExit(f'{p}: duplicate image URL detected')
+            overlap = seen.intersection(imgs)
+            if overlap:
+              raise SystemExit(f'cross-article duplicate image URL: {sorted(overlap)}')
+            seen.update(imgs)
+          print('Group 1 image repair verification: PASS')
+          PY
+      - name: Commit repaired articles and remove one-time runner
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add website/articles/better-evening-home-lighting-without-overcomplicating-it.html website/articles/kitchen-counter-zone-that-stays-clear.html .github/workflows/repair-group1-images-once.yml
+          git rm .github/workflows/repair-group1-images-once.yml
+          git commit -m "fix: replace group 1 images with practical contextual photos"
+          git push
