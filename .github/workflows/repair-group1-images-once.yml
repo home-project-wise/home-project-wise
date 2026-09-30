@@ -37,14 +37,17 @@ jobs:
             ]
           }
           for filename, images in fixes.items():
-            p = Path(filename); text = p.read_text(); figures=[]
+            p=Path(filename); text=p.read_text(); figures=[]
             for i,(url,alt,caption) in enumerate(images):
               loading='eager' if i==0 else 'lazy'
               figures.append(f'<figure><img src="{url}" alt="{alt}" loading="{loading}"><figcaption>{caption} — Unsplash</figcaption></figure>')
-            it=iter(figures)
-            text,count=re.subn(r'<figure><img .*?</figure>', lambda m: next(it), text, count=6, flags=re.S)
-            if count != 6: raise SystemExit(f'{filename}: expected 6 figures, found {count}')
-            text=re.sub(r'<figure><img .*?</figure>','',text,flags=re.S)
+            index=0
+            def replace(m):
+              nonlocal_index[0]+=1
+              return figures[nonlocal_index[0]-1] if nonlocal_index[0] <= 6 else ''
+            nonlocal_index=[0]
+            text=re.sub(r'<figure><img .*?</figure>',replace,text,flags=re.S)
+            if nonlocal_index[0] < 6: raise SystemExit(f'{filename}: fewer than 6 figures found: {nonlocal_index[0]}')
             hero=images[0][0]
             text=re.sub(r'(?<=<meta property="og:image" content=")[^"]+',hero,text)
             text=re.sub(r'(?<=<meta name="twitter:image" content=")[^"]+',hero,text)
