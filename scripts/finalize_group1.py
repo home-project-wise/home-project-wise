@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Production trigger note: group 1 is closed; this file change ensures the Pages push workflow runs after the Actions-authored article commit.
 from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
