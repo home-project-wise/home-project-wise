@@ -26,7 +26,7 @@ for name in FILES:
         head, tail=s.split(MARK,1)
         middle, faq=tail.split('<h2>Frequently Asked Questions</h2>',1)
         middle=re.sub(r'<figure\b.*?</figure>','',middle,flags=re.I|re.S)
-        figure='<figure><img src="https://images.unsplash.com/photo-1600566753051-3d2f0b6b2c8f?auto=format&fit=crop&w=1400&q=82" alt="Simple home reset in a practical everyday living space" loading="lazy"><figcaption>A simple home reset should leave an everyday living space easy to use again.</figcaption></figure>'
+        figure='<figure><img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1400&q=82" alt="Simple home reset in a practical everyday living space" loading="lazy"><figcaption>A simple home reset should leave an everyday living space easy to use again.</figcaption></figure>'
         middle=middle+figure
         s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
     s=s.replace('"@type":"BlogPosting"','"@type": "BlogPosting"')
