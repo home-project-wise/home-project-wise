@@ -1,4 +1,5 @@
 name: Manual HomeProjectWise Pages Deployment
+# Production verification trigger after Group 1 contextual image repair
 on:
   push:
     branches: [main]
