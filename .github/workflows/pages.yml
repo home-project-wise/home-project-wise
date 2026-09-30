@@ -48,7 +48,7 @@ jobs:
             }
       - uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+          name: github-pages
           path: ./website
       - name: Deploy
         id: deployment
