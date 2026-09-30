@@ -10,6 +10,7 @@ on:
       - 'scripts/quality_gate.py'
       - 'scripts/close_group1.py'
       - 'scripts/fix_group1_figures.py'
+      - 'scripts/finalize_group1.py'
       - '.github/workflows/editorial-repair.yml'
 permissions:
   contents: write
@@ -24,7 +25,7 @@ jobs:
       - name: Close group 1 editorial depth
         run: |
           python scripts/close_group1.py
-          python scripts/fix_group1_figures.py
+          python scripts/finalize_group1.py
       - name: Run actual Quality Gate
         run: |
           python scripts/quality_gate.py \
