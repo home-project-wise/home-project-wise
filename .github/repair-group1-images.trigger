@@ -1,1 +1,1 @@
-trigger: group-1-image-context-review
+trigger: group-1-image-context-review-v2
