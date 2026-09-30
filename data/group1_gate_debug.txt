@@ -1,0 +1,7 @@
+PASS: website/articles/better-evening-home-lighting-without-overcomplicating-it.html | words=2218 h2=16 images=8 faq=5 internal=13
+FAIL: website/articles/kitchen-counter-zone-that-stays-clear.html
+  - image relevance gate failed: figure image does not match its adjacent H2 section
+  - image relevance gate failed: figure image does not match its adjacent H2 section
+PASS: website/articles/quiet-entryway-storage.html | words=1917 h2=15 images=10 faq=5 internal=14
+PASS: website/articles/simple-home-reset-that-prevents-weekend-chaos.html | words=1966 h2=16 images=9 faq=5 internal=14
+QUALITY_GATE_EXIT=1
