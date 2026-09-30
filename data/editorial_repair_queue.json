@@ -1,7 +1,7 @@
 {
   "version": 2,
   "purpose": "repair existing library before new publishing",
-  "count": 14,
+  "count": 12,
   "articles": [
     {
       "slug": "calm-room",
@@ -54,17 +54,6 @@
       "image_count": 3
     },
     {
-      "slug": "kitchen-counter-zone-that-stays-clear",
-      "title": "Kitchen Counter Zone That Stays Clear | HomeProjectWise",
-      "priority": "medium",
-      "issues": [
-        "image-heading-mismatch"
-      ],
-      "word_count": 1428,
-      "h2_count": 12,
-      "image_count": 8
-    },
-    {
       "slug": "make-bedroom-more-restful",
       "title": "How to Make a Bedroom Feel More Restful Without Buying New Furniture | HomeProjectWise",
       "priority": "high",
@@ -113,17 +102,6 @@
       "word_count": 558,
       "h2_count": 8,
       "image_count": 3
-    },
-    {
-      "slug": "simple-home-reset-that-prevents-weekend-chaos",
-      "title": "Simple Home Reset That Prevents Weekend Chaos | HomeProjectWise",
-      "priority": "medium",
-      "issues": [
-        "duplicate-images-inside-article"
-      ],
-      "word_count": 1491,
-      "h2_count": 13,
-      "image_count": 9
     },
     {
       "slug": "smart-lighting",
