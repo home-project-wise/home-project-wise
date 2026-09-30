@@ -1,5 +1,6 @@
 name: Manual HomeProjectWise Pages Deployment
 # Production verification trigger after Group 1 contextual image repair
+# Group 1 production deployment verification marker.
 on:
   push:
     branches: [main]
