@@ -26,5 +26,6 @@ jobs:
           git config user.name 'HomeProjectWise Editorial Team'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/editorial_repair_queue.json
-          git diff --cached --quiet || git commit -m 'audit: refresh full existing-library repair queue'
-          git diff --cached --quiet || git push
+          git diff --cached --quiet && exit 0
+          git commit -m 'audit: refresh full existing-library repair queue'
+          git push
