@@ -55,17 +55,14 @@
     },
     {
       "slug": "kitchen-counter-zone-that-stays-clear",
-      "title": "How to Keep the Kitchen Counter Clear Without Constant Cleaning | HomeProjectWise",
-      "priority": "high",
+      "title": "Kitchen Counter Zone That Stays Clear | HomeProjectWise",
+      "priority": "medium",
       "issues": [
-        "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content",
-        "weak-structure"
+        "image-heading-mismatch"
       ],
-      "word_count": 456,
-      "h2_count": 7,
-      "image_count": 3
+      "word_count": 1428,
+      "h2_count": 12,
+      "image_count": 8
     },
     {
       "slug": "make-bedroom-more-restful",
