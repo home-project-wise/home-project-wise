@@ -1,7 +1,7 @@
 {
   "version": 2,
   "purpose": "repair existing library before new publishing",
-  "count": 15,
+  "count": 14,
   "articles": [
     {
       "slug": "calm-room",
@@ -87,20 +87,6 @@
       ],
       "word_count": 586,
       "h2_count": 8,
-      "image_count": 3
-    },
-    {
-      "slug": "quiet-entryway-storage",
-      "title": "How to Fix an Entryway That Always Feels Cluttered | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content",
-        "weak-structure"
-      ],
-      "word_count": 460,
-      "h2_count": 7,
       "image_count": 3
     },
     {
