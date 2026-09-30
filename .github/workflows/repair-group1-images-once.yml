@@ -18,7 +18,6 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
           fixes = {
             'website/articles/better-evening-home-lighting-without-overcomplicating-it.html': [
               ('https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&h=1500&q=85', 'Simple living room with a warm lamp used for evening lighting', 'A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture.'),
@@ -31,54 +30,39 @@ jobs:
             'website/articles/kitchen-counter-zone-that-stays-clear.html': [
               ('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&h=1500&q=85', 'Kitchen counter with a usable clear preparation area', 'A clear preparation surface is more useful than a perfectly empty kitchen.'),
               ('https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=82', 'Plain kitchen counter ready for everyday food preparation', 'The working zone should be easy to reach and large enough for the tasks you actually repeat.'),
-              ('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1400&q=82', 'Kitchen counter with a cutting board and everyday preparation tools', 'Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter.'),
+              ('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=82', 'Kitchen counter with everyday preparation space and tools', 'Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter.'),
               ('https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&w=1400&q=82', 'Simple cleaning supplies beside a kitchen work surface', 'A small, defined cleaning setup can support a quick reset without taking over the preparation zone.'),
               ('https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=82', 'Everyday cooking activity on a practical kitchen counter', 'Real cooking pressure is the best test of whether the counter layout actually works.'),
               ('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1400&q=82', 'Kitchen work area with everyday tools kept within reach', 'Keep frequently used tools close enough to save steps while protecting the main preparation surface.')
             ]
           }
-
           for filename, images in fixes.items():
-              p = Path(filename)
-              text = p.read_text()
-              figures = []
-              for i, (url, alt, caption) in enumerate(images):
-                  loading = 'eager' if i == 0 else 'lazy'
-                  figures.append(f'<figure><img src="{url}" alt="{alt}" loading="{loading}"><figcaption>{caption} — Unsplash</figcaption></figure>')
-              new_figures = ''.join(figures)
-              text, count = re.subn(r'<figure><img .*?</figure>', lambda m, it=iter(figures): next(it), text, count=6, flags=re.S)
-              if count != 6:
-                  raise SystemExit(f'{filename}: expected at least 6 existing figures, found {count}')
-              # Remove any remaining figure blocks so each article has exactly six images.
-              text = re.sub(r'<figure><img .*?</figure>', '', text, flags=re.S)
-              # Replace all old image references in SEO metadata with the new hero.
-              hero = images[0][0]
-              text = re.sub(r'(?<=<meta property="og:image" content=")[^"]+', hero, text)
-              text = re.sub(r'(?<=<meta name="twitter:image" content=")[^"]+', hero, text)
-              text = re.sub(r'(?<="image":")[^"]+(?="</script>)', hero, text, count=1)
-              p.write_text(text)
-
+            p = Path(filename); text = p.read_text(); figures=[]
+            for i,(url,alt,caption) in enumerate(images):
+              loading='eager' if i==0 else 'lazy'
+              figures.append(f'<figure><img src="{url}" alt="{alt}" loading="{loading}"><figcaption>{caption} — Unsplash</figcaption></figure>')
+            it=iter(figures)
+            text,count=re.subn(r'<figure><img .*?</figure>', lambda m: next(it), text, count=6, flags=re.S)
+            if count != 6: raise SystemExit(f'{filename}: expected 6 figures, found {count}')
+            text=re.sub(r'<figure><img .*?</figure>','',text,flags=re.S)
+            hero=images[0][0]
+            text=re.sub(r'(?<=<meta property="og:image" content=")[^"]+',hero,text)
+            text=re.sub(r'(?<=<meta name="twitter:image" content=")[^"]+',hero,text)
+            text=re.sub(r'(?<="image":")[^"]+(?="</script>)',hero,text,count=1)
+            p.write_text(text)
           PY
       - name: Verify repaired image counts and uniqueness
         run: |
           python - <<'PY'
           from pathlib import Path
           import re
-          paths = [
-            Path('website/articles/better-evening-home-lighting-without-overcomplicating-it.html'),
-            Path('website/articles/kitchen-counter-zone-that-stays-clear.html')
-          ]
-          seen = set()
+          paths=[Path('website/articles/better-evening-home-lighting-without-overcomplicating-it.html'),Path('website/articles/kitchen-counter-zone-that-stays-clear.html')]
+          seen=set()
           for p in paths:
-            t = p.read_text()
-            imgs = re.findall(r'<img src="([^"]+)"', t)
-            if len(imgs) != 6:
-              raise SystemExit(f'{p}: image count {len(imgs)} != 6')
-            if len(set(imgs)) != 6:
-              raise SystemExit(f'{p}: duplicate image URL detected')
-            overlap = seen.intersection(imgs)
-            if overlap:
-              raise SystemExit(f'cross-article duplicate image URL: {sorted(overlap)}')
+            imgs=re.findall(r'<img src="([^"]+)"',p.read_text())
+            if len(imgs)!=6 or len(set(imgs))!=6: raise SystemExit(f'{p}: image set invalid: {len(imgs)} images, {len(set(imgs))} unique')
+            overlap=seen.intersection(imgs)
+            if overlap: raise SystemExit(f'cross-article duplicate image URL: {sorted(overlap)}')
             seen.update(imgs)
           print('Group 1 image repair verification: PASS')
           PY
