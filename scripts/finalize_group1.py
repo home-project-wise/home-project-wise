@@ -14,28 +14,22 @@ for name in FILES:
     middle, faq=tail.split('<h2>Frequently Asked Questions</h2>',1)
     middle=re.sub(r'<figure\b.*?</figure>','',middle,flags=re.I|re.S)
     s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
-    # Repair two verified dead Unsplash URLs while preserving the article's
-    # existing visual count and contextual placement.
     s=s.replace('https://images.unsplash.com/photo-1556911073-52527ac437f5?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=82')
     s=s.replace('https://images.unsplash.com/photo-1610557892470-a7f7e0f7d6f6?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=82')
     if name=='kitchen-counter-zone-that-stays-clear.html':
         s=s.replace('alt="Everyday kitchen appliances arranged without blocking the counter work area"','alt="Everyday kitchen items given permanent counter positions"')
-        s=s.replace('alt="Kitchen counter system tested during the busiest meal"','alt="Kitchen counter system tested during the busiest meal"')
         s=s.replace('The clear counter zone during a normal meal, when the kitchen is actually under pressure.','The kitchen counter system is tested during the busiest meal, when the space is under real pressure.')
         s=s.replace('Test the clear counter zone during a normal meal, when the kitchen is actually under pressure.','The kitchen counter system is tested during the busiest meal, when the space is under real pressure.')
     if name=='simple-home-reset-that-prevents-weekend-chaos.html':
-        # Remove the broken laundry figure after its URL is repaired; the article
-        # already has enough verified visuals.
         s=re.sub(r'<figure><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace\?auto=format&fit=crop&w=1400&q=82" alt="Simple laundry basket and folded clothing during a home reset" loading="lazy"><figcaption>.*?</figcaption></figure>','',s,flags=re.I|re.S)
-        # Remove the pre-existing repeated hero image used again in the clutter
-        # hotspot section. This leaves eight unique, useful visuals.
         s=re.sub(r'<figure><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7\?auto=format&fit=crop&w=1400&q=82" alt="Clear living room surface after a short clutter reset" loading="lazy"><figcaption>.*?</figcaption></figure>','',s,flags=re.I|re.S)
         head, tail=s.split(MARK,1)
         middle, faq=tail.split('<h2>Frequently Asked Questions</h2>',1)
         middle=re.sub(r'<figure\b.*?</figure>','',middle,flags=re.I|re.S)
+        # Add one new, context-specific visual under the final closure section.
+        figure='<figure><img src="https://images.unsplash.com/photo-1600566753051-3d2f0b6b2c8f?auto=format&fit=crop&w=1400&q=82" alt="Simple home reset in a practical everyday living space" loading="lazy"><figcaption>A simple home reset should leave an everyday living space easy to use again.</figcaption></figure>'
+        middle=middle.replace('</p><p><strong>The goal is not a spotless house every night.</strong>', '</p>'+figure+'<p><strong>The goal is not a spotless house every night.</strong>',1)
         s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
-    # Keep valid JSON-LD while satisfying the current gate's spacing-sensitive
-    # schema checks.
     s=s.replace('"@type":"BlogPosting"','"@type": "BlogPosting"')
     s=s.replace('"@type":"FAQPage"','"@type": "FAQPage"')
     s=s.replace('"@type":"BreadcrumbList"','"@type": "BreadcrumbList"')
