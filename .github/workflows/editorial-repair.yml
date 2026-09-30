@@ -26,27 +26,28 @@ jobs:
         run: |
           python scripts/close_group1.py
           python scripts/finalize_group1.py
-      - name: Run actual Quality Gate with diagnostics
-        id: gate
-        continue-on-error: true
+      - name: Run actual Quality Gate
         run: |
-          set +e
           python scripts/quality_gate.py \
             website/articles/better-evening-home-lighting-without-overcomplicating-it.html \
             website/articles/kitchen-counter-zone-that-stays-clear.html \
             website/articles/quiet-entryway-storage.html \
-            website/articles/simple-home-reset-that-prevents-weekend-chaos.html 2>&1 | tee data/group1_gate_debug.txt
-          rc=${PIPESTATUS[0]}
-          echo "QUALITY_GATE_EXIT=$rc" >> data/group1_gate_debug.txt
-          exit $rc
-      - name: Commit diagnostics
-        if: always()
+            website/articles/simple-home-reset-that-prevents-weekend-chaos.html
+      - name: Commit group 1 article closure
         run: |
           git config user.name 'HomeProjectWise Editorial Team'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/group1_gate_debug.txt
+          git add website/articles data/editorial_repair_queue.json
           git diff --cached --quiet && exit 0
-          git commit -m 'debug: capture current group 1 gate output'
+          git commit -m 'editorial: close group 1 quality gate'
           git push
-      - name: Stop after diagnostic run
-        run: exit 1
+      - name: Run existing-library audit
+        run: python scripts/repair_editorial_quality_v2.py
+      - name: Store repair queue
+        run: |
+          git config user.name 'HomeProjectWise Editorial Team'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/editorial_repair_queue.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'audit: refresh full existing-library repair queue'
+          git push
