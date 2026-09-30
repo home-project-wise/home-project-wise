@@ -1,0 +1,11 @@
+FAIL: website/articles/better-evening-home-lighting-without-overcomplicating-it.html
+  - not enough useful visuals: 7 images (minimum 8)
+FAIL: website/articles/kitchen-counter-zone-that-stays-clear.html
+  - not enough useful visuals: 7 images (minimum 8)
+  - image relevance gate failed: figure image does not match its adjacent H2 section
+  - image relevance gate failed: figure image does not match its adjacent H2 section
+FAIL: website/articles/quiet-entryway-storage.html
+  - duplicate image inside article
+  - image relevance gate failed: figure image does not match its adjacent H2 section
+PASS: website/articles/simple-home-reset-that-prevents-weekend-chaos.html | words=1965 h2=16 images=9 faq=5 internal=14
+QUALITY_GATE_EXIT=1
