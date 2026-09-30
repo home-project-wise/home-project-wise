@@ -18,16 +18,16 @@
     "supervisor": "openai-site-supervisor"
   },
   "rules": {
-    "minWords": 650,
+    "minWords": 900,
     "maxWords": 2400,
-    "minH2": 4,
-    "minImages": 3,
-    "maxImages": 7,
+    "minH2": 8,
+    "minImages": 8,
+    "maxImages": 10,
     "faqQuestions": {
       "min": 4,
       "max": 6
     },
-    "internalLinksMinimum": 2,
+    "internalLinksMinimum": 3,
     "noDuplicateTitlePhrases": true,
     "noKeywordStuffing": true,
     "practicalTakeawayRequired": true
@@ -77,6 +77,7 @@
     "purposeRequired": true,
     "duplicateUrlsForbidden": true,
     "altTextRequired": true,
+    "adjacentHeadingRelevanceRequired": true,
     "decorativeFillerDiscouraged": true
   },
   "handoff": {
