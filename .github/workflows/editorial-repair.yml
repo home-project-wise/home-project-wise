@@ -27,30 +27,12 @@ jobs:
           python scripts/close_group1.py
           python scripts/finalize_group1.py
       - name: Run actual Quality Gate
-        id: gate
-        continue-on-error: true
         run: |
-          set +e
           python scripts/quality_gate.py \
             website/articles/better-evening-home-lighting-without-overcomplicating-it.html \
             website/articles/kitchen-counter-zone-that-stays-clear.html \
             website/articles/quiet-entryway-storage.html \
-            website/articles/simple-home-reset-that-prevents-weekend-chaos.html 2>&1 | tee data/group1_gate_debug.txt
-          rc=${PIPESTATUS[0]}
-          echo "QUALITY_GATE_EXIT=$rc" >> data/group1_gate_debug.txt
-          exit $rc
-      - name: Commit gate diagnostics
-        if: steps.gate.outcome == 'failure'
-        run: |
-          git config user.name 'HomeProjectWise Editorial Team'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data/group1_gate_debug.txt
-          git diff --cached --quiet && exit 0
-          git commit -m 'debug: capture group 1 quality gate failures'
-          git push
-      - name: Fail after diagnostics when gate fails
-        if: steps.gate.outcome == 'failure'
-        run: exit 1
+            website/articles/simple-home-reset-that-prevents-weekend-chaos.html
       - name: Commit group 1 article closure
         run: |
           git config user.name 'HomeProjectWise Editorial Team'
