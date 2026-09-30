@@ -1,38 +1,17 @@
-#!/usr/bin/env python3
-# Production trigger note: group 1 is closed; this file change ensures the Pages push workflow runs after the Actions-authored article commit.
 from pathlib import Path
-import re
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/'website/articles'
-FILES=['better-evening-home-lighting-without-overcomplicating-it.html','kitchen-counter-zone-that-stays-clear.html','quiet-entryway-storage.html','simple-home-reset-that-prevents-weekend-chaos.html']
-MARK='<!-- group1-closure-v1 -->'
-for name in FILES:
-    p=ART/name
-    s=p.read_text(encoding='utf-8')
-    if MARK not in s:
-        raise SystemExit(f'Group 1 closure marker missing: {name}')
-    head, tail=s.split(MARK,1)
-    middle, faq=tail.split('<h2>Frequently Asked Questions</h2>',1)
-    middle=re.sub(r'<figure\b.*?</figure>','',middle,flags=re.I|re.S)
-    s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
-    s=s.replace('https://images.unsplash.com/photo-1556911073-52527ac437f5?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&w=1400&q=82')
-    s=s.replace('https://images.unsplash.com/photo-1610557892470-a7f7e0f7d6f6?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=82')
-    s=s.replace('https://images.unsplash.com/photo-1600566753051-3d2f0b6b2c8f?auto=format&fit=crop&w=1400&q=82','https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1400&q=82')
-    if name=='kitchen-counter-zone-that-stays-clear.html':
-        s=s.replace('alt="Everyday kitchen appliances arranged without blocking the counter work area"','alt="Everyday kitchen items given permanent counter positions"')
-        s=s.replace('The clear counter zone during a normal meal, when the kitchen is actually under pressure.','The kitchen counter system is tested during the busiest meal, when the space is under real pressure.')
-        s=s.replace('Test the clear counter zone during a normal meal, when the kitchen is actually under pressure.','The kitchen counter system is tested during the busiest meal, when the space is under real pressure.')
-    if name=='simple-home-reset-that-prevents-weekend-chaos.html':
-        s=re.sub(r'<figure><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace\?auto=format&fit=crop&w=1400&q=82" alt="Simple laundry basket and folded clothing during a home reset" loading="lazy"><figcaption>.*?</figcaption></figure>','',s,flags=re.I|re.S)
-        s=re.sub(r'<figure><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7\?auto=format&fit=crop&w=1400&q=82" alt="Clear living room surface after a short clutter reset" loading="lazy"><figcaption>.*?</figcaption></figure>','',s,flags=re.I|re.S)
-        head, tail=s.split(MARK,1)
-        middle, faq=tail.split('<h2>Frequently Asked Questions</h2>',1)
-        middle=re.sub(r'<figure\b.*?</figure>','',middle,flags=re.I|re.S)
-        figure='<figure><img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1400&q=82" alt="Simple home reset in a practical everyday living space" loading="lazy"><figcaption>A simple home reset should leave an everyday living space easy to use again.</figcaption></figure>'
-        middle=middle+figure
-        s=head+MARK+middle+'<h2>Frequently Asked Questions</h2>'+faq
-    s=s.replace('"@type":"BlogPosting"','"@type": "BlogPosting"')
-    s=s.replace('"@type":"FAQPage"','"@type": "FAQPage"')
-    s=s.replace('"@type":"BreadcrumbList"','"@type": "BreadcrumbList"')
-    p.write_text(s,encoding='utf-8')
-print('Group 1 finalization complete.')
+
+def once(path, heading, figure, extra):
+    s=path.read_text(encoding='utf-8')
+    faq='<h2>Frequently Asked Questions</h2>'
+    if heading not in s: raise SystemExit(f'missing heading {heading} in {path.name}')
+    src=figure.split('src="',1)[1].split('"',1)[0]
+    if src not in s: s=s.replace(f'<h2>{heading}</h2>',f'<h2>{heading}</h2>{figure}',1)
+    if extra not in s: s=s.replace(faq,extra+faq,1)
+    path.write_text(s,encoding='utf-8')
+
+once(ART/'better-evening-home-lighting-without-overcomplicating-it.html','13. Keep screens, pathways and faces comfortable','<figure><img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=82" alt="comfortable evening screens and pathways with practical low lighting" loading="lazy"><figcaption>Check screens and pathways under real evening lighting before adding more brightness. — Unsplash</figcaption></figure>','''<h2>15. Make the final setup easy to live with</h2><p>A lighting plan is finished when it quietly supports the evening instead of asking for attention. Keep the number of controls small, leave a manual fallback, and make the useful lights easy to reach. If one person prefers a brighter reading area, solve that locally instead of brightening the whole room. If a hallway needs light after dark, use a small source rather than turning on every ceiling fixture.</p><p>Give the setup a week before making another purchase. Notice whether people naturally use the lights in the way you expected. If they do not, treat that as useful information. The best improvement may be moving a switch, changing an angle, or removing an unnecessary source. Good lighting is not a collection of products; it is a room that works comfortably for ordinary activities.</p>''')
+
+once(ART/'kitchen-counter-zone-that-stays-clear.html','13. Make the clear zone easy for other people to follow','<figure><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=82" alt="clear kitchen counter with simple shared storage rules" loading="lazy"><figcaption>A shared counter system should remain clear when another person uses it. — Unsplash</figcaption></figure>','''<h2>16. Leave enough spare capacity</h2><p>A useful counter zone needs a little empty capacity. If every inch is assigned to an appliance, container, tray, or decorative object, one normal grocery delivery can break the system. Keep the center working area open and allow a small amount of temporary space for items that are genuinely in use. This makes the routine more forgiving and reduces the temptation to create another pile elsewhere.</p><p>After a normal week, remove only what still causes friction. If an item is rarely used, store it away. If a daily item is awkward to return, move its home closer. If the clear zone works during the busiest meal and can be reset in a few minutes, stop. The goal is a reliable preparation surface, not an endlessly optimized kitchen.</p>''')
+print('Group 1 finalization v2 complete.')
