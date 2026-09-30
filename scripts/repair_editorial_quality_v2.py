@@ -3,6 +3,7 @@ from __future__ import annotations
 import json,re
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; ARTICLES=ROOT/'website/articles'; OUT=ROOT/'data/editorial_repair_queue.json'
+# Source of truth: published website/articles. The repository has no content/posts/*.md tree.
 MIN_WORDS=900; MIN_H2=8; MIN_IMAGES=8
 def clean(s): return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',s)).strip()
 def words(s): return len(re.findall(r"\b[\w’'-]+\b",clean(s)))
@@ -33,6 +34,6 @@ def main():
   if len(re.findall(r'<a\b[^>]+href=["\'][^"\']+\.html["\']',t,re.I))<3: issues.append('insufficient-internal-links')
   if image_mismatch(t): issues.append('image-heading-mismatch')
   if any(not alt.strip() or alt.lower() in {'image','photo','home','house'} for _,alt in imgs): issues.append('weak-image-alt')
-  if issues: rows.append({'slug':p.stem,'title':clean(title.group(1)) if title else p.stem,'priority':'high' if len(set(issues))>=2 else 'medium','issues':sorted(set(issues)),'image_count':len(imgs)})
+  if issues: rows.append({'slug':p.stem,'title':clean(title.group(1)) if title else p.stem,'priority':'high' if len(set(issues))>=2 else 'medium','issues':sorted(set(issues)),'word_count':words(body.group(0)),'h2_count':len(hs),'image_count':len(imgs)})
  OUT.write_text(json.dumps({'version':2,'purpose':'repair existing library before new publishing','count':len(rows),'articles':rows},ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); print(f'Editorial repair audit v2: {len(rows)} articles require review')
 if __name__=='__main__': main()
