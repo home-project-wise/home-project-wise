@@ -110,7 +110,11 @@ def main():
     items = "".join(f'<item><title>{escape(x["title"])}</title><link>{BASE}/articles/{x["slug"]}.html</link><description>{escape(x["description"])}</description></item>' for x in r[:20])
     (WEBSITE / "feed.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HomeProjectWise</title><link>' + BASE + '/</link><description>Practical home projects, smart-home ideas and useful guides.</description>' + items + "</channel></rss>", encoding="utf-8")
 
-    (WEBSITE / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")\n    for key_file in (ROOT / "static").glob("*.txt"):\n        if re.fullmatch(r"[A-Fa-f0-9]{32}\\.txt", key_file.name):\n            (WEBSITE / key_file.name).write_text(key_file.read_text(encoding="utf-8"), encoding="utf-8")\n\n    p = WEBSITE / "index.html"
+    (WEBSITE / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")
+    for key_file in (ROOT / "static").glob("*.txt"):
+        if re.fullmatch(r"[A-Fa-f0-9]{32}\.txt", key_file.name):
+            (WEBSITE / key_file.name).write_text(key_file.read_text(encoding="utf-8"), encoding="utf-8")
+
     h = p.read_text(encoding="utf-8", errors="ignore")
     latest = "".join(card(x, True) for x in r[:3])
     latest_section = '<section id="latest" class="section"><div class="section-head"><div><p class="eyebrow">THE LATEST</p><h2>Useful guides, newest first.</h2><p class="section-intro">Real fixes, practical projects and smart-home decisions — without filler.</p></div><a href="guides.html">Browse all ' + str(len(r)) + ' guides →</a></div><div class="cards">' + latest + '</div></section>'
