@@ -4,7 +4,7 @@ import json,re
 from datetime import datetime,timezone
 from html import escape
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]; QUEUE=ROOT/'content/queue'; ARTICLES=ROOT/'website/articles'; WEBSITE=ROOT/'website'; REGISTRY=ROOT/'data/used_images.json'; PENDING=ROOT/'data/pending_publications.json'; BASE='https://home-project-wise.github.io/home-project-wise'
+ROOT=Path(__file__).resolve().parents[1]; QUEUE=ROOT/'content/queue'; ARTICLES=ROOT/'website/articles'; WEBSITE=ROOT/'website'; REGISTRY=ROOT/'data/used_images.json'; PENDING=ROOT/'data/pending_publications.json'; BASE='https://home-project-wise.github.io/home-project-wise'\nINDEXNOW_KEY=os.environ.get('INDEXNOW_KEY','').strip()\nINDEXNOW_ENDPOINT='https://api.indexnow.org/indexnow'\n\ndef submit_indexnow(url):\n    if not INDEXNOW_KEY:\n        print('IndexNow: INDEXNOW_KEY not configured; skipping submission.')\n        return\n    import urllib.request\n    payload=json.dumps({'host':'home-project-wise.github.io','key':INDEXNOW_KEY,'keyLocation':f'{BASE}/{INDEXNOW_KEY}.txt','urlList':[url]}).encode('utf-8')\n    req=urllib.request.Request(INDEXNOW_ENDPOINT,data=payload,headers={'Content-Type':'application/json; charset=utf-8'},method='POST')\n    try:\n        with urllib.request.urlopen(req,timeout=15) as response:\n            print('IndexNow submission:',response.status,url)\n    except Exception as exc:\n        print('IndexNow submission failed:',exc)\n
 GOAT='<script data-goatcounter="https://homeprojectwise.goatcounter.com/count" async src="//gc.zgo.at/count.v5.js" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYelFmeR6EmLP5bYeoRVQ"></script>'
 
 def image_key(url):
@@ -67,6 +67,6 @@ def main():
     if len(keys)!=len(set(keys)):raise RuntimeError('Duplicate image inside queue item: '+d['slug'])
     blocked=sorted(set(keys)&(used|recent))
     if blocked:raise RuntimeError(f'Refusing recently used image(s) for {d["slug"]}: {", ".join(blocked)}')
-    validate_image_relevance(d,images);render_article(d);used.update(keys);registry.setdefault('used_ids',[]).extend(keys);registry.setdefault('used_urls',[]).extend(i['url'].split('?')[0] for i in images)
+    validate_image_relevance(d,images);render_article(d);submit_indexnow(f'{BASE}/articles/{d["slug"]}.html');used.update(keys);registry.setdefault('used_ids',[]).extend(keys);registry.setdefault('used_urls',[]).extend(i['url'].split('?')[0] for i in images)
     rows=read_rows();rebuild_indexes(rows);rebuild_home(rows);REGISTRY.write_text(json.dumps(registry,ensure_ascii=False,indent=2)+'\n',encoding='utf-8');PENDING.write_text(json.dumps([{'slug':d['slug'],'scheduled_time':d['publish_at'],'staged_time':datetime.now(timezone.utc).isoformat(),'status':'staged','url':f'{BASE}/articles/{d["slug"]}.html','image_count':len(images)}],ensure_ascii=False,indent=2)+'\n',encoding='utf-8');print('Staged one due article:',d['slug'],'| remaining due:',len(due)-1,'| total articles:',len(rows));return 0
 if __name__=='__main__':raise SystemExit(main())
