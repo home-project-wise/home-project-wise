@@ -30,13 +30,14 @@
     {
       "slug": "five-minute-home-reset-that-prevents-clutter",
       "title": "The Five-Minute Home Reset That Prevents Clutter From Taking Over | HomeProjectWise",
-      "priority": "medium",
+      "priority": "high",
       "issues": [
+        "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1060,
-      "h2_count": 8,
-      "image_count": 3
+      "word_count": 2150,
+      "h2_count": 16,
+      "image_count": 5
     },
     {
       "slug": "fix-wobbly-furniture",
