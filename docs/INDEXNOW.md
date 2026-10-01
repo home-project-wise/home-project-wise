@@ -1,8 +1,9 @@
 # IndexNow
 
-A 32-character key is deployed at `https://home-project-wise.github.io/home-project-wise/ac1d3f630ddec93cbd07decac3484767.txt`.
+Key: ac1d3f630ddec93cbd07decac3484767
 
-The daily publishing workflow submits each newly published article URL to `https://api.indexnow.org/indexnow`.
+Deployed verification file: https://home-project-wise.github.io/home-project-wise/ac1d3f630ddec93cbd07decac3484767.txt
 
-## One human step
-Add the repository secret `INDEXNOW_KEY` with the exact value `ac1d3f630ddec93cbd07decac3484767`. The workflow then runs automatically; IndexNow is a discovery signal, not a guarantee of indexing.
+The key is stored in data/indexnow-key.txt and static/ac1d3f630ddec93cbd07decac3484767.txt. The deployed Pages root also contains the verification file.
+
+The publisher submits each newly published article URL to https://api.indexnow.org/indexnow using the INDEXNOW_KEY repository secret. Submission is a discovery signal, not a guarantee of indexing.
