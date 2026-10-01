@@ -11,7 +11,7 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1384,
+      "word_count": 1387,
       "h2_count": 11,
       "image_count": 5
     },
@@ -44,12 +44,11 @@
       "priority": "high",
       "issues": [
         "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content"
+        "insufficient-images"
       ],
-      "word_count": 660,
-      "h2_count": 9,
-      "image_count": 3
+      "word_count": 1406,
+      "h2_count": 15,
+      "image_count": 5
     },
     {
       "slug": "make-bedroom-more-restful",
@@ -69,12 +68,11 @@
       "priority": "high",
       "issues": [
         "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content"
+        "insufficient-images"
       ],
-      "word_count": 586,
-      "h2_count": 8,
-      "image_count": 3
+      "word_count": 2158,
+      "h2_count": 19,
+      "image_count": 6
     },
     {
       "slug": "reduce-bathroom-condensation",
@@ -82,12 +80,11 @@
       "priority": "high",
       "issues": [
         "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content"
+        "insufficient-images"
       ],
-      "word_count": 609,
-      "h2_count": 9,
-      "image_count": 3
+      "word_count": 1851,
+      "h2_count": 17,
+      "image_count": 6
     },
     {
       "slug": "reduce-cable-clutter",
@@ -131,12 +128,11 @@
       "priority": "high",
       "issues": [
         "image-heading-mismatch",
-        "insufficient-images",
-        "thin-content"
+        "insufficient-images"
       ],
-      "word_count": 571,
-      "h2_count": 8,
-      "image_count": 3
+      "word_count": 2398,
+      "h2_count": 18,
+      "image_count": 6
     },
     {
       "slug": "stop-musty-bathroom-towels",
