@@ -55,7 +55,7 @@ def check(path,recent_ids):
     if len(ids)!=len(set(ids)): failures.append('duplicate image inside article')
     repeated=sorted(set(ids)&recent_ids)
     if repeated: failures.append('image reused in one of the three most recent articles: '+', '.join(repeated))
-    required=[('application/ld+json' in html and '"@type": "BlogPosting"' in html,'missing BlogPosting JSON-LD'),('"@type": "FAQPage"' in html,'missing FAQPage schema'),(bool(re.search(r'<meta\s+name=["\']description["\']',html,re.I)),'missing meta description'),(bool(re.search(r'<link\s+rel=["\']canonical["\']',html,re.I)),'missing canonical'),(bool(re.search(r'<h1\b',html,re.I)),'missing H1'),('BreadcrumbList' in html,'missing BreadcrumbList schema'),(GOAT_MARKER in html,'missing GoatCounter tracking')]
+    required=[(bool(re.search(r'<script\s+type=["\']application/ld\+json["\'][^>]*>.*?"@type"\s*:\s*["\']BlogPosting["\']',html,re.I|re.S)),'missing BlogPosting JSON-LD'),(bool(re.search(r'<script\s+type=["\']application/ld\+json["\'][^>]*>.*?"@type"\s*:\s*["\']FAQPage["\']',html,re.I|re.S)),'missing FAQPage schema'),(bool(re.search(r'<meta\s+name=["\']description["\']',html,re.I)),'missing meta description'),(bool(re.search(r'<link\s+rel=["\']canonical["\']',html,re.I)),'missing canonical'),(bool(re.search(r'<h1\b',html,re.I)),'missing H1'),('BreadcrumbList' in html,'missing BreadcrumbList schema'),(GOAT_MARKER in html,'missing GoatCounter tracking')]
     failures.extend(message for ok,message in required if not ok)
     for img in re.findall(r'<img\b[^>]*>',html,re.I):
         src=re.search(r'\bsrc=["\']([^"\']+)["\']',img,re.I); url=src.group(1) if src else ''
