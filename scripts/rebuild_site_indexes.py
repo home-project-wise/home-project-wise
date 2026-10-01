@@ -84,6 +84,12 @@ def category_sections(r):
 
 
 def main():
+    for article in ARTICLES.glob('*.html'):
+        html = article.read_text(encoding='utf-8', errors='ignore')
+        html = re.sub(r'<script[^>]*data-goatcounter="[^"]*"[^>]*></script>', '', html, flags=re.I)
+        if 'data-goatcounter="https://homeprojectwise.goatcounter.com/count"' not in html:
+            html = html.replace('</head>', GOAT + '</head>', 1)
+        article.write_text(html, encoding='utf-8')
     r = rows()
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
