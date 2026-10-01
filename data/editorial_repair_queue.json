@@ -11,7 +11,7 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1387,
+      "word_count": 1431,
       "h2_count": 11,
       "image_count": 5
     },
@@ -95,7 +95,7 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1390,
+      "word_count": 1423,
       "h2_count": 16,
       "image_count": 6
     },
@@ -119,7 +119,7 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1326,
+      "word_count": 1371,
       "h2_count": 15,
       "image_count": 6
     },
@@ -142,8 +142,8 @@
       "issues": [
         "insufficient-images"
       ],
-      "word_count": 1313,
-      "h2_count": 9,
+      "word_count": 1540,
+      "h2_count": 10,
       "image_count": 5
     }
   ]
