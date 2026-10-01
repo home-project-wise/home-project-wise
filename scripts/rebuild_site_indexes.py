@@ -111,6 +111,7 @@ def main():
     (WEBSITE / "feed.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HomeProjectWise</title><link>' + BASE + '/</link><description>Practical home projects, smart-home ideas and useful guides.</description>' + items + "</channel></rss>", encoding="utf-8")
 
     (WEBSITE / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")
+    p = WEBSITE / "index.html"
     for key_file in (ROOT / "static").glob("*.txt"):
         if re.fullmatch(r"[A-Fa-f0-9]{32}\.txt", key_file.name):
             (WEBSITE / key_file.name).write_text(key_file.read_text(encoding="utf-8"), encoding="utf-8")
