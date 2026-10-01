@@ -11,8 +11,8 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1431,
-      "h2_count": 11,
+      "word_count": 1803,
+      "h2_count": 13,
       "image_count": 5
     },
     {
@@ -47,8 +47,8 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1406,
-      "h2_count": 15,
+      "word_count": 1812,
+      "h2_count": 17,
       "image_count": 5
     },
     {
@@ -95,8 +95,8 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1423,
-      "h2_count": 16,
+      "word_count": 1786,
+      "h2_count": 18,
       "image_count": 6
     },
     {
@@ -119,8 +119,8 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1371,
-      "h2_count": 15,
+      "word_count": 1796,
+      "h2_count": 17,
       "image_count": 6
     },
     {
@@ -142,8 +142,8 @@
       "issues": [
         "insufficient-images"
       ],
-      "word_count": 1540,
-      "h2_count": 10,
+      "word_count": 2003,
+      "h2_count": 13,
       "image_count": 5
     }
   ]
