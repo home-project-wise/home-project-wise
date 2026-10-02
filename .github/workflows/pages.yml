@@ -6,6 +6,9 @@ on:
     branches: [main]
     paths:
       - 'website/**'
+      - 'website/images/**'
+      - 'data/pinterest_heroes.json'
+      - 'scripts/download_pinterest_images.py'
       - 'scripts/rebuild_site_indexes.py'
       - 'automation/publish.py'
       - '.github/workflows/pages.yml'
