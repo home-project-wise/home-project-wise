@@ -32,7 +32,7 @@ def valid_jpeg(path: Path) -> bool:
 
 def download(url: str, target: Path) -> bool:
     tmp = target.with_suffix(target.suffix + ".part")
-    request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "image/avif,image/webp,image/jpeg,*/*"})
+    request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "image/jpeg"})
     for attempt in range(1, RETRIES + 1):
         try:
             print(f"[Pinterest images] GET {url} (attempt {attempt}/{RETRIES})", flush=True)
