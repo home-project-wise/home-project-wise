@@ -7,6 +7,7 @@ on:
     paths:
       - 'website/**'
       - 'scripts/rebuild_site_indexes.py'
+      - 'scripts/verify_live_images.py'
       - 'automation/publish.py'
       - '.github/workflows/pages.yml'
       - 'website/article-overrides.css'
