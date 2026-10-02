@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "name": "better-evening-home-lighting.jpg",
+      "url": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=1000&h=1500&q=85",
+      "fallback_url": "https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?auto=format&fit=crop&w=800&h=1200&q=82"
+    },
+    {
+      "name": "kitchen-counter-zone.jpg",
+      "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1000&h=1500&q=85",
+      "fallback_url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&h=1200&q=82"
+    },
+    {
+      "name": "quiet-entryway-storage.jpg",
+      "url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&h=1500&q=85",
+      "fallback_url": "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&h=1200&q=82"
+    },
+    {
+      "name": "smart-lighting.jpg",
+      "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=82",
+      "fallback_url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80"
+    },
+    {
+      "name": "fix-wobbly-furniture.jpg",
+      "url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=85",
+      "fallback_url": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1000&q=80"
+    }
+  ]
+}
