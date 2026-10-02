@@ -26,6 +26,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Prepare local Pinterest hero images
+        run: python scripts/download_pinterest_images.py
       - name: Rebuild guide library, sitemap, RSS and homepage
         run: python scripts/rebuild_site_indexes.py
       - name: Apply article presentation layer
