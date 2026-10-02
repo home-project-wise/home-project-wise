@@ -50,7 +50,7 @@ def main() -> int:
     print("|---:|---|---:|---:|---:|---:|---|")
     for idx, path in enumerate(pages, 1):
         text = path.read_text(encoding="utf-8")
-        srcs = [html.unescape(x) for x in re.findall(r'<img\\b[^>]*\\bsrc=["\\\']([^"\\\']+)["\\\']', text, re.I)]
+        srcs = [html.unescape(x) for x in re.findall(r'<img\b[^>]*\bsrc=["\']([^"\']+)["\']', text, re.I)]
         local_n = sum(x.startswith("/images/") for x in srcs)
         unsplash_n = sum("images.unsplash.com" in x.lower() for x in srcs)
         bad = 0
