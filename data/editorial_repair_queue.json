@@ -20,6 +20,7 @@
       "title": "Entryway Drop Zone: A Simple Setup That Stays Tidy | HomeProjectWise",
       "priority": "high",
       "issues": [
+        "duplicate-images-inside-article",
         "image-heading-mismatch",
         "insufficient-images"
       ],
