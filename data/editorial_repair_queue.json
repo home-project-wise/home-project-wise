@@ -1,7 +1,7 @@
 {
   "version": 2,
   "purpose": "repair existing library before new publishing",
-  "count": 12,
+  "count": 8,
   "articles": [
     {
       "slug": "calm-room",
@@ -11,68 +11,51 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1803,
+      "word_count": 1811,
       "h2_count": 13,
       "image_count": 5
     },
     {
       "slug": "entryway-drop-zone",
       "title": "Entryway Drop Zone: A Simple Setup That Stays Tidy | HomeProjectWise",
-      "priority": "high",
+      "priority": "medium",
       "issues": [
-        "duplicate-images-inside-article",
-        "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1830,
+      "word_count": 1881,
       "h2_count": 16,
-      "image_count": 6
-    },
-    {
-      "slug": "five-minute-home-reset-that-prevents-clutter",
-      "title": "The Five-Minute Home Reset That Prevents Clutter From Taking Over | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images"
-      ],
-      "word_count": 2150,
-      "h2_count": 16,
-      "image_count": 5
+      "image_count": 7
     },
     {
       "slug": "fix-wobbly-furniture",
       "title": "A Simple Way to Fix Wobbly Furniture Without Guessing | HomeProjectWise",
-      "priority": "high",
+      "priority": "medium",
       "issues": [
-        "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1812,
+      "word_count": 1802,
       "h2_count": 17,
-      "image_count": 5
+      "image_count": 4
     },
     {
       "slug": "make-bedroom-more-restful",
       "title": "How to Make a Bedroom Feel More Restful Without Buying New Furniture | HomeProjectWise",
-      "priority": "high",
+      "priority": "medium",
       "issues": [
-        "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1925,
+      "word_count": 1966,
       "h2_count": 14,
       "image_count": 6
     },
     {
       "slug": "motion-lighting-that-actually-helps",
       "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying | HomeProjectWise",
-      "priority": "high",
+      "priority": "medium",
       "issues": [
-        "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 2158,
+      "word_count": 2186,
       "h2_count": 19,
       "image_count": 6
     },
@@ -84,68 +67,31 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1851,
+      "word_count": 1882,
       "h2_count": 17,
-      "image_count": 6
-    },
-    {
-      "slug": "reduce-cable-clutter",
-      "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images"
-      ],
-      "word_count": 1786,
-      "h2_count": 18,
       "image_count": 6
     },
     {
       "slug": "smart-lighting",
       "title": "Smart Lighting Without Turning Your Home Into a Gadget Showroom | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images"
-      ],
-      "word_count": 1861,
-      "h2_count": 12,
-      "image_count": 6
-    },
-    {
-      "slug": "stop-a-drafty-door-without-replacing-it",
-      "title": "Stop a Drafty Door Without Replacing It | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images"
-      ],
-      "word_count": 1796,
-      "h2_count": 17,
-      "image_count": 6
-    },
-    {
-      "slug": "stop-kitchen-counter-clutter",
-      "title": "How to Stop Kitchen Counter Clutter from Coming Back | HomeProjectWise",
-      "priority": "high",
-      "issues": [
-        "image-heading-mismatch",
-        "insufficient-images"
-      ],
-      "word_count": 2398,
-      "h2_count": 18,
-      "image_count": 6
-    },
-    {
-      "slug": "stop-musty-bathroom-towels",
-      "title": "How to Stop Bathroom Towels Smelling Musty | HomeProjectWise",
       "priority": "medium",
       "issues": [
         "insufficient-images"
       ],
-      "word_count": 2003,
-      "h2_count": 13,
+      "word_count": 1882,
+      "h2_count": 12,
       "image_count": 5
+    },
+    {
+      "slug": "stop-kitchen-counter-clutter",
+      "title": "How to Stop Kitchen Counter Clutter from Coming Back | HomeProjectWise",
+      "priority": "medium",
+      "issues": [
+        "insufficient-images"
+      ],
+      "word_count": 2431,
+      "h2_count": 18,
+      "image_count": 6
     }
   ]
 }
