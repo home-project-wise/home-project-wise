@@ -1,17 +1,6 @@
 name: Editorial Repair Audit
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'website/articles/**'
-      - 'scripts/repair_editorial_quality.py'
-      - 'scripts/repair_editorial_quality_v2.py'
-      - 'scripts/quality_gate.py'
-      - 'scripts/close_group1.py'
-      - 'scripts/fix_group1_figures.py'
-      - 'scripts/finalize_group1.py'
-      - '.github/workflows/editorial-repair.yml'
 permissions:
   contents: write
 concurrency:
