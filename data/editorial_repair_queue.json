@@ -11,20 +11,20 @@
         "image-heading-mismatch",
         "insufficient-images"
       ],
-      "word_count": 1811,
+      "word_count": 1824,
       "h2_count": 13,
-      "image_count": 5
+      "image_count": 6
     },
     {
       "slug": "entryway-drop-zone",
       "title": "Entryway Drop Zone: A Simple Setup That Stays Tidy | HomeProjectWise",
       "priority": "medium",
       "issues": [
-        "insufficient-images"
+        "image-heading-mismatch"
       ],
-      "word_count": 1881,
+      "word_count": 1895,
       "h2_count": 16,
-      "image_count": 7
+      "image_count": 8
     },
     {
       "slug": "fix-wobbly-furniture",
@@ -33,9 +33,9 @@
       "issues": [
         "insufficient-images"
       ],
-      "word_count": 1802,
+      "word_count": 1815,
       "h2_count": 17,
-      "image_count": 4
+      "image_count": 5
     },
     {
       "slug": "make-bedroom-more-restful",
