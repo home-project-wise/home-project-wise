@@ -41,8 +41,8 @@ def main() -> int:
         return 2
     base = sys.argv[1].rstrip("/") + "/"
     pages = sorted(ARTICLES.glob("*.html"))
-    if len(pages) != 16:
-        print(f"ERROR: expected 16 article HTML files, found {len(pages)}", file=sys.stderr)
+    if len(pages) != 12:
+        print(f"ERROR: expected 12 article HTML files, found {len(pages)}", file=sys.stderr)
         return 1
     cache = {}
     total = local = unsplash = broken = 0
