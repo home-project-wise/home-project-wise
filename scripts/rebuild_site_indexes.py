@@ -9,20 +9,49 @@ ROOT = Path(__file__).resolve().parents[1]
 WEBSITE = ROOT / "website"
 ARTICLES = WEBSITE / "articles"
 BASE = "https://home-project-wise.github.io/home-project-wise"
+NL = chr(10)
 GOAT = '<script data-goatcounter="https://homeprojectwise.goatcounter.com/count" async src="//gc.zgo.at/count.v5.js" crossorigin="anonymous"></script>'
 
 
+def attr(tag, name):
+    """Read an attribute value from one HTML tag, whatever the attribute order."""
+    m = re.search(name + '="([^"]*)"', tag, re.I)
+    if m:
+        return m.group(1)
+    m = re.search(name + "='([^']*)'", tag, re.I)
+    return m.group(1) if m else None
+
+
+def meta_content(text, key, value):
+    """Find <meta key="value" content="..."> in any attribute order."""
+    for tag in re.findall('<meta[^>]*>', text, re.I):
+        if attr(tag, key) == value:
+            c = attr(tag, "content")
+            if c is not None:
+                return c
+    return None
+
+
+def first_image(text):
+    for tag in re.findall('<img[^>]*>', text, re.I):
+        src = attr(tag, "src")
+        if src and "logo" not in src:
+            return src, attr(tag, "alt") or ""
+    return None
+
+
 def article_date(text):
-    for pat in (
-        r'"datePublished"\s*:\s*"([^"]+)"',
-        r'<meta[^>]+property=["\']article:published_time["\'][^>]+content=["\']([^"\']+)["\']',
-    ):
-        m = re.search(pat, text, re.I)
-        if m:
-            try:
-                return datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
-            except Exception:
-                pass
+    m = re.search('"datePublished"[^"]*"([^"]+)"', text, re.I)
+    values = [m.group(1)] if m else []
+    pub = meta_content(text, "property", "article:published_time")
+    if pub:
+        values.append(pub)
+    for v in values:
+        try:
+            d = datetime.fromisoformat(v.replace("Z", "+00:00"))
+            return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+        except Exception:
+            pass
     return datetime.min.replace(tzinfo=timezone.utc)
 
 
@@ -30,18 +59,18 @@ def rows():
     out = []
     for p in ARTICLES.glob("*.html"):
         t = p.read_text(encoding="utf-8", errors="ignore")
-        desc = re.search(r'<meta name="description" content="([^"]*)"', t, re.I)
-        title = re.search(r"<title>(.*?)</title>", t, re.S | re.I)
-        img = re.search(r'<img[^>]+src=["\']([^"\']+)["\'][^>]+alt=["\']([^"\']*)["\']', t, re.I)
-        cat = re.search(r'<p class="eyebrow">([^<]+)</p>', t, re.I)
+        desc = meta_content(t, "name", "description")
+        title = re.search("<title>(.*?)</title>", t, re.S | re.I)
+        img = first_image(t)
+        cat = re.search('<p[^>]*class="eyebrow"[^>]*>([^<]+)</p>', t, re.I)
         if desc and title:
-            clean = re.sub(r"\s*[|—-]\s*HomeProjectWise.*$", "", re.sub("<[^>]+>", "", title.group(1))).strip()
+            clean = re.sub("[ ]*[|—-][ ]*HomeProjectWise.*$", "", re.sub("<[^>]+>", "", title.group(1))).strip()
             out.append({
                 "slug": p.stem,
                 "title": unescape(clean),
-                "description": unescape(desc.group(1)),
-                "image": unescape(img.group(1)) if img else "",
-                "alt": unescape(img.group(2)) if img else "Useful home project guide",
+                "description": unescape(desc),
+                "image": unescape(img[0]) if img else "",
+                "alt": unescape(img[1]) if img and img[1] else "Useful home project guide",
                 "category": unescape(cat.group(1).strip()) if cat else "HOME PROJECTS",
                 "date": article_date(t),
             })
@@ -86,11 +115,13 @@ def category_sections(r):
 def main():
     for article in ARTICLES.glob('*.html'):
         html = article.read_text(encoding='utf-8', errors='ignore')
-        html = re.sub(r'<script[^>]*data-goatcounter="[^"]*"[^>]*></script>', '', html, flags=re.I)
+        html = re.sub('<script[^>]*data-goatcounter="[^"]*"[^>]*></script>', '', html, flags=re.I)
         if 'data-goatcounter="https://homeprojectwise.goatcounter.com/count"' not in html:
             html = html.replace('</head>', GOAT + '</head>', 1)
         article.write_text(html, encoding='utf-8')
     r = rows()
+    if not r:
+        raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
               '<link rel="canonical" href="' + BASE + '/guides.html"><link rel="alternate" type="application/rss+xml" title="HomeProjectWise RSS" href="feed.xml">'
@@ -110,23 +141,23 @@ def main():
     items = "".join(f'<item><title>{escape(x["title"])}</title><link>{BASE}/articles/{x["slug"]}.html</link><description>{escape(x["description"])}</description></item>' for x in r[:20])
     (WEBSITE / "feed.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HomeProjectWise</title><link>' + BASE + '/</link><description>Practical home projects, smart-home ideas and useful guides.</description>' + items + "</channel></rss>", encoding="utf-8")
 
-    (WEBSITE / "robots.txt").write_text("User-agent: *\nAllow: /\n\nSitemap: " + BASE + "/sitemap.xml\n", encoding="utf-8")
+    (WEBSITE / "robots.txt").write_text("User-agent: *" + NL + "Allow: /" + NL + NL + "Sitemap: " + BASE + "/sitemap.xml" + NL, encoding="utf-8")
     p = WEBSITE / "index.html"
     for key_file in (ROOT / "static").glob("*.txt"):
-        if re.fullmatch(r"[A-Fa-f0-9]{32}\.txt", key_file.name):
+        if re.fullmatch("[A-Fa-f0-9]{32}[.]txt", key_file.name):
             (WEBSITE / key_file.name).write_text(key_file.read_text(encoding="utf-8"), encoding="utf-8")
 
     h = p.read_text(encoding="utf-8", errors="ignore")
     latest = "".join(card(x, True) for x in r[:3])
     latest_section = '<section id="latest" class="section"><div class="section-head"><div><p class="eyebrow">THE LATEST</p><h2>Useful guides, newest first.</h2><p class="section-intro">Real fixes, practical projects and smart-home decisions — without filler.</p></div><a href="guides.html">Browse all ' + str(len(r)) + ' guides →</a></div><div class="cards">' + latest + '</div></section>'
 
-    pattern = r'<section id="latest" class="section">.*?</section>'
-    h, n = re.subn(pattern, latest_section, h, count=1, flags=re.S)
+    # Attribute-order tolerant: matches id="latest" / id="categories" however the tag is written.
+    h, n = re.subn('<section[^>]*id="latest"[^>]*>.*?</section>', lambda m: latest_section, h, count=1, flags=re.S)
     if n == 0:
-        marker = '<section id="categories" class="section">'
-        if marker not in h:
+        m = re.search('<section[^>]*id="categories"[^>]*>', h)
+        if not m:
             raise SystemExit("Could not find categories section for latest insertion")
-        h = h.replace(marker, latest_section + marker, 1)
+        h = h[:m.start()] + latest_section + h[m.start():]
 
     p.write_text(h, encoding="utf-8")
     print(f"Rebuilt guide library, homepage latest cards, sitemap and RSS from {len(r)} article files.")
