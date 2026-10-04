@@ -1,0 +1,78 @@
+name: Fix site content
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Commit, push and deploy (false = preview only, nothing is pushed)"
+        type: boolean
+        default: false
+      delete_orphans:
+        description: "Delete article files that are not in website/feed.xml"
+        type: boolean
+        default: true
+      strip_affiliate:
+        description: "Remove the 'Affiliate disclosure' line from articles"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: pip install beautifulsoup4
+      - name: Apply fixes (working tree only; fails if verification fails)
+        run: |
+          ARGS="--root website --apply"
+          if [ "${{ inputs.delete_orphans }}" = "true" ]; then ARGS="$ARGS --delete-orphans"; fi
+          if [ "${{ inputs.strip_affiliate }}" = "true" ]; then ARGS="$ARGS --strip-affiliate"; fi
+          python tools/fix_site.py $ARGS
+      - name: Show what changed
+        run: |
+          git status --short
+          git diff --stat | tail -n 30
+      - name: Commit and push
+        if: ${{ inputs.publish }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A website
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Clean article templates, dedupe CTA, trim images, sync guides to 12"
+            git push
+          fi
+      - name: Configure Pages
+        if: ${{ inputs.publish }}
+        uses: actions/configure-pages@v5
+      - name: Upload site artifact
+        if: ${{ inputs.publish }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website
+
+  deploy:
+    needs: fix
+    if: ${{ inputs.publish }}
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
