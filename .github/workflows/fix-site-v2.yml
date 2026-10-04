@@ -1,0 +1,69 @@
+name: fix-site-v2
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Deploy the site after fixing"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: fix-site-v2
+  cancel-in-progress: false
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install beautifulsoup4
+
+      - name: Diagnostics
+        run: |
+          echo "=== pages.yml: rebuild / pages.yml mentions ==="
+          grep -n "rebuild_site_indexes\|pages.yml" .github/workflows/pages.yml || echo "none"
+          echo "=== workflows present ==="
+          ls -1 .github/workflows
+          echo "=== editorial freeze ==="
+          cat .editorial-freeze 2>/dev/null || echo "no freeze file"
+          echo "=== who writes sitemap / index pages? ==="
+          grep -rn -i "sitemap.xml\|guides.html\|smoke" .github/workflows scripts tools automation 2>/dev/null | head -60 || true
+          echo "=== articles on disk ==="
+          ls -1 website/articles | head -50
+
+      - name: Run fix script
+        run: python tools/fix_site_v2.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "fix: sitemap, duplicate CTA, filler, images, retired links (fix_site_v2)"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
+      - name: Deploy (a push by GITHUB_TOKEN does not trigger pages.yml)
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run pages.yml --ref "${GITHUB_REF_NAME}"
+          echo "Deploy triggered."
