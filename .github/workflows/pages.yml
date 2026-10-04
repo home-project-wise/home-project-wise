@@ -1,6 +1,7 @@
 name: Manual HomeProjectWise Pages Deployment
 # Production verification trigger after Group 1 contextual image repair
 # Group 1 production deployment verification marker.
+# Force production rebuild: 2026-10-04 live Pages verification.
 on:
   push:
     branches: [main]
