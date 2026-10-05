@@ -1,0 +1,24 @@
+name: Add illustration images
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tools/add_images.py'
+      - 'website/articles/stop-musty-bathroom-towels.html'
+      - 'website/assets/img/bathroom-humidity-illustration.svg'
+      - 'website/assets/img/bathroom-humidity-pinterest.svg'
+      - '.github/workflows/add-images.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python tools/add_images.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add website/assets/img/bathroom-humidity-illustration.svg website/assets/img/bathroom-humidity-pinterest.svg website/assets/img/bathroom-humidity-pinterest.png website/articles/stop-musty-bathroom-towels.html tools/add_images.py
+          if git diff --cached --quiet; then echo "No changes."; else git commit -m "build: generate bathroom humidity PNG"; git push; fi
