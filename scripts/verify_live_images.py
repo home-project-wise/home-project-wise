@@ -7,6 +7,7 @@ import sys
 import time
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,7 +56,7 @@ def main() -> int:
         unsplash_n = sum("images.unsplash.com" in x.lower() for x in srcs)
         bad = 0
         for src in srcs:
-            url = base + src.lstrip("/") if src.startswith("/") else src
+            url = urljoin(base, src)
             if url not in cache:
                 cache[url] = request_status(url)
             if cache[url] != 200:
@@ -68,7 +69,7 @@ def main() -> int:
                 url = base + src.lstrip("/") if src.startswith("/") else src
                 if cache[url] != 200:
                     print(f"  BROKEN: {src} -> HTTP {cache[url]}", file=sys.stderr)
-    print(f"SUMMARY: articles=16 images={total} local={local} unsplash={unsplash} broken={broken} unique_checked={len(cache)}")
+    print(f"SUMMARY: articles={len(pages)} images={total} local={local} unsplash={unsplash} broken={broken} unique_checked={len(cache)}")
     return 1 if broken else 0
 
 if __name__ == "__main__":
