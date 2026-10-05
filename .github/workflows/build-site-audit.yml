@@ -38,11 +38,13 @@ jobs:
             echo Nothing to commit
           else
             git commit -m 'chore: build private site audit page'
-            git pull --rebase origin ${GITHUB_REF_NAME}
-            git push origin HEAD:${GITHUB_REF_NAME}
+            git pull --rebase origin $GITHUB_REF_NAME
+            git push origin HEAD:$GITHUB_REF_NAME
           fi
 
       - name: Deploy
         env:
-          GH_TOKEN: ${{ github.token }
-        run: gh workflow run pages.yml --ref ${GITHUB_REF_NAME
+          GH_TOKEN: ${{ github.token }} # needed by the gh cli
+        run: gh workflow run pages.yml --ref $GITHUB_REF_NAME
+
+# end of file
