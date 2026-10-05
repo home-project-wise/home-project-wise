@@ -63,3 +63,5 @@ jobs:
           curl --fail --silent --show-error --location --retry 10 --retry-delay 3 --retry-all-errors "$DEPLOY_URL"
           python scripts/verify_live_images.py "$DEPLOY_URL"
           echo "HomeProjectWise Pages deployment and image verification passed."
+
+# Obsolete image workflow removed; clean deployment trigger.
