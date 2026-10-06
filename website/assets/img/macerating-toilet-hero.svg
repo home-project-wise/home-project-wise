@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Basement bathroom added with a macerating toilet</title>
+  <desc id="d">Cutaway illustration of a basement bathroom: a toilet with a small pump pushes waste up through a thin pipe to the existing drain line, without cutting the concrete slab.</desc>
+  <rect width="1200" height="630" fill="#F7F5F0"/>
+  <circle cx="1130" cy="60" r="150" fill="#6F8F82" opacity=".12"/>
+  <circle cx="60" cy="600" r="130" fill="#D97745" opacity=".10"/>
+  <rect x="64" y="96" width="64" height="8" rx="4" fill="#D97745"/>
+  <text x="64" y="150" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#6F8F82">BEGINNER'S GUIDE</text>
+  <text x="64" y="232" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#243238">Add a basement</text>
+  <text x="64" y="300" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#243238">bathroom without</text>
+  <text x="64" y="368" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800" fill="#D97745">breaking the floor</text>
+  <text x="64" y="428" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#243238" opacity=".8">How macerating toilets work, what they</text>
+  <text x="64" y="462" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#243238" opacity=".8">cost you, and when they make sense.</text>
+  <rect x="64" y="510" width="250" height="52" rx="26" fill="#243238"/>
+  <text x="189" y="544" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#fff">HomeProjectWise</text>
+  <rect x="640" y="70" width="500" height="490" rx="24" fill="#fff" stroke="#243238" stroke-width="4"/>
+  <rect x="644" y="74" width="492" height="170" rx="20" fill="#E4ECE8"/>
+  <text x="664" y="112" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#243238">MAIN FLOOR</text>
+  <rect x="940" y="188" width="196" height="16" fill="#6F8F82"/>
+  <text x="1124" y="176" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#243238">Existing drain line</text>
+  <rect x="644" y="244" width="492" height="10" fill="#243238"/>
+  <text x="664" y="290" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#243238">BASEMENT</text>
+  <rect x="644" y="496" width="492" height="60" fill="#243238"/>
+  <path d="M644 556 H1136 V540 Q1136 556 1120 556 H660 Q644 556 644 540 Z" fill="#243238"/>
+  <text x="664" y="534" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#fff">Concrete slab stays intact</text>
+  <circle cx="1100" cy="526" r="18" fill="#6F8F82"/>
+  <path d="M1091 526 l7 8 l13 -16" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="700" y="388" width="52" height="64" rx="8" fill="#fff" stroke="#243238" stroke-width="5"/>
+  <path d="M700 452 H800 Q800 490 764 496 H736 Q700 490 700 452 Z" fill="#fff" stroke="#243238" stroke-width="5" stroke-linejoin="round"/>
+  <rect x="706" y="378" width="40" height="10" rx="5" fill="#D97745"/>
+  <rect x="812" y="410" width="86" height="86" rx="12" fill="#243238"/>
+  <circle cx="855" cy="446" r="22" fill="none" stroke="#D97745" stroke-width="5"/>
+  <path d="M855 446 m0 -17 v34 M855 446 m-15 -8 l30 16 M855 446 m-15 8 l30 -16" stroke="#D97745" stroke-width="4" stroke-linecap="round"/>
+  <text x="855" y="490" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="700" fill="#fff">PUMP</text>
+  <rect x="800" y="462" width="14" height="12" fill="#243238"/>
+  <path d="M870 410 V330 H1000 V204" fill="none" stroke="#D97745" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M994 238 L1000 224 L1006 238" fill="none" stroke="#D97745" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="888" y="318" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#D97745">Thin pipe</text>
+  <rect x="1020" y="300" width="100" height="44" rx="10" fill="#F7F5F0"/>
+  <text x="1070" y="327" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="700" fill="#243238">Goes up</text>
+</svg>

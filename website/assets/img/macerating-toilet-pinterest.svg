@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" role="img" aria-labelledby="t">
+  <title id="t">Basement bathroom without breaking the floor: macerating toilet guide</title>
+  <rect width="1000" height="1500" fill="#243238"/>
+  <circle cx="900" cy="120" r="260" fill="#6F8F82" opacity=".18"/>
+  <circle cx="80" cy="1400" r="240" fill="#D97745" opacity=".16"/>
+  <rect x="80" y="110" width="90" height="10" rx="5" fill="#D97745"/>
+  <text x="80" y="180" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="4" fill="#9DB8AD">BEGINNER'S GUIDE</text>
+  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#fff">Add a basement</text>
+  <text x="80" y="408" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#fff">bathroom</text>
+  <text x="80" y="516" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#D97745">without breaking</text>
+  <text x="80" y="624" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="800" fill="#D97745">the floor</text>
+  <rect x="80" y="700" width="840" height="520" rx="30" fill="#F7F5F0"/>
+  <rect x="80" y="700" width="840" height="190" rx="30" fill="#E4ECE8"/>
+  <rect x="80" y="860" width="840" height="14" fill="#243238"/>
+  <text x="112" y="752" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#243238">MAIN FLOOR</text>
+  <rect x="640" y="800" width="280" height="20" fill="#6F8F82"/>
+  <text x="904" y="786" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#243238">Existing drain line</text>
+  <text x="112" y="924" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#243238">BASEMENT</text>
+  <rect x="150" y="1030" width="70" height="84" rx="10" fill="#fff" stroke="#243238" stroke-width="6"/>
+  <path d="M150 1114 H290 Q290 1160 240 1166 H200 Q150 1160 150 1114 Z" fill="#fff" stroke="#243238" stroke-width="6" stroke-linejoin="round"/>
+  <rect x="158" y="1016" width="54" height="14" rx="7" fill="#D97745"/>
+  <rect x="320" y="1060" width="110" height="106" rx="14" fill="#243238"/>
+  <circle cx="375" cy="1106" r="28" fill="none" stroke="#D97745" stroke-width="6"/>
+  <path d="M375 1106 m0 -21 v42 M375 1106 m-18 -10 l36 20 M375 1106 m-18 10 l36 -20" stroke="#D97745" stroke-width="5" stroke-linecap="round"/>
+  <text x="375" y="1156" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#fff">PUMP</text>
+  <rect x="290" y="1100" width="30" height="14" fill="#243238"/>
+  <path d="M400 1060 V960 H700 V826" fill="none" stroke="#D97745" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M692 856 L700 838 L708 856" fill="none" stroke="#D97745" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="420" y="944" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#D97745">Thin discharge pipe</text>
+  <rect x="80" y="1180" width="840" height="40" fill="#243238"/>
+  <text x="112" y="1208" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#fff">Concrete slab stays intact</text>
+  <circle cx="880" cy="1200" r="14" fill="#6F8F82"/>
+  <path d="M873 1200 l5 6 l10 -12" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="80" y="1310" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#fff">How it works, the downsides,</text>
+  <text x="80" y="1364" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#fff">and what to check first.</text>
+  <rect x="80" y="1404" width="420" height="58" rx="29" fill="#D97745"/>
+  <text x="290" y="1443" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="#fff">HomeProjectWise</text>
+</svg>
