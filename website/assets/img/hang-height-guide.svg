@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="t d">
+  <title id="t">How high to hang large wall art above a sofa</title>
+  <desc id="d">Diagram of a wall with a sofa: the center of the artwork sits about 57 inches (145 cm) above the floor, the artwork is about two thirds to three quarters of the sofa width, and it hangs 6 to 10 inches above the sofa.</desc>
+  <rect width="1000" height="560" fill="#F7F5F0"/>
+  <text x="40" y="52" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#243238">Hanging height guide</text>
+  <rect x="40" y="64" width="80" height="6" rx="3" fill="#D97745"/>
+  <rect x="0" y="470" width="1000" height="90" fill="#E4ECE8"/>
+  <rect x="0" y="466" width="1000" height="6" fill="#243238"/>
+  <rect x="320" y="340" width="360" height="130" rx="16" fill="#6F8F82"/>
+  <rect x="300" y="390" width="50" height="80" rx="14" fill="#5A7A6E"/>
+  <rect x="650" y="390" width="50" height="80" rx="14" fill="#5A7A6E"/>
+  <rect x="350" y="404" width="300" height="66" rx="10" fill="#7FA091"/>
+  <rect x="365" y="152" width="270" height="150" rx="4" fill="#fff" stroke="#243238" stroke-width="6"/>
+  <path d="M385 280 L450 205 L500 250 L545 195 L615 280 Z" fill="#D97745" opacity=".85"/>
+  <circle cx="570" cy="190" r="14" fill="#6F8F82"/>
+  <line x1="150" y1="227" x2="500" y2="227" stroke="#D97745" stroke-width="3" stroke-dasharray="10 8"/>
+  <line x1="150" y1="227" x2="150" y2="466" stroke="#243238" stroke-width="3" stroke-dasharray="10 8"/>
+  <path d="M142 238 L150 224 L158 238 M142 455 L150 469 L158 455" fill="none" stroke="#243238" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="166" y="320" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#243238">57 in</text>
+  <text x="166" y="348" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#243238">(about 145 cm)</text>
+  <text x="166" y="372" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#243238">to the center</text>
+  <line x1="365" y1="122" x2="635" y2="122" stroke="#D97745" stroke-width="3"/>
+  <path d="M365 114 V130 M635 114 V130" stroke="#D97745" stroke-width="3" stroke-linecap="round"/>
+  <text x="500" y="106" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#243238">Art width: about 2/3 to 3/4 of the sofa</text>
+  <line x1="730" y1="302" x2="730" y2="340" stroke="#243238" stroke-width="3"/>
+  <path d="M722 312 L730 300 L738 312 M722 330 L730 342 L738 330" fill="none" stroke="#243238" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="748" y="326" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="800" fill="#243238">6 to 10 in</text>
+  <text x="748" y="350" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#243238">above the sofa</text>
+  <text x="500" y="520" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#243238" opacity=".7">HomeProjectWise · Rules of thumb, adjust to your room</text>
+</svg>
