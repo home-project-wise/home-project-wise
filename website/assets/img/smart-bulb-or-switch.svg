@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Decision guide: rented home or no wall access, choose smart bulbs; own the wiring and have a neutral wire, choose a smart switch; no neutral wire, choose a no-neutral switch or smart bulbs">
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#243238">
+<text x="500" y="54" text-anchor="middle" font-size="30" font-weight="700">Which one fits your home?</text>
+<rect x="40" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="40" y="90" width="290" height="12" rx="6" fill="#D97745"/>
+<text x="185" y="150" text-anchor="middle" font-size="23" font-weight="700">You rent, or cannot</text><text x="185" y="180" text-anchor="middle" font-size="23" font-weight="700">touch the wiring</text>
+<text x="185" y="260" text-anchor="middle" font-size="21">No tools, no wall switch</text><text x="185" y="288" text-anchor="middle" font-size="21">to replace</text>
+<text x="185" y="400" text-anchor="middle" font-size="24" fill="#D97745" font-weight="700">Smart bulbs</text>
+<rect x="355" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="355" y="90" width="290" height="12" rx="6" fill="#6F8F82"/>
+<text x="500" y="150" text-anchor="middle" font-size="23" font-weight="700">You own it and the box</text><text x="500" y="180" text-anchor="middle" font-size="23" font-weight="700">has a neutral wire</text>
+<text x="500" y="260" text-anchor="middle" font-size="21">One switch controls</text><text x="500" y="288" text-anchor="middle" font-size="21">every bulb in the fixture</text>
+<text x="500" y="400" text-anchor="middle" font-size="24" fill="#6F8F82" font-weight="700">Smart switch</text>
+<rect x="670" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="670" y="90" width="290" height="12" rx="6" fill="#243238"/>
+<text x="815" y="150" text-anchor="middle" font-size="23" font-weight="700">You own it, no neutral</text><text x="815" y="180" text-anchor="middle" font-size="23" font-weight="700">wire at the switch</text>
+<text x="815" y="260" text-anchor="middle" font-size="21">Common in older homes</text><text x="815" y="288" text-anchor="middle" font-size="21">Ask an electrician to check</text>
+<text x="815" y="400" text-anchor="middle" font-size="24" font-weight="700">No-neutral switch</text><text x="815" y="430" text-anchor="middle" font-size="24" font-weight="700">or smart bulbs</text>
+</g></svg>
