@@ -56,7 +56,7 @@ def main() -> int:
         unsplash_n = sum("images.unsplash.com" in x.lower() for x in srcs)
         bad = 0
         for src in srcs:
-            url = urljoin(base, src)
+            url = urljoin(urljoin(base, "articles/" + path.name), src)
             if url not in cache:
                 cache[url] = request_status(url)
             if cache[url] != 200:
@@ -66,7 +66,7 @@ def main() -> int:
         print(f"| {idx} | {path.stem} | {len(srcs)} | {local_n} | {unsplash_n} | {bad} | {state} |")
         if bad:
             for src in srcs:
-                url = base + src.lstrip("/") if src.startswith("/") else src
+                url = urljoin(urljoin(base, "articles/" + path.name), src)
                 if cache[url] != 200:
                     print(f"  BROKEN: {src} -> HTTP {cache[url]}", file=sys.stderr)
     print(f"SUMMARY: articles={len(pages)} images={total} local={local} unsplash={unsplash} broken={broken} unique_checked={len(cache)}")
