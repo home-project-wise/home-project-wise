@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Two towels: one bunched on a hook, one spread over a bar">
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<text x="250" y="52" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#243238">Bunched on a hook</text>
+<text x="750" y="52" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" fill="#243238">Spread over a bar</text>
+<line x1="500" y1="80" x2="500" y2="470" stroke="#243238" stroke-opacity=".2" stroke-width="2"/>
+<rect x="230" y="110" width="40" height="14" rx="7" fill="#243238"/>
+<path d="M250 124 C215 170 205 230 222 300 C232 345 232 390 238 420 L270 420 C275 385 282 345 285 300 C298 230 285 170 250 124Z" fill="#6F8F82"/>
+<path d="M236 190 C246 230 240 300 250 410" stroke="#243238" stroke-opacity=".35" stroke-width="3" fill="none"/>
+<path d="M268 200 C262 250 270 320 262 400" stroke="#243238" stroke-opacity=".35" stroke-width="3" fill="none"/>
+<text x="250" y="465" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#243238">Thick folds stay wet in the middle</text>
+<text x="250" y="498" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#D97745" font-weight="700">Damp for hours</text>
+<rect x="580" y="120" width="340" height="14" rx="7" fill="#243238"/>
+<rect x="600" y="134" width="300" height="270" rx="6" fill="#6F8F82"/>
+<rect x="600" y="134" width="300" height="270" rx="6" fill="none" stroke="#243238" stroke-opacity=".35" stroke-width="3"/>
+<g stroke="#243238" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round">
+<path d="M560 200 h28 m-10 -10 l10 10 l-10 10"/><path d="M560 270 h28 m-10 -10 l10 10 l-10 10"/><path d="M560 340 h28 m-10 -10 l10 10 l-10 10"/>
+<path d="M940 200 h-28 m10 -10 l-10 10 l10 10"/><path d="M940 270 h-28 m10 -10 l-10 10 l10 10"/><path d="M940 340 h-28 m10 -10 l-10 10 l10 10"/>
+</g>
+<text x="750" y="465" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#243238">Air reaches both sides of the fabric</text>
+<text x="750" y="498" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" fill="#6F8F82" font-weight="700">Dries much faster</text>
+</svg>

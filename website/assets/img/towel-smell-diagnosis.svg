@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Three smell patterns and where to look first">
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<text x="500" y="52" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" fill="#243238">When does the smell appear?</text>
+<g font-family="Arial,Helvetica,sans-serif" fill="#243238">
+<rect x="40" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".2" stroke-width="2"/>
+<rect x="40" y="90" width="290" height="12" rx="6" fill="#6F8F82"/>
+<text x="185" y="148" text-anchor="middle" font-size="24" font-weight="700">After a few days</text>
+<text x="185" y="178" text-anchor="middle" font-size="24" font-weight="700">on the rail</text>
+<text x="185" y="240" text-anchor="middle" font-size="21">Smells fine from the</text>
+<text x="185" y="268" text-anchor="middle" font-size="21">dryer, then turns musty</text>
+<text x="185" y="360" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">Look at: drying</text>
+<text x="185" y="390" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">and bathroom humidity</text>
+<rect x="355" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".2" stroke-width="2"/>
+<rect x="355" y="90" width="290" height="12" rx="6" fill="#D97745"/>
+<text x="500" y="148" text-anchor="middle" font-size="24" font-weight="700">Straight out</text>
+<text x="500" y="178" text-anchor="middle" font-size="24" font-weight="700">of the washer</text>
+<text x="500" y="240" text-anchor="middle" font-size="21">Smells before it has</text>
+<text x="500" y="268" text-anchor="middle" font-size="21">hung in the bathroom</text>
+<text x="500" y="360" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">Look at: the washer,</text>
+<text x="500" y="390" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">detergent and load size</text>
+<rect x="670" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".2" stroke-width="2"/>
+<rect x="670" y="90" width="290" height="12" rx="6" fill="#243238"/>
+<text x="815" y="148" text-anchor="middle" font-size="24" font-weight="700">Only when</text>
+<text x="815" y="178" text-anchor="middle" font-size="24" font-weight="700">the towel is wet</text>
+<text x="815" y="240" text-anchor="middle" font-size="21">Dry towel smells fine,</text>
+<text x="815" y="268" text-anchor="middle" font-size="21">wet one smells musty</text>
+<text x="815" y="360" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">Look at: residue</text>
+<text x="815" y="390" text-anchor="middle" font-size="22" fill="#D97745" font-weight="700">left in the fabric</text>
+</g></svg>
