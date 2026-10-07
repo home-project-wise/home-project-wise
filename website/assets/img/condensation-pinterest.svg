@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1500" role="img" aria-labelledby="t">
+  <title id="t">Stop bathroom condensation: 4 fixes that work</title>
+  <rect width="1000" height="1500" fill="#243238"/>
+  <circle cx="900" cy="120" r="260" fill="#6F8F82" opacity=".18"/>
+  <circle cx="80" cy="1400" r="240" fill="#D97745" opacity=".16"/>
+  <rect x="80" y="110" width="90" height="10" rx="5" fill="#D97745"/>
+  <text x="80" y="180" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="700" letter-spacing="4" fill="#9DB8AD">BEGINNER'S GUIDE</text>
+  <text x="80" y="300" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#fff">Foggy windows</text>
+  <text x="80" y="400" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#fff">after every</text>
+  <text x="80" y="500" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#D97745">shower? Fix it</text>
+  <text x="80" y="600" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" fill="#D97745">in 4 steps</text>
+  <rect x="80" y="680" width="840" height="640" rx="30" fill="#F7F5F0"/>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="800" fill="#243238">
+    <circle cx="150" cy="776" r="34" fill="#6F8F82"/><text x="150" y="790" text-anchor="middle" fill="#fff" font-size="36">1</text><text x="210" y="772">Measure humidity</text><text x="210" y="814" font-size="28" font-weight="400">Aim for 30 to 50 percent</text>
+    <circle cx="150" cy="920" r="34" fill="#6F8F82"/><text x="150" y="934" text-anchor="middle" fill="#fff" font-size="36">2</text><text x="210" y="916">Run the fan longer</text><text x="210" y="958" font-size="28" font-weight="400">20 minutes after the shower</text>
+    <circle cx="150" cy="1064" r="34" fill="#6F8F82"/><text x="150" y="1078" text-anchor="middle" fill="#fff" font-size="36">3</text><text x="210" y="1060">Let air in</text><text x="210" y="1102" font-size="28" font-weight="400">Keep a gap under the door</text>
+    <circle cx="150" cy="1208" r="34" fill="#D97745"/><text x="150" y="1222" text-anchor="middle" fill="#fff" font-size="36">4</text><text x="210" y="1204">Check fan size and duct</text><text x="210" y="1246" font-size="28" font-weight="400">Vent outside, not the attic</text>
+  </g>
+  <text x="80" y="1420" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#fff">HomeProjectWise</text>
+</svg>
