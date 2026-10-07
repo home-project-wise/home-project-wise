@@ -36,6 +36,8 @@ def first_image(text):
     for tag in re.findall('<img[^>]*>', text, re.I):
         src = attr(tag, "src")
         if src and "logo" not in src:
+            if src.startswith("../"):
+                src = src[3:]
             return src, attr(tag, "alt") or ""
     return None
 
