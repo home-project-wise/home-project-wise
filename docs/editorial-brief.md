@@ -3,8 +3,8 @@
 Purpose: every article solves ONE real problem for a beginner in the US or UK, and earns trust before it earns money.
 
 ## Length and structure
-- 1,200 to 1,600 words, 6 to 9 sections. Every section adds a new fact or step. Never repeat the same idea under a new heading.
-- Order: short answer (2-3 sentences) > how to diagnose or measure > step-by-step fix > what to check or buy (specs and ranges) > safety and when to call a professional > common mistakes (3 to 5) > FAQ (4 to 5 real questions) > 3 to 5 internal links to existing guides > one newsletter call to action.
+- Aim for roughly 1,800+ words when the problem genuinely needs that depth; usefulness beats an artificial word count. Use 8 to 12+ sections when they add distinct diagnosis, steps, decisions or safety value. Never repeat the same idea under a new heading.
+- Order: short answer (2-3 sentences) > diagnose or measure > step-by-step fix > what to check or buy (specs and ranges) > safety and when to call a professional > common mistakes (3 to 5) > FAQ (6 real questions when useful) > 6+ relevant internal links > one newsletter call to action.
 - Banned filler: paragraphs that only restate the previous section, motivational closers, and any text that fits every article.
 
 ## Evidence
@@ -12,10 +12,10 @@ Purpose: every article solves ONE real problem for a beginner in the US or UK, a
 - Never invent prices, brand claims or test results. If you did not test it, do not write that it was tested.
 
 ## Images
-- 2 to 4 images only, and each one must show exactly what its caption says.
+- Use 4 to 6 useful images when the article benefits from them; every image must show exactly what its caption says and directly support the nearby section. Prefer process diagrams, before/after logic, measurements and real situations over decorative interiors.
 - Never reuse an image that appears in another article. No exterior or real-estate photos for interior topics. If there is no matching image, use fewer images.
 - Alt text describes the image only. No headings or keywords inside alt text.
-- Make one vertical Pinterest image (1000 x 1500) per article.
+- Do not add a Pinterest image unless it is genuinely useful and part of the publishing workflow; never use it as a substitute for article visuals.
 
 ## SEO
 - One h1. Title 60 characters or less. Meta description 120 to 160 characters.
