@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="t d"><title id="t">Choose the smart lighting device by the light you are fixing</title><desc id="d">Plug-in lamp leads to smart plug or bulb. Ceiling fixture with several bulbs leads to smart switch. Hands-busy hallway leads to motion sensor.</desc>
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<text x="500" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#243238">What are you fixing?</text>
+<rect x="50" y="70" width="370" height="110" rx="16" fill="#6F8F82" opacity=".25" stroke="#6F8F82" stroke-width="3"/>
+<text x="235" y="135" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" fill="#243238">Plug-in lamp</text>
+<path d="M440 125 H540" stroke="#243238" stroke-width="6" stroke-linecap="round"/><path d="M525 110 L545 125 L525 140 Z" fill="#243238"/>
+<rect x="560" y="70" width="390" height="110" rx="16" fill="#D97745" opacity=".2" stroke="#D97745" stroke-width="3"/>
+<text x="755" y="135" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#243238">Smart plug or bulb</text>
+<rect x="50" y="225" width="370" height="110" rx="16" fill="#6F8F82" opacity=".25" stroke="#6F8F82" stroke-width="3"/>
+<text x="235" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" fill="#243238">Ceiling fixture, several bulbs</text>
+<path d="M440 280 H540" stroke="#243238" stroke-width="6" stroke-linecap="round"/><path d="M525 265 L545 280 L525 295 Z" fill="#243238"/>
+<rect x="560" y="225" width="390" height="110" rx="16" fill="#D97745" opacity=".2" stroke="#D97745" stroke-width="3"/>
+<text x="755" y="290" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#243238">Smart switch</text>
+<rect x="50" y="380" width="370" height="110" rx="16" fill="#6F8F82" opacity=".25" stroke="#6F8F82" stroke-width="3"/>
+<text x="235" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" fill="#243238">Hallway at night, hands busy</text>
+<path d="M440 435 H540" stroke="#243238" stroke-width="6" stroke-linecap="round"/><path d="M525 420 L545 435 L525 450 Z" fill="#243238"/>
+<rect x="560" y="380" width="390" height="110" rx="16" fill="#D97745" opacity=".2" stroke="#D97745" stroke-width="3"/>
+<text x="755" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#243238">Motion sensor</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="t d"><title id="t">Why a smart bulb needs its wall switch left on</title><desc id="d">Left: wall switch off cuts power so the app cannot reach the bulb. Right: switch kept on with a guard and a wireless button, so the bulb stays controllable.</desc>
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<rect x="40" y="70" width="430" height="450" rx="18" fill="#fff" stroke="#D97745" stroke-width="4"/>
+<text x="255" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#243238">Wall switch OFF</text>
+<circle cx="150" cy="210" r="50" fill="#cfc9bb" stroke="#243238" stroke-width="4"/><rect x="130" y="258" width="40" height="30" rx="4" fill="#243238"/>
+<rect x="310" y="230" width="80" height="140" rx="10" fill="#F7F5F0" stroke="#243238" stroke-width="4"/><rect x="332" y="300" width="36" height="50" rx="6" fill="#D97745"/>
+<text x="255" y="420" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#243238">Power cut: app, schedule</text>
+<text x="255" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#243238">and voice cannot reach it</text>
+<path d="M205 465 l60 60 M265 465 l-60 60" stroke="#D97745" stroke-width="10" stroke-linecap="round"/>
+<rect x="530" y="70" width="430" height="450" rx="18" fill="#fff" stroke="#6F8F82" stroke-width="4"/>
+<text x="745" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#243238">Switch kept ON</text>
+<circle cx="640" cy="210" r="50" fill="#F2C14E" stroke="#243238" stroke-width="4"/><rect x="620" y="258" width="40" height="30" rx="4" fill="#243238"/>
+<rect x="800" y="230" width="80" height="140" rx="10" fill="#F7F5F0" stroke="#243238" stroke-width="4"/><rect x="822" y="270" width="36" height="50" rx="6" fill="#6F8F82"/>
+<text x="745" y="420" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#243238">Guard + wireless button:</text>
+<text x="745" y="450" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="#243238">the light stays controllable</text>
+<path d="M700 478 l25 25 l45 -55" fill="none" stroke="#6F8F82" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
