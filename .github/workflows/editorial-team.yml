@@ -25,6 +25,8 @@ jobs:
         run: |
           git config user.name 'HomeProjectWise Editorial Team'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add content/staging data/editorial_state.json data/editorial_team.jsonl
+          for p in content/staging data/editorial_state.json data/editorial_team.jsonl; do
+            if [ -e "$p" ]; then git add -A -- "$p"; fi
+          done
           git diff --cached --quiet || git commit -m 'editorial: update coordinated content staging'
           git diff --cached --quiet || git push
