@@ -23,6 +23,8 @@ jobs:
         run: |
           git config user.name 'HomeProjectWise Image Curator'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A content/staging content/queue data/used_images.json
+          for p in content/staging content/queue data/used_images.json; do
+            if [ -e "$p" ]; then git add -A -- "$p"; fi
+          done
           git diff --cached --quiet || git commit -m 'editorial: curate approved article images'
           git diff --cached --quiet || git push
