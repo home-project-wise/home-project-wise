@@ -42,9 +42,10 @@ def main() -> int:
         return 2
     base = sys.argv[1].rstrip("/") + "/"
     pages = sorted(ARTICLES.glob("*.html"))
-    if len(pages) != 14:
-        print(f"ERROR: expected 14 article HTML files, found {len(pages)}", file=sys.stderr)
+    if not pages:
+        print("ERROR: no article HTML files found in website/articles", file=sys.stderr)
         return 1
+    print(f"Found {len(pages)} article HTML files (count is dynamic).")
     cache = {}
     total = local = unsplash = broken = 0
     print("| # | Article | Images | Local | Unsplash | 404 | Status |")
