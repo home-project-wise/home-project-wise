@@ -4,6 +4,7 @@ from __future__ import annotations
 import json, os
 from datetime import datetime, timezone, timedelta
 from urllib.parse import urlencode
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from pathlib import Path
 
@@ -18,10 +19,14 @@ def get(path, params):
         return None
     url = f'{API}/{path}?{urlencode(params)}'
     req = Request(url, headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'})
-    with urlopen(req, timeout=30) as r:
-        if r.status >= 400:
-            raise RuntimeError(f'GoatCounter HTTP {r.status}')
-        return json.load(r)
+    try:
+        with urlopen(req, timeout=30) as r:
+            if r.status >= 400:
+                raise RuntimeError(f'GoatCounter HTTP {r.status} on {path}')
+            return json.load(r)
+    except HTTPError as exc:
+        body = exc.read().decode('utf-8', 'replace')[:200]
+        raise RuntimeError(f'GoatCounter HTTP {exc.code} on {path}: {body}') from exc
 
 
 def main():
