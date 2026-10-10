@@ -32,6 +32,13 @@ MIN_INTERVAL = float(os.environ.get('VISION_MIN_INTERVAL', '6.5'))
 UA = {'User-Agent': 'Mozilla/5.0 (HomeProjectWise vision guard)'}
 IMG_RE = re.compile(r'<img\b[^>]*>', re.I)
 _last_call = [0.0]
+_START = time.time()
+BUDGET = float(os.environ.get('VISION_BUDGET_SECONDS', '1500'))
+QUOTA = [False]
+
+
+class BudgetExceeded(Exception):
+    pass
 
 
 def load_json(p, default):
@@ -129,6 +136,8 @@ def fetch_image(src, art_path=None):
 def gemini_json(prompt, image=None, retries=5):
     if not GEMINI_KEY:
         raise RuntimeError('GEMINI_API_KEY missing')
+    if QUOTA[0] or time.time() - _START > BUDGET:
+        raise BudgetExceeded('quota exhausted' if QUOTA[0] else 'time budget used')
     parts = [{'text': prompt}]
     if image:
         parts.append({'inline_data': {'mime_type': image[1], 'data': base64.b64encode(image[0]).decode()}})
@@ -148,10 +157,16 @@ def gemini_json(prompt, image=None, retries=5):
             txt = re.sub(r'^```(?:json)?|```$', '', txt.strip()).strip()
             return json.loads(txt)
         except urllib.error.HTTPError as e:
+            body_txt = e.read().decode('utf-8', 'replace')
+            print('    [gemini] HTTP %s attempt %d: %s' % (e.code, attempt + 1, body_txt[:160].replace('\n', ' ')), flush=True)
+            if e.code == 429 and ('PerDay' in body_txt or 'per day' in body_txt.lower()):
+                QUOTA[0] = True
+                raise BudgetExceeded('daily quota exhausted')
             if e.code in (429, 500, 503) and attempt < retries - 1:
-                time.sleep(20 * (attempt + 1))
+                m = re.search(r'"retryDelay":\s*"(\d+)', body_txt)
+                time.sleep(min(70, int(m.group(1)) + 2) if m else 20 * (attempt + 1))
                 continue
-            raise RuntimeError('Gemini HTTP %s: %r' % (e.code, e.read()[:200]))
+            raise RuntimeError('Gemini HTTP %s: %s' % (e.code, body_txt[:200].replace('\n', ' ')))
         except (KeyError, IndexError, json.JSONDecodeError) as e:
             if attempt < retries - 1:
                 continue
@@ -205,6 +220,7 @@ def vision(it, art_path, cache, use_cache=True):
     v = normalize(gemini_json(image_prompt(it), fetch_image(it['src'], art_path)))
     if use_cache:
         cache[ck] = v
+        save_json(CACHE, cache)
     return v
 
 
@@ -251,10 +267,12 @@ def audit(paths, cache, only_keys=None, log=print):
             try:
                 v = vision(it, p, cache)
                 status, problems = classify(v)
+            except BudgetExceeded as e:
+                v, status, problems = None, 'pending', [str(e)]
             except Exception as e:
                 v, status, problems = None, 'error', [str(e)[:120]]
             rows.append(dict(it, vision=v, status=status, problems=problems, path=str(p.relative_to(ROOT))))
-            log('  %-52s %-5s %-7s %s' % (p.stem[:52], it['role'], status, ','.join(problems)))
+            log('  %-52s %-5s %-7s %s | %s' % (p.stem[:52], it['role'], status, ','.join(problems), ((v or {}).get('visible_description') or '')[:90]), flush=True) if log is print else log('')
     # duplicate photos between different articles (later article loses; homepage reuse is allowed)
     by_key = {}
     for f in ART.glob('*.html'):
@@ -519,6 +537,10 @@ def cmd_content(cache):
         if ck not in cache:
             try:
                 cache[ck] = gemini_json(CONTENT_PROMPT + 'TEXT:\n' + txt)
+                save_json(CACHE, cache)
+            except BudgetExceeded as e:
+                print('  content audit stopped: %s' % e, flush=True)
+                break
             except Exception as e:
                 cache[ck] = {'error': str(e)[:150]}
         rows.append(dict(article=p.stem, result=cache[ck]))
@@ -535,6 +557,7 @@ def cmd_content(cache):
 
 def main():
     ap = argparse.ArgumentParser()
+    sys.stdout.reconfigure(line_buffering=True)
     ap.add_argument('mode', choices=['audit', 'fix', 'check', 'content'])
     ap.add_argument('--max-replace', type=int, default=4)
     ap.add_argument('--only', default='')
@@ -553,8 +576,6 @@ def main():
                 write_report(rows)
         elif a.mode == 'content':
             rc = cmd_content(cache)
-            if all('error' in c for c in [json.loads(json.dumps(v)) for v in cache.values() if isinstance(v, dict) and ('decision' in v or 'error' in v)] or [{}]) and cache:
-                pass
         else:
             if not GEMINI_KEY:
                 print('ERROR: GEMINI_API_KEY missing')
