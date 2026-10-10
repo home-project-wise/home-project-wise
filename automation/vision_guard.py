@@ -25,7 +25,7 @@ OUT = DATA / 'image_audit'
 CACHE = DATA / 'image_vision_cache.json'
 PROTECTED = DATA / 'image_protected.json'
 REGISTRY = DATA / 'used_images.json'
-MODEL = os.environ.get('VISION_MODEL', 'gemini-2.5-flash')
+MODEL = os.environ.get('VISION_MODEL', '')
 GEMINI_KEY = os.environ.get('GEMINI_API_KEY', '')
 PROMPT_VERSION = 'v1'
 MIN_INTERVAL = float(os.environ.get('VISION_MIN_INTERVAL', '6.5'))
@@ -292,6 +292,29 @@ def http_json(u, headers):
         return json.load(r)
 
 
+def resolve_model():
+    """Pick the newest plain 'gemini-X-flash' model this key can call (models are retired often)."""
+    if os.environ.get('VISION_MODEL'):
+        return os.environ['VISION_MODEL']
+    best = None
+    try:
+        d = http_json('https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000', {'x-goog-api-key': GEMINI_KEY})
+        cands = []
+        for m in d.get('models', []):
+            name = m['name'].split('/')[-1]
+            if 'generateContent' not in m.get('supportedGenerationMethods', []):
+                continue
+            mm = re.fullmatch(r'gemini-(\d+(?:\.\d+)?)-flash', name)
+            if mm:
+                cands.append((float(mm.group(1)), name))
+        if cands:
+            best = max(cands)[1]
+        print('Models offering generateContent (flash): %s' % sorted(n for _, n in cands))
+    except Exception as e:
+        print('Model discovery failed: %s' % str(e)[:150])
+    return best or 'gemini-flash-latest'
+
+
 def search_pexels(q):
     key = os.environ.get('PEXELS_API_KEY')
     if not key:
@@ -516,6 +539,10 @@ def main():
     ap.add_argument('--max-replace', type=int, default=4)
     ap.add_argument('--only', default='')
     a = ap.parse_args()
+    global MODEL
+    if GEMINI_KEY and a.mode != 'check' or (GEMINI_KEY and a.mode == 'check'):
+        MODEL = resolve_model()
+        print('Vision model: %s' % MODEL)
     cache = load_json(CACHE, {})
     rc = 0
     try:
@@ -526,6 +553,8 @@ def main():
                 write_report(rows)
         elif a.mode == 'content':
             rc = cmd_content(cache)
+            if all('error' in c for c in [json.loads(json.dumps(v)) for v in cache.values() if isinstance(v, dict) and ('decision' in v or 'error' in v)] or [{}]) and cache:
+                pass
         else:
             if not GEMINI_KEY:
                 print('ERROR: GEMINI_API_KEY missing')
@@ -541,6 +570,9 @@ def main():
             for r in rows:
                 summary[r['status']] = summary.get(r['status'], 0) + 1
             print('SUMMARY', summary)
+            if rows and all(r['status'] == 'error' for r in rows):
+                print('FAIL: every image check errored - the vision model is unavailable')
+                rc = 1
     finally:
         save_json(CACHE, cache)
     return rc
