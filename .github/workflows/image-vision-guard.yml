@@ -1,0 +1,74 @@
+name: Image Vision Guard
+on:
+  schedule:
+    - cron: '40 3 * * 0'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'audit = report only, fix = report and safe automatic fixes, content = article value audit'
+        default: 'fix'
+        type: choice
+        options: [audit, fix, content]
+  pull_request:
+    paths:
+      - 'website/articles/**'
+      - 'automation/vision_guard.py'
+      - '.github/workflows/image-vision-guard.yml'
+permissions:
+  contents: write
+concurrency:
+  group: ${{ github.event_name == 'pull_request' && format('image-vision-pr-{0}', github.event.pull_request.number) || 'main-automation' }}
+  cancel-in-progress: false
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: PR gate - new article images must fit their sections
+        if: github.event_name == 'pull_request'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          BASE_REF: origin/${{ github.base_ref }}
+          VISION_FULL_AUDIT: ${{ contains(github.event.pull_request.title, '[full-audit]') && '1' || '0' }}
+        run: python automation/vision_guard.py check
+      - name: Audit and fix images
+        if: github.event_name != 'pull_request' && inputs.mode != 'content'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: python automation/vision_guard.py "${{ inputs.mode || 'fix' }}" --max-replace 4
+      - name: Content value audit (report only)
+        if: github.event_name == 'schedule' || inputs.mode == 'content' || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[full-audit]'))
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python automation/vision_guard.py content
+      - name: Show reports
+        if: always()
+        run: |
+          for f in data/image_audit/REPORT.md data/image_audit/CONTENT_REPORT.md; do
+            if [ -f "$f" ]; then echo "===== $f ====="; cat "$f"; fi
+          done
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-vision-report
+          path: data/image_audit
+          if-no-files-found: ignore
+      - name: Commit results
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name 'HomeProjectWise Vision Guard'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A -- website data/image_audit data/image_vision_cache.json data/used_images.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'images: vision-guard audit and approved fixes'
+          for i in 1 2 3; do
+            git pull --rebase origin "$GITHUB_REF_NAME" && git push && exit 0
+            sleep 5
+          done
+          exit 1
