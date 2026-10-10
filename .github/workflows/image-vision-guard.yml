@@ -9,6 +9,9 @@ on:
         default: 'fix'
         type: choice
         options: [audit, fix, content]
+      budget:
+        description: 'seconds of model calls before stopping (progress is cached and resumes next run)'
+        default: '1500'
   pull_request:
     paths:
       - 'website/articles/**'
@@ -33,14 +36,16 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           BASE_REF: origin/${{ github.base_ref }}
           VISION_FULL_AUDIT: ${{ contains(github.event.pull_request.title, '[full-audit]') && '1' || '0' }}
-        run: python automation/vision_guard.py check
+          VISION_BUDGET_SECONDS: '600'
+        run: python -u automation/vision_guard.py check
       - name: Audit and fix images
         if: github.event_name != 'pull_request' && inputs.mode != 'content'
         env:
+          VISION_BUDGET_SECONDS: ${{ inputs.budget || '1500' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-        run: python automation/vision_guard.py "${{ inputs.mode || 'fix' }}" --max-replace 4
+        run: python -u automation/vision_guard.py "${{ inputs.mode || 'fix' }}" --max-replace 4
       - name: Content value audit (report only)
         if: github.event_name == 'schedule' || inputs.mode == 'content' || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[full-audit]'))
         env:
@@ -60,7 +65,7 @@ jobs:
           path: data/image_audit
           if-no-files-found: ignore
       - name: Commit results
-        if: github.event_name != 'pull_request'
+        if: always() && github.event_name != 'pull_request'
         run: |
           git config user.name 'HomeProjectWise Vision Guard'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
