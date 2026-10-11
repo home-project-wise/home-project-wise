@@ -1,10 +1,10 @@
-| # | PR | Slug | Verified | Merged | Notes |
-|---:|---:|---|---|---|---|
-| 1 | #34 | crawl-space-hero-jpeg | pending | pending | Skipped per delegation: needs owner intervention to resolve merge conflict. |
-| 2 | #35 | condensation-hero | done | done | Verified; image progress conflict resolved preserving all task rows; merged. |
-| 3 | #36 | hang-large-wall-art | done | done | 2 files (article + editorial tracker); images and href list unchanged; tracker rows preserved; merged. |
-| 4 | #37 | drafty-door | done | done | 2 files (article + editorial tracker); 17 href values identical to base; all img src/alt unchanged; tracker rows preserved; merged. |
-| 5 | #38 | cable-clutter | pending | pending | Skipped: merge rejected as not mergeable after refreshing complete editorial tracker; owner intervention needed. |
-| 6 | #39 | small-bathroom-clean | pending | pending | Skipped: merge reports conflicts after refreshing the full editorial tracker; owner intervention needed. |
-| 7 | #40 | evening-lighting | done | done | 2 files (article + editorial tracker); 17 href values and all image src/alt values identical to base; tracker rows preserved; merged. |
-| 8 | #41 | calm-room | pending | pending | — |
+| PR | Slug | مدموج؟ | ملاحظة |
+|---:|---|---|---|
+| #34 | crawl-space-hero-jpeg | لا | لم يُدمج — يحتاج تدخل المالك لحل تعارض الدمج. |
+| #35 | condensation-hero | نعم | تم التحقق والدمج؛ حُل تعارض image_progress.md مع الحفاظ على صفوف المهام. |
+| #36 | hang-large-wall-art | نعم | تم التحقق والدمج؛ ملف المقالة + editorial_progress.md فقط، الروابط والصور لم تتغير، وحُفظت جميع صفوف التتبع. |
+| #37 | drafty-door | نعم | تم التحقق والدمج؛ 17 رابطًا مطابقًا للأصل، وsrc/alt للصور لم يتغيرا، وحُفظت صفوف التتبع. |
+| #38 | cable-clutter | لا | تخطٍّ بعد رفض الدمج حتى بعد تحديث ملف التتبع؛ يحتاج تدخل المالك. |
+| #39 | small-bathroom-clean | لا | تخطٍّ بعد استمرار تعارض الدمج رغم تحديث ملف التتبع؛ يحتاج تدخل المالك. |
+| #40 | evening-lighting | نعم | تم التحقق والدمج؛ 17 رابطًا مطابقًا للأصل، وsrc/alt للصور لم يتغيرا، وحُفظت صفوف التتبع. |
+| #41 | calm-room | لا | تخطٍّ بعد استمرار تعارض الدمج رغم تحديث ملف التتبع؛ يحتاج تدخل المالك. |
