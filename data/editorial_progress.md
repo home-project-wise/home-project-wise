@@ -5,9 +5,9 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | # | Article | Status | PR | Notes |
 |---:|---|---|---|---|
 | 1 | how-to-fix-damp-crawl-space-humidity | pr-open | #27 | merged |
-| 2 | reduce-bathroom-condensation | pending | — | — |
-| 3 | smart-lighting | pending | — | Claude working |
-| 4 | macerating-toilet-basement-bathroom | pr-open | #28 | — |
+| 2 | reduce-bathroom-condensation | pr-open | #29 | pending merge |
+| 3 | smart-lighting | pr-open | #31 | pending merge |
+| 4 | macerating-toilet-basement-bathroom | pr-open | #28 | this PR |
 | 5 | fix-wobbly-furniture | pending | — | — |
 | 6 | better-evening-home-lighting-without-overcomplicating-it | pending | — | — |
 | 7 | calm-room | pending | — | — |
