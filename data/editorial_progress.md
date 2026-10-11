@@ -7,7 +7,7 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | better-evening-home-lighting-without-overcomplicating-it | - | pending |  |
 | calm-room | - | pending |  |
 | fix-wobbly-furniture | B | pending |  |
-| how-to-fix-damp-crawl-space-humidity | A | pr-open | #TBD |
+| how-to-fix-damp-crawl-space-humidity | A | pr-open | #27 |
 | how-to-hang-large-wall-art-without-damage | - | pending |  |
 | kitchen-counter-zone-that-stays-clear | - | pending |  |
 | macerating-toilet-basement-bathroom | A | pending |  |
