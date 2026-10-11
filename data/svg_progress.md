@@ -5,4 +5,4 @@
 | 3 | crawl-space | crawl-space-before-after.svg | done | [#45](https://github.com/home-project-wise/home-project-wise/pull/45) | |
 | 4 | condensation | condensation-fix-ladder.svg | done | [#46](https://github.com/home-project-wise/home-project-wise/pull/46) | done + [#52](https://github.com/home-project-wise/home-project-wise/pull/52) |
 | 5 | drafty-door | drafty-door-steps.svg | done | [#47](https://github.com/home-project-wise/home-project-wise/pull/47) | done + [#53](https://github.com/home-project-wise/home-project-wise/pull/53) |
-| 6 | cable-clutter | cable-before-after.svg | done | [#48](https://github.com/home-project-wise/home-project-wise/pull/48) | pending |
+| 6 | cable-clutter | cable-before-after.svg | done | [#48](https://github.com/home-project-wise/home-project-wise/pull/48) | done + [#54](https://github.com/home-project-wise/home-project-wise/pull/54) |
