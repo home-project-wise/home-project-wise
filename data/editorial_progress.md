@@ -18,6 +18,6 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | reduce-cable-clutter | - | pending |  |  |
 | simple-home-reset-that-prevents-weekend-chaos | - | pending |  |  |
 | small-bathroom-easier-to-clean | - | pending |  |  |
-| smart-lighting | B | pr-open | #TBD | Leaked editorial note removed; one quick-answer block with situation table and rough prices; Wi-Fi/hub/Matter paragraph; safe neutral-check route; FAQ safety tone aligned; UK two-wire example; sections 7+8 merged into a 4-line list |
+| smart-lighting | B | pr-open | #31 | Leaked editorial note removed; one quick-answer block with situation table and rough prices; Wi-Fi/hub/Matter paragraph; safe neutral-check route; FAQ safety tone aligned; UK two-wire example; sections 7+8 merged into a 4-line list |
 | stop-a-drafty-door-without-replacing-it | - | pending |  |  |
 | stop-musty-bathroom-towels | - | pending |  |  |
