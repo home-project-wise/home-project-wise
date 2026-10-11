@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+<title id="title">Cable clutter: before and after</title>
+<desc id="desc">A side-by-side illustration shows tangled loose cables before organizing and neatly routed cables secured with clips after organizing.</desc>
+<rect width="1400" height="800" fill="#FFFFFF"/>
+<rect x="2" y="2" width="1396" height="796" rx="18" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+<g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+<text x="350" y="76" font-size="36" font-weight="700" fill="#111827">Before</text>
+<text x="1050" y="76" font-size="36" font-weight="700" fill="#111827">After</text>
+<rect x="70" y="120" width="560" height="520" rx="16" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<rect x="770" y="120" width="560" height="520" rx="16" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<path d="M98 205 H602 V236 H98Z" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="3"/>
+<path d="M122 236 V592 M578 236 V592" stroke="#9CA3AF" stroke-width="12" stroke-linecap="round"/>
+<rect x="248" y="145" width="204" height="92" rx="8" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="3"/>
+<rect x="269" y="162" width="162" height="58" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+<path d="M276 237 C240 270 442 260 390 310 S226 364 280 400 S452 455 376 490 S238 525 292 590" fill="none" stroke="#374151" stroke-width="9" stroke-linecap="round"/>
+<path d="M312 237 C390 278 220 306 300 342 S474 365 430 418 S250 452 325 500 S448 544 400 590" fill="none" stroke="#6B7280" stroke-width="8" stroke-linecap="round"/>
+<path d="M354 237 C290 284 470 320 362 360 S250 408 340 438 S430 476 320 520 S250 560 355 590" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round"/>
+<path d="M410 237 C480 282 315 318 400 350 S490 402 370 438 S260 488 390 526 S460 564 420 590" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>
+<path d="M178 310 C218 282 262 315 242 344 C220 374 182 346 204 325 C228 302 286 352 266 382" fill="none" stroke="#374151" stroke-width="7" stroke-linecap="round"/>
+<rect x="182" y="580" width="52" height="24" rx="4" fill="#D1D5DB" stroke="#6B7280" stroke-width="2"/>
+<rect x="444" y="578" width="52" height="24" rx="4" fill="#D1D5DB" stroke="#6B7280" stroke-width="2"/>
+<text x="350" y="620" font-size="19" fill="#374151">Loose loops and crossed cables</text>
+
+<path d="M798 205 H1302 V236 H798Z" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="3"/>
+<path d="M822 236 V592 M1278 236 V592" stroke="#9CA3AF" stroke-width="12" stroke-linecap="round"/>
+<rect x="948" y="145" width="204" height="92" rx="8" fill="#E5E7EB" stroke="#9CA3AF" stroke-width="3"/>
+<rect x="969" y="162" width="162" height="58" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="2"/>
+<path d="M982 237 V568 Q982 586 1000 586 H1100 Q1118 586 1118 568 V237" fill="none" stroke="#374151" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1024 237 V548 Q1024 564 1040 564 H1162 Q1178 564 1178 548 V237" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1068 237 V528 Q1068 544 1084 544 H1222 Q1238 544 1238 528 V237" fill="none" stroke="#6B7280" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="#DBEAFE" stroke="#60A5FA" stroke-width="3">
+<rect x="966" y="280" width="32" height="20" rx="5"/><rect x="1008" y="350" width="32" height="20" rx="5"/><rect x="1052" y="420" width="32" height="20" rx="5"/><rect x="1102" y="490" width="32" height="20" rx="5"/><rect x="1198" y="350" width="32" height="20" rx="5"/><rect x="1198" y="420" width="32" height="20" rx="5"/>
+</g>
+<text x="1050" y="620" font-size="19" fill="#374151">Cables routed neatly with clips</text>
+<path d="M642 380 H754 M733 359 L755 380 L733 401" fill="none" stroke="#6B7280" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="700" y="700" font-size="21" fill="#111827">Group cables by device and secure them along a clear route.</text>
+<text x="700" y="738" font-size="17" fill="#6B7280">Keep ventilation openings clear and avoid pinching power cords.</text>
+</g>
+</svg>
