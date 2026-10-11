@@ -14,7 +14,7 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | make-small-living-room-feel-bigger | - | pending |  |
 | motion-lighting-that-actually-helps | - | pending |  |
 | quiet-entryway-storage | - | pending |  |
-| reduce-bathroom-condensation | A | pr-open | #TBD |
+| reduce-bathroom-condensation | A | pr-open | #29 |
 | reduce-cable-clutter | - | pending |  |
 | simple-home-reset-that-prevents-weekend-chaos | - | pending |  |
 | small-bathroom-easier-to-clean | - | pending |  |
