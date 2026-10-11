@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+<title id="title">Crawl space: before and after moisture control</title>
+<desc id="desc">A side-by-side illustration contrasts a damp dirt-floor crawl space with gray walls against a treated space with a white ground vapor barrier and a small dehumidifier.</desc>
+<rect width="1400" height="800" fill="#FFFFFF"/>
+<rect x="2" y="2" width="1396" height="796" rx="18" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+<g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+<text x="350" y="76" font-size="36" font-weight="700" fill="#111827">Before</text>
+<text x="1050" y="76" font-size="36" font-weight="700" fill="#111827">After</text>
+<rect x="72" y="120" width="556" height="510" rx="12" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<rect x="772" y="120" width="556" height="510" rx="12" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<path d="M92 154 H608 V544 L574 552 L536 546 L494 555 L452 548 L412 558 L372 550 L328 557 L286 548 L244 556 L204 549 L164 556 L92 548Z" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="3"/>
+<path d="M92 478 L608 478 V544 L574 552 L536 546 L494 555 L452 548 L412 558 L372 550 L328 557 L286 548 L244 556 L204 549 L164 556 L92 548Z" fill="#9A7B60" stroke="#6B7280" stroke-width="3"/>
+<g fill="#6B7280">
+<circle cx="132" cy="510" r="5"/><circle cx="178" cy="533" r="4"/><circle cx="226" cy="500" r="6"/><circle cx="276" cy="530" r="5"/><circle cx="324" cy="511" r="4"/><circle cx="364" cy="537" r="6"/><circle cx="418" cy="504" r="5"/><circle cx="462" cy="530" r="4"/><circle cx="520" cy="512" r="6"/><circle cx="572" cy="534" r="5"/>
+</g>
+<g fill="none" stroke="#60A5FA" stroke-width="4" stroke-linecap="round">
+<path d="M180 340 C162 325 162 308 180 294 C198 308 198 325 180 340Z"/><path d="M350 386 C332 371 332 354 350 340 C368 354 368 371 350 386Z"/><path d="M500 326 C482 311 482 294 500 280 C518 294 518 311 500 326Z"/>
+</g>
+<text x="350" y="590" font-size="20" fill="#374151">Dirt floor • exposed ground moisture</text>
+<path d="M640 370 H754" stroke="#6B7280" stroke-width="7" stroke-linecap="round"/>
+<path d="M733 345 L758 370 L733 395" fill="none" stroke="#6B7280" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M792 154 H1308 V544 H792Z" fill="#D1D5DB" stroke="#9CA3AF" stroke-width="3"/>
+<path d="M792 478 H1308 V544 H792Z" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="3"/>
+<path d="M792 476 L844 468 L896 477 L948 468 L1000 477 L1052 468 L1104 477 L1156 468 L1208 477 L1308 470 V542 H792Z" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="4" stroke-linejoin="round"/>
+<path d="M818 492 H1280 M818 512 H1280" stroke="#E5E7EB" stroke-width="2"/>
+<rect x="1124" y="354" width="132" height="112" rx="10" fill="#FFFFFF" stroke="#6B7280" stroke-width="3"/>
+<rect x="1143" y="370" width="94" height="20" rx="4" fill="#DBEAFE" stroke="#93C5FD" stroke-width="2"/>
+<g stroke="#9CA3AF" stroke-width="3" stroke-linecap="round">
+<path d="M1145 408 H1235"/><path d="M1145 421 H1235"/><path d="M1145 434 H1235"/>
+</g>
+<circle cx="1237" cy="382" r="4" fill="#2563EB"/>
+<path d="M1150 466 V476 M1230 466 V476" stroke="#6B7280" stroke-width="4"/>
+<text x="1050" y="590" font-size="20" fill="#374151">Sealed ground membrane + dehumidifier</text>
+<text x="700" y="700" font-size="21" fill="#111827">Control ground moisture and keep the space dry.</text>
+<text x="700" y="738" font-size="17" fill="#6B7280">Seal membrane seams and edges; size equipment for the space.</text>
+</g>
+</svg>
