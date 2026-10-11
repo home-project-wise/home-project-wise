@@ -6,5 +6,5 @@
 | 4 | #37 | drafty-door | done | done | 2 files (article + editorial tracker); 17 href values identical to base; all img src/alt unchanged; tracker rows preserved; merged. |
 | 5 | #38 | cable-clutter | pending | pending | Skipped: merge rejected as not mergeable after refreshing complete editorial tracker; owner intervention needed. |
 | 6 | #39 | small-bathroom-clean | pending | pending | Skipped: merge reports conflicts after refreshing the full editorial tracker; owner intervention needed. |
-| 7 | #40 | evening-lighting | pending | pending | — |
+| 7 | #40 | evening-lighting | done | done | 2 files (article + editorial tracker); 17 href values and all image src/alt values identical to base; tracker rows preserved; merged. |
 | 8 | #41 | calm-room | pending | pending | — |
