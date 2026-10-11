@@ -11,7 +11,7 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | 5 | fix-wobbly-furniture | pending | — | — |
 | 6 | better-evening-home-lighting-without-overcomplicating-it | pending | — | — |
 | 7 | calm-room | pending | — | — |
-| 8 | how-to-hang-large-wall-art-without-damage | pending | — | — |
+| 8 | how-to-hang-large-wall-art-without-damage | pr-open | #36 | pending merge |
 | 9 | kitchen-counter-zone-that-stays-clear | pending | — | — |
 | 10 | make-small-living-room-feel-bigger | pending | — | — |
 | 11 | motion-lighting-that-actually-helps | pending | — | — |
