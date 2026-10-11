@@ -10,11 +10,11 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | how-to-fix-damp-crawl-space-humidity | A | pr-open | #27 |
 | how-to-hang-large-wall-art-without-damage | - | pending |  |
 | kitchen-counter-zone-that-stays-clear | - | pending |  |
-| macerating-toilet-basement-bathroom | A | pending |  |
+| macerating-toilet-basement-bathroom | A | pr-open | #28 |
 | make-small-living-room-feel-bigger | - | pending |  |
 | motion-lighting-that-actually-helps | - | pending |  |
 | quiet-entryway-storage | - | pending |  |
-| reduce-bathroom-condensation | A | pending |  |
+| reduce-bathroom-condensation | A | pr-open | #29 |
 | reduce-cable-clutter | - | pending |  |
 | simple-home-reset-that-prevents-weekend-chaos | - | pending |  |
 | small-bathroom-easier-to-clean | - | pending |  |
