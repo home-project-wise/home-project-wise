@@ -9,7 +9,7 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | 3 | smart-lighting | pr-open | #31 | pending merge |
 | 4 | macerating-toilet-basement-bathroom | pr-open | #28 | this PR |
 | 5 | fix-wobbly-furniture | pending | — | — |
-| 6 | better-evening-home-lighting-without-overcomplicating-it | pending | — | — |
+| 6 | better-evening-home-lighting-without-overcomplicating-it | pr-open | #40 | pending merge |
 | 7 | calm-room | pending | — | — |
 | 8 | how-to-hang-large-wall-art-without-damage | pending | — | — |
 | 9 | kitchen-counter-zone-that-stays-clear | pending | — | — |
