@@ -19,5 +19,5 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | 13 | reduce-cable-clutter | pending | — | — |
 | 14 | simple-home-reset-that-prevents-weekend-chaos | pending | — | — |
 | 15 | small-bathroom-easier-to-clean | pending | — | — |
-| 16 | stop-a-drafty-door-without-replacing-it | pending | — | — |
+| 16 | stop-a-drafty-door-without-replacing-it | pr-open | #37 | pending merge |
 | 17 | stop-musty-bathroom-towels | pending | — | — |
