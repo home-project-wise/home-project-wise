@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+  <title id="title">Smart Bulb vs. Smart Switch</title>
+  <desc id="desc">A comparison of smart bulbs and smart switches, including approximate prices and wiring requirements.</desc>
+  <rect width="1400" height="800" fill="#FFFFFF"/>
+  <rect x="1" y="1" width="1398" height="798" fill="none" stroke="#E5E7EB" stroke-width="2"/>
+  <line x1="700" y1="40" x2="700" y2="680" stroke="#E5E7EB" stroke-width="2"/>
+  <g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+    <text x="350" y="100" font-size="36" font-weight="700" fill="#111827">Smart Bulb</text>
+    <g transform="translate(350 280)">
+      <path d="M-53 -18 C-53 -52 -29 -76 0 -76 C29 -76 53 -52 53 -18 C53 7 39 22 25 38 L-25 38 C-39 22 -53 7 -53 -18Z" fill="#FDE68A" stroke="#D1A94B" stroke-width="4"/>
+      <path d="M-20 -27 C-20 -42 -10 -51 3 -53" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+      <path d="M-25 38 H25 V51 H-25Z M-22 51 H22 V63 H-22Z M-17 63 H17 V73 H-17Z" fill="#D1D5DB" stroke="#6B7280" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M-18 45 H18 M-15 57 H15" stroke="#6B7280" stroke-width="2"/>
+    </g>
+    <text x="350" y="520" font-size="20" fill="#374151">About $10–$30 per bulb</text>
+    <text x="350" y="565" font-size="18" fill="#6B7280">No wiring. Wall switch stays on.</text>
+    <text x="1050" y="100" font-size="36" font-weight="700" fill="#111827">Smart Switch</text>
+    <g transform="translate(1050 280)">
+      <rect x="-64" y="-86" width="128" height="172" rx="12" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="4"/>
+      <rect x="-43" y="-65" width="86" height="130" rx="8" fill="#DBEAFE" stroke="#93C5FD" stroke-width="3"/>
+      <rect x="-27" y="-43" width="54" height="86" rx="7" fill="#FFFFFF" stroke="#60A5FA" stroke-width="3"/>
+      <circle cx="0" cy="-20" r="5" fill="#93C5FD"/>
+      <path d="M-13 8 H13" stroke="#60A5FA" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="0" cy="27" r="4" fill="#93C5FD"/>
+    </g>
+    <text x="1050" y="520" font-size="20" fill="#374151">About $25–$70 per switch</text>
+    <text x="1050" y="565" font-size="18" fill="#6B7280">Needs a neutral wire.</text>
+    <line x1="48" y1="700" x2="1352" y2="700" stroke="#E5E7EB" stroke-width="2"/>
+    <text x="700" y="760" font-size="22" font-style="italic" fill="#1F2937">Which one fits your home? See the table below.</text>
+  </g>
+</svg>
