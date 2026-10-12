@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+<title id="title">Is a macerating toilet right for your space?</title>
+<desc id="desc">Four situations that suit a macerating toilet and four situations where it may not be the right choice.</desc>
+<rect width="1400" height="800" fill="#FFFFFF"/>
+<rect x="2" y="2" width="1396" height="796" rx="18" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+<g font-family="system-ui, -apple-system, sans-serif">
+<text x="700" y="76" text-anchor="middle" font-size="36" font-weight="700" fill="#111827">Is a macerating toilet right for your space?</text>
+<rect x="56" y="120" width="628" height="560" rx="16" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<rect x="716" y="120" width="628" height="560" rx="16" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2"/>
+<text x="370" y="176" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">Suitable for</text>
+<text x="1030" y="176" text-anchor="middle" font-size="28" font-weight="700" fill="#111827">Not suitable for</text>
+<g fill="#374151" font-size="23">
+<circle cx="104" cy="236" r="20" fill="#DCFCE7"/><text x="104" y="244" text-anchor="middle" font-size="25" font-weight="700" fill="#166534">✓</text>
+<text x="142" y="244">Basement bathroom</text>
+<circle cx="104" cy="326" r="20" fill="#DCFCE7"/><text x="104" y="334" text-anchor="middle" font-size="25" font-weight="700" fill="#166534">✓</text>
+<text x="142" y="334">No gravity drain</text>
+<circle cx="104" cy="416" r="20" fill="#DCFCE7"/><text x="104" y="424" text-anchor="middle" font-size="25" font-weight="700" fill="#166534">✓</text>
+<text x="142" y="408">Adding a toilet far</text><text x="142" y="438">from the stack</text>
+<circle cx="104" cy="516" r="20" fill="#DCFCE7"/><text x="104" y="524" text-anchor="middle" font-size="25" font-weight="700" fill="#166534">✓</text>
+<text x="142" y="524">Typical residential waste</text>
+<circle cx="764" cy="236" r="20" fill="#FEE2E2"/><text x="764" y="244" text-anchor="middle" font-size="25" font-weight="700" fill="#B91C1C">✗</text>
+<text x="802" y="244">High-volume use</text>
+<circle cx="764" cy="326" r="20" fill="#FEE2E2"/><text x="764" y="334" text-anchor="middle" font-size="25" font-weight="700" fill="#B91C1C">✗</text>
+<text x="802" y="318">Long horizontal runs beyond</text><text x="802" y="348">the unit’s rating</text>
+<circle cx="764" cy="416" r="20" fill="#FEE2E2"/><text x="764" y="424" text-anchor="middle" font-size="25" font-weight="700" fill="#B91C1C">✗</text>
+<text x="802" y="408">Gravity drain available</text><text x="802" y="438">at low cost</text>
+<circle cx="764" cy="516" r="20" fill="#FEE2E2"/><text x="764" y="524" text-anchor="middle" font-size="25" font-weight="700" fill="#B91C1C">✗</text>
+<text x="802" y="524">Non-standard waste</text>
+</g>
+<line x1="700" y1="144" x2="700" y2="652" stroke="#E5E7EB" stroke-width="2"/>
+<text x="700" y="735" text-anchor="middle" font-size="19" fill="#6B7280">Always check the unit’s installation and discharge limits.</text>
+</g>
+</svg>

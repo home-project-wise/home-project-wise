@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+<title id="title">A ladder of fixes for window condensation</title>
+<desc id="desc">Three ascending levels show free actions, fixes under twenty dollars, and bigger jobs to reduce condensation.</desc>
+<rect width="1400" height="800" fill="#FFFFFF"/>
+<rect x="2" y="2" width="1396" height="796" rx="18" fill="none" stroke="#E5E7EB" stroke-width="3"/>
+<g font-family="system-ui, -apple-system, sans-serif">
+<text x="700" y="76" text-anchor="middle" font-size="36" font-weight="700" fill="#111827">A ladder of fixes for condensation</text>
+<path d="M100 650 H1300" stroke="#E5E7EB" stroke-width="3"/>
+<path d="M440 650 V490 H850 V330 H1260 V650" fill="#F9FAFB" stroke="#E5E7EB" stroke-width="2" stroke-linejoin="round"/>
+<rect x="80" y="350" width="360" height="300" rx="16" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="2"/>
+<rect x="520" y="230" width="360" height="420" rx="16" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="2"/>
+<rect x="960" y="110" width="360" height="540" rx="16" fill="#F3F4F6" stroke="#D1D5DB" stroke-width="2"/>
+<g text-anchor="middle">
+<text x="260" y="402" font-size="30" font-weight="700" fill="#111827">Free</text>
+<text x="260" y="446" font-size="20" fill="#374151">Start here</text>
+<g transform="translate(260 500)" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<rect x="-42" y="-30" width="84" height="62" rx="3"/><path d="M0 -30 V32 M-42 0 H42"/>
+<path d="M-58 -42 L-45 -48 M58 -42 L45 -48"/>
+</g>
+<text x="260" y="570" font-size="21" fill="#374151">Open a window</text>
+<text x="260" y="605" font-size="21" fill="#374151">Dry wet surfaces</text>
+
+<text x="700" y="282" font-size="30" font-weight="700" fill="#111827">Under $20</text>
+<text x="700" y="326" font-size="20" fill="#374151">Add gentle airflow</text>
+<g transform="translate(700 400)" stroke="#60A5FA" stroke-width="4" fill="none">
+<circle r="46" fill="#DBEAFE"/><circle r="8" fill="#60A5FA"/>
+<path d="M0 -8 C-24 -42 -35 -18 -18 -4 C-5 2 -3 -3 0 -8Z" fill="#93C5FD"/>
+<path d="M8 0 C42 -24 18 -35 4 -18 C-2 -5 3 -3 8 0Z" fill="#93C5FD"/>
+<path d="M0 8 C24 42 35 18 18 4 C5 -2 3 3 0 8Z" fill="#93C5FD"/>
+<path d="M-8 0 C-42 24 -18 35 -4 18 C2 5 -3 3 -8 0Z" fill="#93C5FD"/>
+</g>
+<text x="700" y="490" font-size="21" fill="#374151">Small fan</text>
+<text x="700" y="526" font-size="21" fill="#374151">Timer plug</text>
+
+<text x="1140" y="164" font-size="30" font-weight="700" fill="#111827">Bigger job</text>
+<text x="1140" y="208" font-size="20" fill="#374151">Improve extraction</text>
+<g transform="translate(1140 290)" stroke="#6B7280" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<circle r="50" fill="#FFFFFF"/><circle r="8" fill="#9CA3AF"/>
+<path d="M0 -8 C-10 -48 18 -48 16 -20 C15 -10 6 -5 0 -8Z" fill="#DBEAFE" stroke="#60A5FA"/>
+<path d="M8 0 C48 -10 48 18 20 16 C10 15 5 6 8 0Z" fill="#DBEAFE" stroke="#60A5FA"/>
+<path d="M0 8 C10 48 -18 48 -16 20 C-15 10 -6 5 0 8Z" fill="#DBEAFE" stroke="#60A5FA"/>
+<path d="M-8 0 C-48 10 -48 -18 -20 -16 C-10 -15 -5 -6 -8 0Z" fill="#DBEAFE" stroke="#60A5FA"/>
+</g>
+<text x="1140" y="382" font-size="21" fill="#374151">Ceiling extractor fan</text>
+<text x="1140" y="420" font-size="21" fill="#374151">Check drainage</text>
+<text x="1140" y="458" font-size="21" fill="#374151">for persistent water</text>
+</g>
+<path d="M452 326 L486 300 L486 316 L504 316 L504 334 L486 334 L486 350Z" fill="#9CA3AF"/>
+<path d="M892 206 L926 180 L926 196 L944 196 L944 214 L926 214 L926 230Z" fill="#9CA3AF"/>
+<text x="700" y="710" text-anchor="middle" font-size="20" fill="#374151">If condensation persists, check humidity, ventilation and cold surfaces.</text>
+<text x="700" y="746" text-anchor="middle" font-size="17" fill="#6B7280">Choose the lowest-cost step that addresses the cause.</text>
+</g>
+</svg>
