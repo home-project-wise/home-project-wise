@@ -20,6 +20,8 @@
 
 | [#58](https://github.com/home-project-wise/home-project-wise/pull/58) | motion-lighting-that-actually-helps | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 18 رابطًا فعليًا متطابقًا بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع، مع الحفاظ على صفوف المقالات الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
 
+| [#59](https://github.com/home-project-wise/home-project-wise/pull/59) | quiet-entryway-storage | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 15 رابطًا فعليًا متطابقًا بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع مع الحفاظ على صفوف المقالات الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
+
 ## ملاحظات تشغيلية
 
 - لم تُدمج PRs #34 و#38 و#39 و#41 خلال هذا التدقيق.
