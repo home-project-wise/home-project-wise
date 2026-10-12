@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 800" role="img" aria-labelledby="title desc">
+<title id="title">Diagnose a wobbly toilet</title>
+<desc id="desc">A simple flowchart routes a toilet wobble to three possible causes: floor, contact, or joint, each with a suggested fix.</desc>
+<rect width="1400" height="800" fill="#FFFFFF"/>
+<rect x="2" y="2" width="1396" height="796" fill="none" stroke="#E5E7EB" stroke-width="3" rx="18"/>
+<g font-family="system-ui, -apple-system, sans-serif" text-anchor="middle">
+<text x="700" y="68" font-size="36" font-weight="700" fill="#111827">Diagnose a Wobbly Toilet</text>
+<rect x="565" y="104" width="270" height="84" rx="16" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="2"/>
+<text x="700" y="157" font-size="30" font-weight="700" fill="#111827">Wobble</text>
+<path d="M700 188 V226 H230 V268 M700 226 V268 M700 226 H1170 V268" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M218 255 L230 270 L242 255 M688 255 L700 270 L712 255 M1158 255 L1170 270 L1182 255" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="274" width="320" height="112" rx="14" fill="#EFF6FF" stroke="#93C5FD" stroke-width="2"/>
+<rect x="540" y="274" width="320" height="112" rx="14" fill="#F9FAFB" stroke="#D1D5DB" stroke-width="2"/>
+<rect x="1010" y="274" width="320" height="112" rx="14" fill="#EFF6FF" stroke="#93C5FD" stroke-width="2"/>
+<text x="230" y="341" font-size="30" font-weight="700" fill="#111827">Floor</text>
+<text x="700" y="341" font-size="30" font-weight="700" fill="#111827">Contact</text>
+<text x="1170" y="341" font-size="30" font-weight="700" fill="#111827">Joint</text>
+<path d="M230 386 V454 M700 386 V454 M1170 386 V454" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round"/>
+<path d="M218 441 L230 456 L242 441 M688 441 L700 456 L712 441 M1158 441 L1170 456 L1182 441" fill="none" stroke="#6B7280" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="70" y="462" width="320" height="136" rx="14" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+<rect x="540" y="462" width="320" height="136" rx="14" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+<rect x="1010" y="462" width="320" height="136" rx="14" fill="#F0FDF4" stroke="#86EFAC" stroke-width="2"/>
+<text x="230" y="516" font-size="24" font-weight="700" fill="#166534">Fix</text>
+<text x="230" y="550" font-size="19" fill="#374151">Level the base; shim gently</text>
+<text x="700" y="516" font-size="24" font-weight="700" fill="#166534">Fix</text>
+<text x="700" y="550" font-size="19" fill="#374151">Check nearby walls or pipes</text>
+<text x="1170" y="516" font-size="24" font-weight="700" fill="#166534">Fix</text>
+<text x="1170" y="550" font-size="19" fill="#374151">Inspect bolts and wax seal</text>
+<text x="700" y="680" font-size="20" fill="#374151">Turn off water if a leak is present.</text>
+<text x="700" y="718" font-size="17" fill="#6B7280">If the base is cracked or the toilet still moves, call a plumber.</text>
+</g>
+</svg>

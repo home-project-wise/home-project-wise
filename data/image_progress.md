@@ -1,9 +1,11 @@
 # Image progress
 
-| # | Task | Status | PR | Notes |
+One image-change PR per task. Status: `pr-open` / `done`.
+
+| Task | Article | Change | Status | PR |
 |---|---|---|---|---|
-| 1 | crawl-space-fix-jpeg | done | #34 | JPEG q85 from Canva, 1400×788, 105 KB; PNG removed |
-| 2 | macerating-hero | pending | — | — |
-| 3 | wobbly-hero | pending | — | — |
-| 4 | smart-lighting-card | pending | — | — |
-| 5 | condensation-hero | pending | — | — |
+| 1 | how-to-fix-damp-crawl-space-humidity | Crawl-space hero replaced with finished-result JPEG | done | #34 |
+| 2 | macerating-toilet-basement-bathroom | Hero image | pending | — |
+| 3 | fix-wobbly-furniture | Hero image | pending | — |
+| 4 | smart-lighting | Article card image | pending | — |
+| M5 | reduce-bathroom-condensation | Hero replaced with window-droplets photo | pr-open | #35 |
