@@ -24,6 +24,8 @@
 
 | [#60](https://github.com/home-project-wise/home-project-wise/pull/60) | simple-home-reset-that-prevents-weekend-chaos | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 15 رابطًا فعليًا متطابقًا بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع مع الحفاظ على صفوف المقالات الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
 
+| [#61](https://github.com/home-project-wise/home-project-wise/pull/61) | stop-musty-bathroom-towels | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 21 رابطًا فعليًا متطابقًا بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع مع الحفاظ على صفوف المقالات الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
+
 ## ملاحظات تشغيلية
 
 - لم تُدمج PRs #34 و#38 و#39 و#41 خلال هذا التدقيق.
