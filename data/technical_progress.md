@@ -18,6 +18,8 @@
 
 | [#57](https://github.com/home-project-wise/home-project-wise/pull/57) | make-small-living-room-feel-bigger | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 9 روابط فعلية متطابقة بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع مع الاحتفاظ بصفوف المقالات الـ17، ثم دُمج PR وحدّث الصف إلى `done`. | مكتمل؛ لا تعديلات يدوية على المقالة. |
 
+| [#58](https://github.com/home-project-wise/home-project-wise/pull/58) | motion-lighting-that-actually-helps | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 18 رابطًا فعليًا متطابقًا بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع، مع الحفاظ على صفوف المقالات الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
+
 ## ملاحظات تشغيلية
 
 - لم تُدمج PRs #34 و#38 و#39 و#41 خلال هذا التدقيق.
