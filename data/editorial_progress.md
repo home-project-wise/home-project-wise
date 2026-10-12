@@ -13,7 +13,7 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | 7 | calm-room | pr-open | #41 | pending merge |
 | 8 | how-to-hang-large-wall-art-without-damage | pr-open | #36 | pending merge |
 | 9 | kitchen-counter-zone-that-stays-clear | pending | — | — |
-| 10 | make-small-living-room-feel-bigger | pending | — | — |
+| 10 | make-small-living-room-feel-bigger | pr-open | #57 | pending merge |
 | 11 | motion-lighting-that-actually-helps | pending | — | — |
 | 12 | quiet-entryway-storage | pending | — | — |
 | 13 | reduce-cable-clutter | pr-open | #38 | pending merge |
