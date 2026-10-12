@@ -16,6 +16,8 @@
 
 | [#56](https://github.com/home-project-wise/home-project-wise/pull/56) | kitchen-counter-zone-that-stays-clear | مدموج | الملفان المعدلان فقط هما المقالة و`data/editorial_progress.md`. قائمة الروابط مطابقة بين الفرع و`main` (15 رابطًا فعليًا، لا 17)، و`img src/alt` لم يتغيرا. دُمج PR ثم حُدّث صف المقالة إلى `done` مع الحفاظ على صفوف التتبع الـ17. | مكتمل؛ لا تعديلات يدوية على المقالة. |
 
+| [#57](https://github.com/home-project-wise/home-project-wise/pull/57) | make-small-living-room-feel-bigger | مدموج | الملفان المعدلان فقط: المقالة و`data/editorial_progress.md`. 9 روابط فعلية متطابقة بين الفرع و`main`، وقيم `img src/alt` متطابقة. حُل تعارض التتبع بدمج تغييرات `main` في الفرع مع الاحتفاظ بصفوف المقالات الـ17، ثم دُمج PR وحدّث الصف إلى `done`. | مكتمل؛ لا تعديلات يدوية على المقالة. |
+
 ## ملاحظات تشغيلية
 
 - لم تُدمج PRs #34 و#38 و#39 و#41 خلال هذا التدقيق.
