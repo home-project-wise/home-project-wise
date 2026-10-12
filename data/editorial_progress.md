@@ -12,12 +12,12 @@ One editorial-improvement PR per article. Status values: `pending` / `in-progres
 | 6 | better-evening-home-lighting-without-overcomplicating-it | pr-open | #40 | pending merge |
 | 7 | calm-room | pr-open | #41 | pending merge |
 | 8 | how-to-hang-large-wall-art-without-damage | pr-open | #36 | pending merge |
-| 9 | kitchen-counter-zone-that-stays-clear | pending | — | — |
-| 10 | make-small-living-room-feel-bigger | pending | — | — |
-| 11 | motion-lighting-that-actually-helps | pending | — | — |
-| 12 | quiet-entryway-storage | pending | — | — |
+| 9 | kitchen-counter-zone-that-stays-clear | done | #56 | merged |
+| 10 | make-small-living-room-feel-bigger | done | #57 | merged |
+| 11 | motion-lighting-that-actually-helps | done | #58 | merged |
+| 12 | quiet-entryway-storage | done | #59 | merged |
 | 13 | reduce-cable-clutter | pr-open | #38 | pending merge |
-| 14 | simple-home-reset-that-prevents-weekend-chaos | pending | — | — |
+| 14 | simple-home-reset-that-prevents-weekend-chaos | done | #60 | merged |
 | 15 | small-bathroom-easier-to-clean | pr-open | #39 | pending merge |
 | 16 | stop-a-drafty-door-without-replacing-it | pr-open | #37 | pending merge |
 | 17 | stop-musty-bathroom-towels | pr-open | #61 | pending merge |
