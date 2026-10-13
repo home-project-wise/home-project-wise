@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">Illustrative 7-day humidity test</title>
+<desc id="d">Two example humidity lines over seven days. One falls below 60 percent and settles near 50 percent, which means the unit is the right size. The other stays near 67 percent, which means undersized or a water source remains.</desc>
+<rect width="960" height="540" fill="#F7F5F0"/>
+<g font-family="DM Sans, Arial, sans-serif">
+<text x="480" y="50" text-anchor="middle" font-size="38" font-weight="700" fill="#243238">The 7-day test (example)</text>
+<rect x="120" y="312.5" width="760" height="85" fill="#6F8F82" opacity="0.28"/>
+<text x="130" y="385" font-size="26" font-weight="700" fill="#243238">Target 45–55%</text>
+<line x1="120" y1="270" x2="880" y2="270" stroke="#243238" stroke-width="4" stroke-dasharray="14 10"/>
+<text x="130" y="258" font-size="26" font-weight="700" fill="#243238">60% limit</text>
+<line x1="120" y1="100" x2="120" y2="440" stroke="#243238" stroke-width="4"/>
+<line x1="120" y1="440" x2="880" y2="440" stroke="#243238" stroke-width="4"/>
+<polyline points="120,168 228.6,185 337.1,193.5 445.7,202 554.3,202 662.9,210.5 771.4,210.5 880,210.5" fill="none" stroke="#D97745" stroke-width="8" stroke-linejoin="round"/>
+<polyline points="120,168 228.6,219 337.1,287 445.7,321 554.3,338 662.9,346.5 771.4,355 880,355" fill="none" stroke="#6F8F82" stroke-width="8" stroke-linejoin="round"/>
+<text x="880" y="168" text-anchor="end" font-size="28" font-weight="700" fill="#D97745">Undersized, or water remains</text>
+<text x="880" y="418" text-anchor="end" font-size="28" font-weight="700" fill="#243238">Right size</text>
+<text x="120" y="478" text-anchor="middle" font-size="26" fill="#243238">Day 0</text>
+<text x="500" y="478" text-anchor="middle" font-size="26" fill="#243238">Day 3</text>
+<text x="880" y="478" text-anchor="middle" font-size="26" fill="#243238">Day 7</text>
+<text x="480" y="520" text-anchor="middle" font-size="24" fill="#243238">Illustrative lines, not real measurements</text>
+</g></svg>

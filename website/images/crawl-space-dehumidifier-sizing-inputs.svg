@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">Three inputs that decide crawl space dehumidifier size</title>
+<desc id="d">Three cards: floor area, how damp it is, and how cold it stays. An arrow leads to the manufacturer sizing chart.</desc>
+<rect width="960" height="540" fill="#F7F5F0"/>
+<text x="480" y="70" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="44" font-weight="700" fill="#243238">3 inputs decide the size</text>
+<g font-family="DM Sans, Arial, sans-serif">
+<rect x="40" y="110" width="270" height="250" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+<rect x="105" y="140" width="140" height="80" fill="#E9E4D8" stroke="#243238" stroke-width="4"/>
+<text x="175" y="188" text-anchor="middle" font-size="30" font-weight="700" fill="#243238">L × W</text>
+<text x="175" y="275" text-anchor="middle" font-size="36" font-weight="700" fill="#D97745">1 Area</text>
+<text x="175" y="322" text-anchor="middle" font-size="28" fill="#243238">sq ft of floor</text>
+<rect x="345" y="110" width="270" height="250" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+<circle cx="480" cy="180" r="48" fill="#fff" stroke="#243238" stroke-width="5"/>
+<text x="480" y="193" text-anchor="middle" font-size="36" font-weight="700" fill="#243238">65%</text>
+<text x="480" y="275" text-anchor="middle" font-size="36" font-weight="700" fill="#D97745">2 Dampness</text>
+<text x="480" y="322" text-anchor="middle" font-size="28" fill="#243238">hygrometer reading</text>
+<rect x="650" y="110" width="270" height="250" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+<rect x="849" y="140" width="22" height="70" rx="11" fill="none" stroke="#243238" stroke-width="5"/>
+<circle cx="860" cy="216" r="16" fill="#6F8F82" stroke="#243238" stroke-width="4"/>
+<rect x="854" y="190" width="12" height="26" fill="#6F8F82"/>
+<text x="745" y="193" text-anchor="middle" font-size="46" font-weight="700" fill="#243238">Cool</text>
+<text x="785" y="275" text-anchor="middle" font-size="36" font-weight="700" fill="#D97745">3 Cold</text>
+<text x="785" y="322" text-anchor="middle" font-size="28" fill="#243238">less water removed</text>
+<path d="M175 372 V410 M480 372 V410 M785 372 V410" stroke="#6F8F82" stroke-width="6" fill="none"/>
+<rect x="40" y="410" width="880" height="95" rx="22" fill="#243238"/>
+<text x="480" y="470" text-anchor="middle" font-size="36" font-weight="700" fill="#fff">Manufacturer chart → pints per day</text>
+</g></svg>
