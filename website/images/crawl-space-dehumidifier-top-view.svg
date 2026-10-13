@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="t d">
+<title id="t">Top view of a crawl space with the dehumidifier placed centrally</title>
+<desc id="d">Plan view: the unit sits near the center with air moving around it, the hygrometer is placed away from the outlet, and the drain hose runs downhill to the outside. Foundation vents are sealed.</desc>
+<rect width="960" height="540" fill="#F7F5F0"/>
+<g font-family="DM Sans, Arial, sans-serif">
+<rect x="150" y="70" width="720" height="380" fill="#E9E4D8" stroke="#243238" stroke-width="8"/>
+<g fill="#9aa5a0" stroke="#243238" stroke-width="3"><rect x="270" y="130" width="30" height="30"/><rect x="480" y="130" width="30" height="30"/><rect x="690" y="130" width="30" height="30"/><rect x="270" y="360" width="30" height="30"/><rect x="480" y="360" width="30" height="30"/><rect x="690" y="360" width="30" height="30"/></g>
+<rect x="395" y="215" width="190" height="90" rx="16" fill="#D97745" stroke="#243238" stroke-width="5"/>
+<text x="490" y="272" text-anchor="middle" font-size="36" font-weight="700" fill="#fff">Unit</text>
+<g stroke="#6F8F82" stroke-width="7" fill="none" stroke-linecap="round"><path d="M395 260 H330"/><path d="M330 260 l16 -14 M330 260 l16 14"/><path d="M585 260 H650"/><path d="M650 260 l-16 -14 M650 260 l-16 14"/></g>
+<circle cx="760" cy="260" r="26" fill="#fff" stroke="#243238" stroke-width="5"/>
+<text x="760" y="271" text-anchor="middle" font-size="26" font-weight="700" fill="#243238">%</text>
+<text x="760" y="320" text-anchor="middle" font-size="28" font-weight="700" fill="#243238">Hygrometer</text>
+<path d="M395 285 H150" stroke="#243238" stroke-width="7" stroke-dasharray="16 12" fill="none"/>
+<path d="M150 285 H100 l22 -16 M100 285 l22 16" stroke="#243238" stroke-width="7" fill="none" stroke-linecap="round"/>
+<text x="330" y="345" text-anchor="middle" font-size="28" font-weight="700" fill="#243238">Hose: downhill, no kinks</text>
+<rect x="150" y="190" width="14" height="60" fill="#243238"/><rect x="856" y="190" width="14" height="60" fill="#243238"/>
+<text x="480" y="505" text-anchor="middle" font-size="30" fill="#243238">Central · off the soil · air can move around it · vents sealed</text>
+<text x="480" y="52" text-anchor="middle" font-size="34" font-weight="700" fill="#243238">Top view of the crawl space</text>
+</g></svg>
