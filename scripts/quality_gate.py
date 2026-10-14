@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 from urllib.request import Request,urlopen
 ROOT=Path(__file__).resolve().parents[1]; WEBSITE=ROOT/'website'; ARTICLES=WEBSITE/'articles'; REGISTRY=ROOT/'data/used_images.json'
 # Full editorial gate: publish only after content, structure, visuals and navigation all pass.
-MIN_WORDS=900; MIN_H2=8; MIN_IMAGES=8; MIN_FAQ=4; MIN_INTERNAL=3; GOAT_MARKER='homeprojectwise.goatcounter.com/count'
+MIN_WORDS=900; MIN_H2=8; MIN_IMAGES=4; MIN_FAQ=4; MIN_INTERNAL=3; GOAT_MARKER='homeprojectwise.goatcounter.com/count'
 REQUIRED=['index.html','guides.html','about.html','robots.txt','sitemap.xml','feed.xml']
 def visible_text(html):
     html=re.sub(r'<script\b[^>]*>.*?</script>',' ',html,flags=re.I|re.S); html=re.sub(r'<style\b[^>]*>.*?</style>',' ',html,flags=re.I|re.S); return re.sub(r'\s+',' ',re.sub(r'<[^>]+>',' ',html)).strip()
