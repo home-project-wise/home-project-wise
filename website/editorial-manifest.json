@@ -21,7 +21,7 @@
     "minWords": 900,
     "maxWords": 2400,
     "minH2": 8,
-    "minImages": 8,
+    "minImages": 4,
     "maxImages": 10,
     "faqQuestions": {
       "min": 4,
