@@ -63,3 +63,4 @@
 .article .article-newsletter p{font-size:16px;margin:0 0 6px}
 .article .article-newsletter .eyebrow{font-size:11px;margin:0 0 14px}
 @media(max-width:600px){.article p,.article li{font-size:17px}.article table{font-size:15px}.article th,.article td{padding:9px 10px}.article .lead{font-size:18px}}
+.section.article p.eyebrow,.article p.eyebrow{font-size:11px;line-height:1.5;margin:0 0 14px;color:#6f8f82}
