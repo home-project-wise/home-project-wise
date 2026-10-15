@@ -1,0 +1,936 @@
+{
+ "generated": "2026-10-15T05:16:17+00:00",
+ "model": "gemini-3.8-flash",
+ "rows": [
+  {
+   "after": "A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture. — Unsplash 1. Fix the activity before the lighting Start with what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may ",
+   "alt": "Simple living room with a warm lamp used for evening lighting",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "l guide to comfortable evening lighting using placement, layers, glare control and simple routines.\" property=\"og:description\"/> H HomeProjectWise All guides HOME DESIGN · LIGHTING Better Evening Home Lighting Without Overcomplicating It If your home feels too bright, too dim or harsh after sunset, you probably do not need more technology. Move one light, lower the glare and match brightness to the activity before you buy anything.",
+   "caption": "A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture. — Unsplash",
+   "index": 0,
+   "key": "photo-1615874694520-474822394e73",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+   "problems": [
+    "mismatch"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&amp;fit=crop&amp;w=1000&amp;h=1500&amp;q=85",
+   "status": "replace",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Living room with built-in bookshelves, a lit fireplace, two chairs, and a large globe ceiling chandelier.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 5,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 2,
+    "reason": "The image shows a daylight scene dominated by a prominent ceiling chandelier, completely contradicting the caption and text promoting cozy evening lamp lighting.",
+    "search_query": "cozy living room evening lamp lighting",
+    "visible_description": "Brightly lit living room featuring a lit fireplace flanked by blue built-in bookcases, two modern armchairs, a glass coffee table, and an ornate globe chandelier hanging from the ceiling."
+   }
+  },
+  {
+   "after": "A task light belongs beside the activity so reading does not require making the whole room brighter. — Unsplash 2. Build three useful lighting layers A simple room usually needs three roles, not three expensive systems. If one bulb has to do every job, it ends up brighter than necessary, so separate the jobs and let each source do less. Layer Job E",
+   "alt": "Reading chair task lamp beside the activity for evening reading",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "h what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may be too bright for a quiet evening. Spend one evening noticing where you actually need to see, and write down two or three uncomfortable moments (the sofa in shadow, a dim worktop, a bulb shining into your eyes). Those notes become your plan instead of a shopping list.",
+   "caption": "A task light belongs beside the activity so reading does not require making the whole room brighter. — Unsplash",
+   "index": 1,
+   "key": "photo-1540932239986-30128078f3c5",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+   "problems": [
+    "mismatch"
+   ],
+   "role": "inner",
+   "section": "1. Fix the activity before the lighting",
+   "src": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "replace",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Five metallic dome pendant lights hanging at staggered heights against a neutral wall",
+    "has_text_or_watermark": false,
+    "hero_appeal": 5,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "The image shows decorative ceiling pendant lights instead of the reading task lamp discussed in the text and caption.",
+    "search_query": "reading chair floor task lamp",
+    "visible_description": "Five brushed bronze dome pendant lights hanging at staggered heights by black cords against a plain, warm gray wall."
+   }
+  },
+  {
+   "after": "Different light levels let the same room support movement, conversation and quieter evening tasks. — Unsplash 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating",
+   "alt": "Simple room with separate lighting layers for evening tasks",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "te the jobs and let each source do less. Layer Job Example Ambient Safe movement around the room Ceiling light, used at a lower level Task Detailed activities Lamp beside the reading chair, light on the worktop Low accent Comfort and late evening Small table lamp, floor lamp pointed at a wall, modest hallway light",
+   "caption": "Different light levels let the same room support movement, conversation and quieter evening tasks. — Unsplash",
+   "index": 2,
+   "key": "photo-1600607688960-e095ff83135c",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+   "problems": [
+    "mismatch"
+   ],
+   "role": "inner",
+   "section": "2. Build three useful lighting layers",
+   "src": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "replace",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Modern home exterior and patio deck with a large tree and lawn in daylight",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 0,
+    "reason": "The photo shows a daytime exterior backyard and patio, completely irrelevant to interior evening lighting layers.",
+    "search_query": "living room layered evening lighting",
+    "visible_description": "Sunlit exterior backyard of a modern home featuring a green lawn, large gum tree, and a covered timber patio deck with outdoor dining furniture."
+   }
+  },
+  {
+   "after": "A small focused lamp can solve a local lighting problem without increasing brightness everywhere. — Unsplash 4. Put task light where the work happens Task light should follow the hands and eyes: beside a reading chair, not a brighter bulb across the room; on the worktop without your own shadow over it. Test with a portable lamp you can move for a f",
+   "alt": "Focused lamp used to reduce evening glare",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": " Unsplash 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating area, add a shade to an exposed bulb, lower a source that sits too high, or move it behind your shoulder when reading. These changes are cheap and reversible, which makes them good first experiments.",
+   "caption": "A small focused lamp can solve a local lighting problem without increasing brightness everywhere. — Unsplash",
+   "index": 3,
+   "key": "photo-1507473885765-e6ed057f782c",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+   "problems": [
+    "mismatch"
+   ],
+   "role": "inner",
+   "section": "3. Reduce glare before increasing brightness",
+   "src": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "replace",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Dark gray metal floor lamp with dome shade against a white wall",
+    "has_text_or_watermark": false,
+    "hero_appeal": 2,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "The lamp is turned off against a blank wall, failing to show evening lighting, glare reduction, or a functional room setup.",
+    "search_query": "shaded floor lamp beside armchair",
+    "visible_description": "A dark gray metal floor lamp with an adjustable curved dome shade stands turned off against a plain white wall."
+   }
+  },
+  {
+   "after": "The goal is lower friction, not a luxury makeover. — Unsplash 1. Start with what your eyes notice first Stand at the doorway and let your eyes move naturally. The first three objects that demand attention are your clues: a crowded coffee table, an overfilled shelf or a large piece of furniture pressed against a walkway can make a room feel busy bef",
+   "alt": "Calm neutral living space with simple furniture",
+   "article": "calm-room",
+   "before": "without buying more: improve the light, clear visual noise, fix awkward paths, and build storage around daily habits.\" name=\"twitter:description\"/> H HomeProjectWise All guides HOME DESIGN · PRACTICAL GUIDE How to make a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
+   "caption": "The goal is lower friction, not a luxury makeover. — Unsplash",
+   "index": 0,
+   "key": "photo-1600566753086-00f18fb6b3ea",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "mismatch"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "replace",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Modern open-plan living room with light blue sofas, a wooden coffee table, and a dog resting on the rug.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "The image depicts a high-end luxury architectural home, directly undermining the article's message about practical tweaks rather than expensive makeovers.",
+    "search_query": "tidy organized cozy living room",
+    "visible_description": "A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting on the floor, open floating stairs, and floor-to-ceiling glass windows."
+   }
+  },
+  {
+   "after": "Open a useful path before moving furniture for decoration; start with what your eyes notice first. — Unsplash 2. Protect the walking path Comfort depends on movement as much as appearance. Identify the routes you use every day (door to sofa, sofa to kitchen, bed to wardrobe, desk to printer). If you keep stepping around a chair or moving an object ",
+   "alt": "Bright airy interior with an open walking path and visual details your eyes notice first",
+   "article": "calm-room",
+   "before": "led shelf or a large piece of furniture pressed against a walkway can make a room feel busy before you use it. Remove one obvious item, step back and look again; do not attack the whole room at once. Two fast tests: squint until the room blurs, and whatever still jumps out is your visual noise; or take a photo, because a photo shows the clutter your eyes stopped noticing. The aim is to learn what creates visual noise, not to create an empty room.",
+   "caption": "Open a useful path before moving furniture for decoration; start with what your eyes notice first. — Unsplash",
+   "index": 1,
+   "key": "photo-1600585154340-be6161a56a0c",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "daily quota exhausted"
+   ],
+   "role": "inner",
+   "section": "1. Start with what your eyes notice first",
+   "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": null
+  },
+  {
+   "after": "A lower, warmer pool of light changes the feel of a room without adding furniture. — Unsplash Quick rules that work: choose warm bulbs (about 2700K) in living spaces, keep the lamp shade low enough that the bulb is not at eye level when you sit, stay within each lamp's maximum wattage, and switch the overhead light off for an evening test. If you o",
+   "alt": "Warm natural light across a simple interior",
+   "article": "calm-room",
+   "before": "g it, which can damage floors and strain your back. Keep cords out of walking routes, and secure tall or top-heavy furniture to the wall after moving it. 3. Change the light before the furniture One strong ceiling light can make a room flat and harsh even when the layout works. Try the lamps you already have at different heights: a lower pool of light makes a seating area feel more intentional, and brighter task light can stay near detailed work.",
+   "caption": "A lower, warmer pool of light changes the feel of a room without adding furniture. — Unsplash",
+   "index": 2,
+   "key": "photo-1616486338812-3dadae4b4ace",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "3. Change the light before the furniture",
+   "src": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": null
+  },
+  {
+   "after": "Grouped into a few clear clusters, open shelves read calmer than many scattered objects. — Unsplash The rule of three: on any shelf, aim for two or three clusters, with about a third of the shelf left empty so the eye has somewhere to rest. Put uncertain items in a temporary box for a week. If you do not look for them, they do not need to stay visi",
+   "alt": "Open shelving with objects grouped into a few clear clusters",
+   "article": "calm-room",
+   "before": "chair. None of this needs a large organizing system. Start with the object that repeatedly becomes clutter and give it a home where you naturally reach for it. 5. Reduce visual competition Rooms get noisy when many objects compete for attention. You do not need to remove personality: group related items and let a few useful or meaningful pieces lead. A shelf with ten unrelated objects feels busier than the same ten in two or three clear clusters.",
+   "caption": "Grouped into a few clear clusters, open shelves read calmer than many scattered objects. — Unsplash",
+   "index": 3,
+   "key": "photo-1702432601253-09990ed6ecee",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "5. Reduce visual competition",
+   "src": "https://images.unsplash.com/photo-1702432601253-09990ed6ecee?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": null
+  },
+  {
+   "after": "Tools for the job. The actual diagnosis is in the diagram below. Use the smallest correction that matches the cause you have actually proved. 1. Describe the wobble Do not start by tightening anything. First make the problem repeatable: does it rock front to back, side to side, or only at one corner? Empty, loaded, or both? A chair that rocks only ",
+   "alt": "General furniture repair tools on a workbench — not a specific wobbly joint",
+   "article": "fix-wobbly-furniture",
+   "before": " contact point, loose fastener or failing joint.\" name=\"twitter:description\"/> How to Fix Wobbly Furniture Without Guessing H HomeProjectWise All guides WEEKEND PROJECTS · FURNITURE A Simple Way to Fix Wobbly Furniture Without Guessing A wobble is a symptom, not a diagnosis. Before tightening every screw or adding pads, find out whether the movement comes from the floor, a short contact point, a loose fastener or a joint that has started to fail.",
+   "caption": "Tools for the job. The actual diagnosis is in the diagram below.",
+   "index": 0,
+   "key": "photo-1617806118233-18e1de247200",
+   "path": "website/articles/fix-wobbly-furniture.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "A Simple Way to Fix Wobbly Furniture Without Guessing",
+   "vision": null
+  },
+  {
+   "after": "After: sealed ground, sealed walls, and a unit that drains continuously. Quick win: measure before you buy (10 minutes to set up) Measure relative humidity at the same location over time; this illustrative trend is not a target or a prediction. Original HomeProjectWise diagram. Buy an inexpensive digital hygrometer; a basic one that shows relative ",
+   "alt": "A sealed crawl space with a white vapor barrier and a crawl-space dehumidifier on a stable base, draining through a hose",
+   "article": "how-to-fix-damp-crawl-space-humidity",
+   "before": "Fix a Damp Crawl Space: Find the Water First, Then Control the Humidity A musty smell, damp air or cold floors can all come from a wet crawl space. A dehumidifier can help, but only after you have found and fixed the water source. Quick answer: fix drainage and plumbing leaks first. Then cover bare soil with a sealed vapor barrier and track the humidity. Add a crawl-space-rated dehumidifier only if readings stay high; it cannot stop liquid water.",
+   "caption": "After: sealed ground, sealed walls, and a unit that drains continuously.",
+   "index": 0,
+   "key": "local-crawl-space-hero-final.jpg",
+   "path": "website/articles/how-to-fix-damp-crawl-space-humidity.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/crawl-space-hero-final.jpg",
+   "status": "pending",
+   "title": "How to Fix a Damp Crawl Space: Find the Water First, Then Control the Humidity",
+   "vision": null
+  },
+  {
+   "after": "Photo: mahmoud azmy on Unsplash Disclosure: this article includes one affiliate link, marked as such in section 10. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. Measure and weigh before you touch the wall Weigh the piece. Step on a bathroom scale holding it, then subtract",
+   "alt": "Living room with a large painting on the wall",
+   "article": "how-to-hang-large-wall-art-without-damage",
+   "before": " decisions prevent that: height, what is behind the wall, hardware rated for the weight, and a French cleat for heavy or wide pieces. Short answer: hang the center of the piece about 57 inches (145 cm) above the floor, or 6 to 10 inches (15 to 25 cm) above the furniture below it. Fix it into a stud or into anchors rated well above its weight, and use two hanging points or a French cleat for wide pieces. Plan on paper first so you only drill once.",
+   "caption": "Photo: mahmoud azmy on Unsplash",
+   "index": 0,
+   "key": "photo-1646936190308-6faef1ac893c",
+   "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1646936190308-6faef1ac893c?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1600",
+   "status": "pending",
+   "title": "How to Hang Large Wall Art Without Damaging Your Walls",
+   "vision": null
+  },
+  {
+   "after": "A living room with a white sofa and framed art. Photo: Collov Home Design on Unsplash Where to look, and how we chose these options We looked at what suits a beginner hanging a large piece: a clear size range, a care guide, hardware or a reusable frame, and a clear return process. A specialist online store for oversized art. BIG Wall Décor sells la",
+   "alt": "Living room with a white sofa, a mustard pillow and framed art",
+   "article": "how-to-hang-large-wall-art-without-damage",
+   "before": "wall is old plaster that crumbles, or if you are mounting above a staircase or over a fireplace. Moving a hole costs little. Repairing a wire or a fallen frame does not. 10. Choosing oversized art Size, material, care and return terms matter more than style when the piece is large and ships in a big box. Check what hanging hardware is included, how the piece is finished, how it should be cleaned, and the return and damage policy before you order.",
+   "caption": "A living room with a white sofa and framed art. Photo: Collov Home Design on Unsplash",
+   "index": 1,
+   "key": "photo-1600210491369-e753d80a41f3",
+   "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "10. Choosing oversized art",
+   "src": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
+   "status": "pending",
+   "title": "How to Hang Large Wall Art Without Damaging Your Walls",
+   "vision": null
+  },
+  {
+   "after": "A clear preparation surface is more useful than a perfectly empty kitchen. — Unsplash Protect the preparation surface first; give the other jobs defined places so they do not take over. Quick plan Time About 30 minutes to set up, then a 2-minute reset each evening Cost Free. Buy storage only after the one-week test Best for Small and medium kitchen",
+   "alt": "Kitchen counter with a usable clear preparation area",
+   "article": "kitchen-counter-zone-that-stays-clear",
+   "before": "for keeping one useful kitchen counter zone clear without constant tidying.\" property=\"og:description\"/> H HomeProjectWise All guides STORAGE & ORGANIZATION · KITCHEN Kitchen Counter Zone That Stays Clear If your kitchen counter becomes a parking lot for appliances, mail and cups, do not start by organizing everything. Pick one working zone and make it easy to clear: a defined preparation surface, fewer permanent residents and a two-minute reset.",
+   "caption": "A clear preparation surface is more useful than a perfectly empty kitchen. — Unsplash",
+   "index": 0,
+   "key": "photo-1556912173-46c336c7fd55",
+   "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&amp;fit=crop&amp;w=1000&amp;h=1500&amp;q=85",
+   "status": "pending",
+   "title": "Kitchen Counter Zone That Stays Clear",
+   "vision": null
+  },
+  {
+   "after": "The working zone should be easy to reach and large enough for the tasks you actually repeat. — Unsplash 2. Give every permanent item a reason For each object on the counter, ask: Do we use it most days? Does leaving it here save a meaningful step? Does it make the working surface harder to use? An item that fails the first two questions and creates",
+   "alt": "Plain kitchen counter with a clear working zone for preparation",
+   "article": "kitchen-counter-zone-that-stays-clear",
+   "before": "and there first: that is your repeat offender (see section 10). 1. Choose one clear working zone Do not aim for a perfect empty kitchen. Choose the section of counter where food is prepared most often (beside the sink, next to the stove or near the cutting board), so ingredients, a board and a knife can appear without first moving six unrelated objects. Measure success by speed: if the zone takes ten minutes to clear, the system is too difficult.",
+   "caption": "The working zone should be easy to reach and large enough for the tasks you actually repeat. — Unsplash",
+   "index": 1,
+   "key": "photo-1600489000022-c2086d79f9d4",
+   "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "1. Choose one clear working zone",
+   "src": "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Kitchen Counter Zone That Stays Clear",
+   "vision": null
+  },
+  {
+   "after": "Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter. — Unsplash 3. Create a home for loose daily items Clutter survives when an item has nowhere convenient to go: receipts, lunch containers, keys and reusable bottles become permanent residents when returning them means walking to thr",
+   "alt": "Kitchen counter with permanent items kept for practical work",
+   "article": "kitchen-counter-zone-that-stays-clear",
+   "before": " a magazine rule. Both extremes fail: a counter covered with appliances, and a bare counter that makes you unpack the same tools every morning. Item Counter or storage? Used most days and saves a step (toaster, coffee maker) Counter, outside the main preparation path Used a few times a week Nearby cabinet or shelf Used a few times a month (waffle maker) Storage, away from the active zone Mail, papers, chargers A different landing zone (section 8)",
+   "caption": "Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter. — Unsplash",
+   "index": 2,
+   "key": "photo-1556911220-e15b29be8c8f",
+   "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "2. Give every permanent item a reason",
+   "src": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Kitchen Counter Zone That Stays Clear",
+   "vision": null
+  },
+  {
+   "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. Disclosure: this article includes one affiliate link, marked as such in section 8. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. What a macerating toilet does A regular toilet relies ",
+   "alt": "A modern toilet in a basement with a macerating pump beside it, discharging upward through a thin pipe.",
+   "article": "macerating-toilet-basement-bathroom",
+   "before": " manufacturers actually promise, the downsides, and what to check before you spend money. Short answer: a small pump grinds the waste and pushes it up through a thin pipe to your existing drain, so you can add a basement bathroom without cutting the slab. It works well if you can connect to a vent, have an outlet nearby and will keep wipes out of it. Check your local permit rules first, and compare real pumping limits, not just marketing numbers.",
+   "caption": "The pump sits beside the toilet and discharges waste up to the existing drain line above.",
+   "index": 0,
+   "key": "local-AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
+   "path": "website/articles/macerating-toilet-basement-bathroom.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
+   "status": "pending",
+   "title": "Macerating Toilet for a Basement Bathroom: Is It Worth It?",
+   "vision": null
+  },
+  {
+   "after": "A small room feels more generous when the eye can move through it without constantly meeting obstacles. — Unsplash 1. Start with the walking path, not the furniture catalog The fastest way to make a room feel cramped is to make people weave around furniture. Walk through the room as you normally do and notice where you hesitate, turn sideways or st",
+   "alt": "Bright, comfortable living room with an open layout and clear visual pathways",
+   "article": "make-small-living-room-feel-bigger",
+   "before": "> H HomeProjectWise All guides HOME DESIGN · SMALL SPACES How to Make a Small Living Room Feel Bigger Without Buying New Furniture A small living room does not automatically need smaller furniture. Often the real problem is too many visual stops: a blocked walkway, seating that faces the wrong way, dark corners and items left in sight. Change the arrangement before you buy anything.",
+   "caption": "A small room feels more generous when the eye can move through it without constantly meeting obstacles. — Unsplash",
+   "index": 0,
+   "key": "photo-1600210492486-724fe5c67fb0",
+   "path": "website/articles/make-small-living-room-feel-bigger.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
+   "status": "pending",
+   "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
+   "vision": null
+  },
+  {
+   "after": "The goal is not empty space everywhere; it is a clear relationship between seating, circulation and the room's main feature. — Unsplash 3. Remove one piece before buying a smaller replacement Buying compact furniture can make the problem worse: three small tables can take more visual and walking space than one useful table. Remove one piece for a f",
+   "alt": "Compact living room with furniture arranged around a clear central area",
+   "article": "make-small-living-room-feel-bigger",
+   "before": " reading, looking outside) and point the main seating toward that purpose instead of letting every chair face a different direction. If the sofa faces the television while the best window is behind it and a chair blocks the entrance, the room feels fragmented even though nothing is too large. You do not have to push the sofa flat against a wall: a little breathing room behind it can create a better path and make the seating area feel intentional.",
+   "caption": "The goal is not empty space everywhere; it is a clear relationship between seating, circulation and the room's main feature. — Unsplash",
+   "index": 1,
+   "key": "photo-1600607687920-4e2a09cf159d",
+   "path": "website/articles/make-small-living-room-feel-bigger.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "2. Give the main seating one clear job",
+   "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
+   "status": "pending",
+   "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
+   "vision": null
+  },
+  {
+   "after": "A mirror is most useful when it reflects light or an attractive open view rather than another cluttered surface. — Unsplash 8. Choose one visual focal point A room feels larger when the eye knows where to land. Choose one main feature (a window, artwork, fireplace, television wall or lamp arrangement) and reduce competition around it. The room need",
+   "alt": "Living room using a large mirror to reflect light and create visual depth",
+   "article": "make-small-living-room-feel-bigger",
+   "before": "e mirror on a small wall is not a guaranteed fix. Stand where it will hang and ask what it will reflect. A window, open doorway or attractive part of the room helps; a cluttered shelf or the television makes the room busier. Think of the mirror as a borrowed window. Safety first. Mirrors are heavy and fragile. Fix them into a stud or with anchors rated well above their weight, and never hang one over a spot where it could fall onto a seat or bed.",
+   "caption": "A mirror is most useful when it reflects light or an attractive open view rather than another cluttered surface. — Unsplash",
+   "index": 2,
+   "key": "photo-1618220179428-22790b461013",
+   "path": "website/articles/make-small-living-room-feel-bigger.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "7. Use a mirror only where it reflects something useful",
+   "src": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
+   "status": "pending",
+   "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
+   "vision": null
+  },
+  {
+   "after": "Good motion lighting automates a useful routine and then disappears into the background. 1. Start with the repeated problem, not the gadget Before choosing a sensor, describe the annoyance in one sentence. “The hallway is dark when I carry laundry upstairs” is a useful problem statement; “I want the house to be smarter” is not. Observe the route fo",
+   "alt": "Motion-activated light illuminating a practical home walkway",
+   "article": "motion-lighting-that-actually-helps",
+   "before": "sor placement, timing and brightness choices.\" name=\"twitter:description\"/> Motion Lighting: Where It Helps and Where It Annoys H HomeProjectWise All guides SMART HOME · LIGHTING Where Motion Lighting Helps — and Where It Just Gets Annoying Motion lighting works best when it removes a repeated inconvenience without demanding attention. The goal is not to automate every light, but to make a few specific routines easier, safer and more comfortable.",
+   "caption": "Good motion lighting automates a useful routine and then disappears into the background.",
+   "index": 0,
+   "key": "photo-1616137466211-f939a420be84",
+   "path": "website/articles/motion-lighting-that-actually-helps.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
+   "vision": null
+  },
+  {
+   "after": "A task light shows where useful light belongs before motion automation is added. — Unsplash Motion lighting suits short-use spaces where people move through rather than settle. Good fit Why Hallways used after dark People pass through Stairs Carrying objects makes a switch inconvenient Closets Both hands may be occupied Laundry or utility areas Lig",
+   "alt": "Simple home lighting arrangement used to plan a practical motion-lighting route",
+   "article": "motion-lighting-that-actually-helps",
+   "before": "arry laundry upstairs” is a useful problem statement; “I want the house to be smarter” is not. Observe the route for a few normal days: when the light is needed, how long the task lasts, whether hands are occupied and whether other people use the space differently. If a room already has an easy switch that people naturally use, a sensor adds little and becomes one more device to maintain. 2. Choose locations where hands-free light genuinely helps",
+   "caption": "A task light shows where useful light belongs before motion automation is added. — Unsplash",
+   "index": 1,
+   "key": "photo-1600585152915-d208bec867a1",
+   "path": "website/articles/motion-lighting-that-actually-helps.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "2. Choose locations where hands-free light genuinely helps",
+   "src": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
+   "vision": null
+  },
+  {
+   "after": "Think about the path people take through the space, not just the center of the room. 4. Set the timeout around the real task A timeout that is too short switches the light off mid-task; one that is much too long wastes energy and feels unresponsive. Start conservatively and adjust after real use. A short hallway may need only a minute or two; a uti",
+   "alt": "Quiet interior where low-level lighting can guide movement",
+   "article": "motion-lighting-that-actually-helps",
+   "before": "he actual walking path Placement matters more than a high-sensitivity setting. Stand where a person normally enters and imagine the detection field: it should see the movement that matters and avoid routes that should not trigger. A sensor aimed through an open doorway may catch people passing the doorway rather than entering; one hidden behind furniture misses the start of the route; one whose view a door blocks works only when the door is open.",
+   "caption": "Think about the path people take through the space, not just the center of the room.",
+   "index": 2,
+   "key": "photo-1615529182904-14819c35db37",
+   "path": "website/articles/motion-lighting-that-actually-helps.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "3. Map the actual walking path",
+   "src": "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
+   "vision": null
+  },
+  {
+   "after": "Night lighting should help navigation without creating unnecessary glare. 6. Use the lowest useful brightness More light is not automatically better. In a short passage the aim is to reveal steps, a doorway or an obstacle, not to light the whole room. Start at a comfortable level and increase it only if the route stays difficult. Also watch glare: ",
+   "alt": "Compact motion sensor used for practical smart-home lighting automation",
+   "article": "motion-lighting-that-actually-helps",
+   "before": "rmal movement is outside the detection area, a longer timer only masks the issue. 5. Separate daytime and nighttime behavior During the day a motion light may not need to activate at all. At night, a lower output guides someone safely without turning a dark hallway into a bright room. Use a simple day/night rule if your system supports schedules; if not, a low-level night light may beat forcing a bright ceiling fixture to act like a bedside lamp.",
+   "caption": "Night lighting should help navigation without creating unnecessary glare.",
+   "index": 3,
+   "key": "photo-1753039495488-434a2fe53e41",
+   "path": "website/articles/motion-lighting-that-actually-helps.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "5. Separate daytime and nighttime behavior",
+   "src": "https://images.unsplash.com/photo-1753039495488-434a2fe53e41?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
+   "vision": null
+  },
+  {
+   "after": "Quiet entryway storage gives daily items a place without filling the whole wall. 1. Start with the arrival routine Stand at the door and imagine arriving with a coat, bag, keys and shoes. Where does each item go in the first 30 seconds? If the answer is “wherever there is space,” the entryway will become a pile. Watch the real routine for several d",
+   "alt": "Bright, organized entryway with practical hooks and a simple landing zone",
+   "article": "quiet-entryway-storage",
+   "before": "\"/> H HomeProjectWise All guides STORAGE & ORGANIZATION · ENTRYWAY Quiet Entryway Storage An entryway does not need a large cabinet or a perfect display. Start with what arrives with people every day (coats, shoes, bags and keys), give each a small, convenient home and move the overflow elsewhere.",
+   "caption": "Quiet entryway storage gives daily items a place without filling the whole wall.",
+   "index": 0,
+   "key": "photo-1558997519-83ea9252edf8",
+   "path": "website/articles/quiet-entryway-storage.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1600&q=85",
+   "status": "pending",
+   "title": "Quiet Entryway Storage",
+   "vision": null
+  },
+  {
+   "after": "The daily landing zone should match the first few seconds of arriving home. 2. Give daily coats a few wall hooks Hooks are often more useful than hangers for daily coats: there is no closet door to open and the next use is obvious. Install only enough for normal demand (if a household has four daily coats, four hooks beat a wall of twelve). Place t",
+   "alt": "Practical entryway arrival area with a small daily landing zone",
+   "article": "quiet-entryway-storage",
+   "before": "the whole wall. 1. Start with the arrival routine Stand at the door and imagine arriving with a coat, bag, keys and shoes. Where does each item go in the first 30 seconds? If the answer is “wherever there is space,” the entryway will become a pile. Watch the real routine for several days before buying anything: what lands on the floor, what stays on a chair and what travels deeper into the home tells you which storage must be closest to the door.",
+   "caption": "The daily landing zone should match the first few seconds of arriving home.",
+   "index": 1,
+   "key": "photo-1519710164239-da123dc03ef4",
+   "path": "website/articles/quiet-entryway-storage.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "1. Start with the arrival routine",
+   "src": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Quiet Entryway Storage",
+   "vision": null
+  },
+  {
+   "after": "A small entryway tray gives daily keys and small items one predictable landing zone. 4. Keep shoe storage shallow and honest Shoes arrive in pairs and multiply quickly. Begin with the pairs used most often and give them a shallow rack, bench shelf or open cubby that fits the walking path; avoid storage that needs a door opened for every pair. Move ",
+   "alt": "Small entryway tray used as a daily landing zone for keys",
+   "article": "quiet-entryway-storage",
+   "before": "day coats and bags accessible without creating a crowded display. 3. Create one small landing zone Keys, sunglasses and receipts need a destination closer than the kitchen counter: a narrow tray or small shelf. Keep it small, and when it is full, process its contents rather than buying a bigger container. Do not mix mail, batteries, coins and keys, or the tray becomes a miniature junk drawer. Limit it to items that belong to arriving and leaving.",
+   "caption": "A small entryway tray gives daily keys and small items one predictable landing zone.",
+   "index": 2,
+   "key": "photo-1556228578-8c89e6adf883",
+   "path": "website/articles/quiet-entryway-storage.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "3. Create one small landing zone",
+   "src": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Quiet Entryway Storage",
+   "vision": null
+  },
+  {
+   "after": "Condensation forms when warm, wet air meets a cold surface. 1. Why bathroom condensation happens Warm air holds more water vapor than cool air, and a hot shower adds a lot of vapor quickly. When that air touches a colder window, mirror, tile or outside wall, part of it turns back into liquid. The EPA notes that condensation on windows can be a sign",
+   "alt": "Water droplets on a bathroom window after a shower, showing surface condensation.",
+   "article": "reduce-bathroom-condensation",
+   "before": "oor clear; lower the water temperature a little; keep the door closed while you shower. Under $20 each: a hygrometer to measure, a squeegee for the window and mirror, and window insulating film if the glass is single-glazed. Bigger job: a run-on timer or humidity-sensing fan control, trimming the bottom of the door, or a bigger fan with a short, rigid duct that vents outside (see section 7). Start with the cheapest step. Move down only if needed.",
+   "caption": "Condensation forms when warm, wet air meets a cold surface.",
+   "index": 0,
+   "key": "local-condensation-hero.jpeg",
+   "path": "website/articles/reduce-bathroom-condensation.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/condensation-hero.jpeg",
+   "status": "pending",
+   "title": "How to Reduce Bathroom Condensation: A Step-by-Step Fix",
+   "vision": null
+  },
+  {
+   "after": "Good cable management reduces visible tangles while keeping connections accessible. Start by mapping what each cable does A clean desk makes cable destinations easier to map and service. — Unsplash Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, ",
+   "alt": "Clean home desk with neatly managed cables and useful workspace organization",
+   "article": "reduce-cable-clutter",
+   "before": " that reduces visible tangles without hiding everything in an impossible-to-service box.\" property=\"og:description\"/> H HomeProjectWise All guides STORAGE & ORGANIZATION · CABLES Reduce Cable Clutter: A Simple System That Stays Serviceable A tidy cable setup should still be easy to unplug and change. Remove cables that do nothing, shorten the routes that remain and keep what changes often within reach. You do not need to hide every wire in a box.",
+   "caption": "Good cable management reduces visible tangles while keeping connections accessible.",
+   "index": 0,
+   "key": "photo-1516321318423-f06f85e504b3",
+   "path": "website/articles/reduce-cable-clutter.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
+   "status": "pending",
+   "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
+   "vision": null
+  },
+  {
+   "after": "A clean desk makes cable destinations easier to map and service. — Unsplash Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, display, network, charging or an accessory. If you cannot say what a cable connects, do not hide it: unknown wires are wha",
+   "alt": "Modern desk setup with computer and connected devices",
+   "article": "reduce-cable-clutter",
+   "before": "meProjectWise All guides STORAGE & ORGANIZATION · CABLES Reduce Cable Clutter: A Simple System That Stays Serviceable A tidy cable setup should still be easy to unplug and change. Remove cables that do nothing, shorten the routes that remain and keep what changes often within reach. You do not need to hide every wire in a box. Good cable management reduces visible tangles while keeping connections accessible. Start by mapping what each cable does",
+   "caption": "A clean desk makes cable destinations easier to map and service. — Unsplash",
+   "index": 1,
+   "key": "photo-1755436612908-fdef1439f18d",
+   "path": "website/articles/reduce-cable-clutter.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Start by mapping what each cable does",
+   "src": "https://images.unsplash.com/photo-1755436612908-fdef1439f18d?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
+   "vision": null
+  },
+  {
+   "after": "Trace connections before bundling them so each cable remains identifiable. Remove cables that no longer connect anything Disconnected cables cause most of the visual noise. Unplug one candidate at a time and confirm that nothing stops working. Recycle obsolete cables through local electronic-waste services instead of keeping a box of unknown wires.",
+   "alt": "Everyday desk with computer connections and accessories",
+   "article": "reduce-cable-clutter",
+   "before": "ce. — Unsplash Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, display, network, charging or an accessory. If you cannot say what a cable connects, do not hide it: unknown wires are what cause trouble later. Photograph a complicated setup first (a handwritten note is enough for a small desk) so you can restore a connection if one gets mixed up.",
+   "caption": "Trace connections before bundling them so each cable remains identifiable.",
+   "index": 2,
+   "key": "photo-1517336714731-489689fd1ca8",
+   "path": "website/articles/reduce-cable-clutter.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Start by mapping what each cable does",
+   "src": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
+   "vision": null
+  },
+  {
+   "after": "Keep frequently changed charging connections accessible instead of burying them in a permanent bundle. Shorten and route the visible run Long visible runs usually mean the power strip is in the wrong place. Where it is safe and practical, move the power source closer to the equipment, then route each cable along the shortest useful path. Group cabl",
+   "alt": "Laptop and simple charging setup on an ordinary desk",
+   "article": "reduce-cable-clutter",
+   "before": "need: one spare USB cable is useful, four unidentified charging cables are not a system. Separate permanent cables from temporary ones Think of the setup as two layers. The hidden layer carries stable connections and can run behind furniture or through a cable tray. The accessible layer holds charging cables and other things that change often, and stays within reach. Mixing the two makes a bundle that looks neat until you need to move one device.",
+   "caption": "Keep frequently changed charging connections accessible instead of burying them in a permanent bundle.",
+   "index": 3,
+   "key": "photo-1496181133206-80ce9b88a853",
+   "path": "website/articles/reduce-cable-clutter.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Separate permanent cables from temporary ones",
+   "src": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
+   "vision": null
+  },
+  {
+   "after": "A simple home reset protects the surfaces and routines that matter most during the week. 1. Reset for tomorrow, not for perfection The useful question at the end of the day is not “Is the house clean?” but “What will make tomorrow unnecessarily difficult if I leave it?” A sink full of dishes, a blocked entryway, a laundry pile and a counter covered",
+   "alt": "Simple home reset with clear everyday living surfaces",
+   "article": "simple-home-reset-that-prevents-weekend-chaos",
+   "before": "from becoming a large weekend cleanup.\" property=\"og:description\"/> H HomeProjectWise All guides STORAGE & ORGANIZATION · ROUTINES Simple Home Reset That Prevents Weekend Chaos Weekend cleaning becomes exhausting when weekday tasks pile up. You do not need a perfect daily schedule, only a short reset that catches what makes tomorrow harder: dishes, visible clutter, laundry bottlenecks, rubbish and unfinished tasks. Keep it small enough to repeat.",
+   "caption": "A simple home reset protects the surfaces and routines that matter most during the week.",
+   "index": 0,
+   "key": "photo-1586023492125-27b2c045efd7",
+   "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&amp;fit=crop&amp;w=1000&amp;h=1500&amp;q=85",
+   "status": "pending",
+   "title": "Simple Home Reset That Prevents Weekend Chaos",
+   "vision": null
+  },
+  {
+   "after": "The reset is about practical surfaces and tasks that affect the next day. 2. Start with the kitchen sink The kitchen sets the feel of the whole home because it is used repeatedly. Clear dishes, put food away and wipe the main preparation surface; skip deep-cleaning appliances and reorganizing cupboards. If dishes are the recurring bottleneck, chang",
+   "alt": "Everyday home cleaning reset focused on practical surfaces",
+   "article": "simple-home-reset-that-prevents-weekend-chaos",
+   "before": "r most during the week. 1. Reset for tomorrow, not for perfection The useful question at the end of the day is not “Is the house clean?” but “What will make tomorrow unnecessarily difficult if I leave it?” A sink full of dishes, a blocked entryway, a laundry pile and a counter covered with packaging each create friction in the morning. Choose tomorrow's problems first: you are not finishing the house, you are removing obstacles from the next day.",
+   "caption": "The reset is about practical surfaces and tasks that affect the next day.",
+   "index": 1,
+   "key": "photo-1581578731548-c64695cc6952",
+   "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "1. Reset for tomorrow, not for perfection",
+   "src": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Simple Home Reset That Prevents Weekend Chaos",
+   "vision": null
+  },
+  {
+   "after": "Resetting the entryway keeps tomorrow's departure routine simple. 6. Finish the visible rubbish and recycling During the reset, collect obvious rubbish from the main living and kitchen areas and move recycling to its normal place, without turning it into a whole-house inspection. If rubbish keeps accumulating in the same room, add a small temporary",
+   "alt": "Organized entryway ready for the next morning",
+   "article": "simple-home-reset-that-prevents-weekend-chaos",
+   "before": "set the entryway before morning The entryway can turn a calm morning into a search exercise. Put daily coats and bags on their hooks, return keys to the landing zone and reduce shoes to the pairs normally used; seasonal overflow should already live elsewhere. It takes little time and pays off because everyone passes through during departures. A small evening reset prevents mornings that start with “Where are my keys?” and “Whose shoes are these?”",
+   "caption": "Resetting the entryway keeps tomorrow's departure routine simple.",
+   "index": 2,
+   "key": "photo-1558997519-83ea9252edf8",
+   "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
+   "problems": [
+    "quota exhausted",
+    "duplicate-with:quiet-entryway-storage"
+   ],
+   "role": "inner",
+   "section": "5. Reset the entryway before morning",
+   "src": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "replace",
+   "title": "Simple Home Reset That Prevents Weekend Chaos",
+   "vision": null
+  },
+  {
+   "after": "A compact bathroom is easier to maintain when the surfaces you touch and wet most often stay accessible. Photo: Jan Canty on Unsplash. Short answer: do not start by buying more storage. First reduce what gets wet, remove unnecessary items from the sink, keep the floor open, give towels enough room to dry and keep your basic cleaning tools within ea",
+   "alt": "Clean bathroom with a compact sink and mirror",
+   "article": "small-bathroom-easier-to-clean",
+   "before": "all Bathroom Easier to Clean Without Remodeling\"> H HomeProjectWise All guides WEEKEND PROJECTS · BATHROOM How to Make a Small Bathroom Easier to Clean Without Remodeling If a small bathroom looks dirty again soon after you clean it, the room setup is often the cause, not your routine. This guide removes the small frictions that make it harder to keep clean.",
+   "caption": "A compact bathroom is easier to maintain when the surfaces you touch and wet most often stay accessible. Photo: Jan Canty on Unsplash.",
+   "index": 0,
+   "key": "photo-1723514582643-233c529aa274",
+   "path": "website/articles/small-bathroom-easier-to-clean.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1723514582643-233c529aa274?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
+   "status": "pending",
+   "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
+   "vision": null
+  },
+  {
+   "after": "Smooth, accessible surfaces are easier to dry before mineral spots and residue build up. Photo: Lisa Anna on Unsplash. In a bathroom, many \"cleaning\" problems begin as water problems. Water left on glass, taps, the basin edge and shower walls eventually dries, leaving minerals or soap residue behind. You do not need to dry every surface after every",
+   "alt": "Bathroom sink and faucet area where water can be wiped away quickly",
+   "article": "small-bathroom-easier-to-clean",
+   "before": "torage items, not countertop items. Use one container for small loose items. A tray or drawer organizer is easier to wipe around than many individual objects. Leave a wiping lane. You should be able to wipe most of the basin and counter without moving ten things first. A useful test is simple: can you wipe the entire sink area in about 30 seconds? If not, reduce or contain what is sitting there. 3. Stop water from becoming tomorrow's cleaning job",
+   "caption": "Smooth, accessible surfaces are easier to dry before mineral spots and residue build up. Photo: Lisa Anna on Unsplash.",
+   "index": 1,
+   "key": "photo-1723642614574-ffd068687936",
+   "path": "website/articles/small-bathroom-easier-to-clean.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "3. Stop water from becoming tomorrow's cleaning job",
+   "src": "https://images.unsplash.com/photo-1723642614574-ffd068687936?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
+   "status": "pending",
+   "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
+   "vision": null
+  },
+  {
+   "after": "A clear route around the main fixtures makes routine floor cleaning easier. Photo: Lisa Anna on Unsplash. A small bathroom floor can become surprisingly difficult to clean when a bin, scale, laundry basket, toilet brush and spare products all occupy different corners. You do not need an empty floor, but you do need a clear path for the mop or vacuu",
+   "alt": "Compact bathroom layout with sink, toilet and shower",
+   "article": "small-bathroom-easier-to-clean",
+   "before": "tice water collecting around it. Spread the shower curtain instead of leaving it bunched up wet. Hang towels open so they dry rather than becoming another source of dampness. If your bathroom already struggles with lingering humidity, fix ventilation before trying to clean away the symptoms. Our bathroom condensation guide explains how to measure humidity and test the fan and replacement airflow. 4. Keep the floor open enough to clean in one pass",
+   "caption": "A clear route around the main fixtures makes routine floor cleaning easier. Photo: Lisa Anna on Unsplash.",
+   "index": 2,
+   "key": "photo-1722153148798-e775a8909c87",
+   "path": "website/articles/small-bathroom-easier-to-clean.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "4. Keep the floor open enough to clean in one pass",
+   "src": "https://images.unsplash.com/photo-1722153148798-e775a8909c87?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
+   "status": "pending",
+   "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
+   "vision": null
+  },
+  {
+   "after": "The wall switch is your first backup when the app stops answering. Illustrative image created with Canva. Your internet drops at 9 p.m. You walk into the hallway, say \"turn on the light\", and nothing happens. You open the app. It spins. You were told this was the easy way to run a home. Here is the useful truth: you cannot know how your smart home ",
+   "alt": "A hand reaching for a wall light switch in a dim home hallway, with a smartphone resting on a console table nearby",
+   "article": "smart-home-wifi-outage-test",
+   "before": "nute Test\"> H HomeProjectWise Guides About All guides SMART HOME · SIMPLE AUTOMATION What Happens to Your Smart Home When the Internet Goes Down? A 15-Minute Test",
+   "caption": "The wall switch is your first backup when the app stops answering. Illustrative image created with Canva.",
+   "index": 0,
+   "key": "local-smart-home-wifi-outage-hero.jpg",
+   "path": "website/articles/smart-home-wifi-outage-test.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/smart-home-wifi-outage-hero.jpg",
+   "status": "pending",
+   "title": "What Happens to Your Smart Home When the Internet Goes Down? A 15-Minute Test",
+   "vision": null
+  },
+  {
+   "after": "Product-style flat lay of smart-home devices. Short answer: renting, or cannot touch the wiring? Use smart bulbs. Own the home, have a neutral wire at the switch and several bulbs on one fixture? A smart switch is usually cheaper and keeps the wall switch working. Not sure about the neutral? Do not open the box to find out (see section 2): use smar",
+   "alt": "Smart lighting products arranged on a pink and orange background: a phone, smart bulbs, a motion sensor and a camera",
+   "article": "smart-lighting",
+   "before": "ect-wise.github.io/home-project-wise/assets/img/smart-lighting-hero.jpg\" name=\"twitter:image\"/> H HomeProjectWise All guides SMART HOME · LIGHTING Smart Bulb or Smart Switch? How to Choose Both make a light smart. They fail in different ways, cost differently and suit different homes. This guide helps you choose in about five minutes.",
+   "caption": "Product-style flat lay of smart-home devices.",
+   "index": 0,
+   "key": "local-smart-lighting-hero.jpg",
+   "path": "website/articles/smart-lighting.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../assets/img/smart-lighting-hero.jpg",
+   "status": "pending",
+   "title": "Smart Bulb or Smart Switch? How to Choose",
+   "vision": null
+  },
+  {
+   "after": "A warm, low bedside light. This lamp uses a normal bulb; a smart bulb would give you the same glow on a schedule. Photo: Unsplash. If you use smart bulbs, stop the wall switch being flipped by mistake. A switch cover or a wireless remote keeps the bulb powered. See our guides to evening lighting and motion lighting . 5. Wi-Fi, hub, Zigbee or Matter",
+   "alt": "A bedside lamp with a warm filament-style bulb beside a phone on a stand, a plant and a pair of glasses",
+   "article": "smart-lighting",
+   "before": "ires (a live and a switched live) and no neutral. There the usual options are smart bulbs, or a two-wire smart switch that lists your bulbs and its minimum load. Do not assume either way: some newer installations do bring a neutral to the switch, so have it checked by a qualified electrician. 4. Combine them where it makes sense Many homes use both: smart switches for overhead lights, smart bulbs for bedside lamps where you want a warm, low glow.",
+   "caption": "A warm, low bedside light. This lamp uses a normal bulb; a smart bulb would give you the same glow on a schedule. Photo: Unsplash.",
+   "index": 1,
+   "key": "local-warm-bedside-light.jpg",
+   "path": "website/articles/smart-lighting.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "4. Combine them where it makes sense",
+   "src": "../assets/img/warm-bedside-light.jpg",
+   "status": "pending",
+   "title": "Smart Bulb or Smart Switch? How to Choose",
+   "vision": null
+  },
+  {
+   "after": "Find the air path before buying a replacement door. Find the draft before buying anything A closed house door is the starting point for checking the perimeter and seal. — Unsplash Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hinge side and bottom edge, in short sections, and mark each spot w",
+   "alt": "Bright front door area with a well-sealed doorway and welcoming entry",
+   "article": "stop-a-drafty-door-without-replacing-it",
+   "before": "n\"/> H HomeProjectWise All guides WEEKEND PROJECTS · DRAFTS Stop a Drafty Door Without Replacing It A cold draft does not mean the door is bad. Find the exact air path, then fix the smallest part that is failing: usually the threshold, the weatherstripping or the bottom sweep, not the whole door. Find it, choose it, test it.",
+   "caption": "Find the air path before buying a replacement door.",
+   "index": 0,
+   "key": "photo-1600566753190-17f0baa2a6c3",
+   "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
+   "status": "pending",
+   "title": "Stop a Drafty Door Without Replacing It",
+   "vision": null
+  },
+  {
+   "after": "A closed house door is the starting point for checking the perimeter and seal. — Unsplash Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hinge side and bottom edge, in short sections, and mark each spot where the air changes. Curtains, vents and nearby walls also move air, so confirm the door ",
+   "alt": "Closed house door used for a draft inspection",
+   "article": "stop-a-drafty-door-without-replacing-it",
+   "before": "H HomeProjectWise All guides WEEKEND PROJECTS · DRAFTS Stop a Drafty Door Without Replacing It A cold draft does not mean the door is bad. Find the exact air path, then fix the smallest part that is failing: usually the threshold, the weatherstripping or the bottom sweep, not the whole door. Find it, choose it, test it. Find the air path before buying a replacement door. Find the draft before buying anything",
+   "caption": "A closed house door is the starting point for checking the perimeter and seal. — Unsplash",
+   "index": 1,
+   "key": "photo-1551200384-45cdf27a0281",
+   "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Find the draft before buying anything",
+   "src": "https://images.unsplash.com/photo-1551200384-45cdf27a0281?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Stop a Drafty Door Without Replacing It",
+   "vision": null
+  },
+  {
+   "after": "Inspect the door perimeter before choosing a weatherstripping repair. — Unsplash Look for cracked, torn, flattened or missing material. Press gently on the seal: if it stays compressed instead of springing back, it no longer makes enough contact. Measure the section you need to replace and compare it with the existing profile, because choosing a st",
+   "alt": "Closed white wooden door in a home entrance",
+   "article": "stop-a-drafty-door-without-replacing-it",
+   "before": " or other combustible material. Check the door closes evenly Look at the gap around the closed door. If one corner is much wider than the others, the cause is probably alignment, hinges or the frame, not the weatherstrip. Open and close the door slowly: it should not rub, and the latch should meet the strike without force. A seal improves contact; it cannot compensate for a door that does not close correctly. Inspect the existing weatherstripping",
+   "caption": "Inspect the door perimeter before choosing a weatherstripping repair. — Unsplash",
+   "index": 2,
+   "key": "photo-1581869393747-8ca598e2924b",
+   "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Inspect the existing weatherstripping",
+   "src": "https://images.unsplash.com/photo-1581869393747-8ca598e2924b?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
+   "status": "pending",
+   "title": "Stop a Drafty Door Without Replacing It",
+   "vision": null
+  },
+  {
+   "after": "Use simple measuring and inspection tools before choosing a replacement seal. Deal with the bottom edge If the draft is strongest at the floor, look for daylight under the door or a sweep that no longer touches the threshold. After any adjustment, open and close the door. If the sweep drags, catches on the threshold or stops the latch from engaging",
+   "alt": "Basic home maintenance tools used for a repair",
+   "article": "stop-a-drafty-door-without-replacing-it",
+   "before": "lose correctly. Inspect the existing weatherstripping Inspect the door perimeter before choosing a weatherstripping repair. — Unsplash Look for cracked, torn, flattened or missing material. Press gently on the seal: if it stays compressed instead of springing back, it no longer makes enough contact. Measure the section you need to replace and compare it with the existing profile, because choosing a strip by thickness alone often gives a poor fit.",
+   "caption": "Use simple measuring and inspection tools before choosing a replacement seal.",
+   "index": 3,
+   "key": "photo-1581783898377-1c85bf937427",
+   "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "inner",
+   "section": "Inspect the existing weatherstripping",
+   "src": "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "status": "pending",
+   "title": "Stop a Drafty Door Without Replacing It",
+   "vision": null
+  },
+  {
+   "after": "Photo: Steven Ungermann on Unsplash. Short answer: musty towels come from moisture that stays in the fabric too long. Spread the towel so air reaches both sides, run the bathroom fan for 20 minutes after showers, take towels out of the washer soon after the cycle, use the detergent amount on the label, and make sure towels are completely dry before",
+   "alt": "Towels hanging in a bathroom",
+   "article": "stop-musty-bathroom-towels",
+   "before": "ven after washing? Find the cause in three quick tests, then fix drying, ventilation and washer habits step by step.\" name=\"twitter:description\"/> H HomeProjectWise All guides WEEKEND PROJECTS · LAUNDRY How to Stop Bathroom Towels Smelling Musty A towel that smells fine from the dryer and musty three days later has a drying problem. One that smells musty straight from the washer has a washing problem. This guide helps you tell which, then fix it.",
+   "caption": "Photo: Steven Ungermann on Unsplash.",
+   "index": 0,
+   "key": "local-towel-rail-hero.jpg",
+   "path": "website/articles/stop-musty-bathroom-towels.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../assets/img/towel-rail-hero.jpg",
+   "status": "pending",
+   "title": "How to Stop Bathroom Towels Smelling Musty",
+   "vision": null
+  },
+  {
+   "after": "A reading under 60% means the unit is working; aim to settle near 50%. Illustrative image created with Canva; the reading is an example. Disclosure: This post contains an affiliate link. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. The most common crawl space mistake is not skipping the dehumidifier. It is b",
+   "alt": "Homeowner holding a hygrometer that reads 58 percent in a sealed crawl space, with a dehumidifier on a paver base draining through a hose",
+   "article": "what-size-dehumidifier-crawl-space",
+   "before": "size a crawl space dehumidifier, place it right, and confirm it works within a week.\"> H HomeProjectWise Guides About All guides WEEKEND PROJECTS · MOISTURE CONTROL What Size Dehumidifier Does a Crawl Space Need? A Simple 10-Minute Check Bought a dehumidifier and the crawl space is still damp? Here is how to size one properly, where to put it, and how to tell in 7 days if it is working.",
+   "caption": "A reading under 60% means the unit is working; aim to settle near 50%. Illustrative image created with Canva; the reading is an example.",
+   "index": 0,
+   "key": "local-crawl-space-dehumidifier-hero.jpg",
+   "path": "website/articles/what-size-dehumidifier-crawl-space.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/crawl-space-dehumidifier-hero.jpg",
+   "status": "pending",
+   "title": "What Size Dehumidifier Does a Crawl Space Need? A Simple 10-Minute Check",
+   "vision": null
+  }
+ ]
+}
