@@ -64,3 +64,17 @@
 .article .article-newsletter .eyebrow{font-size:11px;margin:0 0 14px}
 @media(max-width:600px){.article p,.article li{font-size:17px}.article table{font-size:15px}.article th,.article td{padding:9px 10px}.article .lead{font-size:18px}}
 .section.article p.eyebrow,.article p.eyebrow{font-size:11px;line-height:1.5;margin:0 0 14px;color:#6f8f82}
+
+/* On this page card */
+html{scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+.article h2[id]{scroll-margin-top:80px}
+.toc{margin:28px 0;padding:16px 20px;background:#f7f5f0;border:1px solid #ddd9d0;border-left:4px solid #d97745;border-radius:12px}
+.toc summary{cursor:pointer;font-weight:700;font-size:16px;color:#243238;list-style:none}
+.toc summary::-webkit-details-marker{display:none}
+.toc summary::after{content:"+";float:right;color:#d97745;font-weight:700}
+.toc details[open] summary::after{content:"\2013"}
+.toc ol{margin:12px 0 0;padding-left:1.3em}
+.toc li{font-size:16px;line-height:1.45;margin:.3em 0;break-inside:avoid}
+.toc a{color:#243238;text-decoration:none;border-bottom:1px solid #d97745}
+@media(min-width:900px){.toc ol{columns:2;column-gap:32px}}
