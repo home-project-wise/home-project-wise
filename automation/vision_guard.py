@@ -224,9 +224,14 @@ def vision(it, art_path, cache, use_cache=True):
     return v
 
 
+# Owner decision 2026-10-15: AI-generated images are allowed (made with ChatGPT from our own prompts and
+# labelled as AI-generated in the caption). The guard still blocks text/watermarks and images that do not fit
+# their section. Set VISION_BLOCK_AI_LOOK=1 to block images that look AI-generated again.
+BLOCK_AI_LOOK = os.environ.get('VISION_BLOCK_AI_LOOK', '0') == '1'
+
 def classify(v):
     problems = []
-    if v['looks_ai_generated']:
+    if BLOCK_AI_LOOK and v['looks_ai_generated']:
         problems.append('ai-look')
     if v['has_text_or_watermark']:
         problems.append('text-or-watermark')
