@@ -36,7 +36,13 @@ Then update `data/daily_routine_log.md` and this file.
 - 2026-10-15: owner approved. #16 and #18 closed (photos never visually verified). #21 (Image Vision Guard, Gemini) merged with default mode changed to audit = report only; automatic photo replacement happens only if started manually with mode=fix. First audit run started 2026-10-15 (workflow_dispatch). Read its reports in `data/image_audit/REPORT.md` and `CONTENT_REPORT.md` and use them to decide image fixes (nothing replaced automatically).
 - Frozen PRs: none left open. Do not use mode=fix without the owner's decision.
 
+## State on 2026-10-15 (day 2)
+- 20 articles. Categories: Storage 4, Home Design 4, Weekend Projects 9, Smart Home 3. Weakest: Smart Home.
+- Done: PR #78 (article right-rug-size-painters-tape-test, HOME DESIGN, 5 original SVG diagrams in website/images/), #79 (quiet-entryway-storage: quick answer, what not to buy, quick win, meta tag order fixed), #80 ("On this page" card: website/toc.js + CSS in style.css + one script tag per article head). All merged after green checks; live site verified (pages, images, guides, sitemap, toc.js).
+- Gate lesson: the gate expects `<meta name=... content=...>` and `<link rel="canonical" href=...>` in that attribute order, plus BreadcrumbList schema and GoatCounter script in every article.
+- Sandbox lesson: the Composio workbench can reset between calls; do build, gate simulation and commit in the same cell.
+
 ## Queues
-- New articles, category order: Home Design, Smart Home, Storage, Home Design, Smart Home.
-- Older articles to improve: quiet-entryway-storage, simple-home-reset-that-prevents-weekend-chaos, fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
+- New articles, category order: Smart Home, Storage, Home Design, Smart Home.
+- Older articles to improve: simple-home-reset-that-prevents-weekend-chaos, fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
 - Look: "On this page" contents for long articles, guides.html cards, dark mode.
