@@ -6,7 +6,7 @@ on:
     inputs:
       mode:
         description: 'audit = report only, fix = report and safe automatic fixes, content = article value audit'
-        default: 'fix'
+        default: 'audit'
         type: choice
         options: [audit, fix, content]
       budget:
@@ -45,7 +45,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-        run: python -u automation/vision_guard.py "${{ inputs.mode || 'fix' }}" --max-replace 4
+        run: python -u automation/vision_guard.py "${{ inputs.mode || 'audit' }}" --max-replace 4
       - name: Content value audit (report only)
         if: github.event_name == 'schedule' || inputs.mode == 'content' || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[full-audit]'))
         env:
