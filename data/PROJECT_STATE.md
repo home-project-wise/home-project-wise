@@ -33,7 +33,8 @@ Then update `data/daily_routine_log.md` and this file.
 ## State on 2026-10-14
 - 19 articles. Categories: Storage 4, Home Design 3, Weekend Projects 9, Smart Home 3. Weakest: Home Design, Smart Home.
 - Done today: PR #68 (category tags unified, orphan article added), #69 (article smart-home-wifi-outage-test), #70 (min images 4), #73 and #74 (article typography CSS), #75 (kitchen-counter-zone improvement).
-- Pending owner decision: close #16 and #18 (recommended; unverified photos), and let Claude review #21 (Gemini image check) to run in report-only mode.
+- 2026-10-15: owner approved. #16 and #18 closed (photos never visually verified). #21 (Image Vision Guard, Gemini) merged with default mode changed to audit = report only; automatic photo replacement happens only if started manually with mode=fix. First audit run started 2026-10-15 (workflow_dispatch). Read its reports in `data/image_audit/REPORT.md` and `CONTENT_REPORT.md` and use them to decide image fixes (nothing replaced automatically).
+- Frozen PRs: none left open. Do not use mode=fix without the owner's decision.
 
 ## Queues
 - New articles, category order: Home Design, Smart Home, Storage, Home Design, Smart Home.
