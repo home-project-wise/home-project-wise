@@ -6,3 +6,4 @@ One line per day: new article / old article improved / look improvement.
 - Next old-article queue: quiet-entryway-storage, simple-home-reset-that-prevents-weekend-chaos, fix-wobbly-furniture, better-evening-home-lighting, smart-lighting
 - Next look queue: on-this-page contents for long articles, guides.html cards, dark mode
 - Not in the daily routine: image replacement for the 12 articles with hotlinked Unsplash photos (decision pending)
+- 2026-10-15: #16, #18 closed; #21 merged (audit by default); first Gemini image audit launched; routine day 2 starts on the owner's word
