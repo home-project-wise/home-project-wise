@@ -58,6 +58,13 @@ Then update `data/daily_routine_log.md` and this file.
 - Image flow: Claude writes one ChatGPT prompt per image; owner sends the image to Claude; Claude removes watermarks, converts to JPG 1600x900, owner uploads it at github.com/home-project-wise/home-project-wise/upload/main/website/images.
 - Cleanup of the two unused rug hero files was done in PR #88.
 
+## Update 2026-10-16 (night): AI images merged
+- The owner generated 11 images with ChatGPT from our prompts (uploaded as PNG). Claude converts and pushes them itself: crop to 1600x900 from the top-left corner (removes the faint Gemini watermark at the bottom-right), JPG quality 84, upload with GITHUB_CREATE_OR_UPDATE_FILE_CONTENTS (base64) from the Composio workbench, delete the source PNG in the same PR. The owner no longer needs to convert; PNG upload is enough.
+- Merged: #92 calm-room (4 images), #93 better-evening-home-lighting (4), #94 fix-wobbly-furniture (hero), #95 how-to-hang-large-wall-art (hero), #96 simple-home-reset (section 5). Live pages and images verified (200, sizes ~130-230 KB).
+- Owner decision: images made to order for a section do not wait for the Gemini audit; the guard is for auto-sourced images. The guard result is meaningless when the daily Gemini quota is exhausted ('pending') or times out ('error').
+- Gemini audit (workflow_dispatch image-vision-guard.yml, inputs as a JSON string) still has about 36 images pending (hotlinked Unsplash photos in the older articles); quota resets daily.
+- Social tags: twitter:image of the five articles pointed to the old Unsplash hero; updated to the new local hero (simple-home-reset hero is still an Unsplash photo).
+
 ## Queues
 - New articles, category order: Storage, Home Design, Smart Home, Weekend Projects.
 - Older articles to improve: fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
