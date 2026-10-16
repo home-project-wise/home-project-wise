@@ -50,7 +50,15 @@ Then update `data/daily_routine_log.md` and this file.
 - Cleanup: unused website/images/rug-size-hero.jpg and rug-size-hero.svg removed.
 - Rule of thumb: Composio workbench cells time out after 180 s and the sandbox can reset between calls; fetch live pages in parallel instead of many GitHub API calls.
 
+## State on 2026-10-16 (day 3)
+- 20 articles live (21 once the smart plug article is merged). Categories: Storage 4, Home Design 4, Weekend Projects 9, Smart Home 3 (4 after the new one).
+- Done and merged: PR #84 (simple-home-reset: quick answer, 15-minute timeline diagram, what not to buy, quick win), #85 (new logo lockup with outlined wordmark on every page; icon-only mark refreshed), #86 (broken footer brand on fix-wobbly-furniture).
+- Staged, no PR yet: branch article/what-can-you-plug-into-a-smart-plug (SMART HOME, article + 4 SVG diagrams + guides card + sitemap entry, gate simulated PASS). It needs its hero image website/images/smart-plug-safe-load-hero.jpg (ChatGPT image, converted by Claude to 1600x900 JPG, uploaded by the owner). After the upload: update the branch from main, open the PR, wait for the 3 checks, merge, verify live.
+- Vision guard (PR #83): AI-generated images allowed (label them 'AI-generated image' in the caption); the guard still blocks images that do not show the section subject (mismatch) and text/watermarks. The hero must show the article subject itself.
+- Image flow: Claude writes one ChatGPT prompt per image; owner sends the image to Claude; Claude removes watermarks, converts to JPG 1600x900, owner uploads it at github.com/home-project-wise/home-project-wise/upload/main/website/images.
+- Cleanup of the two unused rug hero files was done in PR #88.
+
 ## Queues
-- New articles, category order: Smart Home, Storage, Home Design, Smart Home.
-- Older articles to improve: simple-home-reset-that-prevents-weekend-chaos, fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
-- Look: "On this page" contents for long articles, guides.html cards, dark mode.
+- New articles, category order: Storage, Home Design, Smart Home, Weekend Projects.
+- Older articles to improve: fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
+- Look: guides.html cards, dark mode, homepage hero, article cards.
