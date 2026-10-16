@@ -42,6 +42,14 @@ Then update `data/daily_routine_log.md` and this file.
 - Gate lesson: the gate expects `<meta name=... content=...>` and `<link rel="canonical" href=...>` in that attribute order, plus BreadcrumbList schema and GoatCounter script in every article.
 - Sandbox lesson: the Composio workbench can reset between calls; do build, gate simulation and commit in the same cell.
 
+## Update 2026-10-16 (day 2 wrap-up: images)
+- Hero images are now AI-generated with ChatGPT from prompts written by Claude (one prompt per image, one code block each). Flow: Claude writes the prompt -> owner generates the image and sends it in chat -> Claude crops/removes any corner watermark and converts to JPG 1600x900 (~250 KB) -> owner uploads it at https://github.com/home-project-wise/home-project-wise/upload/main/website/images -> Claude updates the article PR, waits for the checks, merges and verifies the live page. Claude cannot push binary files itself.
+- AI images carry the caption prefix "AI-generated image:". The hero must SHOW the article's subject (the vision guard blocks 'mismatch').
+- PR #83: automation/vision_guard.py no longer blocks 'ai-look' (set VISION_BLOCK_AI_LOOK=1 to restore). Workflow file untouched.
+- PR #82 merged: rug article hero = website/images/rug-tape-test-hero.jpg (orange painter's tape on the floor), og:image + twitter large card added.
+- Cleanup: unused website/images/rug-size-hero.jpg and rug-size-hero.svg removed.
+- Rule of thumb: Composio workbench cells time out after 180 s and the sandbox can reset between calls; fetch live pages in parallel instead of many GitHub API calls.
+
 ## Queues
 - New articles, category order: Smart Home, Storage, Home Design, Smart Home.
 - Older articles to improve: simple-home-reset-that-prevents-weekend-chaos, fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.

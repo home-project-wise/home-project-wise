@@ -8,3 +8,4 @@ One line per day: new article / old article improved / look improvement.
 - Not in the daily routine: image replacement for the 12 articles with hotlinked Unsplash photos (decision pending)
 - 2026-10-15: #16, #18 closed; #21 merged (audit by default); first Gemini image audit launched; routine day 2 starts on the owner's word
 - 2026-10-15 (day 2): new = right-rug-size-painters-tape-test (HOME DESIGN, PR #78) | improved = quiet-entryway-storage (quick answer, what not to buy, quick win, PR #79) | look = 'On this page' card on long articles (PR #80)
+- 2026-10-16 (day 2 wrap-up): PR #82 merged (rug hero = tape-outline AI image) | PR #83 merged (guard allows AI-looking images) | cleanup of two unused images | image workflow documented in PROJECT_STATE
