@@ -42,13 +42,21 @@ Then update `data/daily_routine_log.md` and this file.
 - Gate lesson: the gate expects `<meta name=... content=...>` and `<link rel="canonical" href=...>` in that attribute order, plus BreadcrumbList schema and GoatCounter script in every article.
 - Sandbox lesson: the Composio workbench can reset between calls; do build, gate simulation and commit in the same cell.
 
+## Update 2026-10-16 (day 2 wrap-up: images)
+- Hero images are now AI-generated with ChatGPT from prompts written by Claude (one prompt per image, one code block each). Flow: Claude writes the prompt -> owner generates the image and sends it in chat -> Claude crops/removes any corner watermark and converts to JPG 1600x900 (~250 KB) -> owner uploads it at https://github.com/home-project-wise/home-project-wise/upload/main/website/images -> Claude updates the article PR, waits for the checks, merges and verifies the live page. Claude cannot push binary files itself.
+- AI images carry the caption prefix "AI-generated image:". The hero must SHOW the article's subject (the vision guard blocks 'mismatch').
+- PR #83: automation/vision_guard.py no longer blocks 'ai-look' (set VISION_BLOCK_AI_LOOK=1 to restore). Workflow file untouched.
+- PR #82 merged: rug article hero = website/images/rug-tape-test-hero.jpg (orange painter's tape on the floor), og:image + twitter large card added.
+- Cleanup: unused website/images/rug-size-hero.jpg and rug-size-hero.svg removed.
+- Rule of thumb: Composio workbench cells time out after 180 s and the sandbox can reset between calls; fetch live pages in parallel instead of many GitHub API calls.
+
 ## State on 2026-10-16 (day 3)
 - 20 articles live (21 once the smart plug article is merged). Categories: Storage 4, Home Design 4, Weekend Projects 9, Smart Home 3 (4 after the new one).
 - Done and merged: PR #84 (simple-home-reset: quick answer, 15-minute timeline diagram, what not to buy, quick win), #85 (new logo lockup with outlined wordmark on every page; icon-only mark refreshed), #86 (broken footer brand on fix-wobbly-furniture).
 - Staged, no PR yet: branch article/what-can-you-plug-into-a-smart-plug (SMART HOME, article + 4 SVG diagrams + guides card + sitemap entry, gate simulated PASS). It needs its hero image website/images/smart-plug-safe-load-hero.jpg (ChatGPT image, converted by Claude to 1600x900 JPG, uploaded by the owner). After the upload: update the branch from main, open the PR, wait for the 3 checks, merge, verify live.
 - Vision guard (PR #83): AI-generated images allowed (label them 'AI-generated image' in the caption); the guard still blocks images that do not show the section subject (mismatch) and text/watermarks. The hero must show the article subject itself.
 - Image flow: Claude writes one ChatGPT prompt per image; owner sends the image to Claude; Claude removes watermarks, converts to JPG 1600x900, owner uploads it at github.com/home-project-wise/home-project-wise/upload/main/website/images.
-- To clean later: website/images/rug-size-hero.jpg and rug-size-hero.svg are unused.
+- Cleanup of the two unused rug hero files was done in PR #88.
 
 ## Queues
 - New articles, category order: Storage, Home Design, Smart Home, Weekend Projects.
