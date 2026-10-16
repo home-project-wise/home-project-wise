@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-15 05:16 UTC with `gemini-3.8-flash`.
+Generated 2026-10-16 21:48 UTC with `gemini-3.8-flash`.
 
-Totals: pending=40, replace=6
+Totals: keep=1, pending=36, replace=11
 
 ## All images
 
@@ -13,13 +13,12 @@ Totals: pending=40, replace=6
 | better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 0 | replace | Sunlit exterior backyard of a modern home featuring a green lawn, large gum tree, and a covered timber patio d | mismatch |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 4 | replace | A dark gray metal floor lamp with an adjustable curved dome shade stands turned off against a plain white wall | mismatch |
 | calm-room | hero | Introduction | 4 | replace | A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting | mismatch |
-| calm-room | inner | 1. Start with what your eyes notice firs | - | pending |  | daily quota exhausted |
-| calm-room | inner | 3. Change the light before the furniture | - | pending |  | quota exhausted |
-| calm-room | inner | 5. Reduce visual competition | - | pending |  | quota exhausted |
-| fix-wobbly-furniture | hero | Introduction | - | pending |  | quota exhausted |
-| how-to-fix-damp-crawl-space-humidity | hero | Introduction | - | pending |  | quota exhausted |
-| how-to-hang-large-wall-art-without-damage | hero | Introduction | - | pending |  | quota exhausted |
-| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | pending |  | quota exhausted |
+| calm-room | inner | 1. Start with what your eyes notice firs | 0 | replace | Exterior twilight view of a modern two-story home with wood and black siding, large glass windows, an outdoor  | mismatch |
+| calm-room | inner | 3. Change the light before the furniture | 1 | replace | A bright living room with a beige sectional sofa, cane accent chair, round wooden coffee table, gallery wall d | mismatch |
+| calm-room | inner | 5. Reduce visual competition | 2 | replace | Interior of a stationery shop with tall metal shelves packed with books and notebooks beside display tables fi | mismatch |
+| fix-wobbly-furniture | hero | Introduction | 2 | replace | A bright modern dining room featuring green velvet chairs around a set table, a large round wall mirror, a mod | mismatch |
+| how-to-hang-large-wall-art-without-damage | hero | Introduction | 5 | replace | A modern living room with a large square artwork of a classical statue face hung above a grey sofa, adjacent t | mismatch |
+| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | pending |  | daily quota exhausted |
 | kitchen-counter-zone-that-stays-clear | hero | Introduction | - | pending |  | quota exhausted |
 | kitchen-counter-zone-that-stays-clear | inner | 1. Choose one clear working zone | - | pending |  | quota exhausted |
 | kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | - | pending |  | quota exhausted |
@@ -39,6 +38,7 @@ Totals: pending=40, replace=6
 | reduce-cable-clutter | inner | Start by mapping what each cable does | - | pending |  | quota exhausted |
 | reduce-cable-clutter | inner | Start by mapping what each cable does | - | pending |  | quota exhausted |
 | reduce-cable-clutter | inner | Separate permanent cables from temporary | - | pending |  | quota exhausted |
+| right-rug-size-painters-tape-test | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 1. Reset for tomorrow, not for perfectio | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | replace |  | quota exhausted, duplicate-with:quiet-entryway-storage |
@@ -53,4 +53,6 @@ Totals: pending=40, replace=6
 | stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | quota exhausted |
 | stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | quota exhausted |
 | stop-musty-bathroom-towels | hero | Introduction | - | pending |  | quota exhausted |
+| what-can-you-plug-into-a-smart-plug | hero | Introduction | - | pending |  | quota exhausted |
 | what-size-dehumidifier-crawl-space | hero | Introduction | - | pending |  | quota exhausted |
+| how-to-fix-damp-crawl-space-humidity | hero | Introduction | 10 | keep | A clean crawl space fully lined with white vapor barrier plastic on the floor and walls, exposed wooden ceilin |  |
