@@ -51,9 +51,9 @@ Then update `data/daily_routine_log.md` and this file.
 - Rule of thumb: Composio workbench cells time out after 180 s and the sandbox can reset between calls; fetch live pages in parallel instead of many GitHub API calls.
 
 ## State on 2026-10-16 (day 3)
-- 20 articles live (21 once the smart plug article is merged). Categories: Storage 4, Home Design 4, Weekend Projects 9, Smart Home 3 (4 after the new one).
+- 21 articles live. Categories: Storage 4, Home Design 4, Weekend Projects 9, Smart Home 4. Next new article: Storage (first in the category order).
 - Done and merged: PR #84 (simple-home-reset: quick answer, 15-minute timeline diagram, what not to buy, quick win), #85 (new logo lockup with outlined wordmark on every page; icon-only mark refreshed), #86 (broken footer brand on fix-wobbly-furniture).
-- Staged, no PR yet: branch article/what-can-you-plug-into-a-smart-plug (SMART HOME, article + 4 SVG diagrams + guides card + sitemap entry, gate simulated PASS). It needs its hero image website/images/smart-plug-safe-load-hero.jpg (ChatGPT image, converted by Claude to 1600x900 JPG, uploaded by the owner). After the upload: update the branch from main, open the PR, wait for the 3 checks, merge, verify live.
+- Done and merged: PR #90 (new article what-can-you-plug-into-a-smart-plug, SMART HOME, 4 SVG diagrams + AI hero website/images/smart-plug-safe-load-hero.jpg, guides card, sitemap entry). All 3 checks green, live page, images, guides and sitemap verified. Header/footer markup of a new article must match the majority of the other articles (logo header 220x33; footer with brand-logo-footer 200x30 and the nav).
 - Vision guard (PR #83): AI-generated images allowed (label them 'AI-generated image' in the caption); the guard still blocks images that do not show the section subject (mismatch) and text/watermarks. The hero must show the article subject itself.
 - Image flow: Claude writes one ChatGPT prompt per image; owner sends the image to Claude; Claude removes watermarks, converts to JPG 1600x900, owner uploads it at github.com/home-project-wise/home-project-wise/upload/main/website/images.
 - Cleanup of the two unused rug hero files was done in PR #88.
