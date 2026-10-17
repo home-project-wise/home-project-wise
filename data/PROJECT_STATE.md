@@ -69,3 +69,11 @@ Then update `data/daily_routine_log.md` and this file.
 - New articles, category order: Storage, Home Design, Smart Home, Weekend Projects.
 - Older articles to improve: fix-wobbly-furniture, better-evening-home-lighting, smart-lighting.
 - Look: guides.html cards, dark mode, homepage hero, article cards.
+
+## Update 2026-10-17 (day 4)
+- Done: PR #98 (article stop-mail-and-paper-pile, STORAGE, 4 original SVG diagrams), #99 (its hero: owner-generated AI image, cropped 1600x900 JPG, og:image, twitter large card, JSON-LD image), #100 (fix-wobbly-furniture improved), #101 and #102 (guide library cards). All merged after green checks and verified live.
+- Article count is about 22 (Storage 5, Home Design 4, Weekend Projects 9, Smart Home 4, counted from the notes above). Weakest next: Home Design or Smart Home.
+- Important correction: the live `guides.html`, `sitemap.xml`, feed and homepage latest cards are REGENERATED at every deploy by `scripts/rebuild_site_indexes.py` (see `.github/workflows/pages.yml`), then `website/article-overrides.css` is appended to `style.css`. Hand edits to the card list in `website/guides.html` are overwritten; the card comes from the article file (title, meta description, eyebrow text as tag, hero image). So a new article needs the article HTML, its images, and a correct meta description, eyebrow `CATEGORY · SUBTOPIC` and hero. Layout changes to the guide library must go in the generator (done in PR #102: library sections use `cards guide-grid`; homepage cards unchanged).
+- Image audit (Gemini): daily quota runs out after about 16 images. Latest report: 3 keep, 9 weak, 4 replace, 32 pending. Start the next run in audit mode right after the quota resets (about 07:00 UTC).
+- Workflow lesson: the PR check set can be 2 runs (Image Vision Guard only runs when images change) and Site Health Monitor can wait several minutes in a queue. Merge when every listed run is green.
+

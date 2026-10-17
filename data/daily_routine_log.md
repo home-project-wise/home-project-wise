@@ -11,3 +11,8 @@ One line per day: new article / old article improved / look improvement.
 - 2026-10-16 (day 2 wrap-up): PR #82 merged (rug hero = tape-outline AI image) | PR #83 merged (guard allows AI-looking images) | cleanup of two unused images | image workflow documented in PROJECT_STATE
 - 2026-10-16 (day 3): new = what-can-you-plug-into-a-smart-plug (SMART HOME, PR #90 merged, hero uploaded by the owner) | improved = simple-home-reset-that-prevents-weekend-chaos (PR #84) | look = new logo lockup on every page (PR #85, #86)
 - 2026-10-16 (night): 11 AI images pushed and merged in 5 PRs (#92-#96); twitter:image tags fixed; audit still has ~36 pending images
+- 2026-10-17 (day 4): new = stop-mail-and-paper-pile (STORAGE, PR #98, hero added in PR #99 from an owner-generated AI image) | improved = fix-wobbly-furniture (quick answer, common mistakes, what not to buy, quick win, CPSC link, new related link, PR #100) | look = guide library cards: guide-grid layout (equal-height cards, 3 columns) plus hover and keyboard focus styles (PR #101 CSS, PR #102 generator)
+- 2026-10-17: Gemini image audit run again after the quota reset: 3 keep, 9 weak, 4 replace, 32 pending (quota exhausted again); next run after the next quota reset
+- Next old-article queue: better-evening-home-lighting, smart-lighting
+- Next look queue: dark mode
+
