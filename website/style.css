@@ -81,3 +81,11 @@ html{scroll-behavior:smooth}
 /* Logo lockup (outlined wordmark, no font dependency) */
 .nav .brand-logo{width:220px;max-width:100%;height:auto;display:block}
 footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
+
+/* Guide library cards: equal-height cards, clear hover and keyboard focus */
+.guide-grid .card{transition:transform .18s ease,box-shadow .18s ease}
+.guide-grid .card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(36,50,56,.12)}
+.guide-grid .card:focus-within{box-shadow:0 0 0 3px rgba(217,119,69,.45),0 8px 30px rgba(36,50,56,.06)}
+.guide-grid .card-body a:hover{color:#d97745;text-decoration:underline}
+.guide-grid .card-body a:focus-visible{outline:3px solid #d97745;outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){.guide-grid .card{transition:none}.guide-grid .card:hover{transform:none}}
