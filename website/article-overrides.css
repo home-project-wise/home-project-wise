@@ -13,3 +13,7 @@ body footer{font-size:13px}
 body footer nav a{font-size:13px;display:inline-block;padding:6px 0}
 body .card a{font-size:14px;display:inline-block;padding:6px 0}
 body a:focus-visible,body button:focus-visible,body summary:focus-visible,body input:focus-visible{outline:3px solid #a8481d;outline-offset:3px;border-radius:4px}
+
+/* Diagrams and tablet gutters: never crop SVG diagrams; add side gutters between 851px and 1240px */
+body .article figure img[src$=".svg"],body .section.article figure img[src$=".svg"]{height:auto;max-height:none;object-fit:contain}
+@media(min-width:851px){.section,.promise,.newsletter{width:calc(100% - 56px)}}
