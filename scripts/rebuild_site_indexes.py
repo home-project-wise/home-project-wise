@@ -57,6 +57,17 @@ def article_date(text):
     return datetime.min.replace(tzinfo=timezone.utc)
 
 
+def date_modified(text):
+    m = re.search('"dateModified"[^"]*"([^"]+)"', text, re.I)
+    if m:
+        try:
+            d = datetime.fromisoformat(m.group(1).replace("Z", "+00:00"))
+            return d if d.tzinfo else d.replace(tzinfo=timezone.utc)
+        except Exception:
+            pass
+    return None
+
+
 def rows():
     out = []
     for p in ARTICLES.glob("*.html"):
@@ -75,6 +86,7 @@ def rows():
                 "alt": unescape(img[1]) if img and img[1] else "Useful home project guide",
                 "category": unescape(cat.group(1).strip()) if cat else "HOME PROJECTS",
                 "date": article_date(t),
+                "modified": date_modified(t),
             })
     return sorted(out, key=lambda x: (x["date"], x["slug"]), reverse=True)
 
@@ -135,7 +147,25 @@ def category_sections(r):
     return "".join(parts)
 
 
+def ensure_head_tags(path, prefix):
+    html = path.read_text(encoding="utf-8", errors="ignore")
+    if "</head>" not in html:
+        return
+    add = ""
+    if 'rel="manifest"' not in html:
+        add += '<link rel="manifest" href="' + prefix + 'manifest.webmanifest">'
+    if 'name="theme-color"' not in html:
+        add += '<meta name="theme-color" content="#243238">'
+    if add:
+        path.write_text(html.replace("</head>", add + "</head>", 1), encoding="utf-8")
+
+
 def main():
+    for page in WEBSITE.glob("*.html"):
+        if page.name != "404.html":
+            ensure_head_tags(page, "")
+    for page in ARTICLES.glob("*.html"):
+        ensure_head_tags(page, "../")
     for article in ARTICLES.glob('*.html'):
         html = article.read_text(encoding='utf-8', errors='ignore')
         html = re.sub('<script[^>]*data-goatcounter="[^"]*"[^>]*></script>', '', html, flags=re.I)
@@ -158,8 +188,12 @@ def main():
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")
 
     urls = [BASE + p for p in ("/", "/guides.html", "/about.html", "/editorial-policy.html", "/privacy.html", "/terms.html", "/contact.html")]
-    urls += [BASE + "/articles/" + x["slug"] + ".html" for x in r]
-    (WEBSITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join("<url><loc>" + u + "</loc></url>" for u in urls) + "</urlset>", encoding="utf-8")
+    entries = [(u, None) for u in urls]
+    for x in r:
+        stamp = x.get("modified") or x["date"]
+        lastmod = stamp.strftime("%Y-%m-%d") if stamp.year > 1 else None
+        entries.append((BASE + "/articles/" + x["slug"] + ".html", lastmod))
+    (WEBSITE / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join("<url><loc>" + u + "</loc>" + (("<lastmod>" + lm + "</lastmod>") if lm else "") + "</url>" for u, lm in entries) + "</urlset>", encoding="utf-8")
 
     items = "".join(f'<item><title>{escape(x["title"])}</title><link>{BASE}/articles/{x["slug"]}.html</link><description>{escape(x["description"])}</description></item>' for x in r[:20])
     (WEBSITE / "feed.xml").write_text('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HomeProjectWise</title><link>' + BASE + '/</link><description>Practical home projects, smart-home ideas and useful guides.</description>' + items + "</channel></rss>", encoding="utf-8")

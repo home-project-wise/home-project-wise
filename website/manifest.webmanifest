@@ -1,0 +1,18 @@
+{
+  "name": "HomeProjectWise",
+  "short_name": "HomeProjectWise",
+  "description": "Practical home projects, smart-home ideas and useful guides.",
+  "start_url": "/home-project-wise/",
+  "scope": "/home-project-wise/",
+  "display": "browser",
+  "background_color": "#f7f5f0",
+  "theme_color": "#243238",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
