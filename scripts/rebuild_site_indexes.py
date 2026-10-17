@@ -106,11 +106,32 @@ def category_sections(r):
         ("projects", "WEEKEND PROJECTS", "Plan repairs and upgrades with fewer mistakes and less waste.", "Small repairs and maintenance tasks with clear checks before you spend or replace."),
         ("smart-home", "SMART HOME", "Automate the moments that genuinely remove friction.", "Practical automation with manual fallbacks, sensible routines and no gadget collecting."),
     ]
+    # Large sections are split into labelled groups by sub-topic (the text after the dot in each guide's eyebrow).
+    subgroups = {
+        "projects": [
+            ("Moisture and bathrooms", ("MOISTURE", "BATHROOM", "LAUNDRY")),
+            ("Repairs and upgrades", None),
+        ],
+    }
     parts = []
     for key, label, heading, intro in specs:
         items = [x for x in r if category_key(x) == key]
-        cards = "".join(card(x) for x in items)
-        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label}</p><h2>{heading}</h2><p>{intro}</p><div class="cards guide-grid">{cards}</div></section>')
+        groups = subgroups.get(key)
+        if groups and len(items) > 5:
+            remaining = list(items)
+            blocks = []
+            for title, words in groups:
+                if words is None:
+                    chosen, remaining = remaining, []
+                else:
+                    chosen = [x for x in remaining if any(w in x["category"].upper() for w in words)]
+                    remaining = [x for x in remaining if x not in chosen]
+                if chosen:
+                    blocks.append(f'<h3 class="library-subhead">{title} <span>{len(chosen)} guides</span></h3><div class="cards guide-grid">' + "".join(card(x) for x in chosen) + '</div>')
+            body = "".join(blocks)
+        else:
+            body = '<div class="cards guide-grid">' + "".join(card(x) for x in items) + '</div>'
+        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label} · {len(items)} GUIDES</p><h2>{heading}</h2><p>{intro}</p>{body}</section>')
     return "".join(parts)
 
 

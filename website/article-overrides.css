@@ -17,3 +17,8 @@ body a:focus-visible,body button:focus-visible,body summary:focus-visible,body i
 /* Diagrams and tablet gutters: never crop SVG diagrams; add side gutters between 851px and 1240px */
 body .article figure img[src$=".svg"],body .section.article figure img[src$=".svg"]{height:auto;max-height:none;object-fit:contain}
 @media(min-width:851px){.section,.promise,.newsletter{width:calc(100% - 56px)}}
+
+/* Mobile: side margin for the three promise lines (text touched the screen edge); guide library sub-headings */
+@media(max-width:850px){.promise{margin:0 20px}}
+.library-subhead{font-family:"Playfair Display",serif;font-size:26px;line-height:1.2;margin:44px 0 16px;color:#243238}
+.library-subhead span{font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;color:#566266;margin-left:8px}
