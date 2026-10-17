@@ -1,275 +1,278 @@
 {
- "generated": "2026-10-16T21:48:35+00:00",
+ "generated": "2026-10-17T07:06:26+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
-   "after": "A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture. — Unsplash 1. Fix the activity before the lighting Start with what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may ",
-   "alt": "Simple living room with a warm lamp used for evening lighting",
+   "after": "AI-generated image: layered warm lamps instead of one bright ceiling light. 1. Fix the activity before the lighting Start with what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may be too bright for a quiet evening. Spend on",
+   "alt": "Cozy living room in the evening lit by a floor lamp, a table lamp and soft wall light",
    "article": "better-evening-home-lighting-without-overcomplicating-it",
-   "before": "using placement, layers, glare control and simple routines.\" property=\"og:description\"/> All guides HOME DESIGN · LIGHTING Better Evening Home Lighting Without Overcomplicating It If your home feels too bright, too dim or harsh after sunset, you probably do not need more technology. Move one light, lower the glare and match brightness to the activity before you buy anything.",
-   "caption": "A practical warm lamp setup keeps evening lighting comfortable without relying on a bright ceiling fixture. — Unsplash",
+   "before": "content=\"A practical guide to comfortable evening lighting using placement, layers, glare control and simple routines.\" property=\"og:description\"/> All guides HOME DESIGN · LIGHTING Better Evening Home Lighting Without Overcomplicating It If your home feels too bright, too dim or harsh after sunset, you probably do not need more technology. Move one light, lower the glare and match brightness to the activity before you buy anything.",
+   "caption": "AI-generated image: layered warm lamps instead of one bright ceiling light.",
    "index": 0,
-   "key": "photo-1615874694520-474822394e73",
+   "key": "local-evening-lighting-hero.jpg",
    "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
    "problems": [
-    "mismatch"
+    "weak-match",
+    "generic"
    ],
    "role": "hero",
    "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1615874694520-474822394e73?auto=format&amp;fit=crop&amp;w=1000&amp;h=1500&amp;q=85",
-   "status": "replace",
+   "src": "../images/evening-lighting-hero.jpg",
+   "status": "weak",
    "title": "Better Evening Home Lighting Without Overcomplicating It",
    "vision": {
     "alt_is_accurate": false,
-    "better_alt": "Living room with built-in bookshelves, a lit fireplace, two chairs, and a large globe ceiling chandelier.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 5,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 2,
-    "reason": "The image shows a daylight scene dominated by a prominent ceiling chandelier, completely contradicting the caption and text promoting cozy evening lamp lighting.",
-    "search_query": "cozy living room evening lamp lighting",
-    "visible_description": "Brightly lit living room featuring a lit fireplace flanked by blue built-in bookcases, two modern armchairs, a glass coffee table, and an ornate globe chandelier hanging from the ceiling."
-   }
-  },
-  {
-   "after": "A task light belongs beside the activity so reading does not require making the whole room brighter. — Unsplash 2. Build three useful lighting layers A simple room usually needs three roles, not three expensive systems. If one bulb has to do every job, it ends up brighter than necessary, so separate the jobs and let each source do less. Layer Job E",
-   "alt": "Reading chair task lamp beside the activity for evening reading",
-   "article": "better-evening-home-lighting-without-overcomplicating-it",
-   "before": "h what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may be too bright for a quiet evening. Spend one evening noticing where you actually need to see, and write down two or three uncomfortable moments (the sofa in shadow, a dim worktop, a bulb shining into your eyes). Those notes become your plan instead of a shopping list.",
-   "caption": "A task light belongs beside the activity so reading does not require making the whole room brighter. — Unsplash",
-   "index": 1,
-   "key": "photo-1540932239986-30128078f3c5",
-   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "1. Fix the activity before the lighting",
-   "src": "https://images.unsplash.com/photo-1540932239986-30128078f3c5?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Better Evening Home Lighting Without Overcomplicating It",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Five metallic dome pendant lights hanging at staggered heights against a neutral wall",
-    "has_text_or_watermark": false,
-    "hero_appeal": 5,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 1,
-    "reason": "The image shows decorative ceiling pendant lights instead of the reading task lamp discussed in the text and caption.",
-    "search_query": "reading chair floor task lamp",
-    "visible_description": "Five brushed bronze dome pendant lights hanging at staggered heights by black cords against a plain, warm gray wall."
-   }
-  },
-  {
-   "after": "Different light levels let the same room support movement, conversation and quieter evening tasks. — Unsplash 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating",
-   "alt": "Simple room with separate lighting layers for evening tasks",
-   "article": "better-evening-home-lighting-without-overcomplicating-it",
-   "before": "te the jobs and let each source do less. Layer Job Example Ambient Safe movement around the room Ceiling light, used at a lower level Task Detailed activities Lamp beside the reading chair, light on the worktop Low accent Comfort and late evening Small table lamp, floor lamp pointed at a wall, modest hallway light",
-   "caption": "Different light levels let the same room support movement, conversation and quieter evening tasks. — Unsplash",
-   "index": 2,
-   "key": "photo-1600607688960-e095ff83135c",
-   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "2. Build three useful lighting layers",
-   "src": "https://images.unsplash.com/photo-1600607688960-e095ff83135c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Better Evening Home Lighting Without Overcomplicating It",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Modern home exterior and patio deck with a large tree and lawn in daylight",
-    "has_text_or_watermark": false,
-    "hero_appeal": 6,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 0,
-    "reason": "The photo shows a daytime exterior backyard and patio, completely irrelevant to interior evening lighting layers.",
-    "search_query": "living room layered evening lighting",
-    "visible_description": "Sunlit exterior backyard of a modern home featuring a green lawn, large gum tree, and a covered timber patio deck with outdoor dining furniture."
-   }
-  },
-  {
-   "after": "A small focused lamp can solve a local lighting problem without increasing brightness everywhere. — Unsplash 4. Put task light where the work happens Task light should follow the hands and eyes: beside a reading chair, not a brighter bulb across the room; on the worktop without your own shadow over it. Test with a portable lamp you can move for a f",
-   "alt": "Focused lamp used to reduce evening glare",
-   "article": "better-evening-home-lighting-without-overcomplicating-it",
-   "before": " Unsplash 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating area, add a shade to an exposed bulb, lower a source that sits too high, or move it behind your shoulder when reading. These changes are cheap and reversible, which makes them good first experiments.",
-   "caption": "A small focused lamp can solve a local lighting problem without increasing brightness everywhere. — Unsplash",
-   "index": 3,
-   "key": "photo-1507473885765-e6ed057f782c",
-   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "3. Reduce glare before increasing brightness",
-   "src": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Better Evening Home Lighting Without Overcomplicating It",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Dark gray metal floor lamp with dome shade against a white wall",
-    "has_text_or_watermark": false,
-    "hero_appeal": 2,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "The lamp is turned off against a blank wall, failing to show evening lighting, glare reduction, or a functional room setup.",
-    "search_query": "shaded floor lamp beside armchair",
-    "visible_description": "A dark gray metal floor lamp with an adjustable curved dome shade stands turned off against a plain white wall."
-   }
-  },
-  {
-   "after": "The goal is lower friction, not a luxury makeover. — Unsplash 1. Start with what your eyes notice first Stand at the doorway and let your eyes move naturally. The first three objects that demand attention are your clues: a crowded coffee table, an overfilled shelf or a large piece of furniture pressed against a walkway can make a room feel busy bef",
-   "alt": "Calm neutral living space with simple furniture",
-   "article": "calm-room",
-   "before": "clear visual noise, fix awkward paths, and build storage around daily habits.\" name=\"twitter:description\"/> All guides HOME DESIGN · PRACTICAL GUIDE How to make a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
-   "caption": "The goal is lower friction, not a luxury makeover. — Unsplash",
-   "index": 0,
-   "key": "photo-1600566753086-00f18fb6b3ea",
-   "path": "website/articles/calm-room.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "hero",
-   "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "How to make a room feel calmer without buying everything new",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Modern open-plan living room with light blue sofas, a wooden coffee table, and a dog resting on the rug.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 8,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "The image depicts a high-end luxury architectural home, directly undermining the article's message about practical tweaks rather than expensive makeovers.",
-    "search_query": "tidy organized cozy living room",
-    "visible_description": "A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting on the floor, open floating stairs, and floor-to-ceiling glass windows."
-   }
-  },
-  {
-   "after": "Open a useful path before moving furniture for decoration; start with what your eyes notice first. — Unsplash 2. Protect the walking path Comfort depends on movement as much as appearance. Identify the routes you use every day (door to sofa, sofa to kitchen, bed to wardrobe, desk to printer). If you keep stepping around a chair or moving an object ",
-   "alt": "Bright airy interior with an open walking path and visual details your eyes notice first",
-   "article": "calm-room",
-   "before": "led shelf or a large piece of furniture pressed against a walkway can make a room feel busy before you use it. Remove one obvious item, step back and look again; do not attack the whole room at once. Two fast tests: squint until the room blurs, and whatever still jumps out is your visual noise; or take a photo, because a photo shows the clutter your eyes stopped noticing. The aim is to learn what creates visual noise, not to create an empty room.",
-   "caption": "Open a useful path before moving furniture for decoration; start with what your eyes notice first. — Unsplash",
-   "index": 1,
-   "key": "photo-1600585154340-be6161a56a0c",
-   "path": "website/articles/calm-room.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "1. Start with what your eyes notice first",
-   "src": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "How to make a room feel calmer without buying everything new",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Exterior view of a modern two-story home and backyard lawn at dusk",
+    "better_alt": "Warmly lit living room at dusk with a sofa, wooden coffee table, floor lamp, and wall sconce.",
     "has_text_or_watermark": false,
     "hero_appeal": 7,
     "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 0,
-    "reason": "The photo shows a luxury house exterior and backyard, entirely missing the interior room decluttering topic.",
-    "search_query": "living room declutter visual noise",
-    "visible_description": "Exterior twilight view of a modern two-story home with wood and black siding, large glass windows, an outdoor patio dining area, and a green lawn with a large tree."
+    "looks_ai_generated": true,
+    "matches_section": 6,
+    "reason": "Shows layered evening lighting without harsh overheads, fitting the guide's core premise adequately.",
+    "search_query": "warm layered evening living room lighting",
+    "visible_description": "A living room at dusk with a sofa, wooden coffee table, armchair, warm tripod floor lamp, glowing wall sconce, and a window."
    }
   },
   {
-   "after": "A lower, warmer pool of light changes the feel of a room without adding furniture. — Unsplash Quick rules that work: choose warm bulbs (about 2700K) in living spaces, keep the lamp shade low enough that the bulb is not at eye level when you sit, stay within each lamp's maximum wattage, and switch the overhead light off for an evening test. If you o",
-   "alt": "Warm natural light across a simple interior",
-   "article": "calm-room",
-   "before": "g it, which can damage floors and strain your back. Keep cords out of walking routes, and secure tall or top-heavy furniture to the wall after moving it. 3. Change the light before the furniture One strong ceiling light can make a room flat and harsh even when the layout works. Try the lamps you already have at different heights: a lower pool of light makes a seating area feel more intentional, and brighter task light can stay near detailed work.",
-   "caption": "A lower, warmer pool of light changes the feel of a room without adding furniture. — Unsplash",
+   "after": "AI-generated image: fix the activity first, then place the light beside it. 2. Build three useful lighting layers A simple room usually needs three roles, not three expensive systems. If one bulb has to do every job, it ends up brighter than necessary, so separate the jobs and let each source do less. Layer Job Example Ambient Safe movement around ",
+   "alt": "Reading nook where a reading lamp lights the book, matching the activity before the lighting",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "h what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may be too bright for a quiet evening. Spend one evening noticing where you actually need to see, and write down two or three uncomfortable moments (the sofa in shadow, a dim worktop, a bulb shining into your eyes). Those notes become your plan instead of a shopping list.",
+   "caption": "AI-generated image: fix the activity first, then place the light beside it.",
+   "index": 1,
+   "key": "local-evening-lighting-activity.jpg",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+   "problems": [
+    "weak-match",
+    "generic"
+   ],
+   "role": "inner",
+   "section": "1. Fix the activity before the lighting",
+   "src": "../images/evening-lighting-activity.jpg",
+   "status": "weak",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Armchair with a warm floor lamp focused directly over an open book beside a side table.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": true,
+    "matches_section": 7,
+    "reason": "Directly demonstrates positioning a dedicated reading lamp for a specific evening activity instead of relying on general room lighting.",
+    "search_query": "reading chair floor lamp evening",
+    "visible_description": "An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading lamp beside a small wooden side table in an evening room."
+   }
+  },
+  {
+   "after": "AI-generated image: three useful lighting layers working together. 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating area, add a shade to an exposed bulb, lowe",
+   "alt": "Living room with three lighting layers on: ambient wall glow, a reading lamp and an accent light",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "te the jobs and let each source do less. Layer Job Example Ambient Safe movement around the room Ceiling light, used at a lower level Task Detailed activities Lamp beside the reading chair, light on the worktop Low accent Comfort and late evening Small table lamp, floor lamp pointed at a wall, modest hallway light",
+   "caption": "AI-generated image: three useful lighting layers working together.",
    "index": 2,
-   "key": "photo-1616486338812-3dadae4b4ace",
-   "path": "website/articles/calm-room.html",
+   "key": "local-evening-lighting-layers.jpg",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
    "problems": [
-    "mismatch"
+    "weak-match"
    ],
    "role": "inner",
-   "section": "3. Change the light before the furniture",
-   "src": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "How to make a room feel calmer without buying everything new",
+   "section": "2. Build three useful lighting layers",
+   "src": "../images/evening-lighting-layers.jpg",
+   "status": "weak",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
    "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Brightly lit neutral living room with a sectional sofa, round coffee table, and gallery wall.",
+    "alt_is_accurate": true,
+    "better_alt": "Warm living room illuminated by a shaded table lamp, a floor reading light, and a bookshelf accent lamp.",
     "has_text_or_watermark": false,
-    "hero_appeal": 5,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 1,
-    "reason": "The photo shows flat daytime window light with no visible lamps or warm pools of light discussed in the text.",
-    "search_query": "cozy living room warm lamp glowing",
-    "visible_description": "A bright living room with a beige sectional sofa, cane accent chair, round wooden coffee table, gallery wall decor, and large windows admitting daytime light."
+    "hero_appeal": 6,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 7,
+    "reason": "Directly demonstrates the concept of multiple functional lighting layers working harmoniously in a domestic interior.",
+    "search_query": "layered evening living room lighting",
+    "visible_description": "A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading floor lamp, and a bookshelf with a small spotlight."
    }
   },
   {
-   "after": "Grouped into a few clear clusters, open shelves read calmer than many scattered objects. — Unsplash The rule of three: on any shelf, aim for two or three clusters, with about a third of the shelf left empty so the eye has somewhere to rest. Put uncertain items in a temporary box for a week. If you do not look for them, they do not need to stay visi",
-   "alt": "Open shelving with objects grouped into a few clear clusters",
-   "article": "calm-room",
-   "before": "chair. None of this needs a large organizing system. Start with the object that repeatedly becomes clutter and give it a home where you naturally reach for it. 5. Reduce visual competition Rooms get noisy when many objects compete for attention. You do not need to remove personality: group related items and let a few useful or meaningful pieces lead. A shelf with ten unrelated objects feels busier than the same ten in two or three clear clusters.",
-   "caption": "Grouped into a few clear clusters, open shelves read calmer than many scattered objects. — Unsplash",
+   "after": "AI-generated image: reduce glare with a shade and a dimmer before adding brightness. 4. Put task light where the work happens Task light should follow the hands and eyes: beside a reading chair, not a brighter bulb across the room; on the worktop without your own shadow over it. Test with a portable lamp you can move for a few nights. If moving it ",
+   "alt": "Table lamp with a thick linen shade giving soft light with no visible bulb to reduce glare",
+   "article": "better-evening-home-lighting-without-overcomplicating-it",
+   "before": "together. 3. Reduce glare before increasing brightness An exposed bulb near eye level is more irritating than a dimmer source aimed at a wall or table. Before increasing brightness, change what the eye sees: turn a lamp slightly away from the seating area, add a shade to an exposed bulb, lower a source that sits too high, or move it behind your shoulder when reading. These changes are cheap and reversible, which makes them good first experiments.",
+   "caption": "AI-generated image: reduce glare with a shade and a dimmer before adding brightness.",
    "index": 3,
-   "key": "photo-1702432601253-09990ed6ecee",
-   "path": "website/articles/calm-room.html",
+   "key": "local-evening-lighting-glare.jpg",
+   "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
    "problems": [
-    "mismatch"
+    "weak-match"
    ],
    "role": "inner",
-   "section": "5. Reduce visual competition",
-   "src": "https://images.unsplash.com/photo-1702432601253-09990ed6ecee?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "How to make a room feel calmer without buying everything new",
+   "section": "3. Reduce glare before increasing brightness",
+   "src": "../images/evening-lighting-glare.jpg",
+   "status": "weak",
+   "title": "Better Evening Home Lighting Without Overcomplicating It",
    "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Retail stationery store with shelves and tables densely stocked with notebooks and pens by a glass garage door.",
+    "alt_is_accurate": true,
+    "better_alt": "Lit table lamp with a fabric drum shade on a wooden end table next to an armchair.",
     "has_text_or_watermark": false,
-    "hero_appeal": 4,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 2,
-    "reason": "Shows a busy retail store packed with retail merchandise rather than a calm home shelf organized into sparse clusters.",
-    "search_query": "minimalist styled open shelf decor",
-    "visible_description": "Interior of a stationery shop with tall metal shelves packed with books and notebooks beside display tables filled with colorful pens, next to a large glass garage door."
+    "hero_appeal": 6,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 7,
+    "reason": "Directly illustrates using an opaque lampshade and nearby dimmer control to reduce harsh glare in a living space.",
+    "search_query": "shaded table lamp beside sofa",
+    "visible_description": "A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A potted plant, a book, and a wall dimmer switch are nearby."
    }
   },
   {
-   "after": "Tools for the job. The actual diagnosis is in the diagram below. Use the smallest correction that matches the cause you have actually proved. 1. Describe the wobble Do not start by tightening anything. First make the problem repeatable: does it rock front to back, side to side, or only at one corner? Empty, loaded, or both? A chair that rocks only ",
-   "alt": "General furniture repair tools on a workbench — not a specific wobbly joint",
-   "article": "fix-wobbly-furniture",
-   "before": "neven floor, short contact point, loose fastener or failing joint.\" name=\"twitter:description\"/> How to Fix Wobbly Furniture Without Guessing All guides WEEKEND PROJECTS · FURNITURE A Simple Way to Fix Wobbly Furniture Without Guessing A wobble is a symptom, not a diagnosis. Before tightening every screw or adding pads, find out whether the movement comes from the floor, a short contact point, a loose fastener or a joint that has started to fail.",
-   "caption": "Tools for the job. The actual diagnosis is in the diagram below.",
+   "after": "AI-generated image: a calm room with few objects, clear floor and soft light. 1. Start with what your eyes notice first Stand at the doorway and let your eyes move naturally. The first three objects that demand attention are your clues: a crowded coffee table, an overfilled shelf or a large piece of furniture pressed against a walkway can make a ro",
+   "alt": "Calm, uncluttered living room with a neutral sofa, a low wooden table and soft daylight",
+   "article": "calm-room",
+   "before": "g more: improve the light, clear visual noise, fix awkward paths, and build storage around daily habits.\" name=\"twitter:description\"/> All guides HOME DESIGN · PRACTICAL GUIDE How to make a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
+   "caption": "AI-generated image: a calm room with few objects, clear floor and soft light.",
    "index": 0,
-   "key": "photo-1617806118233-18e1de247200",
-   "path": "website/articles/fix-wobbly-furniture.html",
+   "key": "local-calm-room-hero.jpg",
+   "path": "website/articles/calm-room.html",
    "problems": [
     "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
+   "src": "../images/calm-room-hero.jpg",
    "status": "replace",
-   "title": "A Simple Way to Fix Wobbly Furniture Without Guessing",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Bright, neutral living room with a beige sofa, low wooden coffee table, small potted plant, and sheer curtains.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 5,
+    "reason": "Works well aesthetically as a hero image setting a calm tone, but is a generic AI render rather than a practical demonstration.",
+    "search_query": "calm uncluttered bright living room",
+    "visible_description": "A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small potted plant, a flat rug, and sunlight filtering through sheer white curtains."
+   }
+  },
+  {
+   "after": "AI-generated image: what your eyes notice first is one calm focal point, not clutter. 2. Protect the walking path Comfort depends on movement as much as appearance. Identify the routes you use every day (door to sofa, sofa to kitchen, bed to wardrobe, desk to printer). If you keep stepping around a chair or moving an object to pass, the layout is t",
+   "alt": "View from a doorway where the eye lands first on one calm sofa wall with a single framed print",
+   "article": "calm-room",
+   "before": "led shelf or a large piece of furniture pressed against a walkway can make a room feel busy before you use it. Remove one obvious item, step back and look again; do not attack the whole room at once. Two fast tests: squint until the room blurs, and whatever still jumps out is your visual noise; or take a photo, because a photo shows the clutter your eyes stopped noticing. The aim is to learn what creates visual noise, not to create an empty room.",
+   "caption": "AI-generated image: what your eyes notice first is one calm focal point, not clutter.",
+   "index": 1,
+   "key": "local-calm-room-eyes-notice.jpg",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "weak-match",
+    "generic"
+   ],
+   "role": "inner",
+   "section": "1. Start with what your eyes notice first",
+   "src": "../images/calm-room-eyes-notice.jpg",
+   "status": "weak",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "View from doorway of a calm living room with a beige sofa and a large framed landscape print",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": true,
+    "matches_section": 6,
+    "reason": "Accurately illustrates an uncluttered entryway focal point, though it depicts an idealized aesthetic rather than practical decluttering.",
+    "search_query": "calm living room doorway focal point",
+    "visible_description": "A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascape painting with a wooden coffee table in front."
+   }
+  },
+  {
+   "after": "AI-generated image: change the light before the furniture: sheer curtains and one warm lamp. Quick rules that work: choose warm bulbs (about 2700K) in living spaces, keep the lamp shade low enough that the bulb is not at eye level when you sit, stay within each lamp's maximum wattage, and switch the overhead light off for an evening test. If you on",
+   "alt": "Living room with sheer curtains and a warm lamp changing the light before any furniture",
+   "article": "calm-room",
+   "before": "g it, which can damage floors and strain your back. Keep cords out of walking routes, and secure tall or top-heavy furniture to the wall after moving it. 3. Change the light before the furniture One strong ceiling light can make a room flat and harsh even when the layout works. Try the lamps you already have at different heights: a lower pool of light makes a seating area feel more intentional, and brighter task light can stay near detailed work.",
+   "caption": "AI-generated image: change the light before the furniture: sheer curtains and one warm lamp.",
+   "index": 2,
+   "key": "local-calm-room-light-first.jpg",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "weak-match"
+   ],
+   "role": "inner",
+   "section": "3. Change the light before the furniture",
+   "src": "../images/calm-room-light-first.jpg",
+   "status": "weak",
+   "title": "How to make a room feel calmer without buying everything new",
    "vision": {
     "alt_is_accurate": false,
-    "better_alt": "Staged modern dining room with green velvet chairs around a dining table and a large round mirror.",
+    "better_alt": "Sunlight through sheer curtains and a glowing warm table lamp beside a living room sofa",
     "has_text_or_watermark": false,
-    "hero_appeal": 5,
+    "hero_appeal": 8,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 6,
+    "reason": "Shows a warm lamp and sheer curtains, but depicts a polished AI interior rather than a practical lighting adjustment.",
+    "search_query": "warm table lamp living room evening",
+    "visible_description": "A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a glowing ceramic table lamp on an end table."
+   }
+  },
+  {
+   "after": "AI-generated image: reduce visual competition by keeping only a few objects out. The rule of three: on any shelf, aim for two or three clusters, with about a third of the shelf left empty so the eye has somewhere to rest. Put uncertain items in a temporary box for a week. If you do not look for them, they do not need to stay visible. 6. Make the ma",
+   "alt": "Wooden sideboard with only three objects on a tray, reducing visual competition",
+   "article": "calm-room",
+   "before": "chair. None of this needs a large organizing system. Start with the object that repeatedly becomes clutter and give it a home where you naturally reach for it. 5. Reduce visual competition Rooms get noisy when many objects compete for attention. You do not need to remove personality: group related items and let a few useful or meaningful pieces lead. A shelf with ten unrelated objects feels busier than the same ten in two or three clear clusters.",
+   "caption": "AI-generated image: reduce visual competition by keeping only a few objects out.",
+   "index": 3,
+   "key": "local-calm-room-less-clutter.jpg",
+   "path": "website/articles/calm-room.html",
+   "problems": [
+    "generic"
+   ],
+   "role": "inner",
+   "section": "5. Reduce visual competition",
+   "src": "../images/calm-room-less-clutter.jpg",
+   "status": "weak",
+   "title": "How to make a room feel calmer without buying everything new",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Wooden sideboard with a wooden tray holding a vase of branches, a book, and a lit candle next to a woven basket.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
     "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 2,
-    "reason": "This is a generic dining room staging rather than showing furniture repair, tools, or wobbly joint diagnosis.",
-    "search_query": "fixing wobbly chair leg tools",
-    "visible_description": "A bright modern dining room featuring green velvet chairs around a set table, a large round wall mirror, a modern chandelier, and indoor houseplants on hardwood flooring."
+    "looks_ai_generated": true,
+    "matches_section": 9,
+    "reason": "Directly illustrates grouping decor into a single cluster on a tray while leaving generous empty surface space.",
+    "search_query": "decor tray styled credenza minimal",
+    "visible_description": "A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches, a small book, and a lit candle. A woven basket sits beside it on the floor."
+   }
+  },
+  {
+   "after": "AI-generated image: find the cause of the wobble, then use the smallest fix. Use the smallest correction that matches the cause you have actually proved. 1. Describe the wobble Do not start by tightening anything. First make the problem repeatable: does it rock front to back, side to side, or only at one corner? Empty, loaded, or both? A chair that",
+   "alt": "Wooden table leg with a thin shim and felt pad under it and a small spirit level on the tabletop",
+   "article": "fix-wobbly-furniture",
+   "before": "neven floor, short contact point, loose fastener or failing joint.\" name=\"twitter:description\"/> How to Fix Wobbly Furniture Without Guessing All guides WEEKEND PROJECTS · FURNITURE A Simple Way to Fix Wobbly Furniture Without Guessing A wobble is a symptom, not a diagnosis. Before tightening every screw or adding pads, find out whether the movement comes from the floor, a short contact point, a loose fastener or a joint that has started to fail.",
+   "caption": "AI-generated image: find the cause of the wobble, then use the smallest fix.",
+   "index": 0,
+   "key": "local-wobbly-furniture-hero.jpg",
+   "path": "website/articles/fix-wobbly-furniture.html",
+   "problems": [
+    "weak-match"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/wobbly-furniture-hero.jpg",
+   "status": "weak",
+   "title": "A Simple Way to Fix Wobbly Furniture Without Guessing",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Wooden table leg supported by a shim and felt pad on a wood floor with a level on the tabletop.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 7,
+    "reason": "Clearly illustrates stabilizing an uneven table leg with leveling tools, matching the core topic effectively.",
+    "search_query": "leveling wobbly wooden table leg",
+    "visible_description": "A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sitting on top of the table."
    }
   },
   {
@@ -301,33 +304,31 @@
    }
   },
   {
-   "after": "Photo: mahmoud azmy on Unsplash Disclosure: this article includes one affiliate link, marked as such in section 10. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. Measure and weigh before you touch the wall Weigh the piece. Step on a bathroom scale holding it, then subtract",
-   "alt": "Living room with a large painting on the wall",
+   "after": "AI-generated image: measure, mark and level before you hang large art. Disclosure: this article includes one affiliate link, marked as such in section 10. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. Measure and weigh before you touch the wall Weigh the piece. Step on a b",
+   "alt": "Large framed abstract print hung above a sofa with a spirit level, pencil and tape measure on the console",
    "article": "how-to-hang-large-wall-art-without-damage",
    "before": " decisions prevent that: height, what is behind the wall, hardware rated for the weight, and a French cleat for heavy or wide pieces. Short answer: hang the center of the piece about 57 inches (145 cm) above the floor, or 6 to 10 inches (15 to 25 cm) above the furniture below it. Fix it into a stud or into anchors rated well above its weight, and use two hanging points or a French cleat for wide pieces. Plan on paper first so you only drill once.",
-   "caption": "Photo: mahmoud azmy on Unsplash",
+   "caption": "AI-generated image: measure, mark and level before you hang large art.",
    "index": 0,
-   "key": "photo-1646936190308-6faef1ac893c",
+   "key": "local-wall-art-hero.jpg",
    "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
-   "problems": [
-    "mismatch"
-   ],
+   "problems": [],
    "role": "hero",
    "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1646936190308-6faef1ac893c?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1600",
-   "status": "replace",
+   "src": "../images/wall-art-hero.jpg",
+   "status": "keep",
    "title": "How to Hang Large Wall Art Without Damaging Your Walls",
    "vision": {
     "alt_is_accurate": true,
-    "better_alt": "Large square artwork hanging on a wall above a contemporary sofa in a styled living room",
+    "better_alt": "Large framed abstract painting hanging above a wooden console table with a spirit level and tape measure",
     "has_text_or_watermark": false,
-    "hero_appeal": 7,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 5,
-    "reason": "Shows large art hung over furniture, but functions merely as decorative interior staging without illustrating hanging techniques or hardware.",
-    "search_query": "hanging large wall art frame",
-    "visible_description": "A modern living room with a large square artwork of a classical statue face hung above a grey sofa, adjacent to dark wood wall slatted paneling, pendant lamps, and an indoor potted palm."
+    "hero_appeal": 9,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 8,
+    "reason": "Visually showcases a large piece of art positioned above furniture with installation tools nearby, fitting the hero and introduction theme well.",
+    "search_query": "hanging large art with level",
+    "visible_description": "Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, pencil, and plant vase sit on the console table."
    }
   },
   {
@@ -340,14 +341,25 @@
    "key": "photo-1600210491369-e753d80a41f3",
    "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
    "problems": [
-    "daily quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "10. Choosing oversized art",
    "src": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
-   "status": "pending",
+   "status": "replace",
    "title": "How to Hang Large Wall Art Without Damaging Your Walls",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Living room with a white sofa beneath a gallery wall of six framed prints",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "The section discusses choosing single oversized art pieces, but this photo displays a gallery wall composed of multiple smaller prints.",
+    "search_query": "oversized framed art living room",
+    "visible_description": "A modern living room with a white sofa, a mustard-yellow throw pillow, a black round coffee table, and six framed art prints arranged as a gallery wall above the couch."
+   }
   },
   {
    "after": "A clear preparation surface is more useful than a perfectly empty kitchen. — Unsplash Protect the preparation surface first; give the other jobs defined places so they do not take over. Quick plan Time About 30 minutes to set up, then a 2-minute reset each evening Cost Free. Buy storage only after the one-week test Best for Small and medium kitchen",
@@ -359,14 +371,26 @@
    "key": "photo-1556912173-46c336c7fd55",
    "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
    "problems": [
-    "quota exhausted"
+    "weak-match",
+    "generic"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&amp;fit=crop&amp;w=1000&amp;h=1500&amp;q=85",
-   "status": "pending",
+   "status": "weak",
    "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "White marble kitchen island with two Dutch ovens, facing white cabinets and honeycomb tile backsplash.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 6,
+    "reason": "Shows a clean kitchen island with cookware rather than a clearly designated, functional prep zone that demonstrates keeping clutter away.",
+    "search_query": "clear kitchen counter prep zone",
+    "visible_description": "A bright kitchen island with a white marble countertop holding two Dutch ovens on towels, with white upper cabinets and hexagonal tile backsplash behind."
+   }
   },
   {
    "after": "The working zone should be easy to reach and large enough for the tasks you actually repeat. — Unsplash 2. Give every permanent item a reason For each object on the counter, ask: Do we use it most days? Does leaving it here save a meaningful step? Does it make the working surface harder to use? An item that fails the first two questions and creates",
@@ -378,14 +402,25 @@
    "key": "photo-1600489000022-c2086d79f9d4",
    "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "1. Choose one clear working zone",
    "src": "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "pending",
+   "status": "replace",
    "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "U-shaped modern kitchen with dark cabinets, open shelves, and clean marble countertops.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "Shows an entire staged kitchen rather than focusing specifically on an identified, practical counter prep zone.",
+    "search_query": "kitchen counter food prep station",
+    "visible_description": "Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile backsplash, open floating wood shelves, and light wood flooring with a rug."
+   }
   },
   {
    "after": "Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter. — Unsplash 3. Create a home for loose daily items Clutter survives when an item has nowhere convenient to go: receipts, lunch containers, keys and reusable bottles become permanent residents when returning them means walking to thr",
@@ -397,14 +432,25 @@
    "key": "photo-1556911220-e15b29be8c8f",
    "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "2. Give every permanent item a reason",
    "src": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "pending",
+   "status": "replace",
    "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "A woman cooking at a stove with ceramic canisters and cooking utensils on the kitchen island counter.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "This is a lifestyle cooking shot rather than a clear illustration of intentional appliance and tool placement on a counter.",
+    "search_query": "organized kitchen counter coffee toaster",
+    "visible_description": "A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, and a utensil crock arranged on the kitchen counter in the foreground."
+   }
   },
   {
    "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. Disclosure: this article includes one affiliate link, marked as such in section 8. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. What a macerating toilet does A regular toilet relies ",
@@ -415,15 +461,24 @@
    "index": 0,
    "key": "local-AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
    "path": "website/articles/macerating-toilet-basement-bathroom.html",
-   "problems": [
-    "quota exhausted"
-   ],
+   "problems": [],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
-   "status": "pending",
+   "status": "keep",
    "title": "Macerating Toilet for a Basement Bathroom: Is It Worth It?",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Toilet in an unfinished basement beside a macerating pump unit with an upward discharge pipe.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 9,
+    "reason": "Directly illustrates a basement macerating toilet setup, though the unit appears to be a 3D render or AI dry-fit mockup.",
+    "search_query": "macerating toilet basement installation",
+    "visible_description": "A white toilet in an unfinished basement next to a grey macerating pump unit with a vertical PVC pipe running upwards, set against bare concrete and wood stud framing."
+   }
   },
   {
    "after": "A small room feels more generous when the eye can move through it without constantly meeting obstacles. — Unsplash 1. Start with the walking path, not the furniture catalog The fastest way to make a room feel cramped is to make people weave around furniture. Walk through the room as you normally do and notice where you hesitate, turn sideways or st",
@@ -435,7 +490,7 @@
    "key": "photo-1600210492486-724fe5c67fb0",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "quota exhausted"
+    "daily quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -768,22 +823,21 @@
    "vision": null
   },
   {
-   "after": "Resetting the entryway keeps tomorrow's departure routine simple. 6. Finish the visible rubbish and recycling During the reset, collect obvious rubbish from the main living and kitchen areas and move recycling to its normal place, without turning it into a whole-house inspection. If rubbish keeps accumulating in the same room, add a small temporary",
-   "alt": "Organized entryway ready for the next morning",
+   "after": "AI-generated image: reset the entryway before morning so tomorrow's departure is simple. 6. Finish the visible rubbish and recycling During the reset, collect obvious rubbish from the main living and kitchen areas and move recycling to its normal place, without turning it into a whole-house inspection. If rubbish keeps accumulating in the same room",
+   "alt": "Tidy entryway in the morning with keys in a tray, a packed bag, lined-up shoes and one coat on a hook",
    "article": "simple-home-reset-that-prevents-weekend-chaos",
    "before": "set the entryway before morning The entryway can turn a calm morning into a search exercise. Put daily coats and bags on their hooks, return keys to the landing zone and reduce shoes to the pairs normally used; seasonal overflow should already live elsewhere. It takes little time and pays off because everyone passes through during departures. A small evening reset prevents mornings that start with “Where are my keys?” and “Whose shoes are these?”",
-   "caption": "Resetting the entryway keeps tomorrow's departure routine simple.",
+   "caption": "AI-generated image: reset the entryway before morning so tomorrow's departure is simple.",
    "index": 2,
-   "key": "photo-1558997519-83ea9252edf8",
+   "key": "local-entryway-morning-reset.jpg",
    "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
    "problems": [
-    "quota exhausted",
-    "duplicate-with:quiet-entryway-storage"
+    "quota exhausted"
    ],
    "role": "inner",
    "section": "5. Reset the entryway before morning",
-   "src": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
+   "src": "../images/entryway-morning-reset.jpg",
+   "status": "pending",
    "title": "Simple Home Reset That Prevents Weekend Chaos",
    "vision": null
   },

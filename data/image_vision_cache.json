@@ -1,4 +1,28 @@
 {
+ "078839639ff8f9b412dacf3ae3464a6c0ee9442f": {
+  "alt_is_accurate": false,
+  "better_alt": "A woman cooking at a stove with ceramic canisters and cooking utensils on the kitchen island counter.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "This is a lifestyle cooking shot rather than a clear illustration of intentional appliance and tool placement on a counter.",
+  "search_query": "organized kitchen counter coffee toaster",
+  "visible_description": "A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, and a utensil crock arranged on the kitchen counter in the foreground."
+ },
+ "116f1c9bb502d80567ebf0a5f951e5dc9cda15dc": {
+  "alt_is_accurate": true,
+  "better_alt": "Armchair with a warm floor lamp focused directly over an open book beside a side table.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly demonstrates positioning a dedicated reading lamp for a specific evening activity instead of relying on general room lighting.",
+  "search_query": "reading chair floor lamp evening",
+  "visible_description": "An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading lamp beside a small wooden side table in an evening room."
+ },
  "2483384898743e04cd3e757df9f75fd902c2e5c4": {
   "alt_is_accurate": false,
   "better_alt": "Five metallic dome pendant lights hanging at staggered heights against a neutral wall",
@@ -10,6 +34,42 @@
   "reason": "The image shows decorative ceiling pendant lights instead of the reading task lamp discussed in the text and caption.",
   "search_query": "reading chair floor task lamp",
   "visible_description": "Five brushed bronze dome pendant lights hanging at staggered heights by black cords against a plain, warm gray wall."
+ },
+ "2fd38178c94d80b795e051e34bc65aef9646f0c3": {
+  "alt_is_accurate": true,
+  "better_alt": "Living room with a white sofa beneath a gallery wall of six framed prints",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "The section discusses choosing single oversized art pieces, but this photo displays a gallery wall composed of multiple smaller prints.",
+  "search_query": "oversized framed art living room",
+  "visible_description": "A modern living room with a white sofa, a mustard-yellow throw pillow, a black round coffee table, and six framed art prints arranged as a gallery wall above the couch."
+ },
+ "33b1e432af3f2d1be1cbd1a275437019ff1b9805": {
+  "alt_is_accurate": true,
+  "better_alt": "Warm living room illuminated by a shaded table lamp, a floor reading light, and a bookshelf accent lamp.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly demonstrates the concept of multiple functional lighting layers working harmoniously in a domestic interior.",
+  "search_query": "layered evening living room lighting",
+  "visible_description": "A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading floor lamp, and a bookshelf with a small spotlight."
+ },
+ "56738787dc117d79367bdf6da2613e0a3040f3f0": {
+  "alt_is_accurate": true,
+  "better_alt": "White marble kitchen island with two Dutch ovens, facing white cabinets and honeycomb tile backsplash.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 6,
+  "reason": "Shows a clean kitchen island with cookware rather than a clearly designated, functional prep zone that demonstrates keeping clutter away.",
+  "search_query": "clear kitchen counter prep zone",
+  "visible_description": "A bright kitchen island with a white marble countertop holding two Dutch ovens on towels, with white upper cabinets and hexagonal tile backsplash behind."
  },
  "56f2f7688028b4f3c34755e940835e6d629ff40a": {
   "alt_is_accurate": false,
@@ -23,6 +83,30 @@
   "search_query": "fixing wobbly chair leg tools",
   "visible_description": "A bright modern dining room featuring green velvet chairs around a set table, a large round wall mirror, a modern chandelier, and indoor houseplants on hardwood flooring."
  },
+ "5722e92d13959e4a7f5e92c889e9715413c0cc44": {
+  "alt_is_accurate": false,
+  "better_alt": "Warmly lit living room at dusk with a sofa, wooden coffee table, floor lamp, and wall sconce.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 6,
+  "reason": "Shows layered evening lighting without harsh overheads, fitting the guide's core premise adequately.",
+  "search_query": "warm layered evening living room lighting",
+  "visible_description": "A living room at dusk with a sofa, wooden coffee table, armchair, warm tripod floor lamp, glowing wall sconce, and a window."
+ },
+ "574681a3dcff2c3078d17bb0727a0de8bd793d0b": {
+  "alt_is_accurate": true,
+  "better_alt": "View from doorway of a calm living room with a beige sofa and a large framed landscape print",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 6,
+  "reason": "Accurately illustrates an uncluttered entryway focal point, though it depicts an idealized aesthetic rather than practical decluttering.",
+  "search_query": "calm living room doorway focal point",
+  "visible_description": "A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascape painting with a wooden coffee table in front."
+ },
  "61c2e3768205263e7e7536f4ca8ff3410129b25b": {
   "alt_is_accurate": false,
   "better_alt": "Dark gray metal floor lamp with dome shade against a white wall",
@@ -34,6 +118,18 @@
   "reason": "The lamp is turned off against a blank wall, failing to show evening lighting, glare reduction, or a functional room setup.",
   "search_query": "shaded floor lamp beside armchair",
   "visible_description": "A dark gray metal floor lamp with an adjustable curved dome shade stands turned off against a plain white wall."
+ },
+ "63683d66259e06857d612715c8ee2cc907619fbf": {
+  "alt_is_accurate": true,
+  "better_alt": "Bright, neutral living room with a beige sofa, low wooden coffee table, small potted plant, and sheer curtains.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 5,
+  "reason": "Works well aesthetically as a hero image setting a calm tone, but is a generic AI render rather than a practical demonstration.",
+  "search_query": "calm uncluttered bright living room",
+  "visible_description": "A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small potted plant, a flat rug, and sunlight filtering through sheer white curtains."
  },
  "7895aa5a70aed9140b65791da2db5a3db09d2b1b": {
   "alt_is_accurate": false,
@@ -47,6 +143,18 @@
   "search_query": "cozy living room warm lamp glowing",
   "visible_description": "A bright living room with a beige sectional sofa, cane accent chair, round wooden coffee table, gallery wall decor, and large windows admitting daytime light."
  },
+ "7b2c86866ff0c45863d87e9c796ae487ac8fd69a": {
+  "alt_is_accurate": true,
+  "better_alt": "Large framed abstract painting hanging above a wooden console table with a spirit level and tape measure",
+  "has_text_or_watermark": false,
+  "hero_appeal": 9,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 8,
+  "reason": "Visually showcases a large piece of art positioned above furniture with installation tools nearby, fitting the hero and introduction theme well.",
+  "search_query": "hanging large art with level",
+  "visible_description": "Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, pencil, and plant vase sit on the console table."
+ },
  "8b9931cf6b845af826eec2802c28116fdf62b7ae": {
   "alt_is_accurate": true,
   "better_alt": "Large square artwork hanging on a wall above a contemporary sofa in a styled living room",
@@ -58,6 +166,18 @@
   "reason": "Shows large art hung over furniture, but functions merely as decorative interior staging without illustrating hanging techniques or hardware.",
   "search_query": "hanging large wall art frame",
   "visible_description": "A modern living room with a large square artwork of a classical statue face hung above a grey sofa, adjacent to dark wood wall slatted paneling, pendant lamps, and an indoor potted palm."
+ },
+ "95ad12cbc7795b3fbcd13e9bea4617078c0a2ba1": {
+  "alt_is_accurate": true,
+  "better_alt": "Wooden sideboard with a wooden tray holding a vase of branches, a book, and a lit candle next to a woven basket.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly illustrates grouping decor into a single cluster on a tray while leaving generous empty surface space.",
+  "search_query": "decor tray styled credenza minimal",
+  "visible_description": "A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches, a small book, and a lit candle. A woven basket sits beside it on the floor."
  },
  "98b03faafa0b324a20c985509727fcbc5e619c35": {
   "alt_is_accurate": true,
@@ -83,6 +203,18 @@
   "search_query": "living room declutter visual noise",
   "visible_description": "Exterior twilight view of a modern two-story home with wood and black siding, large glass windows, an outdoor patio dining area, and a green lawn with a large tree."
  },
+ "a98be28fbdc15e1db1c6f87b30cf68d8165ba3d6": {
+  "alt_is_accurate": false,
+  "better_alt": "U-shaped modern kitchen with dark cabinets, open shelves, and clean marble countertops.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "Shows an entire staged kitchen rather than focusing specifically on an identified, practical counter prep zone.",
+  "search_query": "kitchen counter food prep station",
+  "visible_description": "Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile backsplash, open floating wood shelves, and light wood flooring with a rug."
+ },
  "ae1b7f066dfd28f50a5c4d0a414e8a1b0b22c7b7": {
   "alt_is_accurate": false,
   "better_alt": "Modern open-plan living room with light blue sofas, a wooden coffee table, and a dog resting on the rug.",
@@ -95,6 +227,42 @@
   "search_query": "tidy organized cozy living room",
   "visible_description": "A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting on the floor, open floating stairs, and floor-to-ceiling glass windows."
  },
+ "b901cb724cb52f15ef6957772c79a2efb7e9b8d9": {
+  "alt_is_accurate": false,
+  "better_alt": "Sunlight through sheer curtains and a glowing warm table lamp beside a living room sofa",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 6,
+  "reason": "Shows a warm lamp and sheer curtains, but depicts a polished AI interior rather than a practical lighting adjustment.",
+  "search_query": "warm table lamp living room evening",
+  "visible_description": "A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a glowing ceramic table lamp on an end table."
+ },
+ "bb29e6f3062d85afca5441293d9ed6c5c923bed6": {
+  "alt_is_accurate": true,
+  "better_alt": "Wooden table leg supported by a shim and felt pad on a wood floor with a level on the tabletop.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Clearly illustrates stabilizing an uneven table leg with leveling tools, matching the core topic effectively.",
+  "search_query": "leveling wobbly wooden table leg",
+  "visible_description": "A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sitting on top of the table."
+ },
+ "d0a1f0187b238a5cc1c968721e77b133df21798f": {
+  "alt_is_accurate": true,
+  "better_alt": "Lit table lamp with a fabric drum shade on a wooden end table next to an armchair.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly illustrates using an opaque lampshade and nearby dimmer control to reduce harsh glare in a living space.",
+  "search_query": "shaded table lamp beside sofa",
+  "visible_description": "A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A potted plant, a book, and a wall dimmer switch are nearby."
+ },
  "df001d590376ffb6bcfd48002126eb50f2fbb7f0": {
   "alt_is_accurate": false,
   "better_alt": "Retail stationery store with shelves and tables densely stocked with notebooks and pens by a glass garage door.",
@@ -106,6 +274,18 @@
   "reason": "Shows a busy retail store packed with retail merchandise rather than a calm home shelf organized into sparse clusters.",
   "search_query": "minimalist styled open shelf decor",
   "visible_description": "Interior of a stationery shop with tall metal shelves packed with books and notebooks beside display tables filled with colorful pens, next to a large glass garage door."
+ },
+ "e062bb7625710a31d01d32c85dc75538fa6a041b": {
+  "alt_is_accurate": true,
+  "better_alt": "Toilet in an unfinished basement beside a macerating pump unit with an upward discharge pipe.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly illustrates a basement macerating toilet setup, though the unit appears to be a 3D render or AI dry-fit mockup.",
+  "search_query": "macerating toilet basement installation",
+  "visible_description": "A white toilet in an unfinished basement next to a grey macerating pump unit with a vertical PVC pipe running upwards, set against bare concrete and wood stud framing."
  },
  "f2e3657c0e28bab9b9ee2f2eb828821fe327a811": {
   "alt_is_accurate": false,

@@ -1,29 +1,27 @@
 # Image vision report
 
-Generated 2026-10-16 21:48 UTC with `gemini-3.8-flash`.
+Generated 2026-10-17 07:06 UTC with `gemini-3.8-flash`.
 
-Totals: keep=1, pending=36, replace=11
+Totals: keep=3, pending=32, replace=4, weak=9
 
 ## All images
 
 | Article | Role | Section | Match | Status | What the model sees | Problems |
 |---|---|---|---|---|---|---|
-| better-evening-home-lighting-without-overcomplicating-it | hero | Introduction | 2 | replace | Brightly lit living room featuring a lit fireplace flanked by blue built-in bookcases, two modern armchairs, a | mismatch |
-| better-evening-home-lighting-without-overcomplicating-it | inner | 1. Fix the activity before the lighting | 1 | replace | Five brushed bronze dome pendant lights hanging at staggered heights by black cords against a plain, warm gray | mismatch |
-| better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 0 | replace | Sunlit exterior backyard of a modern home featuring a green lawn, large gum tree, and a covered timber patio d | mismatch |
-| better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 4 | replace | A dark gray metal floor lamp with an adjustable curved dome shade stands turned off against a plain white wall | mismatch |
-| calm-room | hero | Introduction | 4 | replace | A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting | mismatch |
-| calm-room | inner | 1. Start with what your eyes notice firs | 0 | replace | Exterior twilight view of a modern two-story home with wood and black siding, large glass windows, an outdoor  | mismatch |
-| calm-room | inner | 3. Change the light before the furniture | 1 | replace | A bright living room with a beige sectional sofa, cane accent chair, round wooden coffee table, gallery wall d | mismatch |
-| calm-room | inner | 5. Reduce visual competition | 2 | replace | Interior of a stationery shop with tall metal shelves packed with books and notebooks beside display tables fi | mismatch |
-| fix-wobbly-furniture | hero | Introduction | 2 | replace | A bright modern dining room featuring green velvet chairs around a set table, a large round wall mirror, a mod | mismatch |
-| how-to-hang-large-wall-art-without-damage | hero | Introduction | 5 | replace | A modern living room with a large square artwork of a classical statue face hung above a grey sofa, adjacent t | mismatch |
-| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | pending |  | daily quota exhausted |
-| kitchen-counter-zone-that-stays-clear | hero | Introduction | - | pending |  | quota exhausted |
-| kitchen-counter-zone-that-stays-clear | inner | 1. Choose one clear working zone | - | pending |  | quota exhausted |
-| kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | - | pending |  | quota exhausted |
-| macerating-toilet-basement-bathroom | hero | Introduction | - | pending |  | quota exhausted |
-| make-small-living-room-feel-bigger | hero | Introduction | - | pending |  | quota exhausted |
+| better-evening-home-lighting-without-overcomplicating-it | hero | Introduction | 6 | weak | A living room at dusk with a sofa, wooden coffee table, armchair, warm tripod floor lamp, glowing wall sconce, | weak-match, generic |
+| better-evening-home-lighting-without-overcomplicating-it | inner | 1. Fix the activity before the lighting | 7 | weak | An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading | weak-match, generic |
+| better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 7 | weak | A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading  | weak-match |
+| better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 7 | weak | A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A pot | weak-match |
+| calm-room | hero | Introduction | 5 | replace | A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small  | mismatch |
+| calm-room | inner | 1. Start with what your eyes notice firs | 6 | weak | A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascap | weak-match, generic |
+| calm-room | inner | 3. Change the light before the furniture | 6 | weak | A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a gl | weak-match |
+| calm-room | inner | 5. Reduce visual competition | 9 | weak | A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches | generic |
+| fix-wobbly-furniture | hero | Introduction | 7 | weak | A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sittin | weak-match |
+| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | 4 | replace | A modern living room with a white sofa, a mustard-yellow throw pillow, a black round coffee table, and six fra | mismatch |
+| kitchen-counter-zone-that-stays-clear | hero | Introduction | 6 | weak | A bright kitchen island with a white marble countertop holding two Dutch ovens on towels, with white upper cab | weak-match, generic |
+| kitchen-counter-zone-that-stays-clear | inner | 1. Choose one clear working zone | 4 | replace | Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile back | mismatch |
+| kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | 4 | replace | A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, an | mismatch |
+| make-small-living-room-feel-bigger | hero | Introduction | - | pending |  | daily quota exhausted |
 | make-small-living-room-feel-bigger | inner | 2. Give the main seating one clear job | - | pending |  | quota exhausted |
 | make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | pending |  | quota exhausted |
 | motion-lighting-that-actually-helps | hero | Introduction | - | pending |  | quota exhausted |
@@ -41,7 +39,7 @@ Totals: keep=1, pending=36, replace=11
 | right-rug-size-painters-tape-test | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 1. Reset for tomorrow, not for perfectio | - | pending |  | quota exhausted |
-| simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | replace |  | quota exhausted, duplicate-with:quiet-entryway-storage |
+| simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | hero | Introduction | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | inner | 3. Stop water from becoming tomorrow's c | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | inner | 4. Keep the floor open enough to clean i | - | pending |  | quota exhausted |
@@ -56,3 +54,5 @@ Totals: keep=1, pending=36, replace=11
 | what-can-you-plug-into-a-smart-plug | hero | Introduction | - | pending |  | quota exhausted |
 | what-size-dehumidifier-crawl-space | hero | Introduction | - | pending |  | quota exhausted |
 | how-to-fix-damp-crawl-space-humidity | hero | Introduction | 10 | keep | A clean crawl space fully lined with white vapor barrier plastic on the floor and walls, exposed wooden ceilin |  |
+| how-to-hang-large-wall-art-without-damage | hero | Introduction | 8 | keep | Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, p |  |
+| macerating-toilet-basement-bathroom | hero | Introduction | 9 | keep | A white toilet in an unfinished basement next to a grey macerating pump unit with a vertical PVC pipe running  |  |
