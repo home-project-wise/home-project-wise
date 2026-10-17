@@ -110,7 +110,7 @@ def category_sections(r):
     for key, label, heading, intro in specs:
         items = [x for x in r if category_key(x) == key]
         cards = "".join(card(x) for x in items)
-        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label}</p><h2>{heading}</h2><p>{intro}</p><div class="cards">{cards}</div></section>')
+        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label}</p><h2>{heading}</h2><p>{intro}</p><div class="cards guide-grid">{cards}</div></section>')
     return "".join(parts)
 
 
