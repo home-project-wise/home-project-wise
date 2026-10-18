@@ -33,3 +33,15 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .related-guides h2{margin-bottom:18px}
 .hub-link{margin:6px 0 22px}
 .hub-link a{font-weight:600;color:#456b5b}
+
+/* Site search */
+.search-form{display:flex;gap:10px;margin:18px 0 6px;max-width:560px}
+.search-form input{flex:1;min-width:0;font:inherit;font-size:17px;padding:13px 16px;border:1px solid #c9d2ce;border-radius:12px;background:#fff;color:#243238}
+.search-form button{font:inherit;font-weight:600;padding:13px 20px;border:0;border-radius:12px;background:#243238;color:#fff;cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.search-results{list-style:none;padding:0;margin:22px 0 0}
+.search-results li{padding:18px 0;border-top:1px solid #e1e5e0}
+.search-results li span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a8481d;margin-bottom:4px}
+.search-results li a{font-family:"Playfair Display",serif;font-size:22px;color:#243238;text-decoration:none}
+.search-results li a:hover{text-decoration:underline}
+.search-results li p{margin:6px 0 0;color:#566266;font-size:15px}

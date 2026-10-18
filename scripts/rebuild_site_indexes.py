@@ -93,7 +93,7 @@ def rows():
 
 
 def footer():
-    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
+    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
 
 
 def card(x, featured=False):
@@ -282,6 +282,38 @@ def write_hubs(r):
     return urls
 
 
+
+SEARCH_JS = r'''(function(){
+var form=document.getElementById('sf'),input=document.getElementById('q'),status=document.getElementById('status'),list=document.getElementById('results'),idx=[];
+/*fn*/
+function norm(s){return (s||'').toLowerCase().replace(/-/g,'');}
+function words(s){return norm(s).split(/[^a-z0-9]+/).filter(function(w){return w.length>2;});}
+function has(text,w){return text.indexOf(w)>-1||(w.length>3&&w.charAt(w.length-1)==='s'&&text.indexOf(w.slice(0,-1))>-1);}
+function score(item,tokens){var s=0,t=norm(item.t),c=norm(item.c),d=norm(item.d),k=norm(item.k);for(var i=0;i<tokens.length;i++){var w=tokens[i],hit=false;if(has(t,w)){s+=5;hit=true;}if(has(k,w)){s+=3;hit=true;}if(has(c,w)){s+=2;hit=true;}if(has(d,w)){s+=1;hit=true;}if(!hit){return 0;}}return s;}
+/*endfn*/
+function render(q){var tokens=words(q);list.textContent='';if(!tokens.length){status.textContent='Type a word such as damp, rug, plug or storage.';return;}var res=idx.map(function(i){return {i:i,s:score(i,tokens)};}).filter(function(x){return x.s>0;}).sort(function(a,b){return b.s-a.s;});status.textContent=res.length?res.length+(res.length===1?' guide found':' guides found'):'No guides found. Try a shorter word, or browse all guides.';res.slice(0,20).forEach(function(x){var li=document.createElement('li'),a=document.createElement('a'),p=document.createElement('p'),sp=document.createElement('span');a.href=x.i.u;a.textContent=x.i.t;sp.textContent=x.i.c;p.textContent=x.i.d;li.appendChild(sp);li.appendChild(a);li.appendChild(p);list.appendChild(li);});}
+fetch('search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;var q=new URLSearchParams(location.search).get('q')||'';input.value=q;render(q);}).catch(function(){status.textContent='Search is unavailable right now. Browse the guides instead.';});
+form.addEventListener('submit',function(e){e.preventDefault();render(input.value);});
+input.addEventListener('input',function(){render(input.value);});
+})();'''
+
+
+def write_search(r):
+    index = []
+    for x in r:
+        hub = HUBS[category_key(x)]
+        index.append({"t": x["title"], "u": "articles/" + x["slug"] + ".html", "c": hub["label"], "d": x["description"], "k": subtopic(x).title() + " " + x["slug"].replace("-", " ")})
+    (WEBSITE / "search-index.json").write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
+    page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow">'
+            '<title>Search the guides | HomeProjectWise</title><meta name="description" content="Search HomeProjectWise guides on storage, home design, weekend projects and smart home.">'
+            '<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#243238"><link rel="stylesheet" href="style.css">' + GOAT + '</head><body>'
+            '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="guides.html">All guides</a></header>'
+            '<main class="section"><p class="eyebrow">SEARCH</p><h1>Search the guides</h1>'
+            '<form id="sf" class="search-form" role="search" action="search.html" method="get"><label for="q" class="sr-only">Search guides</label><input id="q" name="q" type="search" placeholder="Try: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form>'
+            '<p id="status" role="status" aria-live="polite"></p><ul id="results" class="search-results"></ul></main>' + footer() + '<script>' + SEARCH_JS + '</script></body></html>')
+    (WEBSITE / "search.html").write_text(page, encoding="utf-8")
+
+
 def ensure_head_tags(path, prefix):
     html = path.read_text(encoding="utf-8", errors="ignore")
     if "</head>" not in html:
@@ -312,6 +344,7 @@ def main():
         raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
     enhance_articles(r)
     hub_urls = write_hubs(r)
+    write_search(r)
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
               '<link rel="canonical" href="' + BASE + '/guides.html"><link rel="alternate" type="application/rss+xml" title="HomeProjectWise RSS" href="feed.xml">'
@@ -319,7 +352,7 @@ def main():
               '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise"></a>'
               '<nav><a href="#storage">Storage</a><a href="#design">Home Design</a><a href="#projects">Projects</a><a href="#smart-home">Smart Home</a></nav>'
               '<a class="nav-cta" href="feed.xml">Follow the feed</a></header><main class="section guide-library">'
-              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p></div>'
+              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form></div>'
               '<div class="library-meta"><strong>' + str(len(r)) + ' guides</strong><span>Practical · readable · built to be used</span></div>'
               + category_sections(r) + '</main>' + footer() + '</body></html>')
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")
