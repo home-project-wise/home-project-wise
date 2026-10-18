@@ -45,3 +45,12 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .search-results li a{font-family:"Playfair Display",serif;font-size:22px;color:#243238;text-decoration:none}
 .search-results li a:hover{text-decoration:underline}
 .search-results li p{margin:6px 0 0;color:#566266;font-size:15px}
+
+/* Cookie consent banner (Awin tag is loaded only after Accept) */
+.consent-banner{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:640px;margin:0 auto;background:#243238;color:#fff;padding:16px 18px;border-radius:14px;z-index:60;box-shadow:0 10px 40px rgba(0,0,0,.25);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.consent-banner p{margin:0;font-size:14px;line-height:1.5;flex:1 1 280px;color:#fff}
+.consent-banner a{color:#fff;text-decoration:underline}
+.consent-actions{display:flex;gap:10px}
+.consent-banner button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:10px;border:1px solid #fff;cursor:pointer;background:transparent;color:#fff}
+.consent-banner .consent-accept{background:#a8481d;border-color:#a8481d}
+.consent-reset{font:inherit;font-size:14px;padding:8px 14px;border-radius:10px;border:1px solid #243238;background:#fff;color:#243238;cursor:pointer}
