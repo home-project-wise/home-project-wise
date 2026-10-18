@@ -93,7 +93,7 @@ def rows():
 
 
 def footer():
-    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
+    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./tools.html">Tools</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
 
 
 def card(x, featured=False):
@@ -322,7 +322,34 @@ TOOLS = [
     {"slug": "rug-size-calculator", "hub": "design", "title": "Rug Size Calculator",
      "desc": "Enter your room and furniture to see the best rug size, in feet or centimetres.",
      "kw": "calculator rug size room living dining bedroom tool"},
+    {"slug": "crawl-space-dehumidifier-calculator", "hub": "projects", "title": "Crawl Space Dehumidifier Size Calculator",
+     "desc": "Enter your crawl space size and conditions to get a benchmark capacity in pints per day and what to fix first.",
+     "kw": "calculator dehumidifier crawl space basement damp humidity pints tool"},
 ]
+
+
+def write_tools_hub():
+    url = BASE + "/tools.html"
+    desc = "Free home calculators from HomeProjectWise: rug size, crawl space dehumidifier size and more, built on the rules and sources in our guides."
+    items = "".join('<li><a href="' + t["slug"] + '.html">' + escape(t["title"]) + '</a><span>' + escape(t["desc"]) + "</span></li>" for t in TOOLS)
+    ld = [
+        {"@context": "https://schema.org", "@type": "CollectionPage", "name": "Free home calculators", "url": url, "description": desc,
+         "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": BASE + "/" + t["slug"] + ".html", "name": t["title"]} for i, t in enumerate(TOOLS)]}},
+        {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Tools", "item": url}]},
+    ]
+    ldhtml = "".join('<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False) + "</script>" for d in ld)
+    page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+            '<title>Free Home Calculators | HomeProjectWise</title><meta name="description" content="' + escape(desc, quote=True) + '"><link rel="canonical" href="' + url + '">'
+            '<meta property="og:type" content="website"><meta property="og:title" content="Free Home Calculators | HomeProjectWise"><meta property="og:description" content="' + escape(desc, quote=True) + '"><meta property="og:url" content="' + url + '"><meta name="twitter:card" content="summary">'
+            '<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#243238"><link rel="stylesheet" href="style.css">' + GOAT + ldhtml + '</head><body>'
+            '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="guides.html">All guides</a></header>'
+            '<main class="section"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span>Tools</nav>'
+            '<p class="eyebrow">FREE TOOLS · ' + str(len(TOOLS)) + '</p><h1>Free home calculators</h1>'
+            '<p class="lead">Simple calculators that apply the rules and sources from our guides to your own measurements. Each result is an estimate to confirm with a tape measure or a test, and each tool links to the guide behind it.</p>'
+            '<ul class="tool-list">' + items + '</ul><h2>Suggest a tool</h2><p>Is there something you keep calculating by hand? Tell us on the <a href="contact.html">Contact</a> page.</p></main>' + footer() + '</body></html>')
+    (WEBSITE / "tools.html").write_text(page, encoding="utf-8")
 
 
 def ensure_head_tags(path, prefix):
@@ -354,7 +381,8 @@ def main():
     if not r:
         raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
     enhance_articles(r)
-    hub_urls = write_hubs(r) + [BASE + "/" + t["slug"] + ".html" for t in TOOLS]
+    hub_urls = write_hubs(r) + [BASE + "/" + t["slug"] + ".html" for t in TOOLS] + [BASE + "/tools.html"]
+    write_tools_hub()
     write_search(r)
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
@@ -363,7 +391,7 @@ def main():
               '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise"></a>'
               '<nav><a href="#storage">Storage</a><a href="#design">Home Design</a><a href="#projects">Projects</a><a href="#smart-home">Smart Home</a></nav>'
               '<a class="nav-cta" href="feed.xml">Follow the feed</a></header><main class="section guide-library">'
-              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form><p class="hub-link"><a href="rug-size-calculator.html">Try the Rug Size Calculator →</a></p></div>'
+              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form><p class="hub-link"><a href="tools.html">Browse all free tools →</a></p></div>'
               '<div class="library-meta"><strong>' + str(len(r)) + ' guides</strong><span>Practical · readable · built to be used</span></div>'
               + category_sections(r) + '</main>' + footer() + '</body></html>')
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")

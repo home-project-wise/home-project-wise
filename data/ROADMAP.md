@@ -20,14 +20,14 @@ Goal: build the most useful, trustworthy and best-made beginner home-improvement
 
 ## Phase 1: trust and technical foundation
 - [x] 404 page, web manifest, theme colour, sitemap lastmod, dateModified on revised guides, dead source link replaced.
-- [ ] Real About, Editorial Policy, Corrections, Contact, Privacy and Terms pages with canonical, meta, Organization schema (who we are, how guides are researched, AI-assistance disclosure, corrections policy, affiliate/ads policy when relevant).
+- [x] Real About, Editorial Policy, Corrections, Contact, Privacy and Terms pages with canonical, meta, Organization schema (who we are, how guides are researched, AI-assistance disclosure, corrections policy, affiliate/ads policy when relevant).
 - [ ] Visible "Last updated" and "Sources" block on every guide; author/organization byline consistent.
 - [ ] Automated link checker and structured-data validator in CI (report only, no blocking on bot-blocked sites).
 
 ## Phase 2: information architecture and internal linking
-- [ ] Category hub pages (storage, design, projects, smart home) with intro, start-here path and grouped guides; the guides.html anchors keep working.
-- [ ] Automatic "Related guides" block at the end of every guide, built by the generator from category and sub-topic, so new guides are linked from day one. Target: at least 5 inbound links per guide.
-- [ ] Visible breadcrumbs, previous/next in cluster, client-side site search from a generated index.
+- [x] Category hub pages (storage, design, projects, smart home) with intro, start-here path and grouped guides; the guides.html anchors keep working.
+- [x] Automatic "Related guides" block at the end of every guide, built by the generator from category and sub-topic, so new guides are linked from day one. Target: at least 5 inbound links per guide.
+- [x] Visible breadcrumbs, client-side site search (previous/next in cluster still open) from a generated index.
 - [ ] Topic clusters: moisture and bathrooms, lighting (design and smart), storage routines, small repairs. Each gets a pillar guide.
 
 ## Phase 3: performance, design and accessibility
@@ -36,7 +36,7 @@ Goal: build the most useful, trustworthy and best-made beginner home-improvement
 - [ ] PageSpeed check in CI; target Lighthouse 95+ on mobile for home, guides and a sample guide.
 
 ## Phase 4: content engine (what makes the site better than generic ones)
-- [ ] Interactive tools (rug size, dehumidifier size, smart plug watt check) and printable checklists: unique, linkable assets.
+- [x] Interactive tools: rug size and crawl space dehumidifier done; smart plug watt check next and printable checklists: unique, linkable assets.
 - [ ] Each new guide ships an original diagram or tool, a quick answer, a quick win, sources and FAQ.
 - [ ] Review cycle: every guide re-checked for facts and links about every 6 months, dateModified updated only when something real changed.
 - [ ] Image audit (Gemini) after each quota reset; replace weak images in batches.
@@ -50,3 +50,7 @@ Goal: build the most useful, trustworthy and best-made beginner home-improvement
 - Batches of hero images generated with the prompts Claude supplies (about 5 at a time, when he has a free minute).
 - A decision on the custom domain, when ready.
 - A quick look at the site on his phone now and then.
+
+## Tools (free calculators)
+Each tool applies the rules and sources of one guide to the reader's own measurements. Live: rug size, crawl space dehumidifier size. See the Tools page (tools.html, generated).
+How to add a tool (about 10 minutes): follow the docstring in scripts/tool_page.py. In short: write and test the JS logic (jsdom, real scenarios), build the page with build_tool_page(...), save it as website/<slug>.html, add one entry to TOOLS in scripts/rebuild_site_indexes.py (that adds it to the Tools page, its category hub, search and the sitemap), add a callout in the related guide, and cite the sources the rules come from. Results are estimates and every tool says so. No affiliate links inside tools.
