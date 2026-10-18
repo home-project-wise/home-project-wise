@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 import re
+import json
 from html import escape, unescape
 from pathlib import Path
 from datetime import datetime, timezone
@@ -143,8 +144,142 @@ def category_sections(r):
             body = "".join(blocks)
         else:
             body = '<div class="cards guide-grid">' + "".join(card(x) for x in items) + '</div>'
-        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label} · {len(items)} GUIDES</p><h2>{heading}</h2><p>{intro}</p>{body}</section>')
+        parts.append(f'<section id="{key}" class="section"><p class="eyebrow">{label} · {len(items)} GUIDES</p><h2>{heading}</h2><p>{intro}</p><p class="hub-link"><a href="{HUBS[key]["slug"]}.html">Open the {escape(HUBS[key]["label"])} page →</a></p>{body}</section>')
     return "".join(parts)
+
+
+
+HUBS = {
+    "storage": {"slug": "storage", "label": "Storage & Organization", "h1": "Storage and organization guides",
+        "desc": "Practical storage and organization guides: drop zones, clear counters, cable and paper control, and small systems that fit real routines.",
+        "intro": "Clutter rarely means you own too much. It usually means things have no obvious home, or the home is in the wrong place. These guides focus on small systems that work for real routines: a drop zone at the door, a counter that stays clear, cables and paper under control. Start with the smallest change that removes daily friction, then build from there.",
+        "start": ["simple-home-reset-that-prevents-weekend-chaos", "quiet-entryway-storage", "stop-mail-and-paper-pile"]},
+    "design": {"slug": "home-design", "label": "Home Design", "h1": "Home design guides",
+        "desc": "Home design guides on light, layout and calm: rug sizing, evening lighting, small living rooms and restful spaces, before you buy anything new.",
+        "intro": "Good home design is mostly about light, layout and calm, not new furniture. These guides help you decide what to change before you buy anything: how big a rug should be, how to light a room in the evening, how to make a small living room feel larger and how to keep a space restful.",
+        "start": ["calm-room", "make-small-living-room-feel-bigger", "better-evening-home-lighting-without-overcomplicating-it"]},
+    "projects": {"slug": "weekend-projects", "label": "Weekend Projects", "h1": "Weekend project and repair guides",
+        "desc": "Weekend project and repair guides: moisture and bathrooms, drafts, wobbly furniture and safe wall fixings, with clear checks before you spend.",
+        "intro": "Small repairs and maintenance jobs go better with a clear check first. These guides cover moisture and bathrooms, drafts, wobbly furniture and safe wall fixings, with the questions to answer before you spend money or call someone, and the points where a professional is the safer choice.",
+        "start": ["fix-wobbly-furniture", "stop-a-drafty-door-without-replacing-it", "stop-musty-bathroom-towels"]},
+    "smart-home": {"slug": "smart-home", "label": "Smart Home", "h1": "Smart home guides",
+        "desc": "Smart home guides for lighting, plugs, motion and Wi-Fi decisions, with simple routines and manual fallbacks when apps or the internet fail.",
+        "intro": "Smart-home gear helps most when it removes a real daily annoyance and still works by hand when the internet or an app fails. These guides cover lighting, plugs, motion and Wi-Fi decisions, with simple routines, sensible fallbacks and no gadget collecting.",
+        "start": ["smart-lighting", "motion-lighting-that-actually-helps", "what-can-you-plug-into-a-smart-plug"]},
+}
+PROJECT_GROUPS = [("Moisture and bathrooms", ("MOISTURE", "BATHROOM", "LAUNDRY")), ("Repairs and upgrades", None)]
+STOP = set("with without your that this from home guide make stop fix when what into about easier better actually helps simple small useful real keep need".split())
+
+
+def tokens(x):
+    words = re.findall("[a-z]{4,}", (x["title"] + " " + x["category"].split("·")[-1]).lower())
+    return {w for w in words if w not in STOP}
+
+
+def subtopic(x):
+    return x["category"].split("·")[-1].strip().upper() if "·" in x["category"] else ""
+
+
+def related_for(x, r, limit=3):
+    mine = tokens(x)
+    scored = []
+    for y in r:
+        if y["slug"] == x["slug"]:
+            continue
+        score = 4 * (category_key(y) == category_key(x)) + 3 * (bool(subtopic(x)) and subtopic(x) == subtopic(y)) + len(mine & tokens(y))
+        scored.append((score, y["date"], y["slug"], y))
+    scored.sort(key=lambda t: (t[0], t[1], t[2]), reverse=True)
+    return [t[3] for t in scored[:limit]]
+
+
+def card_from_article(x):
+    img = x["image"]
+    if img and not img.startswith("http"):
+        img = "../" + img
+    image = f'<img src="{escape(img, quote=True)}" alt="{escape(x["alt"], quote=True)}" loading="lazy">' if img else ""
+    return f'<article class="card">{image}<div class="card-body"><span class="tag">{escape(x["category"])}</span><h3>{escape(x["title"])}</h3><p>{escape(x["description"])}</p><a href="{escape(x["slug"])}.html">Read the guide →</a></div></article>'
+
+
+def fmt_date(d):
+    return d.strftime("%B %-d, %Y")
+
+
+def enhance_articles(r):
+    for x in r:
+        path = ARTICLES / (x["slug"] + ".html")
+        html = path.read_text(encoding="utf-8", errors="ignore")
+        key = category_key(x)
+        hub = HUBS[key]
+        if 'class="breadcrumb"' not in html:
+            crumb = ('<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../">Home</a><span>›</span><a href="../guides.html">Guides</a><span>›</span>'
+                     '<a href="../' + hub["slug"] + '.html">' + escape(hub["label"]) + '</a></nav>')
+            html, n = re.subn(r"(<main[^>]*>)", lambda m: m.group(1) + crumb, html, count=1)
+        if 'class="article-dates"' not in html and x["date"].year > 1:
+            line = "Published " + fmt_date(x["date"])
+            mod = x.get("modified")
+            if mod and mod.date() != x["date"].date():
+                line += " · Updated " + fmt_date(mod)
+            tag = '<p class="article-dates">' + line + "</p>"
+            m = re.search(r'<p class="lead">.*?</p>', html, re.S) or re.search(r"</h1>", html)
+            if m:
+                html = html[:m.end()] + tag + html[m.end():]
+        if 'class="related-guides"' not in html:
+            cards = "".join(card_from_article(y) for y in related_for(x, r))
+            block = '<section class="related-guides"><h2>Keep reading</h2><div class="cards guide-grid">' + cards + "</div></section>"
+            if '<section class="article-newsletter">' in html:
+                html = html.replace('<section class="article-newsletter">', block + '<section class="article-newsletter">', 1)
+            else:
+                html = html.replace("</main>", block + "</main>", 1)
+        path.write_text(html, encoding="utf-8")
+
+
+def write_hubs(r):
+    urls = []
+    for key, hub in HUBS.items():
+        items = [x for x in r if category_key(x) == key]
+        if not items:
+            continue
+        url = BASE + "/" + hub["slug"] + ".html"
+        urls.append(url)
+        start = [y for s in hub["start"] for y in items if y["slug"] == s][:3] or items[:3]
+        if key == "projects" and len(items) > 5:
+            remaining, blocks = list(items), []
+            for title, words in PROJECT_GROUPS:
+                if words is None:
+                    chosen, remaining = remaining, []
+                else:
+                    chosen = [y for y in remaining if any(w in y["category"].upper() for w in words)]
+                    remaining = [y for y in remaining if y not in chosen]
+                if chosen:
+                    blocks.append(f'<h3 class="library-subhead">{title} <span>{len(chosen)} guides</span></h3><div class="cards guide-grid">' + "".join(card(y) for y in chosen) + "</div>")
+            allcards = "".join(blocks)
+        else:
+            allcards = '<div class="cards guide-grid">' + "".join(card(y) for y in items) + "</div>"
+        others = " · ".join('<a href="' + h["slug"] + '.html">' + escape(h["label"]) + "</a>" for k, h in HUBS.items() if k != key)
+        label_esc = escape(hub["label"])
+        title = label_esc + " Guides | HomeProjectWise"
+        ld = [
+            {"@context": "https://schema.org", "@type": "CollectionPage", "name": hub["h1"], "url": url, "description": hub["desc"],
+             "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": BASE + "/articles/" + y["slug"] + ".html", "name": y["title"]} for i, y in enumerate(items)]}},
+            {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
+                {"@type": "ListItem", "position": 2, "name": "Guides", "item": BASE + "/guides.html"},
+                {"@type": "ListItem", "position": 3, "name": hub["label"], "item": url}]},
+        ]
+        ldhtml = "".join('<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False) + "</script>" for d in ld)
+        page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+                '<title>' + title + '</title><meta name="description" content="' + escape(hub["desc"], quote=True) + '"><link rel="canonical" href="' + url + '">'
+                '<meta property="og:type" content="website"><meta property="og:title" content="' + title + '"><meta property="og:description" content="' + escape(hub["desc"], quote=True) + '"><meta property="og:url" content="' + url + '"><meta name="twitter:card" content="summary">'
+                '<link rel="alternate" type="application/rss+xml" title="HomeProjectWise RSS" href="feed.xml"><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#243238">'
+                '<link rel="stylesheet" href="style.css">' + GOAT + ldhtml + '</head><body>'
+                '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="guides.html">All guides</a></header>'
+                '<main class="section"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="guides.html">Guides</a><span>›</span>' + label_esc + '</nav>'
+                '<p class="eyebrow">' + label_esc.upper() + ' · ' + str(len(items)) + ' GUIDES</p><h1>' + escape(hub["h1"]) + '</h1><p class="lead">' + escape(hub["intro"]) + '</p>'
+                '<h2>Start here</h2><div class="cards guide-grid">' + "".join(card(y) for y in start) + '</div>'
+                '<h2>All ' + label_esc + ' guides</h2>' + allcards +
+                '<h2>Explore other areas</h2><p>' + others + '</p></main>' + footer() + '</body></html>')
+        (WEBSITE / (hub["slug"] + ".html")).write_text(page, encoding="utf-8")
+    return urls
 
 
 def ensure_head_tags(path, prefix):
@@ -175,6 +310,8 @@ def main():
     r = rows()
     if not r:
         raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
+    enhance_articles(r)
+    hub_urls = write_hubs(r)
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
               '<link rel="canonical" href="' + BASE + '/guides.html"><link rel="alternate" type="application/rss+xml" title="HomeProjectWise RSS" href="feed.xml">'
@@ -188,7 +325,7 @@ def main():
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")
 
     urls = [BASE + p for p in ("/", "/guides.html", "/about.html", "/editorial-policy.html", "/privacy.html", "/terms.html", "/contact.html")]
-    entries = [(u, None) for u in urls]
+    entries = [(u, None) for u in urls + hub_urls]
     for x in r:
         stamp = x.get("modified") or x["date"]
         lastmod = stamp.strftime("%Y-%m-%d") if stamp.year > 1 else None
