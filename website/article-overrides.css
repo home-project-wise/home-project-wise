@@ -90,3 +90,10 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .calc-checks label{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:8px 0}
 .calc-checks input{margin-top:5px;width:18px;height:18px}
 .calc-warn{border-left:4px solid #a8481d;background:#fbeee6;padding:14px 18px;border-radius:8px;margin:16px 0}
+
+/* Smart plug check: verdict colours and load bar */
+.calc-ok{border-left:4px solid #2f7d5b;background:#e9f3ee;padding:14px 18px;border-radius:8px;margin:16px 0}
+.calc-caution{border-left:4px solid #b7791f;background:#fbf3e3;padding:14px 18px;border-radius:8px;margin:16px 0}
+.calc-bar{position:relative;height:16px;background:#e1e5e0;border-radius:8px;overflow:hidden;margin:14px 0 4px}
+.calc-bar-fill{height:100%}
+.calc-bar-mark{position:absolute;left:80%;top:0;width:3px;height:100%;background:#243238}

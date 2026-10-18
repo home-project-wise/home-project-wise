@@ -325,6 +325,9 @@ TOOLS = [
     {"slug": "crawl-space-dehumidifier-calculator", "hub": "projects", "title": "Crawl Space Dehumidifier Size Calculator",
      "desc": "Enter your crawl space size and conditions to get a benchmark capacity in pints per day and what to fix first.",
      "kw": "calculator dehumidifier crawl space basement damp humidity pints tool"},
+    {"slug": "smart-plug-load-check", "hub": "smart-home", "title": "Smart Plug Load Check",
+     "desc": "Enter your plug rating and a device to see if it is a good fit, needs care or should not go on a smart plug.",
+     "kw": "calculator smart plug watts amps load safety heater kettle tool"},
 ]
 
 
