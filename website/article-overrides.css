@@ -22,3 +22,14 @@ body .article figure img[src$=".svg"],body .section.article figure img[src$=".sv
 @media(max-width:850px){.promise{margin:0 20px}}
 .library-subhead{font-family:"Playfair Display",serif;font-size:26px;line-height:1.2;margin:44px 0 16px;color:#243238}
 .library-subhead span{font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;color:#566266;margin-left:8px}
+
+/* Navigation aids: breadcrumbs, visible dates, related guides, category hub links */
+.breadcrumb{font-size:14px;color:#566266;margin:0 0 14px}
+.breadcrumb a{color:#456b5b;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span{margin:0 8px;color:#8a979b}
+body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
+.related-guides{margin:56px 0 0}
+.related-guides h2{margin-bottom:18px}
+.hub-link{margin:6px 0 22px}
+.hub-link a{font-weight:600;color:#456b5b}
