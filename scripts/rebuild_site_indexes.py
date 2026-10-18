@@ -267,6 +267,8 @@ def write_hubs(r):
                 {"@type": "ListItem", "position": 3, "name": hub["label"], "item": url}]},
         ]
         ldhtml = "".join('<script type="application/ld+json">' + json.dumps(d, ensure_ascii=False) + "</script>" for d in ld)
+        tools = [t for t in TOOLS if t["hub"] == key]
+        tools_html = ('<h2>Tools</h2><ul class="tool-list">' + "".join('<li><a href="' + t["slug"] + '.html">' + escape(t["title"]) + '</a><span>' + escape(t["desc"]) + '</span></li>' for t in tools) + '</ul>') if tools else ""
         page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
                 '<title>' + title + '</title><meta name="description" content="' + escape(hub["desc"], quote=True) + '"><link rel="canonical" href="' + url + '">'
                 '<meta property="og:type" content="website"><meta property="og:title" content="' + title + '"><meta property="og:description" content="' + escape(hub["desc"], quote=True) + '"><meta property="og:url" content="' + url + '"><meta name="twitter:card" content="summary">'
@@ -276,7 +278,7 @@ def write_hubs(r):
                 '<main class="section"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="guides.html">Guides</a><span>›</span>' + label_esc + '</nav>'
                 '<p class="eyebrow">' + label_esc.upper() + ' · ' + str(len(items)) + ' GUIDES</p><h1>' + escape(hub["h1"]) + '</h1><p class="lead">' + escape(hub["intro"]) + '</p>'
                 '<h2>Start here</h2><div class="cards guide-grid">' + "".join(card(y) for y in start) + '</div>'
-                '<h2>All ' + label_esc + ' guides</h2>' + allcards +
+                '' + tools_html + '<h2>All ' + label_esc + ' guides</h2>' + allcards +
                 '<h2>Explore other areas</h2><p>' + others + '</p></main>' + footer() + '</body></html>')
         (WEBSITE / (hub["slug"] + ".html")).write_text(page, encoding="utf-8")
     return urls
@@ -303,6 +305,8 @@ def write_search(r):
     for x in r:
         hub = HUBS[category_key(x)]
         index.append({"t": x["title"], "u": "articles/" + x["slug"] + ".html", "c": hub["label"], "d": x["description"], "k": subtopic(x).title() + " " + x["slug"].replace("-", " ")})
+    for t in TOOLS:
+        index.append({"t": t["title"], "u": t["slug"] + ".html", "c": "Tools", "d": t["desc"], "k": t["kw"]})
     (WEBSITE / "search-index.json").write_text(json.dumps(index, ensure_ascii=False), encoding="utf-8")
     page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,follow">'
             '<title>Search the guides | HomeProjectWise</title><meta name="description" content="Search HomeProjectWise guides on storage, home design, weekend projects and smart home.">'
@@ -312,6 +316,13 @@ def write_search(r):
             '<form id="sf" class="search-form" role="search" action="search.html" method="get"><label for="q" class="sr-only">Search guides</label><input id="q" name="q" type="search" placeholder="Try: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form>'
             '<p id="status" role="status" aria-live="polite"></p><ul id="results" class="search-results"></ul></main>' + footer() + '<script>' + SEARCH_JS + '</script></body></html>')
     (WEBSITE / "search.html").write_text(page, encoding="utf-8")
+
+
+TOOLS = [
+    {"slug": "rug-size-calculator", "hub": "design", "title": "Rug Size Calculator",
+     "desc": "Enter your room and furniture to see the best rug size, in feet or centimetres.",
+     "kw": "calculator rug size room living dining bedroom tool"},
+]
 
 
 def ensure_head_tags(path, prefix):
@@ -343,7 +354,7 @@ def main():
     if not r:
         raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
     enhance_articles(r)
-    hub_urls = write_hubs(r)
+    hub_urls = write_hubs(r) + [BASE + "/" + t["slug"] + ".html" for t in TOOLS]
     write_search(r)
     guides = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
               '<meta name="description" content="HomeProjectWise guides organized into Storage & Organization, Home Design, Weekend Projects and Smart Home.">'
@@ -352,7 +363,7 @@ def main():
               '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise"></a>'
               '<nav><a href="#storage">Storage</a><a href="#design">Home Design</a><a href="#projects">Projects</a><a href="#smart-home">Smart Home</a></nav>'
               '<a class="nav-cta" href="feed.xml">Follow the feed</a></header><main class="section guide-library">'
-              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form></div>'
+              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form><p class="hub-link"><a href="rug-size-calculator.html">Try the Rug Size Calculator →</a></p></div>'
               '<div class="library-meta"><strong>' + str(len(r)) + ' guides</strong><span>Practical · readable · built to be used</span></div>'
               + category_sections(r) + '</main>' + footer() + '</body></html>')
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")
