@@ -82,3 +82,11 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .tool-list a{font-family:"Playfair Display",serif;font-size:22px;color:#243238;text-decoration:none}
 .tool-list a:hover{text-decoration:underline}
 .tool-list span{display:block;color:#566266;font-size:15px;margin-top:4px}
+
+/* Calculator extras: unit labels, checkboxes, warning */
+.calc[data-unit="us"] .u-m-t,.calc[data-unit="m"] .u-us-t{display:none}
+.calc-checks{border:0;padding:0;margin:18px 0 0}
+.calc-checks legend{font-weight:600;margin-bottom:8px}
+.calc-checks label{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:8px 0}
+.calc-checks input{margin-top:5px;width:18px;height:18px}
+.calc-warn{border-left:4px solid #a8481d;background:#fbeee6;padding:14px 18px;border-radius:8px;margin:16px 0}
