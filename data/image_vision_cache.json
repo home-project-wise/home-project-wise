@@ -59,6 +59,20 @@
   "search_query": "layered evening living room lighting",
   "visible_description": "A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading floor lamp, and a bookshelf with a small spotlight."
  },
+ "4d7fa09aa06baf91559ca9eced9c01d075d75a54": {
+  "accurate_honest": 9,
+  "actionable": 8,
+  "adds_value": 8,
+  "decision": "green",
+  "filler_level": 3,
+  "problem_clear": 9,
+  "top_issues": [
+   "Section 8: Bulleted summary largely repeats steps and advice already outlined in sections 1 through 5.",
+   "Section 6: Advises choosing brightness rather than packaging, but misses practical beginner guidance on lumens or Kelvin ratings.",
+   "Checklist and FAQ: Redundantly restates previous guidelines rather than addressing edge cases."
+  ],
+  "unsupported_claims": []
+ },
  "56738787dc117d79367bdf6da2613e0a3040f3f0": {
   "alt_is_accurate": true,
   "better_alt": "White marble kitchen island with two Dutch ovens, facing white cabinets and honeycomb tile backsplash.",
@@ -251,6 +265,18 @@
   "search_query": "leveling wobbly wooden table leg",
   "visible_description": "A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sitting on top of the table."
  },
+ "bf5a11f13d96302cb343883892fc9508f0989613": {
+  "alt_is_accurate": false,
+  "better_alt": "Modern open-concept dining room with black table, grey chairs, and a floating staircase beside glass walls",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": false,
+  "matches_section": 1,
+  "reason": "The photo shows a large modern dining room and staircase, not a small living room seating arrangement directed toward a clear feature.",
+  "search_query": "small living room intentional seating layout",
+  "visible_description": "A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase against a tiled wall, and a view into a distant living room and kitchen."
+ },
  "d0a1f0187b238a5cc1c968721e77b133df21798f": {
   "alt_is_accurate": true,
   "better_alt": "Lit table lamp with a fabric drum shade on a wooden end table next to an armchair.",
@@ -262,6 +288,18 @@
   "reason": "Directly illustrates using an opaque lampshade and nearby dimmer control to reduce harsh glare in a living space.",
   "search_query": "shaded table lamp beside sofa",
   "visible_description": "A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A potted plant, a book, and a wall dimmer switch are nearby."
+ },
+ "dd8e9045c1baf8d9631f46512888b5cddbe69ade": {
+  "alt_is_accurate": true,
+  "better_alt": "Living room with leather couch, two armchairs, round wooden coffee table, and large window",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "This is a spacious, staged room rather than a genuinely small living room showing practical rearrangement solutions.",
+  "search_query": "small living room furniture layout",
+  "visible_description": "A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plants, and a grid of black-and-white photos on the wall."
  },
  "df001d590376ffb6bcfd48002126eb50f2fbb7f0": {
   "alt_is_accurate": false,

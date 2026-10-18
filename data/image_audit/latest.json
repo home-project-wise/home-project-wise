@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-17T07:06:26+00:00",
+ "generated": "2026-10-18T04:09:07+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
@@ -246,7 +246,7 @@
    }
   },
   {
-   "after": "AI-generated image: find the cause of the wobble, then use the smallest fix. Use the smallest correction that matches the cause you have actually proved. 1. Describe the wobble Do not start by tightening anything. First make the problem repeatable: does it rock front to back, side to side, or only at one corner? Empty, loaded, or both? A chair that",
+   "after": "AI-generated image: find the cause of the wobble, then use the smallest fix. Use the smallest correction that matches the cause you have actually proved. Quick answer The short version: find the cause first, then use the smallest fix that matches it. Floor: if the wobble changes when you move the piece, the floor is the likely cause. Use a pad, shi",
    "alt": "Wooden table leg with a thin shim and felt pad under it and a small spirit level on the tabletop",
    "article": "fix-wobbly-furniture",
    "before": "neven floor, short contact point, loose fastener or failing joint.\" name=\"twitter:description\"/> How to Fix Wobbly Furniture Without Guessing All guides WEEKEND PROJECTS · FURNITURE A Simple Way to Fix Wobbly Furniture Without Guessing A wobble is a symptom, not a diagnosis. Before tightening every screw or adding pads, find out whether the movement comes from the floor, a short contact point, a loose fastener or a joint that has started to fail.",
@@ -490,14 +490,25 @@
    "key": "photo-1600210492486-724fe5c67fb0",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "daily quota exhausted"
+    "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Living room with leather couch, two armchairs, round wooden coffee table, and large window",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "This is a spacious, staged room rather than a genuinely small living room showing practical rearrangement solutions.",
+    "search_query": "small living room furniture layout",
+    "visible_description": "A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plants, and a grid of black-and-white photos on the wall."
+   }
   },
   {
    "after": "The goal is not empty space everywhere; it is a clear relationship between seating, circulation and the room's main feature. — Unsplash 3. Remove one piece before buying a smaller replacement Buying compact furniture can make the problem worse: three small tables can take more visual and walking space than one useful table. Remove one piece for a f",
@@ -509,14 +520,25 @@
    "key": "photo-1600607687920-4e2a09cf159d",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "2. Give the main seating one clear job",
    "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Modern open-concept dining room with black table, grey chairs, and a floating staircase beside glass walls",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": false,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "The photo shows a large modern dining room and staircase, not a small living room seating arrangement directed toward a clear feature.",
+    "search_query": "small living room intentional seating layout",
+    "visible_description": "A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase against a tiled wall, and a view into a distant living room and kitchen."
+   }
   },
   {
    "after": "A mirror is most useful when it reflects light or an attractive open view rather than another cluttered surface. — Unsplash 8. Choose one visual focal point A room feels larger when the eye knows where to land. Choose one main feature (a window, artwork, fireplace, television wall or lamp arrangement) and reduce competition around it. The room need",
@@ -528,7 +550,7 @@
    "key": "photo-1618220179428-22790b461013",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "quota exhausted"
+    "daily quota exhausted"
    ],
    "role": "inner",
    "section": "7. Use a mirror only where it reflects something useful",
@@ -1029,6 +1051,25 @@
    "src": "https://images.unsplash.com/photo-1581783898377-1c85bf937427?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
    "status": "pending",
    "title": "Stop a Drafty Door Without Replacing It",
+   "vision": null
+  },
+  {
+   "after": "AI-generated image: one small tray on the counter and a recycling bin by the door, where mail gets sorted. Quick answer The short version: make the decision at the door, not on the counter. At the door: sort every piece into one of four outcomes: recycle, act this week, keep or shred. One tray: three slots (act this week, waiting, to file) and noth",
+   "alt": "Small wooden mail tray on a kitchen counter next to the front door, with a recycling bin on the floor beside it",
+   "article": "stop-mail-and-paper-pile",
+   "before": "How to Stop the Mail and Paper Pile at Home The pile is rarely a storage problem. It grows because mail and papers arrive without a decision attached to them. Without that decision, each piece lands on the first flat surface it meets, such as the kitchen counter, the dining table, a hallway shelf or a desk, and stays there. Decide what each piece is the moment it comes in, give the few that need action one small home, and the surface stays clear.",
+   "caption": "AI-generated image: one small tray on the counter and a recycling bin by the door, where mail gets sorted.",
+   "index": 0,
+   "key": "local-mail-paper-tray-hero.jpg",
+   "path": "website/articles/stop-mail-and-paper-pile.html",
+   "problems": [
+    "quota exhausted"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/mail-paper-tray-hero.jpg",
+   "status": "pending",
+   "title": "How to Stop the Mail and Paper Pile at Home",
    "vision": null
   },
   {

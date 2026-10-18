@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-17 07:06 UTC with `gemini-3.8-flash`.
+Generated 2026-10-18 04:09 UTC with `gemini-3.8-flash`.
 
-Totals: keep=3, pending=32, replace=4, weak=9
+Totals: keep=3, pending=31, replace=6, weak=9
 
 ## All images
 
@@ -21,9 +21,9 @@ Totals: keep=3, pending=32, replace=4, weak=9
 | kitchen-counter-zone-that-stays-clear | hero | Introduction | 6 | weak | A bright kitchen island with a white marble countertop holding two Dutch ovens on towels, with white upper cab | weak-match, generic |
 | kitchen-counter-zone-that-stays-clear | inner | 1. Choose one clear working zone | 4 | replace | Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile back | mismatch |
 | kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | 4 | replace | A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, an | mismatch |
-| make-small-living-room-feel-bigger | hero | Introduction | - | pending |  | daily quota exhausted |
-| make-small-living-room-feel-bigger | inner | 2. Give the main seating one clear job | - | pending |  | quota exhausted |
-| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | pending |  | quota exhausted |
+| make-small-living-room-feel-bigger | hero | Introduction | 4 | replace | A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plant | mismatch |
+| make-small-living-room-feel-bigger | inner | 2. Give the main seating one clear job | 1 | replace | A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase agains | mismatch |
+| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | pending |  | daily quota exhausted |
 | motion-lighting-that-actually-helps | hero | Introduction | - | pending |  | quota exhausted |
 | motion-lighting-that-actually-helps | inner | 2. Choose locations where hands-free lig | - | pending |  | quota exhausted |
 | motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | - | pending |  | quota exhausted |
@@ -50,6 +50,7 @@ Totals: keep=3, pending=32, replace=4, weak=9
 | stop-a-drafty-door-without-replacing-it | inner | Find the draft before buying anything | - | pending |  | quota exhausted |
 | stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | quota exhausted |
 | stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | quota exhausted |
+| stop-mail-and-paper-pile | hero | Introduction | - | pending |  | quota exhausted |
 | stop-musty-bathroom-towels | hero | Introduction | - | pending |  | quota exhausted |
 | what-can-you-plug-into-a-smart-plug | hero | Introduction | - | pending |  | quota exhausted |
 | what-size-dehumidifier-crawl-space | hero | Introduction | - | pending |  | quota exhausted |
