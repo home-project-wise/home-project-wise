@@ -97,3 +97,13 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .calc-bar{position:relative;height:16px;background:#e1e5e0;border-radius:8px;overflow:hidden;margin:14px 0 4px}
 .calc-bar-fill{height:100%}
 .calc-bar-mark{position:absolute;left:80%;top:0;width:3px;height:100%;background:#243238}
+
+/* Calculator finder on the Tools page */
+.ask-examples{margin:10px 0 0;font-size:15px;color:#566266}
+.ask-examples .chip{font:inherit;font-size:14px;padding:6px 12px;margin:4px 6px 4px 0;border:1px solid #c9d2ce;border-radius:999px;background:#fff;color:#243238;cursor:pointer}
+.ask-examples .chip:hover{border-color:#243238}
+.ask-form{max-width:680px}
+.ask-card{background:#fff;border:1px solid #dfe5e1;border-left:4px solid #d97745;border-radius:12px;padding:16px 20px;margin:18px 0}
+.ask-card p{margin:8px 0}
+.ask-said{color:#566266;font-size:15px}
+.ask-go{display:inline-block;text-decoration:none;margin-top:6px}
