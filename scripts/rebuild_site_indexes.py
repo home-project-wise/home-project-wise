@@ -364,6 +364,9 @@ def ensure_head_tags(path, prefix):
         add += '<link rel="manifest" href="' + prefix + 'manifest.webmanifest">'
     if 'name="theme-color"' not in html:
         add += '<meta name="theme-color" content="#243238">'
+    for font in ("dm-sans-latin.woff2", "playfair-display-latin.woff2"):
+        if font not in html:
+            add += '<link rel="preload" href="' + prefix + 'fonts/' + font + '" as="font" type="font/woff2" crossorigin>'
     if add:
         path.write_text(html.replace("</head>", add + "</head>", 1), encoding="utf-8")
 
@@ -429,6 +432,9 @@ def main():
         h = h[:m.start()] + latest_section + h[m.start():]
 
     p.write_text(h, encoding="utf-8")
+    for page in WEBSITE.glob("*.html"):
+        if page.name != "404.html":
+            ensure_head_tags(page, "")
     print(f"Rebuilt guide library, homepage latest cards, sitemap and RSS from {len(r)} article files.")
 
 
