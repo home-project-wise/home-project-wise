@@ -107,3 +107,12 @@ body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
 .ask-card p{margin:8px 0}
 .ask-said{color:#566266;font-size:15px}
 .ask-go{display:inline-block;text-decoration:none;margin-top:6px}
+
+/* Home Check-up */
+.quiz-q{background:#fff;border:1px solid #dfe5e1;border-radius:12px;padding:14px 18px;margin:12px 0}
+.quiz-q legend{font-weight:600;padding:0 6px}
+.quiz-top li{margin:12px 0}
+.quiz-areas{list-style:none;padding:0;margin:8px 0}
+.quiz-areas li{display:grid;grid-template-columns:minmax(150px,220px) 1fr 70px;gap:12px;align-items:center;margin:10px 0}
+.quiz-level{font-size:14px;color:#566266}
+@media(max-width:560px){.quiz-areas li{grid-template-columns:1fr 70px}.quiz-areas .quiz-name{grid-column:1/-1}}

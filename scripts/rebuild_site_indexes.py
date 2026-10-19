@@ -319,6 +319,9 @@ def write_search(r):
 
 
 TOOLS = [
+    {"slug": "home-checkup", "hub": "all", "title": "Home Check-up",
+     "desc": "Answer ten short statements and get your top three home priorities, with the guides and tools to start with.",
+     "kw": "checkup check-up quiz priorities audit assessment start where begin first home overview"},
     {"slug": "rug-size-calculator", "hub": "design", "title": "Rug Size Calculator",
      "desc": "Enter your room and furniture to see the best rug size, in feet or centimetres.",
      "kw": "calculator rug size room living dining bedroom tool"},
@@ -382,7 +385,7 @@ def write_tools_hub():
             '<p class="eyebrow">FREE TOOLS · ' + str(len(TOOLS)) + '</p><h1>Free home calculators</h1>'
             '<p class="lead">Simple calculators that apply the rules and sources from our guides to your own measurements. Each result is an estimate to confirm with a tape measure or a test, and each tool links to the guide behind it.</p>'
             '<form id="ask" class="search-form ask-form" role="search"><label for="askq" class="sr-only">Describe what you want to work out</label><input id="askq" type="text" placeholder="e.g. rug for a 12x15 ft living room" autocomplete="off"><button type="submit">Find my calculator</button></form>'
-            '<p class="ask-examples">Try: <button type="button" class="chip">What rug size for a 12x15 ft living room?</button> <button type="button" class="chip">Dehumidifier for a 20 x 40 ft damp crawl space</button> <button type="button" class="chip">Can I put a 1500 W heater on a smart plug?</button></p><div id="ask-out" class="calc-out" aria-live="polite"></div>'
+            '<p class="ask-examples">Try: <button type="button" class="chip">What rug size for a 12x15 ft living room?</button> <button type="button" class="chip">Dehumidifier for a 20 x 40 ft damp crawl space</button> <button type="button" class="chip">Can I put a 1500 W heater on a smart plug?</button> <button type="button" class="chip">Where should I start with my home?</button></p><div id="ask-out" class="calc-out" aria-live="polite"></div>'
             '<h2>All tools</h2><ul class="tool-list">' + items + '</ul><h2>Suggest a tool</h2><p>Is there something you keep calculating by hand? Tell us on the <a href="contact.html">Contact</a> page.</p></main>' + footer() + '<script>' + ASK_JS.replace('__TOOLS__', json.dumps([{k: t[k] for k in ('slug', 'title', 'desc', 'kw')} for t in TOOLS])) + '</script></body></html>')
     (WEBSITE / "tools.html").write_text(page, encoding="utf-8")
 
@@ -429,7 +432,7 @@ def main():
               '<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="logo.svg" alt="HomeProjectWise"></a>'
               '<nav><a href="#storage">Storage</a><a href="#design">Home Design</a><a href="#projects">Projects</a><a href="#smart-home">Smart Home</a></nav>'
               '<a class="nav-cta" href="feed.xml">Follow the feed</a></header><main class="section guide-library">'
-              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form><p class="hub-link"><a href="tools.html">Browse all free tools →</a></p></div>'
+              '<div class="library-intro"><p class="eyebrow">THE GUIDE LIBRARY</p><h1>Useful answers for real home problems.</h1><p>Every guide has one primary category so the library stays easy to browse.</p><form class="search-form library-search" role="search" action="search.html" method="get"><label for="lq" class="sr-only">Search guides</label><input id="lq" name="q" type="search" placeholder="Search guides: damp, rug size, smart plug" autocomplete="off"><button type="submit">Search</button></form><p class="hub-link"><a href="home-checkup.html">Not sure where to start? Take the 1-minute Home Check-up →</a> · <a href="tools.html">Browse all free tools →</a></p></div>'
               '<div class="library-meta"><strong>' + str(len(r)) + ' guides</strong><span>Practical · readable · built to be used</span></div>'
               + category_sections(r) + '</main>' + footer() + '</body></html>')
     (WEBSITE / "guides.html").write_text(guides, encoding="utf-8")

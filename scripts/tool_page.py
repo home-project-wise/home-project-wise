@@ -7,7 +7,8 @@ How to add a tool (about 10 minutes):
 3. Add an entry to TOOLS in scripts/rebuild_site_indexes.py (slug, hub, title, desc, kw). That one entry adds the tool to the Tools page,
    the matching category hub, the search index and the sitemap.
 4. Add a short callout in the related guide: <div class="tool-callout"><strong>Try the calculator.</strong> ... </div>
-5. Test the logic in jsdom with real scenarios before publishing, and cite the sources the rules come from.
+5. Pass sources=[] to leave out the Sources section when a tool has none of its own, and extra_html to add a block (for example the newsletter) before the page footer.
+6. Test the logic in jsdom with real scenarios before publishing, and cite the sources the rules come from.
 """
 import json, re
 from html import escape
@@ -15,7 +16,7 @@ from html import escape
 BASE = "https://home-project-wise.github.io/home-project-wise"
 
 
-def build_tool_page(website, slug, title, desc, eyebrow, hub_slug, hub_label, lead, form_html, how_html, faq, sources, js):
+def build_tool_page(website, slug, title, desc, eyebrow, hub_slug, hub_label, lead, form_html, how_html, faq, sources, js, extra_html=""):
     about = (website / "about.html").read_text(encoding="utf-8")
     goat = re.search(r"<script data-goatcounter=.*?</script>", about, re.S).group(0)
     foot = about[about.find("<footer>"):].replace("</body></html>", "").replace("</body>", "").replace("</html>", "")
@@ -41,4 +42,4 @@ def build_tool_page(website, slug, title, desc, eyebrow, hub_slug, hub_label, le
             '<body><header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="guides.html">All guides</a></header>'
             '<main class="section article" style="max-width:820px"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>' + t + '</nav>'
             f'<p class="eyebrow">{eyebrow}</p><h1>{t}</h1><p class="lead">{escape(lead)}</p>' + form_html + how_html +
-            '<h2>Frequently Asked Questions</h2>' + faq_html + '<h2>Sources</h2><ul>' + src_html + '</ul></main>' + foot + '<script>' + js + '</script></body></html>')
+            '<h2>Frequently Asked Questions</h2>' + faq_html + (('<h2>Sources</h2><ul>' + src_html + '</ul>') if sources else '') + extra_html + '</main>' + foot + '<script>' + js + '</script></body></html>')
