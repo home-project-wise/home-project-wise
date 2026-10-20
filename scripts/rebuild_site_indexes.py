@@ -219,7 +219,7 @@ def enhance_articles(r):
             mod = x.get("modified")
             if mod and mod.date() != x["date"].date():
                 line += " · Updated " + fmt_date(mod)
-            tag = '<p class="article-dates">' + line + "</p>"
+            tag = '<p class="article-dates">' + line + ' · <button type="button" class="print-btn" onclick="window.print()">Print this guide</button></p>'
             m = re.search(r'<p class="lead">.*?</p>', html, re.S) or re.search(r"</h1>", html)
             if m:
                 html = html[:m.end()] + tag + html[m.end():]

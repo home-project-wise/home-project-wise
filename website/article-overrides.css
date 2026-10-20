@@ -137,3 +137,20 @@ body .article a.cta-affiliate,body .section.article a.cta-affiliate{color:#fff}
 table td,table th{border-color:#34444b!important}table th{border-color:#8fa0a6!important}
 [style*="solid #E4ECE8" i]{border-color:#34444b!important}
 main p a:not([class]),main li a:not([class]),main td a:not([class]){color:#8db8a6}}
+
+/* Print: clean, ink-friendly pages and a print button on guides */
+.print-btn{font:inherit;font-size:13px;padding:3px 10px;border:1px solid #c9d2ce;border-radius:999px;background:transparent;color:#566266;cursor:pointer;margin-left:2px}
+.print-btn:hover{border-color:#243238;color:#243238}
+@media (prefers-color-scheme:dark){.print-btn{border-color:#44565e;color:#aeb9bc}.print-btn:hover{border-color:#8fa0a6;color:#eef1ee}}
+@media print{
+header.nav,footer,.consent-banner,.article-newsletter,.related-guides,.breadcrumb,.search-form,.print-btn,.tool-callout,.hub-link,.calc-btn,.ask-examples{display:none!important}
+*{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}
+body{font-size:12pt;line-height:1.5}
+main,.section{max-width:100%!important;width:auto!important;margin:0!important;padding:0!important}
+a{text-decoration:underline}
+.article a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;word-break:break-all}
+img{max-width:100%!important;height:auto!important;opacity:1!important;filter:none!important;break-inside:avoid}
+h1,h2,h3{break-after:avoid}
+table,figure,.calc,.calc-out,.quiz-q{break-inside:avoid}
+li{break-inside:avoid}
+}
