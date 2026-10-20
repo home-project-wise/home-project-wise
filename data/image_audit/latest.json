@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18T04:09:07+00:00",
+ "generated": "2026-10-20T18:04:33+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
@@ -550,12 +550,12 @@
    "key": "photo-1618220179428-22790b461013",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "daily quota exhausted"
+    "The read operation timed out"
    ],
    "role": "inner",
    "section": "7. Use a mirror only where it reflects something useful",
    "src": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "pending",
+   "status": "error",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
    "vision": null
   },
@@ -569,12 +569,12 @@
    "key": "photo-1616137466211-f939a420be84",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "quota exhausted"
+    "Gemini HTTP 503: {   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spike"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "error",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
    "vision": null
   },
@@ -588,14 +588,25 @@
    "key": "photo-1600585152915-d208bec867a1",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "2. Choose locations where hands-free light genuinely helps",
    "src": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Modern open-plan living room with sectional couch and sliding doors opening to an outdoor deck",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "Shows a bright living room instead of a transitional hands-free space like a hallway, closet, stairway, or laundry room.",
+    "search_query": "motion sensor light hallway stairs",
+    "visible_description": "A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass doors opening to an outdoor deck with a dining set and barbecue grill."
+   }
   },
   {
    "after": "Think about the path people take through the space, not just the center of the room. 4. Set the timeout around the real task A timeout that is too short switches the light off mid-task; one that is much too long wastes energy and feels unresponsive. Start conservatively and adjust after real use. A short hallway may need only a minute or two; a uti",
@@ -607,12 +618,12 @@
    "key": "photo-1615529182904-14819c35db37",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "quota exhausted"
+    "Gemini HTTP 503: {   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spike"
    ],
    "role": "inner",
    "section": "3. Map the actual walking path",
    "src": "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "error",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
    "vision": null
   },
@@ -626,14 +637,25 @@
    "key": "photo-1753039495488-434a2fe53e41",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "5. Separate daytime and nighttime behavior",
    "src": "https://images.unsplash.com/photo-1753039495488-434a2fe53e41?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "White square smart motion sensor on a windowsill next to a houseplant.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": false,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "Shows the motion sensor device itself rather than demonstrating dim night lighting, glare reduction, or day versus night lighting behavior.",
+    "search_query": "dim hallway night light floor",
+    "visible_description": "A close-up shot of a small, white square smart motion sensor resting on a stone surface, with green variegated plant leaves and window blinds softly blurred in the background."
+   }
   },
   {
    "after": "Quiet entryway storage gives daily items a place without filling the whole wall. Quick answer The short version: give each daily item one small home near the door and cap it. Coats: one hook per daily coat, at a height people can reach while carrying something. Hooks around 60 to 66 in (150 to 165 cm) high are a common starting point for adults; te",
@@ -645,14 +667,25 @@
    "key": "photo-1558997519-83ea9252edf8",
    "path": "website/articles/quiet-entryway-storage.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1600&q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Quiet Entryway Storage",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Tall wooden wardrobe standing against a white wall on herringbone wood floors.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": false,
+    "looks_ai_generated": false,
+    "matches_section": 2,
+    "reason": "Shows a large, bulky wardrobe next to a fireplace, directly contradicting text advocating against large cabinets in favor of simple hooks.",
+    "search_query": "entryway coat hooks shoe storage",
+    "visible_description": "A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herringbone wood floors, with the edge of a black fireplace visible on the left."
+   }
   },
   {
    "after": "The daily landing zone should match the first few seconds of arriving home. 2. Give daily coats a few wall hooks Hooks are often more useful than hangers for daily coats: there is no closet door to open and the next use is obvious. Install only enough for normal demand (if a household has four daily coats, four hooks beat a wall of twelve). Place t",
@@ -664,14 +697,25 @@
    "key": "photo-1519710164239-da123dc03ef4",
    "path": "website/articles/quiet-entryway-storage.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "1. Start with the arrival routine",
    "src": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "pending",
+   "status": "replace",
    "title": "Quiet Entryway Storage",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Small round wooden table and chair with an arched floor lamp in a bright white room",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "The image shows a dining or tea sitting area, not an entryway arrival zone with hooks, shoe storage, or key drop.",
+    "search_query": "entryway landing zone key tray",
+    "visible_description": "A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silver floor lamp, with potted plants and white paneled walls."
+   }
   },
   {
    "after": "A small entryway tray gives daily keys and small items one predictable landing zone. 4. Keep shoe storage shallow and honest Shoes arrive in pairs and multiply quickly. Begin with the pairs used most often and give them a shallow rack, bench shelf or open cubby that fits the walking path; avoid storage that needs a door opened for every pair. Move ",
@@ -683,7 +727,7 @@
    "key": "photo-1556228578-8c89e6adf883",
    "path": "website/articles/quiet-entryway-storage.html",
    "problems": [
-    "quota exhausted"
+    "daily quota exhausted"
    ],
    "role": "inner",
    "section": "3. Create one small landing zone",

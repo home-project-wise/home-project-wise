@@ -169,6 +169,18 @@
   "search_query": "hanging large art with level",
   "visible_description": "Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, pencil, and plant vase sit on the console table."
  },
+ "879a87764c59cb1c6d3cb60ea7044674d38788c2": {
+  "alt_is_accurate": false,
+  "better_alt": "Tall wooden wardrobe standing against a white wall on herringbone wood floors.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": false,
+  "looks_ai_generated": false,
+  "matches_section": 2,
+  "reason": "Shows a large, bulky wardrobe next to a fireplace, directly contradicting text advocating against large cabinets in favor of simple hooks.",
+  "search_query": "entryway coat hooks shoe storage",
+  "visible_description": "A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herringbone wood floors, with the edge of a black fireplace visible on the left."
+ },
  "8b9931cf6b845af826eec2802c28116fdf62b7ae": {
   "alt_is_accurate": true,
   "better_alt": "Large square artwork hanging on a wall above a contemporary sofa in a styled living room",
@@ -229,6 +241,18 @@
   "search_query": "kitchen counter food prep station",
   "visible_description": "Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile backsplash, open floating wood shelves, and light wood flooring with a rug."
  },
+ "ab77cb6261a535ae0ae507cc6b2edc47ab26b2e0": {
+  "alt_is_accurate": true,
+  "better_alt": "White square smart motion sensor on a windowsill next to a houseplant.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": false,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "Shows the motion sensor device itself rather than demonstrating dim night lighting, glare reduction, or day versus night lighting behavior.",
+  "search_query": "dim hallway night light floor",
+  "visible_description": "A close-up shot of a small, white square smart motion sensor resting on a stone surface, with green variegated plant leaves and window blinds softly blurred in the background."
+ },
  "ae1b7f066dfd28f50a5c4d0a414e8a1b0b22c7b7": {
   "alt_is_accurate": false,
   "better_alt": "Modern open-plan living room with light blue sofas, a wooden coffee table, and a dog resting on the rug.",
@@ -240,6 +264,18 @@
   "reason": "The image depicts a high-end luxury architectural home, directly undermining the article's message about practical tweaks rather than expensive makeovers.",
   "search_query": "tidy organized cozy living room",
   "visible_description": "A spacious, sunlit modern living room with light blue sofas, a wooden coffee table, a golden retriever resting on the floor, open floating stairs, and floor-to-ceiling glass windows."
+ },
+ "b34dac75e2d7631de12a34ccdacd0865052e9fa0": {
+  "alt_is_accurate": false,
+  "better_alt": "Small round wooden table and chair with an arched floor lamp in a bright white room",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 1,
+  "reason": "The image shows a dining or tea sitting area, not an entryway arrival zone with hooks, shoe storage, or key drop.",
+  "search_query": "entryway landing zone key tray",
+  "visible_description": "A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silver floor lamp, with potted plants and white paneled walls."
  },
  "b901cb724cb52f15ef6957772c79a2efb7e9b8d9": {
   "alt_is_accurate": false,
@@ -324,6 +360,18 @@
   "reason": "Directly illustrates a basement macerating toilet setup, though the unit appears to be a 3D render or AI dry-fit mockup.",
   "search_query": "macerating toilet basement installation",
   "visible_description": "A white toilet in an unfinished basement next to a grey macerating pump unit with a vertical PVC pipe running upwards, set against bare concrete and wood stud framing."
+ },
+ "e31fcb082f7c9f801db2c36fa454fd2c9249cc05": {
+  "alt_is_accurate": false,
+  "better_alt": "Modern open-plan living room with sectional couch and sliding doors opening to an outdoor deck",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 1,
+  "reason": "Shows a bright living room instead of a transitional hands-free space like a hallway, closet, stairway, or laundry room.",
+  "search_query": "motion sensor light hallway stairs",
+  "visible_description": "A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass doors opening to an outdoor deck with a dining set and barbecue grill."
  },
  "f2e3657c0e28bab9b9ee2f2eb828821fe327a811": {
   "alt_is_accurate": false,

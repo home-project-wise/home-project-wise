@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-18 04:09 UTC with `gemini-3.8-flash`.
+Generated 2026-10-20 18:04 UTC with `gemini-3.8-flash`.
 
-Totals: keep=3, pending=31, replace=6, weak=9
+Totals: error=3, keep=3, pending=24, replace=10, weak=9
 
 ## All images
 
@@ -23,14 +23,14 @@ Totals: keep=3, pending=31, replace=6, weak=9
 | kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | 4 | replace | A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, an | mismatch |
 | make-small-living-room-feel-bigger | hero | Introduction | 4 | replace | A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plant | mismatch |
 | make-small-living-room-feel-bigger | inner | 2. Give the main seating one clear job | 1 | replace | A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase agains | mismatch |
-| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | pending |  | daily quota exhausted |
-| motion-lighting-that-actually-helps | hero | Introduction | - | pending |  | quota exhausted |
-| motion-lighting-that-actually-helps | inner | 2. Choose locations where hands-free lig | - | pending |  | quota exhausted |
-| motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | - | pending |  | quota exhausted |
-| motion-lighting-that-actually-helps | inner | 5. Separate daytime and nighttime behavi | - | pending |  | quota exhausted |
-| quiet-entryway-storage | hero | Introduction | - | pending |  | quota exhausted |
-| quiet-entryway-storage | inner | 1. Start with the arrival routine | - | pending |  | quota exhausted |
-| quiet-entryway-storage | inner | 3. Create one small landing zone | - | pending |  | quota exhausted |
+| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | error |  | The read operation timed out |
+| motion-lighting-that-actually-helps | hero | Introduction | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
+| motion-lighting-that-actually-helps | inner | 2. Choose locations where hands-free lig | 1 | replace | A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass do | mismatch |
+| motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
+| motion-lighting-that-actually-helps | inner | 5. Separate daytime and nighttime behavi | 4 | replace | A close-up shot of a small, white square smart motion sensor resting on a stone surface, with green variegated | mismatch |
+| quiet-entryway-storage | hero | Introduction | 2 | replace | A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herring | mismatch |
+| quiet-entryway-storage | inner | 1. Start with the arrival routine | 1 | replace | A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silve | mismatch |
+| quiet-entryway-storage | inner | 3. Create one small landing zone | - | pending |  | daily quota exhausted |
 | reduce-bathroom-condensation | hero | Introduction | - | pending |  | quota exhausted |
 | reduce-cable-clutter | hero | Introduction | - | pending |  | quota exhausted |
 | reduce-cable-clutter | inner | Start by mapping what each cable does | - | pending |  | quota exhausted |
