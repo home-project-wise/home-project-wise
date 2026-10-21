@@ -319,6 +319,9 @@ def write_search(r):
 
 
 TOOLS = [
+    {"slug": "budget-planner", "hub": "all", "title": "Project Budget Planner",
+     "desc": "Pick a home project, enter your own prices and see what fits your budget, with a buying order that protects the essentials.",
+     "kw": "budget cost price planner shopping list how much spend setup refresh money afford"},
     {"slug": "home-checkup", "hub": "all", "title": "Home Check-up",
      "desc": "Answer ten short statements and get your top three home priorities, with the guides and tools to start with.",
      "kw": "checkup check-up quiz priorities audit assessment start where begin first home overview"},

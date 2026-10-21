@@ -154,3 +154,15 @@ h1,h2,h3{break-after:avoid}
 table,figure,.calc,.calc-out,.quiz-q{break-inside:avoid}
 li{break-inside:avoid}
 }
+
+/* Budget planner (new colours have a dark mirror below) */
+.budget-wrap{overflow-x:auto;margin:14px 0}
+.budget-table{width:100%;border-collapse:collapse;min-width:640px}
+.budget-table th{text-align:left;font-size:13px;color:#566266;padding:6px 8px;border-bottom:2px solid #243238}
+.budget-table td{padding:6px 8px;border-bottom:1px solid #e1e5e0}
+.budget-table input[type=text]{width:100%;min-width:180px}
+.budget-table input[type=number]{width:90px}
+.budget-table select{width:auto;font-size:15px}
+.calc input[type=text]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid #c9d2ce;border-radius:10px;background:#fff;color:#243238;max-width:100%}
+.r-x{font:inherit;border:1px solid #c9d2ce;background:#fff;color:#243238;border-radius:8px;cursor:pointer;padding:4px 10px}
+@media (prefers-color-scheme:dark){.budget-table th{color:#aeb9bc;border-bottom-color:#8fa0a6}.budget-table td{border-bottom-color:#34444b}.calc input[type=text]{background:#202b30;border-color:#44565e;color:#eef1ee}.r-x{background:#202b30;border-color:#44565e;color:#eef1ee}}
