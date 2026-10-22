@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-20 18:04 UTC with `gemini-3.8-flash`.
+Generated 2026-10-22 07:45 UTC with `gemini-3.8-flash`.
 
-Totals: error=3, keep=3, pending=24, replace=10, weak=9
+Totals: error=1, keep=3, pending=18, replace=8, weak=9
 
 ## All images
 
@@ -12,31 +12,21 @@ Totals: error=3, keep=3, pending=24, replace=10, weak=9
 | better-evening-home-lighting-without-overcomplicating-it | inner | 1. Fix the activity before the lighting | 7 | weak | An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading | weak-match, generic |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 7 | weak | A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading  | weak-match |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 7 | weak | A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A pot | weak-match |
-| calm-room | hero | Introduction | 5 | replace | A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small  | mismatch |
-| calm-room | inner | 1. Start with what your eyes notice firs | 6 | weak | A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascap | weak-match, generic |
+| calm-room | hero | 1. Start with what your eyes notice firs | 5 | replace | A living room framed by a doorway, featuring a beige sofa beneath a large framed ocean painting, a low wooden  | mismatch |
 | calm-room | inner | 3. Change the light before the furniture | 6 | weak | A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a gl | weak-match |
 | calm-room | inner | 5. Reduce visual competition | 9 | weak | A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches | generic |
 | fix-wobbly-furniture | hero | Introduction | 7 | weak | A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sittin | weak-match |
-| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | 4 | replace | A modern living room with a white sofa, a mustard-yellow throw pillow, a black round coffee table, and six fra | mismatch |
+| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
 | kitchen-counter-zone-that-stays-clear | hero | Introduction | 6 | weak | A bright kitchen island with a white marble countertop holding two Dutch ovens on towels, with white upper cab | weak-match, generic |
-| kitchen-counter-zone-that-stays-clear | inner | 1. Choose one clear working zone | 4 | replace | Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile back | mismatch |
-| kitchen-counter-zone-that-stays-clear | inner | 2. Give every permanent item a reason | 4 | replace | A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, an | mismatch |
-| make-small-living-room-feel-bigger | hero | Introduction | 4 | replace | A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plant | mismatch |
-| make-small-living-room-feel-bigger | inner | 2. Give the main seating one clear job | 1 | replace | A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase agains | mismatch |
-| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | error |  | The read operation timed out |
-| motion-lighting-that-actually-helps | hero | Introduction | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
-| motion-lighting-that-actually-helps | inner | 2. Choose locations where hands-free lig | 1 | replace | A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass do | mismatch |
-| motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
-| motion-lighting-that-actually-helps | inner | 5. Separate daytime and nighttime behavi | 4 | replace | A close-up shot of a small, white square smart motion sensor resting on a stone surface, with green variegated | mismatch |
-| quiet-entryway-storage | hero | Introduction | 2 | replace | A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herring | mismatch |
-| quiet-entryway-storage | inner | 1. Start with the arrival routine | 1 | replace | A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silve | mismatch |
-| quiet-entryway-storage | inner | 3. Create one small landing zone | - | pending |  | daily quota exhausted |
-| reduce-bathroom-condensation | hero | Introduction | - | pending |  | quota exhausted |
-| reduce-cable-clutter | hero | Introduction | - | pending |  | quota exhausted |
-| reduce-cable-clutter | inner | Start by mapping what each cable does | - | pending |  | quota exhausted |
-| reduce-cable-clutter | inner | Start by mapping what each cable does | - | pending |  | quota exhausted |
-| reduce-cable-clutter | inner | Separate permanent cables from temporary | - | pending |  | quota exhausted |
-| right-rug-size-painters-tape-test | hero | Introduction | - | pending |  | quota exhausted |
+| make-small-living-room-feel-bigger | hero | 7. Use a mirror only where it reflects s | 4 | replace | A styled living area featuring an orange armchair, a yellow sideboard, potted plants, and a small round wall m | mismatch |
+| motion-lighting-that-actually-helps | hero | Introduction | 2 | replace | A bright living room with gray sofas, a coffee table, a fireplace with a mounted television, a wire cage chand | mismatch |
+| motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | 2 | replace | A styled living room featuring a grey sofa, round coffee table, two woven pendant lights hanging from the ceil | mismatch |
+| reduce-bathroom-condensation | hero | Introduction | 6 | weak | A close-up view of water droplets and running trickles covering a transparent glass pane, with out-of-focus gr | weak-match, generic |
+| reduce-cable-clutter | hero | Introduction | 1 | replace | A close-up profile view of hands using a slim silver laptop on a dark desk, with one person pointing directly  | mismatch |
+| reduce-cable-clutter | inner | Start by mapping what each cable does | 3 | replace | A top-angle view of an organized wooden desk with a computer monitor on a riser, wireless keyboard, mouse, yel | mismatch |
+| reduce-cable-clutter | inner | Start by mapping what each cable does | 0 | replace | A close-up of a partially open silver laptop illuminated by vivid purple and blue light, showing the keyboard, | mismatch |
+| reduce-cable-clutter | inner | Separate permanent cables from temporary | 1 | replace | An open laptop with a blank screen centered on a light wood desk, flanked by brass desk organizers and a potte | mismatch |
+| right-rug-size-painters-tape-test | hero | Introduction | - | pending |  | daily quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 1. Reset for tomorrow, not for perfectio | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | pending |  | quota exhausted |

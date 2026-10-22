@@ -11,6 +11,18 @@
   "search_query": "organized kitchen counter coffee toaster",
   "visible_description": "A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, and a utensil crock arranged on the kitchen counter in the foreground."
  },
+ "11112624e437c2e43f14a9ad8059d5716ae16d5c": {
+  "alt_is_accurate": false,
+  "better_alt": "Brightly lit modern living room with gray seating, a fireplace, and large windows.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 2,
+  "reason": "This is a generic daytime living room render showing no motion lighting, sensors, or functional nighttime paths.",
+  "search_query": "hallway motion sensor light night",
+  "visible_description": "A bright living room with gray sofas, a coffee table, a fireplace with a mounted television, a wire cage chandelier, and multiple windows with white horizontal blinds."
+ },
  "116f1c9bb502d80567ebf0a5f951e5dc9cda15dc": {
   "alt_is_accurate": true,
   "better_alt": "Armchair with a warm floor lamp focused directly over an open book beside a side table.",
@@ -72,6 +84,18 @@
    "Checklist and FAQ: Redundantly restates previous guidelines rather than addressing edge cases."
   ],
   "unsupported_claims": []
+ },
+ "566c48540c066f392e1caa3779f5ce5bec4fa3a6": {
+  "alt_is_accurate": true,
+  "better_alt": "Neutral living room seen through a doorway with a beige sofa, wooden coffee table, and large framed ocean art.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 5,
+  "reason": "Depicts an idealized calm focal point rather than identifying or removing visual noise as discussed in the text.",
+  "search_query": "decluttering living room focal point",
+  "visible_description": "A living room framed by a doorway, featuring a beige sofa beneath a large framed ocean painting, a low wooden coffee table, a floor lamp, and a bookshelf."
  },
  "56738787dc117d79367bdf6da2613e0a3040f3f0": {
   "alt_is_accurate": true,
@@ -145,6 +169,18 @@
   "search_query": "calm uncluttered bright living room",
   "visible_description": "A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small potted plant, a flat rug, and sunlight filtering through sheer white curtains."
  },
+ "71e92c7c59ceef3fd4cddaca39fe5da310b6557d": {
+  "alt_is_accurate": false,
+  "better_alt": "Water droplets and streaks running down a clear glass window pane with blurry green foliage in the background.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 6,
+  "reason": "Vertical orientation and abstract rain-like texture make a weak hero image; it lacks recognizable bathroom context.",
+  "search_query": "bathroom steamy mirror condensation",
+  "visible_description": "A close-up view of water droplets and running trickles covering a transparent glass pane, with out-of-focus green foliage in the background."
+ },
  "7895aa5a70aed9140b65791da2db5a3db09d2b1b": {
   "alt_is_accurate": false,
   "better_alt": "Brightly lit neutral living room with a sectional sofa, round coffee table, and gallery wall.",
@@ -168,6 +204,18 @@
   "reason": "Visually showcases a large piece of art positioned above furniture with installation tools nearby, fitting the hero and introduction theme well.",
   "search_query": "hanging large art with level",
   "visible_description": "Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, pencil, and plant vase sit on the console table."
+ },
+ "8045c1efa76edba4f09a5b71a78982fbc94b4934": {
+  "alt_is_accurate": false,
+  "better_alt": "Person pointing at an open laptop screen beside someone using the trackpad",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 1,
+  "reason": "The photo shows people using a laptop and contains no visible cables, completely missing the article's core topic of cable management.",
+  "search_query": "desk cable management tidy wires",
+  "visible_description": "A close-up profile view of hands using a slim silver laptop on a dark desk, with one person pointing directly at the screen and another touching the trackpad."
  },
  "879a87764c59cb1c6d3cb60ea7044674d38788c2": {
   "alt_is_accurate": false,
@@ -216,6 +264,30 @@
   "reason": "Perfect match for the article topic and caption, clearly showing a fully sealed, encapsulated crawl space with a dehumidifier.",
   "search_query": "crawl space encapsulation dehumidifier barrier",
   "visible_description": "A clean crawl space fully lined with white vapor barrier plastic on the floor and walls, exposed wooden ceiling joists, ductwork, and a white dehumidifier elevated on a small pedestal with a drain tube."
+ },
+ "9cf30fa677dfb63ac0f71876741bc41e70dc0f2e": {
+  "alt_is_accurate": false,
+  "better_alt": "Partially closed silver laptop keyboard and trackpad under dramatic purple and blue lighting",
+  "has_text_or_watermark": false,
+  "hero_appeal": 4,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 0,
+  "reason": "The image shows only a laptop with dramatic lighting and does not depict any cables, connections, or mapping.",
+  "search_query": "person tracing desk computer cables",
+  "visible_description": "A close-up of a partially open silver laptop illuminated by vivid purple and blue light, showing the keyboard, trackpad, and glowing lid logo. No cables or other desk accessories are visible."
+ },
+ "9ecf958de2c281cec27d3972365bb6ec2d0161ab": {
+  "alt_is_accurate": false,
+  "better_alt": "Furnished living room with grey sofa, round coffee table, and woven pendant lights.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 2,
+  "reason": "This is a generic decorative living room render showing no motion sensors, pathway lighting, or walking route considerations.",
+  "search_query": "motion sensor hallway light placement",
+  "visible_description": "A styled living room featuring a grey sofa, round coffee table, two woven pendant lights hanging from the ceiling, a leather ottoman, indoor potted plants, and an area rug over wood floors."
  },
  "a794a42e3d84848b18fc7fa73877a49929dde168": {
   "alt_is_accurate": false,
@@ -313,6 +385,30 @@
   "search_query": "small living room intentional seating layout",
   "visible_description": "A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase against a tiled wall, and a view into a distant living room and kitchen."
  },
+ "c4ab0e2df0fe150313c748de813f32e7d9e63ba7": {
+  "alt_is_accurate": true,
+  "better_alt": "Tidy wooden desk setup with an LG monitor on a riser, wireless keyboard, mouse, and office chair.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 3,
+  "reason": "The section discusses tracing and mapping messy cables, but this photo shows a fully finished setup with virtually no visible wires.",
+  "search_query": "tracing computer cables behind desk",
+  "visible_description": "A top-angle view of an organized wooden desk with a computer monitor on a riser, wireless keyboard, mouse, yellow smart speaker, and office chair."
+ },
+ "c8ecfc3c1df58604bd42c4e89db1a33d2dffc986": {
+  "alt_is_accurate": false,
+  "better_alt": "Open laptop centered on a wooden desk with decorative accessories and no visible cables",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 1,
+  "reason": "The image completely lacks cables or charging setups, failing to show cable separation, management, or any cords whatsoever.",
+  "search_query": "desk cable clip charging cord",
+  "visible_description": "An open laptop with a blank screen centered on a light wood desk, flanked by brass desk organizers and a potted succulent. No cables or cords are visible anywhere."
+ },
  "d0a1f0187b238a5cc1c968721e77b133df21798f": {
   "alt_is_accurate": true,
   "better_alt": "Lit table lamp with a fabric drum shade on a wooden end table next to an armchair.",
@@ -372,6 +468,18 @@
   "reason": "Shows a bright living room instead of a transitional hands-free space like a hallway, closet, stairway, or laundry room.",
   "search_query": "motion sensor light hallway stairs",
   "visible_description": "A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass doors opening to an outdoor deck with a dining set and barbecue grill."
+ },
+ "ea88c3c5c2706731b0065915c08fb4d00aa77a72": {
+  "alt_is_accurate": false,
+  "better_alt": "Orange armchair and yellow sideboard beside potted plants with a round mirror on a beige wall.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 3,
+  "is_generic_stock": true,
+  "looks_ai_generated": false,
+  "matches_section": 4,
+  "reason": "Vertical 3D render poorly suited for a hero slot; the small mirror reflects kitchen cabinets rather than expanding space or light.",
+  "search_query": "living room mirror reflecting window",
+  "visible_description": "A styled living area featuring an orange armchair, a yellow sideboard, potted plants, and a small round wall mirror reflecting kitchen cabinetry against a tall, plain wall."
  },
  "f2e3657c0e28bab9b9ee2f2eb828821fe327a811": {
   "alt_is_accurate": false,

@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-20T18:04:33+00:00",
+ "generated": "2026-10-22T07:45:34+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
@@ -125,64 +125,33 @@
    }
   },
   {
-   "after": "AI-generated image: a calm room with few objects, clear floor and soft light. 1. Start with what your eyes notice first Stand at the doorway and let your eyes move naturally. The first three objects that demand attention are your clues: a crowded coffee table, an overfilled shelf or a large piece of furniture pressed against a walkway can make a ro",
-   "alt": "Calm, uncluttered living room with a neutral sofa, a low wooden table and soft daylight",
-   "article": "calm-room",
-   "before": "g more: improve the light, clear visual noise, fix awkward paths, and build storage around daily habits.\" name=\"twitter:description\"/> All guides HOME DESIGN · PRACTICAL GUIDE How to make a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
-   "caption": "AI-generated image: a calm room with few objects, clear floor and soft light.",
-   "index": 0,
-   "key": "local-calm-room-hero.jpg",
-   "path": "website/articles/calm-room.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "hero",
-   "section": "Introduction",
-   "src": "../images/calm-room-hero.jpg",
-   "status": "replace",
-   "title": "How to make a room feel calmer without buying everything new",
-   "vision": {
-    "alt_is_accurate": true,
-    "better_alt": "Bright, neutral living room with a beige sofa, low wooden coffee table, small potted plant, and sheer curtains.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 8,
-    "is_generic_stock": false,
-    "looks_ai_generated": true,
-    "matches_section": 5,
-    "reason": "Works well aesthetically as a hero image setting a calm tone, but is a generic AI render rather than a practical demonstration.",
-    "search_query": "calm uncluttered bright living room",
-    "visible_description": "A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small potted plant, a flat rug, and sunlight filtering through sheer white curtains."
-   }
-  },
-  {
    "after": "AI-generated image: what your eyes notice first is one calm focal point, not clutter. 2. Protect the walking path Comfort depends on movement as much as appearance. Identify the routes you use every day (door to sofa, sofa to kitchen, bed to wardrobe, desk to printer). If you keep stepping around a chair or moving an object to pass, the layout is t",
    "alt": "View from a doorway where the eye lands first on one calm sofa wall with a single framed print",
    "article": "calm-room",
    "before": "led shelf or a large piece of furniture pressed against a walkway can make a room feel busy before you use it. Remove one obvious item, step back and look again; do not attack the whole room at once. Two fast tests: squint until the room blurs, and whatever still jumps out is your visual noise; or take a photo, because a photo shows the clutter your eyes stopped noticing. The aim is to learn what creates visual noise, not to create an empty room.",
    "caption": "AI-generated image: what your eyes notice first is one calm focal point, not clutter.",
-   "index": 1,
+   "index": 0,
    "key": "local-calm-room-eyes-notice.jpg",
    "path": "website/articles/calm-room.html",
    "problems": [
-    "weak-match",
-    "generic"
+    "mismatch"
    ],
-   "role": "inner",
+   "role": "hero",
    "section": "1. Start with what your eyes notice first",
    "src": "../images/calm-room-eyes-notice.jpg",
-   "status": "weak",
+   "status": "replace",
    "title": "How to make a room feel calmer without buying everything new",
    "vision": {
     "alt_is_accurate": true,
-    "better_alt": "View from doorway of a calm living room with a beige sofa and a large framed landscape print",
+    "better_alt": "Neutral living room seen through a doorway with a beige sofa, wooden coffee table, and large framed ocean art.",
     "has_text_or_watermark": false,
-    "hero_appeal": 6,
+    "hero_appeal": 7,
     "is_generic_stock": true,
     "looks_ai_generated": true,
-    "matches_section": 6,
-    "reason": "Accurately illustrates an uncluttered entryway focal point, though it depicts an idealized aesthetic rather than practical decluttering.",
-    "search_query": "calm living room doorway focal point",
-    "visible_description": "A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascape painting with a wooden coffee table in front."
+    "matches_section": 5,
+    "reason": "Depicts an idealized calm focal point rather than identifying or removing visual noise as discussed in the text.",
+    "search_query": "decluttering living room focal point",
+    "visible_description": "A living room framed by a doorway, featuring a beige sofa beneath a large framed ocean painting, a low wooden coffee table, a floor lamp, and a bookshelf."
    }
   },
   {
@@ -191,7 +160,7 @@
    "article": "calm-room",
    "before": "g it, which can damage floors and strain your back. Keep cords out of walking routes, and secure tall or top-heavy furniture to the wall after moving it. 3. Change the light before the furniture One strong ceiling light can make a room flat and harsh even when the layout works. Try the lamps you already have at different heights: a lower pool of light makes a seating area feel more intentional, and brighter task light can stay near detailed work.",
    "caption": "AI-generated image: change the light before the furniture: sheer curtains and one warm lamp.",
-   "index": 2,
+   "index": 1,
    "key": "local-calm-room-light-first.jpg",
    "path": "website/articles/calm-room.html",
    "problems": [
@@ -221,7 +190,7 @@
    "article": "calm-room",
    "before": "chair. None of this needs a large organizing system. Start with the object that repeatedly becomes clutter and give it a home where you naturally reach for it. 5. Reduce visual competition Rooms get noisy when many objects compete for attention. You do not need to remove personality: group related items and let a few useful or meaningful pieces lead. A shelf with ten unrelated objects feels busier than the same ten in two or three clear clusters.",
    "caption": "AI-generated image: reduce visual competition by keeping only a few objects out.",
-   "index": 3,
+   "index": 2,
    "key": "local-calm-room-less-clutter.jpg",
    "path": "website/articles/calm-room.html",
    "problems": [
@@ -332,34 +301,23 @@
    }
   },
   {
-   "after": "A living room with a white sofa and framed art. Photo: Collov Home Design on Unsplash Where to look, and how we chose these options We looked at what suits a beginner hanging a large piece: a clear size range, a care guide, hardware or a reusable frame, and a clear return process. A specialist online store for oversized art. BIG Wall Décor sells la",
-   "alt": "Living room with a white sofa, a mustard pillow and framed art",
+   "after": "Before hanging oversized art, measure the wall and furniture relationship, then level the frame. AI-generated image by HomeProjectWise. Where to look, and how we chose these options We looked at what suits a beginner hanging a large piece: a clear size range, a care guide, hardware or a reusable frame, and a clear return process. A specialist onlin",
+   "alt": "Large framed abstract artwork above a sofa, with a spirit level, pencil and tape measure on the console",
    "article": "how-to-hang-large-wall-art-without-damage",
    "before": "wall is old plaster that crumbles, or if you are mounting above a staircase or over a fireplace. Moving a hole costs little. Repairing a wire or a fallen frame does not. 10. Choosing oversized art Size, material, care and return terms matter more than style when the piece is large and ships in a big box. Check what hanging hardware is included, how the piece is finished, how it should be cleaned, and the return and damage policy before you order.",
-   "caption": "A living room with a white sofa and framed art. Photo: Collov Home Design on Unsplash",
+   "caption": "Before hanging oversized art, measure the wall and furniture relationship, then level the frame. AI-generated image by HomeProjectWise.",
    "index": 1,
-   "key": "photo-1600210491369-e753d80a41f3",
+   "key": "local-wall-art-hero.jpg",
    "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
    "problems": [
-    "mismatch"
+    "Gemini HTTP 503: {   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spike"
    ],
    "role": "inner",
    "section": "10. Choosing oversized art",
-   "src": "https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&amp;fit=crop&amp;fm=jpg&amp;q=80&amp;w=1400",
-   "status": "replace",
+   "src": "../images/wall-art-hero.jpg",
+   "status": "error",
    "title": "How to Hang Large Wall Art Without Damaging Your Walls",
-   "vision": {
-    "alt_is_accurate": true,
-    "better_alt": "Living room with a white sofa beneath a gallery wall of six framed prints",
-    "has_text_or_watermark": false,
-    "hero_appeal": 6,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "The section discusses choosing single oversized art pieces, but this photo displays a gallery wall composed of multiple smaller prints.",
-    "search_query": "oversized framed art living room",
-    "visible_description": "A modern living room with a white sofa, a mustard-yellow throw pillow, a black round coffee table, and six framed art prints arranged as a gallery wall above the couch."
-   }
+   "vision": null
   },
   {
    "after": "A clear preparation surface is more useful than a perfectly empty kitchen. — Unsplash Protect the preparation surface first; give the other jobs defined places so they do not take over. Quick plan Time About 30 minutes to set up, then a 2-minute reset each evening Cost Free. Buy storage only after the one-week test Best for Small and medium kitchen",
@@ -393,66 +351,6 @@
    }
   },
   {
-   "after": "The working zone should be easy to reach and large enough for the tasks you actually repeat. — Unsplash 2. Give every permanent item a reason For each object on the counter, ask: Do we use it most days? Does leaving it here save a meaningful step? Does it make the working surface harder to use? An item that fails the first two questions and creates",
-   "alt": "Plain kitchen counter with a clear working zone for preparation",
-   "article": "kitchen-counter-zone-that-stays-clear",
-   "before": "and there first: that is your repeat offender (see section 10). 1. Choose one clear working zone Do not aim for a perfect empty kitchen. Choose the section of counter where food is prepared most often (beside the sink, next to the stove or near the cutting board), so ingredients, a board and a knife can appear without first moving six unrelated objects. Measure success by speed: if the zone takes ten minutes to clear, the system is too difficult.",
-   "caption": "The working zone should be easy to reach and large enough for the tasks you actually repeat. — Unsplash",
-   "index": 1,
-   "key": "photo-1600489000022-c2086d79f9d4",
-   "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "1. Choose one clear working zone",
-   "src": "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "U-shaped modern kitchen with dark cabinets, open shelves, and clean marble countertops.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 6,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "Shows an entire staged kitchen rather than focusing specifically on an identified, practical counter prep zone.",
-    "search_query": "kitchen counter food prep station",
-    "visible_description": "Wide shot of a U-shaped kitchen featuring dark gray cabinets, white marble countertops, white subway tile backsplash, open floating wood shelves, and light wood flooring with a rug."
-   }
-  },
-  {
-   "after": "Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter. — Unsplash 3. Create a home for loose daily items Clutter survives when an item has nowhere convenient to go: receipts, lunch containers, keys and reusable bottles become permanent residents when returning them means walking to thr",
-   "alt": "Kitchen counter with permanent items kept for practical work",
-   "article": "kitchen-counter-zone-that-stays-clear",
-   "before": " a magazine rule. Both extremes fail: a counter covered with appliances, and a bare counter that makes you unpack the same tools every morning. Item Counter or storage? Used most days and saves a step (toaster, coffee maker) Counter, outside the main preparation path Used a few times a week Nearby cabinet or shelf Used a few times a month (waffle maker) Storage, away from the active zone Mail, papers, chargers A different landing zone (section 8)",
-   "caption": "Keep the tools that support frequent preparation close to the work zone rather than spreading them across the counter. — Unsplash",
-   "index": 2,
-   "key": "photo-1556911220-e15b29be8c8f",
-   "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "2. Give every permanent item a reason",
-   "src": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "A woman cooking at a stove with ceramic canisters and cooking utensils on the kitchen island counter.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 6,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "This is a lifestyle cooking shot rather than a clear illustration of intentional appliance and tool placement on a counter.",
-    "search_query": "organized kitchen counter coffee toaster",
-    "visible_description": "A woman in a gray cardigan stirs an orange pot on a gas stovetop, with a bowl of lemons, ceramic canisters, and a utensil crock arranged on the kitchen counter in the foreground."
-   }
-  },
-  {
    "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. Disclosure: this article includes one affiliate link, marked as such in section 8. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. What a macerating toilet does A regular toilet relies ",
    "alt": "A modern toilet in a basement with a macerating pump beside it, discharging upward through a thin pipe.",
    "article": "macerating-toilet-basement-bathroom",
@@ -481,83 +379,34 @@
    }
   },
   {
-   "after": "A small room feels more generous when the eye can move through it without constantly meeting obstacles. — Unsplash 1. Start with the walking path, not the furniture catalog The fastest way to make a room feel cramped is to make people weave around furniture. Walk through the room as you normally do and notice where you hesitate, turn sideways or st",
-   "alt": "Bright, comfortable living room with an open layout and clear visual pathways",
-   "article": "make-small-living-room-feel-bigger",
-   "before": "e-project-wise/articles/make-small-living-room-feel-bigger.html\" property=\"og:url\"/> All guides HOME DESIGN · SMALL SPACES How to Make a Small Living Room Feel Bigger Without Buying New Furniture A small living room does not automatically need smaller furniture. Often the real problem is too many visual stops: a blocked walkway, seating that faces the wrong way, dark corners and items left in sight. Change the arrangement before you buy anything.",
-   "caption": "A small room feels more generous when the eye can move through it without constantly meeting obstacles. — Unsplash",
-   "index": 0,
-   "key": "photo-1600210492486-724fe5c67fb0",
-   "path": "website/articles/make-small-living-room-feel-bigger.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "hero",
-   "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "replace",
-   "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": {
-    "alt_is_accurate": true,
-    "better_alt": "Living room with leather couch, two armchairs, round wooden coffee table, and large window",
-    "has_text_or_watermark": false,
-    "hero_appeal": 7,
-    "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "This is a spacious, staged room rather than a genuinely small living room showing practical rearrangement solutions.",
-    "search_query": "small living room furniture layout",
-    "visible_description": "A sunlit living room featuring a tan leather sofa, two white accent chairs, a round coffee table, indoor plants, and a grid of black-and-white photos on the wall."
-   }
-  },
-  {
-   "after": "The goal is not empty space everywhere; it is a clear relationship between seating, circulation and the room's main feature. — Unsplash 3. Remove one piece before buying a smaller replacement Buying compact furniture can make the problem worse: three small tables can take more visual and walking space than one useful table. Remove one piece for a f",
-   "alt": "Compact living room with furniture arranged around a clear central area",
-   "article": "make-small-living-room-feel-bigger",
-   "before": " reading, looking outside) and point the main seating toward that purpose instead of letting every chair face a different direction. If the sofa faces the television while the best window is behind it and a chair blocks the entrance, the room feels fragmented even though nothing is too large. You do not have to push the sofa flat against a wall: a little breathing room behind it can create a better path and make the seating area feel intentional.",
-   "caption": "The goal is not empty space everywhere; it is a clear relationship between seating, circulation and the room's main feature. — Unsplash",
-   "index": 1,
-   "key": "photo-1600607687920-4e2a09cf159d",
-   "path": "website/articles/make-small-living-room-feel-bigger.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "2. Give the main seating one clear job",
-   "src": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "replace",
-   "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Modern open-concept dining room with black table, grey chairs, and a floating staircase beside glass walls",
-    "has_text_or_watermark": false,
-    "hero_appeal": 6,
-    "is_generic_stock": false,
-    "looks_ai_generated": false,
-    "matches_section": 1,
-    "reason": "The photo shows a large modern dining room and staircase, not a small living room seating arrangement directed toward a clear feature.",
-    "search_query": "small living room intentional seating layout",
-    "visible_description": "A spacious, modern open-plan home featuring a black dining table with grey chairs, a floating staircase against a tiled wall, and a view into a distant living room and kitchen."
-   }
-  },
-  {
    "after": "A mirror is most useful when it reflects light or an attractive open view rather than another cluttered surface. — Unsplash 8. Choose one visual focal point A room feels larger when the eye knows where to land. Choose one main feature (a window, artwork, fireplace, television wall or lamp arrangement) and reduce competition around it. The room need",
    "alt": "Living room using a large mirror to reflect light and create visual depth",
    "article": "make-small-living-room-feel-bigger",
    "before": "e mirror on a small wall is not a guaranteed fix. Stand where it will hang and ask what it will reflect. A window, open doorway or attractive part of the room helps; a cluttered shelf or the television makes the room busier. Think of the mirror as a borrowed window. Safety first. Mirrors are heavy and fragile. Fix them into a stud or with anchors rated well above their weight, and never hang one over a spot where it could fall onto a seat or bed.",
    "caption": "A mirror is most useful when it reflects light or an attractive open view rather than another cluttered surface. — Unsplash",
-   "index": 2,
+   "index": 0,
    "key": "photo-1618220179428-22790b461013",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "The read operation timed out"
+    "mismatch"
    ],
-   "role": "inner",
+   "role": "hero",
    "section": "7. Use a mirror only where it reflects something useful",
    "src": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&amp;fit=crop&amp;w=1600&amp;q=85",
-   "status": "error",
+   "status": "replace",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Orange armchair and yellow sideboard beside potted plants with a round mirror on a beige wall.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 4,
+    "reason": "Vertical 3D render poorly suited for a hero slot; the small mirror reflects kitchen cabinets rather than expanding space or light.",
+    "search_query": "living room mirror reflecting window",
+    "visible_description": "A styled living area featuring an orange armchair, a yellow sideboard, potted plants, and a small round wall mirror reflecting kitchen cabinetry against a tall, plain wall."
+   }
   },
   {
    "after": "Good motion lighting automates a useful routine and then disappears into the background. 1. Start with the repeated problem, not the gadget Before choosing a sensor, describe the annoyance in one sentence. “The hallway is dark when I carry laundry upstairs” is a useful problem statement; “I want the house to be smarter” is not. Observe the route fo",
@@ -569,43 +418,24 @@
    "key": "photo-1616137466211-f939a420be84",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "Gemini HTTP 503: {   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spike"
+    "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "error",
-   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
-   "vision": null
-  },
-  {
-   "after": "A task light shows where useful light belongs before motion automation is added. — Unsplash Motion lighting suits short-use spaces where people move through rather than settle. Good fit Why Hallways used after dark People pass through Stairs Carrying objects makes a switch inconvenient Closets Both hands may be occupied Laundry or utility areas Lig",
-   "alt": "Simple home lighting arrangement used to plan a practical motion-lighting route",
-   "article": "motion-lighting-that-actually-helps",
-   "before": "arry laundry upstairs” is a useful problem statement; “I want the house to be smarter” is not. Observe the route for a few normal days: when the light is needed, how long the task lasts, whether hands are occupied and whether other people use the space differently. If a room already has an easy switch that people naturally use, a sensor adds little and becomes one more device to maintain. 2. Choose locations where hands-free light genuinely helps",
-   "caption": "A task light shows where useful light belongs before motion automation is added. — Unsplash",
-   "index": 1,
-   "key": "photo-1600585152915-d208bec867a1",
-   "path": "website/articles/motion-lighting-that-actually-helps.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "2. Choose locations where hands-free light genuinely helps",
-   "src": "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
    "status": "replace",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
    "vision": {
     "alt_is_accurate": false,
-    "better_alt": "Modern open-plan living room with sectional couch and sliding doors opening to an outdoor deck",
+    "better_alt": "Brightly lit modern living room with gray seating, a fireplace, and large windows.",
     "has_text_or_watermark": false,
-    "hero_appeal": 8,
+    "hero_appeal": 3,
     "is_generic_stock": true,
     "looks_ai_generated": false,
-    "matches_section": 1,
-    "reason": "Shows a bright living room instead of a transitional hands-free space like a hallway, closet, stairway, or laundry room.",
-    "search_query": "motion sensor light hallway stairs",
-    "visible_description": "A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass doors opening to an outdoor deck with a dining set and barbecue grill."
+    "matches_section": 2,
+    "reason": "This is a generic daytime living room render showing no motion lighting, sensors, or functional nighttime paths.",
+    "search_query": "hallway motion sensor light night",
+    "visible_description": "A bright living room with gray sofas, a coffee table, a fireplace with a mounted television, a wire cage chandelier, and multiple windows with white horizontal blinds."
    }
   },
   {
@@ -614,127 +444,29 @@
    "article": "motion-lighting-that-actually-helps",
    "before": "he actual walking path Placement matters more than a high-sensitivity setting. Stand where a person normally enters and imagine the detection field: it should see the movement that matters and avoid routes that should not trigger. A sensor aimed through an open doorway may catch people passing the doorway rather than entering; one hidden behind furniture misses the start of the route; one whose view a door blocks works only when the door is open.",
    "caption": "Think about the path people take through the space, not just the center of the room.",
-   "index": 2,
+   "index": 1,
    "key": "photo-1615529182904-14819c35db37",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
    "problems": [
-    "Gemini HTTP 503: {   \"error\": {     \"code\": 503,     \"message\": \"This model is currently experiencing high demand. Spike"
+    "mismatch"
    ],
    "role": "inner",
    "section": "3. Map the actual walking path",
    "src": "https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "error",
-   "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
-   "vision": null
-  },
-  {
-   "after": "Night lighting should help navigation without creating unnecessary glare. 6. Use the lowest useful brightness More light is not automatically better. In a short passage the aim is to reveal steps, a doorway or an obstacle, not to light the whole room. Start at a comfortable level and increase it only if the route stays difficult. Also watch glare: ",
-   "alt": "Compact motion sensor used for practical smart-home lighting automation",
-   "article": "motion-lighting-that-actually-helps",
-   "before": "rmal movement is outside the detection area, a longer timer only masks the issue. 5. Separate daytime and nighttime behavior During the day a motion light may not need to activate at all. At night, a lower output guides someone safely without turning a dark hallway into a bright room. Use a simple day/night rule if your system supports schedules; if not, a low-level night light may beat forcing a bright ceiling fixture to act like a bedside lamp.",
-   "caption": "Night lighting should help navigation without creating unnecessary glare.",
-   "index": 3,
-   "key": "photo-1753039495488-434a2fe53e41",
-   "path": "website/articles/motion-lighting-that-actually-helps.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "5. Separate daytime and nighttime behavior",
-   "src": "https://images.unsplash.com/photo-1753039495488-434a2fe53e41?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
    "status": "replace",
    "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying",
    "vision": {
-    "alt_is_accurate": true,
-    "better_alt": "White square smart motion sensor on a windowsill next to a houseplant.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 3,
-    "is_generic_stock": false,
-    "looks_ai_generated": false,
-    "matches_section": 4,
-    "reason": "Shows the motion sensor device itself rather than demonstrating dim night lighting, glare reduction, or day versus night lighting behavior.",
-    "search_query": "dim hallway night light floor",
-    "visible_description": "A close-up shot of a small, white square smart motion sensor resting on a stone surface, with green variegated plant leaves and window blinds softly blurred in the background."
-   }
-  },
-  {
-   "after": "Quiet entryway storage gives daily items a place without filling the whole wall. Quick answer The short version: give each daily item one small home near the door and cap it. Coats: one hook per daily coat, at a height people can reach while carrying something. Hooks around 60 to 66 in (150 to 165 cm) high are a common starting point for adults; te",
-   "alt": "Bright, organized entryway with practical hooks and a simple landing zone",
-   "article": "quiet-entryway-storage",
-   "before": "tent=\"Quiet Entryway Storage\"> All guides STORAGE & ORGANIZATION · ENTRYWAY Quiet Entryway Storage An entryway does not need a large cabinet or a perfect display. Start with what arrives with people every day (coats, shoes, bags and keys), give each a small, convenient home and move the overflow elsewhere.",
-   "caption": "Quiet entryway storage gives daily items a place without filling the whole wall.",
-   "index": 0,
-   "key": "photo-1558997519-83ea9252edf8",
-   "path": "website/articles/quiet-entryway-storage.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "hero",
-   "section": "Introduction",
-   "src": "https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=1600&q=85",
-   "status": "replace",
-   "title": "Quiet Entryway Storage",
-   "vision": {
     "alt_is_accurate": false,
-    "better_alt": "Tall wooden wardrobe standing against a white wall on herringbone wood floors.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 3,
-    "is_generic_stock": false,
-    "looks_ai_generated": false,
-    "matches_section": 2,
-    "reason": "Shows a large, bulky wardrobe next to a fireplace, directly contradicting text advocating against large cabinets in favor of simple hooks.",
-    "search_query": "entryway coat hooks shoe storage",
-    "visible_description": "A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herringbone wood floors, with the edge of a black fireplace visible on the left."
-   }
-  },
-  {
-   "after": "The daily landing zone should match the first few seconds of arriving home. 2. Give daily coats a few wall hooks Hooks are often more useful than hangers for daily coats: there is no closet door to open and the next use is obvious. Install only enough for normal demand (if a household has four daily coats, four hooks beat a wall of twelve). Place t",
-   "alt": "Practical entryway arrival area with a small daily landing zone",
-   "article": "quiet-entryway-storage",
-   "before": "ore you commit. 1. Start with the arrival routine Stand at the door and imagine arriving with a coat, bag, keys and shoes. Where does each item go in the first 30 seconds? If the answer is “wherever there is space,” the entryway will become a pile. Watch the real routine for several days before buying anything: what lands on the floor, what stays on a chair and what travels deeper into the home tells you which storage must be closest to the door.",
-   "caption": "The daily landing zone should match the first few seconds of arriving home.",
-   "index": 1,
-   "key": "photo-1519710164239-da123dc03ef4",
-   "path": "website/articles/quiet-entryway-storage.html",
-   "problems": [
-    "mismatch"
-   ],
-   "role": "inner",
-   "section": "1. Start with the arrival routine",
-   "src": "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "replace",
-   "title": "Quiet Entryway Storage",
-   "vision": {
-    "alt_is_accurate": false,
-    "better_alt": "Small round wooden table and chair with an arched floor lamp in a bright white room",
+    "better_alt": "Furnished living room with grey sofa, round coffee table, and woven pendant lights.",
     "has_text_or_watermark": false,
     "hero_appeal": 6,
     "is_generic_stock": true,
-    "looks_ai_generated": false,
-    "matches_section": 1,
-    "reason": "The image shows a dining or tea sitting area, not an entryway arrival zone with hooks, shoe storage, or key drop.",
-    "search_query": "entryway landing zone key tray",
-    "visible_description": "A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silver floor lamp, with potted plants and white paneled walls."
+    "looks_ai_generated": true,
+    "matches_section": 2,
+    "reason": "This is a generic decorative living room render showing no motion sensors, pathway lighting, or walking route considerations.",
+    "search_query": "motion sensor hallway light placement",
+    "visible_description": "A styled living room featuring a grey sofa, round coffee table, two woven pendant lights hanging from the ceiling, a leather ottoman, indoor potted plants, and an area rug over wood floors."
    }
-  },
-  {
-   "after": "A small entryway tray gives daily keys and small items one predictable landing zone. 4. Keep shoe storage shallow and honest Shoes arrive in pairs and multiply quickly. Begin with the pairs used most often and give them a shallow rack, bench shelf or open cubby that fits the walking path; avoid storage that needs a door opened for every pair. Move ",
-   "alt": "Small entryway tray used as a daily landing zone for keys",
-   "article": "quiet-entryway-storage",
-   "before": "day coats and bags accessible without creating a crowded display. 3. Create one small landing zone Keys, sunglasses and receipts need a destination closer than the kitchen counter: a narrow tray or small shelf. Keep it small, and when it is full, process its contents rather than buying a bigger container. Do not mix mail, batteries, coins and keys, or the tray becomes a miniature junk drawer. Limit it to items that belong to arriving and leaving.",
-   "caption": "A small entryway tray gives daily keys and small items one predictable landing zone.",
-   "index": 2,
-   "key": "photo-1556228578-8c89e6adf883",
-   "path": "website/articles/quiet-entryway-storage.html",
-   "problems": [
-    "daily quota exhausted"
-   ],
-   "role": "inner",
-   "section": "3. Create one small landing zone",
-   "src": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "pending",
-   "title": "Quiet Entryway Storage",
-   "vision": null
   },
   {
    "after": "Condensation forms when warm, wet air meets a cold surface. 1. Why bathroom condensation happens Warm air holds more water vapor than cool air, and a hot shower adds a lot of vapor quickly. When that air touches a colder window, mirror, tile or outside wall, part of it turns back into liquid. The EPA notes that condensation on windows can be a sign",
@@ -746,14 +478,26 @@
    "key": "local-condensation-hero.jpeg",
    "path": "website/articles/reduce-bathroom-condensation.html",
    "problems": [
-    "quota exhausted"
+    "weak-match",
+    "generic"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/condensation-hero.jpeg",
-   "status": "pending",
+   "status": "weak",
    "title": "How to Reduce Bathroom Condensation: A Step-by-Step Fix",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Water droplets and streaks running down a clear glass window pane with blurry green foliage in the background.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 6,
+    "reason": "Vertical orientation and abstract rain-like texture make a weak hero image; it lacks recognizable bathroom context.",
+    "search_query": "bathroom steamy mirror condensation",
+    "visible_description": "A close-up view of water droplets and running trickles covering a transparent glass pane, with out-of-focus green foliage in the background."
+   }
   },
   {
    "after": "Good cable management reduces visible tangles while keeping connections accessible. Start by mapping what each cable does A clean desk makes cable destinations easier to map and service. — Unsplash Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, ",
@@ -765,14 +509,25 @@
    "key": "photo-1516321318423-f06f85e504b3",
    "path": "website/articles/reduce-cable-clutter.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Person pointing at an open laptop screen beside someone using the trackpad",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "The photo shows people using a laptop and contains no visible cables, completely missing the article's core topic of cable management.",
+    "search_query": "desk cable management tidy wires",
+    "visible_description": "A close-up profile view of hands using a slim silver laptop on a dark desk, with one person pointing directly at the screen and another touching the trackpad."
+   }
   },
   {
    "after": "A clean desk makes cable destinations easier to map and service. — Unsplash Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, display, network, charging or an accessory. If you cannot say what a cable connects, do not hide it: unknown wires are wha",
@@ -784,14 +539,25 @@
    "key": "photo-1755436612908-fdef1439f18d",
    "path": "website/articles/reduce-cable-clutter.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "Start by mapping what each cable does",
    "src": "https://images.unsplash.com/photo-1755436612908-fdef1439f18d?auto=format&amp;fit=crop&amp;w=1400&amp;q=82",
-   "status": "pending",
+   "status": "replace",
    "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Tidy wooden desk setup with an LG monitor on a riser, wireless keyboard, mouse, and office chair.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 3,
+    "reason": "The section discusses tracing and mapping messy cables, but this photo shows a fully finished setup with virtually no visible wires.",
+    "search_query": "tracing computer cables behind desk",
+    "visible_description": "A top-angle view of an organized wooden desk with a computer monitor on a riser, wireless keyboard, mouse, yellow smart speaker, and office chair."
+   }
   },
   {
    "after": "Trace connections before bundling them so each cable remains identifiable. Remove cables that no longer connect anything Disconnected cables cause most of the visual noise. Unplug one candidate at a time and confirm that nothing stops working. Recycle obsolete cables through local electronic-waste services instead of keeping a box of unknown wires.",
@@ -803,14 +569,25 @@
    "key": "photo-1517336714731-489689fd1ca8",
    "path": "website/articles/reduce-cable-clutter.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "Start by mapping what each cable does",
    "src": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Partially closed silver laptop keyboard and trackpad under dramatic purple and blue lighting",
+    "has_text_or_watermark": false,
+    "hero_appeal": 4,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 0,
+    "reason": "The image shows only a laptop with dramatic lighting and does not depict any cables, connections, or mapping.",
+    "search_query": "person tracing desk computer cables",
+    "visible_description": "A close-up of a partially open silver laptop illuminated by vivid purple and blue light, showing the keyboard, trackpad, and glowing lid logo. No cables or other desk accessories are visible."
+   }
   },
   {
    "after": "Keep frequently changed charging connections accessible instead of burying them in a permanent bundle. Shorten and route the visible run Long visible runs usually mean the power strip is in the wrong place. Where it is safe and practical, move the power source closer to the equipment, then route each cable along the shortest useful path. Group cabl",
@@ -822,14 +599,25 @@
    "key": "photo-1496181133206-80ce9b88a853",
    "path": "website/articles/reduce-cable-clutter.html",
    "problems": [
-    "quota exhausted"
+    "mismatch"
    ],
    "role": "inner",
    "section": "Separate permanent cables from temporary ones",
    "src": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&amp;fit=crop&amp;w=1400&amp;q=85",
-   "status": "pending",
+   "status": "replace",
    "title": "Reduce Cable Clutter: A Simple System That Stays Serviceable",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": false,
+    "better_alt": "Open laptop centered on a wooden desk with decorative accessories and no visible cables",
+    "has_text_or_watermark": false,
+    "hero_appeal": 3,
+    "is_generic_stock": true,
+    "looks_ai_generated": false,
+    "matches_section": 1,
+    "reason": "The image completely lacks cables or charging setups, failing to show cable separation, management, or any cords whatsoever.",
+    "search_query": "desk cable clip charging cord",
+    "visible_description": "An open laptop with a blank screen centered on a light wood desk, flanked by brass desk organizers and a potted succulent. No cables or cords are visible anywhere."
+   }
   },
   {
    "after": "AI-generated image: the rug outline taped on the floor before you buy. The most common rug mistake is not the colour or the pattern. It is the size. A rug that is too small leaves the sofa and chairs adrift on bare floor, and the room feels less finished than it should. The fix costs almost nothing: mark the rug on the floor with painter's tape, th",
@@ -841,7 +629,7 @@
    "key": "local-rug-tape-test-hero.jpg",
    "path": "website/articles/right-rug-size-painters-tape-test.html",
    "problems": [
-    "quota exhausted"
+    "daily quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
