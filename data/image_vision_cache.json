@@ -35,6 +35,18 @@
   "search_query": "reading chair floor lamp evening",
   "visible_description": "An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading lamp beside a small wooden side table in an evening room."
  },
+ "2333b5686ac3137e8c5014a19edba414388ec060": {
+  "alt_is_accurate": true,
+  "better_alt": "Zipped cable sleeve on a desk leg beside a desk edge with a phone charger held by an adhesive clip.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly illustrates permanent cabling management alongside accessible temporary charging solutions, matching the text instructions.",
+  "search_query": "desk cable sleeve and clip",
+  "visible_description": "Side-by-side view showing cables enclosed in a black zippered sleeve along a desk leg on the left, and a coiled phone charger secured by a white clip on the desk edge on the right."
+ },
  "2483384898743e04cd3e757df9f75fd902c2e5c4": {
   "alt_is_accurate": false,
   "better_alt": "Five metallic dome pendant lights hanging at staggered heights against a neutral wall",
@@ -70,6 +82,18 @@
   "reason": "Directly demonstrates the concept of multiple functional lighting layers working harmoniously in a domestic interior.",
   "search_query": "layered evening living room lighting",
   "visible_description": "A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading floor lamp, and a bookshelf with a small spotlight."
+ },
+ "40c5b7bcddac90c1a18827459659cb6c3e83943f": {
+  "alt_is_accurate": true,
+  "better_alt": "Living room floor with orange painter's tape outlining a rug area in front of a couch.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly illustrates using painter's tape to plan rug placement in a living room layout.",
+  "search_query": "painters tape rug size floor",
+  "visible_description": "A bright living room with an orange tape rectangle on hardwood flooring enclosing a coffee table in front of a sofa, accompanied by a tape measure and rolled rug."
  },
  "4d7fa09aa06baf91559ca9eced9c01d075d75a54": {
   "accurate_honest": 9,
@@ -205,6 +229,30 @@
   "search_query": "hanging large art with level",
   "visible_description": "Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, pencil, and plant vase sit on the console table."
  },
+ "7c5cc7897b7bff27d121c0cadbb5611baf0784bb": {
+  "alt_is_accurate": true,
+  "better_alt": "Under-desk cable tray and power strip organizing cords beneath a modern wooden desk.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly demonstrates the practical under-desk cable management system discussed in the article.",
+  "search_query": "under desk cable management tray",
+  "visible_description": "A wooden desk holding a laptop, monitor, keyboard, and mouse. Underneath, a black power strip and metal cable tray keep organized cords secured with reusable straps."
+ },
+ "7ffc319539a9f94fd094786e163a1a50246afa9d": {
+  "alt_is_accurate": true,
+  "better_alt": "Hallway at night illuminated by a baseboard LED strip with a wall-mounted motion sensor outside a bedroom.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Directly illustrates mapped path lighting and motion sensor placement connecting bedroom to hallway.",
+  "search_query": "hallway motion sensor night lighting",
+  "visible_description": "A dimly lit hallway viewed from a bedroom doorway, featuring a warm LED strip along the baseboard and a small square motion sensor mounted on the wall leading toward a bathroom."
+ },
  "8045c1efa76edba4f09a5b71a78982fbc94b4934": {
   "alt_is_accurate": false,
   "better_alt": "Person pointing at an open laptop screen beside someone using the trackpad",
@@ -216,6 +264,30 @@
   "reason": "The photo shows people using a laptop and contains no visible cables, completely missing the article's core topic of cable management.",
   "search_query": "desk cable management tidy wires",
   "visible_description": "A close-up profile view of hands using a slim silver laptop on a dark desk, with one person pointing directly at the screen and another touching the trackpad."
+ },
+ "84e9657f34e6c13650061c0a64e09d36571685f0": {
+  "alt_is_accurate": true,
+  "better_alt": "Hands attaching a blue tag to a monitor cable on a wooden desk, alongside labeled charger, lamp, and laptop cables.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": false,
+  "matches_section": 10,
+  "reason": "The image precisely demonstrates color-coding and identifying individual device cables before bundling, matching the section instructions flawlessly.",
+  "search_query": "color coding desk computer cables",
+  "visible_description": "Top-down view of hands attaching a blue silicone tag to a black monitor cable. Parallel cables from a charger, desk lamp, and laptop are already labeled with green, yellow, and red tags on a light wood desk."
+ },
+ "850aa667c08b5893eff442dcb219c3fd30870bc8": {
+  "alt_is_accurate": false,
+  "better_alt": "Large floor mirror in a bright living room reflecting a sunny window and potted plants.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 10,
+  "reason": "Directly illustrates placing a mirror to reflect daylight and an attractive window view, perfectly matching section seven.",
+  "search_query": "mirror reflecting window living room",
+  "visible_description": "A sunlit living room with a beige sofa, round wooden coffee table, houseplant in a basket, and a large floor mirror reflecting a window with plants."
  },
  "879a87764c59cb1c6d3cb60ea7044674d38788c2": {
   "alt_is_accurate": false,
@@ -288,6 +360,18 @@
   "reason": "This is a generic decorative living room render showing no motion sensors, pathway lighting, or walking route considerations.",
   "search_query": "motion sensor hallway light placement",
   "visible_description": "A styled living room featuring a grey sofa, round coffee table, two woven pendant lights hanging from the ceiling, a leather ottoman, indoor potted plants, and an area rug over wood floors."
+ },
+ "9ff349be84cde7662017afef6c472e60858cbaa4": {
+  "alt_is_accurate": true,
+  "better_alt": "Dark hallway at night illuminated by a small plug-in night light on the wall opposite a motion sensor",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 8,
+  "reason": "Effectively illustrates subtle hallway motion lighting suited for the article's intro, despite being AI-generated.",
+  "search_query": "hallway motion sensor night light",
+  "visible_description": "A dark hallway with wood floors and dark walls. A plug-in night light glows low on the left wall, a small round sensor mounts on the right, leading toward a softly lit open doorway."
  },
  "a794a42e3d84848b18fc7fa73877a49929dde168": {
   "alt_is_accurate": false,
@@ -504,5 +588,17 @@
   "reason": "The image shows a daylight scene dominated by a prominent ceiling chandelier, completely contradicting the caption and text promoting cozy evening lamp lighting.",
   "search_query": "cozy living room evening lamp lighting",
   "visible_description": "Brightly lit living room featuring a lit fireplace flanked by blue built-in bookcases, two modern armchairs, a glass coffee table, and an ornate globe chandelier hanging from the ceiling."
+ },
+ "fff0702d94ecb8425369526942c6b3fa39220dcf": {
+  "alt_is_accurate": true,
+  "better_alt": "Desk power strip with color-coded cable clips matching tags at each device connection.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly illustrates cable mapping and tracing using matching color-coded clips between plugs and devices.",
+  "search_query": "color coded cable tags desk",
+  "visible_description": "A power strip on a desk with five plugs, each marked with a distinct colored clip matching a clip on the connected device ends like a laptop and monitor."
  }
 }
