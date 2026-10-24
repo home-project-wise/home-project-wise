@@ -2,6 +2,16 @@
 
 Purpose: Claude and ChatGPT should work as independent collaborators with shared project awareness, useful peer advice, and minimal owner relay. This file is the durable handoff point; it does not replace code review, tests, or the canonical work log.
 
+## One-command start trigger (2026-10-24)
+
+The owner's trigger phrase is **"غرفة العمليات"**. It applies equally to Claude and ChatGPT.
+
+When the owner sends this phrase by itself, or says "غرفة العمليات — أكمل العمل", do not ask the owner to restate the project context. Start the standard read-before-work procedure above: read this file, the latest `data/WORK_LOG.md`, `data/PROJECT_STATE.md`, and current open PRs including changed files and checks; then read the latest assistant handoff and resume the highest-priority task that is not blocked or overlapping.
+
+If the owner includes a specific task after the phrase, handle that task only after the same checks. If the phrase is sent to Claude, Claude follows this same protocol; if sent to ChatGPT, ChatGPT follows it. The phrase does not wake the other assistant or transfer hidden chat context. Each assistant must write meaningful handoffs to this repository, and must mark unresolved conflicts **BLOCKED** rather than guess.
+
+For tiny independent tasks, no separate CLAIM entry is needed: use the PR description and one `WORK_LOG.md` line. Reserve explicit CLAIM/HANDOFF entries for cross-assistant overlap, protected file boundaries, or work spanning sessions. Avoid concurrent edits to this file; each assistant should edit only its designated section if such sections are introduced, and coordinate durable log changes through sequential PRs.
+
 ## Working agreement
 
 1. **Read before acting.** At the start of a session, review this file, the latest entries in `data/WORK_LOG.md`, `data/PROJECT_STATE.md`, and all open PR titles/files/statuses. Do not rely on a prior chat summary when repository state can be checked.
