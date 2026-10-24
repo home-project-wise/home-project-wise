@@ -50,3 +50,31 @@ Add a dated section when there is a meaningful cross-assistant finding:
 - **Status:** proposed / accepted / implemented / declined, with PR or commit link where available.
 
 Keep this file concise. The PR discussion is the place for detailed review of a specific change; this file is for durable cross-task context and advice.
+
+## Operations room — mandatory turn-by-turn handoff (started 2026-10-24)
+
+This file is the shared operations room for Claude and ChatGPT. The owner should not need to copy messages between assistants. Each assistant must use this shared file and GitHub state as the handoff channel whenever the owner switches to it.
+
+### Before every work session
+1. Read this file first, then the latest data/WORK_LOG.md entries, data/PROJECT_STATE.md, and the current open PRs including their changed files and check status. Do not trust a previous chat summary when live repository state can be checked.
+2. Read the latest Operations Room entries below. Identify the other assistant's latest plan, completed work, blocked items, requested review, and explicit file/article exclusions.
+3. If the other assistant has marked a task as IN PROGRESS on the same file, do not edit that file. Choose a separate task or leave a review note. If its status is unclear, assume no permission to overlap and ask via this file, not via the owner.
+4. Before editing, append a short dated CLAIM note here with owner, task, target files, expected result, and any known overlap. Keep the change small. This is a coordination claim, not a substitute for a PR or work-log entry.
+5. Re-check open PRs and file overlap immediately before creating/editing a branch. Never change files in an open PR from a separate branch unless explicitly coordinated.
+
+### When finishing or pausing
+- Add a dated HANDOFF note here with status (DONE, IN PROGRESS, or BLOCKED), PR/commit links, exact files changed, checks actually run, live verification (if any), and the next recommended action.
+- Tell the other assistant what is needed from it: review, decision, follow-up, or simply awareness. Also state files/articles that must remain untouched until the handoff is cleared.
+- The canonical data/WORK_LOG.md still gets one line per completed task in its own PR. If concurrent log edits conflict, preserve every valid line and reconcile sequentially after merge; never overwrite or silently omit entries.
+- The latest dated entry from each assistant is its durable message. When the owner switches assistants, the newly activated assistant reads the latest entries and continues from there without requiring the owner to relay messages.
+- Do not assume the other assistant is running in the background, can be awakened, or has seen a new entry. The shared file works when that assistant next starts a session and reads it. No claim of real-time notifications.
+- If a task needs the other assistant's approval, leave it BLOCKED — awaiting review and work on a non-conflicting task instead of silently proceeding.
+
+### Operations Room entries
+
+#### 2026-10-24 — ChatGPT — HANDOFF
+- Status: DONE (initial repository review); visual review PARTIAL.
+- Finding: Current main has 22 distinct thumbnail references in website/guides.html; all 22 resolve to repository assets (21 under website/images/, one under website/assets/img/). CSS defines responsive 3/2/1-column breakpoints, 16:9 cover thumbnails, visible keyboard focus and reduced-motion behavior.
+- Limitation / follow-up: I could not inspect a rendered browser screenshot of the live page, so mobile crop and actual dark-mode appearance are not visually verified. website/style.css on main did not contain prefers-color-scheme rules; project state says deploy may append website/article-overrides.css, so verify the actual generated/deployed CSS before changing styles.
+- Coordination: Claude has said it is working on contextual links among musty towels → condensation, evening lighting → smart lighting, and dehumidifier → crawl-space guide. ChatGPT must not edit those article texts while Claude's work is in progress. Storage & Organization taxonomy remains unchanged until joint review of data/CONTENT_INVENTORY.md.
+- Next ChatGPT task: after checking Claude's latest entry and live PR state, obtain/inspect a real rendered mobile and dark-mode view if tooling permits; otherwise document the limitation and choose another non-conflicting UX task. Do not claim a visual audit without a rendered view.
