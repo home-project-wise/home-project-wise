@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-23 14:01 UTC with `gemini-3.8-flash`.
+Generated 2026-10-24 14:48 UTC with `gemini-3.8-flash`.
 
-Totals: error=2, keep=6, pending=17, replace=1, weak=13
+Totals: error=1, keep=6, pending=24, weak=12
 
 ## All images
 
@@ -12,24 +12,28 @@ Totals: error=2, keep=6, pending=17, replace=1, weak=13
 | better-evening-home-lighting-without-overcomplicating-it | inner | 1. Fix the activity before the lighting | 7 | weak | An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading | weak-match, generic |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 7 | weak | A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading  | weak-match |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 7 | weak | A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A pot | weak-match |
-| calm-room | hero | 1. Start with what your eyes notice firs | 5 | replace | A living room framed by a doorway, featuring a beige sofa beneath a large framed ocean painting, a low wooden  | mismatch |
+| calm-room | hero | Introduction | - | error |  | The read operation timed out |
+| calm-room | inner | 1. Start with what your eyes notice firs | 6 | weak | A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascap | weak-match, generic |
 | calm-room | inner | 3. Change the light before the furniture | 6 | weak | A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a gl | weak-match |
 | calm-room | inner | 5. Reduce visual competition | 9 | weak | A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches | generic |
 | fix-wobbly-furniture | hero | Introduction | 7 | weak | A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sittin | weak-match |
-| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | error |  | Gemini HTTP 503: {   "error": {     "code": 503,     "message": "This model is currently experiencing high demand. Spike |
-| kitchen-counter-zone-that-stays-clear | hero | Introduction | - | error |  | The read operation timed out |
-| make-small-living-room-feel-bigger | hero | 7. Use a mirror only where it reflects s | 10 | weak | A sunlit living room with a beige sofa, round wooden coffee table, houseplant in a basket, and a large floor m | generic |
+| how-to-hang-large-wall-art-without-damage | inner | 10. Choosing oversized art | - | pending |  | daily quota exhausted |
+| kitchen-counter-zone-that-stays-clear | hero | Introduction | - | pending |  | quota exhausted |
+| make-small-living-room-feel-bigger | hero | Introduction | - | pending |  | quota exhausted |
+| make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | pending |  | quota exhausted |
 | motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | 7 | weak | A dimly lit hallway viewed from a bedroom doorway, featuring a warm LED strip along the baseboard and a small  | weak-match |
-| reduce-bathroom-condensation | hero | Introduction | 6 | weak | A close-up view of water droplets and running trickles covering a transparent glass pane, with out-of-focus gr | weak-match, generic |
+| quiet-entryway-storage | hero | Introduction | - | pending |  | quota exhausted |
+| reduce-bathroom-condensation | hero | Introduction | - | pending |  | quota exhausted |
 | reduce-cable-clutter | hero | Introduction | 7 | weak | A wooden desk holding a laptop, monitor, keyboard, and mouse. Underneath, a black power strip and metal cable  | weak-match |
 | reduce-cable-clutter | inner | Separate permanent cables from temporary | 7 | weak | Side-by-side view showing cables enclosed in a black zippered sleeve along a desk leg on the left, and a coile | weak-match |
 | right-rug-size-painters-tape-test | hero | Introduction | 7 | weak | A bright living room with an orange tape rectangle on hardwood flooring enclosing a coffee table in front of a | weak-match |
-| simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | pending |  | daily quota exhausted |
+| simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 1. Reset for tomorrow, not for perfectio | - | pending |  | quota exhausted |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | hero | Introduction | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | inner | 3. Stop water from becoming tomorrow's c | - | pending |  | quota exhausted |
 | small-bathroom-easier-to-clean | inner | 4. Keep the floor open enough to clean i | - | pending |  | quota exhausted |
+| smart-home-privacy-check | hero | Introduction | - | pending |  | quota exhausted |
 | smart-home-wifi-outage-test | hero | Introduction | - | pending |  | quota exhausted |
 | smart-lighting | hero | Introduction | - | pending |  | quota exhausted |
 | smart-lighting | inner | 4. Combine them where it makes sense | - | pending |  | quota exhausted |
