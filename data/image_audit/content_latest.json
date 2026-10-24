@@ -1,22 +1,4 @@
 {
- "generated": "2026-10-18T04:09:25+00:00",
- "rows": [
-  {
-   "article": "better-evening-home-lighting-without-overcomplicating-it",
-   "result": {
-    "accurate_honest": 9,
-    "actionable": 8,
-    "adds_value": 8,
-    "decision": "green",
-    "filler_level": 3,
-    "problem_clear": 9,
-    "top_issues": [
-     "Section 8: Bulleted summary largely repeats steps and advice already outlined in sections 1 through 5.",
-     "Section 6: Advises choosing brightness rather than packaging, but misses practical beginner guidance on lumens or Kelvin ratings.",
-     "Checklist and FAQ: Redundantly restates previous guidelines rather than addressing edge cases."
-    ],
-    "unsupported_claims": []
-   }
-  }
- ]
+ "generated": "2026-10-24T14:50:00+00:00",
+ "rows": []
 }
