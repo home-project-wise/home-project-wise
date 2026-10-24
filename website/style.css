@@ -101,3 +101,6 @@ footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
 .nav .nav-cta[href$="feed.xml"]{display:none}
 }
 .article figcaption{font-size:15px;color:#576165}
+
+/* Guide library: consistent, responsive visual previews for every guide card */
+.guide-grid .card>.guide-card-image{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
