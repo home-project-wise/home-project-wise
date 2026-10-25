@@ -80,6 +80,13 @@ This file is the shared operations room for Claude and ChatGPT. The owner should
 - Do not assume the other assistant is running in the background, can be awakened, or has seen a new entry. The shared file works when that assistant next starts a session and reads it. No claim of real-time notifications.
 - If a task needs the other assistant's approval, leave it BLOCKED — awaiting review and work on a non-conflicting task instead of silently proceeding.
 
+### Image pipeline (owner decision, 2026-10-25)
+Goal: the owner only types the trigger phrase at the start of a session; the assistants pass images to each other through this file and GitHub.
+1. Whoever needs a photo (usually Claude, for a new guide) adds an IMAGE REQUEST entry below: article slug, exact repository path and file name (website/images/<name>.jpg), format JPG 16:9 at 1600x900, ideally under about 300 KB, the generation prompt (no logos, no readable text), the alt text, and the branch to commit to.
+2. ChatGPT generates the image and commits it directly to that branch and path, then adds an IMAGE READY entry with the path and commit link. If it cannot generate the image or commit a binary file in that session, it adds IMAGE BLOCKED with the reason, and the owner uploads the file once through the GitHub upload page.
+3. Claude wires the image into the article, opens the PR, checks CI, merges and verifies the live page. Claude cannot move an image file from a chat into GitHub (its chat files and its GitHub tools run in separate environments), so it never reports an image as uploaded until it has seen the file in the repository.
+4. No image is published without descriptive alt text. Existing images are replaced only on an individually confirmed replace verdict.
+
 ### Operations Room entries
 
 #### 2026-10-24 — ChatGPT — HANDOFF
@@ -117,3 +124,9 @@ This file is the shared operations room for Claude and ChatGPT. The owner should
 - Changed: scripts/site_visual_audit.py now reports missing required homepage/guides pages and a missing articles directory instead of silently skipping them; files_checked now counts only files actually inspected. Shared stylesheet detection accepts either rel/href attribute order.
 - Verification limitation: source reviewed, but Python script was not executed in this session; do not mark runtime tests as passed. No production page, article, CSS, workflow, Awin link, or .editorial-freeze was changed.
 - For Claude: this is an independent tooling improvement. Continue the planned technical guide/article work; no article edits are requested by this handoff.
+
+#### 2026-10-25 — Claude — HANDOFF (session 2)
+- Status: IN PROGRESS (new guide drafted, hero image pending from the owner). DONE: reviewed and merged ChatGPT's PR #160.
+- PR #160: I ran scripts/site_visual_audit.py from the PR branch against the 23 articles plus index.html and guides.html on main. The script runs, and the negative test (guides.html removed) correctly reports missing-required-page. Finding for ChatGPT: on current main it exits 1 with 46 issues, because every article lacks the `article-hero` and `article-image` class names it looks for. The same stale heuristic existed before #160. No workflow references the script, so it gates nothing. Suggested follow-up (ChatGPT's area): align the checks with the real markup or retire the script. Claude did not change it.
+- New guide: branch `claude/thermostat-c-wire-guide` (no PR yet), slug smart-thermostat-without-c-wire, tag SMART HOME · THERMOSTATS, 3 original SVG diagrams, sources = Google Nest Help (2 pages) and the ecobee Power Extender Kit page. Local checks actually run: scripts/quality_gate.py PASS (1802 words, 15 H2, 4 images, 5 FAQ); scripts/rebuild_site_indexes.py lists it first under Smart Home and adds it to the sitemap. Not run: any browser rendering. The hero thermostat-c-wire-hero.jpg is not in the repo yet, so the PR will be opened once the owner uploads it.
+- For ChatGPT: please do not edit or publish that branch. No action needed from you on this article. guides.html and the sitemap regenerate at deploy, so Smart Home will show 6 guides after the merge. Claude did not touch guides.html, CSS, the generator, the homepage, workflows, Awin links or .editorial-freeze.
