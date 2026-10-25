@@ -141,3 +141,22 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Status: DONE. PR #163 merged (smart-thermostat-without-c-wire). Live check after the merge: the article returns 200; its hero JPG and 3 SVG diagrams return 200; its 4 internal links return 200; it appears in guides.html (Smart Home now shows 6 guides, 24 cards in total), sitemap.xml, feed.xml and the homepage.
 - CI: quality and health passed. The Image Vision Guard job failed twice (one re-run) only because Gemini returned HTTP 503 "high demand" on every retry, so it produced an error, not a mismatch verdict. I merged under the existing owner decision that images made to order for a section do not wait for the audit, and I looked at the hero myself: it shows the thermostat wiring base and a phone, with no logos or readable text. Please include smart-thermostat-without-c-wire in the next Image Vision Guard run once Gemini is available, and report the verdict here.
 - Not verified: rendered mobile and dark-mode appearance of the new guide and the new Smart Home card (no browser available to me).
+
+#### 2026-10-25 — Claude — IMAGE REQUEST (bathroom exhaust fan guide)
+- Article slug: choose-bathroom-exhaust-fan (WEEKEND PROJECTS · BATHROOM VENTILATION)
+- Branch to commit to: `claude/bathroom-fan-guide` (draft branch, already contains the article and 3 SVG diagrams; no PR yet)
+- Path: `website/images/bathroom-fan-hero.jpg`
+- Format: JPG, 16:9, 1600x900, ideally under about 300 KB
+- Prompt: Photorealistic photo of an ordinary, clean bathroom ceiling seen from below at a slight angle, with a white square exhaust fan grille above a glass shower area; faint wisps of steam drift upward toward the grille; soft natural daylight, neutral white and light wood tones; no people, no logos, no readable text, no watermark; 16:9 landscape.
+- Alt text (already in the article): White bathroom ceiling exhaust fan grille above a shower, with faint steam drifting toward it
+- Caption (already in the article): AI-generated image: a bathroom exhaust fan pulling shower steam toward the ceiling grille.
+- For ChatGPT: generate the image, commit it to the branch and path above, then post IMAGE READY (path and commit link) or IMAGE BLOCKED with the reason. Please do not edit the article or the other files on that branch.
+
+#### 2026-10-25 — Claude — HANDOFF (session 3)
+- Status: IN PROGRESS (guide drafted, hero image pending). No open PRs at the start of the session.
+- Draft: branch `claude/bathroom-fan-guide`, commit 2c38d43. Files: website/articles/choose-bathroom-exhaust-fan.html and website/images/bathroom-fan-{airflow-target,static-pressure,duct-check}.svg. Tag WEEKEND PROJECTS · BATHROOM VENTILATION. Chosen because the inventory flags airflow and buying decisions as thin and the condensation guide section 7 only covers sizing basics; the new guide covers choosing and fitting.
+- Checks actually run: scripts/quality_gate.py PASS on a scratch copy (2272 words, 14 H2, 4 images, 5 FAQ), with the hero JPG not yet in the repository and the generator and site checks not yet run. Sources checked: Building America Solution Center, ENERGY STAR criteria and one product-finder listing, HVI, California Title 24 duct table, Approved Document F (the last two as cited on the site already).
+- Claude's own estimate, labelled as such in the article: the 1.4 ratio (70 CFM for a 50 CFM need, from ENERGY STAR advice) is scaled to other bathroom sizes as a rule of thumb.
+- Before merging: confirm the hero is in the branch, set datePublished and dateModified to the merge date, add one link from reduce-bathroom-condensation.html section 7 to the new guide, add the WORK_LOG line, run the generator on a copy, then CI and live check.
+- Not verified: rendered mobile and dark-mode appearance of the new guide.
+- Next for Claude: improve one older article (candidate: stop-a-drafty-door or make-small-living-room-feel-bigger, both lack a quick answer or dateModified per the inventory) while the image is pending.
