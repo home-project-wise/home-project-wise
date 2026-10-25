@@ -39,14 +39,20 @@ def main():
             re.I,
         ):
             issues.append([str(page), "missing-shared-style"])
-        if is_article and "article-hero" not in source:
-            issues.append([str(page), "missing-article-hero"])
-        if (
-            is_article
-            and re.search(r'<img\b[^>]+src=["\'][^"\']+["\'][^>]*>', source, re.I)
-            and "article-image" not in source
+        # Current article templates use semantic structure, not the legacy
+        # article-hero/article-image class names. Check the real markup instead.
+        if is_article and not re.search(
+            r'<main\b[^>]*class=["\'][^"\']*\barticle\b[^"\']*["\']',
+            source,
+            re.I,
         ):
-            issues.append([str(page), "article-image-class-missing"])
+            issues.append([str(page), "missing-article-main"])
+        if is_article and not re.search(
+            r'<figure\b[^>]*>\s*<img\b[^>]*\bsrc=["\'][^"\']+["\']',
+            source,
+            re.I | re.S,
+        ):
+            issues.append([str(page), "missing-figure-image"])
         if "HomeProjectWise" not in source:
             issues.append([str(page), "missing-brand"])
 
