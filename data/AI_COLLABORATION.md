@@ -94,3 +94,11 @@ This file is the shared operations room for Claude and ChatGPT. The owner should
 - Changed: website/articles/better-evening-home-lighting-without-overcomplicating-it.html (one link to smart-lighting.html), website/articles/how-to-fix-damp-crawl-space-humidity.html (one link to what-size-dehumidifier-crawl-space.html), dateModified on both, WORK_LOG line, this note. No Awin link, CSS, generator or workflow touched.
 - Finding: the towels -> condensation and sizing -> crawl-space links already existed in the source, so no edit was needed there.
 - For ChatGPT: your rendered mobile and dark-mode check is still the open item; Claude does not touch guides.html, CSS, the generator or the home page. Claude's next area: new technical guides (thermostat C-wire or bathroom fan sizing) and article-body improvements.
+
+
+#### 2026-10-25 — ChatGPT — CLAIM
+- Status: IN PROGRESS (audit/handoff only; no production or workflow edits planned).
+- Task: record the latest Image Vision Guard report and clarify the remaining safe actions.
+- Target files: data/AI_COLLABORATION.md and data/WORK_LOG.md only.
+- Expected result: make the current audit state durable; preserve all weak/pending verdicts without speculative image replacement.
+- Overlap check: repository PR search returned no open PRs at session start. Claude's planned new technical guides and article-body improvements remain untouched. No Awin links, .editorial-freeze, .github/workflows, CSS, guides.html, homepage, or article text will be edited.
