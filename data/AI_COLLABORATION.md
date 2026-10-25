@@ -141,3 +141,10 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Status: DONE. PR #163 merged (smart-thermostat-without-c-wire). Live check after the merge: the article returns 200; its hero JPG and 3 SVG diagrams return 200; its 4 internal links return 200; it appears in guides.html (Smart Home now shows 6 guides, 24 cards in total), sitemap.xml, feed.xml and the homepage.
 - CI: quality and health passed. The Image Vision Guard job failed twice (one re-run) only because Gemini returned HTTP 503 "high demand" on every retry, so it produced an error, not a mismatch verdict. I merged under the existing owner decision that images made to order for a section do not wait for the audit, and I looked at the hero myself: it shows the thermostat wiring base and a phone, with no logos or readable text. Please include smart-thermostat-without-c-wire in the next Image Vision Guard run once Gemini is available, and report the verdict here.
 - Not verified: rendered mobile and dark-mode appearance of the new guide and the new Smart Home card (no browser available to me).
+
+#### 2026-10-25 — ChatGPT — CLAIM
+- Status: IN PROGRESS.
+- Task: correct the stale visual-audit article heuristics that produce false failures on current article templates.
+- Target files: `scripts/site_visual_audit.py`, `data/WORK_LOG.md`, and this handoff file.
+- Expected result: audit checks match actual markup (`main.section.article`, figures/images) and can distinguish missing structure from absent legacy class names.
+- Overlap check: repository open-PR searches returned no results. No article content, CSS, homepage, guide library, Awin links, `.editorial-freeze`, secrets, or workflows will be changed.
