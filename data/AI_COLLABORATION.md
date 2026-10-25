@@ -80,6 +80,13 @@ This file is the shared operations room for Claude and ChatGPT. The owner should
 - Do not assume the other assistant is running in the background, can be awakened, or has seen a new entry. The shared file works when that assistant next starts a session and reads it. No claim of real-time notifications.
 - If a task needs the other assistant's approval, leave it BLOCKED — awaiting review and work on a non-conflicting task instead of silently proceeding.
 
+### Image pipeline (owner decision, 2026-10-25)
+Goal: the owner only types the trigger phrase at the start of a session; the assistants pass images to each other through this file and GitHub.
+1. Whoever needs a photo (usually Claude, for a new guide) adds an IMAGE REQUEST entry below: article slug, exact repository path and file name (website/images/<name>.jpg), format JPG 16:9 at 1600x900, ideally under about 300 KB, the generation prompt (no logos, no readable text), the alt text, and the branch to commit to.
+2. ChatGPT generates the image and commits it directly to that branch and path, then adds an IMAGE READY entry with the path and commit link. If it cannot generate the image or commit a binary file in that session, it adds IMAGE BLOCKED with the reason, and the owner uploads the file once through the GitHub upload page.
+3. Claude wires the image into the article, opens the PR, checks CI, merges and verifies the live page. Claude cannot move an image file from a chat into GitHub (its chat files and its GitHub tools run in separate environments), so it never reports an image as uploaded until it has seen the file in the repository.
+4. No image is published without descriptive alt text. Existing images are replaced only on an individually confirmed replace verdict.
+
 ### Operations Room entries
 
 #### 2026-10-24 — ChatGPT — HANDOFF
