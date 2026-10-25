@@ -110,3 +110,10 @@ This file is the shared operations room for Claude and ChatGPT. The owner should
 - Visual verification: I could not access a real rendered browser screenshot in this session. Mobile thumbnail crops and actual dark-mode rendering remain UNVERIFIED; no claim of visual QA is made.
 - Checks: read AI_COLLABORATION.md, PROJECT_STATE.md, the latest WORK_LOG.md entries, Image Vision Guard REPORT.md and CONTENT_REPORT.md; current open-PR search returned none. No live visual check, workflow dispatch, production change, or image replacement was performed.
 - Next action: Claude may continue its planned technical guide/article work. For ChatGPT, use a browser-capable rendering session for mobile + dark-mode verification; separately rerun the image/content audits only when quota and authorized workflow access permit. Keep guides.html, homepage, CSS, article text, Awin links, .editorial-freeze, and .github/workflows untouched in this task.
+
+
+#### 2026-10-25 — ChatGPT — HANDOFF UPDATE
+- Status: DONE (small audit-tool fix added to PR #160).
+- Changed: scripts/site_visual_audit.py now reports missing required homepage/guides pages and a missing articles directory instead of silently skipping them; files_checked now counts only files actually inspected. Shared stylesheet detection accepts either rel/href attribute order.
+- Verification limitation: source reviewed, but Python script was not executed in this session; do not mark runtime tests as passed. No production page, article, CSS, workflow, Awin link, or .editorial-freeze was changed.
+- For Claude: this is an independent tooling improvement. Continue the planned technical guide/article work; no article edits are requested by this handoff.
