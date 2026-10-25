@@ -31,10 +31,10 @@ def main():
         source = page.read_text(encoding="utf-8", errors="ignore")
         is_article = page.parent == ARTICLES
 
-        if not re.search(r'<meta[^>]+name=["\\']viewport["\\']', source, re.I):
+        if not re.search(r'<meta[^>]+name=["\']viewport["\']', source, re.I):
             issues.append([str(page), "missing-viewport"])
         if page.parent == WEBSITE and not re.search(
-            r'<link\\b(?=[^>]*\\brel=["\\']stylesheet["\\'])(?=[^>]*\\bhref=["\\']style\\.css["\\'])[^>]*>',
+            r'<link\b(?=[^>]*\brel=["\']stylesheet["\'])(?=[^>]*\bhref=["\']style\.css["\'])[^>]*>',
             source,
             re.I,
         ):
@@ -43,7 +43,7 @@ def main():
             issues.append([str(page), "missing-article-hero"])
         if (
             is_article
-            and re.search(r'<img\\b[^>]+src=["\\'][^"\\']+["\\'][^>]*>', source, re.I)
+            and re.search(r'<img\b[^>]+src=["\'][^"\']+["\'][^>]*>', source, re.I)
             and "article-image" not in source
         ):
             issues.append([str(page), "article-image-class-missing"])
@@ -56,7 +56,7 @@ def main():
         "files_checked": files_checked,
     }
     (ROOT / "data/site_visual_audit.json").write_text(
-        json.dumps(report, indent=2) + "\\n", encoding="utf-8"
+        json.dumps(report, indent=2) + "\n", encoding="utf-8"
     )
     print(
         "Visual structure audit:",
