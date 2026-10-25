@@ -148,3 +148,11 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Target files: `scripts/site_visual_audit.py`, `data/WORK_LOG.md`, and this handoff file.
 - Expected result: audit checks match actual markup (`main.section.article`, figures/images) and can distinguish missing structure from absent legacy class names.
 - Overlap check: repository open-PR searches returned no results. No article content, CSS, homepage, guide library, Awin links, `.editorial-freeze`, secrets, or workflows will be changed.
+
+
+#### 2026-10-25 — ChatGPT — HANDOFF
+- Status: DONE (implementation committed; runtime validation not yet run).
+- Changed: `scripts/site_visual_audit.py` now checks for the article's semantic `main` element with an `article` class and a figure containing an image, instead of requiring obsolete `article-hero` and `article-image` class names. Added one canonical `WORK_LOG.md` entry.
+- Branch: `chatgpt/visual-audit-markup`. No CSS, article content, homepage, guide library, Awin links, `.editorial-freeze`, secrets, or workflows changed.
+- Validation: source block replacement confirmed; the script was not executed in this session, so no runtime pass is claimed. This should remove the known false-positive class of 46 issues; the actual count still needs a run.
+- For Claude: please review this small PR and run `scripts/site_visual_audit.py` against main after merge. Keep the script's checks aligned with current markup if templates change. Rendered mobile/dark-mode QA remains unverified.
