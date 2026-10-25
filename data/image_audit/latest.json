@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-24T14:48:56+00:00",
+ "generated": "2026-10-25T04:14:17+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
@@ -134,14 +134,25 @@
    "key": "local-calm-room-doorway-hero.jpg",
    "path": "website/articles/calm-room.html",
    "problems": [
-    "The read operation timed out"
+    "mismatch"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/calm-room-doorway-hero.jpg",
-   "status": "error",
+   "status": "replace",
    "title": "How to make a room feel calmer without buying everything new",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Living room viewed through a doorway with beige sofa, wood coffee table, woven rug, and landscape print on green wall.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": true,
+    "looks_ai_generated": true,
+    "matches_section": 5,
+    "reason": "It sets a tranquil mood for the introduction, though it illustrates a generic styled space rather than a specific home improvement fix.",
+    "search_query": "calm uncluttered living room interior",
+    "visible_description": "A view through an open doorway into a living room with a beige sofa, framed landscape art on a sage wall, a wooden coffee table, a jute rug, potted plants, and soft natural window light."
+   }
   },
   {
    "after": "AI-generated image: what your eyes notice first is one calm focal point, not clutter. 2. Protect the walking path Comfort depends on movement as much as appearance. Identify the routes you use every day (door to sofa, sofa to kitchen, bed to wardrobe, desk to printer). If you keep stepping around a chair or moving an object to pass, the layout is t",
@@ -860,7 +871,7 @@
    "after": "AI-generated image: fitting new weatherstripping where the air gets in. Find it, choose it, test it. Find the draft before buying anything AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot. Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hin",
    "alt": "Hands pressing a black rubber weatherstrip along the edge of a closed sage-green front door, with a line of daylight under the door and a coir doormat in front",
    "article": "stop-a-drafty-door-without-replacing-it",
-   "before": "> All guides WEEKEND PROJECTS · DRAFTS Stop a Drafty Door Without Replacing It A cold draft does not mean the door is bad. Find the exact air path, then fix the smallest part that is failing: usually the threshold, the weatherstripping or the bottom sweep, not the whole door.",
+   "before": "he bottom sweep, not the whole door. Quick answer: On a cool or windy day, check the top, sides and bottom of the closed door to find the actual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpose-built ventilation or combustion-air openings; get professional help if the frame is damaged, water is entering, or the door will not latch safely.",
    "caption": "AI-generated image: fitting new weatherstripping where the air gets in.",
    "index": 0,
    "key": "local-drafty-door-weatherstrip-hero.jpg",
@@ -879,7 +890,7 @@
    "after": "AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot. Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hinge side and bottom edge, in short sections, and mark each spot where the air changes. Curtains, vents and nearby walls also move air, so co",
    "alt": "Hand sliding a sheet of paper into the gap between a closed door and its frame to test the seal",
    "article": "stop-a-drafty-door-without-replacing-it",
-   "before": " door.\" name=\"twitter:description\"/> All guides WEEKEND PROJECTS · DRAFTS Stop a Drafty Door Without Replacing It A cold draft does not mean the door is bad. Find the exact air path, then fix the smallest part that is failing: usually the threshold, the weatherstripping or the bottom sweep, not the whole door. AI-generated image: fitting new weatherstripping where the air gets in. Find it, choose it, test it. Find the draft before buying anything",
+   "before": "ctual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpose-built ventilation or combustion-air openings; get professional help if the frame is damaged, water is entering, or the door will not latch safely. AI-generated image: fitting new weatherstripping where the air gets in. Find it, choose it, test it. Find the draft before buying anything",
    "caption": "AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot.",
    "index": 1,
    "key": "local-drafty-door-paper-test.jpg",

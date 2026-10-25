@@ -169,6 +169,9 @@
   "search_query": "calm living room doorway focal point",
   "visible_description": "A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascape painting with a wooden coffee table in front."
  },
+ "5f13e80ac0d836ca97244bd9618763be04dbcf0d": {
+  "error": "The read operation timed out"
+ },
  "61c2e3768205263e7e7536f4ca8ff3410129b25b": {
   "alt_is_accurate": false,
   "better_alt": "Dark gray metal floor lamp with dome shade against a white wall",
@@ -504,6 +507,18 @@
   "reason": "Directly illustrates using an opaque lampshade and nearby dimmer control to reduce harsh glare in a living space.",
   "search_query": "shaded table lamp beside sofa",
   "visible_description": "A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A potted plant, a book, and a wall dimmer switch are nearby."
+ },
+ "d6cc76549d690db70fb2b3296dacfcc5b70a1cfa": {
+  "alt_is_accurate": true,
+  "better_alt": "Living room viewed through a doorway with beige sofa, wood coffee table, woven rug, and landscape print on green wall.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 5,
+  "reason": "It sets a tranquil mood for the introduction, though it illustrates a generic styled space rather than a specific home improvement fix.",
+  "search_query": "calm uncluttered living room interior",
+  "visible_description": "A view through an open doorway into a living room with a beige sofa, framed landscape art on a sage wall, a wooden coffee table, a jute rug, potted plants, and soft natural window light."
  },
  "dd8e9045c1baf8d9631f46512888b5cddbe69ade": {
   "alt_is_accurate": true,

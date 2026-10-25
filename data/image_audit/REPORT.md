@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-10-24 14:48 UTC with `gemini-3.8-flash`.
+Generated 2026-10-25 04:14 UTC with `gemini-3.8-flash`.
 
-Totals: error=1, keep=6, pending=24, weak=12
+Totals: keep=6, pending=24, replace=1, weak=12
 
 ## All images
 
@@ -12,7 +12,7 @@ Totals: error=1, keep=6, pending=24, weak=12
 | better-evening-home-lighting-without-overcomplicating-it | inner | 1. Fix the activity before the lighting | 7 | weak | An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading | weak-match, generic |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 2. Build three useful lighting layers | 7 | weak | A warmly lit living room featuring a beige sofa, wooden coffee table, table lamp on a credenza, brass reading  | weak-match |
 | better-evening-home-lighting-without-overcomplicating-it | inner | 3. Reduce glare before increasing bright | 7 | weak | A lit ceramic table lamp with a fabric drum shade sits on a round wooden side table next to an armchair. A pot | weak-match |
-| calm-room | hero | Introduction | - | error |  | The read operation timed out |
+| calm-room | hero | Introduction | 5 | replace | A view through an open doorway into a living room with a beige sofa, framed landscape art on a sage wall, a wo | mismatch |
 | calm-room | inner | 1. Start with what your eyes notice firs | 6 | weak | A bright living room viewed through an open doorway, centered on a neutral sofa beneath a large framed seascap | weak-match, generic |
 | calm-room | inner | 3. Change the light before the furniture | 6 | weak | A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a gl | weak-match |
 | calm-room | inner | 5. Reduce visual competition | 9 | weak | A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches | generic |
