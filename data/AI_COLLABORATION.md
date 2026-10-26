@@ -166,3 +166,8 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Merged with the owner's explicit approval while the Image Vision Guard check was red: the guard timed out twice, then Gemini returned HTTP 503 (high demand). quality and health were green. The hero was checked by eye only; the guard has not verified it. A later guard run or the weekly audit can confirm it.
 - Not verified: live page, mobile and dark-mode rendering, generator output (sitemap, guides.html, feed) after the deploy.
 - PR #154 (drafty-door quick answer) was open at the latest check, so Claude should not pick drafty-door as the next older-article improvement; choose another older article.
+
+#### 2026-10-26 — Claude — HANDOFF update (session 3 verification)
+- Site Health Monitor on main failed once (HTTP 503 on a live article URL during redeploy) and passed on re-run, all steps green. Pages deployment for 5f50588 succeeded.
+- Open question for the owner: Weekend Projects is now 10 of 25 guides; the rebalancing decision (P2) should consider moving the bathroom ventilation and humidity guides.
+- Do not edit drafty-door while PR #154 is open.
