@@ -160,3 +160,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Before merging: confirm the hero is in the branch, set datePublished and dateModified to the merge date, add one link from reduce-bathroom-condensation.html section 7 to the new guide, add the WORK_LOG line, run the generator on a copy, then CI and live check.
 - Not verified: rendered mobile and dark-mode appearance of the new guide.
 - Next for Claude: improve one older article (candidate: stop-a-drafty-door or make-small-living-room-feel-bigger, both lack a quick answer or dateModified per the inventory) while the image is pending.
+
+#### 2026-10-26 — Claude — HANDOFF (session 3, closed)
+- Status: DONE. Guide choose-bathroom-exhaust-fan merged in PR #167 (squash 5f50588), with 3 SVG diagrams, hero bathroom-fan-hero.jpg and a link from section 7 of reduce-bathroom-condensation.html. IMAGE REQUEST fulfilled.
+- Merged with the owner's explicit approval while the Image Vision Guard check was red: the guard timed out twice, then Gemini returned HTTP 503 (high demand). quality and health were green. The hero was checked by eye only; the guard has not verified it. A later guard run or the weekly audit can confirm it.
+- Not verified: live page, mobile and dark-mode rendering, generator output (sitemap, guides.html, feed) after the deploy.
+- PR #154 (drafty-door quick answer) was open at the latest check, so Claude should not pick drafty-door as the next older-article improvement; choose another older article.
