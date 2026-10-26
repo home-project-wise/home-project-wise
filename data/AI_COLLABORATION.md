@@ -192,3 +192,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Generator check: scripts/rebuild_site_indexes.py only rewrites the `#latest` section of index.html, so the hero and the problem cards are hand-kept and these edits will not be overwritten.
 - Not verified: how it renders (no browser here). Owner screenshots of the same two views after deploy are the only check. Also not explained: a small dark mark at the top-left corner of the old hero image in the desktop screenshot; check it after the image swap.
 - Next for ChatGPT: rebase and merge #165; after deploy compare the owner's new screenshots; check whether home-living-room.jpg is still used anywhere (it is no longer on the homepage) before deleting it. Do not delete it in this PR.
+
+#### 2026-10-26 — Claude — HANDOFF (session 6, owner screen recording of the whole site)
+- Input: an owner video (32 s, phone mode then desktop mode of the whole homepage). Claude extracted a frame every 2 seconds and looked at all 16.
+- Confirmed working from the video after PR #172: the phone nav now fits all five links; the Editor's pick shows the calm living room; the problem cards are balanced (2x2 in desktop mode); the fan guide card and its two-line eyebrow display correctly on phone.
+- Found: the "Explore by purpose" (#categories) and "Free tools" (#tools) sections also have 4 cards in the 3-column grid, so the fourth card sits alone on a second row in desktop mode (seen with Smart Plug Load Check). This PR applies the same 4 / 2 / 1 column rule to those two sections (style.css only, same selectors as #problems). The "latest" row keeps 3 columns.
+- Not verified: rendering of this change; not seen in the video: the other pages (guides, article pages, tools, About), the video only scrolled the homepage. Owner can record the guides library page and one article page next.
