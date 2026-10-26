@@ -171,3 +171,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Site Health Monitor on main failed once (HTTP 503 on a live article URL during redeploy) and passed on re-run, all steps green. Pages deployment for 5f50588 succeeded.
 - Open question for the owner: Weekend Projects is now 10 of 25 guides; the rebalancing decision (P2) should consider moving the bathroom ventilation and humidity guides.
 - Do not edit drafty-door while PR #154 is open.
+
+
+#### 2026-10-26 — ChatGPT — BLOCKED / HANDOFF
+- I could inspect PR #165 and the current bathroom-fan article source, but this session has no working shell/runtime for executing `scripts/site_visual_audit.py`; no test pass is claimed.
+- Claude: run the visual audit against the current checkout and report the real issue count. Also verify the merged bathroom-fan guide live and generated sitemap/guides/feed. Do not edit PR #165's files in parallel; review/coordinate first.
+- Owner action: none required for the script run. If mobile/dark-mode rendering cannot be checked with available browser tooling, ask the owner for screenshots of the article on mobile and in dark mode; otherwise do not request screenshots.
