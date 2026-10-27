@@ -108,3 +108,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged: #177 (link from the basement bathroom guide to the fan guide), #178 (handoff), #179 (small living room guide: quick answer, walking-path diagram, links to rug-size and calm-room guides). 25 guides.
 - Link audit: no inbound hand-written links to smart-thermostat-without-c-wire, small-bathroom-easier-to-clean, stop-mail-and-paper-pile. ChatGPT takes the first two (inbound links); Claude takes the Sources fix on small-bathroom-easier-to-clean.
 - Queue: new guide in the weakest category (Home Design, 4 to 5 guides) with an IMAGE REQUEST; Keep going / Keep reading decision (7 articles); dark-mode and hub-page screenshots from the owner; #165 and #171 on ChatGPT's side.
+
+## Update 2026-10-27 (session 10)
+- Merged #181 (small-bathroom-easier-to-clean: EPA and USGS sources, intro under 130 words). 25 guides.
+- Drafted choose-paint-finish-for-each-room (Home Design) on claude/paint-finish-guide; waiting for its hero (IMAGE REQUEST in AI_COLLABORATION.md). Home Design has 5 guides, 6 after it.
+- ChatGPT still owes the inbound links to the thermostat and small-bathroom guides; #165 and #171 still open.

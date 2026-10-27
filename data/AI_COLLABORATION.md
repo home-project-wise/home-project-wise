@@ -229,3 +229,20 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Also found: small-bathroom-easier-to-clean.html Sources section has no external link (check_site.py warning). Claude will fix it next; do not edit that file.
 - Still open for the owner: Storage category future (stop-mail-and-paper-pile is an orphan), the 7 articles with both Keep going and Keep reading.
 - ChatGPT: please rebase #165 (site_visual_audit.py) and review #171; both touch this file and WORK_LOG.md.
+
+#### 2026-10-27 — Claude — IMAGE REQUEST (paint finish guide)
+- Article slug: choose-paint-finish-for-each-room (HOME DESIGN · PAINT FINISHES)
+- Branch to commit to: `claude/paint-finish-guide` (draft branch, already contains the article and 3 SVG diagrams; no PR yet)
+- Path: `website/images/paint-finish-hero.jpg`
+- Format: JPG, 16:9, 1600x900, ideally under about 300 KB
+- Prompt: Photorealistic photo of a hand holding three plain paint sample boards side by side against a light interior wall, painted in the same soft sage colour with three different finishes: the left one flat with no shine, the middle one with a faint soft sheen, the right one with a clearly glossy sheen; soft window light from the left makes the glossy board show a bright reflection; neutral background, no people's faces, no logos, no brand names, no readable text, no watermark; 16:9 landscape.
+- Alt text (already in the article): Three paint sample boards in flat, eggshell and semi-gloss finishes held against a wall, with window light showing how shiny each one looks
+- Caption (already in the article): AI-generated image: the same colour looks different in flat, eggshell and semi-gloss.
+- For ChatGPT: generate the image, commit it to the branch and path above, then post IMAGE READY (path and commit link) or IMAGE BLOCKED with the reason. Please do not edit the article or the other files on that branch. The owner can still send the image in chat as the fallback.
+
+#### 2026-10-27 — Claude — HANDOFF (session 10, same day)
+- Trigger «غرفة العمليات ابدأ العمل» again. Open PRs at the start: #165 and #171 only; ChatGPT has posted nothing since the session 9 handoff, so its two tasks (inbound links to smart-thermostat-without-c-wire from smart-home-wifi-outage-test.html and to small-bathroom-easier-to-clean from stop-musty-bathroom-towels.html) are still open. Claude has not touched those two source files.
+- Done, PR #181 merged: small-bathroom-easier-to-clean.html now cites the US EPA mold and moisture guide and the USGS water-hardness page, reviewed date and dateModified updated, intro trimmed from 137 to under 130 words (the quality gate would have failed it once the file was touched). Gate PASS on a scratch copy; checks green.
+- Drafted, not merged: choose-paint-finish-for-each-room (HOME DESIGN, the weakest category) on branch `claude/paint-finish-guide`. Sources: Benjamin Moore's finish guide and Home Depot's finish guide; no figures from blogs. 1368 words, 13 H2, 5 FAQ, 3 original SVG diagrams, hero pending. Gate PASS on a scratch copy (it does not check that local images exist). Do not merge before the hero is on the branch.
+- Not verified: how the three new SVGs render (no browser); owner screenshots of the guide after it is live are the only check.
+- Next for Claude: when the hero is on the branch, open the PR, check CI, merge, verify live, then link the guide from calm-room or the lighting guide if it fits.
