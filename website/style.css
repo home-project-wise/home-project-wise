@@ -110,3 +110,19 @@ footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
 @media(min-width:1100px){#problems .cards,#categories .cards,#tools .cards{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:600px){#problems .cards,#categories .cards,#tools .cards{grid-template-columns:1fr}}
 @media(max-width:850px){header.nav nav{gap:16px}header.nav nav a{font-size:14px}}
+
+/* Guide library: incomplete last rows are centered instead of leaving a lone card on the left (3 / 2 / 1 columns) */
+.cards.guide-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.cards.guide-grid>.card{grid-column:span 2}
+.cards.guide-grid>.card:last-child:nth-child(3n+1){grid-column:3/span 2}
+.cards.guide-grid>.card:nth-last-child(2):nth-child(3n+1){grid-column:2/span 2}
+.cards.guide-grid>.card:last-child:nth-child(3n+2){grid-column:4/span 2}
+@media(max-width:900px){
+.cards.guide-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards.guide-grid>.card,.cards.guide-grid>.card:last-child:nth-child(3n+1),.cards.guide-grid>.card:nth-last-child(2):nth-child(3n+1),.cards.guide-grid>.card:last-child:nth-child(3n+2){grid-column:span 2}
+.cards.guide-grid>.card:last-child:nth-child(odd){grid-column:2/span 2}
+}
+@media(max-width:600px){
+.cards.guide-grid{grid-template-columns:1fr}
+.cards.guide-grid>.card,.cards.guide-grid>.card:last-child:nth-child(3n+1),.cards.guide-grid>.card:nth-last-child(2):nth-child(3n+1),.cards.guide-grid>.card:last-child:nth-child(3n+2),.cards.guide-grid>.card:last-child:nth-child(odd){grid-column:auto}
+}
