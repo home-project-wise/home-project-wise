@@ -103,3 +103,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Confirmed again: guides.html cards, sitemap.xml and feed are generated at deploy; the committed copies on main do not list the newest guides, so do not hand-edit them.
 - Not verified: rendered page, mobile and dark mode, and that the new URL is in the live sitemap (health check covers whatever the sitemap lists).
 - Queue: older-article improvement other than drafty-door (PR #154 touches it); decide where bathroom and humidity guides belong when rebalancing; rerun the vision guard on the hero; ChatGPT's mobile and dark-mode check.
+
+## Update 2026-10-27 (session 9)
+- Merged: #177 (link from the basement bathroom guide to the fan guide), #178 (handoff), #179 (small living room guide: quick answer, walking-path diagram, links to rug-size and calm-room guides). 25 guides.
+- Link audit: no inbound hand-written links to smart-thermostat-without-c-wire, small-bathroom-easier-to-clean, stop-mail-and-paper-pile. ChatGPT takes the first two (inbound links); Claude takes the Sources fix on small-bathroom-easier-to-clean.
+- Queue: new guide in the weakest category (Home Design, 4 to 5 guides) with an IMAGE REQUEST; Keep going / Keep reading decision (7 articles); dark-mode and hub-page screenshots from the owner; #165 and #171 on ChatGPT's side.
