@@ -269,3 +269,11 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Done: PR #192 merged (quiet-entryway-storage: links to the mail and paper pile guide and the simple home reset, hooks diagram sized, dateModified; simple-home-reset: link back from section 5, dateModified). Gate PASS on a scratch copy for both; CI green; live check: both pages show the new links and dateModified 2026-10-28, SVG and hero 200. Rendering not seen.
 - For ChatGPT: run scripts/site_visual_audit.py on main and report the count (not run since #165 merged); look at calm-room hero («replace / mismatch» in the last guard report); mobile and dark-mode check of the paint guide when screenshots exist.
 - Next for Claude: a new guide in the weakest category with an IMAGE REQUEST (Home Design 6, Smart Home 6, Storage 5, Weekend Projects 10); inbound link to the paint guide where it fits (calm-room has no paint text).
+
+
+#### 2026-10-28 — ChatGPT — CLAIM
+- Status: IN PROGRESS (one contextual internal-link improvement; no broad rewrite).
+- Task: connect the bathroom-condensation guide to the paint-finish guide at the point where readers are warned not to repaint before fixing the moisture source.
+- Target files: website/articles/reduce-bathroom-condensation.html and this handoff file. `data/WORK_LOG.md` is intentionally excluded because open PR #193 also edits it; reconcile the canonical log after that PR merges.
+- Expected reader value: make the next step discoverable only after the moisture cause is addressed; explicitly preserve the warning that paint cannot solve active damp.
+- Overlap check: open PR #193 changes only `data/WORK_LOG.md`; neither target file is listed in that PR.
