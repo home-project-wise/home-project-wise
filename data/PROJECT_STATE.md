@@ -94,3 +94,33 @@ Then update `data/daily_routine_log.md` and this file.
 - Finding: scripts/site_visual_audit.py exits 1 with 46 issues on main because it looks for class names the templates do not use; no workflow runs it.
 - Method that worked: copy the repo files into the Composio sandbox, run scripts/quality_gate.py and scripts/rebuild_site_indexes.py against the copy, decode downloaded files as UTF-8 (not response.text), and only then commit. Workbench files persist between cells in /tmp and /mnt/files within a session.
 - Queue: next guide in the weakest category (candidate: bathroom fan sizing), one older article improvement per day, ChatGPT's rendered mobile and dark-mode check.
+
+## Update 2026-10-26: bathroom fan guide merged
+- Done: PR #167 merged (guide choose-bathroom-exhaust-fan, WEEKEND PROJECTS · BATHROOM VENTILATION; 3 original SVG diagrams, AI hero bathroom-fan-hero.jpg, link added from section 7 of reduce-bathroom-condensation.html). PRs #166 and #168 were docs-only handoffs. 25 guides in total; Weekend Projects now has 10 and is the largest section (P2 rebalancing is still open: this guide adds to it).
+- Image flow actually used: ChatGPT did not deliver the hero. The owner generated it, sent it in chat, Claude converted it to JPG 1600x900 (113 KB) in its own container, and the owner uploaded it through the GitHub upload link on the draft branch. Claude cannot move a chat attachment into the repository.
+- Image Vision Guard on PR #167: red on three runs (two read timeouts, then Gemini HTTP 503 high demand), a service outage and not a verdict on the image. quality and health were green. mergeable_state was unstable, which suggests the guard is not a required check (branch protection not inspected). Merged on 2026-10-26 with the owner's explicit approval; the hero was checked by eye only. Next guard run or the weekly audit should confirm it.
+- After the merges: Pages deployment green; Site Health Monitor failed once on a 503 while the site was redeploying, and passed on re-run (all sitemap URLs, content integrity, queue checks).
+- Confirmed again: guides.html cards, sitemap.xml and feed are generated at deploy; the committed copies on main do not list the newest guides, so do not hand-edit them.
+- Not verified: rendered page, mobile and dark mode, and that the new URL is in the live sitemap (health check covers whatever the sitemap lists).
+- Queue: older-article improvement other than drafty-door (PR #154 touches it); decide where bathroom and humidity guides belong when rebalancing; rerun the vision guard on the hero; ChatGPT's mobile and dark-mode check.
+
+## Update 2026-10-27 (session 9)
+- Merged: #177 (link from the basement bathroom guide to the fan guide), #178 (handoff), #179 (small living room guide: quick answer, walking-path diagram, links to rug-size and calm-room guides). 25 guides.
+- Link audit: no inbound hand-written links to smart-thermostat-without-c-wire, small-bathroom-easier-to-clean, stop-mail-and-paper-pile. ChatGPT takes the first two (inbound links); Claude takes the Sources fix on small-bathroom-easier-to-clean.
+- Queue: new guide in the weakest category (Home Design, 4 to 5 guides) with an IMAGE REQUEST; Keep going / Keep reading decision (7 articles); dark-mode and hub-page screenshots from the owner; #165 and #171 on ChatGPT's side.
+
+## Update 2026-10-27 (session 10)
+- Merged #181 (small-bathroom-easier-to-clean: EPA and USGS sources, intro under 130 words). 25 guides.
+- Drafted choose-paint-finish-for-each-room (Home Design) on claude/paint-finish-guide; waiting for its hero (IMAGE REQUEST in AI_COLLABORATION.md). Home Design has 5 guides, 6 after it.
+- ChatGPT still owes the inbound links to the thermostat and small-bathroom guides; #165 and #171 still open.
+
+## Update 2026-10-28 (session 11)
+- Merged: #183 (ChatGPT, inbound links to the thermostat and small-bathroom guides) and #185 (smart-lighting improved and brought back inside the quality gate). 25 guides.
+- Waiting: #184 (paint finish guide) is green on quality and health; the guard fails on Gemini HTTP 503 only. Needs the owner's OK to merge past it, or a later green rerun.
+- Still open on ChatGPT's side: #165, #171.
+
+## Update 2026-10-28 (session 12)
+- Merged #184 (choose-paint-finish-for-each-room, HOME DESIGN · PAINT FINISHES). 26 guides; Home Design now 6. Live: page, hero, 3 SVGs, guides, sitemap, feed and home OK (rendering not seen).
+- #184 conflicted on data/WORK_LOG.md (main moved); resolved by syncing the file with main. Guard: green once on the same hero (04:35 UTC), later runs failed on Gemini read timeouts only.
+- Waiting on the owner: a limited change to Image Vision Guard (503/timeout = inconclusive + human review); it touches a protected workflow file, so not started.
+- Still open on ChatGPT's side: #165, #171. Queue: inbound link to the paint guide where it fits; older-article improvement (quiet-entryway-storage, simple-home-reset); next new guide in the weakest category.
