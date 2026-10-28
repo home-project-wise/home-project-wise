@@ -20,3 +20,8 @@ Generator exhaustion is never a reset. Every stage writes a durable handoff pack
 
 ## OpenAI supervisor
 OpenAI is the supervisory layer, not a competing bulk writer. It monitors generator health, handoff continuity, recent posts, recent commits, workflow outcomes, site structure and UI checks. It may request targeted revisions, block unsafe/low-quality publication, or repair deterministic site/indexing problems. It should not repeatedly regenerate an article that already has a valid handoff.
+
+
+## Mandatory value-before-publishing law
+Read and enforce [docs/VALUE-BEFORE-PUBLISHING.md](VALUE-BEFORE-PUBLISHING.md) for every article, tool, feature, and SEO change. The editorial pipeline must block publication unless the target reader problem is real and explicit, the article adds distinct practical value over alternatives, factual claims are supported, mobile/accessibility/quality checks pass, and the PR or handoff records the evidence, differentiation, verification limits, and follow-up measure. If these cannot be explained, revise or drop the work rather than publish filler or near-duplicates. Indexing readiness alone is not success.
+
