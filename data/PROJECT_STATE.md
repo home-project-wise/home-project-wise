@@ -113,3 +113,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged #181 (small-bathroom-easier-to-clean: EPA and USGS sources, intro under 130 words). 25 guides.
 - Drafted choose-paint-finish-for-each-room (Home Design) on claude/paint-finish-guide; waiting for its hero (IMAGE REQUEST in AI_COLLABORATION.md). Home Design has 5 guides, 6 after it.
 - ChatGPT still owes the inbound links to the thermostat and small-bathroom guides; #165 and #171 still open.
+
+## Update 2026-10-28 (session 11)
+- Merged: #183 (ChatGPT, inbound links to the thermostat and small-bathroom guides) and #185 (smart-lighting improved and brought back inside the quality gate). 25 guides.
+- Waiting: #184 (paint finish guide) is green on quality and health; the guard fails on Gemini HTTP 503 only. Needs the owner's OK to merge past it, or a later green rerun.
+- Still open on ChatGPT's side: #165, #171.
