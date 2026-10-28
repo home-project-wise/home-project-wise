@@ -124,3 +124,7 @@ Then update `data/daily_routine_log.md` and this file.
 - #184 conflicted on data/WORK_LOG.md (main moved); resolved by syncing the file with main. Guard: green once on the same hero (04:35 UTC), later runs failed on Gemini read timeouts only.
 - Waiting on the owner: a limited change to Image Vision Guard (503/timeout = inconclusive + human review); it touches a protected workflow file, so not started.
 - Still open on ChatGPT's side: #165, #171. Queue: inbound link to the paint guide where it fits; older-article improvement (quiet-entryway-storage, simple-home-reset); next new guide in the weakest category.
+
+## Update 2026-10-28 (session 13)
+- Merged #191 (guard: service errors are inconclusive) and #192 (entryway and home-reset guides cross-linked). 26 guides. No open PRs.
+- Queue: new guide in a weak category with an IMAGE REQUEST; inbound link to the paint guide where it fits; run the audit script on main (ChatGPT).
