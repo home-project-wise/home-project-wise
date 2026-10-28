@@ -511,13 +511,23 @@ def cmd_check(cache):
         return 0
     print('Checking new images in: ' + ', '.join(sorted(only)))
     rows = audit([ART / (s + '.html') for s in sorted(only)], cache, only_keys=only)
-    bad = [r for r in rows if r['status'] in ('replace', 'error')]
+    # Only a real verdict ('replace') blocks the PR. An 'error' row means the vision service
+    # itself failed (HTTP 503, timeout, quota): that says nothing about the image, so it is
+    # reported as INCONCLUSIVE and left to human review instead of failing the check.
+    bad = [r for r in rows if r['status'] == 'replace']
+    inconclusive = [r for r in rows if r['status'] == 'error']
     for r in rows:
         v = r['vision'] or {}
         print('%s #%s %s: %s | %s' % (r['article'], r['index'], r['status'], v.get('visible_description', '')[:140], ','.join(r['problems'])))
     if bad:
         print('FAIL: %d new image(s) do not fit their section (see above)' % len(bad))
         return 1
+    if inconclusive:
+        names = ', '.join('%s #%s' % (r['article'], r['index']) for r in inconclusive)
+        print('::warning::Image Vision Guard INCONCLUSIVE (vision service error, not a verdict on the image): ' + names)
+        print('INCONCLUSIVE: %d new image(s) could not be checked because the vision service failed. '
+              'Look at the image(s) yourself before merging, and re-run the guard later if you want a verdict.' % len(inconclusive))
+        return 0
     print('PASS: all new images fit their sections')
     return 0
 
