@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-label="Three ways a smart light reaches your phone: Wi-Fi directly to the router, a hub such as Zigbee that often works locally, or Matter over Wi-Fi or Thread">
+<rect width="1000" height="560" fill="#F7F5F0"/>
+<g font-family="Arial,Helvetica,sans-serif" fill="#243238">
+<text x="500" y="54" text-anchor="middle" font-size="30" font-weight="700">Three ways a smart light reaches your phone</text>
+<rect x="40" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="40" y="90" width="290" height="12" rx="6" fill="#D97745"/>
+<text x="185" y="160" text-anchor="middle" font-size="26" font-weight="700">Wi-Fi device</text>
+<text x="185" y="230" text-anchor="middle" font-size="21">Joins your router</text>
+<text x="185" y="260" text-anchor="middle" font-size="21">directly. No hub.</text>
+<text x="185" y="320" text-anchor="middle" font-size="21">Each one is another</text>
+<text x="185" y="350" text-anchor="middle" font-size="21">device on your network</text>
+<text x="185" y="455" text-anchor="middle" font-size="23" font-weight="700" fill="#D97745">Simplest start</text>
+<rect x="355" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="355" y="90" width="290" height="12" rx="6" fill="#6F8F82"/>
+<text x="500" y="160" text-anchor="middle" font-size="26" font-weight="700">Hub-based system</text>
+<text x="500" y="230" text-anchor="middle" font-size="21">Zigbee, Z-Wave or a</text>
+<text x="500" y="260" text-anchor="middle" font-size="21">maker’s own radio</text>
+<text x="500" y="320" text-anchor="middle" font-size="21">Needs a bridge,</text>
+<text x="500" y="350" text-anchor="middle" font-size="21">an extra purchase</text>
+<text x="500" y="455" text-anchor="middle" font-size="23" font-weight="700" fill="#6F8F82">Often works locally</text>
+<rect x="670" y="90" width="290" height="400" rx="18" fill="#fff" stroke="#243238" stroke-opacity=".18" stroke-width="2"/><rect x="670" y="90" width="290" height="12" rx="6" fill="#243238"/>
+<text x="815" y="160" text-anchor="middle" font-size="26" font-weight="700">Matter</text>
+<text x="815" y="230" text-anchor="middle" font-size="21">One standard for Apple,</text>
+<text x="815" y="260" text-anchor="middle" font-size="21">Google and Amazon apps</text>
+<text x="815" y="320" text-anchor="middle" font-size="21">Runs on Wi-Fi or Thread;</text>
+<text x="815" y="350" text-anchor="middle" font-size="21">Thread usually needs a</text>
+<text x="815" y="380" text-anchor="middle" font-size="21">border router</text>
+<text x="815" y="455" text-anchor="middle" font-size="23" font-weight="700" fill="#243238">Check which one it uses</text>
+<text x="500" y="530" text-anchor="middle" font-size="19" fill="#243238" fill-opacity=".75">Pick one system before you buy so everything stays in one app.</text>
+</g></svg>
