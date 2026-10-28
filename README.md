@@ -29,6 +29,7 @@ HomeProjectWise is an English-language home-improvement destination focused on p
 
 ## Key documentation
 
+- Operational Quality and Evidence Standard: [docs/OPERATIONAL_QUALITY_STANDARD.md](docs/OPERATIONAL_QUALITY_STANDARD.md)
 - Google Search Console: docs/GOOGLE_SEARCH_CONSOLE.md
 - Bing Webmaster Tools: docs/BING_WEBMASTER.md
 - IndexNow: docs/INDEXNOW.md
