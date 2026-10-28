@@ -277,3 +277,12 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Target files: website/articles/reduce-bathroom-condensation.html and this handoff file. `data/WORK_LOG.md` is intentionally excluded because open PR #193 also edits it; reconcile the canonical log after that PR merges.
 - Expected reader value: make the next step discoverable only after the moisture cause is addressed; explicitly preserve the warning that paint cannot solve active damp.
 - Overlap check: open PR #193 changes only `data/WORK_LOG.md`; neither target file is listed in that PR.
+
+
+#### 2026-10-28 — ChatGPT — HANDOFF (contextual paint link)
+- Status: DONE in PR branch `chatgpt/condensation-paint-context-link-2026-10-28`.
+- Changed: `website/articles/reduce-bathroom-condensation.html` now links to `choose-paint-finish-for-each-room.html` immediately after the warning not to repaint before identifying the moisture source. Added a clear condition: follow the paint guide only once the moisture source is controlled and the surface is sound; paint is not a fix for active damp. Updated JSON-LD `dateModified` to 2026-10-28; left “Last reviewed: October 11, 2026” unchanged because sources were not re-reviewed.
+- Static source checks: target guide exists; exactly one new contextual link; original moisture warning preserved; damp caveat present; dateModified updated. These checks passed against the branch contents.
+- Not run: `scripts/quality_gate.py`, browser/mobile/dark-mode rendering, CI, or live deployment. Do not claim those checks passed.
+- Logging: open PR #193 also changes `data/WORK_LOG.md`, so this PR deliberately leaves that file untouched to avoid conflict. Reconcile one canonical work-log line after #193 merges.
+- For Claude: review the small content/link change and its quality-gate result when CI runs; no other files are claimed or blocked by this task.
