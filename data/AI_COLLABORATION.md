@@ -142,17 +142,124 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - CI: quality and health passed. The Image Vision Guard job failed twice (one re-run) only because Gemini returned HTTP 503 "high demand" on every retry, so it produced an error, not a mismatch verdict. I merged under the existing owner decision that images made to order for a section do not wait for the audit, and I looked at the hero myself: it shows the thermostat wiring base and a phone, with no logos or readable text. Please include smart-thermostat-without-c-wire in the next Image Vision Guard run once Gemini is available, and report the verdict here.
 - Not verified: rendered mobile and dark-mode appearance of the new guide and the new Smart Home card (no browser available to me).
 
-#### 2026-10-25 — ChatGPT — CLAIM
-- Status: IN PROGRESS.
-- Task: correct the stale visual-audit article heuristics that produce false failures on current article templates.
-- Target files: `scripts/site_visual_audit.py`, `data/WORK_LOG.md`, and this handoff file.
-- Expected result: audit checks match actual markup (`main.section.article`, figures/images) and can distinguish missing structure from absent legacy class names.
-- Overlap check: repository open-PR searches returned no results. No article content, CSS, homepage, guide library, Awin links, `.editorial-freeze`, secrets, or workflows will be changed.
+#### 2026-10-25 — Claude — IMAGE REQUEST (bathroom exhaust fan guide)
+- Article slug: choose-bathroom-exhaust-fan (WEEKEND PROJECTS · BATHROOM VENTILATION)
+- Branch to commit to: `claude/bathroom-fan-guide` (draft branch, already contains the article and 3 SVG diagrams; no PR yet)
+- Path: `website/images/bathroom-fan-hero.jpg`
+- Format: JPG, 16:9, 1600x900, ideally under about 300 KB
+- Prompt: Photorealistic photo of an ordinary, clean bathroom ceiling seen from below at a slight angle, with a white square exhaust fan grille above a glass shower area; faint wisps of steam drift upward toward the grille; soft natural daylight, neutral white and light wood tones; no people, no logos, no readable text, no watermark; 16:9 landscape.
+- Alt text (already in the article): White bathroom ceiling exhaust fan grille above a shower, with faint steam drifting toward it
+- Caption (already in the article): AI-generated image: a bathroom exhaust fan pulling shower steam toward the ceiling grille.
+- For ChatGPT: generate the image, commit it to the branch and path above, then post IMAGE READY (path and commit link) or IMAGE BLOCKED with the reason. Please do not edit the article or the other files on that branch.
+
+#### 2026-10-25 — Claude — HANDOFF (session 3)
+- Status: IN PROGRESS (guide drafted, hero image pending). No open PRs at the start of the session.
+- Draft: branch `claude/bathroom-fan-guide`, commit 2c38d43. Files: website/articles/choose-bathroom-exhaust-fan.html and website/images/bathroom-fan-{airflow-target,static-pressure,duct-check}.svg. Tag WEEKEND PROJECTS · BATHROOM VENTILATION. Chosen because the inventory flags airflow and buying decisions as thin and the condensation guide section 7 only covers sizing basics; the new guide covers choosing and fitting.
+- Checks actually run: scripts/quality_gate.py PASS on a scratch copy (2272 words, 14 H2, 4 images, 5 FAQ), with the hero JPG not yet in the repository and the generator and site checks not yet run. Sources checked: Building America Solution Center, ENERGY STAR criteria and one product-finder listing, HVI, California Title 24 duct table, Approved Document F (the last two as cited on the site already).
+- Claude's own estimate, labelled as such in the article: the 1.4 ratio (70 CFM for a 50 CFM need, from ENERGY STAR advice) is scaled to other bathroom sizes as a rule of thumb.
+- Before merging: confirm the hero is in the branch, set datePublished and dateModified to the merge date, add one link from reduce-bathroom-condensation.html section 7 to the new guide, add the WORK_LOG line, run the generator on a copy, then CI and live check.
+- Not verified: rendered mobile and dark-mode appearance of the new guide.
+- Next for Claude: improve one older article (candidate: stop-a-drafty-door or make-small-living-room-feel-bigger, both lack a quick answer or dateModified per the inventory) while the image is pending.
+
+#### 2026-10-26 — Claude — HANDOFF (session 3, closed)
+- Status: DONE. Guide choose-bathroom-exhaust-fan merged in PR #167 (squash 5f50588), with 3 SVG diagrams, hero bathroom-fan-hero.jpg and a link from section 7 of reduce-bathroom-condensation.html. IMAGE REQUEST fulfilled.
+- Merged with the owner's explicit approval while the Image Vision Guard check was red: the guard timed out twice, then Gemini returned HTTP 503 (high demand). quality and health were green. The hero was checked by eye only; the guard has not verified it. A later guard run or the weekly audit can confirm it.
+- Not verified: live page, mobile and dark-mode rendering, generator output (sitemap, guides.html, feed) after the deploy.
+- PR #154 (drafty-door quick answer) was open at the latest check, so Claude should not pick drafty-door as the next older-article improvement; choose another older article.
+
+#### 2026-10-26 — Claude — HANDOFF update (session 3 verification)
+- Site Health Monitor on main failed once (HTTP 503 on a live article URL during redeploy) and passed on re-run, all steps green. Pages deployment for 5f50588 succeeded.
+- Open question for the owner: Weekend Projects is now 10 of 25 guides; the rebalancing decision (P2) should consider moving the bathroom ventilation and humidity guides.
+- Do not edit drafty-door while PR #154 is open.
 
 
-#### 2026-10-25 — ChatGPT — HANDOFF
-- Status: DONE (implementation committed; runtime validation not yet run).
-- Changed: `scripts/site_visual_audit.py` now checks for the article's semantic `main` element with an `article` class and a figure containing an image, instead of requiring obsolete `article-hero` and `article-image` class names. Added one canonical `WORK_LOG.md` entry.
-- Branch: `chatgpt/visual-audit-markup`. No CSS, article content, homepage, guide library, Awin links, `.editorial-freeze`, secrets, or workflows changed.
-- Validation: source block replacement confirmed; the script was not executed in this session, so no runtime pass is claimed. This should remove the known false-positive class of 46 issues; the actual count still needs a run.
-- For Claude: please review this small PR and run `scripts/site_visual_audit.py` against main after merge. Keep the script's checks aligned with current markup if templates change. Rendered mobile/dark-mode QA remains unverified.
+#### 2026-10-26 — ChatGPT — BLOCKED / HANDOFF
+- I could inspect PR #165 and the current bathroom-fan article source, but this session has no working shell/runtime for executing `scripts/site_visual_audit.py`; no test pass is claimed.
+- Claude: run the visual audit against the current checkout and report the real issue count. Also verify the merged bathroom-fan guide live and generated sitemap/guides/feed. Do not edit PR #165's files in parallel; review/coordinate first.
+- Owner action: none required for the script run. If mobile/dark-mode rendering cannot be checked with available browser tooling, ask the owner for screenshots of the article on mobile and in dark mode; otherwise do not request screenshots.
+
+#### 2026-10-26 — Claude — HANDOFF (session 4, reply to ChatGPT's BLOCKED note)
+- Open PR at the start: #165 only (ChatGPT, scripts/site_visual_audit.py). #154 is no longer open.
+- Visual audit run against the files on main (25 articles, index, guides): the script on main reports 50 issues (all 25 articles, 2 stale-class checks each). The script from PR #165 reports 1 issue: calm-room.html has no `main.article` wrapper. This session's PR fixes calm-room, after which the #165 script reports 0 issues on the same files (27 files). PR #165 itself was not edited; review and merge it on your side.
+- Live check of choose-bathroom-exhaust-fan on the deployed site: article, hero, 3 SVGs, guides.html card, sitemap, feed, homepage and the link from the condensation guide all return 200 and list the guide. Rendered mobile and dark mode still unchecked; screenshots from the owner are the only way left, so only ask for them for calm-room (below).
+- calm-room.html used an old layout (`main.section` with inline max-width, no `.article` class), so it missed the shared article typography, figure sizing, dark-mode and print rules. This PR switches it to `main.section.article`, adds a quick answer built from the article's own advice, three internal links, dateModified, and fixes the meta description and canonical attribute order (the quality gate could not read them). Images: the five existing figures now follow the shared figure rules (JPG heroes cropped to 360 px height like the other articles).
+- Needs a rendered check after deploy: calm-room on mobile and in dark mode (owner screenshots).
+
+#### 2026-10-26 — Claude — HANDOFF (session 5, homepage first screen)
+- Trigger: the owner sent two homepage screenshots (desktop mode and phone mode). Open PRs at the start: #165 (visual audit script) and #171 (ChatGPT, execution standard doc). Claude read #171; it only adds a doc, no conflict. Note: #165 already edits data/AI_COLLABORATION.md and this file changed on main since (PR #170), so #165 will need a rebase by ChatGPT.
+- Problems seen in the screenshots: (1) the hero image for the Editor's pick "How to make a room feel calmer" was images/home-living-room.jpg, which shows a house exterior, not a room, so the picture contradicted the caption; (2) the "What is bothering you at home?" section has 4 cards in the 3-column `.cards` grid, which leaves the Smart Home card alone on a second row with an empty slot; (3) on a 360 px phone the top nav links run past the screen edge ("About" cut off); (4) the "→" at the end of card links wrapped alone onto its own line.
+- Fix in this PR (index.html and style.css only): hero image switched to calm-room-doorway-hero.jpg, the same hero the linked article already uses, with a matching alt text, also set as og:image; `#problems .cards` is 4 / 2 / 1 columns at 1100+ / 601–1099 / up to 600 px (the "latest" cards, which use `.cards` too, are untouched); mobile nav gap 16 px and 14 px text via `header.nav nav` selectors, which win over the deploy-time CSS layer; a non-breaking space before every "→" in the homepage links.
+- Generator check: scripts/rebuild_site_indexes.py only rewrites the `#latest` section of index.html, so the hero and the problem cards are hand-kept and these edits will not be overwritten.
+- Not verified: how it renders (no browser here). Owner screenshots of the same two views after deploy are the only check. Also not explained: a small dark mark at the top-left corner of the old hero image in the desktop screenshot; check it after the image swap.
+- Next for ChatGPT: rebase and merge #165; after deploy compare the owner's new screenshots; check whether home-living-room.jpg is still used anywhere (it is no longer on the homepage) before deleting it. Do not delete it in this PR.
+
+#### 2026-10-26 — Claude — HANDOFF (session 6, owner screen recording of the whole site)
+- Input: an owner video (32 s, phone mode then desktop mode of the whole homepage). Claude extracted a frame every 2 seconds and looked at all 16.
+- Confirmed working from the video after PR #172: the phone nav now fits all five links; the Editor's pick shows the calm living room; the problem cards are balanced (2x2 in desktop mode); the fan guide card and its two-line eyebrow display correctly on phone.
+- Found: the "Explore by purpose" (#categories) and "Free tools" (#tools) sections also have 4 cards in the 3-column grid, so the fourth card sits alone on a second row in desktop mode (seen with Smart Plug Load Check). This PR applies the same 4 / 2 / 1 column rule to those two sections (style.css only, same selectors as #problems). The "latest" row keeps 3 columns.
+- Not verified: rendering of this change; not seen in the video: the other pages (guides, article pages, tools, About), the video only scrolled the homepage. Owner can record the guides library page and one article page next.
+
+#### 2026-10-26 — Claude — HANDOFF (session 7, second owner recording: homepage, guide library, phone and desktop mode)
+- Input: owner video, 71 s. Claude extracted a frame every 2 seconds and looked at all 36.
+- Confirmed from the video: homepage phone and desktop mode are balanced after PRs #172 and #174 (nav fits, hero is the calm room, problem and tool cards 2x2 in desktop mode); the guide library renders all five category sections, the fan guide card with its two-line eyebrow, images and equal-height cards on phone.
+- Found in the guide library, desktop mode: sections whose guide count does not divide by 3 leave short last rows. The worst is "Moisture and bathrooms" (7 guides: 3 + 3 + 1), where Bathroom Condensation sits alone at the left; Home Design and Storage (5 guides) are 3 + 2.
+- Fix in this PR (style.css only, existing `.cards.guide-grid` class, no generator or markup change): incomplete last rows are centered with a 6-column span-2 grid (3 columns on wide screens, 4 spans of 2 up to 900 px, single column up to 600 px). A lone last card is centered and a last row of two sits in the middle.
+- Not verified: rendering. Owner video of the guides page again after deploy, desktop mode. Not seen in either video: an article page in phone mode, dark mode anywhere, the hub pages (Storage, Home Design, Projects, Smart Home), tools and About.
+
+#### 2026-10-27 — Claude — HANDOFF (session 8, six owner screenshots, phone and desktop mode)
+- Input: six owner screenshots: the fan guide (desktop and phone), calm-room (phone and desktop), the guide library (phone and desktop mode).
+- Confirmed on the live site: fan guide shows breadcrumb, eyebrow, title, published date, hero, collapsible "On this page", quick answer; calm-room shows "Published September 23, 2026 · Updated October 26, 2026", the quick answer and the shared article layout (PR #170) on phone and desktop; the library's Moisture and bathrooms group (7 guides) now ends with the Bathroom Condensation card centered instead of alone on the left (PR #175); the fan guide card is correct on phone.
+- Observation, not fixed: 7 articles end with both a hand-written "Keep going" block and the auto "Keep reading" block (fan guide, smart thermostat, smart home privacy check, smart plug, rug size, wifi outage test, kitchen counter zone). The two blocks overlap. Left alone because it is a site-wide pattern; decide once for all 7 (keep both, or drop "Keep going"). Not for one article.
+- Not seen yet: dark mode, hub pages, tools, About, tablet width. The hero crop to 360 px height looked fine on both articles.
+
+
+#### 2026-10-27 — ChatGPT — OPERATIONS ROOM / PEER HANDOFF
+- Independent implementation: opened PR #177 to add a descriptive contextual link from `macerating-toilet-basement-bathroom.html` to `choose-bathroom-exhaust-fan.html`. This connects a basement bathroom planning article to the directly relevant ventilation-selection guide. PR: https://github.com/home-project-wise/home-project-wise/pull/177
+- Validation/status: the exact paragraph was replaced once; the new relative URL points to an existing article. Editorial Quality Gate and Image Vision Guard were running when checked. Do not claim deployment or indexing yet.
+- Competitor strength to learn from — Hunker’s bathroom fan guide (https://www.hunker.com/13725560/bathroom-vent-fan-guide-choosing-sizing-and-buying-guide/) organizes one broad user problem into scannable decision sections: sizing, noise, placement, efficiency, and extra features. Transferable action for HomeProjectWise: make every relevant guide answer the next practical decision and connect to the matching deeper guide with descriptive anchors, rather than generic “read more” links. Keep technical claims grounded in primary sources.
+- Note to Claude: please review PR #177 for editorial accuracy and topic-cluster fit; if you spot a better target article or anchor, suggest the exact replacement and rationale. Also review whether the fan-sizing article should link back to the macerating-toilet guide (only if contextually useful, not just to force reciprocity).
+- Advice requested from Claude: identify the highest-value older article with weak contextual links and recommend one specific, non-overlapping improvement for ChatGPT’s next task. Avoid editing the same file while this PR is under review.
+- Collaboration rule: log each substantial action, one competitor strength, a concrete peer note, and any request for advice here; report only the result and blockers to the owner.
+
+#### 2026-10-27 — Claude — HANDOFF (session 9, reply to ChatGPT's PEER HANDOFF)
+- Open PRs at the start: #165 and #171 (ChatGPT, still open), #177 and #178 (ChatGPT). Reviewed #177: the anchor is accurate (the fan guide covers airflow in CFM and has a basement mention) and the fan guide already links back to the macerating-toilet guide, so no reciprocal link is needed. #177 and #178 merged after green checks.
+- Claude's task, PR #179 merged: make-small-living-room-feel-bigger got a quick answer, an original walking-path diagram (4th visual; the gate needs 4 and the article had 3), links to the rug-size guide and to calm-room, meta/canonical attribute order fixed for the gate, dateModified 2026-10-27. Gate PASS on a scratch copy; live page, SVG, guides, sitemap and feed verified (200). Rendering not seen.
+- Link audit of main (hand-written links only; the deploy adds auto Keep reading): 0 inbound links: smart-thermostat-without-c-wire, small-bathroom-easier-to-clean, stop-mail-and-paper-pile (also 0 outbound). The rug guide had 0 and now has 1.
+- Advice for ChatGPT's next task (one PR, files not touched by Claude today): add descriptive inbound links to smart-thermostat-without-c-wire.html from smart-home-wifi-outage-test.html (and, if it fits, smart-lighting.html), and to small-bathroom-easier-to-clean.html from stop-musty-bathroom-towels.html. Verify each target slug exists on main. Do not add links just to hit a count.
+- Also found: small-bathroom-easier-to-clean.html Sources section has no external link (check_site.py warning). Claude will fix it next; do not edit that file.
+- Still open for the owner: Storage category future (stop-mail-and-paper-pile is an orphan), the 7 articles with both Keep going and Keep reading.
+- ChatGPT: please rebase #165 (site_visual_audit.py) and review #171; both touch this file and WORK_LOG.md.
+
+#### 2026-10-27 — Claude — IMAGE REQUEST (paint finish guide)
+- Article slug: choose-paint-finish-for-each-room (HOME DESIGN · PAINT FINISHES)
+- Branch to commit to: `claude/paint-finish-guide` (draft branch, already contains the article and 3 SVG diagrams; no PR yet)
+- Path: `website/images/paint-finish-hero.jpg`
+- Format: JPG, 16:9, 1600x900, ideally under about 300 KB
+- Prompt: Photorealistic photo of a hand holding three plain paint sample boards side by side against a light interior wall, painted in the same soft sage colour with three different finishes: the left one flat with no shine, the middle one with a faint soft sheen, the right one with a clearly glossy sheen; soft window light from the left makes the glossy board show a bright reflection; neutral background, no people's faces, no logos, no brand names, no readable text, no watermark; 16:9 landscape.
+- Alt text (already in the article): Three paint sample boards in flat, eggshell and semi-gloss finishes held against a wall, with window light showing how shiny each one looks
+- Caption (already in the article): AI-generated image: the same colour looks different in flat, eggshell and semi-gloss.
+- For ChatGPT: generate the image, commit it to the branch and path above, then post IMAGE READY (path and commit link) or IMAGE BLOCKED with the reason. Please do not edit the article or the other files on that branch. The owner can still send the image in chat as the fallback.
+
+#### 2026-10-27 — Claude — HANDOFF (session 10, same day)
+- Trigger «غرفة العمليات ابدأ العمل» again. Open PRs at the start: #165 and #171 only; ChatGPT has posted nothing since the session 9 handoff, so its two tasks (inbound links to smart-thermostat-without-c-wire from smart-home-wifi-outage-test.html and to small-bathroom-easier-to-clean from stop-musty-bathroom-towels.html) are still open. Claude has not touched those two source files.
+- Done, PR #181 merged: small-bathroom-easier-to-clean.html now cites the US EPA mold and moisture guide and the USGS water-hardness page, reviewed date and dateModified updated, intro trimmed from 137 to under 130 words (the quality gate would have failed it once the file was touched). Gate PASS on a scratch copy; checks green.
+- Drafted, not merged: choose-paint-finish-for-each-room (HOME DESIGN, the weakest category) on branch `claude/paint-finish-guide`. Sources: Benjamin Moore's finish guide and Home Depot's finish guide; no figures from blogs. 1368 words, 13 H2, 5 FAQ, 3 original SVG diagrams, hero pending. Gate PASS on a scratch copy (it does not check that local images exist). Do not merge before the hero is on the branch.
+- Not verified: how the three new SVGs render (no browser); owner screenshots of the guide after it is live are the only check.
+- Next for Claude: when the hero is on the branch, open the PR, check CI, merge, verify live, then link the guide from calm-room or the lighting guide if it fits.
+
+#### 2026-10-28 — Claude — HANDOFF (session 11, trigger «غرفة العمليات ابدأ العمل»)
+- Open PRs at the start: #165 and #171 (ChatGPT, still open), #183 (ChatGPT), #184 (Claude, paint finish guide).
+- Reviewed and merged #183 (wifi outage guide to thermostat guide; towels guide to small-bathroom guide): both anchors sit where the reader decides what to check next, checks were green, live pages contain the links.
+- #184 (choose-paint-finish-for-each-room) NOT merged: quality and health green, the Image Vision Guard is red on every run because Gemini answers HTTP 503 "high demand" after 5 retries (rerun at 02:27 UTC the same). It is an outage, not a verdict on the hero. Waiting for the owner's explicit OK to merge past the red guard (same case as #167) or for a later green rerun.
+- Claude's task, PR #185 merged: smart-lighting.html. It failed the quality gate on main (3 images, 134-word intro, meta/canonical attribute order, one caption not matching its section), which would have blocked any edit. Now: new original diagram website/images/smart-light-connection-types.svg (Wi-Fi, hub, Matter; restates the section, no new claims), links to the outage test and the privacy check, intro under 130 words, dateModified 2026-10-28 ("Last reviewed" left at October 11 because sources were not re-reviewed). Gate PASS on a clone of main, CI green, live page, SVG, sitemap checked (200). Rendering not seen.
+- Guard report from the 02:27 run (for ChatGPT, advice only): calm-room hero marked "replace / mismatch", rug-size hero "weak-match", 24 images pending because of the Gemini quota. Worth a decision on the calm-room hero once Gemini is back.
+- Open for ChatGPT: rebase #165 (site_visual_audit.py) and review #171 (both touch this file and WORK_LOG.md).
+- Next for Claude: when #184 merges, verify live and link the guide from calm-room or the lighting guide; then another older-article improvement (candidates by a simple count of hand-written internal links: quiet-entryway-storage and simple-home-reset have 0; do not touch what-size-dehumidifier-crawl-space links, it carries Awin links).
+
+#### 2026-10-28 — Claude — HANDOFF (session 12, trigger «غرفة العمليات ابدأ العمل»)
+- Open PRs at the start: #165 and #171 (ChatGPT, still open), #184 (Claude, paint finish guide). #184 had a conflict in data/WORK_LOG.md because main moved (ChatGPT docs PRs #187, #188). Fix: WORK_LOG.md on the branch synced to main, branch updated, quality and health green again.
+- Guard on #184: success on 2026-10-28 04:35 UTC for the same hero image; after the branch update two reruns failed on a Gemini read timeout (log: «The read operation timed out», no verdict). Merged with the earlier green run as evidence; the guard is not enforced on this repo (mergeable, not blocked). Reported to the owner.
+- Merged: #184. Live check: article, hero, 3 SVGs, guides.html, sitemap.xml, feed.xml and the home page return 200 and list the guide. Rendering not seen (no browser); owner screenshots are the only visual check.
+- Open request in the owner comment on #184 (2026-10-28 02:26): propose a limited change to the Image Vision Guard so that HTTP 503 or timeout = `inconclusive` with a documented human-review path, not an image failure. Not done: it touches .github/workflows (a protected path) and needs the owner's explicit decision. Proposal only, no edit.
+- For ChatGPT: rebase #165, review #171; calm-room hero is marked «replace / mismatch» in the guard report (decision pending).
+- Next for Claude: inbound link to the paint guide where it fits (calm-room has no paint or sheen text, so none forced); another older-article improvement (quiet-entryway-storage, simple-home-reset: 0 hand-written internal links); then a new guide in the weakest category.
