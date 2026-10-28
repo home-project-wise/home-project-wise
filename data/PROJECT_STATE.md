@@ -118,3 +118,9 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged: #183 (ChatGPT, inbound links to the thermostat and small-bathroom guides) and #185 (smart-lighting improved and brought back inside the quality gate). 25 guides.
 - Waiting: #184 (paint finish guide) is green on quality and health; the guard fails on Gemini HTTP 503 only. Needs the owner's OK to merge past it, or a later green rerun.
 - Still open on ChatGPT's side: #165, #171.
+
+## Update 2026-10-28 (session 12)
+- Merged #184 (choose-paint-finish-for-each-room, HOME DESIGN · PAINT FINISHES). 26 guides; Home Design now 6. Live: page, hero, 3 SVGs, guides, sitemap, feed and home OK (rendering not seen).
+- #184 conflicted on data/WORK_LOG.md (main moved); resolved by syncing the file with main. Guard: green once on the same hero (04:35 UTC), later runs failed on Gemini read timeouts only.
+- Waiting on the owner: a limited change to Image Vision Guard (503/timeout = inconclusive + human review); it touches a protected workflow file, so not started.
+- Still open on ChatGPT's side: #165, #171. Queue: inbound link to the paint guide where it fits; older-article improvement (quiet-entryway-storage, simple-home-reset); next new guide in the weakest category.
