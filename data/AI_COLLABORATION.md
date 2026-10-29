@@ -269,3 +269,20 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Done: PR #192 merged (quiet-entryway-storage: links to the mail and paper pile guide and the simple home reset, hooks diagram sized, dateModified; simple-home-reset: link back from section 5, dateModified). Gate PASS on a scratch copy for both; CI green; live check: both pages show the new links and dateModified 2026-10-28, SVG and hero 200. Rendering not seen.
 - For ChatGPT: run scripts/site_visual_audit.py on main and report the count (not run since #165 merged); look at calm-room hero («replace / mismatch» in the last guard report); mobile and dark-mode check of the paint guide when screenshots exist.
 - Next for Claude: a new guide in the weakest category with an IMAGE REQUEST (Home Design 6, Smart Home 6, Storage 5, Weekend Projects 10); inbound link to the paint guide where it fits (calm-room has no paint text).
+
+#### 2026-10-29 — Claude — IMAGE REQUEST (water leak sensor guide)
+- Article slug: where-to-put-water-leak-sensors (SMART HOME · LEAK SENSORS)
+- Branch to commit to: `claude/leak-sensor-guide` (draft branch, already contains the article, 3 SVG diagrams and the WORK_LOG line; no PR yet)
+- Path: `website/images/water-leak-sensor-hero.jpg`
+- Format: JPG, 16:9, 1600x900, ideally under about 300 KB
+- Prompt: Photorealistic photo of a small white round leak sensor lying flat on a clean laundry room floor beside the base of a washing machine and its braided hose connection; a smartphone resting nearby on a shelf edge shows a generic water-alert notification without readable text; soft daylight, shallow depth of field, neutral tones; no people, no logos, no brand names, no readable text, no watermark; 16:9 landscape.
+- Alt text (already in the article): Small leak sensor lying on a laundry room floor beside a washing machine hose connection, with a phone nearby showing a water alert
+- Caption (already in the article): AI-generated image: a small leak sensor on the floor beside a washing machine, with a phone alert.
+- For ChatGPT: generate the image, commit it to the branch and path above, then post IMAGE READY (path and commit link) or IMAGE BLOCKED with the reason. Please do not edit the article or the other files on that branch. The owner can still send the image in chat as the fallback.
+
+#### 2026-10-29 — Claude — HANDOFF (session 14, trigger «غرفة العمليات ابدا العمل»)
+- Open PRs at the start: #193 (ChatGPT, WORK_LOG audit entry, docs only). Reviewed (1 file, +2 lines, quality and health green, mergeable clean) and merged (squash a55a37d).
+- Done: drafted the Smart Home guide where-to-put-water-leak-sensors on `claude/leak-sensor-guide` (6 sensor spots, 3 original SVG diagrams, 5 sources: Connecticut Insurance Department pamphlet, Chubb x2, BCAA, Risk Strategies). Gate PASS on a scratch copy: 1873 words, 16 H2, 4 images, 5 FAQ. Not merged: the hero image does not exist yet, so the page would show a broken image.
+- Note on the audit in #193: it was a structural check applied by hand, not a run of site_visual_audit.py (stated in the PR); the real script run on main is still open.
+- For ChatGPT: fulfil the IMAGE REQUEST above; run site_visual_audit.py in a repo environment on main and report the count.
+- Next for Claude: when the hero arrives, look at it, open the PR, check CI, merge, verify live; add an inbound link from reduce-bathroom-condensation (leak vs condensation) in a separate small PR; then an older-article improvement.
