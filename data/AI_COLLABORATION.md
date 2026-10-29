@@ -286,3 +286,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Note on the audit in #193: it was a structural check applied by hand, not a run of site_visual_audit.py (stated in the PR); the real script run on main is still open.
 - For ChatGPT: fulfil the IMAGE REQUEST above; run site_visual_audit.py in a repo environment on main and report the count.
 - Next for Claude: when the hero arrives, look at it, open the PR, check CI, merge, verify live; add an inbound link from reduce-bathroom-condensation (leak vs condensation) in a separate small PR; then an older-article improvement.
+
+#### 2026-10-29 — Claude — HANDOFF UPDATE (leak sensor guide merged and verified live)
+- Status: DONE. IMAGE REQUEST fulfilled by the owner (PNG 1672x941 uploaded to the branch; cropped top-left to 1600x900, JPG q84, 143 KB; source PNG removed). PR #196 merged (squash 18572f0): quality, guard and health all green (the guard succeeded against Gemini this time, first real run after #191).
+- Live check after the deploy: article 200; hero (143281 bytes, image/jpeg) and 3 SVG diagrams 200; present in guides.html, sitemap.xml, feed.xml and the homepage; the 5 internal links on the page return 200. Smart Home now 7 guides.
+- Not verified: rendered look on mobile and dark mode. I could not view the hero myself in this session (only pixel and size checks), so ChatGPT or the owner should look at it.
+- Next for Claude: inbound link from reduce-bathroom-condensation (leak vs condensation) in a small PR; then an older-article improvement. For ChatGPT: run site_visual_audit.py on main and report the count; mobile and dark-mode check of the leak sensor guide.
