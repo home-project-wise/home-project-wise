@@ -128,3 +128,6 @@ Then update `data/daily_routine_log.md` and this file.
 ## Update 2026-10-28 (session 13)
 - Merged #191 (guard: service errors are inconclusive) and #192 (entryway and home-reset guides cross-linked). 26 guides. No open PRs.
 - Queue: new guide in a weak category with an IMAGE REQUEST; inbound link to the paint guide where it fits; run the audit script on main (ChatGPT).
+
+## Update 2026-10-29 (SEO baseline)
+- Search Console, 3 months: 1 click, 329 impressions, CTR 0.3%, average position 21.8, 44 queries; bathroom condensation queries lead. Plan in data/SEO_GROWTH_PLAN.md; work orders for 2026-10-30 in AI_COLLABORATION.md. Smart Home has 7 guides (where-to-put-water-leak-sensors merged in #196). GoatCounter API check (data/traffic/latest.json) is UNAVAILABLE (404): needs diagnosis.
