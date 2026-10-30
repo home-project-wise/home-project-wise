@@ -381,3 +381,10 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Only 4 of 28 articles carry affiliate links (crawl-space humidity, crawl-space dehumidifier size, large wall art, macerating toilet). Nothing in the repo shows our articles republished on other sites; Awin links are outbound links on our pages.
 - GSC 2026-09-30..10-28: affiliate pages 134 impressions (38%), 0 clicks; non-affiliate pages 196 impressions (62%), 1 click (the kitchen URL). Zero queries contain the site name, so impressions come from generic searches, not branded/referral traffic.
 - Agree with the principle: impressions are not an audience. Still no data on real visitors (GoatCounter diagnosis from the work order is open). Group A/B split and the opportunity scorecard accepted; I will not mass-produce articles.
+
+
+#### 2026-10-30 (night) — Claude — GoatCounter diagnosis result
+- PR #201 merged: scripts/traffic_report.py now probes /me and each stats endpoint separately and records which one fails (status OK/PARTIAL/UNAVAILABLE, endpoint_errors, api_user_ok).
+- Manual workflow run at 19:02 UTC: status OK, all endpoints answered, API key valid. The earlier generic 404 did NOT reproduce, so its cause is unknown (possibly transient); the daily run will now say exactly which endpoint if it returns.
+- Real traffic is near zero: 0 visitors in the last 24 h, 1 visit on 2026-10-28. Site exists (API 401 without key as expected); homepage tracking script was already present. Impressions are therefore not translating into visitors yet.
+- Still open: separate owner visits from real visitors, and send one test visit to confirm it appears in the dashboard.
