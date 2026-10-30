@@ -4,6 +4,7 @@ from __future__ import annotations
 import json, os
 from datetime import datetime, timezone, timedelta
 from urllib.parse import urlencode
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 from pathlib import Path
 
@@ -18,10 +19,11 @@ def get(path, params):
         return None
     url = f'{API}/{path}?{urlencode(params)}'
     req = Request(url, headers={'Authorization': f'Bearer {token}', 'Content-Type': 'application/json'})
-    with urlopen(req, timeout=30) as r:
-        if r.status >= 400:
-            raise RuntimeError(f'GoatCounter HTTP {r.status}')
-        return json.load(r)
+    try:
+        with urlopen(req, timeout=30) as r:
+            return json.load(r)
+    except HTTPError as exc:
+        raise RuntimeError(f'GoatCounter HTTP {exc.code} on /{path}') from exc
 
 
 def main():
@@ -39,13 +41,25 @@ def main():
     else:
         try:
             common = {'start': start.isoformat(), 'end': now.isoformat(), 'limit': 100}
-            total = get('stats/total', {'start': start.isoformat(), 'end': now.isoformat()})
-            hits = get('stats/hits', common)
-            refs = get('stats/toprefs', common)
-            locations = get('stats/locations', common)
-            prev = get('stats/total', {'start': previous_start.isoformat(), 'end': start.isoformat()})
+            errors = {}
+
+            def safe(name, path, params):
+                try:
+                    return get(path, params)
+                except Exception as exc:
+                    errors[name] = str(exc)
+                    return None
+
+            probe = safe('me', 'me', {})
+            total = safe('total', 'stats/total', {'start': start.isoformat(), 'end': now.isoformat()})
+            hits = safe('hits', 'stats/hits', common)
+            refs = safe('toprefs', 'stats/toprefs', common)
+            locations = safe('locations', 'stats/locations', common)
+            prev = safe('previous_total', 'stats/total', {'start': previous_start.isoformat(), 'end': start.isoformat()})
             payload = {
-                'status': 'OK',
+                'status': 'OK' if not errors else ('PARTIAL' if total is not None else 'UNAVAILABLE'),
+                'endpoint_errors': errors,
+                'api_user_ok': probe is not None,
                 'generated_at': now.isoformat(),
                 'period_start': start.isoformat(),
                 'period_end': now.isoformat(),
