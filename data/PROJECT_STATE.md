@@ -131,3 +131,8 @@ Then update `data/daily_routine_log.md` and this file.
 
 ## Update 2026-10-29 (SEO baseline)
 - Search Console, 3 months: 1 click, 329 impressions, CTR 0.3%, average position 21.8, 44 queries; bathroom condensation queries lead. Plan in data/SEO_GROWTH_PLAN.md; work orders for 2026-10-30 in AI_COLLABORATION.md. Smart Home has 7 guides (where-to-put-water-leak-sensors merged in #196). GoatCounter API check (data/traffic/latest.json) is UNAVAILABLE (404): needs diagnosis.
+
+## Update 2026-10-30 (session 15)
+- Merged #197 (paint link from the condensation guide, replacing the conflicted #194). 27 guides on main; Weekend Projects 10, becomes 11 with the new guide.
+- Draft guide bathroom-exhaust-fan-dripping-water is on branch claude/fan-dripping-guide, waiting for its hero image (do not merge before the hero is on the branch and looked at).
+- #195 (sitemap hand-edit) is redundant: the generated live sitemap already has all 44 URLs. Proposed to close.
