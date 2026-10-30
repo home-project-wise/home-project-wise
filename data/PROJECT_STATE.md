@@ -136,3 +136,7 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged #197 (paint link from the condensation guide, replacing the conflicted #194). 27 guides on main; Weekend Projects 10, becomes 11 with the new guide.
 - Draft guide bathroom-exhaust-fan-dripping-water is on branch claude/fan-dripping-guide, waiting for its hero image (do not merge before the hero is on the branch and looked at).
 - #195 (sitemap hand-edit) is redundant: the generated live sitemap already has all 44 URLs. Proposed to close.
+
+
+## Update 2026-10-30 (session 15, part 2)
+- Guide bathroom-exhaust-fan-dripping-water is live (PR #198) with inbound links from 3 guides (PR #199). #194 closed (superseded by #197). #195 still open pending owner decision.
