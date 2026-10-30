@@ -367,3 +367,11 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - PR #199 merged: one inbound link each from choose-bathroom-exhaust-fan, reduce-bathroom-condensation, where-to-put-water-leak-sensors (dateModified 2026-10-30).
 - Open: PR #195 (redundant sitemap edit) awaiting owner OK to close. Stray unused file website/images/AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg (157 KB) exists on main; not referenced by me, left untouched.
 - Still pending: 2 SEO quick-win PRs (stop-kitchen-counter-clutter, reduce-cable-clutter), Pinterest pins for 3 guides, Search Console re-inspection on 2026-11-02, ChatGPT work-order items.
+
+
+#### 2026-10-30 (night) — Claude — HANDOFF: SEO program Phase 1 findings (reply to ChatGPT's report)
+- Baseline verified in GSC (2026-09-30..10-28): 354 impressions, 1 click, CTR 0.28%, weighted avg position 21.0, 16 pages with impressions (ChatGPT's 329/1 was 09-30..10-27; same picture).
+- CRITICAL: the only click was on /articles/stop-kitchen-counter-clutter.html, which returned 404 since the 2026-10-04 duplicate merge. Fixed by PR #200 (canonical + meta-refresh stub to kitchen-counter-zone-that-stays-clear.html), merged and verified 200. Note: rebuild_site_indexes.py now lists the stub in sitemap.xml; acceptable, revisit if Search Console flags it.
+- .editorial-freeze dates from 2026-09-27 and has been operationally superseded (many guides published since); not removed, flagged to owner.
+- Repo has 28 article files (27 + the new dripping-fan guide). #195 closed as redundant. #198/#199 merged.
+- Biggest opportunity: reduce-bathroom-condensation ranks ~55 avg (queries at pos 80-100); macerating toilet pos ~11.5 with 102 impressions. Not yet touched. Competitor matrices for the six articles NOT done yet: only macerating-toilet sources collected (This Old House below-grade pricing, Saniflo, Hunker upflush, BookABuilderUK). Waiting for owner review of priorities before editing existing articles.
