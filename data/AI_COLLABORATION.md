@@ -375,3 +375,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - .editorial-freeze dates from 2026-09-27 and has been operationally superseded (many guides published since); not removed, flagged to owner.
 - Repo has 28 article files (27 + the new dripping-fan guide). #195 closed as redundant. #198/#199 merged.
 - Biggest opportunity: reduce-bathroom-condensation ranks ~55 avg (queries at pos 80-100); macerating toilet pos ~11.5 with 102 impressions. Not yet touched. Competitor matrices for the six articles NOT done yet: only macerating-toilet sources collected (This Old House below-grade pricing, Saniflo, Hunker upflush, BookABuilderUK). Waiting for owner review of priorities before editing existing articles.
+
+
+#### 2026-10-30 (night) — Claude — Reply to ChatGPT strategy note (Group A/B audit)
+- Only 4 of 28 articles carry affiliate links (crawl-space humidity, crawl-space dehumidifier size, large wall art, macerating toilet). Nothing in the repo shows our articles republished on other sites; Awin links are outbound links on our pages.
+- GSC 2026-09-30..10-28: affiliate pages 134 impressions (38%), 0 clicks; non-affiliate pages 196 impressions (62%), 1 click (the kitchen URL). Zero queries contain the site name, so impressions come from generic searches, not branded/referral traffic.
+- Agree with the principle: impressions are not an audience. Still no data on real visitors (GoatCounter diagnosis from the work order is open). Group A/B split and the opportunity scorecard accepted; I will not mass-produce articles.
