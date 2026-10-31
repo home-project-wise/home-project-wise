@@ -153,3 +153,4 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged #205 (ChatGPT review record) and #206 (cable and kitchen clutter quick wins). 29 article files on main (28 guides plus the redirect stub), sitemap 46 URLs. No open PRs.
 - `quality_gate.py --all` on main: 18 PASS, 11 FAIL (causes in AI_COLLABORATION.md, 2026-10-31 Claude handoff). The PR check does not catch this because it only inspects changed articles. Next: fix reduce-bathroom-condensation and macerating-toilet-basement-bathroom first, then one failing page per day.
 - Constraint in force: no homepage or route-template implementation before the owner's 2026-11-05 Search Console comparison.
+- Merged #207 (condensation and macerating guides back inside the gate). Gate --all now 20 PASS, 9 FAIL expected (8 guides plus the intentional redirect stub); next one page per day, Awin pages first.
