@@ -154,3 +154,8 @@ Then update `data/daily_routine_log.md` and this file.
 - `quality_gate.py --all` on main: 18 PASS, 11 FAIL (causes in AI_COLLABORATION.md, 2026-10-31 Claude handoff). The PR check does not catch this because it only inspects changed articles. Next: fix reduce-bathroom-condensation and macerating-toilet-basement-bathroom first, then one failing page per day.
 - Constraint in force: no homepage or route-template implementation before the owner's 2026-11-05 Search Console comparison.
 - Merged #207 (condensation and macerating guides back inside the gate). Gate --all now 20 PASS, 9 FAIL expected (8 guides plus the intentional redirect stub); next one page per day, Awin pages first.
+
+## Update 2026-10-31 (session 17)
+- Crawl-space dehumidifier guide brought back inside the quality gate (PR from claude/crawl-space-gate): intro split under a new H2, two captions reworded, BreadcrumbList added, one FAQ added that restates the Step 6 test. Remaining gate failures: 7 guides plus the redirect stub (wall art next, it carries an Awin link).
+- Open PR #208 (ChatGPT, draft, docs only: four-engine roadmap and AI search visibility plan). Not merged: the draft says no merge is authorized and the owner has not answered. Read-only technical eligibility audit it asks Claude for was done and posted on the PR (summary in AI_COLLABORATION.md).
+- Constraint still in force: no homepage or route-template implementation before the owner's 2026-11-05 Search Console comparison.
