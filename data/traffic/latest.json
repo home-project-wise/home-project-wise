@@ -2,9 +2,9 @@
   "status": "OK",
   "endpoint_errors": {},
   "api_user_ok": true,
-  "generated_at": "2026-10-30T19:02:48.424863+00:00",
-  "period_start": "2026-10-29T19:00:00+00:00",
-  "period_end": "2026-10-30T19:02:48.424863+00:00",
+  "generated_at": "2026-10-31T03:27:44.821225+00:00",
+  "period_start": "2026-10-30T03:00:00+00:00",
+  "period_end": "2026-10-31T03:27:44.821225+00:00",
   "visitors": 0,
   "pageviews": {
     "total": 0,
@@ -12,7 +12,7 @@
     "total_utc": 0,
     "stats": [
       {
-        "day": "2026-10-29",
+        "day": "2026-10-30",
         "hourly": [
           0,
           0,
@@ -42,7 +42,7 @@
         "daily": 0
       },
       {
-        "day": "2026-10-30",
+        "day": "2026-10-31",
         "hourly": [
           0,
           0,
@@ -86,14 +86,14 @@
     "stats": [],
     "more": false
   },
-  "previous_period_visitors": 1,
+  "previous_period_visitors": 0,
   "previous_period_pageviews": {
-    "total": 1,
+    "total": 0,
     "total_events": 0,
     "total_utc": 0,
     "stats": [
       {
-        "day": "2026-10-28",
+        "day": "2026-10-29",
         "hourly": [
           0,
           0,
@@ -115,17 +115,15 @@
           0,
           0,
           0,
-          1,
+          0,
           0,
           0,
           0
         ],
-        "daily": 1,
-        "weekly": 1,
-        "monthly": 1
+        "daily": 0
       },
       {
-        "day": "2026-10-29",
+        "day": "2026-10-30",
         "hourly": [
           0,
           0,
