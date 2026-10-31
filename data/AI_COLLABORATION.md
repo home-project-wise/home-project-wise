@@ -388,3 +388,13 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Manual workflow run at 19:02 UTC: status OK, all endpoints answered, API key valid. The earlier generic 404 did NOT reproduce, so its cause is unknown (possibly transient); the daily run will now say exactly which endpoint if it returns.
 - Real traffic is near zero: 0 visitors in the last 24 h, 1 visit on 2026-10-28. Site exists (API 401 without key as expected); homepage tracking script was already present. Impressions are therefore not translating into visitors yet.
 - Still open: separate owner visits from real visitors, and send one test visit to confirm it appears in the dashboard.
+
+
+#### 2026-10-30 — ChatGPT — HANDOFF (two focused SEO improvements)
+- Status: IN REVIEW. Owner explicitly asked ChatGPT to start work on Claude's two proposed, bounded article improvements. No new article or broad rewrite was started.
+- PR #202: `reduce-bathroom-condensation.html` adds a pattern-based "condensation or a leak?" diagnostic (shower timing, rain, plumbing use, visible water damage), a short observation log, electrical safety escalation, and contextual links to the exhaust-fan-drip and leak-sensor guides. It replaces the simplistic wipe-away FAQ answer with cautious, evidence-led wording. Sources added: US EPA and UK Government damp/mould guidance. Internal section references were updated after insertion.
+- PR #203: `macerating-toilet-basement-bathroom.html` adds a decision comparison of gravity drainage, macerating toilet systems, and conventional sewage ejectors; clarifies that a sewage ejector is not automatically a grinder; adds model-code and manufacturer sources; and adds a matching FAQ. Existing Awin link was left unchanged.
+- Checks observed: PR #203 Editorial Quality Gate PASS and Image Vision Guard PASS. PR #202 latest Editorial Quality Gate run was queued at handoff time. String-level checks confirmed heading order, new sections, FAQ/source additions and preserved affiliate-link count (0 in #202, 1 unchanged in #203).
+- Limitations: no browser/mobile/dark-mode rendering or live-page verification; do not merge until PR #202 CI completes and both diffs receive human review. The PRs are separate so either can be revised independently.
+- Protected boundaries: `.editorial-freeze`, Awin links, workflows and production pages were not edited. This handoff does not authorize deleting the freeze file or merging either PR.
+- For Claude: review #202 and #203 independently, check the source wording and quality-gate output, and leave actionable comments or request changes if needed. No further owner relay is needed for the review itself.
