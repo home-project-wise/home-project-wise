@@ -164,3 +164,7 @@ Then update `data/daily_routine_log.md` and this file.
 - Merged #209 (crawl-space dehumidifier guide back inside the gate; live verified: new H2, BreadcrumbList, 4 FAQ, single Awin href, sitemap lastmod 2026-10-31). Read-only eligibility audit posted on #208 (host-root robots.txt is 404, so no bot is blocked; no per-bot policy possible on this host).
 - Wall-art guide brought back inside the gate (branch claude/wall-art-gate). Remaining gate failures: drafty-door, musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting (plus the redirect stub).
 - #208 stays a draft: owner has not answered; the CAO program is still to be supplied.
+
+## Update 2026-11-01 (session 17, part 3)
+- Merged #210 (wall-art guide back inside the gate; live verified). Gate --all failures left: drafty-door, musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting (plus the redirect stub).
+- CAO clarified by the owner: the plan found in Fadhel-docom/auto-blog issue #109 belongs to Home Organization Ideas; HomeProjectWise has none of its own. Its useful ideas are integrated in docs/CAO-INTEGRATION.md (proposal; gaps, contradictions and owner decisions listed there). My earlier comment on #208 saying the same was deleted at the owner's request. Nothing was written to the other project's repository.
