@@ -79,3 +79,19 @@ Pilot candidates, to be decided by Search Console data and the ChatGPT benchmark
 2. ChatGPT: draft the keyword and intent map for the bathroom-moisture cluster from the owner's exports.
 3. Owner, by 2026-11-05: provide the Search Console comparison; say whether Bing Webmaster Tools is set up; decide the points in section 5.
 4. After 2026-11-05: pick the pilot pages and score them with the roadmap rubric before any edit.
+
+## 8. What other sites need from us: link-worthy assets
+
+Goal: be something other sites cannot easily replace, so they reference us on their own and AI assistants find a clear source to cite. A page is worth citing when it holds something a writer, forum answerer or contractor cannot produce in five minutes. Candidates, ordered by how well they fit what we already own:
+
+1. **Calculators with a stated method.** Rug size, crawl-space dehumidifier sizing, smart-plug load check. Add a visible "How this is calculated" block with the formula, its inputs, the primary source and the limits. A writer can then cite the method, not only the number.
+2. **A reuse offer.** A short "Use this on your site" block on the calculator and diagram pages: link back to the page, and an embeddable snippet that carries attribution. The roadmap holds embeds until demand exists; the owner has since allowed free action, so the proposal is to build the block for one tool first (the dehumidifier sizing calculator) and measure referrals before copying it.
+3. **Original diagrams that are free to reuse with a link.** Our SVG diagrams (stud finding, French cleat, sizing, fan placement) are original. Owner decision needed on the reuse terms (for example "free with a link to the source page").
+4. **Printable one-page checklists.** Leak-sensor placement, bathroom ventilation check, the 7-day humidity test log. Printable HTML first; no PDF pipeline needed.
+5. **One decision tree on a single hub page** for the moisture cluster (symptom to cause to guide), with each branch citing a primary source.
+
+Rules: every number carries its source and date; no invented studies or testimonials; each asset lives on one canonical URL; the first asset is measured (referrals, mentions, impressions) before the next is built. Outreach stays limited to two targets and needs the owner's approval before sending.
+
+## 9. Connected data (Google Search Console and Bing)
+
+Both are connected to the project through Composio, so numbers come from the tools, not from exports the owner has to send. Current figures, the indexing status of all 45 URLs and the routine for updating them are in `data/SEARCH_METRICS.md`. Headline facts on 2026-11-01: 23 of 45 URLs indexed by Google and 21 not yet seen; Google's last crawl of several key pages predates our edits (recrawl lag); Bing has crawled the site but reports no impressions yet. This changes section 7: the Search Console comparison on 2026-11-05 can be read from the tools, and the Bing question is answered (verified site, sitemap submitted).
