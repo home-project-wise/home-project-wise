@@ -1,10 +1,48 @@
 {
- "generated": "2026-10-25T04:16:18+00:00",
+ "generated": "2026-11-01T11:21:38+00:00",
  "rows": [
+  {
+   "article": "bathroom-exhaust-fan-dripping-water",
+   "result": {
+    "error": "The read operation timed out"
+   }
+  },
   {
    "article": "better-evening-home-lighting-without-overcomplicating-it",
    "result": {
     "error": "The read operation timed out"
+   }
+  },
+  {
+   "article": "calm-room",
+   "result": {
+    "accurate_honest": 9,
+    "actionable": 9,
+    "adds_value": 9,
+    "decision": "green",
+    "filler_level": 2,
+    "problem_clear": 10,
+    "top_issues": [
+     "Raw CMS/image placeholders remain in body copy ('AI-generated image...', 'Illustration by HomeProjectWise') in sections 1, 2, 3, and 5.",
+     "Slight overlap and redundancy between Section 8 (30-minute reset), Section 9 (weekly reset routine), and the FAQ."
+    ],
+    "unsupported_claims": []
+   }
+  },
+  {
+   "article": "choose-bathroom-exhaust-fan",
+   "result": {
+    "accurate_honest": 9,
+    "actionable": 9,
+    "adds_value": 10,
+    "decision": "green",
+    "filler_level": 1,
+    "problem_clear": 10,
+    "top_issues": [
+     "Sources and further reading: Contains a future review date ('October 26, 2026') which undermines perceived editorial credibility.",
+     "Step 5: Swap steps are brief summary points rather than a full step-by-step physical replacement procedure (though appropriate for a selection guide)."
+    ],
+    "unsupported_claims": []
    }
   }
  ]

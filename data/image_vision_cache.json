@@ -35,6 +35,18 @@
   "search_query": "reading chair floor lamp evening",
   "visible_description": "An armchair draped with a cozy throw blanket holds an open book, illuminated by a directed black floor reading lamp beside a small wooden side table in an evening room."
  },
+ "17e3c14faf24347d5e78a9f12bdf67b0e2e16d29": {
+  "alt_is_accurate": true,
+  "better_alt": "White ceiling exhaust fan grille above a glass shower enclosure with rising steam",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly and clearly illustrates a bathroom exhaust fan actively clearing shower steam, making it an engaging hero image.",
+  "search_query": "bathroom ceiling exhaust fan shower steam",
+  "visible_description": "A square white ceiling exhaust fan mounted directly above a glass-enclosed shower stall with a metal rain showerhead, with visible plumes of steam rising toward the fan grille."
+ },
  "2333b5686ac3137e8c5014a19edba414388ec060": {
   "alt_is_accurate": true,
   "better_alt": "Zipped cable sleeve on a desk leg beside a desk edge with a phone charger held by an adhesive clip.",
@@ -94,6 +106,19 @@
   "reason": "Directly illustrates using painter's tape to plan rug placement in a living room layout.",
   "search_query": "painters tape rug size floor",
   "visible_description": "A bright living room with an orange tape rectangle on hardwood flooring enclosing a coffee table in front of a sofa, accompanied by a tape measure and rolled rug."
+ },
+ "45fe5e73b181e76d355ac82a5952744e0aa70427": {
+  "accurate_honest": 9,
+  "actionable": 9,
+  "adds_value": 10,
+  "decision": "green",
+  "filler_level": 1,
+  "problem_clear": 10,
+  "top_issues": [
+   "Sources and further reading: Contains a future review date ('October 26, 2026') which undermines perceived editorial credibility.",
+   "Step 5: Swap steps are brief summary points rather than a full step-by-step physical replacement procedure (though appropriate for a selection guide)."
+  ],
+  "unsupported_claims": []
  },
  "4d7fa09aa06baf91559ca9eced9c01d075d75a54": {
   "accurate_honest": 9,
@@ -195,6 +220,9 @@
   "reason": "Works well aesthetically as a hero image setting a calm tone, but is a generic AI render rather than a practical demonstration.",
   "search_query": "calm uncluttered bright living room",
   "visible_description": "A bright living room featuring a neutral fabric sofa with cushions, a low wooden coffee table holding a small potted plant, a flat rug, and sunlight filtering through sheer white curtains."
+ },
+ "69cf25ac10724824b627e73d2a0587ad367e5514": {
+  "error": "The read operation timed out"
  },
  "71e92c7c59ceef3fd4cddaca39fe5da310b6557d": {
   "alt_is_accurate": false,
@@ -315,6 +343,19 @@
   "reason": "Shows large art hung over furniture, but functions merely as decorative interior staging without illustrating hanging techniques or hardware.",
   "search_query": "hanging large wall art frame",
   "visible_description": "A modern living room with a large square artwork of a classical statue face hung above a grey sofa, adjacent to dark wood wall slatted paneling, pendant lamps, and an indoor potted palm."
+ },
+ "92aaa84e949a492552f3bad88a819c6f56ea7f19": {
+  "accurate_honest": 9,
+  "actionable": 9,
+  "adds_value": 9,
+  "decision": "green",
+  "filler_level": 2,
+  "problem_clear": 10,
+  "top_issues": [
+   "Raw CMS/image placeholders remain in body copy ('AI-generated image...', 'Illustration by HomeProjectWise') in sections 1, 2, 3, and 5.",
+   "Slight overlap and redundancy between Section 8 (30-minute reset), Section 9 (weekly reset routine), and the FAQ."
+  ],
+  "unsupported_claims": []
  },
  "95ad12cbc7795b3fbcd13e9bea4617078c0a2ba1": {
   "alt_is_accurate": true,
@@ -520,6 +561,18 @@
   "search_query": "calm uncluttered living room interior",
   "visible_description": "A view through an open doorway into a living room with a beige sofa, framed landscape art on a sage wall, a wooden coffee table, a jute rug, potted plants, and soft natural window light."
  },
+ "dbd06142c02b5b50d184c7d6b4bd4f9279bbc621": {
+  "alt_is_accurate": true,
+  "better_alt": "Sunlit small living room with a gray sofa, round wood coffee table, jute rug, and open walkway to the window.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 7,
+  "reason": "Visually showcases a clear walking path and airy small-room layout, serving as an attractive, relevant opening hero image.",
+  "search_query": "small living room clear walkway",
+  "visible_description": "A bright living room featuring a gray fabric sofa with cushions, a round wooden coffee table on a woven jute rug, a media console, and a large sunlit window with sheer curtains."
+ },
  "dd8e9045c1baf8d9631f46512888b5cddbe69ade": {
   "alt_is_accurate": true,
   "better_alt": "Living room with leather couch, two armchairs, round wooden coffee table, and large window",
@@ -568,6 +621,18 @@
   "search_query": "motion sensor light hallway stairs",
   "visible_description": "A sunlit modern living room featuring a sectional sofa, wooden floors, a tiled fireplace, and sliding glass doors opening to an outdoor deck with a dining set and barbecue grill."
  },
+ "e54bde9bf69246e506bd120a4aee2835a231eb25": {
+  "alt_is_accurate": true,
+  "better_alt": "Steamy bathroom with heavy condensation covering the large window, mirror, and glass shower enclosure.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 8,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly illustrates heavy bathroom condensation on glass surfaces, fitting the topic and hero spot well despite being AI-generated.",
+  "search_query": "bathroom condensation steamy mirror window",
+  "visible_description": "Bright bathroom interior with heavy condensation droplets covering a large window, mirror, and glass shower wall, alongside a wooden vanity, ceiling vent, and a small round gauge on the sill."
+ },
  "ea88c3c5c2706731b0065915c08fb4d00aa77a72": {
   "alt_is_accurate": false,
   "better_alt": "Orange armchair and yellow sideboard beside potted plants with a round mirror on a beige wall.",
@@ -579,6 +644,9 @@
   "reason": "Vertical 3D render poorly suited for a hero slot; the small mirror reflects kitchen cabinets rather than expanding space or light.",
   "search_query": "living room mirror reflecting window",
   "visible_description": "A styled living area featuring an orange armchair, a yellow sideboard, potted plants, and a small round wall mirror reflecting kitchen cabinetry against a tall, plain wall."
+ },
+ "ee72b7029292020f6db012aa3a21a8291bdbc113": {
+  "error": "The read operation timed out"
  },
  "f2e3657c0e28bab9b9ee2f2eb828821fe327a811": {
   "alt_is_accurate": false,
@@ -603,6 +671,18 @@
   "reason": "The image shows a daylight scene dominated by a prominent ceiling chandelier, completely contradicting the caption and text promoting cozy evening lamp lighting.",
   "search_query": "cozy living room evening lamp lighting",
   "visible_description": "Brightly lit living room featuring a lit fireplace flanked by blue built-in bookcases, two modern armchairs, a glass coffee table, and an ornate globe chandelier hanging from the ceiling."
+ },
+ "ff909c4d2751cb65a946609f59f5002853705917": {
+  "alt_is_accurate": true,
+  "better_alt": "Hand holding three green paint sample boards in flat, satin, and semi-gloss finishes against a wall",
+  "has_text_or_watermark": false,
+  "hero_appeal": 9,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 10,
+  "reason": "Directly demonstrates differing paint sheens side by side under natural window light, perfectly introducing the article's core topic.",
+  "search_query": "paint sheen comparison sample boards",
+  "visible_description": "A hand holds three sage-green rectangular paint boards side-by-side against an off-white wall, showing flat, eggshell, and glossy sheens reflecting natural window light."
  },
  "fff0702d94ecb8425369526942c6b3fa39220dcf": {
   "alt_is_accurate": true,

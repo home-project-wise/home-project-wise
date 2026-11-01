@@ -1,7 +1,26 @@
 {
- "generated": "2026-10-25T04:14:17+00:00",
+ "generated": "2026-11-01T11:14:21+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
+  {
+   "after": "AI-generated image: water droplets forming on a bathroom exhaust fan grille. Water is dripping from your bathroom exhaust fan, which should move moisture out, not drop it on you. Usually it is condensation: warm shower air cools inside a cold duct, turns to water and runs back to the fan. Sometimes it is rain or snowmelt getting in from outside, an",
+   "alt": "White bathroom ceiling exhaust fan grille with water droplets forming on its edge and a faint damp ring on the ceiling around it",
+   "article": "bathroom-exhaust-fan-dripping-water",
+   "before": "pe\" content=\"article\"> All guides WEEKEND PROJECTS · BATHROOM VENTILATION Water Dripping From a Bathroom Exhaust Fan? Causes and Fixes",
+   "caption": "AI-generated image: water droplets forming on a bathroom exhaust fan grille.",
+   "index": 0,
+   "key": "local-fan-dripping-water-hero.jpg",
+   "path": "website/articles/bathroom-exhaust-fan-dripping-water.html",
+   "problems": [
+    "The read operation timed out"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/fan-dripping-water-hero.jpg",
+   "status": "error",
+   "title": "Water Dripping From a Bathroom Exhaust Fan? Causes and Fixes",
+   "vision": null
+  },
   {
    "after": "AI-generated image: layered warm lamps instead of one bright ceiling light. 1. Fix the activity before the lighting Start with what people are doing: reading on a sofa, preparing food, walking to the bathroom and watching television all need different light. A ceiling fixture that is fine for cleaning may be too bright for a quiet evening. Spend on",
    "alt": "Cozy living room in the evening lit by a floor lamp, a table lamp and soft wall light",
@@ -128,7 +147,7 @@
    "after": "AI-generated image: a calm room has one focal wall, soft light and a clear floor. 1. Start with what your eyes notice first Stand at the doorway and let your eyes move naturally. The first three objects that demand attention are your clues: a crowded coffee table, an overfilled shelf or a large piece of furniture pressed against a walkway can make ",
    "alt": "Calm living room seen from the doorway with a beige sofa, one framed landscape print, a low coffee table with a book and a plant, and soft lamp and window light",
    "article": "calm-room",
-   "before": "improve the light, clear visual noise, fix awkward paths, and build storage around daily habits.\" name=\"twitter:description\"/> All guides HOME DESIGN · PRACTICAL GUIDE How to make a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
+   "before": "ake a room feel calmer without buying everything new A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space. Quick answer: clear the first three things your eyes land on, keep one walking route about 90 cm (36 in) wide, test a lamp in place of the overhead light, and give recurring clutter a nearby home before you buy any storage.",
    "caption": "AI-generated image: a calm room has one focal wall, soft light and a clear floor.",
    "index": 0,
    "key": "local-calm-room-doorway-hero.jpg",
@@ -246,6 +265,62 @@
    }
   },
   {
+   "after": "AI-generated image: a bathroom exhaust fan pulling shower steam toward the ceiling grille. A fan can look right on the box and still leave the mirror fogged. The headline airflow is measured with almost no duct resistance, while your ceiling has a duct, bends and an outside cap. And a fan that roars gets switched off. This guide covers the airflow ",
+   "alt": "White bathroom ceiling exhaust fan grille above a shower, with faint steam drifting toward it",
+   "article": "choose-bathroom-exhaust-fan",
+   "before": "roperty=\"og:type\" content=\"article\"> All guides WEEKEND PROJECTS · BATHROOM VENTILATION How to Choose a Bathroom Exhaust Fan: CFM, Noise and Duct Size",
+   "caption": "AI-generated image: a bathroom exhaust fan pulling shower steam toward the ceiling grille.",
+   "index": 0,
+   "key": "local-bathroom-fan-hero.jpg",
+   "path": "website/articles/choose-bathroom-exhaust-fan.html",
+   "problems": [],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/bathroom-fan-hero.jpg",
+   "status": "keep",
+   "title": "How to Choose a Bathroom Exhaust Fan: CFM, Noise and Duct Size",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "White ceiling exhaust fan grille above a glass shower enclosure with rising steam",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 9,
+    "reason": "Directly and clearly illustrates a bathroom exhaust fan actively clearing shower steam, making it an engaging hero image.",
+    "search_query": "bathroom ceiling exhaust fan shower steam",
+    "visible_description": "A square white ceiling exhaust fan mounted directly above a glass-enclosed shower stall with a metal rain showerhead, with visible plumes of steam rising toward the fan grille."
+   }
+  },
+  {
+   "after": "AI-generated image: the same colour looks different in flat, eggshell and semi-gloss. The quick answer Ceilings: flat. Walls in a bedroom or dining room: matte or eggshell. Hallways and other walls that get touched: eggshell, or pearl/satin if you accept that it shows flaws more. Trim, doors and cabinets: semi-gloss, or satin/pearl for a softer loo",
+   "alt": "Three paint sample boards in flat, eggshell and semi-gloss finishes held against a wall, with window light showing how shiny each one looks",
+   "article": "choose-paint-finish-for-each-room",
+   "before": ", satin and semi-gloss change, which sheen suits walls, trim and bathrooms, and a 10-minute test.\"> All guides HOME DESIGN · PAINT FINISHES How to Choose a Paint Finish: Which Sheen for Walls, Trim and Bathrooms Pick the wrong finish and walls show every roller mark, or scuff at the first wipe. Here is how to choose a sheen for each surface before you buy, using the paint makers’ own guidance.",
+   "caption": "AI-generated image: the same colour looks different in flat, eggshell and semi-gloss.",
+   "index": 0,
+   "key": "local-paint-finish-hero.jpg",
+   "path": "website/articles/choose-paint-finish-for-each-room.html",
+   "problems": [],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/paint-finish-hero.jpg",
+   "status": "keep",
+   "title": "How to Choose a Paint Finish: Which Sheen for Walls, Trim and Bathrooms",
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Hand holding three green paint sample boards in flat, satin, and semi-gloss finishes against a wall",
+    "has_text_or_watermark": false,
+    "hero_appeal": 9,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 10,
+    "reason": "Directly demonstrates differing paint sheens side by side under natural window light, perfectly introducing the article's core topic.",
+    "search_query": "paint sheen comparison sample boards",
+    "visible_description": "A hand holds three sage-green rectangular paint boards side-by-side against an off-white wall, showing flat, eggshell, and glossy sheens reflecting natural window light."
+   }
+  },
+  {
    "after": "AI-generated image: find the cause of the wobble, then use the smallest fix. Use the smallest correction that matches the cause you have actually proved. Quick answer The short version: find the cause first, then use the smallest fix that matches it. Floor: if the wobble changes when you move the piece, the floor is the likely cause. Use a pad, shi",
    "alt": "Wooden table leg with a thin shim and felt pad under it and a small spirit level on the tabletop",
    "article": "fix-wobbly-furniture",
@@ -304,10 +379,10 @@
    }
   },
   {
-   "after": "AI-generated image: measure, mark and level before you hang large art. Disclosure: this article includes one affiliate link, marked as such in section 10. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. Measure and weigh before you touch the wall Weigh the piece. Step on a b",
+   "after": "AI-generated image: measure, mark and level before you hang large art. Disclosure: this article includes one affiliate link, marked as such in section 10. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. Short answer Hang the center of the piece about 57 inches (145 cm) above th",
    "alt": "Large framed abstract print hung above a sofa with a spirit level, pencil and tape measure on the console",
    "article": "how-to-hang-large-wall-art-without-damage",
-   "before": " decisions prevent that: height, what is behind the wall, hardware rated for the weight, and a French cleat for heavy or wide pieces. Short answer: hang the center of the piece about 57 inches (145 cm) above the floor, or 6 to 10 inches (15 to 25 cm) above the furniture below it. Fix it into a stud or into anchors rated well above its weight, and use two hanging points or a French cleat for wide pieces. Plan on paper first so you only drill once.",
+   "before": "our Walls\" name=\"twitter:title\"/> How to Hang Large Wall Art Without Damaging Your Walls All guides HOME DESIGN · WALL ART How to Hang Large Wall Art Without Damaging Your Walls The wrong hook leaves a hole in the wall and a broken frame. Four decisions prevent that: height, what is behind the wall, hardware rated for the weight, and a French cleat for heavy or wide pieces.",
    "caption": "AI-generated image: measure, mark and level before you hang large art.",
    "index": 0,
    "key": "local-wall-art-hero.jpg",
@@ -332,89 +407,72 @@
    }
   },
   {
-   "after": "Before hanging oversized art, measure the wall and furniture relationship, then level the frame. AI-generated image by HomeProjectWise. Where to look, and how we chose these options We looked at what suits a beginner hanging a large piece: a clear size range, a care guide, hardware or a reusable frame, and a clear return process. A specialist onlin",
-   "alt": "Large framed abstract artwork above a sofa, with a spirit level, pencil and tape measure on the console",
-   "article": "how-to-hang-large-wall-art-without-damage",
-   "before": "wall is old plaster that crumbles, or if you are mounting above a staircase or over a fireplace. Moving a hole costs little. Repairing a wire or a fallen frame does not. 10. Choosing oversized art Size, material, care and return terms matter more than style when the piece is large and ships in a big box. Check what hanging hardware is included, how the piece is finished, how it should be cleaned, and the return and damage policy before you order.",
-   "caption": "Before hanging oversized art, measure the wall and furniture relationship, then level the frame. AI-generated image by HomeProjectWise.",
-   "index": 1,
-   "key": "local-wall-art-hero.jpg",
-   "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
-   "problems": [
-    "daily quota exhausted"
-   ],
-   "role": "inner",
-   "section": "10. Choosing oversized art",
-   "src": "../images/wall-art-hero.jpg",
-   "status": "pending",
-   "title": "How to Hang Large Wall Art Without Damaging Your Walls",
-   "vision": null
-  },
-  {
    "after": "AI-generated image: keep the middle of the counter clear for prep and park the daily items to the side. Protect the preparation surface first; give the other jobs defined places so they do not take over. Quick plan Time About 30 minutes to set up, then a 2-minute reset each evening Cost Free. Buy storage only after the one-week test Best for Small ",
    "alt": "Sunlit kitchen counter with a clear wooden cutting board and knife in the center, and the kettle, toaster and fruit bowl pushed to the side",
    "article": "kitchen-counter-zone-that-stays-clear",
-   "before": "itle\"/> All guides STORAGE & ORGANIZATION · KITCHEN Kitchen Counter Zone That Stays Clear If your kitchen counter becomes a parking lot for appliances, mail and cups, do not start by organizing everything. Pick one working zone and make it easy to clear: a defined preparation surface, fewer permanent residents and a two-minute reset.",
+   "before": "Zone That Stays Clear If your kitchen counter becomes a parking lot for appliances, mail and cups, do not start by organizing everything. Pick one working zone and make it easy to clear: a defined preparation surface, fewer permanent residents and a two-minute reset. Why does kitchen clutter keep coming back? Usually because daily items lack a home, the counter mixes too many categories, and putting things away takes longer than leaving them out.",
    "caption": "AI-generated image: keep the middle of the counter clear for prep and park the daily items to the side.",
    "index": 0,
    "key": "local-kitchen-counter-hero.jpg",
    "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/kitchen-counter-hero.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "Kitchen Counter Zone That Stays Clear",
    "vision": null
   },
   {
-   "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. Disclosure: this article includes one affiliate link, marked as such in section 8. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Our advice does not depend on it. 1. What a macerating toilet does A regular toilet relies ",
+   "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. 1. What a macerating toilet does A regular toilet relies on gravity: waste drops into a pipe that slopes down to your main drain. A macerating toilet adds a small pump with a grinding blade behind or beside the bowl. It breaks waste down and pushes it through ",
    "alt": "A modern toilet in a basement with a macerating pump beside it, discharging upward through a thin pipe.",
    "article": "macerating-toilet-basement-bathroom",
-   "before": " manufacturers actually promise, the downsides, and what to check before you spend money. Short answer: a small pump grinds the waste and pushes it up through a thin pipe to your existing drain, so you can add a basement bathroom without cutting the slab. It works well if you can connect to a vent, have an outlet nearby and will keep wipes out of it. Check your local permit rules first, and compare real pumping limits, not just marketing numbers.",
+   "before": "extra cost to you. Our advice does not depend on it. Short answer for a basement bathroom Short answer: a small pump grinds the waste and pushes it up through a thin pipe to your existing drain, so you can add a basement bathroom without cutting the slab. It works well if you can connect to a vent, have an outlet nearby and will keep wipes out of it. Check your local permit rules first, and compare real pumping limits, not just marketing numbers.",
    "caption": "The pump sits beside the toilet and discharges waste up to the existing drain line above.",
    "index": 0,
    "key": "local-AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
    "path": "website/articles/macerating-toilet-basement-bathroom.html",
-   "problems": [],
+   "problems": [
+    "The read operation timed out"
+   ],
    "role": "hero",
-   "section": "Introduction",
+   "section": "Short answer for a basement bathroom",
    "src": "../images/AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
-   "status": "keep",
+   "status": "error",
    "title": "Macerating Toilet for a Basement Bathroom: Is It Worth It?",
-   "vision": {
-    "alt_is_accurate": true,
-    "better_alt": "Toilet in an unfinished basement beside a macerating pump unit with an upward discharge pipe.",
-    "has_text_or_watermark": false,
-    "hero_appeal": 7,
-    "is_generic_stock": false,
-    "looks_ai_generated": true,
-    "matches_section": 9,
-    "reason": "Directly illustrates a basement macerating toilet setup, though the unit appears to be a 3D render or AI dry-fit mockup.",
-    "search_query": "macerating toilet basement installation",
-    "visible_description": "A white toilet in an unfinished basement next to a grey macerating pump unit with a vertical PVC pipe running upwards, set against bare concrete and wood stud framing."
-   }
+   "vision": null
   },
   {
    "after": "AI-generated image: a clear walking path and plenty of daylight make a small room feel larger. 1. Start with the walking path, not the furniture catalog The fastest way to make a room feel cramped is to make people weave around furniture. Walk through the room as you normally do and notice where you hesitate, turn sideways or step around something.",
    "alt": "Bright small living room with a sofa, a round coffee table on a jute rug and a wide clear floor path to the window",
    "article": "make-small-living-room-feel-bigger",
-   "before": "e-project-wise/articles/make-small-living-room-feel-bigger.html\" property=\"og:url\"/> All guides HOME DESIGN · SMALL SPACES How to Make a Small Living Room Feel Bigger Without Buying New Furniture A small living room does not automatically need smaller furniture. Often the real problem is too many visual stops: a blocked walkway, seating that faces the wrong way, dark corners and items left in sight. Change the arrangement before you buy anything.",
+   "before": "ving Room Feel Bigger Without Buying New Furniture A small living room does not automatically need smaller furniture. Often the real problem is too many visual stops: a blocked walkway, seating that faces the wrong way, dark corners and items left in sight. Change the arrangement before you buy anything. Quick answer: clear the spot where you turn sideways, give the seating one job, remove one piece for a few days, and tape out any new rug first.",
    "caption": "AI-generated image: a clear walking path and plenty of daylight make a small room feel larger.",
    "index": 0,
    "key": "local-small-living-room-open-path-hero.jpg",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "quota exhausted"
+    "weak-match"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/small-living-room-open-path-hero.jpg",
-   "status": "pending",
+   "status": "weak",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Sunlit small living room with a gray sofa, round wood coffee table, jute rug, and open walkway to the window.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 7,
+    "reason": "Visually showcases a clear walking path and airy small-room layout, serving as an attractive, relevant opening hero image.",
+    "search_query": "small living room clear walkway",
+    "visible_description": "A bright living room featuring a gray fabric sofa with cushions, a round wooden coffee table on a woven jute rug, a media console, and a large sunlit window with sheer curtains."
+   }
   },
   {
    "after": "AI-generated image: a mirror that reflects the window and a plant adds light; one that reflects clutter does not. 8. Choose one visual focal point A room feels larger when the eye knows where to land. Choose one main feature (a window, artwork, fireplace, television wall or lamp arrangement) and reduce competition around it. The room need not be pl",
@@ -426,12 +484,12 @@
    "key": "local-small-living-room-mirror.jpg",
    "path": "website/articles/make-small-living-room-feel-bigger.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "inner",
    "section": "7. Use a mirror only where it reflects something useful",
    "src": "../images/small-living-room-mirror.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "How to Make a Small Living Room Feel Bigger Without Buying New Furniture",
    "vision": null
   },
@@ -503,39 +561,48 @@
    "key": "local-entryway-hooks-bench-hero.jpg",
    "path": "website/articles/quiet-entryway-storage.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/entryway-hooks-bench-hero.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "Quiet Entryway Storage",
    "vision": null
   },
   {
-   "after": "AI-generated image: warm, wet air meets cold glass, and the droplets show where the moisture lands. Start with the cheapest step. Move down only if needed. 1. Why bathroom condensation happens Warm air holds more water vapor than cool air, and a hot shower adds a lot of vapor quickly. When that air touches a colder window, mirror, tile or outside w",
+   "after": "AI-generated image: warm, wet air meets cold glass, and the droplets show where the moisture lands. Quick plan: start with the cheapest fix Fix it in this order. Condensation means warm, humid air is reaching a cold surface with nowhere to go. Start free, re-measure after each step, and stop when humidity is back below 60% within 20 minutes of fini",
    "alt": "Steamy bathroom window and mirror covered in condensation droplets, with a humidity gauge on the windowsill, a ceiling fan vent and a shower beside the sink",
    "article": "reduce-bathroom-condensation",
-   "before": "t running for 20 minutes after; keep the gap under the door clear; lower the water temperature a little; keep the door closed while you shower. Under $20 each: a hygrometer to measure, a squeegee for the window and mirror, and window insulating film if the glass is single-glazed. Bigger job: a run-on timer or humidity-sensing fan control, trimming the bottom of the door, or a bigger fan with a short, rigid duct that vents outside (see section 7).",
+   "before": "itter:title\"/> How to Reduce Bathroom Condensation: A Step-by-Step Fix All guides WEEKEND PROJECTS · BATHROOM How to Reduce Bathroom Condensation: A Step-by-Step Fix Foggy mirrors are normal. Water running down the window and damp corners that stay wet for hours are not. This guide shows how to measure the problem and fix it in the right order.",
    "caption": "AI-generated image: warm, wet air meets cold glass, and the droplets show where the moisture lands.",
    "index": 0,
    "key": "local-condensation-steamy-bathroom-hero.jpg",
    "path": "website/articles/reduce-bathroom-condensation.html",
-   "problems": [
-    "quota exhausted"
-   ],
+   "problems": [],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/condensation-steamy-bathroom-hero.jpg",
-   "status": "pending",
+   "status": "keep",
    "title": "How to Reduce Bathroom Condensation: A Step-by-Step Fix",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Steamy bathroom with heavy condensation covering the large window, mirror, and glass shower enclosure.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 8,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 9,
+    "reason": "Directly illustrates heavy bathroom condensation on glass surfaces, fitting the topic and hero spot well despite being AI-generated.",
+    "search_query": "bathroom condensation steamy mirror window",
+    "visible_description": "Bright bathroom interior with heavy condensation droplets covering a large window, mirror, and glass shower wall, alongside a wooden vanity, ceiling vent, and a small round gauge on the sill."
+   }
   },
   {
    "after": "AI-generated image: a power strip mounted under the desk and the cables gathered in a tray with reusable ties, still easy to reach. Start by mapping what each cable does AI-generated image: tag each cable near the device before you bundle anything, so the monitor, charger, lamp and laptop cables stay distinct. Do not tie anything together yet. Trac",
    "alt": "Tidy desk with a laptop and monitor, a power strip mounted under the desktop and cables gathered in a metal tray with reusable ties",
    "article": "reduce-cable-clutter",
-   "before": "\"/> All guides STORAGE & ORGANIZATION · CABLES Reduce Cable Clutter: A Simple System That Stays Serviceable A tidy cable setup should still be easy to unplug and change. Remove cables that do nothing, shorten the routes that remain and keep what changes often within reach. You do not need to hide every wire in a box.",
+   "before": " Stays Serviceable A tidy cable setup should still be easy to unplug and change. Remove cables that do nothing, shorten the routes that remain and keep what changes often within reach. You do not need to hide every wire in a box. What is cable clutter? Cable clutter is the visible tangle of cords, chargers and adapters around a desk, TV or outlet, including cables that connect nothing. It makes a setup harder to identify, clean around and change.",
    "caption": "AI-generated image: a power strip mounted under the desk and the cables gathered in a tray with reusable ties, still easy to reach.",
    "index": 0,
    "key": "local-cable-clutter-hero.jpg",
@@ -565,7 +632,7 @@
    "after": "AI-generated image: tag each cable near the device before you bundle anything, so the monitor, charger, lamp and laptop cables stay distinct. Do not tie anything together yet. Trace one cable at a time from the device to the power source or other connection, and note whether it carries power, display, network, charging or an accessory. If you canno",
    "alt": "Top view of a desk where hands clip a small colored tag onto a monitor cable, with tags already on a charger, lamp and laptop cable",
    "article": "reduce-cable-clutter",
-   "before": "· CABLES Reduce Cable Clutter: A Simple System That Stays Serviceable A tidy cable setup should still be easy to unplug and change. Remove cables that do nothing, shorten the routes that remain and keep what changes often within reach. You do not need to hide every wire in a box. AI-generated image: a power strip mounted under the desk and the cables gathered in a tray with reusable ties, still easy to reach. Start by mapping what each cable does",
+   "before": " within reach. You do not need to hide every wire in a box. What is cable clutter? Cable clutter is the visible tangle of cords, chargers and adapters around a desk, TV or outlet, including cables that connect nothing. It makes a setup harder to identify, clean around and change. AI-generated image: a power strip mounted under the desk and the cables gathered in a tray with reusable ties, still easy to reach. Start by mapping what each cable does",
    "caption": "AI-generated image: tag each cable near the device before you bundle anything, so the monitor, charger, lamp and laptop cables stay distinct.",
    "index": 1,
    "key": "local-cable-clutter-map.jpg",
@@ -687,12 +754,12 @@
    "key": "local-home-reset-hero.jpg",
    "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/home-reset-hero.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "Simple Home Reset That Prevents Weekend Chaos",
    "vision": null
   },
@@ -706,12 +773,12 @@
    "key": "local-home-reset-tomorrow.jpg",
    "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "inner",
    "section": "1. Reset for tomorrow, not for perfection",
    "src": "../images/home-reset-tomorrow.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "Simple Home Reset That Prevents Weekend Chaos",
    "vision": null
   },
@@ -719,23 +786,23 @@
    "after": "AI-generated image: reset the entryway before morning so tomorrow's departure is simple. 6. Finish the visible rubbish and recycling During the reset, collect obvious rubbish from the main living and kitchen areas and move recycling to its normal place, without turning it into a whole-house inspection. If rubbish keeps accumulating in the same room",
    "alt": "Tidy entryway in the morning with keys in a tray, a packed bag, lined-up shoes and one coat on a hook",
    "article": "simple-home-reset-that-prevents-weekend-chaos",
-   "before": "set the entryway before morning The entryway can turn a calm morning into a search exercise. Put daily coats and bags on their hooks, return keys to the landing zone and reduce shoes to the pairs normally used; seasonal overflow should already live elsewhere. It takes little time and pays off because everyone passes through during departures. A small evening reset prevents mornings that start with “Where are my keys?” and “Whose shoes are these?”",
+   "before": " to the landing zone and reduce shoes to the pairs normally used; seasonal overflow should already live elsewhere. It takes little time and pays off because everyone passes through during departures. A small evening reset prevents mornings that start with “Where are my keys?” and “Whose shoes are these?” If the entrance keeps filling up despite the reset, the quiet entryway storage guide covers hooks, a small landing zone and a shallow shoe zone.",
    "caption": "AI-generated image: reset the entryway before morning so tomorrow's departure is simple.",
    "index": 2,
    "key": "local-entryway-morning-reset.jpg",
    "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "inner",
    "section": "5. Reset the entryway before morning",
    "src": "../images/entryway-morning-reset.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "Simple Home Reset That Prevents Weekend Chaos",
    "vision": null
   },
   {
-   "after": "AI-generated image: few items on surfaces and a squeegee within reach make a small bathroom quick to wipe. Short answer: do not start by buying more storage. First reduce what gets wet, remove unnecessary items from the sink, keep the floor open, give towels enough room to dry and keep your basic cleaning tools within easy reach. The goal is not a ",
+   "after": "AI-generated image: few items on surfaces and a squeegee within reach make a small bathroom quick to wipe. Short answer: do not start by buying more storage. First reduce what gets wet, remove unnecessary items from the sink, keep the floor open, give towels enough room to dry and keep your basic cleaning tools within easy reach. The goal is a quic",
    "alt": "Small white bathroom with a pedestal sink, a mirror, a wall shelf and a glass shower with a squeegee on a hook, few items left out",
    "article": "small-bathroom-easier-to-clean",
    "before": "room Easier to Clean Without Remodeling\"> All guides WEEKEND PROJECTS · BATHROOM How to Make a Small Bathroom Easier to Clean Without Remodeling If a small bathroom looks dirty again soon after you clean it, the room setup is often the cause, not your routine. This guide removes the small frictions that make it harder to keep clean.",
@@ -744,12 +811,12 @@
    "key": "local-small-bathroom-hero.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "quota exhausted"
+    "The read operation timed out"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/small-bathroom-hero.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
    "vision": null
   },
@@ -763,7 +830,7 @@
    "key": "local-small-bathroom-sink-water.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "3. Stop water from becoming tomorrow's cleaning job",
@@ -782,7 +849,7 @@
    "key": "local-small-bathroom-floor-layout.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "4. Keep the floor open enough to clean in one pass",
@@ -801,7 +868,7 @@
    "key": "local-smart-home-privacy-hero.jpg",
    "path": "website/articles/smart-home-privacy-check.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -820,7 +887,7 @@
    "key": "local-smart-home-wifi-outage-hero.jpg",
    "path": "website/articles/smart-home-wifi-outage-test.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -833,13 +900,13 @@
    "after": "Product-style flat lay of smart-home devices. Short answer: renting, or cannot touch the wiring? Use smart bulbs. Own the home, have a neutral wire at the switch and several bulbs on one fixture? A smart switch is usually cheaper and keeps the wall switch working. Not sure about the neutral? Do not open the box to find out (see section 2): use smar",
    "alt": "Smart lighting products arranged on a pink and orange background: a phone, smart bulbs, a motion sensor and a camera",
    "article": "smart-lighting",
-   "before": "ets/img/smart-lighting-hero.jpg\" name=\"twitter:image\"/> All guides SMART HOME · LIGHTING Smart Bulb or Smart Switch? How to Choose Both make a light smart. They fail in different ways, cost differently and suit different homes. This guide helps you choose in about five minutes.",
+   "before": "home-project-wise/assets/img/smart-lighting-hero.jpg\"/> All guides SMART HOME · LIGHTING Smart Bulb or Smart Switch? How to Choose Both make a light smart. They fail in different ways, cost differently and suit different homes. This guide helps you choose in about five minutes.",
    "caption": "Product-style flat lay of smart-home devices.",
    "index": 0,
    "key": "local-smart-lighting-hero.jpg",
    "path": "website/articles/smart-lighting.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -849,22 +916,41 @@
    "vision": null
   },
   {
-   "after": "AI-generated image: a warm, low bedside light. A smart bulb can give you this same glow on a schedule. If you use smart bulbs, stop the wall switch being flipped by mistake. A switch cover or a wireless remote keeps the bulb powered. See our guides to evening lighting and motion lighting . 5. Wi-Fi, hub, Zigbee or Matter? Smart bulbs and switches r",
+   "after": "AI-generated image: a warm, low bedside light. Combine a smart bulb with a normal switch where it makes sense, and the glow follows a schedule. If you use smart bulbs, stop the wall switch being flipped by mistake. A switch cover or a wireless remote keeps the bulb powered. See our guides to evening lighting and motion lighting . 5. Wi-Fi, hub, Zig",
    "alt": "A bedside lamp with a warm glow beside a phone on a stand, a plant and a pair of glasses",
    "article": "smart-lighting",
    "before": "ires (a live and a switched live) and no neutral. There the usual options are smart bulbs, or a two-wire smart switch that lists your bulbs and its minimum load. Do not assume either way: some newer installations do bring a neutral to the switch, so have it checked by a qualified electrician. 4. Combine them where it makes sense Many homes use both: smart switches for overhead lights, smart bulbs for bedside lamps where you want a warm, low glow.",
-   "caption": "AI-generated image: a warm, low bedside light. A smart bulb can give you this same glow on a schedule.",
+   "caption": "AI-generated image: a warm, low bedside light. Combine a smart bulb with a normal switch where it makes sense, and the glow follows a schedule.",
    "index": 1,
    "key": "local-warm-bedside-light.jpg",
    "path": "website/articles/smart-lighting.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "4. Combine them where it makes sense",
    "src": "../images/warm-bedside-light.jpg",
    "status": "pending",
    "title": "Smart Bulb or Smart Switch? How to Choose",
+   "vision": null
+  },
+  {
+   "after": "AI-generated image: a smart thermostat base with its wires visible and a phone showing a setup check. A smart thermostat that loses power shows it quickly: a dim screen, dropped Wi-Fi or a draining battery. The cause is often a missing C-wire, the thin wire that supplies constant power. Many homes lack one at the thermostat, and that does not alway",
+   "alt": "Wall-mounted smart thermostat with its faceplate removed, showing the wiring base with small low-voltage wires and a hand holding a phone nearby",
+   "article": "smart-thermostat-without-c-wire",
+   "before": "ta property=\"og:type\" content=\"article\"> All guides SMART HOME · THERMOSTATS Smart Thermostat Without a C-Wire: Check First, Then Pick the Fix",
+   "caption": "AI-generated image: a smart thermostat base with its wires visible and a phone showing a setup check.",
+   "index": 0,
+   "key": "local-thermostat-c-wire-hero.jpg",
+   "path": "website/articles/smart-thermostat-without-c-wire.html",
+   "problems": [
+    "time budget used"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/thermostat-c-wire-hero.jpg",
+   "status": "pending",
+   "title": "Smart Thermostat Without a C-Wire: Check First, Then Pick the Fix",
    "vision": null
   },
   {
@@ -877,7 +963,7 @@
    "key": "local-drafty-door-weatherstrip-hero.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -896,7 +982,7 @@
    "key": "local-drafty-door-paper-test.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "Find the draft before buying anything",
@@ -915,7 +1001,7 @@
    "key": "local-drafty-door-weatherstrip-check.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "Inspect the existing weatherstripping",
@@ -934,7 +1020,7 @@
    "key": "local-drafty-door-measure-gap.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "inner",
    "section": "Inspect the existing weatherstripping",
@@ -953,7 +1039,7 @@
    "key": "local-mail-paper-tray-hero.jpg",
    "path": "website/articles/stop-mail-and-paper-pile.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -972,7 +1058,7 @@
    "key": "local-musty-towels-hero.jpg",
    "path": "website/articles/stop-musty-bathroom-towels.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -991,7 +1077,7 @@
    "key": "local-smart-plug-safe-load-hero.jpg",
    "path": "website/articles/what-can-you-plug-into-a-smart-plug.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -1001,22 +1087,41 @@
    "vision": null
   },
   {
-   "after": "A reading under 60% means the unit is working; aim to settle near 50%. Illustrative image created with Canva; the reading is an example. Disclosure: This post contains an affiliate link. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. The most common crawl space mistake is not skipping the dehumidifier. It is b",
+   "after": "A reading under 60% means the unit is working; aim to settle near 50%. Illustrative image created with Canva; the reading is an example. Disclosure: This post contains an affiliate link. If you buy through it, HomeProjectWise may earn a commission at no extra cost to you. Why the wrong size fails The most common crawl space mistake is not skipping ",
    "alt": "Homeowner holding a hygrometer that reads 58 percent in a sealed crawl space, with a dehumidifier on a paver base draining through a hose",
    "article": "what-size-dehumidifier-crawl-space",
-   "before": "t right, and confirm it works within a week.\"> Guides About All guides WEEKEND PROJECTS · MOISTURE CONTROL What Size Dehumidifier Does a Crawl Space Need? A Simple 10-Minute Check Bought a dehumidifier and the crawl space is still damp? Here is how to size one properly, where to put it, and how to tell in 7 days if it is working.",
+   "before": "right, and confirm it works within a week.\"> Guides About All guides WEEKEND PROJECTS · MOISTURE CONTROL What Size Dehumidifier Does a Crawl Space Need? A Simple 10-Minute Check Bought a dehumidifier and the crawl space is still damp? Here is how to size one properly, where to put it, and how to tell in 7 days if it is working.",
    "caption": "A reading under 60% means the unit is working; aim to settle near 50%. Illustrative image created with Canva; the reading is an example.",
    "index": 0,
    "key": "local-crawl-space-dehumidifier-hero.jpg",
    "path": "website/articles/what-size-dehumidifier-crawl-space.html",
    "problems": [
-    "quota exhausted"
+    "time budget used"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/crawl-space-dehumidifier-hero.jpg",
    "status": "pending",
    "title": "What Size Dehumidifier Does a Crawl Space Need? A Simple 10-Minute Check",
+   "vision": null
+  },
+  {
+   "after": "AI-generated image: a small leak sensor on the floor beside a washing machine, with a phone alert. A slow leak under a sink or behind a washer is easy to miss until a stain or a musty smell shows up. A leak sensor is a small device that sounds an alarm or messages your phone when water touches it, but only where you put it. This guide shows the six",
+   "alt": "Small leak sensor lying on a laundry room floor beside a washing machine hose connection, with a phone nearby showing a water alert",
+   "article": "where-to-put-water-leak-sensors",
+   "before": "erty=\"og:type\" content=\"article\"> All guides SMART HOME · LEAK SENSORS Where to Put Water Leak Sensors: Six Spots That Catch Leaks Early",
+   "caption": "AI-generated image: a small leak sensor on the floor beside a washing machine, with a phone alert.",
+   "index": 0,
+   "key": "local-water-leak-sensor-hero.jpg",
+   "path": "website/articles/where-to-put-water-leak-sensors.html",
+   "problems": [
+    "time budget used"
+   ],
+   "role": "hero",
+   "section": "Introduction",
+   "src": "../images/water-leak-sensor-hero.jpg",
+   "status": "pending",
+   "title": "Where to Put Water Leak Sensors: Six Spots That Catch Leaks Early",
    "vision": null
   }
  ]
