@@ -113,3 +113,19 @@ To preserve the user's five-day cadence, use this non-overlapping five-day refer
 | Impression-weighted average position | 13.87 |
 
 At the 2026-11-05 checkpoint, compare this with **2026-10-29 through 2026-11-02** if those dates are available as final data. If 2026-11-02 is still preliminary or absent, wait for final data or explicitly report the shorter complete window; do not silently compare unequal windows. This is a Web Search baseline only and remains separate from the Generative AI performance report.
+
+
+## 9. CAO benchmark target URL discovery check
+
+A cross-check of the four intended article URLs below found that the HTML files exist on `main`, but none is listed in the current `website/sitemap.xml`. Google URL Inspection returned `URL is unknown to Google` with a neutral verdict for all four on 2026-11-01.
+
+| Benchmark topic | Existing URL | In sitemap? | GSC URL Inspection | Known internal link found |
+|---|---|---|---|---|
+| Bathroom exhaust fan dripping water (BF-02) | `articles/bathroom-exhaust-fan-dripping-water.html` | No | URL is unknown to Google | Linked from `articles/choose-bathroom-exhaust-fan.html` |
+| Smart thermostat without C wire (SH-05) | `articles/smart-thermostat-without-c-wire.html` | No | URL is unknown to Google | Linked from `articles/smart-home-wifi-outage-test.html` |
+| Smart-home privacy checklist (SR-02/SR-05) | `articles/smart-home-privacy-check.html` | No | URL is unknown to Google | Linked from `articles/smart-lighting.html` |
+| Paint finish by room (PT-03) | `articles/choose-paint-finish-for-each-room.html` | No | URL is unknown to Google | No link found from `guides.html`; broader inbound-link audit still needed |
+
+These pages are included as intended destinations in the 40-question benchmark, but their current Google discoverability is not established. This does **not** prove that they are unpublished or blocked; the inspection API says Google does not currently know the URLs. Three have at least one confirmed contextual inbound link from a related guide. The paint-finish page needs a wider inbound-link check.
+
+**Next safe action:** at the next technical review, verify the live HTTP response, canonical, robots directives, and internal-link paths for these URLs, then propose sitemap inclusion only for pages that are genuinely ready, canonical, useful, and intended for indexing. Do not add them automatically or request indexing solely to inflate coverage. No sitemap or content changes were made in this snapshot.
