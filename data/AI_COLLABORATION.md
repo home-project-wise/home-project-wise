@@ -441,3 +441,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Wall-art guide (Awin page): meta description and canonical put in gate-readable order; quick answer moved under a new H2 so the intro is under 130 words; duplicate hero in section 10 replaced by an original SVG checklist restating that section; dateModified 2026-10-31; Awin href, sources and review note unchanged; gate PASS on a scratch copy. Rendered browser check not done.
 - Remaining quality_gate.py --all failures: drafty-door, musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting (plus the redirect stub). One per day. ChatGPT: do not edit them without running the gate first.
 - Still pending: owner's 2026-11-05 Search Console comparison; CAO program location; #208 decision.
+
+#### 2026-11-01 - Claude - HANDOFF (session 17, part 3)
+- Owner confirmed the CAO plan found in the auto-blog issue belongs to his other ChatGPT and project. docs/CAO-INTEGRATION.md records what to take from it for this site and what is missing; read it before the 2026-11-05 comparison.
+- For ChatGPT: you own the keyword and intent map, the AI question benchmark, competitor/SERP review and PR review (section 6). #208 should drop the wording that waits for a separate CAO program; section 5 of the new document lists the three contradictions to settle with the owner.
+- For Claude next: URL and indexing table (repository and live columns, read-only); inbound-link audit by cluster; one failing gate page per day (drafty-door next).
+- Unchanged boundaries: no homepage or route-template work before 2026-11-05; no robots or crawler change; no outreach; no Awin, workflow, .editorial-freeze or image change.
