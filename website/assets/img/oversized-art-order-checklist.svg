@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="t d">
+  <title id="t">Four checks before ordering oversized art</title>
+  <desc id="d">Checklist of four things to check before ordering large wall art: size against the wall and furniture, hanging hardware included, finish and care, and the return and damage policy.</desc>
+  <rect width="1000" height="560" fill="#F7F5F0"/>
+  <text x="40" y="52" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#243238">Before you order oversized art</text>
+  <rect x="40" y="64" width="80" height="6" rx="3" fill="#D97745"/>
+  <rect x="40" y="100" width="440" height="170" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+  <circle cx="84" cy="146" r="22" fill="#D97745"/>
+  <text x="84" y="153" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#fff">1</text>
+  <text x="122" y="154" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#243238">Size</text>
+  <text x="68" y="200" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">Does it suit the wall and the</text>
+  <text x="68" y="226" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">furniture width below it?</text>
+  <rect x="520" y="100" width="440" height="170" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+  <circle cx="564" cy="146" r="22" fill="#D97745"/>
+  <text x="564" y="153" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#fff">2</text>
+  <text x="602" y="154" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#243238">Hanging hardware</text>
+  <text x="548" y="200" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">Is any hardware included,</text>
+  <text x="548" y="226" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">and is it rated for the weight?</text>
+  <rect x="40" y="300" width="440" height="170" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+  <circle cx="84" cy="346" r="22" fill="#D97745"/>
+  <text x="84" y="353" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#fff">3</text>
+  <text x="122" y="354" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#243238">Finish and care</text>
+  <text x="68" y="400" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">How is it finished and how</text>
+  <text x="68" y="426" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">should it be cleaned?</text>
+  <rect x="520" y="300" width="440" height="170" rx="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+  <circle cx="564" cy="346" r="22" fill="#D97745"/>
+  <text x="564" y="353" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#fff">4</text>
+  <text x="602" y="354" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#243238">Return and damage policy</text>
+  <text x="548" y="400" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">What happens if it arrives</text>
+  <text x="548" y="426" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#243238">damaged or does not fit?</text>
+</svg>

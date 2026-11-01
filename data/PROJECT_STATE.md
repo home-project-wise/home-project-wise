@@ -159,3 +159,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Crawl-space dehumidifier guide brought back inside the quality gate (PR from claude/crawl-space-gate): intro split under a new H2, two captions reworded, BreadcrumbList added, one FAQ added that restates the Step 6 test. Remaining gate failures: 7 guides plus the redirect stub (wall art next, it carries an Awin link).
 - Open PR #208 (ChatGPT, draft, docs only: four-engine roadmap and AI search visibility plan). Not merged: the draft says no merge is authorized and the owner has not answered. Read-only technical eligibility audit it asks Claude for was done and posted on the PR (summary in AI_COLLABORATION.md).
 - Constraint still in force: no homepage or route-template implementation before the owner's 2026-11-05 Search Console comparison.
+
+## Update 2026-10-31 (session 17, part 2)
+- Merged #209 (crawl-space dehumidifier guide back inside the gate; live verified: new H2, BreadcrumbList, 4 FAQ, single Awin href, sitemap lastmod 2026-10-31). Read-only eligibility audit posted on #208 (host-root robots.txt is 404, so no bot is blocked; no per-bot policy possible on this host).
+- Wall-art guide brought back inside the gate (branch claude/wall-art-gate). Remaining gate failures: drafty-door, musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting (plus the redirect stub).
+- #208 stays a draft: owner has not answered; the CAO program is still to be supplied.
