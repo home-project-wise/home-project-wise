@@ -169,3 +169,104 @@ For each experiment, record baseline, change, date, comparison window, other cha
 - No homepage, route-template, or title changes before the 2026-11-05 Search Console comparison.
 - No Awin link changes, no workflow changes, no .editorial-freeze changes, and no publishing/merge authorization from this plan.
 - The full Value Before Publishing law and the 85/100 threshold remain mandatory.
+
+
+## 10. Google Search generative AI — mandatory Search Console audit
+
+**Global availability:** Google states that the Search generative AI control and generative-AI performance insights were rolled out to all websites worldwide as of **2026-08-31**. This is now a required checkpoint, not a future or optional experiment.
+
+Official documentation:
+- Search generative AI control: https://support.google.com/webmasters/answer/16908024
+- Generative AI performance report (Search): https://support.google.com/webmasters/answer/16984139
+- Google Search Central announcement: https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports
+
+### 10.1 Check the inclusion control first
+
+In the correct verified Search Console property, open **Settings → Search generative AI** and record:
+
+- Property inspected and inspection date.
+- Current choice: include, exclude, or inherit from parent.
+- If inherited, the effective parent property and its setting.
+- Screenshot/export or other reproducible evidence of the displayed state.
+
+**Desired eligibility state:** "Include my site's links and content in Search generative AI features." Google says this permits eligible pages to appear as links and help ground responses in AI Overviews, AI Mode, and generative-AI features in Discover. Excluding the site prevents its links/content from appearing in those features. Google says this control does not change ranking in other parts of Search.
+
+Do not assume the default or inheritance state without checking the actual property. If the property is excluded, document the consequence and request owner confirmation before changing the setting. Do not change it silently. Record any approved change and its date.
+
+### 10.2 Inspect the Generative AI performance report
+
+In Search Console, open the **Generative AI performance** report for Search and record:
+
+- Total impressions and trend over the selected period.
+- Pages receiving impressions, with exact canonical URLs.
+- Country and device breakdowns.
+- Date range, granularity, property, and retrieval date.
+- Pages with impressions that are not yet in our 40-question benchmark.
+
+The report covers AI Overviews and AI Mode in Google Search. The separate Discover report covers generative-AI features in Discover. The documented dimensions are pages, countries, dates, and (for Search) devices. Do not treat this report as a query report or click report: track ordinary Search clicks and visits separately, and do not invent query/click attribution where the report does not provide it.
+
+If the report is not visible, first verify the correct property and inclusion control; Google notes that a property may not show a report when it has not received enough generative-AI impressions. Record "not available / insufficient data" rather than zero.
+
+### 10.3 Reporting cadence and interpretation
+
+- Establish the first available report snapshot now, dated 2026-11-01, without changing page content.
+- Review it alongside the existing five-day progress check, but preserve the scheduled **2026-11-05** Search Console comparison and its clean measurement window.
+- At each review, compare generative-AI impressions and cited pages separately from standard Web Search clicks, total impressions, CTR, and average position.
+- Keep the 40 fixed questions in [CAO-AI-QUESTION-BENCHMARK.md](CAO-AI-QUESTION-BENCHMARK.md). For any observed Google AI citation, record the exact question (if observable), page URL, country, date, answer context, and whether the page genuinely supports the answer. Do not infer a prompt from an impression.
+- Treat AI impressions as visibility, not a click, visit, endorsement, ranking, or proof of business value.
+
+## 11. Search optimisation checklist — keywords, pages, links, and technical foundations
+
+Apply this checklist to existing pages and approved work. It is a diagnostic standard, not permission to edit frozen pages.
+
+### 11.1 Keyword and intent research
+
+For every target page, document primary query/cluster, secondary natural-language questions, search intent, target country/language, current Search Console queries and metrics, matching URL, SERP features, competitor pages actually reviewed, and date/source. Separate informational, troubleshooting, comparison, calculator, and purchase intent.
+
+Use exact Search Console evidence where available; use external keyword tools or SERP observations only with source/date labels. Never invent search volume, difficulty, ranking, or traffic potential. Assign one primary page to one distinct intent. Merge overlapping intents into the best existing resource rather than creating competing pages. Include question phrasing and synonyms naturally; never stuff repeated exact-match keywords.
+
+### 11.2 On-page usefulness and relevance
+
+For each approved page, check that:
+- The title and H1 accurately describe the visitor's task and are distinct from other site pages.
+- The opening gives a concise, correct answer and explains when the answer changes.
+- Headings form a logical decision path rather than a list of keyword variants.
+- The page contains useful steps, measurements, units, examples, comparisons, and limits where relevant and verified.
+- Meta description accurately previews the page and encourages the right click without promising unsupported outcomes.
+- Images have descriptive filenames where practical, useful alt text (not keyword stuffing), appropriate dimensions/compression, and meaningful captions when needed.
+- Internal and external links help the reader take the next step; affiliate disclosures and existing affiliate URLs are preserved.
+- Structured data is valid, matches visible content, and is used only for eligible content types. No invented reviews, ratings, authorship, FAQ markup, or special "AI schema" shortcuts.
+
+### 11.3 Internal links and site architecture
+
+Maintain a hub-and-supporting-page map for each topic cluster. Every important page should be reachable through ordinary crawlable HTML links, not only search, JavaScript events, or sitemap discovery. Use concise descriptive anchor text that explains the destination. Check orphan pages, broken links, redirect chains, duplicate/canonical conflicts, breadcrumbs, category hubs, and relevant tool links. Add links only where the destination is genuinely useful; avoid sitewide exact-match anchor repetition.
+
+### 11.4 Technical SEO and indexation
+
+For every sitemap URL, periodically verify HTTP status, redirect destination, canonical, robots meta and X-Robots-Tag, sitemap inclusion, internal discoverability, mobile rendering, and Google/Bing index state with the relevant inspection tools. Separate "not indexed", "not discovered", "crawled not indexed", and "unknown/unavailable". A 200 response or sitemap entry does not prove indexing. Check page speed/Core Web Vitals and mobile usability using measured data; fix material problems before cosmetic tuning. Preserve the existing constraint against homepage, route-template, title, robots, hosting, and workflow changes before the 2026-11-05 comparison or without owner approval.
+
+### 11.5 External sharing, distribution, and earned links
+
+The objective is useful discovery, not manufactured backlinks. Before sharing, confirm that the destination page is live, indexable, accurate, useful, and meets the 85/100 opportunity threshold. Then:
+
+1. **Pinterest:** use original diagrams, checklists, and useful tool outputs; create platform-appropriate vertical assets with accurate titles, descriptions, and alt text. Link to the canonical page with channel-specific UTM parameters. Start with a small, sustainable test and measure real non-owner referrals.
+2. **Relevant communities:** answer actual questions fully on Reddit, Quora, and suitable Facebook groups/forums. Read each community's self-promotion rules first, disclose the site's relationship, and link only when it directly helps. No repeated copy-paste, unsolicited link drops, or automated posting.
+3. **Specialist publishers and resource pages:** identify a small number of relevant DIY, home-improvement, trade, or educational publishers whose readers would genuinely benefit from a calculator, decision table, or checklist. Offer a useful resource or correction, not a backlink exchange. Personalise outreach; no mass email, paid links, link networks, or reciprocal-link schemes. Sending outreach requires owner approval.
+4. **Shareable assets:** prefer original calculators with transparent formulas, printable checklists, decision trees, comparison tables, and diagrams. A resource must stand on its own before promotion. Test one asset and measure referrals/usage before producing another.
+5. **Attribution:** use consistent UTMs (for example, `utm_source=pinterest&utm_medium=social&utm_campaign=<page-slug>`) while keeping canonical URLs clean. Separate owner/testing visits from audience traffic. Track referral sessions, engaged use, tool completions, and earned editorial references separately.
+
+Never buy links, fabricate mentions, spam comments, offer incentives for followed links, or claim a link is an endorsement. External sharing cannot compensate for weak content or poor indexability.
+
+## 12. Five-day operating review
+
+At each five-day checkpoint, record a dated snapshot with:
+- Google Search: clicks, impressions, CTR, average position, queries/pages, and indexed URL changes.
+- Google generative AI: impressions, pages, country/device/date dimensions, and control state.
+- Bing: AI Performance observations where available, plus ordinary search performance.
+- Other answer engines: results from the fixed 40-question sample, with exact cited URLs and answer-quality checks.
+- Acquisition: attributable referral visits by source/campaign, excluding owner testing where possible.
+- Visitor value: useful guide interactions and calculator/checker starts and completions where measurable.
+- Work shipped: PRs, files, tests, and whether each change was approved and merged.
+
+Do not compare unlike date windows or present impressions as clicks. Keep the 2026-11-05 comparison intact; the five-day cadence is measurement, not permission to edit protected areas.
+
