@@ -171,3 +171,8 @@ Then update `data/daily_routine_log.md` and this file.
 
 ## Update 2026-11-01 (session 17, part 4)
 - URL audit recorded in data/URL_AUDIT.md. Redirect stub removed from the generated sitemap and guide library (generator change; stub file kept). Long titles (13 pages) left unchanged until after the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-01 (session 17, part 5)
+- Owner standing authorization (restated 2026-11-01): Claude and ChatGPT act without asking whenever the work serves the project and does not harm it; the gates (Value Before Publishing, 85/100 threshold, editorial freeze, Awin, workflows, 2026-11-05 baseline) still apply.
+- Google Search Console and Bing Webmaster Tools are connected through Composio; numbers live in data/SEARCH_METRICS.md. Indexing is the current bottleneck: 21 URLs unknown to Google, key pages last crawled before our edits.
+- New plan section: assets other sites need from us (docs/CAO-INTEGRATION.md section 8).
