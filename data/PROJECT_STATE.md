@@ -176,3 +176,6 @@ Then update `data/daily_routine_log.md` and this file.
 - Owner standing authorization (restated 2026-11-01): Claude and ChatGPT act without asking whenever the work serves the project and does not harm it; the gates (Value Before Publishing, 85/100 threshold, editorial freeze, Awin, workflows, 2026-11-05 baseline) still apply.
 - Google Search Console and Bing Webmaster Tools are connected through Composio; numbers live in data/SEARCH_METRICS.md. Indexing is the current bottleneck: 21 URLs unknown to Google, key pages last crawled before our edits.
 - New plan section: assets other sites need from us (docs/CAO-INTEGRATION.md section 8).
+
+## Update 2026-11-01 (session 18)
+- stop-a-drafty-door brought back inside the quality gate (PR from claude/drafty-door-gate, layout only). Remaining gate failures: musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting. Open draft PRs by ChatGPT: #208, #214 (home project calculator and tools.html), #216; none merged by Claude. Constraint unchanged: no homepage or route-template implementation before the 2026-11-05 Search Console comparison.
