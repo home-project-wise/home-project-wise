@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home Project Calculator: Area, Paint, Materials & Electricity | HomeProjectWise</title>
+<meta name="description" content="Free multi-purpose home project calculator. Work out room area and volume, paint and flooring quantities, electricity running costs and project estimates using your own measurements and prices.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/home-project-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Home Project Calculator | HomeProjectWise">
+<meta property="og:description" content="Calculate room measurements, paint and material quantities, electricity running costs and project costs with transparent formulas.">
+<meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/home-project-calculator.html">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="style.css">
+<script async src="//gc.zgo.at/count.v5.js" data-goatcounter="https://homeprojectwise.goatcounter.com/count" crossorigin="anonymous" integrity="sha384-atnOLvQb9t+jTSipvd75X2yginT4PjVbqDdlJAmxMm+wYelFmeR6EmLP5bYeoRVQ"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Home Project Calculator","url":"https://home-project-wise.github.io/home-project-wise/home-project-calculator.html","description":"Free calculator for room measurements, paint and material quantities, electricity running costs and project cost estimates.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+.calc-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0}.calc-tabs button{border:1px solid #d8ded9;background:#fff;color:#243238;border-radius:999px;padding:10px 15px;font:inherit;font-size:14px;cursor:pointer}.calc-tabs button[aria-selected="true"]{background:#243238;color:#fff;border-color:#243238}.tool-panel{display:none;background:#fff;border:1px solid #e4e1da;border-radius:20px;padding:24px;margin:18px 0 30px}.tool-panel.active{display:block}.tool-panel h2{font-size:30px;margin:0 0 8px}.tool-panel>p{color:#637075}.tool-panel .calc-grid{margin-top:20px}.tool-result{margin-top:18px;padding:18px;background:#edf2ed;border-radius:14px;min-height:48px}.tool-result:empty{display:none}.tool-result strong{color:#243238}.formula{font-size:13px;color:#667477;background:#f5f4f0;border-radius:10px;padding:12px;margin-top:14px}.calc-field small{display:block;color:#718087;font-size:12px;margin-top:5px}.calc input,.calc select{max-width:100%}.tool-panel .calc-btn{margin-top:12px}.calc-error{color:#a33b2f;font-size:13px}.tool-panel .calc-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}@media(max-width:600px){.tool-panel{padding:17px}.calc-tabs{gap:6px}.calc-tabs button{font-size:12px;padding:9px 11px}}
+</style>
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article" style="max-width:850px">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Home Project Calculator</nav>
+<p class="eyebrow">FREE MULTI-PURPOSE TOOL</p>
+<h1>Home Project Calculator</h1>
+<p class="lead">Measure a space, estimate materials, check an appliance's running cost or build a project estimate. Use your own measurements, product coverage and local prices—nothing is sent to a server.</p>
+<div class="calc-tabs" role="tablist" aria-label="Calculator type">
+<button type="button" role="tab" aria-selected="true" aria-controls="panel-measure" id="tab-measure" data-panel="measure">Area & volume</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="panel-paint" id="tab-paint" data-panel="paint">Paint</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="panel-material" id="tab-material" data-panel="material">Flooring & materials</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="panel-energy" id="tab-energy" data-panel="energy">Electricity cost</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="panel-project" id="tab-project" data-panel="project">Project cost</button>
+</div>
+<section class="tool-panel active" id="panel-measure" role="tabpanel" aria-labelledby="tab-measure">
+<h2>Room area and volume</h2><p>Calculate floor area, perimeter and—if you enter a depth or height—volume. Choose the unit you measured in.</p>
+<form class="calc" id="measure-form" novalidate>
+<div class="calc-grid">
+<div class="calc-field"><label for="measure-unit">Measurement unit</label><select id="measure-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="calc-field"><label for="measure-length">Length</label><input id="measure-length" type="number" min="0" step="any" required placeholder="e.g. 4.5"></div>
+<div class="calc-field"><label for="measure-width">Width</label><input id="measure-width" type="number" min="0" step="any" required placeholder="e.g. 3.2"></div>
+<div class="calc-field"><label for="measure-depth">Depth / height (optional)</label><input id="measure-depth" type="number" min="0" step="any" placeholder="e.g. 0.1"></div>
+</div><p class="calc-error" id="measure-error" role="alert"></p><button class="calc-btn" type="submit">Calculate measurements</button>
+</form><div class="tool-result" id="measure-result" aria-live="polite"></div>
+<p class="formula">Formulas: area = length × width; perimeter = 2 × (length + width); volume = area × depth. Unit conversions use 1 ft = 0.3048 m exactly.</p>
+</section>
+<section class="tool-panel" id="panel-paint" role="tabpanel" aria-labelledby="tab-paint">
+<h2>Paint quantity and cost</h2><p>Estimate paint from the room dimensions, number of coats, the coverage printed on your paint tin and the price you enter.</p>
+<form class="calc" id="paint-form" novalidate>
+<div class="calc-grid">
+<div class="calc-field"><label for="paint-unit">Room measurements</label><select id="paint-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="calc-field"><label for="paint-length">Room length</label><input id="paint-length" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="paint-width">Room width</label><input id="paint-width" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="paint-height">Wall height</label><input id="paint-height" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="paint-openings">Total doors/windows area (<span class="paint-area-unit">m²</span>)</label><input id="paint-openings" type="number" min="0" step="any" value="0"><small>Add the combined area you will not paint.</small></div>
+<div class="calc-field"><label for="paint-coats">Number of coats</label><input id="paint-coats" type="number" min="1" max="10" step="1" value="2"></div>
+<div class="calc-field"><label for="paint-coverage">Coverage per tin (<span class="paint-area-unit">m²</span>)</label><input id="paint-coverage" type="number" min="0" step="any" required placeholder="From product label"></div>
+<div class="calc-field"><label for="paint-waste">Extra allowance (%)</label><input id="paint-waste" type="number" min="0" max="50" step="any" value="10"></div>
+<div class="calc-field"><label for="paint-price">Price per tin (optional)</label><input id="paint-price" type="number" min="0" step="any" placeholder="Your local price"></div>
+<div class="calc-field"><label for="paint-currency">Currency symbol</label><input id="paint-currency" type="text" maxlength="5" value="$"></div>
+</div><p class="calc-error" id="paint-error" role="alert"></p><button class="calc-btn" type="submit">Estimate paint needed</button>
+</form><div class="tool-result" id="paint-result" aria-live="polite"></div>
+<p class="formula">Formula: (2 × (length + width) × wall height − openings) × coats × (1 + allowance) ÷ coverage per tin. The tin count rounds up to a whole tin. Ceilings, textured walls, primer and unusual room shapes are not included.</p>
+</section>
+<section class="tool-panel" id="panel-material" role="tabpanel" aria-labelledby="tab-material">
+<h2>Flooring, tile and material packs</h2><p>Use this for products sold by pack, box, roll or container when the label states how much area one unit covers.</p>
+<form class="calc" id="material-form" novalidate>
+<div class="calc-grid">
+<div class="calc-field"><label for="material-length">Floor / surface length (m)</label><input id="material-length" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="material-width">Floor / surface width (m)</label><input id="material-width" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="material-coverage">Coverage per pack (m²)</label><input id="material-coverage" type="number" min="0" step="any" required placeholder="From product label"></div>
+<div class="calc-field"><label for="material-waste">Extra allowance (%)</label><input id="material-waste" type="number" min="0" max="50" step="any" value="10"></div>
+<div class="calc-field"><label for="material-price">Price per pack (optional)</label><input id="material-price" type="number" min="0" step="any" placeholder="Your local price"></div>
+<div class="calc-field"><label for="material-currency">Currency symbol</label><input id="material-currency" type="text" maxlength="5" value="$"></div>
+</div><p class="calc-error" id="material-error" role="alert"></p><button class="calc-btn" type="submit">Estimate packs needed</button>
+</form><div class="tool-result" id="material-result" aria-live="polite"></div>
+<p class="formula">Formula: surface area = length × width; required packs = round up[(area × (1 + allowance)) ÷ coverage per pack]. Check pack coverage, pattern matching, cuts, substrate and supplier return rules before ordering.</p>
+</section>
+<section class="tool-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
+<h2>Electricity running cost</h2><p>Estimate the energy use and running cost of one appliance from its rated wattage, daily use and your electricity tariff.</p>
+<form class="calc" id="energy-form" novalidate>
+<div class="calc-grid">
+<div class="calc-field"><label for="energy-watts">Appliance power (watts)</label><input id="energy-watts" type="number" min="0" step="any" required placeholder="e.g. 800"></div>
+<div class="calc-field"><label for="energy-hours">Hours used per day</label><input id="energy-hours" type="number" min="0" max="24" step="any" required placeholder="e.g. 3"></div>
+<div class="calc-field"><label for="energy-days">Days used per month</label><input id="energy-days" type="number" min="0" max="31" step="any" value="30"></div>
+<div class="calc-field"><label for="energy-rate">Your electricity price per kWh</label><input id="energy-rate" type="number" min="0" step="any" required placeholder="Enter your tariff"></div>
+<div class="calc-field"><label for="energy-currency">Currency symbol</label><input id="energy-currency" type="text" maxlength="5" value="$"></div>
+</div><p class="calc-error" id="energy-error" role="alert"></p><button class="calc-btn" type="submit">Calculate running cost</button>
+</form><div class="tool-result" id="energy-result" aria-live="polite"></div>
+<p class="formula">Formula: energy (kWh) = watts ÷ 1,000 × hours per day × days. Cost = kWh × your entered price per kWh. Actual use varies with cycling, settings, standby draw and your tariff structure; this is not an electrical safety check.</p>
+</section>
+<section class="tool-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-project">
+<h2>Project cost estimate</h2><p>Add the materials and services you expect to pay for. Enter prices from your own suppliers and include extras you know apply.</p>
+<form class="calc" id="project-form" novalidate>
+<div class="calc-grid">
+<div class="calc-field"><label for="project-quantity">Quantity</label><input id="project-quantity" type="number" min="0" step="any" required value="1"></div>
+<div class="calc-field"><label for="project-unit-price">Price per unit</label><input id="project-unit-price" type="number" min="0" step="any" required placeholder="Enter your price"></div>
+<div class="calc-field"><label for="project-extra">Labour / delivery / other costs</label><input id="project-extra" type="number" min="0" step="any" value="0"></div>
+<div class="calc-field"><label for="project-contingency">Contingency allowance (%)</label><input id="project-contingency" type="number" min="0" max="100" step="any" value="10"></div>
+<div class="calc-field"><label for="project-tax">Tax (%) (optional)</label><input id="project-tax" type="number" min="0" max="100" step="any" value="0"></div>
+<div class="calc-field"><label for="project-currency">Currency symbol</label><input id="project-currency" type="text" maxlength="5" value="$"></div>
+</div><p class="calc-error" id="project-error" role="alert"></p><button class="calc-btn" type="submit">Estimate project total</button>
+</form><div class="tool-result" id="project-result" aria-live="polite"></div>
+<p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
+</section>
+<h2>How to get a more useful estimate</h2>
+<ul><li>Measure the actual area and split irregular rooms into simple shapes.</li><li>Use coverage and yield from the exact product label, not a generic internet average.</li><li>Enter your local electricity tariff and current supplier prices.</li><li>Keep the exact quantity separate from the extra allowance; the allowance is a planning choice, not a guarantee.</li></ul>
+<h2>Frequently asked questions</h2>
+<h3>Are these results exact?</h3><p>No. They are planning estimates based on the values you enter. Measurement errors, product coverage, waste, site conditions, taxes and supplier rules can change the final amount.</p>
+<h3>Does the calculator store my measurements or prices?</h3><p>No. Calculations run in your browser. The page does not send the values you enter to HomeProjectWise.</p>
+<h3>Can I use it outside the United States?</h3><p>Yes. The measurement and material calculators accept metric inputs, and you can enter your own electricity tariff, prices and currency symbol.</p>
+<h3>Can it tell me whether electrical work is safe or code-compliant?</h3><p>No. The electricity section estimates energy consumption and cost only. It does not assess wiring, circuit capacity, appliance suitability or electrical code requirements.</p>
+<h2>Related tools and guides</h2>
+<p><a href="tools.html">Browse all HomeProjectWise tools</a> · <a href="budget-planner.html">Project Budget Planner</a> · <a href="articles/choose-paint-finish-for-each-room.html">Choose a paint finish</a> · <a href="articles/right-rug-size-painters-tape-test.html">Choose the right rug size</a></p>
+</main>
+<footer><div class="brand"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script>
+(function(){
+'use strict';
+function byId(id){return document.getElementById(id);}
+function value(id){return Number(byId(id).value);}
+function validPositive(ids){return ids.every(function(id){return Number.isFinite(value(id))&&value(id)>0;});}
+function validNonNegative(ids){return ids.every(function(id){return Number.isFinite(value(id))&&value(id)>=0;});}
+function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
+function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function money(n,c){return safe(c)+fmt(n);}
+function show(id,html){byId(id).innerHTML=html;}
+function error(id,msg){byId(id).textContent=msg;}
+document.querySelectorAll('.calc-tabs button').forEach(function(btn){btn.addEventListener('click',function(){
+ document.querySelectorAll('.calc-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(b===btn));});
+ document.querySelectorAll('.tool-panel').forEach(function(p){p.classList.toggle('active',p.id===btn.getAttribute('aria-controls'));});
+});});
+byId('measure-form').addEventListener('submit',function(e){e.preventDefault();error('measure-error','');show('measure-result','');
+ if(!validPositive(['measure-length','measure-width'])){error('measure-error','Enter a length and width greater than zero.');return;}
+ var u=byId('measure-unit').value,L=value('measure-length'),W=value('measure-width'),D=byId('measure-depth').value===''?null:value('measure-depth');
+ if(D!==null&&(!Number.isFinite(D)||D<=0)){error('measure-error','Depth or height must be greater than zero, or leave it empty.');return;}
+ var factor=u==='ft'?0.3048:1,area=L*W,per=2*(L+W),volume=D===null?null:area*D;
+ var m2=area*factor*factor,ft2=m2*10.7639104167,perM=per*factor,volM3=volume===null?null:volume*factor*factor*factor;
+ show('measure-result','<strong>Floor area: '+fmt(m2)+' m²</strong> ('+fmt(ft2)+' ft²)<br>Perimeter: '+fmt(perM)+' m ('+fmt(perM/0.3048)+' ft)'+(volM3===null?'':'<br>Volume: '+fmt(volM3)+' m³ ('+fmt(volM3*35.3146667)+' ft³)'));
+});
+function updatePaintUnits(){var s=byId('paint-unit').value==='ft'?'ft²':'m²';document.querySelectorAll('.paint-area-unit').forEach(function(el){el.textContent=s;});}
+byId('paint-unit').addEventListener('change',updatePaintUnits);
+byId('paint-form').addEventListener('submit',function(e){e.preventDefault();error('paint-error','');show('paint-result','');
+ if(!validPositive(['paint-length','paint-width','paint-height','paint-coverage'])){error('paint-error','Enter positive room dimensions and product coverage from the label.');return;}
+ if(!validNonNegative(['paint-openings','paint-price','paint-waste'])||!Number.isInteger(value('paint-coats'))||value('paint-coats')<1||value('paint-coats')>10||value('paint-waste')>50){error('paint-error','Check openings, coats, allowance and price. Coats must be 1–10 and allowance 0–50%.');return;}
+ var f=byId('paint-unit').value==='ft'?0.3048:1,L=value('paint-length')*f,W=value('paint-width')*f,H=value('paint-height')*f,open=value('paint-openings')*f*f;
+ var gross=2*(L+W)*H,net=gross-open;
+ if(net<=0){error('paint-error','The openings area must be smaller than the total wall area.');return;}
+ var coats=value('paint-coats'),allow=value('paint-waste')/100,coverage=value('paint-coverage')*f*f,litres=net*coats*(1+allow)/coverage,tins=Math.ceil(litres-1e-10),price=byId('paint-price').value===''?null:value('paint-price');
+ var html='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)<br>Including '+coats+' coat(s) and '+fmt(allow*100,1)+'% allowance: <strong>'+fmt(litres)+' tin-equivalents</strong><br>Buy at least <strong>'+tins+' tin(s)</strong> of the entered coverage.';
+ if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
+ show('paint-result',html);
+});
+byId('material-form').addEventListener('submit',function(e){e.preventDefault();error('material-error','');show('material-result','');
+ if(!validPositive(['material-length','material-width','material-coverage'])){error('material-error','Enter positive dimensions and coverage per pack from the product label.');return;}
+ if(!validNonNegative(['material-waste','material-price'])||value('material-waste')>50){error('material-error','Allowance must be 0–50%, and price cannot be negative.');return;}
+ var area=value('material-length')*value('material-width'),allow=value('material-waste')/100,needed=area*(1+allow),packs=Math.ceil(needed/value('material-coverage')-1e-10),price=byId('material-price').value===''?null:value('material-price');
+ var html='Surface area: <strong>'+fmt(area)+' m²</strong><br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' m²<br>Required: <strong>'+packs+' pack(s)</strong>';
+ if(price!==null){if(!Number.isFinite(price)||price<0){error('material-error','Price cannot be negative.');return;}html+='<br>Estimated material cost: <strong>'+money(packs*price,byId('material-currency').value)+'</strong>';}
+ show('material-result',html);
+});
+byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');
+ if(!validPositive(['energy-watts','energy-hours','energy-rate'])){error('energy-error','Enter positive wattage, hours per day and electricity price per kWh.');return;}
+ if(!validNonNegative(['energy-days'])||value('energy-hours')>24||value('energy-days')>31){error('energy-error','Hours must be 0–24 and days must be 0–31.');return;}
+ var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate'),c=byId('energy-currency').value;
+ show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
+});
+byId('project-form').addEventListener('submit',function(e){e.preventDefault();error('project-error','');show('project-result','');
+ if(!validNonNegative(['project-quantity','project-unit-price','project-extra','project-contingency','project-tax'])||value('project-quantity')<=0||value('project-contingency')>100||value('project-tax')>100){error('project-error','Enter a positive quantity. Prices and extras must be non-negative; percentages must be 0–100.');return;}
+ var base=value('project-quantity')*value('project-unit-price')+value('project-extra'),reserve=base*value('project-contingency')/100,tax=(base+reserve)*value('project-tax')/100,total=base+reserve+tax,c=byId('project-currency').value;
+ show('project-result','Materials and extras: <strong>'+money(base,c)+'</strong><br>Contingency: '+money(reserve,c)+'<br>Estimated tax: '+money(tax,c)+'<br>Estimated project total: <strong>'+money(total,c)+'</strong>');
+});
+})();
+</script>
+</body>
+</html>
