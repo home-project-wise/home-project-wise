@@ -73,6 +73,8 @@ def rows():
     out = []
     for p in ARTICLES.glob("*.html"):
         t = p.read_text(encoding="utf-8", errors="ignore")
+        if re.search(r'http-equiv=["\']refresh["\']', t, re.I):
+            continue  # redirect stub for a moved guide: keep the file for old links, never list it
         desc = meta_content(t, "name", "description")
         title = re.search("<title>(.*?)</title>", t, re.S | re.I)
         img = first_image(t)

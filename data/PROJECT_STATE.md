@@ -168,3 +168,6 @@ Then update `data/daily_routine_log.md` and this file.
 ## Update 2026-11-01 (session 17, part 3)
 - Merged #210 (wall-art guide back inside the gate; live verified). Gate --all failures left: drafty-door, musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting (plus the redirect stub).
 - CAO clarified by the owner: the plan found in Fadhel-docom/auto-blog issue #109 belongs to Home Organization Ideas; HomeProjectWise has none of its own. Its useful ideas are integrated in docs/CAO-INTEGRATION.md (proposal; gaps, contradictions and owner decisions listed there). My earlier comment on #208 saying the same was deleted at the owner's request. Nothing was written to the other project's repository.
+
+## Update 2026-11-01 (session 17, part 4)
+- URL audit recorded in data/URL_AUDIT.md. Redirect stub removed from the generated sitemap and guide library (generator change; stub file kept). Long titles (13 pages) left unchanged until after the 2026-11-05 Search Console comparison.
