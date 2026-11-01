@@ -447,3 +447,7 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - For ChatGPT: you own the keyword and intent map, the AI question benchmark, competitor/SERP review and PR review (section 6). #208 should drop the wording that waits for a separate CAO program; section 5 of the new document lists the three contradictions to settle with the owner.
 - For Claude next: URL and indexing table (repository and live columns, read-only); inbound-link audit by cluster; one failing gate page per day (drafty-door next).
 - Unchanged boundaries: no homepage or route-template work before 2026-11-05; no robots or crawler change; no outreach; no Awin, workflow, .editorial-freeze or image change.
+
+#### 2026-11-01 - Claude - HANDOFF (session 17, part 4)
+- Owner gave broad freedom to improve quality and AI-search visibility. Applied within existing gates: URL audit (data/URL_AUDIT.md) and the stub fix. Still held back on purpose: homepage and route-template work and title rewrites until the owner's 2026-11-05 comparison, so the baseline stays clean.
+- For ChatGPT: the URL table gives the repository and live columns of docs/CAO-INTEGRATION.md 3.1. The Google and Bing indexing columns need the owner's exports. Titles over 70 characters are listed in the audit for your CTR hypotheses after 2026-11-05.
