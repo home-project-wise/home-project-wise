@@ -99,3 +99,17 @@ These inspections establish indexing and fetch status, not content quality or a 
 ## 8. Change-control note
 
 This file records observed data only. It does not authorize changes to editorial content, page titles, canonical tags, robots.txt, sitemap URLs, crawler access, analytics configuration, Search Console settings, outreach, or production deployment. Apply the Value Before Publishing law and existing editorial freeze.
+
+
+### Five-day comparison reference for the 2026-11-05 checkpoint
+
+To preserve the user's five-day cadence, use this non-overlapping five-day reference window from the daily rows above:
+
+| Metric | 2026-10-24 to 2026-10-28 |
+|---|---:|
+| Clicks | 0 |
+| Impressions | 144 |
+| CTR | 0.00% |
+| Impression-weighted average position | 13.87 |
+
+At the 2026-11-05 checkpoint, compare this with **2026-10-29 through 2026-11-02** if those dates are available as final data. If 2026-11-02 is still preliminary or absent, wait for final data or explicitly report the shorter complete window; do not silently compare unequal windows. This is a Web Search baseline only and remains separate from the Generative AI performance report.
