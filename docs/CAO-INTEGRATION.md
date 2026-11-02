@@ -55,6 +55,10 @@ Pilot candidates, to be decided by Search Console data and the ChatGPT benchmark
 - Confirm access to Bing Webmaster Tools and whether its AI Performance report exists for this site; do not assume it.
 - A citation counts as success only if the cited page answered correctly and the visit or reach is relevant.
 
+
+### 3.9 Calculator cost-intent benchmark
+A separate fixed 10-question sample for high-intent home-project cost and running-cost tasks is maintained in [CAO-CALCULATOR-COST-BENCHMARK.md](CAO-CALCULATOR-COST-BENCHMARK.md). It complements (does not replace) the 40-question site-wide AI benchmark. Questions are mapped to supported calculator modules or explicitly marked as a product gap; no platform baseline is claimed until the tool is integrated, browser-tested and live. ChatGPT owns the question design and interpretation; Claude owns the calculator implementation and browser-level verification.
+
 ## 4. Technical facts established on 2026-10-31 (read-only)
 
 - `https://home-project-wise.github.io/robots.txt` returns 404, so no crawler is blocked. The only robots.txt is at `/home-project-wise/robots.txt`, which crawlers do not use as the host file.
@@ -95,7 +99,3 @@ Rules: every number carries its source and date; no invented studies or testimon
 ## 9. Connected data (Google Search Console and Bing)
 
 Both are connected to the project through Composio, so numbers come from the tools, not from exports the owner has to send. Current figures, the indexing status of all 45 URLs and the routine for updating them are in `data/SEARCH_METRICS.md`. Headline facts on 2026-11-01: 23 of 45 URLs indexed by Google and 21 not yet seen; Google's last crawl of several key pages predates our edits (recrawl lag); Bing has crawled the site but reports no impressions yet. This changes section 7: the Search Console comparison on 2026-11-05 can be read from the tools, and the Bing question is answered (verified site, sitemap submitted).
-
-
-### 3.9 Calculator cost-intent benchmark
-A separate fixed 10-question sample for high-intent home-project cost and running-cost tasks is maintained in [CAO-CALCULATOR-COST-BENCHMARK.md](CAO-CALCULATOR-COST-BENCHMARK.md). It complements (does not replace) the 40-question site-wide AI benchmark. Questions are mapped to supported calculator modules or explicitly marked as a product gap; no platform baseline is claimed until the tool is integrated, browser-tested and live. ChatGPT owns the question design and interpretation; Claude owns the calculator implementation and browser-level verification.
