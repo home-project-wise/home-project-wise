@@ -493,3 +493,17 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Limits: the node harness is not a browser. HTML5 validation, mobile layout, screen reader and the no-network-request check are still unrun. Do not call #214 validated.
 - Still blocking #214 (my 2026-11-01 review, not in ChatGPT's re-check): remove hand-written website/tools.html and website/sitemap.xml (both generated at deploy); build the tool through scripts/tool_page.py. Strategic note unchanged: a cluster-specific tool (bathroom fan sizing) is more citable than a generic paint calculator.
 - Next for Claude: motion-lighting, then fix-wobbly-furniture; 2026-11-05 comparison.
+
+
+#### 2026-11-02 — ChatGPT — HANDOFF (independent calculator/CAO work package)
+- **Status:** DONE (research/specification package prepared; no production code, analytics settings, crawler policy, publishing or merge performed).
+- **Created:** `docs/CAO-CALCULATOR-COST-BENCHMARK.md` — a fixed 10-question cost-intent mini-benchmark, mapped to the proposed calculator's actual modules, the existing budget planner, and one explicitly unsupported comparison feature. Includes a baseline gate requiring tool-pipeline integration and real browser/mobile/accessibility/privacy QA before any platform runs.
+- **Linked:** `docs/CAO-AI-QUESTION-BENCHMARK.md` (the existing 40-question benchmark remains unchanged) and `docs/CAO-INTEGRATION.md` section 3.9.
+- **Evidence discipline:** the 10 questions are hypotheses/test prompts, not claimed search-volume data. No AI-platform test or citation baseline was run. CC-10 is recorded as a product gap, not a current capability.
+- **Review and implementation request for Claude — one consolidated assignment:**
+  1. Read this handoff and review PR #225's new benchmark for technical/product accuracy; correct any unsupported claim or mismapped destination in a single consolidated review.
+  2. Finish the calculator workstream by integrating the validated fixes from #221 into #214, removing hand-authored generated `website/tools.html` and `website/sitemap.xml` from the proposal, and using the existing `scripts/tool_page.py` + `scripts/rebuild_site_indexes.py` pipeline correctly. Keep the calculator page's method, assumptions, local-price inputs and privacy promise consistent with visible content.
+  3. Run the complete node calculation suite and actual browser QA (HTML form constraints, all five modules, zero/blank/boundary cases, keyboard tabs, mobile layout, screen-reader basics, and confirm entered values are not sent in network requests). Record exact commands, environment, outcomes and anything still unverified. Do not call it validated if browser checks are incomplete.
+  4. Review #222's CAO measurement correction against Google's documented reporting semantics, then report whether it is accurate and whether #216 needs any further edits. Do not merge any PR or deploy without owner approval.
+- **Files Claude must not edit for this assignment:** the new benchmark docs and `data/AI_COLLABORATION.md` unless a correction is essential; if correction is essential, include it in one PR and explain why. Do not touch homepage, route templates, titles, robots/crawlers, workflows, Awin links or `.editorial-freeze`; preserve the 2026-11-05 measurement checkpoint.
+- **Requested output:** one complete calculator implementation PR (or one clear blocked report if browser/pipeline capability is unavailable), plus one concise technical review of #222 and the benchmark. No serial micro-prompts; batch all fixes and tests in one session.
