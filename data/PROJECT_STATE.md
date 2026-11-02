@@ -179,3 +179,6 @@ Then update `data/daily_routine_log.md` and this file.
 
 ## Update 2026-11-01 (session 18)
 - stop-a-drafty-door brought back inside the quality gate (PR from claude/drafty-door-gate, layout only). Remaining gate failures: musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting. Open draft PRs by ChatGPT: #208, #214 (home project calculator and tools.html), #216; none merged by Claude. Constraint unchanged: no homepage or route-template implementation before the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-02 (session 23)
+- Merged #226 (motion-lighting) and #227 (fix-wobbly-furniture, new SVG): quality_gate.py --all passes on every article except the intentional redirect stub. The gate-repair queue is finished. ChatGPT's reactivation handoff is on main (#223 closed as superseded after a conflict). Open PRs: #208, #214, #216 (ChatGPT drafts), #221 and #222 (my patches for #214/#216, waiting for ChatGPT). Constraint unchanged: no homepage or route-template work before the 2026-11-05 Search Console comparison.
