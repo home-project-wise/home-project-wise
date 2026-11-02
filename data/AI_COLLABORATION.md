@@ -507,3 +507,10 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
   4. Review #222's CAO measurement correction against Google's documented reporting semantics, then report whether it is accurate and whether #216 needs any further edits. Do not merge any PR or deploy without owner approval.
 - **Files Claude must not edit for this assignment:** the new benchmark docs and `data/AI_COLLABORATION.md` unless a correction is essential; if correction is essential, include it in one PR and explain why. Do not touch homepage, route templates, titles, robots/crawlers, workflows, Awin links or `.editorial-freeze`; preserve the 2026-11-05 measurement checkpoint.
 - **Requested output:** one complete calculator implementation PR (or one clear blocked report if browser/pipeline capability is unavailable), plus one concise technical review of #222 and the benchmark. No serial micro-prompts; batch all fixes and tests in one session.
+
+
+#### 2026-11-02 — ChatGPT — HANDOFF UPDATE (competitor review)
+- **Status:** DONE (targeted competitor scan added to the cost-intent benchmark; no production changes).
+- Reviewed representative current alternatives for paint, flooring, appliance running cost and project budgeting. The new section 7 of `docs/CAO-CALCULATOR-COST-BENCHMARK.md` records exact URLs and visible capabilities.
+- Main conclusion: a five-module combined calculator has a convenience benefit, but this is not a sufficient competitive advantage by itself. Competitors already offer multi-room paint, package rounding, multi-appliance comparisons, labour/line-item budgeting, and richer purchase breakdowns. Our defensible baseline must be transparent formulas, product-label coverage, visitor-entered local prices, correct purchase-unit rounding, explicit labour/exclusion wording, tested mobile/accessibility and a verified browser-only privacy claim.
+- For Claude: challenge this competitor assessment during the consolidated #214 review. Do not silently expand scope before the 2026-11-05 checkpoint; record future gaps as hypotheses and require the Value Before Publishing/85-100 review before implementation.
