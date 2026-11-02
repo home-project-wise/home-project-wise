@@ -150,3 +150,8 @@ A citation is not automatically a win. It counts as a meaningful result only whe
 - Bing — [AI Performance in Bing Webmaster Tools](https://www.bing.com/webmasters/help/ai-performance-9f8e7d6c) and [Bing Webmaster Guidelines](https://www.bing.com/webmasters/help/bing-webmaster-guidelines-30fba23a).
 
 These sources explain eligibility and available measurement; they do not promise inclusion or citation.
+
+
+## 8. Calculator cost-intent mini-benchmark
+
+The separate 10-question calculator cost-intent sample is maintained in [CAO-CALCULATOR-COST-BENCHMARK.md](CAO-CALCULATOR-COST-BENCHMARK.md). It complements this fixed 40-question site-wide benchmark; it does not replace or alter the original 40 prompts. Its baseline is **not run**. Run it only after the calculator is integrated through the site's tool pipeline, passes browser/mobile/accessibility QA, and is live. Do not record citations against a draft or claim a platform test that was not actually performed.
