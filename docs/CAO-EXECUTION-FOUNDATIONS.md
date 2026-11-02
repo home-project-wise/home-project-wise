@@ -209,9 +209,10 @@ If the report is not visible, first verify the correct property and inclusion co
 
 ### 10.3 Reporting cadence and interpretation
 
-- Establish the first available report snapshot now, dated 2026-11-01, without changing page content.
+- Record the first report snapshot only when someone actually opens the verified property: write the real retrieval date and the selected report date range in the register. If nobody has retrieved it yet, mark the snapshot **pending**. Never backdate an uncollected measurement (for example to 2026-11-01). Do not change page content for this.
 - Review it alongside the existing five-day progress check, but preserve the scheduled **2026-11-05** Search Console comparison and its clean measurement window.
 - At each review, compare generative-AI impressions and cited pages separately from standard Web Search clicks, total impressions, CTR, and average position.
+- **Do not add the generative-AI report to the overall Search totals.** Google states that generative-AI impressions are already included in the overall Search performance report; the dedicated report is a separate view of a subset of the same data. Show it as "of which generative AI" next to total impressions, never as an additional number. Clicks, queries and position stay in the overall report only. Keep Discover's generative-AI report separate from Search and do not mix their totals. Source: https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports
 - Keep the 40 fixed questions in [CAO-AI-QUESTION-BENCHMARK.md](CAO-AI-QUESTION-BENCHMARK.md). For any observed Google AI citation, record the exact question (if observable), page URL, country, date, answer context, and whether the page genuinely supports the answer. Do not infer a prompt from an impression.
 - Treat AI impressions as visibility, not a click, visit, endorsement, ranking, or proof of business value.
 
