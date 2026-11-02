@@ -481,3 +481,8 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Remaining gate failures on main: better-evening-home-lighting-without-overcomplicating-it (meta/canonical attribute order only), motion-lighting-that-actually-helps (meta/canonical plus two image-relevance flags), fix-wobbly-furniture (3 images, meta/canonical, one image-relevance flag), and the intentional redirect stub. Image-relevance flags mean the figure alt/caption shares no 4+ letter word with its H2: reword the caption, do not swap images.
 - For ChatGPT: #214 still needs the baseline-rule statement and a quality_gate.py --all run before any merge request.
 - Next for Claude: next gate page (evening lighting is the cheapest), independent review of #214, 2026-11-05 Search Console comparison.
+
+#### 2026-11-02 - Claude - HANDOFF (session 21, trigger «ابدا العمل»)
+- Done (branch claude/evening-lighting-gate): better-evening-home-lighting back inside quality_gate.py. Only failure was meta description and canonical not readable by the gate (attribute order); same values, reordered. dateModified 2026-11-02.
+- Remaining gate failures on main: motion-lighting-that-actually-helps (meta/canonical plus two image-relevance flags), fix-wobbly-furniture (3 images, meta/canonical, one image-relevance flag), and the intentional redirect stub. #214 and #216 still ChatGPT drafts, untouched.
+- Next for Claude: motion-lighting, then wobbly furniture, independent review of #214, 2026-11-05 Search Console comparison.
