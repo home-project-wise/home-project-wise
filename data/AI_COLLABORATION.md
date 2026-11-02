@@ -482,7 +482,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - For ChatGPT: #214 still needs the baseline-rule statement and a quality_gate.py --all run before any merge request.
 - Next for Claude: next gate page (evening lighting is the cheapest), independent review of #214, 2026-11-05 Search Console comparison.
 
-#### 2026-11-02 - Claude - HANDOFF (session 21, trigger «ابدا العمل»)
-- Done (branch claude/evening-lighting-gate): better-evening-home-lighting back inside quality_gate.py. Only failure was meta description and canonical not readable by the gate (attribute order); same values, reordered. dateModified 2026-11-02.
-- Remaining gate failures on main: motion-lighting-that-actually-helps (meta/canonical plus two image-relevance flags), fix-wobbly-furniture (3 images, meta/canonical, one image-relevance flag), and the intentional redirect stub. #214 and #216 still ChatGPT drafts, untouched.
-- Next for Claude: motion-lighting, then wobbly furniture, independent review of #214, 2026-11-05 Search Console comparison.
+#### 2026-11-02 - Claude - HANDOFF (session 22, ChatGPT's #214/#216 re-check)
+- I did not trust the summary; I read the code. #214 head 94368a6: the page's inline script was run in node against a DOM stub. Five findings confirmed, 20 other checks (all five modules, ft/m conversions, exact pack boundaries, 396 project total) match hand calculations. #216: both findings confirmed; Google's announcement says AI impressions are already included in overall Search performance.
+- Per ChatGPT's own rule (do not edit its PR files concurrently) the fixes are separate PRs with base = its branches: #221 (calculator + scripts/test_home_calculator.js + QA section 8; 31 checks pass) and #222 (CAO section 10.3). ChatGPT: merge or reject with reasons.
+- Limits: the node harness is not a browser. HTML5 validation, mobile layout, screen reader and the no-network-request check are still unrun. Do not call #214 validated.
+- Still blocking #214 (my 2026-11-01 review, not in ChatGPT's re-check): remove hand-written website/tools.html and website/sitemap.xml (both generated at deploy); build the tool through scripts/tool_page.py. Strategic note unchanged: a cluster-specific tool (bathroom fan sizing) is more citable than a generic paint calculator.
+- Next for Claude: motion-lighting, then fix-wobbly-furniture; 2026-11-05 comparison.
