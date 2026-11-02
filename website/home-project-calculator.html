@@ -126,14 +126,19 @@ function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&'
 function money(n,c){return safe(c)+fmt(n);}
 function show(id,html){byId(id).innerHTML=html;}
 function error(id,msg){byId(id).textContent=msg;}
-document.querySelectorAll('.calc-tabs button').forEach(function(btn){btn.addEventListener('click',function(){
- document.querySelectorAll('.calc-tabs button').forEach(function(b){b.setAttribute('aria-selected',String(b===btn));});
+var tabs=Array.prototype.slice.call(document.querySelectorAll('.calc-tabs button'));
+function selectTab(btn,focus){tabs.forEach(function(b){var on=b===btn;b.setAttribute('aria-selected',String(on));b.setAttribute('tabindex',on?'0':'-1');});
  document.querySelectorAll('.tool-panel').forEach(function(p){p.classList.toggle('active',p.id===btn.getAttribute('aria-controls'));});
-});});
+ if(focus)btn.focus();}
+tabs.forEach(function(btn,i){btn.setAttribute('tabindex',i===0?'0':'-1');
+ btn.addEventListener('click',function(){selectTab(btn,false);});
+ btn.addEventListener('keydown',function(e){var k=e.key,n=-1;
+  if(k==='ArrowRight')n=(i+1)%tabs.length;else if(k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;
+  if(n<0)return;e.preventDefault();selectTab(tabs[n],true);});});
 byId('measure-form').addEventListener('submit',function(e){e.preventDefault();error('measure-error','');show('measure-result','');
  if(!validPositive(['measure-length','measure-width'])){error('measure-error','Enter a length and width greater than zero.');return;}
  var u=byId('measure-unit').value,L=value('measure-length'),W=value('measure-width'),D=byId('measure-depth').value===''?null:value('measure-depth');
- if(D!==null&&(!Number.isFinite(D)||D<=0)){error('measure-error','Depth or height must be greater than zero, or leave it empty.');return;}
+ if(D!==null&&(!Number.isFinite(D)||D<0)){error('measure-error','Depth or height cannot be negative. Leave it empty if you only need area and perimeter.');return;}
  var factor=u==='ft'?0.3048:1,area=L*W,per=2*(L+W),volume=D===null?null:area*D;
  var m2=area*factor*factor,ft2=m2*10.7639104167,perM=per*factor,volM3=volume===null?null:volume*factor*factor*factor;
  show('measure-result','<strong>Floor area: '+fmt(m2)+' m²</strong> ('+fmt(ft2)+' ft²)<br>Perimeter: '+fmt(perM)+' m ('+fmt(perM/0.3048)+' ft)'+(volM3===null?'':'<br>Volume: '+fmt(volM3)+' m³ ('+fmt(volM3*35.3146667)+' ft³)'));
@@ -160,8 +165,9 @@ byId('material-form').addEventListener('submit',function(e){e.preventDefault();e
  show('material-result',html);
 });
 byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');
- if(!validPositive(['energy-watts','energy-hours','energy-rate'])){error('energy-error','Enter positive wattage, hours per day and electricity price per kWh.');return;}
- if(!validNonNegative(['energy-days'])||value('energy-hours')>24||value('energy-days')>31){error('energy-error','Hours must be 0–24 and days must be 0–31.');return;}
+ if(!validPositive(['energy-watts'])){error('energy-error','Enter a wattage greater than zero.');return;}
+ if(['energy-hours','energy-days','energy-rate'].some(function(id){return byId(id).value==='';})){error('energy-error','Fill in hours per day, days per month and your electricity price per kWh (0 is allowed).');return;}
+ if(!validNonNegative(['energy-hours','energy-days','energy-rate'])||value('energy-hours')>24||value('energy-days')>31){error('energy-error','Hours must be 0–24, days 0–31, and the electricity price cannot be negative.');return;}
  var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate'),c=byId('energy-currency').value;
  show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
 });
