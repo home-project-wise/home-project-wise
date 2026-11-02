@@ -77,3 +77,21 @@ Current calculation order: base = quantity × unit price + extras; contingency =
 ## 7. Acceptance rule
 
 Do not call this calculator validated until all expected-value cases pass in the actual browser implementation, keyboard/mobile checks pass, and any safety-sensitive wording has been independently reviewed. If a formula or input assumption changes, update this document and the visible formula copy together.
+
+## 8. Automated calculation and keyboard checks (added 2026-11-02)
+
+`node scripts/test_home_calculator.js` runs the page's inline script against a minimal DOM stub (no dependencies) and asserts the hand-calculated results from sections 1 to 5, plus the boundary cases below. It is **not** a browser run: layout, HTML5 form validation (`required`, `min`, `max`), mobile rendering, screen-reader behaviour and the privacy/network check in section 6 remain manual and still pending.
+
+| Case | Expected |
+|---|---|
+| Depth `0` | Accepted; volume 0 m³ (negative depth rejected, blank depth = area and perimeter only) |
+| Electricity: 0 hours/day | Accepted; 0 kWh, cost 0 |
+| Electricity: tariff 0 | Accepted; cost 0 |
+| Electricity: blank days | Error message, no result (never a silent 0) |
+| Electricity: 15.5 days | 31 kWh for 1000 W x 2 h |
+| Paint: zero allowance | 32 m² x 2 coats / 10 m² = 6.4, buy 7 tins |
+| Paint/material exact boundary | exact multiples do not round up (21 m² / 2.1 = 10 packs) |
+| Material or project price 0 | Accepted; cost 0 |
+| Percentages | contingency or tax above 100 rejected; paint/material allowance above 50 rejected |
+| Invalid submit after a valid one | result cleared, only the error shown |
+| Tabs | ArrowLeft/ArrowRight (wrapping), Home, End move selection and focus; one tab in the tab order at a time |
