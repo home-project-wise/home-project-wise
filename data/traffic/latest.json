@@ -4,11 +4,180 @@
     "me": "GoatCounter HTTP 404 on /me"
   },
   "api_user_ok": false,
-  "generated_at": "2026-11-01T03:30:15.106708+00:00",
-  "period_start": "2026-10-31T03:00:00+00:00",
-  "period_end": "2026-11-01T03:30:15.106708+00:00",
-  "visitors": 2,
+  "generated_at": "2026-11-02T03:38:48.272931+00:00",
+  "period_start": "2026-11-01T03:00:00+00:00",
+  "period_end": "2026-11-02T03:38:48.272931+00:00",
+  "visitors": 1,
   "pageviews": {
+    "total": 1,
+    "total_events": 0,
+    "total_utc": 1,
+    "stats": [
+      {
+        "day": "2026-11-01",
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "daily": 1,
+        "weekly": 1,
+        "monthly": 1
+      },
+      {
+        "day": "2026-11-02",
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "daily": 0
+      }
+    ]
+  },
+  "paths": {
+    "hits": [
+      {
+        "count": 1,
+        "path_id": 109172418,
+        "path": "/home-project-wise/articles/motion-lighting-that-actually-helps.html",
+        "event": false,
+        "title": "Where Motion Lighting Helps — and Where It Just Gets Annoying | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-01",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-02",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      }
+    ],
+    "total": 1,
+    "more": false
+  },
+  "referrers": {
+    "stats": [
+      {
+        "id": "Google",
+        "name": "Google",
+        "count": 1,
+        "ref_scheme": "g"
+      }
+    ],
+    "more": false
+  },
+  "locations": {
+    "stats": [
+      {
+        "id": "US",
+        "name": "United States",
+        "count": 1
+      }
+    ],
+    "more": false
+  },
+  "previous_period_visitors": 2,
+  "previous_period_pageviews": {
     "total": 2,
     "total_events": 0,
     "total_utc": 2,
@@ -47,250 +216,6 @@
       },
       {
         "day": "2026-11-01",
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 0
-      }
-    ]
-  },
-  "paths": {
-    "hits": [
-      {
-        "count": 1,
-        "path_id": 117200794,
-        "path": "/home-project-wise/articles/where-to-put-water-leak-sensors.html",
-        "event": false,
-        "title": "Where to Put Water Leak Sensors: Six Spots That Catch Leaks Early | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-10-31",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-01",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 109172442,
-        "path": "/home-project-wise/articles/better-evening-home-lighting-without-overcomplicating-it.html",
-        "event": false,
-        "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-10-31",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-01",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      }
-    ],
-    "total": 2,
-    "more": false
-  },
-  "referrers": {
-    "stats": [
-      {
-        "id": "Google",
-        "name": "Google",
-        "count": 1,
-        "ref_scheme": "g"
-      }
-    ],
-    "more": false
-  },
-  "locations": {
-    "stats": [
-      {
-        "id": "TN",
-        "name": "Tunisia",
-        "count": 1
-      },
-      {
-        "id": "US",
-        "name": "United States",
-        "count": 1
-      }
-    ],
-    "more": false
-  },
-  "previous_period_visitors": 0,
-  "previous_period_pageviews": {
-    "total": 0,
-    "total_events": 0,
-    "total_utc": 0,
-    "stats": [
-      {
-        "day": "2026-10-30",
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 0
-      },
-      {
-        "day": "2026-10-31",
         "hourly": [
           0,
           0,
