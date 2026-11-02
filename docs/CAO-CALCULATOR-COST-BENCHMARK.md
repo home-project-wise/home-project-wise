@@ -62,3 +62,59 @@ For each question, run the exact wording on ChatGPT Search, Google AI Overviews/
 - **Owner:** approve merges and deployment; no draft or benchmark document authorizes publication by itself.
 
 The Value Before Publishing law applies to every proposed calculator enhancement. A question in this register is a test case, not automatic approval to create another page or feature.
+
+
+## 7. Competitor snapshot and differentiation test (reviewed 2026-11-02)
+
+This is a focused review of visible calculator features on representative alternatives, not a complete market census, traffic study or ranking analysis. URLs were opened through current search results; observations below describe visible capabilities, not verified backend behaviour.
+
+### Paint quantity and cost
+
+| Alternative | Visible capabilities | Implication for HomeProjectWise |
+|---|---|---|
+| [BasedFrame Paint Calculator](https://www.basedframe.com/free-tools/paint-calculator) | Room perimeter/wall length, height, doors/windows, optional ceiling, coats, label coverage, waste, litres/gallons and tin count; states browser-local operation | These are table-stakes, not a differentiator. |
+| [CalcsBay Paint Calculator](https://calcsbay.com/paint-calculator) | Multiple rooms or wall groups, individual openings, coats, manufacturer coverage, waste, purchase increments and price | Multi-room workflow is a meaningful gap if our page only handles one room. |
+| [ExactKit Paint Quantity & Cost](https://exactkit.tools/calculators/construction-electricity/paint-calculator) | Wall/surface groups, openings, coats, waste, tin size, primer and material cost; formula and worked example | Primer and explicit purchase-unit logic are additional comparison points. |
+| [Hasebah Tunisia Paint Calculator](https://hasebah.com/en/tn/calculators/paint) | Tunisia/TND context, adjustable coverage, advanced opening inputs, cost display and formula explanation | Local-market language/currency context may be valuable, but its surfaced result contains inconsistent unit labels; do not copy assumptions without checking. |
+
+### Flooring quantity and cost
+
+| Alternative | Visible capabilities | Implication for HomeProjectWise |
+|---|---|---|
+| [Project Home Calc Flooring Calculator](https://www.projecthomecalc.com/calculators/flooring/flooring-calculator) | Room dimensions, waste, box coverage, price per box, boxes rounded up and material cost | Our basic pack module must be exceptionally clear and accurate; this is a direct baseline. |
+| [FixerCalc Flooring Calculator](https://fixercalc.com/flooring/flooring-calculator) | Room dimensions or known area, product/box coverage, waste, order quantity and editable cost; warns that labour and subfloor work are extra | Clear exclusions are a trust requirement. |
+| [CalcRabbit Flooring Calculator](https://www.calcrabbit.com/flooring-calculator/) | Shows measured area, waste-adjusted area, boxes, purchased coverage, leftover and cost based on full boxes | Showing purchased coverage and leftover material is a concrete improvement opportunity if it can be added without clutter. |
+| [Cost My Reno Flooring Calculator](https://costmyreno.com/calculators/flooring-cost-calculator) | Separates material and labour pricing and produces a total estimate | Material-only totals must be labelled clearly; a broader project estimate needs explicit labour inputs. |
+
+### Appliance running cost
+
+| Alternative | Visible capabilities | Implication for HomeProjectWise |
+|---|---|---|
+| [Ponderloop Electricity Cost Calculator](https://www.ponderloop.com/tools/electricity-cost-calculator/) | Multiple appliances, presets/custom watts, user tariff, per-row and total daily/monthly/yearly kWh and cost; says inputs stay in browser | A one-appliance calculator is useful but not differentiated against multi-appliance tools. |
+| [WattDollar](https://watt-dollar.com/) | Large appliance preset catalogue, editable power/use/rate, per-hour/day/month/year cost and source notes | Appliance presets and annual comparisons are future opportunities, not claims about our current module. |
+| [KilowattKit](https://kilowattkit.com/tools/electricity/appliance-energy-cost) | Presets/custom watts, hours, days/week, tariff, daily/monthly/yearly cost and kWh | Results over several time horizons are common user expectations. |
+
+### Project budgeting
+
+| Alternative | Visible capabilities | Implication for HomeProjectWise |
+|---|---|---|
+| [Houzz Pro Project Cost Estimator](https://pro.houzz.com/houzz-pro/construction-calculators/project-cost) | Multiple line items, quantity × unit cost, overhead and contingency | Our single quantity/unit-price/extras model is materially simpler; do not describe it as a full renovation estimator. |
+| [Pennyloom Renovation Budget Calculator](https://world.invnty.com/home/renovation) | Area-based materials and labour, fixed fees, waste and contingency; explains the formula and exclusions | Labour, fixed costs and explicit exclusions are important when promising a project total. |
+| [Juniper Handyman Cost Estimator](https://estimator.juniperhandyman.com/) | Multiple trades/scopes, materials, consumables, trade labour and contingency, with ranges | Broad estimators use many assumptions; our user-entered prices avoid invented regional prices but require more inputs from the visitor. |
+
+### Honest differentiation verdict
+
+The proposed multi-purpose calculator has a convenience advantage: several common home calculations are gathered in one browser page, with visitor-entered dimensions, product coverage and local prices. However, the competitor scan shows that paint, flooring and appliance-cost calculators with formulas, waste allowances and price inputs already exist in abundance. **Combining five familiar modules on one page is not, by itself, a defensible competitive advantage.**
+
+Before merge/publication, the implementation should at minimum prove these points in its visible UX and tests:
+
+1. Every module uses transparent formulas and units; the visitor can reproduce the result.
+2. The visitor enters product-label coverage and their own local price; no stale universal price is presented as current.
+3. Purchase quantities round up correctly, and cost is based on the actual purchase unit (whole tins/packs), not silently on theoretical consumption.
+4. Material allowance, project contingency, labour, tax and other exclusions are not conflated. If labour is not entered, say so beside the total.
+5. The tool is genuinely easier to use on mobile than switching among separate tools, without hiding any module or its explanation behind inaccessible tabs.
+6. The privacy statement is tested against actual network requests, not merely asserted in copy.
+
+**Scope gaps to record, not silently add before the 2026-11-05 checkpoint:** multi-room paint/flooring, side-by-side appliance comparison, multiple project line items, labour/overhead, purchased-coverage/leftover breakdown, and save/export/share. Treat each as a separate hypothesis; add only after usage or search evidence and an 85/100 value review. The calculator should not be marketed as a complete renovation-cost estimator while these gaps remain.
+
+This review does not authorize adding features, creating separate pages, changing protected files, or merging #214. Claude is asked to challenge the accuracy and practical impact of this verdict as part of the consolidated technical review.
