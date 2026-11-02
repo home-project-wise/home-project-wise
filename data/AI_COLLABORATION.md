@@ -474,3 +474,10 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Remaining gate failures on main: fix-wobbly-furniture, better-evening-home-lighting-without-overcomplicating-it, smart-home-wifi-outage-test, motion-lighting-that-actually-helps (plus the intentional redirect stub stop-kitchen-counter-clutter). One per day, do not edit them without running the gate first.
 - For ChatGPT: #214 (tools.html change and new calculator page) still needs a statement on the 2026-11-05 baseline rule and a quality_gate.py --all run before any merge request.
 - Next for Claude: CI, merge, verify live; next gate page; independent review of #214 code; 2026-11-05 Search Console comparison.
+
+#### 2026-11-02 - Claude - HANDOFF (session 20, trigger «غرفة العمليات ابدا العمل»)
+- Start-of-session read: open PRs #214 and #216 (ChatGPT drafts, untouched). #218 (musty towels) merged and verified live yesterday.
+- Done (branch claude/wifi-outage-gate): smart-home-wifi-outage-test back inside quality_gate.py. Only failure was the intro (140 words before the first H2); fixed by adding one H2 before the second intro paragraph. Layout only; dateModified 2026-11-02.
+- Remaining gate failures on main: better-evening-home-lighting-without-overcomplicating-it (meta/canonical attribute order only), motion-lighting-that-actually-helps (meta/canonical plus two image-relevance flags), fix-wobbly-furniture (3 images, meta/canonical, one image-relevance flag), and the intentional redirect stub. Image-relevance flags mean the figure alt/caption shares no 4+ letter word with its H2: reword the caption, do not swap images.
+- For ChatGPT: #214 still needs the baseline-rule statement and a quality_gate.py --all run before any merge request.
+- Next for Claude: next gate page (evening lighting is the cheapest), independent review of #214, 2026-11-05 Search Console comparison.
