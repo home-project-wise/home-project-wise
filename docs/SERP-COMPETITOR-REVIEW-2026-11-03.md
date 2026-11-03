@@ -183,7 +183,7 @@ The official manufacturer page exposes an important product-specific issue: puck
 
 ### Bathroom moisture
 - Health Canada: https://www.canada.ca/en/health-canada/services/publications/healthy-living/addressing-moisture-mould-your-home.html
-- RICS: https://aemdev.rics.org/consumer-guides/damp-and-mould
+- RICS: https://www.rics.org/consumer-guides/damp-and-mould
 - CMHC moisture and air guide: https://www.betterhomesbc.ca/app/uploads/sites/956/2017/08/CMHC-Moisture-and-Air.pdf
 - Boise Bath: https://boisebath.com/guides/replacing-bathroom-exhaust-fan
 
