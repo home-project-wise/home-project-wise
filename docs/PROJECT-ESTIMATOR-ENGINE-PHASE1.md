@@ -21,7 +21,7 @@
 
 ## Data contract
 
-Each estimate has one ISO 4217 currency code and an explicit contingency percentage. Each line item has a unique ID, name, unit, non-negative quantity, and one of:
+Each estimate has one ISO 4217 currency code and an explicit contingency percentage. Each line item has a unique ID, name, unit, non-negative quantity, and a price whose unit must exactly match the line item's unit. A mismatch is rejected rather than silently converting unlike quantities. The price is one of:
 
 - User-entered price: kind user-input, amount, currency.
 - Regional/editorial/government price range: low, high, currency, source.
