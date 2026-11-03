@@ -36,7 +36,12 @@ const complete = estimator.calculateEstimate({
 assert.equal(complete.totalLow, 449.9);
 assert.equal(complete.totalHigh, 449.9);
 assert.equal(estimator.assessBudget(complete, { amount: 500, reserveAmount: 50, currency: "USD" }).status, "likely-within-budget");
-assert.equal(estimator.assessBudget(complete, { amount: 500, reserveAmount: 10, currency: "USD" }).status, "range-overlaps-budget");
+const ranged = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0,
+  lineItems: [{ id: "range", name: "Material range", quantity: 1, unit: "job",
+    price: { kind: "regional-range", low: 400, high: 500, currency: "USD", source } }]
+});
+assert.equal(estimator.assessBudget(ranged, { amount: 450, currency: "USD" }).status, "range-overlaps-budget");
 assert.equal(estimator.assessBudget(complete, { amount: 400, currency: "USD" }).status, "likely-over-budget");
 
 const optionalUnknown = estimator.calculateEstimate({
