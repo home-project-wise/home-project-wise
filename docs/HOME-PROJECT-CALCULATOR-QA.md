@@ -2,7 +2,7 @@
 
 **Created:** 2026-11-01  
 **Related implementation:** `website/home-project-calculator.html`  
-**Status (3 Nov 2026):** Expected-value test plan plus automated checks: Node (`scripts/test_home_calculator.js`) and Chromium (`scripts/qa_browser_home_calculator.py`, 53 of 53 on the committed script). Not yet tested: real phones, screen readers, dark-mode screenshots, the deployed preview. Not validated for merge until the open items in section 7 are closed.
+**Status (3 Nov 2026):** The Node/DOM-stub suite was independently rerun by ChatGPT on the exact #229 page and test files: all assertions passed. Claude reports 53/53 Playwright Chromium checks on the exact committed browser script and deploy-style build (desktop 1280 px and mobile 360 px touch); ChatGPT reviewed the script and recorded result but did not independently execute Playwright. Not tested: real phones, screen-reader behaviour/announcements, dark-mode screenshots, and the deployed preview. Test evidence is not merge/deploy authorization; the 2026-11-05 measurement checkpoint and owner release gate remain in force.
 
 ## Purpose
 
@@ -68,16 +68,16 @@ Current calculation order: base = quantity × unit price + extras; contingency =
 Boxes are ticked only where the Chromium script asserts the item; unticked items are untested.
 
 - [x] Each tab opens the matching panel; inactive panels are not visible. (Chromium, 3 Nov)
-- [ ] All controls have accessible labels and can be reached with keyboard Tab.
-- [x] Tab controls expose the selected state; test arrow-key expectations for ARIA tabs. (Chromium, 3 Nov)
-- [ ] Submitting each form does not reload the page.
-- [ ] Error messages are announced through the alert region.
-- [ ] Results update in the live region and are understandable on mobile.
-- [ ] Long currency symbols, large values and decimal inputs do not overflow.
-- [ ] Blank optional price fields do not show a misleading cost.
+- [x] Every input/select has exactly one associated `label[for]`. (Chromium, 3 Nov; this checks label association, not screen-reader accessible-name quality.)
+- [x] Tab pattern: ArrowLeft/ArrowRight with wrapping, Home/End, roving `tabindex`, focus follows selection, and Tab moves into the active panel. (Chromium, 3 Nov)
+- [ ] Full keyboard Tab traversal of every form control has not been tested.
+- [ ] Submitting each form does not reload the page (not asserted by the current script).
+- [x] Error containers expose `role="alert"`. (Attribute checked only; actual assistive-technology announcements are untested.)
+- [x] Result containers expose `aria-live="polite"`. (Attribute checked only; actual announcements are untested.)
+- [x] No horizontal overflow at 360 px; inputs use 17 px text and submit buttons are at least 54 px. (Chromium, 3 Nov)
+- [ ] Blank optional paint/material price fields and all long-value/currency edge cases need a dedicated browser assertion.
 - [x] No user-entered measurement or price is sent to a server. (Chromium, 3 Nov: no entered value in any request, no POST)
-- [ ] Check Chrome Android and desktop browser widths.
-- [ ] Verify every cross-link and canonical URL on the deployed preview before merge.
+- [ ] Real Chrome Android/device testing, screen readers, dark mode, and deployed-preview cross-link/canonical checks remain outstanding.
 
 ## 7. Acceptance rule
 
@@ -118,3 +118,8 @@ Result: **53 of 53** checks passed on desktop (1280 px) and mobile (360 px, touc
 - Mobile 360 px: no horizontal overflow on any tab, tabs fit, tab height 39 px, input font 17 px (no iOS zoom), submit buttons 54 px or more.
 
 Not covered: real devices, screen readers, dark-mode screenshots, the deployed preview, announcement of errors and results by assistive technology.
+
+
+## Independent ChatGPT verification (3 Nov 2026)
+
+Command: `node scripts/test_home_calculator.js` on the exact `bb4e9261e0552aab6248dbdde8c73d8b7834ca4b` source/test files, arranged in the repository's expected `scripts/` and `website/` paths. Result: **37 PASS, 0 FAIL**; terminal summary: `All checks passed`. This is a Node/DOM-stub run, not an independent Chromium run.
