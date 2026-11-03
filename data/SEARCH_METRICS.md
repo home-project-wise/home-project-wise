@@ -74,5 +74,22 @@ Both tools are connected to the project through Composio (Google Search Console:
 ### Actions taken on 2026-11-01
 Google sitemap resubmitted; Bing sitemap resubmitted; 45 URLs submitted to Bing. Google offers no public API to request indexing of ordinary pages, so recrawl waits on Google.
 
+## 2026-11-03 entry (Claude; reconciles ChatGPT's retrieval of the same day)
+
+### Google Search Console, performance (web, data state final, retrieved 2026-11-03 via Composio)
+- 2026-10-06 to 2026-10-31: 432 impressions, 1 click, CTR 0.231%, average position 19.96. Same figures as ChatGPT's retrieval. Asking for 2026-10-06 to 2026-11-01 returns the same 432, so final data stops at 2026-10-31.
+- 2026-09-20 to 2026-10-31: 446 impressions, 1 click, CTR 0.224%, average position 20.74. The 2026-11-01 snapshot above logged 414 impressions, CTR 0.24%, position 20.8 for the same dates. Both retrievals are kept; the 414 is not overwritten. Cause of the +32 is not verified (interpretation: Search Console can revise recent days after a first read, so the earlier figure was probably incomplete).
+- Dimensions are not additive: the page table (19 rows) sums to the 432 total; the query table (49 rows) sums to only 87 impressions because anonymised queries are hidden. Never add pages and queries together.
+- Pages by impressions (position), 2026-10-06 to 2026-10-31: macerating-toilet-basement-bathroom 109 (11.3); how-to-hang-large-wall-art-without-damage 44 (5.6); stop-kitchen-counter-clutter 23 (10.0, the only click, now a redirect stub); better-evening-home-lighting 19 (6.5); calm-room 6 (9.7); kitchen-counter-zone-that-stays-clear 3 (9.0); home page 3 (5.0); how-to-fix-damp-crawl-space-humidity 1 (61).
+- Daily impressions, data state all (provisional), 2026-10-25 to 2026-11-02: 32, 32, 23, 25, 27, 33, 32, 53, 29. The provisional 2026-11-01 row shows 1 click; it is not part of the final data above and must be re-read after finalisation.
+
+### Google, indexing (URL Inspection on all 45 sitemap URLs, 2026-11-03)
+- Submitted and indexed: 23. Unknown to Google: 21. Crawled, currently not indexed: 1 (choose-bathroom-exhaust-fan, last crawled 2026-10-29). Counts are identical to 2026-11-01; the 21 unknown URLs are the same set. reduce-bathroom-condensation is still recorded as last crawled on 2026-10-01.
+
+### Legacy kitchen URL, read-only check (2026-11-03)
+- Live stop-kitchen-counter-clutter.html answers HTTP 200 (GitHub Pages cannot send a 301) with a canonical and a 0-second meta refresh to kitchen-counter-zone-that-stays-clear, plus a visible link. No page in the repository links to the stub, and the live sitemap, guides page, feed and home page do not list it.
+- The destination answers 200, has a self-canonical and is linked from 5 articles (stop-mail-and-paper-pile, small-bathroom-easier-to-clean, simple-home-reset, reduce-cable-clutter, calm-room).
+- Google's last crawl of the stub URL is 2026-10-01 and Google still holds the stub URL as its own canonical (the pre-redirect page); the destination was crawled 2026-10-22. So Google has not yet seen the redirect: recrawl lag, not a defect. No change made.
+
 ## Routine
 Each Claude session: pull totals and the page and query tables for the last 28 days; re-inspect the URLs still unknown; append an entry here. Do not report a metric as zero when the tool returned no data.
