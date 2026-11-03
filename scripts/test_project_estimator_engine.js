@@ -67,6 +67,10 @@ const retailer = estimator.calculateEstimate({
 assert.equal(retailer.totalLow, 74);
 
 function rejects(name, fn, pattern) { assert.throws(fn, pattern, name); }
+rejects("required line items cannot be excluded from the estimate", () => estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0,
+  lineItems: [{ id: "required", name: "Required work", quantity: 1, unit: "job", excluded: true }]
+}), /required and cannot be excluded/);
 const missingPrice = estimator.calculateEstimate({
   currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "Unknown item", quantity: 1, unit: "each" }]
 });
