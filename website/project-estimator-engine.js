@@ -21,15 +21,17 @@
   }
   function fromMinorUnits(value) { return value / 100; }
   function dateValue(value, field) { requiredText(value, field); if (!Number.isFinite(Date.parse(value))) fail(field + " must be a valid date or timestamp."); return value; }
-  function normalizePrice(price, expectedCurrency, field) {
+  function normalizePrice(price, expectedCurrency, expectedUnit, field) {
     if (price === null || price === undefined) return null;
     if (!isObject(price)) fail(field + " must be an object or null.");
     var kind = requiredText(price.kind, field + ".kind");
     var currency = currencyCode(price.currency);
     if (currency !== expectedCurrency) fail(field + " currency must match the estimate currency.");
+    var unit = requiredText(price.unit, field + ".unit");
+    if (unit !== expectedUnit) fail(field + ".unit must match the line item unit.");
     if (kind === "user-input") {
       var amount = toMinorUnits(price.amount, field + ".amount");
-      return { kind: kind, currency: currency, lowMinor: amount, highMinor: amount, source: null };
+      return { kind: kind, currency: currency, unit: unit, lowMinor: amount, highMinor: amount, source: null };
     }
     if (EXTERNAL_KINDS.indexOf(kind) === -1) fail(field + ".kind is not a supported price type.");
     var low = toMinorUnits(price.low, field + ".low");
@@ -48,7 +50,7 @@
       source.retrievedAt = dateValue(price.source.retrievedAt, field + ".source.retrievedAt");
       source.productOrSku = requiredText(price.source.productOrSku, field + ".source.productOrSku");
     }
-    return { kind: kind, currency: currency, lowMinor: low, highMinor: high, source: source };
+    return { kind: kind, currency: currency, unit: unit, lowMinor: low, highMinor: high, source: source };
   }
   function normalizeLineItem(item, currency, index) {
     var prefix = "lineItems[" + index + "]";
@@ -59,7 +61,7 @@
     var quantity = nonNegative(item.quantity, prefix + ".quantity");
     var required = item.required !== false;
     var excluded = item.excluded === true;
-    var price = excluded ? null : normalizePrice(item.price, currency, prefix + ".price");
+    var price = excluded ? null : normalizePrice(item.price, currency, unit, prefix + ".price");
     return { id: id, name: name, unit: unit, quantity: quantity, required: required, excluded: excluded, price: price };
   }
   function calculateEstimate(input) {
@@ -90,7 +92,7 @@
       if (!Number.isSafeInteger(subtotalLow) || !Number.isSafeInteger(subtotalHigh)) fail("Estimate total exceeds safe arithmetic limits.");
       known.push({
         id: item.id, name: item.name, unit: item.unit, quantity: item.quantity,
-        priceKind: item.price.kind,
+        priceKind: item.price.kind, priceUnit: item.price.unit,
         unitPriceLow: fromMinorUnits(item.price.lowMinor), unitPriceHigh: fromMinorUnits(item.price.highMinor),
         totalLow: fromMinorUnits(low), totalHigh: fromMinorUnits(high), source: item.price.source
       });
