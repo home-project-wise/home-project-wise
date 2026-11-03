@@ -2,7 +2,7 @@
 
 **Created:** 2026-11-01  
 **Related implementation:** `website/home-project-calculator.html`  
-**Status:** Expected-value test plan; manual browser execution still required.
+**Status (3 Nov 2026):** Expected-value test plan plus automated checks: Node (`scripts/test_home_calculator.js`) and Chromium (`scripts/qa_browser_home_calculator.py`, 53 of 53 on the committed script). Not yet tested: real phones, screen readers, dark-mode screenshots, the deployed preview. Not validated for merge until the open items in section 7 are closed.
 
 ## Purpose
 
@@ -57,20 +57,25 @@ Formula: monthly kWh = watts ÷ 1,000 × hours/day × days. Estimated cost = kWh
 | Standard estimate | Quantity 12; unit price 25; extras 50; contingency 10%; tax 5% | Base 350; contingency 35; tax 19.25; total 404.25 |
 | No contingency/tax | Quantity 2; unit price 30; extras 10; contingency 0%; tax 0% | Total 70 |
 | Invalid percentages | Contingency or tax above 100, or negative value | Error; no result |
+| Blank required field | Unit price, quantity, other costs or contingency left empty | Error naming the fields; no result (a blank is never read as 0) |
+| Explicit zero | Unit price 0 (with other costs 50) | Valid; materials and extras 50 |
+| Blank tax | Tax left empty (labelled optional) | Valid; tax 0 |
 
 Current calculation order: base = quantity × unit price + extras; contingency = base × contingency rate; tax = (base + contingency) × tax rate; total = base + contingency + tax. Local tax rules differ, so users must adjust inputs to the way tax is charged where they live.
 
 ## 6. Browser and accessibility checklist
 
-- [ ] Each tab opens the matching panel; inactive panels are not visible.
+Boxes are ticked only where the Chromium script asserts the item; unticked items are untested.
+
+- [x] Each tab opens the matching panel; inactive panels are not visible. (Chromium, 3 Nov)
 - [ ] All controls have accessible labels and can be reached with keyboard Tab.
-- [ ] Tab controls expose the selected state; test arrow-key expectations for ARIA tabs.
+- [x] Tab controls expose the selected state; test arrow-key expectations for ARIA tabs. (Chromium, 3 Nov)
 - [ ] Submitting each form does not reload the page.
 - [ ] Error messages are announced through the alert region.
 - [ ] Results update in the live region and are understandable on mobile.
 - [ ] Long currency symbols, large values and decimal inputs do not overflow.
 - [ ] Blank optional price fields do not show a misleading cost.
-- [ ] No user-entered measurement or price is sent to a server.
+- [x] No user-entered measurement or price is sent to a server. (Chromium, 3 Nov: no entered value in any request, no POST)
 - [ ] Check Chrome Android and desktop browser widths.
 - [ ] Verify every cross-link and canonical URL on the deployed preview before merge.
 
@@ -80,7 +85,7 @@ Do not call this calculator validated until all expected-value cases pass in the
 
 ## 8. Automated calculation and keyboard checks (added 2026-11-02)
 
-`node scripts/test_home_calculator.js` runs the page's inline script against a minimal DOM stub (no dependencies) and asserts the hand-calculated results from sections 1 to 5, plus the boundary cases below. It is **not** a browser run: layout, HTML5 form validation (`required`, `min`, `max`), mobile rendering, screen-reader behaviour and the privacy/network check in section 6 remain manual and still pending.
+`node scripts/test_home_calculator.js` runs the page's inline script against a minimal DOM stub (no dependencies) and asserts the hand-calculated results from sections 1 to 5, plus the boundary cases below. It is **not** a browser run: layout, HTML5 form validation (`required`, `min`, `max`), mobile rendering, screen-reader behaviour and the network check are covered by the Chromium section below (or still untested, as listed there).
 
 | Case | Expected |
 |---|---|
@@ -92,21 +97,24 @@ Do not call this calculator validated until all expected-value cases pass in the
 | Paint: zero allowance | 32 m² x 2 coats / 10 m² = 6.4, buy 7 tins |
 | Paint/material exact boundary | exact multiples do not round up (21 m² / 2.1 = 10 packs) |
 | Material or project price 0 | Accepted; cost 0 |
+| Project: blank unit price, quantity, other costs or contingency | Error message, no result (never a silent 0); added 2026-11-03 after review finding on #229 |
+| Project: blank tax | Accepted as 0 (field is optional) |
 | Percentages | contingency or tax above 100 rejected; paint/material allowance above 50 rejected |
 | Invalid submit after a valid one | result cleared, only the error shown |
 | Tabs | ArrowLeft/ArrowRight (wrapping), Home, End move selection and focus; one tab in the tab order at a time |
 
 
-## Browser QA in Chromium (2 Nov 2026, Claude)
+## Browser QA in Chromium (3 Nov 2026, Claude)
 
-Run with `python3 scripts/qa_browser_home_calculator.py` after building the site the way the deploy workflow does (`python scripts/rebuild_site_indexes.py`, then `cat website/article-overrides.css >> website/style.css`). Needs `pip install playwright` and `playwright install --with-deps chromium`. The static `website/` folder alone is not enough: the calculator styles live in `article-overrides.css` and are only appended at deploy time.
+Run with `python3 scripts/qa_browser_home_calculator.py` after building the site the way the deploy workflow does (`python scripts/rebuild_site_indexes.py`, then `cat website/article-overrides.css >> website/style.css`). Needs `pip install playwright` and `playwright install --with-deps chromium`. The script starts its own local server on a random port and reads the page from `website/` relative to the script.
 
-Result: 50 of 50 checks passed on desktop (1280 px) and mobile (360 px, touch).
+Result: **53 of 53** checks passed on desktop (1280 px) and mobile (360 px, touch), running the exact committed script (3 Nov 2026) against a deploy-style build of this branch. The earlier 50/50 result (2 Nov) was from a previous version of the script and is superseded by this run.
 
-- Calculations in a real browser match the node tests: area, perimeter, volume (depth 0 allowed, blank depth hides volume), ft to m conversion, paint (33 m2, 8 tins), flooring packs, energy (72 kWh, tariff 0 allowed, blank days rejected, 32 days rejected), project total with contingency and tax.
-- Keyboard: ArrowLeft/ArrowRight wrap, Home/End, one tab stop, Tab moves into the active panel. ARIA wiring: tab to tabpanel, one label per field, role=alert errors, aria-live results.
+- Calculations in a real browser match the Node tests: area, perimeter, volume (depth 0 allowed, blank depth hides volume), ft to m conversion, paint (33 m2, 8 tins), flooring packs, energy (72 kWh, tariff 0 allowed, blank days rejected, 32 days rejected), project total with contingency and tax.
+- Project form (added 3 Nov after the #229 review): a blank unit price is rejected with the result cleared; an explicit 0 price is accepted; a blank optional tax counts as 0. The Node suite checks the same cases and fails on the previous page version.
+- Keyboard: ArrowLeft/ArrowRight wrap, Home/End, one tab stop, Tab moves into the active panel. ARIA wiring: tab to tabpanel, one label per field, role=alert errors, aria-live results (attributes checked, not announcements).
 - The currency symbol is shown as text, never as HTML.
-- Privacy: entered values never appear in any request URL or body; no POST requests. The only external request is the existing GoatCounter script (the integrity warning seen over plain http on localhost does not happen on https).
+- Privacy: entered values never appear in any request URL or body; no POST requests. The only external requests are to the existing GoatCounter script (`gc.zgo.at/count.v5.js`; its integrity warning over plain http on localhost does not happen on https).
 - Mobile 360 px: no horizontal overflow on any tab, tabs fit, tab height 39 px, input font 17 px (no iOS zoom), submit buttons 54 px or more.
 
-Not covered: real devices, screen readers, dark mode screenshots.
+Not covered: real devices, screen readers, dark-mode screenshots, the deployed preview, announcement of errors and results by assistive technology.

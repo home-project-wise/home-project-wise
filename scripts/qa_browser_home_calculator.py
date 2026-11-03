@@ -61,12 +61,16 @@ with sync_playwright() as p:
     fill({'energy-days':'32'}); sub('energy'); ck('32 days rejected',txt('energy-error')!='')
     tab('project'); fill({'project-quantity':'1','project-unit-price':'300','project-extra':'0','project-contingency':'10','project-tax':'20'}); sub('project'); r=txt('project-result')
     ck('project 300 +10% +20% tax = 396',('396' in r),r.replace('\n',' / '))
+    fill({'project-unit-price':''}); sub('project'); ck('blank unit price rejected (not silent 0) + result cleared',txt('project-error')!='' and txt('project-result')=='',txt('project-error'))
+    fill({'project-unit-price':'0','project-extra':'50'}); sub('project'); r=txt('project-result'); ck('explicit 0 unit price accepted',txt('project-error')=='' and ('$50' in r),r.replace('\n',' / '))
+    fill({'project-unit-price':'300','project-extra':'0','project-tax':''}); sub('project'); r=txt('project-result'); ck('blank optional tax accepted as 0 -> 330',txt('project-error')=='' and ('$330' in r),r.replace('\n',' / '))
+    fill({'project-tax':'20'})
     fill({'project-currency':'<i>€'}); sub('project'); ck('currency symbol escaped as text',pg.locator('#project-result i').count()==0 and '<i>€' in txt('project-result'))
     tab('energy'); fill({'energy-watts':'7777','energy-hours':'5','energy-days':'30','energy-rate':'0.4242'}); sub('energy'); pg.wait_for_timeout(800)
     leak=[u for m,u,d in reqs if any(s in (u+d) for s in ('7777','0.4242'))]
     ck('no entered value in any request URL/body',not leak,leak)
     ck('no POST requests',all(m=='GET' for m,u,d in reqs),sorted(set(m for m,u,d in reqs)))
-    print('EXTERNAL REQUESTS:',sorted(set(re.sub(r'\\?.*','',u) for m,u,d in reqs if not u.startswith('http://127.0.0.1'))))
+    print('EXTERNAL REQUESTS:',sorted(set(re.sub(r'\?.*','',u) for m,u,d in reqs if not u.startswith('http://127.0.0.1'))))
     errs=[c for c in cons if c[0] in ('error','pageerror') and 'gc.zgo.at' not in c[1]]
     ck('no console/page errors (desktop)',not errs,errs)
     mp=b.new_context(viewport={'width':360,'height':740},device_scale_factor=2,is_mobile=True,has_touch=True).new_page(); mc=[]

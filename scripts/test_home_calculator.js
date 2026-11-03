@@ -79,6 +79,12 @@ const J = { 'project-quantity': 10, 'project-unit-price': 25, 'project-extra': 5
 has('project: 300 + 10% + 20% tax on 330 = 396', submit('project-form', J), 'Contingency: $30 Estimated tax: $66 Estimated project total: $396');
 has('project zero prices -> 0', submit('project-form', { ...J, 'project-unit-price': 0, 'project-extra': 0 }), 'Estimated project total: $0');
 rejects('project contingency over 100', submit('project-form', { ...J, 'project-contingency': 101 }));
+rejects('project blank unit price is an error, not silent zero', submit('project-form', { ...J, 'project-unit-price': '' }));
+rejects('project blank quantity is an error', submit('project-form', { ...J, 'project-quantity': '' }));
+rejects('project blank other costs is an error', submit('project-form', { ...J, 'project-extra': '' }));
+rejects('project blank contingency is an error', submit('project-form', { ...J, 'project-contingency': '' }));
+has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: $0 Estimated project total: $330');
+has('project explicit 0 unit price stays valid after the blank check', submit('project-form', { ...J, 'project-unit-price': 0 }), 'Materials and extras: $50');
 // Stale results cleared after an invalid submission
 submit('energy-form', E);
 const bad = submit('energy-form', { ...E, 'energy-watts': 0 });
