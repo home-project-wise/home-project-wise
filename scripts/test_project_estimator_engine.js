@@ -67,9 +67,19 @@ const retailer = estimator.calculateEstimate({
 assert.equal(retailer.totalLow, 74);
 
 function rejects(name, fn, pattern) { assert.throws(fn, pattern, name); }
-rejects("missing price cannot be silently passed as zero", () => estimator.calculateEstimate({
+const missingPrice = estimator.calculateEstimate({
   currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "Unknown item", quantity: 1, unit: "each" }]
-}), /price/);
+});
+assert.deepEqual(missingPrice.unknownRequired.map(x => x.id), ["x"]);
+assert.equal(missingPrice.subtotalLow, 0); // Known subtotal only; the required unknown is disclosed separately.
+assert.equal(missingPrice.complete, false);
+assert.equal(missingPrice.canAssessRequiredScope, false);
+assert.equal(estimator.assessBudget(missingPrice, { amount: 500, currency: "USD" }).status, "cannot-assess");
+const explicitNullPrice = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0, lineItems: [{ id: "y", name: "Unpriced required item", quantity: 1, unit: "each", price: null }]
+});
+assert.deepEqual(explicitNullPrice.unknownRequired.map(x => x.id), ["y"]);
+assert.equal(estimator.assessBudget(explicitNullPrice, { amount: 500, currency: "USD" }).status, "cannot-assess");
 rejects("negative user price", () => estimator.calculateEstimate({
   currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "Bad", quantity: 1, unit: "each", price: { kind: "user-input", unit: "each", amount: -1, currency: "USD" } }]
 }), /non-negative/);
@@ -84,7 +94,7 @@ rejects("mixed currency", () => estimator.calculateEstimate({
 }), /must match/);
 rejects("retailer price must be a single observed price", () => estimator.calculateEstimate({
   currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "Bad", quantity: 1, unit: "each", price: { kind: "retailer-listing", unit: "each", low: 2, high: 3, currency: "USD", source: { ...source, retrievedAt: "2026-11-03T10:00:00Z", productOrSku: "SKU" } } }]
-}), /single observed price/);
+}), /one observed price/);
 rejects("missing contingency must be explicit", () => estimator.calculateEstimate({
   currency: "USD", lineItems: [{ id: "x", name: "Bad", quantity: 1, unit: "each", price: { kind: "user-input", unit: "each", amount: 2, currency: "USD" } }]
 }), /contingencyPct/);
