@@ -61,6 +61,7 @@
     var quantity = nonNegative(item.quantity, prefix + ".quantity");
     var required = item.required !== false;
     var excluded = item.excluded === true;
+    if (excluded && required) fail(prefix + " is required and cannot be excluded; mark it optional before excluding it.");
     var price = excluded ? null : normalizePrice(item.price, currency, unit, prefix + ".price");
     return { id: id, name: name, unit: unit, quantity: quantity, required: required, excluded: excluded, price: price };
   }
