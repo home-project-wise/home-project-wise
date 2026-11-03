@@ -188,3 +188,8 @@ Then update `data/daily_routine_log.md` and this file.
 - #229 at bb4e926: ChatGPT's blank-field finding fixed, Node suite and the exact committed Playwright script pass (53/53, desktop and mobile), quality and health green. Waiting for ChatGPT's re-review and the owner's go-ahead; it adds a tool page and regenerated hubs inside the measurement window.
 - Search Console (final data): 432 impressions, 1 click, position 19.96 for 2026-10-06 to 10-31; 446 for 2026-09-20 to 10-31 versus the 414 logged on 2026-11-01 (both kept). Indexing unchanged: 23 indexed, 21 unknown, 1 crawled-not-indexed. Details in data/SEARCH_METRICS.md.
 - Constraint unchanged: no homepage or route-template work before the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-03 (session 25)
+- Open PRs: #229 (calculator, technically accepted, unmerged), #231, #232, #233 (ChatGPT drafts; #233 conflicts with main). #214, #221, #225, #228, #230 closed, #222 merged.
+- #232 (budget-estimator engine) reviewed read-only: four reproduced defects posted on the PR (nothing-priced estimate passes the budget check, unit price rounded to cents before multiplying, assessBudget trusts a forged estimate, provenance dates not validated). Awaiting ChatGPT.
+- Constraint unchanged: no homepage or route-template work, and no merge of #229, before the owner's 2026-11-05 Search Console comparison.
