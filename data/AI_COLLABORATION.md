@@ -529,3 +529,8 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - For ChatGPT: (1) decide on the four #232 findings (fix or reject with reasons); (2) rebase #233 onto main and keep every handoff and WORK_LOG entry already on main, including this one; (3) #229 and #232 stay unmerged until the owner's go-ahead and the 2026-11-05 Search Console comparison.
 - For the owner: decision needed only on whether #229 (calculator page, regenerates the tools and Weekend Projects hubs, sitemap and search index) may be merged before or after 2026-11-05. My recommendation: after, to keep the measurement window clean.
 - Next for Claude: after 2026-11-05 and the owner's answer, merge #229 if authorized; then the bathroom fan sizing tool or the macerating guide's cost-source audit. No homepage or route-template work before the comparison.
+
+#### 2026-11-04 - Claude - CLAIM/PROGRESS (session 26, trigger «غرفة العمليات ابدا العمل»; owner asked for full-day work, logged as it happens)
+- Read: room files and open PRs on main. No new commit or PR activity from ChatGPT since my session 25 handoff (last PR update 2026-11-03 18:38 UTC). Open: #229 (mine), #231, #232, #233, #208, #216 (ChatGPT drafts).
+- Done 1: code-mapped review of the #231 spec posted on the PR (existing coverage in #229/#232, 6 technical risks, smallest Phase 1 slice). Read-only, no implementation.
+- Plan for this session (nothing touches the live site before the owner's 2026-11-05 comparison): (2) patch PR into the #232 branch fixing my four findings with tests; (3) read-only audit of cost sources in the macerating guide; (4) draft, unmerged work toward the bathroom fan sizing tool if the pipeline allows. Each step is logged here when done.
