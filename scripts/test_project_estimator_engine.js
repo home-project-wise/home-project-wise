@@ -109,3 +109,60 @@ rejects("price unit must match line item unit", () => estimator.calculateEstimat
   lineItems: [{ id: "x", name: "Bad unit", quantity: 1, unit: "gallon", price: { kind: "user-input", unit: "litre", amount: 2, currency: "USD" } }]
 }), /must match the line item unit/);
 console.log("Project estimator engine: all assertions passed.");
+// --- Regression tests for the four findings of the Claude review (2026-11-03) ---
+const NOW = new Date("2026-11-04T12:00:00Z");
+// 1. An estimate with nothing priced must not produce a budget verdict.
+const nothingPriced = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 10, lineItems: [{ id: "paint", name: "Paint", quantity: 2, unit: "gallon", required: false, price: null }]
+});
+assert.equal(nothingPriced.pricedLineCount, 0);
+assert.equal(nothingPriced.canAssessRequiredScope, false);
+const nothingPricedResult = estimator.assessBudget(nothingPriced, { amount: 100, currency: "USD" });
+assert.equal(nothingPricedResult.status, "cannot-assess");
+assert.match(nothingPricedResult.reason, /No line item has a price/);
+const allExcluded = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0, lineItems: [{ id: "a", name: "Extra", quantity: 1, unit: "job", required: false, excluded: true }]
+});
+assert.equal(estimator.assessBudget(allExcluded, { amount: 100, currency: "USD" }).status, "cannot-assess");
+// The partial total of a cannot-assess result is named as partial and never as the project estimate.
+const partial = estimator.assessBudget(missingPrice, { amount: 500, currency: "USD" });
+assert.equal(partial.estimateLow, undefined);
+assert.equal(partial.pricedTotalLow, 0);
+
+// 2. Unit prices keep 4 decimals: no rounding to cents before multiplying.
+const wire = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0,
+  lineItems: [{ id: "wire", name: "Wire", quantity: 1000, unit: "ft", price: { kind: "user-input", unit: "ft", amount: 0.285, currency: "USD" } }]
+});
+assert.equal(wire.totalLow, 285);
+assert.equal(wire.lineItems[0].unitPriceLow, 0.285);
+const tile = estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0,
+  lineItems: [{ id: "tile", name: "Tile", quantity: 800, unit: "sqft", price: { kind: "regional-range", unit: "sqft", low: 2.754, high: 3.246, currency: "USD", source } }]
+}, { now: NOW });
+assert.equal(tile.totalLow, 2203.2);
+assert.equal(tile.totalHigh, 2596.8);
+rejects("more than 4 decimals in a unit price is rejected, not rounded", () => estimator.calculateEstimate({
+  currency: "USD", contingencyPct: 0,
+  lineItems: [{ id: "x", name: "Bad", quantity: 1, unit: "ft", price: { kind: "user-input", unit: "ft", amount: 0.28549, currency: "USD" } }]
+}), /at most 4 decimal places/);
+
+// 3. assessBudget accepts only the result of calculateEstimate.
+rejects("hand-built estimate is rejected", () => estimator.assessBudget({ currency: "USD", totalLow: 0, totalHigh: 0 }, { amount: 50, currency: "USD" }), /result of calculateEstimate/);
+rejects("estimate without the required-cost flag is rejected", () => estimator.assessBudget({ currency: "USD", totalLow: 0, totalHigh: 0, lineItems: [], unknownRequired: [], unknownOptional: [] }, { amount: 50, currency: "USD" }), /result of calculateEstimate/);
+
+// 4. Provenance dates must be ISO 8601 and not in the future.
+function withDate(observedAt) {
+  return () => estimator.calculateEstimate({
+    currency: "USD", contingencyPct: 0,
+    lineItems: [{ id: "x", name: "Item", quantity: 1, unit: "each", price: { kind: "regional-range", unit: "each", low: 1, high: 2, currency: "USD", source: { ...source, observedAt } } }]
+  }, { now: NOW });
+}
+rejects("loose date string", withDate("1"), /ISO 8601/);
+rejects("not a date", withDate("last week"), /ISO 8601/);
+rejects("future date", withDate("2099-01-01"), /cannot be in the future/);
+assert.equal(withDate("2026-11-04")().lineItems[0].source.observedAt, "2026-11-04");
+assert.equal(withDate("2026-11-03T10:00:00Z")().lineItems[0].source.observedAt, "2026-11-03T10:00:00Z");
+rejects("invalid now option", () => estimator.calculateEstimate({ currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "i", quantity: 1, unit: "each" }] }, { now: "tomorrow" }), /options.now/);
+console.log("Project estimator engine: review regression tests passed.");
+
