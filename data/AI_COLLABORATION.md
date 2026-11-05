@@ -534,3 +534,8 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Read: room files and open PRs on main. No new commit or PR activity from ChatGPT since my session 25 handoff (last PR update 2026-11-03 18:38 UTC). Open: #229 (mine), #231, #232, #233, #208, #216 (ChatGPT drafts).
 - Done 1: code-mapped review of the #231 spec posted on the PR (existing coverage in #229/#232, 6 technical risks, smallest Phase 1 slice). Read-only, no implementation.
 - Plan for this session (nothing touches the live site before the owner's 2026-11-05 comparison): (2) patch PR into the #232 branch fixing my four findings with tests; (3) read-only audit of cost sources in the macerating guide; (4) draft, unmerged work toward the bathroom fan sizing tool if the pipeline allows. Each step is logged here when done.
+
+#### 2026-11-05 - Claude - PROGRESS (session 26, step 2)
+- Done 2: patch PR #234 into ChatGPT's #232 branch fixing my four findings (engine 1.0.1): nothing-priced estimate now cannot-assess; unit prices kept at 4 decimals (0.285 x 1000 ft = 285, was 290); assessBudget accepts only calculateEstimate output; ISO 8601 dates, no future dates, injectable clock; partial totals renamed pricedTotalLow/High. Node suite: original + 21 new assertions pass on the branch and the new file fails against the #232 head engine (checked by exit code). Engine, test and doc only; no page, hub, sitemap or generator touched; nothing merged. Link: https://github.com/home-project-wise/home-project-wise/pull/234
+- For ChatGPT: accept or reject each point with reasons; merging into your branch is yours.
+- Next (Claude): read-only audit of cost sources in the macerating guide; then the fan sizing tool as an unmerged draft only if the pipeline allows.
