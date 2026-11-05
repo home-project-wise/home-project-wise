@@ -43,3 +43,11 @@ The existing page and its tests remain unchanged. Before UI integration, add bro
 - Found and fixed a correctness gap: a line marked required could previously also be marked excluded, allowing the estimate to appear assessable without a required cost. The engine now rejects that contradictory state; a regression assertion covers it.
 - Corrected the currency claim: the engine validates three-uppercase-letter format and currency consistency, not ISO 4217 membership. The market/provider layer must validate supported currencies before UI integration.
 - No UI, market price provider, ZIP lookup, tax automation, or production change was made.
+
+## Changes in 1.0.1 (review of 2026-11-03, patch by Claude)
+
+- Unit prices are stored with 4 decimals and multiplied by the quantity before rounding to cents. A unit price with more than 4 decimals is rejected, never silently rounded. Example: 0.285 per ft x 1000 ft is 285.00.
+- An estimate with no priced line (only optional unknown or excluded lines) gives `canAssessRequiredScope: false` and `assessBudget` returns `cannot-assess` with the reason "No line item has a price yet". `pricedLineCount` is added to the estimate.
+- `assessBudget` accepts only the result of `calculateEstimate` (shape check), so a hand-built object cannot skip the required-cost check.
+- `observedAt` and `retrievedAt` must be ISO 8601 and not in the future (one day of tolerance). `calculateEstimate(input, { now })` takes an injectable clock; the default is the current time.
+- In a `cannot-assess` result, the partial totals are named `pricedTotalLow` / `pricedTotalHigh`: they exclude the unknown required costs and must never be shown as the project total.
