@@ -20,8 +20,25 @@
     return minor;
   }
   function fromMinorUnits(value) { return value / 100; }
-  function dateValue(value, field) { requiredText(value, field); if (!Number.isFinite(Date.parse(value))) fail(field + " must be a valid date or timestamp."); return value; }
-  function normalizePrice(price, expectedCurrency, expectedUnit, field) {
+  // Unit prices keep 4 decimals (scale 1e4) so that per-sq-ft or per-ft prices such as 0.285 are not
+  // rounded to cents before they are multiplied by the quantity. More than 4 decimals is rejected, never rounded.
+  var UNIT_PRICE_SCALE = 10000;
+  function toUnitPriceScaled(value, field) {
+    nonNegative(value, field);
+    var scaled = value * UNIT_PRICE_SCALE, rounded = Math.round(scaled);
+    if (Math.abs(scaled - rounded) > 1e-6) fail(field + " supports at most 4 decimal places.");
+    if (!Number.isSafeInteger(rounded)) fail(field + " is too large to calculate safely.");
+    return rounded;
+  }
+  var ISO_DATE = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
+  var ONE_DAY_MS = 86400000;
+  function dateValue(value, field, nowMs) {
+    requiredText(value, field);
+    if (!ISO_DATE.test(value.trim()) || !Number.isFinite(Date.parse(value.trim()))) fail(field + " must be an ISO 8601 date or timestamp (for example 2026-11-03 or 2026-11-03T10:00:00Z).");
+    if (Date.parse(value.trim()) > nowMs + ONE_DAY_MS) fail(field + " cannot be in the future.");
+    return value.trim();
+  }
+  function normalizePrice(price, expectedCurrency, expectedUnit, field, nowMs) {
     if (price === null || price === undefined) return null;
     if (!isObject(price)) fail(field + " must be an object or null.");
     var kind = requiredText(price.kind, field + ".kind");
@@ -30,12 +47,12 @@
     var unit = requiredText(price.unit, field + ".unit");
     if (unit !== expectedUnit) fail(field + ".unit must match the line item unit.");
     if (kind === "user-input") {
-      var amount = toMinorUnits(price.amount, field + ".amount");
-      return { kind: kind, currency: currency, unit: unit, lowMinor: amount, highMinor: amount, source: null };
+      var amount = toUnitPriceScaled(price.amount, field + ".amount");
+      return { kind: kind, currency: currency, unit: unit, lowScaled: amount, highScaled: amount, source: null };
     }
     if (EXTERNAL_KINDS.indexOf(kind) === -1) fail(field + ".kind is not a supported price type.");
-    var low = toMinorUnits(price.low, field + ".low");
-    var high = toMinorUnits(price.high, field + ".high");
+    var low = toUnitPriceScaled(price.low, field + ".low");
+    var high = toUnitPriceScaled(price.high, field + ".high");
     if (low > high) fail(field + ".low cannot exceed " + field + ".high.");
     if (!isObject(price.source)) fail(field + ".source provenance is required for external prices.");
     var source = {
@@ -43,16 +60,16 @@
       name: requiredText(price.source.name, field + ".source.name"),
       geography: requiredText(price.source.geography, field + ".source.geography"),
       geographyResolution: requiredText(price.source.geographyResolution, field + ".source.geographyResolution"),
-      observedAt: dateValue(price.source.observedAt, field + ".source.observedAt")
+      observedAt: dateValue(price.source.observedAt, field + ".source.observedAt", nowMs)
     };
     if (kind === "retailer-listing") {
       if (low !== high) fail("A retailer listing must be one observed price, not an unsupported range.");
-      source.retrievedAt = dateValue(price.source.retrievedAt, field + ".source.retrievedAt");
+      source.retrievedAt = dateValue(price.source.retrievedAt, field + ".source.retrievedAt", nowMs);
       source.productOrSku = requiredText(price.source.productOrSku, field + ".source.productOrSku");
     }
-    return { kind: kind, currency: currency, unit: unit, lowMinor: low, highMinor: high, source: source };
+    return { kind: kind, currency: currency, unit: unit, lowScaled: low, highScaled: high, source: source };
   }
-  function normalizeLineItem(item, currency, index) {
+  function normalizeLineItem(item, currency, index, nowMs) {
     var prefix = "lineItems[" + index + "]";
     if (!isObject(item)) fail(prefix + " must be an object.");
     var id = requiredText(item.id, prefix + ".id");
@@ -62,18 +79,21 @@
     var required = item.required !== false;
     var excluded = item.excluded === true;
     if (excluded && required) fail(prefix + " is required and cannot be excluded; mark it optional before excluding it.");
-    var price = excluded ? null : normalizePrice(item.price, currency, unit, prefix + ".price");
+    var price = excluded ? null : normalizePrice(item.price, currency, unit, prefix + ".price", nowMs);
     return { id: id, name: name, unit: unit, quantity: quantity, required: required, excluded: excluded, price: price };
   }
-  function calculateEstimate(input) {
+  function calculateEstimate(input, options) {
     if (!isObject(input)) fail("Estimate input must be an object.");
+    // "now" is injectable so that tests and callers control the clock; it only limits provenance dates.
+    var nowMs = options && options.now !== undefined ? (options.now instanceof Date ? options.now.getTime() : Number(options.now)) : Date.now();
+    if (!Number.isFinite(nowMs)) fail("options.now must be a valid date or timestamp.");
     var currency = currencyCode(input.currency);
     var contingencyPct = nonNegative(input.contingencyPct, "contingencyPct");
     if (contingencyPct > 100) fail("contingencyPct cannot exceed 100.");
     if (!Array.isArray(input.lineItems) || input.lineItems.length === 0) fail("At least one line item is required.");
     var seen = Object.create(null);
     var items = input.lineItems.map(function (item, index) {
-      var normalized = normalizeLineItem(item, currency, index);
+      var normalized = normalizeLineItem(item, currency, index, nowMs);
       if (seen[normalized.id]) fail("Line item IDs must be unique: " + normalized.id);
       seen[normalized.id] = true;
       return normalized;
@@ -86,15 +106,15 @@
         (item.required ? unknownRequired : unknownOptional).push({ id: item.id, name: item.name, unit: item.unit, quantity: item.quantity });
         return;
       }
-      var low = Math.round(item.quantity * item.price.lowMinor);
-      var high = Math.round(item.quantity * item.price.highMinor);
+      var low = Math.round(item.quantity * item.price.lowScaled / 100);
+      var high = Math.round(item.quantity * item.price.highScaled / 100);
       if (!Number.isSafeInteger(low) || !Number.isSafeInteger(high)) fail("Line item total exceeds safe arithmetic limits: " + item.id);
       subtotalLow += low; subtotalHigh += high;
       if (!Number.isSafeInteger(subtotalLow) || !Number.isSafeInteger(subtotalHigh)) fail("Estimate total exceeds safe arithmetic limits.");
       known.push({
         id: item.id, name: item.name, unit: item.unit, quantity: item.quantity,
         priceKind: item.price.kind, priceUnit: item.price.unit,
-        unitPriceLow: fromMinorUnits(item.price.lowMinor), unitPriceHigh: fromMinorUnits(item.price.highMinor),
+        unitPriceLow: item.price.lowScaled / UNIT_PRICE_SCALE, unitPriceHigh: item.price.highScaled / UNIT_PRICE_SCALE,
         totalLow: fromMinorUnits(low), totalHigh: fromMinorUnits(high), source: item.price.source
       });
     });
@@ -108,12 +128,19 @@
       subtotalLow: fromMinorUnits(subtotalLow), subtotalHigh: fromMinorUnits(subtotalHigh),
       contingencyPct: contingencyPct, contingencyLow: fromMinorUnits(contingencyLow), contingencyHigh: fromMinorUnits(contingencyHigh),
       totalLow: fromMinorUnits(totalLow), totalHigh: fromMinorUnits(totalHigh),
+      pricedLineCount: known.length,
       complete: unknownRequired.length === 0 && unknownOptional.length === 0,
-      canAssessRequiredScope: unknownRequired.length === 0
+      // At least one priced line is needed: an estimate with nothing priced has nothing to compare with a budget.
+      canAssessRequiredScope: unknownRequired.length === 0 && known.length > 0
     };
   }
   function assessBudget(estimate, budget) {
     if (!isObject(estimate) || !isObject(budget)) fail("Estimate and budget objects are required.");
+    // Only an object produced by calculateEstimate is accepted, so a hand-built object cannot skip the required-cost check.
+    if (!Array.isArray(estimate.lineItems) || !Array.isArray(estimate.unknownRequired) || !Array.isArray(estimate.unknownOptional) ||
+        typeof estimate.canAssessRequiredScope !== "boolean" || !Number.isFinite(estimate.totalLow) || !Number.isFinite(estimate.totalHigh)) {
+      fail("Estimate must be the result of calculateEstimate.");
+    }
     var currency = currencyCode(budget.currency);
     if (currency !== estimate.currency) fail("Budget currency must match estimate currency.");
     var budgetMinor = toMinorUnits(budget.amount, "budget.amount");
@@ -125,8 +152,17 @@
         status: "cannot-assess",
         reason: "A required cost is unknown; the budget may not cover the full required scope.",
         budget: fromMinorUnits(budgetMinor), reserve: fromMinorUnits(reserveMinor), availableBudget: fromMinorUnits(availableMinor),
-        estimateLow: estimate.totalLow, estimateHigh: estimate.totalHigh,
+        // Partial: priced lines plus contingency only; the unknown required costs are NOT in these numbers.
+        pricedTotalLow: estimate.totalLow, pricedTotalHigh: estimate.totalHigh,
         unknownRequired: estimate.unknownRequired.map(function (item) { return item.name; })
+      };
+    }
+    if (!estimate.lineItems.length) {
+      return {
+        status: "cannot-assess",
+        reason: "No line item has a price yet, so there is nothing to compare with the budget.",
+        budget: fromMinorUnits(budgetMinor), reserve: fromMinorUnits(reserveMinor), availableBudget: fromMinorUnits(availableMinor),
+        unknownRequired: [], unknownOptional: (estimate.unknownOptional || []).map(function (item) { return item.name; })
       };
     }
     var low = toMinorUnits(estimate.totalLow, "estimate.totalLow");
@@ -143,5 +179,5 @@
       unknownOptional: (estimate.unknownOptional || []).map(function (item) { return item.name; })
     };
   }
-  return { version: "1.0.0", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
+  return { version: "1.0.1", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
 }));
