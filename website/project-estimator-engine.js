@@ -8,6 +8,8 @@
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   var EXTERNAL_KINDS = ["regional-range", "retailer-listing", "editorial-range", "government-benchmark"];
+  // Only estimates created by this module may be assessed; returned estimates are immutable.
+  var estimateRecords = new WeakMap();
   function fail(message) { throw new Error(message); }
   function isObject(value) { return value !== null && typeof value === "object" && !Array.isArray(value); }
   function requiredText(value, field) { if (typeof value !== "string" || !value.trim()) fail(field + " is required."); return value.trim(); }
@@ -30,13 +32,28 @@
     if (!Number.isSafeInteger(rounded)) fail(field + " is too large to calculate safely.");
     return rounded;
   }
-  var ISO_DATE = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2}(\.\d+)?)?(Z|[+-]\d{2}:\d{2})?)?$/;
+  var ISO_DATE = /^(\d{4})-(\d{2})-(\d{2})(?:T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d+))?)?(Z|([+-])(\d{2}):(\d{2}))?)?$/;
   var ONE_DAY_MS = 86400000;
   function dateValue(value, field, nowMs) {
     requiredText(value, field);
-    if (!ISO_DATE.test(value.trim()) || !Number.isFinite(Date.parse(value.trim()))) fail(field + " must be an ISO 8601 date or timestamp (for example 2026-11-03 or 2026-11-03T10:00:00Z).");
-    if (Date.parse(value.trim()) > nowMs + ONE_DAY_MS) fail(field + " cannot be in the future.");
-    return value.trim();
+    var text = value.trim(), parts = ISO_DATE.exec(text);
+    if (!parts) fail(field + " must be an ISO 8601 date or timestamp (for example 2026-11-03 or 2026-11-03T10:00:00Z).");
+    var year = Number(parts[1]), month = Number(parts[2]), day = Number(parts[3]);
+    var leapYear = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    var daysInMonth = [31, leapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) fail(field + " contains an impossible calendar date.");
+    if (parts[4] !== undefined) {
+      var hour = Number(parts[4]), minute = Number(parts[5]), second = parts[6] === undefined ? 0 : Number(parts[6]);
+      if (hour > 23 || minute > 59 || second > 59) fail(field + " contains an invalid time.");
+      if (parts[8] !== undefined) {
+        var offsetHour = Number(parts[10]), offsetMinute = Number(parts[11]);
+        if (offsetMinute > 59 || offsetHour > 14 || (offsetHour === 14 && offsetMinute !== 0)) fail(field + " contains an invalid UTC offset.");
+      }
+    }
+    var parsed = Date.parse(text);
+    if (!Number.isFinite(parsed)) fail(field + " must be a valid ISO 8601 date or timestamp.");
+    if (parsed > nowMs + ONE_DAY_MS) fail(field + " cannot be in the future.");
+    return text;
   }
   function normalizePrice(price, expectedCurrency, expectedUnit, field, nowMs) {
     if (price === null || price === undefined) return null;
@@ -122,7 +139,7 @@
     var contingencyHigh = Math.round(subtotalHigh * contingencyPct / 100);
     var totalLow = subtotalLow + contingencyLow, totalHigh = subtotalHigh + contingencyHigh;
     if (![contingencyLow, contingencyHigh, totalLow, totalHigh].every(Number.isSafeInteger)) fail("Estimate total exceeds safe arithmetic limits.");
-    return {
+    var result = {
       currency: currency, lineItems: known, unknownRequired: unknownRequired, unknownOptional: unknownOptional,
       excluded: excluded.map(function (item) { return { id: item.id, name: item.name }; }),
       subtotalLow: fromMinorUnits(subtotalLow), subtotalHigh: fromMinorUnits(subtotalHigh),
@@ -133,10 +150,19 @@
       // At least one priced line is needed: an estimate with nothing priced has nothing to compare with a budget.
       canAssessRequiredScope: unknownRequired.length === 0 && known.length > 0
     };
+    function freezeDeep(value) {
+      if (!value || typeof value !== "object" || Object.isFrozen(value)) return value;
+      Object.keys(value).forEach(function (key) { freezeDeep(value[key]); });
+      return Object.freeze(value);
+    }
+    freezeDeep(result);
+    estimateRecords.set(result, result);
+    return result;
   }
   function assessBudget(estimate, budget) {
     if (!isObject(estimate) || !isObject(budget)) fail("Estimate and budget objects are required.");
-    // Only an object produced by calculateEstimate is accepted, so a hand-built object cannot skip the required-cost check.
+    // Shape checks alone are forgeable. WeakMap identity proves this exact object came from calculateEstimate.
+    if (estimateRecords.get(estimate) !== estimate) fail("Estimate must be the result of calculateEstimate.");
     if (!Array.isArray(estimate.lineItems) || !Array.isArray(estimate.unknownRequired) || !Array.isArray(estimate.unknownOptional) ||
         typeof estimate.canAssessRequiredScope !== "boolean" || !Number.isFinite(estimate.totalLow) || !Number.isFinite(estimate.totalHigh)) {
       fail("Estimate must be the result of calculateEstimate.");
@@ -179,5 +205,5 @@
       unknownOptional: (estimate.unknownOptional || []).map(function (item) { return item.name; })
     };
   }
-  return { version: "1.0.1", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
+  return { version: "1.0.2", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
 }));
