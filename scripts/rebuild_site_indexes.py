@@ -336,6 +336,9 @@ TOOLS = [
     {"slug": "smart-plug-load-check", "hub": "smart-home", "title": "Smart Plug Load Check",
      "desc": "Enter your plug rating and a device to see if it is a good fit, needs care or should not go on a smart plug.",
      "kw": "calculator smart plug watts amps load safety heater kettle tool"},
+    {"slug": "home-project-calculator", "hub": "projects", "title": "Home Project Calculator",
+     "desc": "Work out room area and volume, paint and flooring quantities, electricity running costs and a project cost estimate from your own measurements and prices.",
+     "kw": "calculator area volume square metres feet paint flooring materials electricity cost kwh project estimate budget tool"},
 ]
 
 
