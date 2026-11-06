@@ -33,6 +33,7 @@ r=run({len:10,wid:12,nt:1,ns:1,nb:0,nj:1}); assert.match(r.out,/<strong>200 CFM/
 r=run({len:10,wid:12,nt:1,ns:1,nb:1,nj:1}); assert.match(r.out,/<strong>250 CFM/,'documents what happens if the same jetted tub is also entered as a standard tub');
 assert.ok(html.includes('Standard bathtubs (not jetted)')); assert.match(html,/Each jetted tub counts here only, not also as a standard bathtub/);
 r=run({len:8,wid:10,rating:70}); assert.match(r.out,/Table 150\.0-H/); assert.match(r.out,/not a code approval for your home/); assert.match(r.out,/bend radius at least the duct diameter/);
+assert.match(r.out,/25 ft \(8 m\) or less with no more than three elbows/); assert.match(html,/limit its use to systems with a total duct length of 25 ft \(8 m\) or less, no more than three elbows/); assert.match(html,/CEC-400-2025-010-F/);
 assert.match(html,/Table 150\.0-H of California's Title 24/); assert.match(html,/not a code approval for your home; elsewhere/);
 r=run({len:8,wid:10,nt:1.5}); assert.match(r.err,/whole numbers/);
 r=run({len:8,wid:10,nt:9}); assert.match(r.err,/whole numbers/);
