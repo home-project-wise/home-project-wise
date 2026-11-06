@@ -93,3 +93,22 @@ Google sitemap resubmitted; Bing sitemap resubmitted; 45 URLs submitted to Bing.
 
 ## Routine
 Each Claude session: pull totals and the page and query tables for the last 28 days; re-inspect the URLs still unknown; append an entry here. Do not report a metric as zero when the tool returned no data.
+
+## 2026-11-05 entry (Claude, session 27; Search Console comparison day)
+
+### Google Search Console, performance (web, data state all; final data ends 2026-11-02, firstIncompleteDate 2026-11-03)
+- 2026-10-06 to 2026-11-02: 530 impressions, 2 clicks, CTR 0.377%, average position 19.30. Baseline logged 2026-11-03 for 2026-10-06 to 2026-10-31: 432 impressions, 1 click, CTR 0.231%, position 19.96.
+- 2026-09-20 to 2026-11-02: 544 impressions, 2 clicks, CTR 0.368%, position 19.95 (2026-09-20 to 10-31 re-read as 446 / 1 / 0.224% / 20.74, same as 11-03).
+- Last 7 final days 10-27 to 11-02: 238 impressions; previous 7 days 10-20 to 10-26: 169. Clicks: 1 on 10-23, 1 on 11-01. Provisional (incomplete) days: 11-03 73 impressions, 11-04 43.
+- Pages, 2026-10-06 to 2026-11-05 (provisional tail; sums to 648 impressions, 2 clicks; not comparable with the 432 window above): macerating 128 (11.9), reduce-bathroom-condensation 86 (52.0), what-can-you-plug-into-a-smart-plug 72 (5.9), how-to-hang-large-wall-art 64 (6.0), where-to-put-water-leak-sensors 41 (23.8), small-bathroom-easier-to-clean 38 (9.2), stop-musty-bathroom-towels 37 (25.8), better-evening-home-lighting 34 (5.8), stop-kitchen-counter-clutter stub 33 (12.9, 1 click), motion-lighting 25 (6.2, 1 click), reduce-cable-clutter 24 (12.1), how-to-fix-damp-crawl-space-humidity 15 (73.3), smart-lighting 12 (18.6).
+- Queries (69 rows, 137 impressions; anonymised queries hidden, never add to page totals): "why does my kitchen clutter keep coming back" 15 (8.7), "bad condensation in bathroom" 12 (89.6), "bathroom dampness" 6 (86.8), "condensation on bathroom walls" 5 (90.4), "where to place water leak sensors" 5 (71.6). Crawl-space and condensation queries sit at positions 60 to 100.
+- Interpretation (not a verified cause): impressions grew modestly and position is flat; the pages that matter most for revenue (crawl space, condensation) are still far from page 1 and Google has not recrawled them.
+
+### Google, indexing (URL Inspection on all 45 live sitemap URLs, 2026-11-05)
+- Submitted and indexed 23; unknown to Google 21; crawled, currently not indexed 1 (choose-bathroom-exhaust-fan). Identical to 2026-11-01 and 2026-11-03; the unknown set is the same. reduce-bathroom-condensation still last crawled 2026-10-01. Sitemap: pending, last submitted 2026-11-01, 0 errors, 0 warnings.
+
+### Bing Webmaster Tools
+- Daily totals 2026-10-04 to 2026-11-02: 0 impressions, 0 clicks.
+
+### Method note
+- quality_gate.py --all on raw main: 28 PASS, only the redirect stub fails. After running rebuild_site_indexes.py first (deploy-style), 12 more articles exceed the 130-word intro limit because the rebuild adds breadcrumb and date text before the first H2. CI does not run it that way; nothing was changed because of this. Do not trim intros on the strength of a post-rebuild run.
