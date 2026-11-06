@@ -26,6 +26,14 @@ r=run({len:'abc',wid:10}); assert.match(r.err,/above zero/);
 r=run({len:1,wid:1}); assert.match(r.err,/ordinary bathrooms/);
 r=run({len:40,wid:40}); assert.match(r.err,/ordinary bathrooms/);
 r=run({len:2.4,wid:3},'m'); assert.match(r.out,/<strong>78 CFM/,'metric 7.2 m2 = 77.5 sq ft, rounded up to 78'); 
+// review fixes (2026-11-06): result text in the entered unit, tub wording, California table scope
+r=run({len:2.4,wid:3},'m'); assert.match(r.out,/for a 7\.2 m\u00b2 \(77\.5 sq ft\) bathroom/,'metric result shows m2 and sq ft'); assert.ok(!/for a 77\.5 sq ft bathroom/.test(r.out));
+r=run({len:8,wid:10}); assert.match(r.out,/for a 80 sq ft bathroom/); assert.ok(!/m\u00b2/.test(r.out),'US result has no m2');
+r=run({len:10,wid:12,nt:1,ns:1,nb:0,nj:1}); assert.match(r.out,/<strong>200 CFM/,'one jetted tub counted once, in the jetted field only');
+r=run({len:10,wid:12,nt:1,ns:1,nb:1,nj:1}); assert.match(r.out,/<strong>250 CFM/,'documents what happens if the same jetted tub is also entered as a standard tub');
+assert.ok(html.includes('Standard bathtubs (not jetted)')); assert.match(html,/Each jetted tub counts here only, not also as a standard bathtub/);
+r=run({len:8,wid:10,rating:70}); assert.match(r.out,/Table 150\.0-H/); assert.match(r.out,/not a code approval for your home/); assert.match(r.out,/bend radius at least the duct diameter/);
+assert.match(html,/Table 150\.0-H of California's Title 24/); assert.match(html,/not a code approval for your home; elsewhere/);
 r=run({len:8,wid:10,nt:1.5}); assert.match(r.err,/whole numbers/);
 r=run({len:8,wid:10,nt:9}); assert.match(r.err,/whole numbers/);
 r=run({len:8,wid:10,rating:70}); assert.match(r.out,/at least 5 in\. rigid duct or 5 in\. flexible/); assert.match(r.out,/below your target of 80/);
