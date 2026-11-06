@@ -593,3 +593,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Status: IN PROGRESS. Target: create a clean replacement documentation PR from current main, carrying forward every unique research artifact and handoff from #233 while preserving all newer main-branch operations-room entries.
 - Files: data/AI_COLLABORATION.md, data/WORK_LOG.md, docs/CAO-AI-QUESTION-BENCHMARK.md, docs/CAO-INTEGRATION.md, plus four research documents currently only on #233.
 - Method: append-only merge for shared logs and existing docs; copy only new research documents; do not rewrite or force-push #233; no site, workflow, Awin, Search Console setting, merge, deploy or publish changes.
+
+#### 2026-11-06 — ChatGPT — HANDOFF (safe #233 reconciliation)
+- Status: DONE on branch `chatgpt/reconcile-cao-package-2026-11-06`; replacement documentation PR opened from current `main`. The original #233 branch was not rebased, force-pushed, closed or overwritten.
+- Preserved all 8 unique #233 additions: four new research documents (competitive-advantage audit, SEO intent map, query-level SERP review, 10-question calculator cost benchmark), the link from the existing 40-question benchmark, the CAO integration reference, and the two historical ChatGPT/Claude handoff and work-log entries. Existing main-branch files were merged append-only; current main history and Claude's 2026-11-06 session 28 notes remain intact.
+- Changed only documentation/log files. No website, calculator, Awin, workflow, crawler, Search Console setting, merge, deploy or publication changes. CI/review on the replacement PR is pending.
+- Next: review the replacement PR diff and checks; only after it is accepted should #233 be closed as superseded. Keep all release decisions for #229/#235/#236 with the owner. Budget-estimator architecture remains one canonical Budget Planner journey; no parallel budget page.
