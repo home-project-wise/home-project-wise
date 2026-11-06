@@ -165,4 +165,26 @@ assert.equal(withDate("2026-11-04")().lineItems[0].source.observedAt, "2026-11-0
 assert.equal(withDate("2026-11-03T10:00:00Z")().lineItems[0].source.observedAt, "2026-11-03T10:00:00Z");
 rejects("invalid now option", () => estimator.calculateEstimate({ currency: "USD", contingencyPct: 0, lineItems: [{ id: "x", name: "i", quantity: 1, unit: "each" }] }, { now: "tomorrow" }), /options.now/);
 console.log("Project estimator engine: review regression tests passed.");
+// 5. Provenance cannot be bypassed with a fully-shaped forged estimate; returned data is immutable.
+const forgedEstimate = {
+  currency: complete.currency, lineItems: complete.lineItems,
+  unknownRequired: complete.unknownRequired, unknownOptional: complete.unknownOptional,
+  canAssessRequiredScope: true, totalLow: 0, totalHigh: 0
+};
+rejects("fully-shaped forged estimate is rejected", () => estimator.assessBudget(forgedEstimate, { amount: 500, currency: "USD" }), /result of calculateEstimate/);
+rejects("returned estimate cannot be mutated", () => { complete.totalLow = 0; }, TypeError);
+rejects("nested estimate lines cannot be mutated", () => { complete.lineItems[0].totalLow = 0; }, TypeError);
+assert.equal(estimator.assessBudget(complete, { amount: 500, reserveAmount: 50, currency: "USD" }).status, "likely-within-budget");
+
+// 6. ISO validation rejects impossible calendar days, times and UTC offsets.
+rejects("impossible February date is rejected", withDate("2026-02-30"), /impossible calendar date/);
+rejects("month 13 is rejected", withDate("2026-13-01"), /impossible calendar date/);
+rejects("hour 24 is rejected", withDate("2026-11-03T24:00:00Z"), /invalid time/);
+rejects("minute 60 is rejected", withDate("2026-11-03T10:60:00Z"), /invalid time/);
+rejects("second 60 is rejected", withDate("2026-11-03T10:00:60Z"), /invalid time/);
+rejects("UTC offset beyond 14 hours is rejected", withDate("2026-11-03T10:00:00+15:00"), /invalid UTC offset/);
+rejects("UTC offset minutes beyond 14:00 are rejected", withDate("2026-11-03T10:00:00+14:01"), /invalid UTC offset/);
+assert.equal(withDate("2024-02-29")().lineItems[0].source.observedAt, "2024-02-29");
+rejects("non-leap February 29 is rejected", withDate("2026-02-29"), /impossible calendar date/);
+
 
