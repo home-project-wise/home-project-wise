@@ -137,7 +137,7 @@ test('two-product comparison reports each product result and cost', () => {
     { productLabel: 'A', matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 20, currency: '$', saleUnitLabel: 'roll' },
     { productLabel: 'B', matchType: 'straight', patternRepeat: 2, rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 25, currency: '$', saleUnitLabel: 'roll' }
   ]);
-  assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.products.length, 2);
+  assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, true); assert.equal(r.products.length, 2);
   assert.equal(r.products[0].estimate.ok, true); assert.equal(r.products[1].estimate.ok, true);
 });
 test('comparison marks unsupported product as not comparable', () => {
@@ -147,4 +147,26 @@ test('comparison marks unsupported product as not comparable', () => {
   ]);
   assert.equal(r.ok, true); assert.equal(r.comparable, false); assert.equal(r.products[1].estimate.error.code, 'unsupported_match_type');
 });
+test('comparison refuses quantity comparison across different measurement units', () => {
+  const r = compareWallpaperProducts({ walls: [12], wallHeight: 8, trimAllowance: 0.5, unit: 'ft' }, [
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', unit: 'ft' },
+    { matchType: 'free', rollWidth: 0.6, usableLengthPerSaleUnit: 10, saleUnitLabel: 'roll', unit: 'm' }
+  ]);
+  assert.equal(r.ok, true); assert.equal(r.comparable, false); assert.equal(r.costComparable, false);
+});
+test('comparison does not compare costs in different currencies', () => {
+  const r = compareWallpaperProducts({ walls: [12], wallHeight: 8, trimAllowance: 0.5, unit: 'ft' }, [
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', pricePerSaleUnit: 20, currency: 'USD' },
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', pricePerSaleUnit: 18, currency: 'CAD' }
+  ]);
+  assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, false);
+});
+test('quantity comparison remains valid when prices are unknown but cost comparison is unavailable', () => {
+  const r = compareWallpaperProducts({ walls: [12], wallHeight: 8, trimAllowance: 0.5, unit: 'ft' }, [
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll' },
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll' }
+  ]);
+  assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, false);
+});
+
 console.log(`\n${passed} wallpaper engine tests passed`);
