@@ -13,7 +13,7 @@ Build wallpaper planning as a new module inside the existing flagship Home Proje
 | Source | Verified useful capability or guidance | What we should learn |
 |---|---|---|
 | Sherwin-Williams wallpaper estimate guide | Area-based usable-yield bands by pattern repeat; discusses single-roll pricing versus double/triple-roll packaging and matching run codes | Product packaging and usable yield must be explicit; avoid a generic roll-size assumption |
-| Graham & Brown measuring guide | Measure wall-by-wall; explains free, straight and offset matches; advises against automatically deducting doors/windows | Explain match type and avoid subtracting opening area in a way that under-orders |
+| Graham & Brown measuring guide and US wallpaper guide | Measure wall-by-wall; explains free, straight and offset matches; its US guide adds the pattern repeat to wall height when estimating a drop | Explain match type and avoid subtracting opening area in a way that under-orders; use a conservative repeat allowance and defer to product-specific yield guidance |
 | James Dunlop Textiles manufacturer guide | Counts drops per wall; adds trimming and pattern repeat; counts only complete drops per roll; gives different waste guidance for match size | Strip-level arithmetic is more useful than square-foot-only division |
 | Wallcoverings Association | Defines random, straight-across and half-drop match types | Use consistent definitions and route complex match types to product instructions |
 | Sherwin-Williams hanging guide | Starting point, plumb line, strip width and installation technique | Link quantity advice to correct installation planning |
@@ -21,6 +21,7 @@ Build wallpaper planning as a new module inside the existing flagship Home Proje
 Sources:
 - https://www.sherwin-williams.com/homeowners/how-to/wallpapering-how-tos/sw-article-dir-howtoestimate
 - https://www.grahambrown.com/row/how-to/measure-your-room/
+- https://www.grahambrown.com/us/blog/how-much-wallpaper-do-i-need/
 - https://manufacturer.jamesdunloptextiles.com/journal/tips-how-to/how-to-calculate-wallpaper-requirements
 - https://www.wallcoverings.org/page/ResUnderWallpaper
 - https://www.sherwin-williams.com/homeowners/project-center/wallpapering-how-tos/hanging-techniques
