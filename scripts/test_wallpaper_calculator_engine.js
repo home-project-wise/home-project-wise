@@ -134,8 +134,8 @@ test('metric and imperial inputs produce the same sale-unit count', () => {
 });
 test('two-product comparison reports each product result and cost', () => {
   const r = compareWallpaperProducts({ walls: [12, 15], wallHeight: 8, trimAllowance: 0.5, unit: 'ft' }, [
-    { productLabel: 'A', matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 20, currency: '$', saleUnitLabel: 'roll' },
-    { productLabel: 'B', matchType: 'straight', patternRepeat: 2, rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 25, currency: '$', saleUnitLabel: 'roll' }
+    { productLabel: 'A', matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 20, currency: 'USD', saleUnitLabel: 'roll' },
+    { productLabel: 'B', matchType: 'straight', patternRepeat: 2, rollWidth: 2, usableLengthPerSaleUnit: 30, pricePerSaleUnit: 25, currency: 'USD', saleUnitLabel: 'roll' }
   ]);
   assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, true); assert.equal(r.products.length, 2);
   assert.equal(r.products[0].estimate.ok, true); assert.equal(r.products[1].estimate.ok, true);
@@ -172,8 +172,7 @@ test('quantity comparison remains valid when prices are unknown but cost compari
 test('multi-room project calculates each room separately and sums sale units conservatively', () => {
   const r = estimateWallpaperProject({
     unit: 'ft', rollWidth: 1.7083333333333333, usableLengthPerSaleUnit: 33,
-    matchType: 'straight', patternRepeat: 20/12, pricePerSaleUnit: 24.99, currency: '
-, saleUnitLabel: 'double-roll package',
+    matchType: 'straight', patternRepeat: 20/12, pricePerSaleUnit: 24.99, currency: 'USD', saleUnitLabel: 'double-roll package',
     rooms: [
       { label: 'Living room', walls: [12, 15, 12, 15], wallHeight: 8, trimAllowance: 0.5 },
       { label: 'Bedroom', walls: [10, 10], wallHeight: 8.5, trimAllowance: 0.5 }
@@ -202,8 +201,7 @@ test('multi-room product comparison preserves room-by-room totals', () => {
 });
 
 test('currency symbol is rejected in favor of an ISO currency code', () => {
-  const r = estimateWallpaper(base({ currency: '
- }));
+  const r = estimateWallpaper(base({ currency: '$' }));
   assert.equal(r.ok, false); assert.equal(r.error.code, 'invalid_currency');
 });
 test('wallpaper project estimate maps to a project-budget line item with a manual price', () => {
