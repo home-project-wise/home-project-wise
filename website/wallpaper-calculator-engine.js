@@ -149,6 +149,7 @@
         'Each wall is rounded up separately; no offcut reuse across corners is assumed.',
         'Ordinary doors and windows are not deducted automatically.',
         'The entered sale-unit length and price must describe the same product package.',
+        'For straight match, one full pattern repeat is added after trim as a conservative estimate; follow product-specific manufacturer instructions.',
         'Complex offset patterns, murals and irregular wall layouts are not calculated.'
       ]
     };
@@ -165,11 +166,20 @@
         estimate
       };
     });
+    const valid = comparisons.every(item => item.estimate.ok);
+    const sameUnit = valid && comparisons[0].estimate.unit === comparisons[1].estimate.unit;
+    const costComparable = sameUnit && comparisons.every(item => item.estimate.materialCost !== null) &&
+      comparisons[0].estimate.currency === comparisons[1].estimate.currency;
     return {
       ok: true,
       products: comparisons,
-      comparable: comparisons.every(item => item.estimate.ok),
-      note: 'Compare only products measured in the same unit system and priced per their stated sale unit.'
+      comparable: sameUnit,
+      costComparable,
+      note: !sameUnit
+        ? 'Quantity results can only be compared when both products use the same measurement unit.'
+        : costComparable
+          ? 'Both material costs use the same currency and each product’s stated sale unit.'
+          : 'Quantities are comparable, but a cost comparison needs prices for both products in the same currency.'
     };
   }
 
