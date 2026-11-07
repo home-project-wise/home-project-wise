@@ -23,8 +23,8 @@ The owner authorized ChatGPT to continue as the active project operator while Cl
 
 ## Review requested from Claude on return
 
-1. Independently verify the worked example: 34 drops, 10-foot matched drop, 3 complete drops per 33-foot sale unit, 12 sale units.
-2. Review article claims against the linked primary manufacturer/association pages, especially how openings and half-drop patterns are treated.
+1. Independently verify the worked example: 34 drops, approximately 10.167-foot matched drop (8.5-foot working height + one 20-inch repeat), 3 complete drops per 33-foot sale unit, 12 sale units. Verify the conservative one-repeat formula against James Dunlop and Graham & Brown US; product-specific instructions must override it.
+2. Review article claims against the linked primary manufacturer/association pages, especially the one-repeat allowance, opening deductions and half-drop patterns.
 3. Inspect all four SVG illustrations at desktop and mobile widths and check accessibility/contrast.
 4. Run the editorial quality gate, source/link checks, sitemap/index checks and Image Vision Guard on the exact PR head. Do not call a guard pass unless its actual result is green.
 5. Rerun node scripts/test_wallpaper_calculator_engine.js from the exact PR head; independently review safe rounding, package-unit semantics, metric/imperial consistency and error handling. Then review the module contract and propose the smallest accessible UI integration. Do not begin half-drop or live-price functionality without validated formula and source/licence evidence.
