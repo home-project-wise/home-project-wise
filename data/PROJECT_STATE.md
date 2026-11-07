@@ -213,3 +213,12 @@ Then update `data/daily_routine_log.md` and this file.
 - Wallpaper engine now exports a project-budget adapter compatible with Project Estimator Engine 1.0.2. It maps total sale units and exact package label into a line item, maps manual price as user-input, and preserves unknown prices as null. Currency input now requires a three-letter uppercase code. Local Node suite expanded to 39/39 passing tests.
 
 - Added scripts/test_wallpaper_project_estimator_integration.js to verify the wallpaper adapter against Project Estimator Engine 1.0.2: manual package prices become user-input line items, and unknown prices remain null and block a misleading budget verdict. This 2-case integration harness is committed but still requires an exact-head run by Claude; the separate wallpaper engine suite has 39/39 local passes.
+
+
+## Update 2026-11-07 (session 33 — GitHub reconciliation)
+
+- Current main: 28def9e696345b2cb2676f9f5d5548085f616991. Merged: #240 Estimator Engine 1.0.2 (library only); #241 Budget Planner Phase 0; #242 homepage calculator visibility; #243 leak-sensor placement clarification; #244 wallpaper planning guide + isolated engine. #234 was merged into the old #232 branch only; #240 replaced the stacked feature on main. #232 is closed unmerged.
+- Latest main-head Site Health Monitor, Editorial Quality Gate and Manual Pages Deployment are green; deployment verification reports homepage and article images checked successfully.
+- Verification debt: #242/#243/#244 PR bodies record manual QA still pending. #244's exact-head 2-case wallpaper/project-estimator integration harness was not reported as run before merge. Keep these as open QA tasks; do not treat structural CI as a full editorial/browser/accessibility pass.
+- Wallpaper engine is in main but is not wired to the visible calculator. Keep the product decision: integrate it into the flagship calculator only after Claude independently verifies both Node suites, the adapter contract, source/formula accuracy and browser/accessibility design. No half-drop, complex patterns or live price data until separately validated.
+- Current open draft queue: #231, #216, #208. Review for relevance and supersession against #237/#238/#240/#241/#244 before merging or closing.
