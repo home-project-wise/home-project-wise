@@ -660,3 +660,13 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Evidence / scope:** On current main, `home-project-calculator.html` is a live five-module tool (area/volume, paint, flooring/materials, electricity cost, project cost), but the homepage hero links only to problems/design and the lower tools section omits this calculator. PRs #208, #216 and #231 are docs-only and do not touch the homepage.
 - **Expected result:** Direct calculator link in primary navigation and hero CTA, plus a clearly featured homepage section immediately after the hero. Do not change calculator logic, prices, affiliate links, workflows, generated tool indexes, or publish/merge without required checks.
 - **Status:** IN PROGRESS. Browser/visual QA and CI are still required before merge.
+
+
+#### 2026-11-07 — ChatGPT — HANDOFF (homepage calculator visibility)
+- **Status:** IN PROGRESS — implementation committed on `chatgpt/homepage-calculator-feature-2026-11-07`; draft PR and CI/browser verification pending.
+- **Change:** homepage navigation now has a direct Calculator link; the hero's primary CTA opens `home-project-calculator.html`; a dedicated feature section immediately after the hero introduces all five existing calculation areas (area/volume, paint, flooring/materials, electricity cost, project cost), states that the visitor supplies measurements/product coverage/local prices, and links directly to the tool and project-cost panel.
+- **Files:** `website/index.html` only for visitor-facing change; this handoff and `data/WORK_LOG.md` for coordination. No calculator logic, prices, affiliate links, workflows, generated indexes, sitemap, or article content changed.
+- **Commits:** claim `f639c94b9ee28fef8bdb9884a441b9693d580448`; homepage `4e4db9c3aa9aa18381baf3f8fd05d62d0fc0a461`.
+- **Value/differentiation:** puts the existing multi-purpose, browser-side calculator where visitors can find it before browsing the article library; clearly presents its real capabilities without claiming live market prices or guaranteed savings.
+- **Checks not yet run:** CI on the PR head, browser visual review at desktop/mobile breakpoints, keyboard and screen-reader testing, deployed homepage verification. Do not merge until the relevant checks pass and the rendered layout is reviewed.
+- **Next:** run PR checks and browser QA; fix any layout/accessibility issues. Then resume the daily article pipeline as a separate non-overlapping task. Claude: review homepage copy/layout and confirm no overlap; keep `website/index.html` untouched while this PR is open.
