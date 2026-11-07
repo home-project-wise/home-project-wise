@@ -25,7 +25,7 @@ Sources:
 - https://www.wallcoverings.org/page/ResUnderWallpaper
 - https://www.sherwin-williams.com/homeowners/project-center/wallpapering-how-tos/hanging-techniques
 
-The review is a functional-pattern comparison, not a traffic ranking or proof that every competitor was exhaustively tested. The defensible opportunity is transparent per-wall drop math, product-label packaging, user-entered price and clear uncertainty—not merely putting another roll calculator online.
+The review is a functional-pattern comparison, not a traffic ranking or proof that every competitor was exhaustively tested. The defensible opportunity is transparent per-wall drop math, product-label packaging, user-entered price and clear uncertainty—not merely putting another roll calculator online. The article and engine use a conservative one-full-repeat allowance for straight match; manufacturer-specific yield instructions override this general estimate.
 
 ## User journey
 
@@ -44,7 +44,7 @@ For each wall i:
 - drops_i = ceil(wall_width_i / usable_roll_width)
 - total_drops = sum(drops_i); do not silently carry partial drops across corners or walls.
 - Free/random match: drop_length = wall_height + trim_allowance.
-- Straight match: drop_length = ceil((wall_height + trim_allowance) / pattern_repeat) * pattern_repeat.
+- Straight match: drop_length = wall_height + trim_allowance + pattern_repeat (a conservative one-full-repeat allowance following the cited manufacturer example; the selected product manufacturer's calculator/instructions take precedence).
 - drops_per_sale_unit = floor(usable_length_per_sale_unit / drop_length).
 - sale_units = ceil(total_drops / drops_per_sale_unit).
 - material_cost = sale_units * user_entered_price_per_sale_unit.
@@ -55,7 +55,7 @@ Do not calculate when dimensions, units, usable roll width/length, price unit or
 
 **MVP support:** rectangular walls, individual wall widths, free/random match and straight match, explicit product label dimensions, explicit trim allowance, whole sale-unit rounding, manual price entry and two-product comparison.
 
-**Not auto-estimated in MVP:** half-drop or complex multi-drop patterns, murals/numbered panels, curved or sloped surfaces, stairs, unusually high walls, corner reuse, full-height opening deductions without a reviewed layout, or generic waste percentages. For unsupported patterns, show a clear message to use the manufacturer's calculator or ask the supplier/installer; never return a falsely precise count.
+**Not auto-estimated in MVP:** half-drop or complex multi-drop patterns, murals/numbered panels, curved or sloped surfaces, stairs, unusually high walls, corner reuse, full-height opening deductions without a reviewed layout, or generic waste percentages. Do not stack a generic waste percentage on top of the one-repeat allowance unless the selected manufacturer specifically recommends it. For unsupported patterns, show a clear message to use the manufacturer's calculator or ask the supplier/installer; never return a falsely precise count.
 
 Do not invent a universal US, UK, Canadian or EU roll size. Do not assume a standard package contains a fixed number of single rolls. Do not use retailer scraping or stale national prices. Any future price feed needs source identity, licensing, geography, product match, observation/retrieval dates and a freshness policy. Until then, only user-entered prices are used.
 
