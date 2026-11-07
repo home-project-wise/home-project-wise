@@ -1,12 +1,188 @@
 {
-  "status": "OK",
-  "endpoint_errors": {},
-  "api_user_ok": true,
-  "generated_at": "2026-11-06T04:25:26.300557+00:00",
-  "period_start": "2026-11-05T04:00:00+00:00",
-  "period_end": "2026-11-06T04:25:26.300557+00:00",
+  "status": "PARTIAL",
+  "endpoint_errors": {
+    "me": "GoatCounter HTTP 404 on /me"
+  },
+  "api_user_ok": false,
+  "generated_at": "2026-11-07T03:53:07.125303+00:00",
+  "period_start": "2026-11-06T03:00:00+00:00",
+  "period_end": "2026-11-07T03:53:07.125303+00:00",
   "visitors": 1,
   "pageviews": {
+    "total": 1,
+    "total_events": 0,
+    "total_utc": 1,
+    "stats": [
+      {
+        "day": "2026-11-06",
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "daily": 0,
+        "weekly": 1,
+        "monthly": 1
+      },
+      {
+        "day": "2026-11-07",
+        "hourly": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "daily": 1
+      }
+    ]
+  },
+  "paths": {
+    "hits": [
+      {
+        "count": 1,
+        "path_id": 112399230,
+        "path": "/home-project-wise/articles/what-can-you-plug-into-a-smart-plug.html",
+        "event": false,
+        "title": "What Can You Safely Plug Into a Smart Plug? The Watt-Check Method | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-06",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-07",
+            "hourly": [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1
+          }
+        ]
+      }
+    ],
+    "total": 1,
+    "more": false
+  },
+  "referrers": {
+    "stats": [
+      {
+        "id": "Google",
+        "name": "Google",
+        "count": 1,
+        "ref_scheme": "g"
+      }
+    ],
+    "more": false
+  },
+  "locations": {
+    "stats": [
+      {
+        "id": "AU",
+        "name": "Australia",
+        "count": 1
+      },
+      {
+        "id": "GB",
+        "name": "United Kingdom",
+        "count": 1
+      }
+    ],
+    "more": false
+  },
+  "previous_period_visitors": 1,
+  "previous_period_pageviews": {
     "total": 1,
     "total_events": 0,
     "total_utc": 1,
@@ -72,173 +248,6 @@
           0
         ],
         "daily": 1
-      }
-    ]
-  },
-  "paths": {
-    "hits": [
-      {
-        "count": 1,
-        "path_id": 110070645,
-        "path": "/home-project-wise/articles/how-to-hang-large-wall-art-without-damage.html",
-        "event": false,
-        "title": "How to Hang Large Wall Art Without Damaging Walls",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-05",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-06",
-            "hourly": [
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 1
-          }
-        ]
-      }
-    ],
-    "total": 1,
-    "more": false
-  },
-  "referrers": {
-    "stats": [
-      {
-        "id": "Google",
-        "name": "Google",
-        "count": 1,
-        "ref_scheme": "g"
-      }
-    ],
-    "more": false
-  },
-  "locations": {
-    "stats": [
-      {
-        "id": "AU",
-        "name": "Australia",
-        "count": 1
-      }
-    ],
-    "more": false
-  },
-  "previous_period_visitors": 0,
-  "previous_period_pageviews": {
-    "total": 0,
-    "total_events": 0,
-    "total_utc": 0,
-    "stats": [
-      {
-        "day": "2026-11-04",
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 0
-      },
-      {
-        "day": "2026-11-05",
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 0
       }
     ]
   }
