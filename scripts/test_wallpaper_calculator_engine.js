@@ -2,7 +2,7 @@
 // Run: node scripts/test_wallpaper_calculator_engine.js
 const assert = require('assert');
 const path = require('path');
-const { estimateWallpaper, compareWallpaperProducts } = require(path.join(__dirname, '..', 'website', 'wallpaper-calculator-engine.js'));
+const { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts } = require(path.join(__dirname, '..', 'website', 'wallpaper-calculator-engine.js'));
 let passed = 0;
 function test(name, fn) {
   try { fn(); passed += 1; console.log(`PASS ${name}`); }
@@ -167,6 +167,38 @@ test('quantity comparison remains valid when prices are unknown but cost compari
     { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll' }
   ]);
   assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, false);
+});
+
+test('multi-room project calculates each room separately and sums sale units conservatively', () => {
+  const r = estimateWallpaperProject({
+    unit: 'ft', rollWidth: 1.7083333333333333, usableLengthPerSaleUnit: 33,
+    matchType: 'straight', patternRepeat: 20/12, pricePerSaleUnit: 24.99, currency: '
+, saleUnitLabel: 'double-roll package',
+    rooms: [
+      { label: 'Living room', walls: [12, 15, 12, 15], wallHeight: 8, trimAllowance: 0.5 },
+      { label: 'Bedroom', walls: [10, 10], wallHeight: 8.5, trimAllowance: 0.5 }
+    ]
+  });
+  assert.equal(r.ok, true); assert.equal(r.totalDrops, 46); assert.equal(r.rooms[0].estimate.saleUnits, 12);
+  assert.equal(r.rooms[1].estimate.saleUnits, 4); assert.equal(r.totalSaleUnits, 16); assert.equal(r.materialCost, 399.84);
+});
+test('multi-room project rejects an invalid room instead of silently omitting it', () => {
+  const r = estimateWallpaperProject({ unit: 'ft', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', matchType: 'free', trimAllowance: 0, rooms: [
+    { walls: [12], wallHeight: 8, trimAllowance: 0 },
+    { walls: [0], wallHeight: 8, trimAllowance: 0 }
+  ] });
+  assert.equal(r.ok, false); assert.equal(r.error.code, 'invalid_room'); assert.equal(r.error.roomIndex, 1);
+});
+test('multi-room product comparison preserves room-by-room totals', () => {
+  const r = compareWallpaperProducts({ unit: 'ft', rooms: [
+    { label: 'Room 1', walls: [12, 12], wallHeight: 8, trimAllowance: 0.5 },
+    { label: 'Room 2', walls: [10, 10], wallHeight: 8.5, trimAllowance: 0.5 }
+  ] }, [
+    { matchType: 'free', rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', pricePerSaleUnit: 20, currency: 'USD' },
+    { matchType: 'straight', patternRepeat: 2, rollWidth: 2, usableLengthPerSaleUnit: 30, saleUnitLabel: 'roll', pricePerSaleUnit: 25, currency: 'USD' }
+  ]);
+  assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, true);
+  assert.equal(r.products[0].estimate.rooms.length, 2);
 });
 
 console.log(`\n${passed} wallpaper engine tests passed`);
