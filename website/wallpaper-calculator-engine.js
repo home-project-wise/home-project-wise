@@ -155,12 +155,71 @@
     };
   }
 
+  function estimateWallpaperProject(input) {
+    if (!input || typeof input !== 'object' || !Array.isArray(input.rooms) || input.rooms.length === 0) {
+      return fail('rooms_required', 'Add at least one room with its own wall widths and height.');
+    }
+    const { rooms, ...productInput } = input;
+    const roomResults = [];
+    for (let index = 0; index < rooms.length; index += 1) {
+      const room = rooms[index];
+      if (!room || typeof room !== 'object') {
+        return { ok: false, error: { code: 'invalid_room', message: `Room ${index + 1} is not valid.`, roomIndex: index } };
+      }
+      const estimate = estimateWallpaper({
+        ...productInput,
+        walls: room.walls,
+        wallHeight: room.wallHeight,
+        trimAllowance: room.trimAllowance
+      });
+      if (!estimate.ok) {
+        return { ok: false, error: { code: 'invalid_room', message: `Room ${index + 1}: ${estimate.error.message}`, roomIndex: index, cause: estimate.error } };
+      }
+      roomResults.push({
+        label: typeof room.label === 'string' && room.label.trim() ? room.label.trim() : `Room ${index + 1}`,
+        estimate
+      });
+    }
+
+    const totalDrops = roomResults.reduce((sum, item) => sum + item.estimate.totalDrops, 0);
+    const totalSaleUnits = roomResults.reduce((sum, item) => sum + item.estimate.saleUnits, 0);
+    if (!Number.isSafeInteger(totalDrops) || !Number.isSafeInteger(totalSaleUnits)) {
+      return fail('quantity_out_of_range', 'The combined room quantities are outside the safe calculation range.');
+    }
+    const hasPrice = productInput.pricePerSaleUnit !== undefined && productInput.pricePerSaleUnit !== null && productInput.pricePerSaleUnit !== '';
+    const rawCost = hasPrice ? totalSaleUnits * productInput.pricePerSaleUnit : null;
+    if (hasPrice && (!Number.isFinite(rawCost) || rawCost > Number.MAX_SAFE_INTEGER / 100)) {
+      return fail('cost_out_of_range', 'The combined material cost is outside the safe calculation range.');
+    }
+    return {
+      ok: true,
+      unit: typeof productInput.unit === 'string' ? productInput.unit.trim() : productInput.unit,
+      saleUnitLabel: typeof productInput.saleUnitLabel === 'string' ? productInput.saleUnitLabel.trim() : productInput.saleUnitLabel,
+      pricePerSaleUnit: hasPrice ? productInput.pricePerSaleUnit : null,
+      currency: hasPrice ? productInput.currency.trim() : null,
+      rooms: roomResults,
+      totalDrops,
+      totalSaleUnits,
+      materialCost: hasPrice ? money(rawCost) : null,
+      assumptions: [
+        'Each room is calculated separately using its own wall widths and height.',
+        'Sale units are rounded up per room; leftover roll length is not pooled across rooms.',
+        'No offcut reuse across corners or rooms is assumed.',
+        'All rooms in this estimate use the same wallpaper product and sale-unit specification.',
+        'Ordinary doors and windows are not deducted automatically.'
+      ]
+    };
+  }
+
   function compareWallpaperProducts(commonInput, products) {
     if (!Array.isArray(products) || products.length !== 2) {
       return fail('two_products_required', 'Provide exactly two product-label sets to compare.');
     }
     const comparisons = products.map(product => {
-      const estimate = estimateWallpaper({ ...commonInput, ...product });
+      const combinedInput = { ...commonInput, ...product };
+      const estimate = Array.isArray(combinedInput.rooms)
+        ? estimateWallpaperProject(combinedInput)
+        : estimateWallpaper(combinedInput);
       return {
         productLabel: product && typeof product.productLabel === 'string' ? product.productLabel : 'Wallpaper option',
         estimate
@@ -183,5 +242,5 @@
     };
   }
 
-  return { estimateWallpaper, compareWallpaperProducts };
+  return { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts };
 });
