@@ -20,11 +20,6 @@
     return typeof value === 'number' && Number.isFinite(value);
   }
 
-  function ceilWithTolerance(value) {
-    const nearest = Math.round(value);
-    return Math.abs(value - nearest) <= EPSILON ? nearest : Math.ceil(value);
-  }
-
   function floorWithTolerance(value) {
     const nearest = Math.round(value);
     return Math.abs(value - nearest) <= EPSILON ? nearest : Math.floor(value);
@@ -88,8 +83,10 @@
     }
 
     const workingHeight = input.wallHeight + input.trimAllowance;
+    // Conservative straight-match allowance: one full repeat is added after trim.
+    // Product-specific manufacturer instructions/calculators take precedence.
     const dropLength = matchType === 'straight'
-      ? ceilWithTolerance(workingHeight / input.patternRepeat) * input.patternRepeat
+      ? workingHeight + input.patternRepeat
       : workingHeight;
 
     if (!isFiniteNumber(dropLength) || dropLength <= 0) {
