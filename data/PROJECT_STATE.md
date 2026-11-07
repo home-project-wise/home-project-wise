@@ -222,3 +222,12 @@ Then update `data/daily_routine_log.md` and this file.
 - Verification debt: #242/#243/#244 PR bodies record manual QA still pending. #244's exact-head 2-case wallpaper/project-estimator integration harness was not reported as run before merge. Keep these as open QA tasks; do not treat structural CI as a full editorial/browser/accessibility pass.
 - Wallpaper engine is in main but is not wired to the visible calculator. Keep the product decision: integrate it into the flagship calculator only after Claude independently verifies both Node suites, the adapter contract, source/formula accuracy and browser/accessibility design. No half-drop, complex patterns or live price data until separately validated.
 - Current open draft queue: #231, #216, #208. Review for relevance and supersession against #237/#238/#240/#241/#244 before merging or closing.
+
+
+## Update 2026-11-07 (session 33 — Search Console and indexing)
+
+- Latest finalized GSC 28-day window (2026-10-08 to 2026-11-04): 652 impressions, 2 clicks, 0.307% CTR, average position 18.17. Previous equal window (2026-09-10 to 2026-10-07): 21 impressions, 0 clicks, position 44.29. November 1–4: 227 impressions, 1 click, position 15.52. Growth is from a very small base; avoid causal claims.
+- Leading page opportunities: macerating toilet 125 impressions / position 11.88; bathroom condensation 84 / 50.99; smart plug 77 / 5.74; wall art 67 / 6.60; leak sensors 42 / 23.43.
+- Index status: homepage indexed, last crawled 2026-10-29; leak-sensor article indexed but last crawled 2026-10-29; homepage calculator and wallpaper guide unknown to Google. Sitemap last submitted 2026-11-01, 0 errors/warnings, still pending. Bing shows no reported impressions/clicks or top pages/queries. No submission or production setting changed.
+- The bathroom-condensation article already includes a substantial condensation-versus-leak diagnosis; do not create a duplicate page based on the query impressions alone.
+- Next five-day search checkpoint: 2026-11-11. Full evidence and windows are recorded in data/SEARCH_METRICS.md.
