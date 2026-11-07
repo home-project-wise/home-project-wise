@@ -103,6 +103,8 @@ tabs.forEach(function(btn,i){btn.setAttribute('tabindex',i===0?'0':'-1');
  btn.addEventListener('keydown',function(e){var k=e.key,n=-1;
   if(k==='ArrowRight')n=(i+1)%tabs.length;else if(k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;
   if(n<0)return;e.preventDefault();selectTab(tabs[n],true);});});
+var requestedPanel=window.location.hash.slice(1);
+if(requestedPanel){var deepLinkTab=tabs.find(function(btn){return btn.getAttribute('aria-controls')===requestedPanel;});if(deepLinkTab)selectTab(deepLinkTab,false);}
 byId('measure-form').addEventListener('submit',function(e){e.preventDefault();error('measure-error','');show('measure-result','');
  if(!validPositive(['measure-length','measure-width'])){error('measure-error','Enter a length and width greater than zero.');return;}
  var u=byId('measure-unit').value,L=value('measure-length'),W=value('measure-width'),D=byId('measure-depth').value===''?null:value('measure-depth');
