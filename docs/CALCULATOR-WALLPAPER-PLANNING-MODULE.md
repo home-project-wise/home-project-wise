@@ -75,7 +75,7 @@ Required tests:
 - Invalid/missing/zero dimensions, width, length, repeat, trim and price.
 - Pattern type unknown or half-drop selected => no unsupported result.
 - Full-height opening handling is opt-in and testable; ordinary windows/doors are not fully deducted by default.
-- Two-product comparison with different width, length, repeat and package price.
+- Two-product comparison with different width, length, repeat and package price; refuse quantity comparison across measurement units and refuse cost comparison across currencies or unknown prices.
 - Privacy: no measurements, room names or prices in URL, analytics, logs or network requests.
 - Browser QA at desktop and 360px mobile; keyboard, labels, focus, error association and announced results.
 - Visible formula, assumptions, limitations, and links to this guide and product instructions.
