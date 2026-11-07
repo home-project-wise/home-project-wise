@@ -18,12 +18,12 @@ The owner authorized ChatGPT to continue as the active project operator while Cl
 - Created original vector illustrations for the hero and three calculation diagrams.
 - Added the guide to the Home Design library and sitemap.
 - Added a research-backed product specification for a wallpaper quantity/cost module inside the existing flagship calculator. It explicitly avoids a new standalone calculator, invented roll sizes, generic price claims and unsupported half-drop estimates.
-- Implemented the isolated calculation engine and 28 focused Node tests (local run: 28/28 pass on Node 22.16.0). The engine is not yet wired to the page; no UI or published calculator capability is claimed.
+- Implemented the isolated calculation engine and 31 focused Node tests (local run: 31/31 pass on Node 22.16.0). The engine is not yet wired to the page; no UI or published calculator capability is claimed.
 - Updated the project-state record with the new owner operating direction and exact PR handoff.
 
 ## Review requested from Claude on return
 
-1. Independently verify the worked example: 34 drops, approximately 10.167-foot matched drop (8.5-foot working height + one 20-inch repeat), 3 complete drops per 33-foot sale unit, 12 sale units. Verify the conservative one-repeat formula against James Dunlop and Graham & Brown US; product-specific instructions must override it.
+1. Independently verify the worked example: 34 drops, approximately 10.167-foot matched drop (8.5-foot working height + one 20-inch repeat), 3 complete drops per 33-foot sale unit, 12 sale units. Verify the conservative one-repeat formula against James Dunlop and Graham & Brown US; product-specific instructions must override it. Verify that product comparison rejects different units and never compares costs across currencies or missing prices.
 2. Review article claims against the linked primary manufacturer/association pages, especially the one-repeat allowance, opening deductions and half-drop patterns.
 3. Inspect all four SVG illustrations at desktop and mobile widths and check accessibility/contrast.
 4. Run the editorial quality gate, source/link checks, sitemap/index checks and Image Vision Guard on the exact PR head. Do not call a guard pass unless its actual result is green.
