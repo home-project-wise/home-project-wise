@@ -16,3 +16,4 @@ One line per day: new article / old article improved / look improvement.
 - Next old-article queue: better-evening-home-lighting, smart-lighting
 - Next look queue: dark mode
 
+- 2026-11-07: new = how-to-calculate-wallpaper-rolls-pattern-repeat (HOME DESIGN; #244 merged) | improved = where-to-put-water-leak-sensors model-specific placement and FAQ (#243 merged) | look = homepage flagship-calculator discovery, hero CTA and project-cost deep link (#242 merged). QA debt recorded separately; do not count pending manual checks as passed.
