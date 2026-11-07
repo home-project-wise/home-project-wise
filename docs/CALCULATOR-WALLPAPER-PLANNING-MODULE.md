@@ -60,11 +60,11 @@ For each wall i:
 - sale_units = ceil(total_drops / drops_per_sale_unit).
 - material_cost = sale_units * user_entered_price_per_sale_unit.
 
-Do not calculate when dimensions, units, usable roll width/length, price unit or required pattern information are missing or invalid. Unknown is not zero. All measurements in one calculation must use a consistent unit. Keep the product's commercial sale unit (single, double, triple, pack or panel set) explicit so price and quantity use the same unit.
+Do not calculate when dimensions, units, usable roll width/length, price unit or required pattern information are missing or invalid. When a price is entered, require a three-letter uppercase ISO currency code so the result can be safely passed into the existing project estimator. Unknown is not zero. All measurements in one calculation must use a consistent unit. Keep the product's commercial sale unit (single, double, triple, pack or panel set) explicit so price and quantity use the same unit.
 
 ## Scope and safety of assumptions
 
-**MVP support:** multiple rectangular rooms with separate wall widths and heights; free/random match and straight match; exact product-label dimensions; explicit trim allowance; whole sale-unit rounding per room; manual price entry; and two-product comparison with unit/currency safety. The conservative aggregation rounds packages separately per room and does not pool leftover roll lengths between rooms.
+**MVP support:** multiple rectangular rooms with separate wall widths and heights; free/random match and straight match; exact product-label dimensions; explicit trim allowance; whole sale-unit rounding per room; manual price entry using ISO 4217 currency codes; two-product comparison with unit/currency safety; and an adapter that converts a wallpaper estimate into a Project Estimator Engine line item. The conservative aggregation rounds packages separately per room and does not pool leftover roll lengths between rooms. The project-budget adapter preserves an unknown price as null; when a visitor enters a price it maps it as a user-input price per exact sale unit, matching Project Estimator Engine 1.0.2.
 
 **Not auto-estimated in MVP:** half-drop or complex multi-drop patterns, murals/numbered panels, curved or sloped surfaces, stairs, unusually high walls, corner reuse, full-height opening deductions without a reviewed layout, or generic waste percentages. Do not stack a generic waste percentage on top of the one-repeat allowance unless the selected manufacturer specifically recommends it. For unsupported patterns, show a clear message to use the manufacturer's calculator or ask the supplier/installer; never return a falsely precise count.
 
@@ -86,6 +86,7 @@ Required tests:
 - Pattern type unknown or half-drop selected => no unsupported result.
 - Full-height opening handling is opt-in and testable; ordinary windows/doors are not fully deducted by default.
 - Two-product comparison across multiple rooms with different width, length, repeat and package price; refuse quantity comparison across measurement units and refuse cost comparison across currencies or unknown prices. Multi-room totals round each room separately and never assume offcut reuse between rooms.
+- Project-budget adapter: sale-unit quantity maps to quantity, sale-unit label maps to unit, a manual price maps to price.kind=user-input with matching currency/unit, and an unknown price remains null. Verify it with Project Estimator Engine 1.0.2.
 - Privacy: no measurements, room names or prices in URL, analytics, logs or network requests.
 - Browser QA at desktop and 360px mobile; keyboard, labels, focus, error association and announced results.
 - Visible formula, assumptions, limitations, and links to this guide and product instructions.
