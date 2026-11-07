@@ -6,7 +6,7 @@ The owner authorized ChatGPT to continue as the active project operator while Cl
 
 ## Current coordination boundaries
 
-- PR #242 is an open draft changing website/index.html, data/AI_COLLABORATION.md and data/WORK_LOG.md. Do not edit those paths until it is resolved.
+- PR #242 is an open draft changing website/index.html, website/home-project-calculator.html, scripts/test_home_calculator.js, data/AI_COLLABORATION.md and data/WORK_LOG.md. It also adds a project-cost tab deep link; the target page now reads the panel hash and activates that tab. Do not edit those paths until it is resolved.
 - PR #243 is an open draft changing data/AI_COLLABORATION.md, data/WORK_LOG.md and website/articles/where-to-put-water-leak-sensors.html. Do not edit those paths until it is resolved.
 - The shared collaboration and work-log files are therefore intentionally not changed by this task. Reconcile one canonical work-log line and an AI_COLLABORATION handoff after #242/#243 merge or close.
 - Existing CAO drafts #208 and #216 and the estimator spec #231 remain separate review items; this task does not edit or supersede them.
@@ -28,7 +28,7 @@ The owner authorized ChatGPT to continue as the active project operator while Cl
 3. Inspect all four SVG illustrations at desktop and mobile widths and check accessibility/contrast.
 4. Run the editorial quality gate, source/link checks, sitemap/index checks and Image Vision Guard on the exact PR head. Do not call a guard pass unless its actual result is green.
 5. Rerun node scripts/test_wallpaper_calculator_engine.js from the exact PR head; independently review safe rounding, package-unit semantics, metric/imperial consistency and error handling. Then review the module contract and propose the smallest accessible UI integration. Do not begin half-drop or live-price functionality without validated formula and source/licence evidence.
-6. Review PR #242/#243 independently; no overlapping edits while those PRs are open.
+6. Review PR #242/#243 independently. In #242, verify that home-project-calculator.html#panel-project activates the Project cost tab and run the DOM harness both normally and with HPW_TEST_HASH='#panel-project'. Avoid overlapping edits while those PRs are open.
 
 ## Verification limitations
 
