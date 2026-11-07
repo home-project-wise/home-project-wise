@@ -19,7 +19,7 @@ function base(overrides = {}) {
 }
 test('worked example: 34 drops, 10 ft drop, 3 per unit, 12 units', () => {
   const r = estimateWallpaper(base());
-  assert.equal(r.ok, true); assert.equal(r.totalDrops, 34); assert.equal(r.dropLength, 10);
+  assert.equal(r.ok, true); assert.equal(r.totalDrops, 34); assert.ok(Math.abs(r.dropLength - (8.5 + 20/12)) < 1e-10);
   assert.equal(r.dropsPerSaleUnit, 3); assert.equal(r.saleUnits, 12); assert.equal(r.materialCost, 299.88);
   assert.deepEqual(r.walls.map(w => w.dropsRequired), [8, 9, 8, 9]);
 });
@@ -31,28 +31,28 @@ test('random match is accepted as free match', () => {
   const r = estimateWallpaper(base({ matchType: 'random', patternRepeat: null }));
   assert.equal(r.ok, true); assert.equal(r.dropLength, 8.5);
 });
-test('straight match rounds working height up to the next full repeat', () => {
+test('straight match adds one full repeat after trim allowance', () => {
   const r = estimateWallpaper(base({ walls: [2], wallHeight: 8.5, trimAllowance: 0.5, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
+  assert.equal(r.ok, true); assert.equal(r.dropLength, 11);
+});
+test('straight match adds one full repeat even at an exact working-height boundary', () => {
+  const r = estimateWallpaper(base({ walls: [2], wallHeight: 8, trimAllowance: 0, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
   assert.equal(r.ok, true); assert.equal(r.dropLength, 10);
 });
-test('exact repeat boundary does not round up again', () => {
-  const r = estimateWallpaper(base({ walls: [2], wallHeight: 8, trimAllowance: 0, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 24 }));
-  assert.equal(r.ok, true); assert.equal(r.dropLength, 8);
-});
-test('just above repeat boundary rounds up', () => {
+test('straight match adds one full repeat just above a boundary', () => {
   const r = estimateWallpaper(base({ walls: [2], wallHeight: 8.000001, trimAllowance: 0, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
-  assert.equal(r.ok, true); assert.equal(r.dropLength, 10);
+  assert.ok(Math.abs(r.dropLength - 10.000001) < 1e-10);
 });
-test('just below repeat boundary stays at current repeat', () => {
-  const r = estimateWallpaper(base({ walls: [2], wallHeight: 7.999999, trimAllowance: 0, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 24 }));
-  assert.equal(r.ok, true); assert.equal(r.dropLength, 8);
+test('straight match adds one full repeat just below a boundary', () => {
+  const r = estimateWallpaper(base({ walls: [2], wallHeight: 7.999999, trimAllowance: 0, patternRepeat: 2, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
+  assert.ok(Math.abs(r.dropLength - 9.999999) < 1e-10);
 });
 test('only complete drops fit in sale unit: exact fit', () => {
-  const r = estimateWallpaper(base({ walls: [3], wallHeight: 10, trimAllowance: 0, patternRepeat: 10, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
+  const r = estimateWallpaper(base({ walls: [3], wallHeight: 10, trimAllowance: 0, matchType: 'free', patternRepeat: null, rollWidth: 1, usableLengthPerSaleUnit: 30 }));
   assert.equal(r.ok, true); assert.equal(r.dropsPerSaleUnit, 3);
 });
 test('partial remainder does not count as another complete drop', () => {
-  const r = estimateWallpaper(base({ walls: [3], wallHeight: 10, trimAllowance: 0, patternRepeat: 10, rollWidth: 1, usableLengthPerSaleUnit: 29.99 }));
+  const r = estimateWallpaper(base({ walls: [3], wallHeight: 10, trimAllowance: 0, matchType: 'free', patternRepeat: null, rollWidth: 1, usableLengthPerSaleUnit: 29.99 }));
   assert.equal(r.ok, true); assert.equal(r.dropsPerSaleUnit, 2);
 });
 test('each wall rounds separately rather than carrying width around corners', () => {
