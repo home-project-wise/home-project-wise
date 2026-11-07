@@ -17,7 +17,7 @@ function base(overrides = {}) {
     ...overrides
   };
 }
-test('worked example: 34 drops, 10 ft drop, 3 per unit, 12 units', () => {
+test('worked example: 34 drops, 10.167 ft drop, 3 per unit, 12 units', () => {
   const r = estimateWallpaper(base());
   assert.equal(r.ok, true); assert.equal(r.totalDrops, 34); assert.ok(Math.abs(r.dropLength - (8.5 + 20/12)) < 1e-10);
   assert.equal(r.dropsPerSaleUnit, 3); assert.equal(r.saleUnits, 12); assert.equal(r.materialCost, 299.88);
