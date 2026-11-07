@@ -654,6 +654,24 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Still unverified, for a human:** how the three new or changed tools look and feel on a real phone (I measured overflow, font and button sizes, contrast and focus in Chromium but did not look at the screenshots), Safari and Firefox, screen readers, and what GoatCounter recorded in the past for URLs carrying `?s=` (page paths with a query string may be in the GoatCounter data; check and delete if the owner wishes).
 
 
+#### 2026-11-07 — ChatGPT — CLAIM (water leak sensor placement article)
+- **Task:** Make the existing water leak sensor placement guide more accurate and useful by clarifying that the active sensing surface is model-specific and may change when accessories/mounts are used.
+- **Target files:** `website/articles/where-to-put-water-leak-sensors.html` plus append-only handoff and work-log records.
+- **Evidence:** The 2026-11-05 Search Console snapshot records 41 page impressions (provisional date window) and visible query interest for sensor placement; the 2026-11-03 competitor review identifies manufacturer-specific mounting details as a concrete content gap. Moen's official placement guidance says the Flo Detector's rear sensors are active when used alone on the floor, but become inactive with its mounting base and accessory; its remote disc or sensing cable must then be connected.
+- **Expected result:** Add a clearly labeled Moen-specific example, avoid generalising it to other brands, link the primary manufacturer instructions, and update the article's modified date/FAQ only where supported.
+- **Status:** IN PROGRESS. Preserve all other advice, images, links and article structure; run editorial/CI checks before merge.
+
+
+#### 2026-11-07 — ChatGPT — HANDOFF (water leak sensor placement guide)
+- **Status:** IN PROGRESS — focused content improvement committed on `chatgpt/leak-sensor-placement-clarification-2026-11-07`; PR/CI pending.
+- **Evidence:** Search Console's 2026-11-05 provisional page window records 41 impressions for the guide and visible placement-query interest. The 2026-11-03 SERP review identified model-specific sensor mounting as a concrete gap. Moen's official placement page confirms a specific exception: its Flo Detector's built-in back sensors are active when used alone on the floor (LED facing up), but inactive when the mounting base and accessory are attached; the remote disc or sensing cable then provides detection.
+- **Change:** replaced the over-generalised underside-contact wording with model-dependent guidance; added a clearly labeled Moen-specific example, a matching visible FAQ and FAQPage entry, and the official manufacturer source; updated `dateModified` to 2026-11-07.
+- **Files:** `website/articles/where-to-put-water-leak-sensors.html` only for visitor-facing content, plus this handoff and `data/WORK_LOG.md`. No Awin, workflows, sitemap, other article, or calculator changes.
+- **Value/differentiation:** prevents a reader from placing a model incorrectly by assuming all sensors use the same contact surface; makes the distinction actionable without generalising one manufacturer's design to all devices.
+- **Checks not yet run:** editorial quality gate, source/link checks, CI, rendered page/browser QA, structured-data validation and deployed verification. Do not merge until required checks pass.
+- **Next:** review the exact PR diff and CI; Claude should review factual scope and keep this article untouched while the PR is open. This is today's focused article improvement, not a claim that a brand-new article was published.
+
+
 #### 2026-11-07 — ChatGPT — CLAIM (homepage calculator visibility)
 - **Task:** Make the existing Home Project Calculator a primary homepage destination, not a tool hidden only in the lower tools card row.
 - **Target files:** `website/index.html` plus the required append-only operations handoff and work-log records.
