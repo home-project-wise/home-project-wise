@@ -1,0 +1,171 @@
+"""Browser QA for website/budget-planner.html (Chromium via Playwright).
+
+Build the site the way the deploy workflow does first:
+  python scripts/rebuild_site_indexes.py
+  cat website/article-overrides.css >> website/style.css
+Needs: pip install playwright ; playwright install --with-deps chromium
+The script starts its own local server; the analytics script is served from a local copy and its beacon answered
+with 204, so no real analytics hits are created."""
+import os, re, json, base64, threading, http.server, socketserver, functools, urllib.parse
+from playwright.sync_api import sync_playwright
+
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'website')
+
+
+class Q(http.server.SimpleHTTPRequestHandler):
+    def log_message(self, *a):
+        pass
+
+
+srv = socketserver.TCPServer(('127.0.0.1', 0), functools.partial(Q, directory=ROOT))
+threading.Thread(target=srv.serve_forever, daemon=True).start()
+BASE = 'http://127.0.0.1:%d/' % srv.server_address[1]
+URL = BASE + 'budget-planner.html'
+res = []
+
+
+def ck(name, ok, extra=''):
+    res.append((name, bool(ok)))
+    print(('PASS ' if ok else 'FAIL ') + name + (' | ' + str(extra) if extra != '' else ''))
+
+
+def counter():
+    import urllib.request
+    try:
+        return urllib.request.urlopen(urllib.request.Request('https://gc.zgo.at/count.v5.js', headers={'User-Agent': 'Mozilla/5.0'}), timeout=20).read()
+    except Exception as ex:
+        print('NOTE: GoatCounter script not fetched (%s)' % ex)
+        return None
+
+
+COUNTER = counter()
+
+
+def ctx(browser, **kw):
+    c = browser.new_context(**kw)
+
+    def handle(route):
+        u = route.request.url
+        if u.startswith('http://127.0.0.1'):
+            return route.continue_()
+        if 'gc.zgo.at/count.v5.js' in u and COUNTER is not None:
+            return route.fulfill(status=200, body=COUNTER, headers={'content-type': 'application/javascript', 'access-control-allow-origin': '*'})
+        if 'goatcounter.com' in u or 'gc.zgo.at' in u:
+            return route.fulfill(status=204, body='')
+        return route.abort()
+    c.route('**/*', handle)
+    return c
+
+
+def setrows(pg, rows):
+    """rows: list of (name, priority, qty, price) typed into the custom list."""
+    pg.select_option('#tmpl', 'custom')
+    pg.wait_for_timeout(80)
+    while pg.locator('#rows tr').count() < len(rows):
+        pg.click('#add-row')
+    for i, (n, p, q, u) in enumerate(rows):
+        tr = pg.locator('#rows tr').nth(i)
+        tr.locator('.r-n').fill(n)
+        tr.locator('.r-p').select_option(p)
+        tr.locator('.r-q').fill(str(q))
+        tr.locator('.r-u').fill('' if u is None else str(u))
+    pg.wait_for_timeout(120)
+
+
+def verdict(pg):
+    return pg.inner_text('#calc-out')
+
+
+with sync_playwright() as p:
+    b = p.chromium.launch(args=['--no-sandbox'])
+    c = ctx(b, viewport={'width': 1280, 'height': 900})
+    pg = c.new_page()
+    reqs, cons = [], []
+    pg.on('request', lambda r: reqs.append((r.method, r.url, r.post_data or '')))
+    pg.on('console', lambda m: cons.append((m.type, m.text)))
+    pg.on('pageerror', lambda e: cons.append(('pageerror', str(e))))
+    pg.goto(URL, wait_until='load')
+    pg.wait_for_timeout(300)
+
+    ck('title and one h1', 'Budget Planner' in pg.title() and pg.locator('h1').count() == 1, pg.title())
+
+    # --- privacy: typing never writes the plan into the address bar
+    pg.fill('#budget', '123456')
+    setrows(pg, [('Secret item', 'must', 2, 777), ('Other thing', 'nice', 1, 31)])
+    pg.click('button.calc-btn'); pg.wait_for_timeout(150)
+    ck('address bar has no query or hash after typing and submitting', pg.evaluate('() => location.search + location.hash') == '', pg.evaluate('() => location.href'))
+    leaks = [r for r in reqs if re.search(r'Secret|777|123456|\?s=', urllib.parse.unquote(r[1]) + r[2])]
+    ck('no entered value in any request URL or body', not leaks, leaks)
+    ck('no POST requests', all(r[0] == 'GET' for r in reqs), sorted({r[0] for r in reqs}))
+    hist = pg.evaluate('() => history.length')
+
+    # --- the copy link is built only on click and restores the plan
+    pg.evaluate("() => { window.__copied = null; Object.defineProperty(navigator, 'clipboard', {value: {writeText: t => { window.__copied = t; return Promise.resolve(); }}, configurable: true}); }")
+    pg.click('#copy-link'); pg.wait_for_timeout(150)
+    link = pg.evaluate('() => window.__copied')
+    ck('copy link puts a link with ?s= on the clipboard', bool(link) and '?s=' in link, (link or '')[:80])
+    ck('address bar still clean after copying', pg.evaluate('() => location.search') == '')
+    ck('copy-link note says what the link contains', 'contains your list, budget and prices' in verdict(pg))
+    pg2 = c.new_page()
+    pg2.goto(link, wait_until='load'); pg2.wait_for_timeout(300)
+    ck('opening the copied link restores the list, budget and prices', pg2.locator('#rows tr').count() == 2 and pg2.input_value('#budget') == '123456' and pg2.locator('#rows tr').nth(0).locator('.r-n').input_value() == 'Secret item' and pg2.locator('#rows tr').nth(0).locator('.r-u').input_value() == '777')
+    ck('after opening a shared link the address bar is cleaned', pg2.evaluate('() => location.search') == '', pg2.evaluate('() => location.href'))
+    pg2.close()
+
+    # --- verdicts
+    pg.fill('#budget', '100')
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, 30)])
+    t = verdict(pg)
+    ck('all must-haves priced and within budget: says they fit', 'The must-haves fit your budget of $100' in t, t[:160].replace('\n', ' / '))
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, None)])
+    t = verdict(pg)
+    ck('a must-have without a price: no "fit" claim', 'The must-haves fit your budget' not in t and 'We cannot tell yet whether the must-haves fit your budget of $100' in t, t[:200].replace('\n', ' / '))
+    ck('...and it says how many are unpriced and that the figure is a minimum', '1 must-have item has no price yet' in t and '$40 is only a minimum' in t)
+    pg.fill('#budget', '30')
+    t = verdict(pg)
+    ck('unpriced must-have but the priced ones already exceed the budget: says at least over', 'already at least $10 over your budget of $30' in t and 'cannot tell' not in t.lower(), t[:200].replace('\n', ' / '))
+    pg.fill('#budget', '100')
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Mirror', 'nice', 1, None)])
+    t = verdict(pg)
+    ck('must-haves fit but a nice-to-have is unpriced: says so', 'The must-haves fit your budget of $100' in t and '1 of them still has no price' in t, t[:220].replace('\n', ' / '))
+    setrows(pg, [('Hook rail', 'must', 1, 140)])
+    t = verdict(pg)
+    ck('over budget with all priced: unchanged message', 'The must-haves are $40 over your budget of $100' in t, t[:160].replace('\n', ' / '))
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, None)])
+    ck('missing-price note uses minimum wording', 'so the totals above are minimums' in verdict(pg))
+
+    # --- template list with no prices at all and a budget
+    pg.select_option('#tmpl', 'entryway'); pg.fill('#budget', '200'); pg.wait_for_timeout(150)
+    t = verdict(pg)
+    ck('fresh template with a budget and no prices: cannot tell, never "fit"', 'The must-haves fit your budget' not in t and 'cannot tell yet' in t.lower(), t[:200].replace('\n', ' / '))
+
+    # --- escaping, console, keyboard focus
+    setrows(pg, [('<img src=x onerror=window.__x=1>', 'must', 1, 5)])
+    ck('item names are escaped (no injected element)', pg.evaluate('() => !window.__x && !document.querySelector("#calc-out img")'))
+    errs = [x for x in cons if x[0] in ('error', 'pageerror')]
+    ck('no console errors or page errors (desktop)', not errs, errs)
+    pg.focus('#budget'); pg.keyboard.press('Tab')
+    fi = pg.evaluate("() => { const s = getComputedStyle(document.activeElement); return [document.activeElement.className || document.activeElement.id, s.outlineStyle, s.outlineWidth, s.boxShadow]; }")
+    ck('visible keyboard focus indicator', (fi[1] != 'none' and fi[2] != '0px') or fi[3] != 'none', fi)
+    ck('browser history was not filled with states while typing', hist <= 3, hist)
+    c.close()
+
+    # --- mobile
+    mc = ctx(b, viewport={'width': 360, 'height': 740}, device_scale_factor=2, is_mobile=True, has_touch=True)
+    mp = mc.new_page()
+    merr = []
+    mp.on('pageerror', lambda e: merr.append(str(e)))
+    mp.goto(URL, wait_until='load'); mp.wait_for_timeout(300)
+    mp.fill('#budget', '200')
+    ck('mobile 360px: no horizontal overflow of the page', mp.evaluate('() => document.documentElement.scrollWidth <= innerWidth + 1'), mp.evaluate('() => [document.documentElement.scrollWidth, innerWidth]'))
+    fs = mp.evaluate("() => [...document.querySelectorAll('#calc input:not([type=hidden]),#calc select')].map(e => parseFloat(getComputedStyle(e).fontSize))")
+    ck('mobile: every field font >= 16px', min(fs) >= 16, min(fs))
+    bh = mp.evaluate("() => Math.round(document.querySelector('.calc-btn').getBoundingClientRect().height)")
+    ck('mobile: submit height >= 40px', bh >= 40, bh)
+    ck('mobile: no page errors', not merr, merr)
+    mc.close()
+    b.close()
+
+fails = [n for n, ok in res if not ok]
+print('TOTAL', len(res), 'FAILS', fails)
+raise SystemExit(1 if fails else 0)
