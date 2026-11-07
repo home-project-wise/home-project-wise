@@ -2,7 +2,7 @@
 // Run: node scripts/test_wallpaper_calculator_engine.js
 const assert = require('assert');
 const path = require('path');
-const { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts } = require(path.join(__dirname, '..', 'website', 'wallpaper-calculator-engine.js'));
+const { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts, toProjectBudgetLineItem } = require(path.join(__dirname, '..', 'website', 'wallpaper-calculator-engine.js'));
 let passed = 0;
 function test(name, fn) {
   try { fn(); passed += 1; console.log(`PASS ${name}`); }
@@ -13,7 +13,7 @@ function base(overrides = {}) {
     walls: [12, 15, 12, 15], wallHeight: 8, trimAllowance: 0.5,
     rollWidth: 1.7083333333333333, usableLengthPerSaleUnit: 33,
     matchType: 'straight', patternRepeat: 1.6666666666666667,
-    unit: 'ft', pricePerSaleUnit: 24.99, currency: '$', saleUnitLabel: 'double-roll package',
+    unit: 'ft', pricePerSaleUnit: 24.99, currency: 'USD', saleUnitLabel: 'double-roll package',
     ...overrides
   };
 }
@@ -199,6 +199,37 @@ test('multi-room product comparison preserves room-by-room totals', () => {
   ]);
   assert.equal(r.ok, true); assert.equal(r.comparable, true); assert.equal(r.costComparable, true);
   assert.equal(r.products[0].estimate.rooms.length, 2);
+});
+
+test('currency symbol is rejected in favor of an ISO currency code', () => {
+  const r = estimateWallpaper(base({ currency: '
+ }));
+  assert.equal(r.ok, false); assert.equal(r.error.code, 'invalid_currency');
+});
+test('wallpaper project estimate maps to a project-budget line item with a manual price', () => {
+  const estimate = estimateWallpaperProject({
+    unit: 'ft', rollWidth: 1.7083333333333333, usableLengthPerSaleUnit: 33,
+    matchType: 'straight', patternRepeat: 20/12, pricePerSaleUnit: 24.99, currency: 'USD', saleUnitLabel: 'double-roll package',
+    rooms: [{ walls: [12, 15, 12, 15], wallHeight: 8, trimAllowance: 0.5 }]
+  });
+  const r = toProjectBudgetLineItem(estimate, { id: 'wallpaper-1', name: 'Living room wallpaper' });
+  assert.equal(r.ok, true); assert.equal(r.lineItem.quantity, 12); assert.equal(r.lineItem.unit, 'double-roll package');
+  assert.deepEqual(r.lineItem.price, { kind: 'user-input', amount: 24.99, currency: 'USD', unit: 'double-roll package' });
+});
+test('unknown wallpaper price maps to a null project-budget price, not zero', () => {
+  const estimate = estimateWallpaper({ walls: [12], wallHeight: 8, trimAllowance: 0.5, rollWidth: 2, usableLengthPerSaleUnit: 30, matchType: 'free', unit: 'ft', saleUnitLabel: 'roll' });
+  const r = toProjectBudgetLineItem(estimate, { id: 'wallpaper-unknown', name: 'Wallpaper' });
+  assert.equal(r.ok, true); assert.equal(r.lineItem.price, null);
+});
+test('wallpaper budget line item can be marked optional', () => {
+  const estimate = estimateWallpaper({ walls: [12], wallHeight: 8, trimAllowance: 0.5, rollWidth: 2, usableLengthPerSaleUnit: 30, matchType: 'free', unit: 'ft', saleUnitLabel: 'roll' });
+  const r = toProjectBudgetLineItem(estimate, { id: 'wallpaper-optional', name: 'Feature wall wallpaper', required: false });
+  assert.equal(r.ok, true); assert.equal(r.lineItem.required, false);
+});
+test('budget adapter rejects invalid estimate or missing line-item identity', () => {
+  assert.equal(toProjectBudgetLineItem({ ok: false }, { id: 'x', name: 'x' }).error.code, 'invalid_estimate');
+  const estimate = estimateWallpaper({ walls: [12], wallHeight: 8, trimAllowance: 0.5, rollWidth: 2, usableLengthPerSaleUnit: 30, matchType: 'free', unit: 'ft', saleUnitLabel: 'roll' });
+  assert.equal(toProjectBudgetLineItem(estimate, { id: 'x', name: '' }).error.code, 'invalid_line_item_identity');
 });
 
 console.log(`\n${passed} wallpaper engine tests passed`);
