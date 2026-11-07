@@ -17,6 +17,11 @@ Build wallpaper planning as a new module inside the existing flagship Home Proje
 | James Dunlop Textiles manufacturer guide | Counts drops per wall; adds trimming and pattern repeat; counts only complete drops per roll; gives different waste guidance for match size | Strip-level arithmetic is more useful than square-foot-only division |
 | Wallcoverings Association | Defines random, straight-across and half-drop match types | Use consistent definitions and route complex match types to product instructions |
 | Sherwin-Williams hanging guide | Starting point, plumb line, strip width and installation technique | Link quantity advice to correct installation planning |
+| Calcs24 wallpaper calculator | Roll size, repeat, optional openings, wall-by-wall rounding toggle, manual price, area cross-check and unit switching; says it does not model offset layout or batch number | Generic strip math and manual price entry are already commodity features |
+| CalcTools UK wallpaper calculator | Multiple rooms/heights, standard UK sizes, pattern repeat, waste/opening options, paste-pack estimate and PDF/CSV/clipboard buying sheet | Multi-room and export are already available in the UK; do not claim either alone as unique |
+| PlainTools wallpaper calculator | Per-wall widths, roll size, repeat, trim, optional waste percentage and manual price; browser-only privacy claim; no offset match | Basic per-wall calculation and user-entered cost are not a defensible moat |
+| Layout Foundry wallpaper calculator | Multiple walls, unit conversion, trim/repeat and full-height opening handling; half-drop not calculated | Unit conversion and wall-by-wall drops are also commodity features |
+| Calk-USA wallpaper calculator | Area/cost breakdown, openings, adhesive and paste estimates | Shows demand for cost context, but area-based coverage must not replace drop-yield math |
 
 Sources:
 - https://www.sherwin-williams.com/homeowners/how-to/wallpapering-how-tos/sw-article-dir-howtoestimate
@@ -25,8 +30,13 @@ Sources:
 - https://manufacturer.jamesdunloptextiles.com/journal/tips-how-to/how-to-calculate-wallpaper-requirements
 - https://www.wallcoverings.org/page/ResUnderWallpaper
 - https://www.sherwin-williams.com/homeowners/project-center/wallpapering-how-tos/hanging-techniques
+- https://calcs24.com/wallpaper-calculator/
+- https://www.calctools.uk/wallpaper-calculator/
+- https://plaintools.site/tools/wallpaper-calculator/
+- https://layoutfoundry.com/wallpaper
+- https://calk-usa.com/calculator/wallpaper/
 
-The review is a functional-pattern comparison, not a traffic ranking or proof that every competitor was exhaustively tested. The defensible opportunity is transparent per-wall drop math, product-label packaging, user-entered price and clear uncertainty—not merely putting another roll calculator online. The article and engine use a conservative one-full-repeat allowance for straight match; manufacturer-specific yield instructions override this general estimate.
+The review is a functional-pattern comparison, not a traffic ranking or proof that every competitor was exhaustively tested. Important finding: basic roll count, pattern repeat, manual price, multi-room inputs, unit conversion and exports already exist in competing tools. Do not position those features alone as unique. The defensible opportunity is to connect room-by-room wallpaper quantities to the existing whole-project budget, compare products with currency-safe costs, and eventually use dated, source-backed regional price ranges. The article and engine use a conservative one-full-repeat allowance for straight match; manufacturer-specific yield instructions override this general estimate.
 
 ## User journey
 
@@ -54,7 +64,7 @@ Do not calculate when dimensions, units, usable roll width/length, price unit or
 
 ## Scope and safety of assumptions
 
-**MVP support:** rectangular walls, individual wall widths, free/random match and straight match, explicit product label dimensions, explicit trim allowance, whole sale-unit rounding, manual price entry and two-product comparison.
+**MVP support:** multiple rectangular rooms with separate wall widths and heights; free/random match and straight match; exact product-label dimensions; explicit trim allowance; whole sale-unit rounding per room; manual price entry; and two-product comparison with unit/currency safety. The conservative aggregation rounds packages separately per room and does not pool leftover roll lengths between rooms.
 
 **Not auto-estimated in MVP:** half-drop or complex multi-drop patterns, murals/numbered panels, curved or sloped surfaces, stairs, unusually high walls, corner reuse, full-height opening deductions without a reviewed layout, or generic waste percentages. Do not stack a generic waste percentage on top of the one-repeat allowance unless the selected manufacturer specifically recommends it. For unsupported patterns, show a clear message to use the manufacturer's calculator or ask the supplier/installer; never return a falsely precise count.
 
@@ -75,7 +85,7 @@ Required tests:
 - Invalid/missing/zero dimensions, width, length, repeat, trim and price.
 - Pattern type unknown or half-drop selected => no unsupported result.
 - Full-height opening handling is opt-in and testable; ordinary windows/doors are not fully deducted by default.
-- Two-product comparison with different width, length, repeat and package price; refuse quantity comparison across measurement units and refuse cost comparison across currencies or unknown prices.
+- Two-product comparison across multiple rooms with different width, length, repeat and package price; refuse quantity comparison across measurement units and refuse cost comparison across currencies or unknown prices. Multi-room totals round each room separately and never assume offcut reuse between rooms.
 - Privacy: no measurements, room names or prices in URL, analytics, logs or network requests.
 - Browser QA at desktop and 360px mobile; keyboard, labels, focus, error association and announced results.
 - Visible formula, assumptions, limitations, and links to this guide and product instructions.
