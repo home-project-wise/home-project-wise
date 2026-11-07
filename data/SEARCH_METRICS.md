@@ -112,3 +112,34 @@ Each Claude session: pull totals and the page and query tables for the last 28 d
 
 ### Method note
 - quality_gate.py --all on raw main: 28 PASS, only the redirect stub fails. After running rebuild_site_indexes.py first (deploy-style), 12 more articles exceed the 130-word intro limit because the rebuild adds breadcrumb and date text before the first H2. CI does not run it that way; nothing was changed because of this. Do not trim intros on the strength of a post-rebuild run.
+
+
+## 2026-11-07 entry (ChatGPT; Composio retrieval, final data through 2026-11-04)
+
+### Google Search Console, performance
+
+- Property: https://home-project-wise.github.io/home-project-wise/ (URL-prefix property); Search type: Web; data_state: final.
+- Latest complete 28-day window, 2026-10-08 to 2026-11-04: **652 impressions, 2 clicks, CTR 0.307%, average position 18.17**.
+- Immediately preceding equal 28-day window, 2026-09-10 to 2026-10-07: **21 impressions, 0 clicks, CTR 0%, average position 44.29**. This is a large relative increase from a very small starting base; do not interpret it as proof of stable growth or causation.
+- Latest month-to-date complete slice, 2026-11-01 to 2026-11-04: **227 impressions, 1 click, CTR 0.441%, average position 15.52**. This is only four complete days and is not a full five-day comparison.
+- Page breakdown, 2026-10-08 to 2026-11-04 (20 returned page rows; page totals reconcile to property totals): macerating-toilet-basement-bathroom 125 impressions (position 11.88); reduce-bathroom-condensation 84 (50.99); what-can-you-plug-into-a-smart-plug 77 (5.74); how-to-hang-large-wall-art-without-damage 67 (6.60); where-to-put-water-leak-sensors 42 (23.43); stop-musty-bathroom-towels 38 (26.87); small-bathroom-easier-to-clean 38 (9.18); better-evening-home-lighting 34 (5.79). The two clicks were attributed at page level to motion-lighting-that-actually-helps (1) and the legacy stop-kitchen-counter-clutter URL (1).
+- Query breakdown returned 68 rows, but query totals do not reconcile to property totals because anonymized queries are omitted. Notable visible query groups include bathroom condensation/dampness (e.g. "bad condensation in bathroom" 12 impressions at position 89.58; "bathroom dampness" 6 at 86.83; "condensation on bathroom walls" 5 at 90.4), leak-sensor placement (5 at 71.6), macerating/basement toilet queries (small counts), and "why does my kitchen clutter keep coming back" (15 at 8.67). Do not add query and page totals together.
+- November 1–4 page slice: smart-plug guide 58 impressions (position 5.31), small-bathroom guide 21 (7.86), macerating-toilet guide 20 (15.10), leak-sensor guide 22 (10.00), bathroom-condensation guide 9 (53.56); one click was on motion-lighting (7 impressions, position 6.86).
+- Interpretation: the strongest near-page-one commercial-intent page remains the macerating-toilet guide; condensation is still a large visibility gap. The leak-sensor page's short-window average improved to position 10, but this is a small sample and its latest content change has not yet been crawled. Do not assume the new wallpaper article or homepage calculator has begun earning impressions.
+
+### Google Search Console, indexing and sitemap (read-only inspection, 2026-11-07)
+
+- Homepage: Submitted and indexed; last crawl 2026-10-29; mobile crawler; fetch successful; robots allowed; canonical matches.
+- Leak-sensor guide: Submitted and indexed; last crawl 2026-10-29, so the 2026-11-07 edit is not yet reflected in the crawl; breadcrumb rich result detected.
+- Home Project Calculator page: URL is unknown to Google.
+- New wallpaper-planning guide: URL is unknown to Google.
+- Sitemap: https://home-project-wise.github.io/home-project-wise/sitemap.xml; last submitted 2026-11-01; 0 errors, 0 warnings; Search Console still reports isPending=true. No sitemap resubmission or URL submission was made.
+- These inspection results can lag actual changes by several days. Unknown-to-Google does not by itself mean blocked; no robots or indexing setting was changed.
+
+### Bing Webmaster Tools
+
+- 2026-11-07 retrieval: daily totals returned zero impressions and zero clicks for every available day from 2026-10-04 to 2026-11-04; top queries and top pages returned empty rows. Treat as no reported data, not evidence that Bing has crawled nothing.
+
+### Cadence
+
+- The five-day measurement check intended for 2026-11-06 was completed one day late, on 2026-11-07, using final data through 2026-11-04. Next planned checkpoint: 2026-11-11. Preserve exact date windows and final/provisional labels.
