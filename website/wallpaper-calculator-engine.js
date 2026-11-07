@@ -119,8 +119,8 @@
     if (hasPrice && (!isFiniteNumber(input.pricePerSaleUnit) || input.pricePerSaleUnit < 0)) {
       return fail('invalid_price', 'Enter a non-negative price per sale unit, or leave it blank when unknown.');
     }
-    if (hasPrice && (typeof input.currency !== 'string' || !input.currency.trim())) {
-      return fail('invalid_currency', 'Choose the currency for the entered sale-unit price.');
+    if (hasPrice && (typeof input.currency !== 'string' || !/^[A-Z]{3}$/.test(input.currency.trim()))) {
+      return fail('invalid_currency', 'Enter a three-letter uppercase ISO currency code for the sale-unit price.');
     }
     if (hasPrice && (!Number.isFinite(saleUnits * input.pricePerSaleUnit) || saleUnits * input.pricePerSaleUnit > Number.MAX_SAFE_INTEGER / 100)) {
       return fail('cost_out_of_range', 'The estimated material cost is outside the safe calculation range.');
@@ -211,6 +211,47 @@
     };
   }
 
+  function toProjectBudgetLineItem(estimate, options) {
+    if (!estimate || typeof estimate !== 'object' || estimate.ok !== true) {
+      return fail('invalid_estimate', 'Provide a successful wallpaper estimate before adding it to a project budget.');
+    }
+    if (!options || typeof options !== 'object' || typeof options.id !== 'string' || !options.id.trim() ||
+        typeof options.name !== 'string' || !options.name.trim()) {
+      return fail('invalid_line_item_identity', 'A unique line-item ID and a clear item name are required.');
+    }
+    if (options.required !== undefined && typeof options.required !== 'boolean') {
+      return fail('invalid_required_flag', 'The required flag must be true or false.');
+    }
+    const quantity = Number.isSafeInteger(estimate.totalSaleUnits) ? estimate.totalSaleUnits : estimate.saleUnits;
+    if (!Number.isSafeInteger(quantity) || quantity < 0 || typeof estimate.saleUnitLabel !== 'string' || !estimate.saleUnitLabel.trim()) {
+      return fail('invalid_estimate_quantity', 'The estimate must contain a valid sale-unit quantity and label.');
+    }
+    let price = null;
+    if (estimate.pricePerSaleUnit !== null && estimate.pricePerSaleUnit !== undefined) {
+      if (!isFiniteNumber(estimate.pricePerSaleUnit) || estimate.pricePerSaleUnit < 0 ||
+          typeof estimate.currency !== 'string' || !/^[A-Z]{3}$/.test(estimate.currency)) {
+        return fail('invalid_estimate_price', 'The estimate price must have a non-negative amount and a three-letter uppercase currency code.');
+      }
+      price = {
+        kind: 'user-input',
+        amount: estimate.pricePerSaleUnit,
+        currency: estimate.currency,
+        unit: estimate.saleUnitLabel.trim()
+      };
+    }
+    return {
+      ok: true,
+      lineItem: {
+        id: options.id.trim(),
+        name: options.name.trim(),
+        unit: estimate.saleUnitLabel.trim(),
+        quantity,
+        required: options.required !== false,
+        price
+      }
+    };
+  }
+
   function compareWallpaperProducts(commonInput, products) {
     if (!Array.isArray(products) || products.length !== 2) {
       return fail('two_products_required', 'Provide exactly two product-label sets to compare.');
@@ -242,5 +283,5 @@
     };
   }
 
-  return { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts };
+  return { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts, toProjectBudgetLineItem };
 });
