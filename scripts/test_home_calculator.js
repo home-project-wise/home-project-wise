@@ -33,6 +33,7 @@ global.document = {
   getElementById: mk,
   querySelectorAll: s => s === '.calc-tabs button' ? tabEls : []
 };
+global.window = { location: { hash: process.env.HPW_TEST_HASH || '' } };
 eval(script);
 let fail = 0;
 function submit(form, vals) {
@@ -46,6 +47,7 @@ function submit(form, vals) {
 function ok(name, cond, detail) { if (!cond) fail++; console.log((cond ? 'PASS ' : 'FAIL ') + name + (cond ? '' : '  -> ' + detail)); }
 function has(name, r, text) { ok(name, !r.err && r.res.includes(text), JSON.stringify(r)); }
 function rejects(name, r) { ok(name, !!r.err && r.res === '', JSON.stringify(r)); }
+ok('calculator supports URL hash tab selection', html.includes('window.location.hash.slice(1)') && html.includes('selectTab(deepLinkTab,false)'), 'deep-link handler missing');
 const M = { 'measure-unit': 'm', 'measure-depth': '' };
 // 1 Area / volume
 has('measure metric 4x3x2.5', submit('measure-form', { ...M, 'measure-length': 4, 'measure-width': 3, 'measure-depth': 2.5 }), 'Floor area: 12 m² (129.17 ft²) Perimeter: 14 m (45.93 ft) Volume: 30 m³');
@@ -92,6 +94,7 @@ ok('stale result cleared after invalid submit', bad.res === '', JSON.stringify(b
 // Tabs keyboard pattern
 function key(el, k) { let prevented = false; el.handlers.keydown && el.handlers.keydown({ key: k, preventDefault() { prevented = true; } }); return prevented; }
 const sel = () => tabEls.map(e => e.attrs['aria-selected']).join(',');
+if (process.env.HPW_TEST_HASH === '#panel-project') ok('direct project-cost link opens the Project cost tab', sel() === 'false,false,false,false,true', sel());
 ok('tabs have keydown handlers', tabEls.every(e => typeof e.handlers.keydown === 'function'), 'no keydown handler');
 if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
   ok('exactly one tab in the tab order (roving tabindex)', tabEls.filter(e => e.attrs.tabindex === '0').length === 1, tabEls.map(e => e.attrs.tabindex).join(','));
