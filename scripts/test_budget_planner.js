@@ -5,7 +5,8 @@ const html = fs.readFileSync(path.join(__dirname, '..', 'website', 'budget-plann
 const m = html.match(/\/\*fn\*\/([\s\S]*?)\/\*endfn\*\//);
 assert.ok(m, 'fn markers present');
 const ORDER = { must: 0, nice: 1, later: 2 };
-const { summarize } = new Function('ORDER', m[1] + '; return {summarize: summarize};')(ORDER);
+const E = require('../website/project-estimator-engine.js');
+const { summarize, runScenarios } = new Function('ORDER', 'E', m[1] + '; return {summarize: summarize, runScenarios: runScenarios};')(ORDER, E);
 const it = (n, p, q, u) => ({ n, p, q, u });
 
 let r = summarize([it('a', 'must', 2, 10), it('b', 'must', 1, 5), it('c', 'nice', 1, 7)], 40);
@@ -61,3 +62,60 @@ assert.ok(!/u:parseFloat\(tr\.querySelector\('\.r-u'\)\.value\)\|\|0/.test(html)
 // the plan must not be redrawn on blur: a redraw between mousedown and mouseup swallows the click on the copy link
 assert.ok(!/addEventListener\('change',function\(\)\{calc\(/.test(html) && !html.includes("['input','change']"), 'no change listeners that redraw the result on blur');
 console.log('budget planner: all assertions passed');
+
+// ---- engine integration: three priority scenarios computed by the project-estimator engine
+const gi = (n, p, q, u, gu) => ({ n, p, q, u, g: gu });
+let sc = runScenarios([gi('a', 'must', 2, 10), gi('b', 'nice', 1, 7), gi('c', 'later', 1, 3), gi('', 'must', 1, null)], 100, false);
+assert.deepStrictEqual(sc.map(o => o.est.subtotalLow), [20, 27, 30], 'must / must+nice / everything');
+assert.ok(sc.every(o => o.ver.status === 'likely-within-budget'), 'all fit a budget of 100');
+assert.strictEqual(sc[0].est.lineItems.length, 1, 'the must scenario holds only Must rows (blank row ignored)');
+assert.strictEqual(sc[1].est.lineItems.length, 2); assert.strictEqual(sc[2].est.lineItems.length, 3);
+// unknown required line: cannot-assess, never a fit, priced subtotal is only a partial one
+sc = runScenarios([gi('a', 'must', 1, 40), gi('b', 'must', 1, null), gi('c', 'nice', 1, 5)], 100, false);
+assert.strictEqual(sc[0].ver.status, 'cannot-assess'); assert.strictEqual(sc[0].est.unknownRequired.length, 1);
+assert.strictEqual(sc[0].est.subtotalLow, 40, 'partial subtotal excludes the unknown line');
+assert.strictEqual(sc[1].ver.status, 'cannot-assess');
+// unknown optional line: stays optional, is not priced, the required scope can still be assessed
+sc = runScenarios([gi('a', 'must', 1, 40), gi('b', 'nice', 1, null), gi('c', 'later', 1, null)], 100, false);
+assert.strictEqual(sc[0].ver.status, 'likely-within-budget'); assert.strictEqual(sc[1].est.unknownOptional.length, 1); assert.strictEqual(sc[2].est.unknownOptional.length, 2);
+assert.strictEqual(sc[2].est.subtotalLow, 40, 'optional unknowns are not counted as priced costs');
+// explicit zero is a real price, blank quantity is unknown
+sc = runScenarios([gi('a', 'must', 1, 0), gi('b', 'must', 1, 25)], 30, false);
+assert.strictEqual(sc[0].est.unknownRequired.length, 0); assert.strictEqual(sc[0].est.subtotalLow, 25); assert.strictEqual(sc[0].ver.status, 'likely-within-budget');
+sc = runScenarios([gi('a', 'must', null, 10), gi('b', 'must', 1, 25)], 100, false);
+assert.strictEqual(sc[0].est.unknownRequired.length, 1, 'blank quantity makes the required line unknown'); assert.strictEqual(sc[0].ver.status, 'cannot-assess');
+sc = runScenarios([gi('a', 'must', 1, 140)], 100, false);
+assert.strictEqual(sc[0].ver.status, 'likely-over-budget');
+sc = runScenarios([gi('a', 'nice', 1, 5)], 100, false);
+assert.ok(sc[0].empty && sc[0].est === null, 'no Must rows: the must scenario is empty, not an error'); assert.strictEqual(sc[1].est.subtotalLow, 5);
+// a price with more than 4 decimals is never rounded silently and never throws
+sc = runScenarios([gi('a', 'must', 1, 0.12345), gi('b', 'must', 1, 5)], 100, false);
+assert.deepStrictEqual(sc[2].badPrice, ['a']); assert.strictEqual(sc[0].est.unknownRequired.length, 1); assert.ok(!sc[0].error);
+// rough guesses live in a separate run and never change the main scenarios
+const base = [gi('a', 'must', 2, null, 10), gi('b', 'must', 1, 5, 99), gi('c', 'nice', 1, null, 7), gi('d', 'later', 1, null, null)];
+const noG = runScenarios(base, 100, false), withG = runScenarios(base, 100, true);
+const clean = base.map(x => Object.assign({}, x, { g: undefined }));
+assert.deepStrictEqual(runScenarios(clean, 100, false).map(o => [o.est.subtotalLow, o.ver.status]), noG.map(o => [o.est.subtotalLow, o.ver.status]), 'main scenarios ignore guesses entirely');
+assert.deepStrictEqual(noG.map(o => o.guessed), [[], [], []]);
+assert.deepStrictEqual(withG[2].guessed, ['a', 'c']); assert.strictEqual(withG[0].est.subtotalLow, 25, 'guess 2 x 10 + real price 5'); assert.strictEqual(withG[1].est.subtotalLow, 32); assert.strictEqual(withG[2].est.subtotalLow, 32);
+assert.ok(withG[0].est.lineItems.find(l => l.name === 'b').unitPriceLow === 5, 'a real price is never overwritten by a guess');
+// the engine totals equal the plain summarize() totals on many generated plans
+let seed = 12345; const rnd = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+for (let k = 0; k < 300; k++) {
+  const rows = []; const n = 1 + Math.floor(rnd() * 6);
+  for (let i = 0; i < n; i++) rows.push(gi('i' + i, ['must', 'nice', 'later'][Math.floor(rnd() * 3)], rnd() < 0.15 ? null : Math.floor(rnd() * 4), rnd() < 0.25 ? null : Math.round(rnd() * 5000) / 100, undefined));
+  const s0 = summarize(rows, 100), e0 = runScenarios(rows, 100, false);
+  const eTot = [e0[0].est ? e0[0].est.subtotalLow : 0, e0[1].est ? e0[1].est.subtotalLow : 0, e0[2].est ? e0[2].est.subtotalLow : 0];
+  assert.ok(Math.abs(eTot[0] - s0.tot.must) < 0.005 && Math.abs(eTot[1] - (s0.tot.must + s0.tot.nice)) < 0.005 && Math.abs(eTot[2] - s0.all) < 0.005, 'engine and summarize agree: ' + JSON.stringify(rows));
+}
+// USD only, engine loaded, and every copy about the share link says what the URL really holds
+assert.ok(!/id="cur"/.test(html), 'no currency selector'); assert.ok(html.includes('US dollars (USD)'));
+assert.ok(/<script src="project-estimator-engine\.js"><\/script><script>\(function/.test(html), 'engine loaded before the planner script');
+assert.ok(!html.includes('list, budget and prices'), 'no stale link description is left');
+const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(x => JSON.parse(x[1]));
+const faq = ld.find(x => x['@type'] === 'FAQPage'); const saveQ = faq.mainEntity.find(q => /save my plan/i.test(q.name));
+assert.ok(saveQ.acceptedAnswer.text.includes('entered prices and any rough guesses'), 'structured FAQ answer matches the real URL contents');
+const visible = html.replace(/<script[\s\S]*?<\/script>/g, '');
+assert.strictEqual((visible.match(/entered prices and any rough guesses/g) || []).length, 2, 'how-it-works paragraph and visible FAQ (the generated note lives in the script)');
+assert.ok(/function enc\(\)\{var st=\{t:sel\.value,b:form\.querySelector\('#budget'\)\.value,r:/.test(html), 'the link no longer carries a currency symbol');
+console.log('budget planner engine integration: all assertions passed');
