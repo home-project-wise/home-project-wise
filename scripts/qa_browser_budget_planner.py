@@ -218,6 +218,22 @@ with sync_playwright() as p:
     full = pg.inner_text('main')
     ck('every visible description of the share link mentions rough guesses', full.count('entered prices and any rough guesses') >= 3 and 'list, budget and prices' not in full, full.count('entered prices and any rough guesses'))
 
+    # --- review fixes: a rejected >4-decimal price is unknown everywhere; an empty Must scenario is not a fit
+    pg.fill('#budget', '100')
+    setrows(pg, [('Hook rail', 'must', 2, 0.12345), ('Boot mat', 'must', 1, 5)])
+    t = verdict(pg)
+    row0 = pg.locator('#rows tr').nth(0)
+    ck('rejected 4+ decimal price: typed value kept, no line total on the row', row0.locator('.r-u').input_value() == '0.12345' and row0.locator('.r-t').inner_text().strip() == '-', row0.locator('.r-t').inner_text())
+    ck('...totals use only the accepted price and say known costs only', 'Must have: $5' in t and 'known costs only' in t and '$0.25' not in t and '$0.24' not in t and 'We cannot tell yet' in t, t[:260].replace('\n', ' / '))
+    ck('...the missing-price message and the buying order treat it as missing', '1 must-have item has no price or quantity yet' in t and 'Hook rail (Must have)' in t and 'Hook rail (Must have, $' not in t and 'at most 4 decimal places for the price of: Hook rail' in pg.inner_text('#calc-err'), t[-330:].replace('\n', ' / '))
+    setrows(pg, [('Mirror', 'nice', 1, 25), ('Basket', 'later', 1, 15)])
+    t = verdict(pg)
+    ck('a Nice/Later-only plan: no must-have items selected, never a fit, no $0 cost claimed for the essentials', 'No must-have items selected.' in t and 'The must-haves fit' not in t and 'Must have: none selected' in t and 'Must have: $0' not in t, t[:300].replace('\n', ' / '))
+    ck('...the other scenarios still show their real totals', 'Must have + nice to have: $25' in t and 'Everything: $40' in t, t[:300].replace('\n', ' / '))
+    setrows(pg, [('Old chair', 'must', 1, 0)])
+    t = verdict(pg)
+    ck('an explicit 0 price on a Must is a priced zero-cost scope, still assessed', 'Must have: $0' in t and 'The must-haves fit your budget of $100' in t and 'No must-have items selected' not in t, t[:240].replace('\n', ' / '))
+
     # --- template list with no prices at all and a budget
     pg.select_option('#tmpl', 'entryway'); pg.fill('#budget', '200'); pg.wait_for_timeout(150)
     t = verdict(pg)
