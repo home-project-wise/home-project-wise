@@ -39,7 +39,7 @@ assert.ok(!/history\.replaceState\(null,'','\?s='/.test(html), 'no replaceState 
 assert.ok(/function share\(\)\{return location\.origin\+location\.pathname\+'\?s='\+encodeURIComponent\(enc\(\)\);\}/.test(html), 'the link is built only when asked');
 assert.ok(/if\(s\)\{try\{history\.replaceState\(null,'',location\.pathname\);\}catch\(e\)\{\}/.test(html), 'an opened shared link is removed from the address bar');
 assert.ok(html.includes('your plan is never written to the address bar'));
-assert.ok(html.includes('The link contains your list, budget and prices'));
+assert.ok(html.includes('The link contains your list, budget, entered prices and any rough guesses.')); assert.ok(html.includes('Treat it as a private note'));
 // the confusing sentence is gone and the new help is in the markup
 assert.ok(!html.includes('an empty price counts as zero'), 'empty price must not be described as zero');
 assert.ok(html.includes('Type 0 if you already own an item'));
