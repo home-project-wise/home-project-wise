@@ -105,7 +105,7 @@ with sync_playwright() as p:
     link = pg.evaluate('() => window.__copied')
     ck('copy link puts a link with ?s= on the clipboard', bool(link) and '?s=' in link, (link or '')[:80])
     ck('address bar still clean after copying', pg.evaluate('() => location.search') == '')
-    ck('copy-link note says what the link contains', 'contains your list, budget and prices' in verdict(pg))
+    ck('copy-link note says what the link contains', 'contains your list, budget, entered prices and any rough guesses' in verdict(pg) and 'private note' in verdict(pg))
     pg2 = c.new_page()
     pg2.goto(link, wait_until='load'); pg2.wait_for_timeout(300)
     ck('opening the copied link restores the list, budget and prices', pg2.locator('#rows tr').count() == 2 and pg2.input_value('#budget') == '123456' and pg2.locator('#rows tr').nth(0).locator('.r-n').input_value() == 'Secret item' and pg2.locator('#rows tr').nth(0).locator('.r-u').input_value() == '777')
@@ -132,11 +132,39 @@ with sync_playwright() as p:
     t = verdict(pg)
     ck('over budget with all priced: unchanged message', 'The must-haves are $40 over your budget of $100' in t, t[:160].replace('\n', ' / '))
     setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, None)])
-    ck('missing-price note uses minimum wording', 'so the totals above are minimums' in verdict(pg))
+    t = verdict(pg)
+    ck('missing-price note says unpriced items are left out, minimums, and no longer says empty = zero', 'leave them out and are only minimums' in t and 'counts as zero' not in t and 'Type 0 if you already own an item' in t, t[-260:].replace('\n', ' / '))
+
+    # --- explicit zero is a real price, blank is not
+    pg.fill('#budget', '100')
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, 0)])
+    t = verdict(pg)
+    ck('an explicit 0 price counts as priced: must-haves fit', 'The must-haves fit your budget of $100' in t and 'no price yet' not in t, t[:200].replace('\n', ' / '))
+
+    # --- rough guesses stay apart from prices
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'must', 1, None)])
+    pg.locator('#rows tr').nth(1).locator('.r-g').fill('4242')
+    pg.wait_for_timeout(120)
+    t = verdict(pg)
+    ck('a rough guess is shown separately, labelled as a guess', 'With your own rough guesses added' in t and 'guesses, not prices' in t and 'about $4282' in t, t[:330].replace('\n', ' / '))
+    ck('...and the priced total and the verdict ignore it', 'Must have: $40' in t and 'We cannot tell yet whether the must-haves fit' in t and 'The must-haves fit your budget' not in t)
+    ck('the row total column does not use the guess', pg.locator('#rows tr').nth(1).locator('.r-t').inner_text().strip() == '-')
+    leaks = [r for r in reqs if '4242' in urllib.parse.unquote(r[1]) + r[2]]
+    ck('the guess is sent in no request', not leaks, leaks)
+    ck('address bar still clean with a guess', pg.evaluate('() => location.search + location.hash') == '')
+    pg.evaluate("() => { window.__copied = null; Object.defineProperty(navigator, 'clipboard', {value: {writeText: t => { window.__copied = t; return Promise.resolve(); }}, configurable: true}); }")
+    pg.click('#copy-link'); pg.wait_for_timeout(150)
+    link2 = pg.evaluate('() => window.__copied')
+    ck('one click on Copy link works right after typing in a field (no redraw on blur swallows it)', bool(link2) and '?s=' in link2, (link2 or '')[:60])
+    pg3 = c.new_page(); pg3.goto(link2, wait_until='load'); pg3.wait_for_timeout(300)
+    ck('the copied link restores the guess and keeps the price blank', pg3.locator('#rows tr').nth(1).locator('.r-g').input_value() == '4242' and pg3.locator('#rows tr').nth(1).locator('.r-u').input_value() == '', pg3.locator('#rows tr').nth(1).locator('.r-g').input_value())
+    pg3.close()
 
     # --- template list with no prices at all and a budget
     pg.select_option('#tmpl', 'entryway'); pg.fill('#budget', '200'); pg.wait_for_timeout(150)
     t = verdict(pg)
+    hints = pg.evaluate("() => [...document.querySelectorAll('#rows .r-h')].map(e => e.textContent.trim())")
+    ck('every item of a ready-made project has a short tip and no tip mentions a price', len(hints) == 7 and all(hints) and not any('$' in h or '£' in h or '€' in h for h in hints), hints[:2])
     ck('fresh template with a budget and no prices: cannot tell, never "fit"', 'The must-haves fit your budget' not in t and 'cannot tell yet' in t.lower(), t[:200].replace('\n', ' / '))
 
     # --- escaping, console, keyboard focus
