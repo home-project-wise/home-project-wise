@@ -6,7 +6,7 @@ const m = html.match(/\/\*fn\*\/([\s\S]*?)\/\*endfn\*\//);
 assert.ok(m, 'fn markers present');
 const ORDER = { must: 0, nice: 1, later: 2 };
 const E = require('../website/project-estimator-engine.js');
-const { summarize, runScenarios } = new Function('ORDER', 'E', m[1] + '; return {summarize: summarize, runScenarios: runScenarios};')(ORDER, E);
+const { summarize, runScenarios, sanitizeItems } = new Function('ORDER', 'E', m[1] + '; return {summarize: summarize, runScenarios: runScenarios, sanitizeItems: sanitizeItems};')(ORDER, E);
 const it = (n, p, q, u) => ({ n, p, q, u });
 
 let r = summarize([it('a', 'must', 2, 10), it('b', 'must', 1, 5), it('c', 'nice', 1, 7)], 40);
@@ -119,3 +119,24 @@ const visible = html.replace(/<script[\s\S]*?<\/script>/g, '');
 assert.strictEqual((visible.match(/entered prices and any rough guesses/g) || []).length, 2, 'how-it-works paragraph and visible FAQ (the generated note lives in the script)');
 assert.ok(/function enc\(\)\{var st=\{t:sel\.value,b:form\.querySelector\('#budget'\)\.value,r:/.test(html), 'the link no longer carries a currency symbol');
 console.log('budget planner engine integration: all assertions passed');
+
+// review fixes (ChatGPT, #250): a rejected >4-decimal price is unknown in EVERY output, never half accepted
+let z = sanitizeItems([gi('a', 'must', 2, 0.12345), gi('b', 'must', 1, 5), gi('', 'must', 1, 0.123456)]);
+assert.deepStrictEqual(z.bad, ['a'], 'named rows are reported, blank rows are not'); assert.strictEqual(z.items[0].u, null); assert.strictEqual(z.items[1].u, 5);
+const typed = [gi('a', 'must', 2, 0.12345)]; sanitizeItems(typed); assert.strictEqual(typed[0].u, 0.12345, 'the typed value is never mutated');
+let sm = summarize(z.items, 100);
+assert.strictEqual(sm.mustMissing, 1, 'the legacy summary counts the rejected row as missing'); assert.strictEqual(sm.tot.must, 5, 'and does not add its line');
+assert.strictEqual(sm.order.find(x => x.n === 'a').line, 0, 'the buying order shows no amount for it');
+sc = runScenarios(z.items, 100, false);
+assert.strictEqual(sc[0].est.subtotalLow, 5); assert.strictEqual(sc[0].ver.status, 'cannot-assess');
+assert.strictEqual(sc[0].est.unknownRequired.length, 1);
+assert.ok(/var sz=sanitizeItems\(read\(\)\),items=sz\.items;/.test(html), 'calc works on the sanitized copy only');
+// an empty Must scenario is not a fit and not a $0 cost; an explicit zero price is a real zero-cost scope
+sc = runScenarios([gi('a', 'nice', 1, 5), gi('b', 'later', 1, 3)], 100, false);
+assert.ok(sc[0].empty && sc[0].est === null && sc[0].ver === null, 'no verdict at all for an empty Must scenario');
+assert.ok(!sc[1].empty && sc[1].est.subtotalLow === 5);
+sc = runScenarios([gi('a', 'must', 1, 0)], 100, false);
+assert.ok(!sc[0].empty && sc[0].est.subtotalLow === 0 && sc[0].ver.status === 'likely-within-budget', 'a typed price of 0 is a priced zero-cost Must');
+assert.ok(html.includes('No must-have items selected.') && html.includes('none selected'));
+assert.ok(!/fitM=sc\[0\]\.empty/.test(html), 'an empty scenario can no longer count as a fit');
+console.log('budget planner review fixes: all assertions passed');
