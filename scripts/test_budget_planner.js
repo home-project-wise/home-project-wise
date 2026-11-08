@@ -24,6 +24,17 @@ assert.strictEqual(r.mustMissing, 0, 'explicit zero is priced'); assert.strictEq
 r = summarize([it('a', 'must', 0, 5)], 10);
 assert.strictEqual(r.mustMissing, 0, 'a price with quantity 0 is a priced item with a zero line, not a missing price');
 
+// a blank or invalid quantity is unknown (null), never zero: the item is unpriced, not a free zero line
+r = summarize([it('a', 'must', null, 10), it('b', 'must', 1, 5)], 100);
+assert.strictEqual(r.mustMissing, 1, 'a price with a blank quantity is not a priced item'); assert.strictEqual(r.missing, 1); assert.strictEqual(r.tot.must, 5);
+r = summarize([it('a', 'nice', NaN, 10), it('', 'must', null, 10)], 100);
+assert.strictEqual(r.niceMissing, 1); assert.strictEqual(r.mustMissing, 0, 'a blank row is ignored'); assert.strictEqual(r.tot.nice, 0);
+r = summarize([it('a', 'must', 0, 10)], 100);
+assert.strictEqual(r.mustMissing, 0, 'an explicit quantity 0 stays a valid zero line'); assert.strictEqual(r.tot.must, 0);
+assert.ok(!/q:parseFloat\(tr\.querySelector\('\.r-q'\)\.value\)\|\|0/.test(html), 'blank quantity must not be coerced to 0');
+assert.ok(!/parseFloat\(r\[2\]\)\|\|0/.test(html), 'a shared link must not turn a blank quantity into 0');
+assert.ok(html.includes('Enter a quantity for: '), 'visible quantity validation message');
+
 // rough guesses never enter the priced totals and only count for unpriced named items
 const g = (n, p, q, u, gu) => ({ n, p, q, u, g: gu });
 r = summarize([g('a', 'must', 2, null, 10), g('b', 'must', 1, 5, 99), g('c', 'nice', 1, null, 7), g('d', 'later', 1, null, null), g('', 'must', 1, null, 50)], 100);
