@@ -105,7 +105,7 @@ with sync_playwright() as p:
     link = pg.evaluate('() => window.__copied')
     ck('copy link puts a link with ?s= on the clipboard', bool(link) and '?s=' in link, (link or '')[:80])
     ck('address bar still clean after copying', pg.evaluate('() => location.search') == '')
-    ck('copy-link note says what the link contains', 'contains your list, budget and prices' in verdict(pg))
+    ck('copy-link note says what the link contains', 'contains your list, budget, entered prices and any rough guesses' in verdict(pg) and 'private note' in verdict(pg))
     pg2 = c.new_page()
     pg2.goto(link, wait_until='load'); pg2.wait_for_timeout(300)
     ck('opening the copied link restores the list, budget and prices', pg2.locator('#rows tr').count() == 2 and pg2.input_value('#budget') == '123456' and pg2.locator('#rows tr').nth(0).locator('.r-n').input_value() == 'Secret item' and pg2.locator('#rows tr').nth(0).locator('.r-u').input_value() == '777')
