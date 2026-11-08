@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-01T11:14:21+00:00",
+ "generated": "2026-11-08T11:09:55+00:00",
  "model": "gemini-3.8-flash",
  "rows": [
   {
@@ -415,15 +415,24 @@
    "index": 0,
    "key": "local-kitchen-counter-hero.jpg",
    "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
-   "problems": [
-    "The read operation timed out"
-   ],
+   "problems": [],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/kitchen-counter-hero.jpg",
-   "status": "error",
+   "status": "keep",
    "title": "Kitchen Counter Zone That Stays Clear",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Wooden kitchen counter with an empty cutting board in the center and small appliances parked to the side",
+    "has_text_or_watermark": false,
+    "hero_appeal": 9,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 10,
+    "reason": "Directly and cleanly visualizes a dedicated clear prep zone with everyday appliances neatly confined to the side.",
+    "search_query": "clear kitchen prep counter space",
+    "visible_description": "Sunlit wooden kitchen countertop featuring an empty cutting board with a knife in the center. A knife block stands left, while a kettle, toaster, and fruit bowl sit grouped to the right."
+   }
   },
   {
    "after": "The pump sits beside the toilet and discharges waste up to the existing drain line above. 1. What a macerating toilet does A regular toilet relies on gravity: waste drops into a pipe that slopes down to your main drain. A macerating toilet adds a small pump with a grinding blade behind or beside the bowl. It breaks waste down and pushes it through ",
@@ -434,15 +443,24 @@
    "index": 0,
    "key": "local-AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
    "path": "website/articles/macerating-toilet-basement-bathroom.html",
-   "problems": [
-    "The read operation timed out"
-   ],
+   "problems": [],
    "role": "hero",
    "section": "Short answer for a basement bathroom",
    "src": "../images/AaEuhjogDLzUicDPoF8kqw-AaEuhjogQ2vVsrb4CvvZMA.jpg",
-   "status": "error",
+   "status": "keep",
    "title": "Macerating Toilet for a Basement Bathroom: Is It Worth It?",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "White toilet and macerating pump with vertical discharge pipe in an unfinished basement framed with wood studs.",
+    "has_text_or_watermark": false,
+    "hero_appeal": 6,
+    "is_generic_stock": false,
+    "looks_ai_generated": true,
+    "matches_section": 9,
+    "reason": "Directly illustrates a basement macerator setup, but features a standard bottom-discharge toilet not connected to the pump, likely AI-generated.",
+    "search_query": "macerating toilet basement installation pump",
+    "visible_description": "A white skirted toilet sits on a concrete floor in an unfinished basement beside an unconnected macerating pump unit with a vertical PVC pipe running upward."
+   }
   },
   {
    "after": "AI-generated image: a clear walking path and plenty of daylight make a small room feel larger. 1. Start with the walking path, not the furniture catalog The fastest way to make a room feel cramped is to make people weave around furniture. Walk through the room as you normally do and notice where you hesitate, turn sideways or step around something.",
@@ -522,11 +540,11 @@
    }
   },
   {
-   "after": "AI-generated image: a low light along the baseboard and a sensor at the hallway entrance light the route from bed to bathroom. 4. Set the timeout around the real task A timeout that is too short switches the light off mid-task; one that is much too long wastes energy and feels unresponsive. Start conservatively and adjust after real use. A short ha",
+   "after": "AI-generated image: map the actual walking path from bed to bathroom, then add a low baseboard light and a sensor at the hallway entrance. 4. Set the timeout around the real task A timeout that is too short switches the light off mid-task; one that is much too long wastes energy and feels unresponsive. Start conservatively and adjust after real use",
    "alt": "Night hallway from a bedroom door to a lit bathroom, with a warm LED strip along the baseboard and a small motion sensor on the wall",
    "article": "motion-lighting-that-actually-helps",
    "before": "he actual walking path Placement matters more than a high-sensitivity setting. Stand where a person normally enters and imagine the detection field: it should see the movement that matters and avoid routes that should not trigger. A sensor aimed through an open doorway may catch people passing the doorway rather than entering; one hidden behind furniture misses the start of the route; one whose view a door blocks works only when the door is open.",
-   "caption": "AI-generated image: a low light along the baseboard and a sensor at the hallway entrance light the route from bed to bathroom.",
+   "caption": "AI-generated image: map the actual walking path from bed to bathroom, then add a low baseboard light and a sensor at the hallway entrance.",
    "index": 1,
    "key": "local-motion-light-path.jpg",
    "path": "website/articles/motion-lighting-that-actually-helps.html",
@@ -811,14 +829,26 @@
    "key": "local-small-bathroom-hero.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "The read operation timed out"
+    "weak-match",
+    "generic"
    ],
    "role": "hero",
    "section": "Introduction",
    "src": "../images/small-bathroom-hero.jpg",
-   "status": "error",
+   "status": "weak",
    "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
-   "vision": null
+   "vision": {
+    "alt_is_accurate": true,
+    "better_alt": "Small white bathroom with a pedestal sink, toilet, wall shelf, and glass shower with a hanging squeegee",
+    "has_text_or_watermark": false,
+    "hero_appeal": 7,
+    "is_generic_stock": true,
+    "looks_ai_generated": true,
+    "matches_section": 6,
+    "reason": "Directly illustrates a small, low-clutter bathroom layout tailored for easy maintenance, aligning with the introduction.",
+    "search_query": "clean organized small bathroom shower",
+    "visible_description": "A compact white bathroom featuring a pedestal sink, a toilet, a small wooden shelf with toiletries, and a glass-enclosed shower with a squeegee hung on the wall."
+   }
   },
   {
    "after": "AI-generated image: drops left on the counter are tomorrow's limescale; a cloth and wiper within reach make it a ten-second wipe. In a bathroom, many \"cleaning\" problems begin as water problems. Water left on glass, taps, the basin edge and shower walls eventually dries, leaving minerals or soap residue behind. You do not need to dry every surface ",
@@ -830,12 +860,12 @@
    "key": "local-small-bathroom-sink-water.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "time budget used"
+    "The read operation timed out"
    ],
    "role": "inner",
    "section": "3. Stop water from becoming tomorrow's cleaning job",
    "src": "../images/small-bathroom-sink-water.jpg",
-   "status": "pending",
+   "status": "error",
    "title": "How to Make a Small Bathroom Easier to Clean Without Remodeling",
    "vision": null
   },
@@ -849,7 +879,7 @@
    "key": "local-small-bathroom-floor-layout.jpg",
    "path": "website/articles/small-bathroom-easier-to-clean.html",
    "problems": [
-    "time budget used"
+    "daily quota exhausted"
    ],
    "role": "inner",
    "section": "4. Keep the floor open enough to clean in one pass",
@@ -868,7 +898,7 @@
    "key": "local-smart-home-privacy-hero.jpg",
    "path": "website/articles/smart-home-privacy-check.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -878,7 +908,7 @@
    "vision": null
   },
   {
-   "after": "The wall switch is your first backup when the app stops answering. Illustrative image created with Canva. Your internet drops at 9 p.m. You walk into the hallway, say \"turn on the light\", and nothing happens. You open the app. It spins. You were told this was the easy way to run a home. Here is the useful truth: you cannot know how your smart home ",
+   "after": "The wall switch is your first backup when the app stops answering. Illustrative image created with Canva. Your internet drops at 9 p.m. You walk into the hallway, say \"turn on the light\", and nothing happens. You open the app. It spins. You were told this was the easy way to run a home. Test it before you need it Here is the useful truth: you canno",
    "alt": "A hand reaching for a wall light switch in a dim home hallway, with a smartphone resting on a console table nearby",
    "article": "smart-home-wifi-outage-test",
    "before": "on\" content=\"Find out which smart lights, plugs and routines still work when the internet drops, and fix the weak spots in 15 minutes, with no new gadgets.\"> Guides About All guides SMART HOME · SIMPLE AUTOMATION What Happens to Your Smart Home When the Internet Goes Down? A 15-Minute Test",
@@ -887,7 +917,7 @@
    "key": "local-smart-home-wifi-outage-hero.jpg",
    "path": "website/articles/smart-home-wifi-outage-test.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -906,7 +936,7 @@
    "key": "local-smart-lighting-hero.jpg",
    "path": "website/articles/smart-lighting.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -925,7 +955,7 @@
    "key": "local-warm-bedside-light.jpg",
    "path": "website/articles/smart-lighting.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "inner",
    "section": "4. Combine them where it makes sense",
@@ -944,7 +974,7 @@
    "key": "local-thermostat-c-wire-hero.jpg",
    "path": "website/articles/smart-thermostat-without-c-wire.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -954,16 +984,16 @@
    "vision": null
   },
   {
-   "after": "AI-generated image: fitting new weatherstripping where the air gets in. Find it, choose it, test it. Find the draft before buying anything AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot. Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hin",
+   "after": "AI-generated image: fitting new weatherstripping where the air gets in. Short answer Quick answer: On a cool or windy day, check the top, sides and bottom of the closed door to find the actual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpos",
    "alt": "Hands pressing a black rubber weatherstrip along the edge of a closed sage-green front door, with a line of daylight under the door and a coir doormat in front",
    "article": "stop-a-drafty-door-without-replacing-it",
-   "before": "he bottom sweep, not the whole door. Quick answer: On a cool or windy day, check the top, sides and bottom of the closed door to find the actual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpose-built ventilation or combustion-air openings; get professional help if the frame is damaged, water is entering, or the door will not latch safely.",
+   "before": "All guides WEEKEND PROJECTS · DRAFTS Stop a Drafty Door Without Replacing It A cold draft does not mean the door is bad. Find the exact air path, then fix the smallest part that is failing: usually the threshold, the weatherstripping or the bottom sweep, not the whole door.",
    "caption": "AI-generated image: fitting new weatherstripping where the air gets in.",
    "index": 0,
    "key": "local-drafty-door-weatherstrip-hero.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -973,16 +1003,16 @@
    "vision": null
   },
   {
-   "after": "AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot. Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hinge side and bottom edge, in short sections, and mark each spot where the air changes. Curtains, vents and nearby walls also move air, so co",
+   "after": "AI-generated image: the paper test finds a draft; if the paper slides out easily with the door closed, the seal is loose at that spot. Pick a cool or windy day and close the door normally. Move your hand slowly along the top, latch side, hinge side and bottom edge, in short sections, and mark each spot where the air changes. Curtains, vents and nea",
    "alt": "Hand sliding a sheet of paper into the gap between a closed door and its frame to test the seal",
    "article": "stop-a-drafty-door-without-replacing-it",
-   "before": "ctual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpose-built ventilation or combustion-air openings; get professional help if the frame is damaged, water is entering, or the door will not latch safely. AI-generated image: fitting new weatherstripping where the air gets in. Find it, choose it, test it. Find the draft before buying anything",
-   "caption": "AI-generated image: if the paper slides out easily with the door closed, the seal is loose at that spot.",
+   "before": "dy day, check the top, sides and bottom of the closed door to find the actual leak. Inspect the seal and bottom sweep, then repair only the part that has failed. Test that the door still closes and latches normally. Do not block purpose-built ventilation or combustion-air openings; get professional help if the frame is damaged, water is entering, or the door will not latch safely. Find the draft before buying anything Find it, choose it, test it.",
+   "caption": "AI-generated image: the paper test finds a draft; if the paper slides out easily with the door closed, the seal is loose at that spot.",
    "index": 1,
    "key": "local-drafty-door-paper-test.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "inner",
    "section": "Find the draft before buying anything",
@@ -1001,7 +1031,7 @@
    "key": "local-drafty-door-weatherstrip-check.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "inner",
    "section": "Inspect the existing weatherstripping",
@@ -1011,19 +1041,19 @@
    "vision": null
   },
   {
-   "after": "AI-generated image: measure the gap at the bottom before choosing a door sweep or threshold seal. Deal with the bottom edge If the draft is strongest at the floor, look for daylight under the door or a sweep that no longer touches the threshold. After any adjustment, open and close the door. If the sweep drags, catches on the threshold or stops the",
+   "after": "AI-generated image: measure the gap at the bottom before choosing a door sweep or threshold seal. If the draft is strongest at the floor, look for daylight under the door or a sweep that no longer touches the threshold. After any adjustment, open and close the door. If the sweep drags, catches on the threshold or stops the latch from engaging, back",
    "alt": "Tape measure held against the bottom of a closed door to measure the gap above the floor, with a notepad and pencil on the floor",
    "article": "stop-a-drafty-door-without-replacing-it",
-   "before": "ect the existing weatherstripping AI-generated image: press along the strip; flat, cracked or gapped spots are where air gets through. Look for cracked, torn, flattened or missing material. Press gently on the seal: if it stays compressed instead of springing back, it no longer makes enough contact. Measure the section you need to replace and compare it with the existing profile, because choosing a strip by thickness alone often gives a poor fit.",
+   "before": "ripping AI-generated image: press along the strip; flat, cracked or gapped spots are where air gets through. Look for cracked, torn, flattened or missing material. Press gently on the seal: if it stays compressed instead of springing back, it no longer makes enough contact. Measure the section you need to replace and compare it with the existing profile, because choosing a strip by thickness alone often gives a poor fit. Deal with the bottom edge",
    "caption": "AI-generated image: measure the gap at the bottom before choosing a door sweep or threshold seal.",
    "index": 3,
    "key": "local-drafty-door-measure-gap.jpg",
    "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "inner",
-   "section": "Inspect the existing weatherstripping",
+   "section": "Deal with the bottom edge",
    "src": "../images/drafty-door-measure-gap.jpg",
    "status": "pending",
    "title": "Stop a Drafty Door Without Replacing It",
@@ -1039,7 +1069,7 @@
    "key": "local-mail-paper-tray-hero.jpg",
    "path": "website/articles/stop-mail-and-paper-pile.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -1049,7 +1079,7 @@
    "vision": null
   },
   {
-   "after": "AI-generated image: towels hung spread out, with fresh air coming in, dry far faster than bunched ones. Short answer: musty towels come from moisture that stays in the fabric too long. Spread the towel so air reaches both sides, run the bathroom fan for 20 minutes after showers, take towels out of the washer soon after the cycle, use the detergent ",
+   "after": "AI-generated image: towels hung spread out, with fresh air coming in, dry far faster than bunched ones. Short answer Short answer: musty towels come from moisture that stays in the fabric too long. Spread the towel so air reaches both sides, run the bathroom fan for 20 minutes after showers, take towels out of the washer soon after the cycle, use t",
    "alt": "Two towels hung spread out on a bathroom towel rail beside an open window, with a dry tiled floor",
    "article": "stop-musty-bathroom-towels",
    "before": "ven after washing? Find the cause in three quick tests, then fix drying, ventilation and washer habits step by step.\" name=\"twitter:description\"/> All guides WEEKEND PROJECTS · LAUNDRY How to Stop Bathroom Towels Smelling Musty A towel that smells fine from the dryer and musty three days later has a drying problem. One that smells musty straight from the washer has a washing problem. This guide helps you tell which, then fix it.",
@@ -1058,7 +1088,7 @@
    "key": "local-musty-towels-hero.jpg",
    "path": "website/articles/stop-musty-bathroom-towels.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -1077,7 +1107,7 @@
    "key": "local-smart-plug-safe-load-hero.jpg",
    "path": "website/articles/what-can-you-plug-into-a-smart-plug.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -1096,7 +1126,7 @@
    "key": "local-crawl-space-dehumidifier-hero.jpg",
    "path": "website/articles/what-size-dehumidifier-crawl-space.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",
@@ -1115,7 +1145,7 @@
    "key": "local-water-leak-sensor-hero.jpg",
    "path": "website/articles/where-to-put-water-leak-sensors.html",
    "problems": [
-    "time budget used"
+    "quota exhausted"
    ],
    "role": "hero",
    "section": "Introduction",

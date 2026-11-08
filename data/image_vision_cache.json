@@ -332,6 +332,18 @@
   "search_query": "entryway coat hooks shoe storage",
   "visible_description": "A tall, closed two-door wooden wardrobe with bottom drawers stands in an alcove against white walls on herringbone wood floors, with the edge of a black fireplace visible on the left."
  },
+ "88e9d32ae454af93ecfbcf8313afebf8c76b64df": {
+  "alt_is_accurate": true,
+  "better_alt": "White toilet and macerating pump with vertical discharge pipe in an unfinished basement framed with wood studs.",
+  "has_text_or_watermark": false,
+  "hero_appeal": 6,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 9,
+  "reason": "Directly illustrates a basement macerator setup, but features a standard bottom-discharge toilet not connected to the pump, likely AI-generated.",
+  "search_query": "macerating toilet basement installation pump",
+  "visible_description": "A white skirted toilet sits on a concrete floor in an unfinished basement beside an unconnected macerating pump unit with a vertical PVC pipe running upward."
+ },
  "8b9931cf6b845af826eec2802c28116fdf62b7ae": {
   "alt_is_accurate": true,
   "better_alt": "Large square artwork hanging on a wall above a contemporary sofa in a styled living room",
@@ -476,6 +488,18 @@
   "reason": "The image shows a dining or tea sitting area, not an entryway arrival zone with hooks, shoe storage, or key drop.",
   "search_query": "entryway landing zone key tray",
   "visible_description": "A light wood round table and matching wooden chair set on a circular white rug, illuminated by an arched silver floor lamp, with potted plants and white paneled walls."
+ },
+ "b3733ce4fca674ab94d57edbbe8e1ac6a9ca55e3": {
+  "alt_is_accurate": true,
+  "better_alt": "Wooden kitchen counter with an empty cutting board in the center and small appliances parked to the side",
+  "has_text_or_watermark": false,
+  "hero_appeal": 9,
+  "is_generic_stock": false,
+  "looks_ai_generated": true,
+  "matches_section": 10,
+  "reason": "Directly and cleanly visualizes a dedicated clear prep zone with everyday appliances neatly confined to the side.",
+  "search_query": "clear kitchen prep counter space",
+  "visible_description": "Sunlit wooden kitchen countertop featuring an empty cutting board with a knife in the center. A knife block stands left, while a kettle, toaster, and fruit bowl sit grouped to the right."
  },
  "b901cb724cb52f15ef6957772c79a2efb7e9b8d9": {
   "alt_is_accurate": false,
@@ -659,6 +683,18 @@
   "reason": "The photo shows a daytime exterior backyard and patio, completely irrelevant to interior evening lighting layers.",
   "search_query": "living room layered evening lighting",
   "visible_description": "Sunlit exterior backyard of a modern home featuring a green lawn, large gum tree, and a covered timber patio deck with outdoor dining furniture."
+ },
+ "f893595ec25f623adce1f9124d7bb9249c7f72c2": {
+  "alt_is_accurate": true,
+  "better_alt": "Small white bathroom with a pedestal sink, toilet, wall shelf, and glass shower with a hanging squeegee",
+  "has_text_or_watermark": false,
+  "hero_appeal": 7,
+  "is_generic_stock": true,
+  "looks_ai_generated": true,
+  "matches_section": 6,
+  "reason": "Directly illustrates a small, low-clutter bathroom layout tailored for easy maintenance, aligning with the introduction.",
+  "search_query": "clean organized small bathroom shower",
+  "visible_description": "A compact white bathroom featuring a pedestal sink, a toilet, a small wooden shelf with toiletries, and a glass-enclosed shower with a squeegee hung on the wall."
  },
  "fd9046113abef02384a0bf831b15677b3f399838": {
   "alt_is_accurate": false,
