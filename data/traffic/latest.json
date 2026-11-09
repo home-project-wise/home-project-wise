@@ -1,12 +1,481 @@
 {
-  "status": "OK",
-  "endpoint_errors": {},
-  "api_user_ok": true,
-  "generated_at": "2026-11-08T03:37:08.324294+00:00",
-  "period_start": "2026-11-07T03:00:00+00:00",
-  "period_end": "2026-11-08T03:37:08.324294+00:00",
-  "visitors": 6,
+  "status": "PARTIAL",
+  "endpoint_errors": {
+    "me": "GoatCounter HTTP 404 on /me"
+  },
+  "api_user_ok": false,
+  "generated_at": "2026-11-09T03:50:37.404363+00:00",
+  "period_start": "2026-11-08T03:00:00+00:00",
+  "period_end": "2026-11-09T03:50:37.404363+00:00",
+  "visitors": 8,
   "pageviews": {
+    "total": 8,
+    "total_events": 0,
+    "total_utc": 8,
+    "stats": [
+      {
+        "day": "2026-11-08",
+        "hourly": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0
+        ],
+        "daily": 7,
+        "weekly": 8,
+        "monthly": 8
+      },
+      {
+        "day": "2026-11-09",
+        "hourly": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "daily": 1
+      }
+    ]
+  },
+  "paths": {
+    "hits": [
+      {
+        "count": 2,
+        "path_id": 120149666,
+        "path": "/home-project-wise/budget-planner.html",
+        "event": false,
+        "title": "Project Budget Planner | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-08",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "daily": 2,
+            "weekly": 2,
+            "monthly": 2
+          },
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 2,
+        "path_id": 119982597,
+        "path": "/home-project-wise/home-project-calculator.html",
+        "event": false,
+        "title": "Home Project Calculator | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-08",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "daily": 2,
+            "weekly": 2,
+            "monthly": 2
+          },
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 2,
+        "path_id": 119982570,
+        "path": "/home-project-wise",
+        "event": false,
+        "title": "HomeProjectWise — Make Home Better, One Smart Project at a Time",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-08",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "daily": 2,
+            "weekly": 2,
+            "monthly": 2
+          },
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 119982933,
+        "path": "/home-project-wise/articles/how-to-calculate-wallpaper-rolls-pattern-repeat.html",
+        "event": false,
+        "title": "How to Calculate Wallpaper Rolls: Pattern Repeat, Drops and Waste | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-08",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 109172442,
+        "path": "/home-project-wise/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+        "event": false,
+        "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-08",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1
+          }
+        ]
+      }
+    ],
+    "total": 8,
+    "more": false
+  },
+  "referrers": {
+    "stats": [
+      {
+        "name": "",
+        "count": 2,
+        "ref_scheme": "o"
+      },
+      {
+        "id": "Google",
+        "name": "Google",
+        "count": 1,
+        "ref_scheme": "g"
+      }
+    ],
+    "more": false
+  },
+  "locations": {
+    "stats": [
+      {
+        "id": "TN",
+        "name": "Tunisia",
+        "count": 7
+      },
+      {
+        "id": "CA",
+        "name": "Canada",
+        "count": 1
+      }
+    ],
+    "more": false
+  },
+  "previous_period_visitors": 6,
+  "previous_period_pageviews": {
     "total": 6,
     "total_events": 0,
     "total_utc": 6,
@@ -72,555 +541,6 @@
           0
         ],
         "daily": 0
-      }
-    ]
-  },
-  "paths": {
-    "hits": [
-      {
-        "count": 1,
-        "path_id": 119982933,
-        "path": "/home-project-wise/articles/how-to-calculate-wallpaper-rolls-pattern-repeat.html",
-        "event": false,
-        "title": "How to Calculate Wallpaper Rolls: Pattern Repeat, Drops and Waste | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 119982597,
-        "path": "/home-project-wise/home-project-calculator.html",
-        "event": false,
-        "title": "Home Project Calculator | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 119982570,
-        "path": "/home-project-wise",
-        "event": false,
-        "title": "HomeProjectWise — Make Home Better, One Smart Project at a Time",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 112399230,
-        "path": "/home-project-wise/articles/what-can-you-plug-into-a-smart-plug.html",
-        "event": false,
-        "title": "What Can You Safely Plug Into a Smart Plug? The Watt-Check Method | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 109172442,
-        "path": "/home-project-wise/articles/better-evening-home-lighting-without-overcomplicating-it.html",
-        "event": false,
-        "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      },
-      {
-        "count": 1,
-        "path_id": 108372734,
-        "path": "/home-project-wise/guides.html",
-        "event": false,
-        "title": "Guides & Categories — HomeProjectWise",
-        "max": 1,
-        "stats": [
-          {
-            "day": "2026-11-07",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              1,
-              0,
-              0,
-              0
-            ],
-            "daily": 1,
-            "weekly": 1,
-            "monthly": 1
-          },
-          {
-            "day": "2026-11-08",
-            "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
-              0
-            ],
-            "daily": 0
-          }
-        ]
-      }
-    ],
-    "total": 6,
-    "more": false
-  },
-  "referrers": {
-    "stats": [
-      {
-        "name": "",
-        "count": 1,
-        "ref_scheme": "o"
-      },
-      {
-        "id": "Google",
-        "name": "Google",
-        "count": 1,
-        "ref_scheme": "g"
-      }
-    ],
-    "more": false
-  },
-  "locations": {
-    "stats": [
-      {
-        "id": "TN",
-        "name": "Tunisia",
-        "count": 4
-      },
-      {
-        "id": "GB",
-        "name": "United Kingdom",
-        "count": 1
-      },
-      {
-        "id": "IN",
-        "name": "India",
-        "count": 1
-      },
-      {
-        "id": "US",
-        "name": "United States",
-        "count": 1
-      }
-    ],
-    "more": false
-  },
-  "previous_period_visitors": 1,
-  "previous_period_pageviews": {
-    "total": 1,
-    "total_events": 0,
-    "total_utc": 1,
-    "stats": [
-      {
-        "day": "2026-11-06",
-        "hourly": [
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 0,
-        "weekly": 1,
-        "monthly": 1
-      },
-      {
-        "day": "2026-11-07",
-        "hourly": [
-          0,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0
-        ],
-        "daily": 1
       }
     ]
   }
