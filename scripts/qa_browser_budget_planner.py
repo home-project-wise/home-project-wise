@@ -250,8 +250,24 @@ with sync_playwright() as p:
     fi = pg.evaluate("() => { const s = getComputedStyle(document.activeElement); return [document.activeElement.className || document.activeElement.id, s.outlineStyle, s.outlineWidth, s.boxShadow]; }")
     ck('visible keyboard focus indicator', (fi[1] != 'none' and fi[2] != '0px') or fi[3] != 'none', fi)
     ck('browser history was not filled with states while typing', hist <= 3, hist)
-    dcols = pg.evaluate("() => getComputedStyle(document.querySelector('.budget-table')).display")
-    ck('desktop keeps the normal table layout', dcols == 'table', dcols)
+    pg.goto(URL, wait_until='load'); pg.wait_for_timeout(300)  # fresh load: the default 7-item template, as on the owner's desktop-site screenshot
+    dgeo = pg.evaluate("""() => {
+      const w = document.querySelector('.budget-wrap'); const rows = [...document.querySelectorAll('#rows tr')];
+      const vis = e => { const r = e.getBoundingClientRect(); const wr = w.getBoundingClientRect(); return r.left >= wr.left - 1 && r.right <= wr.right + 1 && r.width > 30; };
+      return { wrapScroll: w.scrollWidth - w.clientWidth, rows: rows.length,
+        fields: rows.every(tr => ['.r-n', '.r-p', '.r-q', '.r-u', '.r-g', '.r-x'].every(s => vis(tr.querySelector(s))) && vis(tr.querySelector('.r-t'))),
+        clipped: rows.map(tr => tr.querySelector('.r-n')).filter(i => i.scrollWidth > i.clientWidth + 1).map(i => i.value),
+        w: innerWidth };
+    }""")
+    ck('desktop: no sideways scroll, every field and the Total column visible in every row', dgeo['wrapScroll'] <= 1 and dgeo['fields'] and dgeo['rows'] >= 3, dgeo)
+    ck('desktop: no item name is cut off', dgeo['clipped'] == [], dgeo['clipped'])
+    for dw in (720, 820, 980):
+        pg.set_viewport_size({'width': dw, 'height': 900}); pg.wait_for_timeout(150)
+        g2 = pg.evaluate("""() => { const w = document.querySelector('.budget-wrap'); const rows = [...document.querySelectorAll('#rows tr')];
+          return { scroll: w.scrollWidth - w.clientWidth, clipped: rows.map(tr => tr.querySelector('.r-n')).filter(i => i.scrollWidth > i.clientWidth + 1).map(i => i.value),
+                   totalIn: rows.every(tr => tr.querySelector('.r-t').getBoundingClientRect().right <= w.getBoundingClientRect().right + 1) }; }""")
+        ck('tablet/desktop-site width %d px: no sideways scroll, names whole, Total inside the box' % dw, g2['scroll'] <= 1 and g2['clipped'] == [] and g2['totalIn'], g2)
+    pg.set_viewport_size({'width': 1280, 'height': 900})
     c.close()
 
     # --- mobile
