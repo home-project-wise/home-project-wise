@@ -179,6 +179,61 @@ with sync_playwright() as p:
     ck('the copied link restores the guess and keeps the price blank', pg3.locator('#rows tr').nth(1).locator('.r-g').input_value() == '4242' and pg3.locator('#rows tr').nth(1).locator('.r-u').input_value() == '', pg3.locator('#rows tr').nth(1).locator('.r-g').input_value())
     pg3.close()
 
+    # --- engine scenarios: independent arithmetic, USD only, required vs optional unknowns
+    ck('the planner is USD only: no currency selector and the page says so', pg.locator('#cur').count() == 0 and 'US dollars (USD)' in pg.inner_text('#calc'))
+    pg.fill('#budget', '200')
+    setrows(pg, [('Hook rail', 'must', 2, 40), ('Boot mat', 'nice', 1, 30), ('Mirror', 'later', 1, 25.5)])
+    t = verdict(pg)
+    ck('three scenarios match independent arithmetic (80 / 110 / 135.50)', 'Must have: $80' in t and 'Must have + nice to have: $110' in t and 'Everything: $135.50' in t and 'known costs only' not in t, t[:260].replace('\n', ' / '))
+    ck('...and the verdict agrees with those numbers', 'The must-haves fit your budget of $200' in t and 'The nice-to-haves fit too, with $90 left' in t, t[:420].replace('\n', ' / '))
+    ck('no rough-guess scenario is rendered when no guess is entered', 'rough-guess scenario' not in t)
+    setrows(pg, [('Hook rail', 'must', 1, 40), ('Boot mat', 'nice', 1, None), ('Mirror', 'later', 1, None)])
+    t = verdict(pg)
+    ck('unknown optional lines: the must-haves can still be assessed, subtotals say known costs only', 'The must-haves fit your budget of $200' in t and t.count('known costs only') == 2 and 'Must have: $40' in t and 'Everything: $40' in t, t[:420].replace('\n', ' / '))
+    setrows(pg, [('Hook rail', 'must', 1, None), ('Boot mat', 'must', 1, 30), ('Mirror', 'nice', 1, 25)])
+    t = verdict(pg)
+    ck('unknown required line: cannot tell, partial subtotal labelled known costs only, never a fit', 'We cannot tell yet' in t and 'The must-haves fit' not in t and 'Must have: $30 (known costs only)' in t and t.count('known costs only') == 3, t[:420].replace('\n', ' / '))
+    # a guess is a separate scenario: the main numbers and verdict do not move
+    before = verdict(pg)
+    pg.locator('#rows tr').nth(0).locator('.r-g').fill('9999')
+    pg.wait_for_timeout(150)
+    after = verdict(pg)
+    stripped = re.sub(r'Your rough-guess scenario.*?This does not change the results above\.', '', after, flags=re.S)
+    norm = lambda x: re.sub(r'\s+', ' ', x).strip()
+    ck('the guess scenario is labelled and lists the guessed item', 'Your rough-guess scenario, not verified prices.' in after and 'Guessed items: Hook rail' in after and 'about $10029' in after, after[:520].replace('\n', ' / '))
+    ck('the main scenarios and the verdict are unchanged by the guess', norm(stripped) == norm(before), (norm(before)[:160], norm(stripped)[:160]))
+    pg.locator('#rows tr').nth(0).locator('.r-g').fill('')
+    # more than 4 decimals is never rounded silently
+    setrows(pg, [('Hook rail', 'must', 1, 0.12345)])
+    ck('a price with more than 4 decimals: visible alert, counted as no price', 'at most 4 decimal places for the price of: Hook rail' in pg.inner_text('#calc-err') and 'We cannot tell yet' in verdict(pg), pg.inner_text('#calc-err'))
+    # a shared link made before the USD-only release (pound symbol) still opens, with an honest note
+    import base64 as _b64
+    old = {'t': 'custom', 'b': '100', 'c': '\u00a3', 'r': [['Hook rail', 'must', 1, 40, None]]}
+    enc = _b64.urlsafe_b64encode(json.dumps(old, ensure_ascii=False).encode('utf-8')).decode().rstrip('=')
+    pgl = c.new_page(); pgl.goto(BASE + 'budget-planner.html?s=' + enc, wait_until='load'); pgl.wait_for_timeout(300)
+    tl = verdict(pgl)
+    ck('an old link with a pound symbol opens in dollars with a no-conversion note', 'Must have: $40' in tl and 'US dollars only' in tl and 'no conversion' in tl, tl[:300].replace('\n', ' / '))
+    pgl.close()
+    # the copy about the link matches the URL: list, budget, entered prices and rough guesses
+    full = pg.inner_text('main')
+    ck('every visible description of the share link mentions rough guesses', full.count('entered prices and any rough guesses') >= 3 and 'list, budget and prices' not in full, full.count('entered prices and any rough guesses'))
+
+    # --- review fixes: a rejected >4-decimal price is unknown everywhere; an empty Must scenario is not a fit
+    pg.fill('#budget', '100')
+    setrows(pg, [('Hook rail', 'must', 2, 0.12345), ('Boot mat', 'must', 1, 5)])
+    t = verdict(pg)
+    row0 = pg.locator('#rows tr').nth(0)
+    ck('rejected 4+ decimal price: typed value kept, no line total on the row', row0.locator('.r-u').input_value() == '0.12345' and row0.locator('.r-t').inner_text().strip() == '-', row0.locator('.r-t').inner_text())
+    ck('...totals use only the accepted price and say known costs only', 'Must have: $5' in t and 'known costs only' in t and '$0.25' not in t and '$0.24' not in t and 'We cannot tell yet' in t, t[:260].replace('\n', ' / '))
+    ck('...the missing-price message and the buying order treat it as missing', '1 must-have item has no price or quantity yet' in t and 'Hook rail (Must have)' in t and 'Hook rail (Must have, $' not in t and 'at most 4 decimal places for the price of: Hook rail' in pg.inner_text('#calc-err'), t[-330:].replace('\n', ' / '))
+    setrows(pg, [('Mirror', 'nice', 1, 25), ('Basket', 'later', 1, 15)])
+    t = verdict(pg)
+    ck('a Nice/Later-only plan: no must-have items selected, never a fit, no $0 cost claimed for the essentials', 'No must-have items selected.' in t and 'The must-haves fit' not in t and 'Must have: none selected' in t and 'Must have: $0' not in t, t[:300].replace('\n', ' / '))
+    ck('...the other scenarios still show their real totals', 'Must have + nice to have: $25' in t and 'Everything: $40' in t, t[:300].replace('\n', ' / '))
+    setrows(pg, [('Old chair', 'must', 1, 0)])
+    t = verdict(pg)
+    ck('an explicit 0 price on a Must is a priced zero-cost scope, still assessed', 'Must have: $0' in t and 'The must-haves fit your budget of $100' in t and 'No must-have items selected' not in t, t[:240].replace('\n', ' / '))
+
     # --- template list with no prices at all and a budget
     pg.select_option('#tmpl', 'entryway'); pg.fill('#budget', '200'); pg.wait_for_timeout(150)
     t = verdict(pg)
@@ -209,6 +264,11 @@ with sync_playwright() as p:
     ck('mobile: every field font >= 16px', min(fs) >= 16, min(fs))
     bh = mp.evaluate("() => Math.round(document.querySelector('.calc-btn').getBoundingClientRect().height)")
     ck('mobile: submit height >= 40px', bh >= 40, bh)
+    setrows(mp, [('Hook rail', 'must', 2, 40), ('Boot mat', 'nice', 1, None), ('Mirror', 'later', 1, None)])
+    mp.locator('#rows tr').nth(1).locator('.r-g').fill('30')
+    mp.wait_for_timeout(200)
+    ck('mobile 360px with three scenarios and a guess scenario: no horizontal overflow', mp.evaluate('() => document.documentElement.scrollWidth <= innerWidth + 1'), mp.evaluate('() => [document.documentElement.scrollWidth, innerWidth]'))
+    ck('mobile: scenarios and the guess scenario are rendered', 'Must have: $80' in mp.inner_text('#calc-out') and 'Your rough-guess scenario' in mp.inner_text('#calc-out'), mp.inner_text('#calc-out')[:200].replace('\n', ' / '))
     ck('mobile: no page errors', not merr, merr)
     mc.close()
     b.close()
