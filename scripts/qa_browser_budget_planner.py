@@ -250,6 +250,24 @@ with sync_playwright() as p:
     fi = pg.evaluate("() => { const s = getComputedStyle(document.activeElement); return [document.activeElement.className || document.activeElement.id, s.outlineStyle, s.outlineWidth, s.boxShadow]; }")
     ck('visible keyboard focus indicator', (fi[1] != 'none' and fi[2] != '0px') or fi[3] != 'none', fi)
     ck('browser history was not filled with states while typing', hist <= 3, hist)
+    pg.goto(URL, wait_until='load'); pg.wait_for_timeout(300)  # fresh load: the default 7-item template, as on the owner's desktop-site screenshot
+    dgeo = pg.evaluate("""() => {
+      const w = document.querySelector('.budget-wrap'); const rows = [...document.querySelectorAll('#rows tr')];
+      const vis = e => { const r = e.getBoundingClientRect(); const wr = w.getBoundingClientRect(); return r.left >= wr.left - 1 && r.right <= wr.right + 1 && r.width > 30; };
+      return { wrapScroll: w.scrollWidth - w.clientWidth, rows: rows.length,
+        fields: rows.every(tr => ['.r-n', '.r-p', '.r-q', '.r-u', '.r-g', '.r-x'].every(s => vis(tr.querySelector(s))) && vis(tr.querySelector('.r-t'))),
+        clipped: rows.map(tr => tr.querySelector('.r-n')).filter(i => i.scrollWidth > i.clientWidth + 1).map(i => i.value),
+        w: innerWidth };
+    }""")
+    ck('desktop: no sideways scroll, every field and the Total column visible in every row', dgeo['wrapScroll'] <= 1 and dgeo['fields'] and dgeo['rows'] >= 3, dgeo)
+    ck('desktop: no item name is cut off', dgeo['clipped'] == [], dgeo['clipped'])
+    for dw in (720, 820, 980):
+        pg.set_viewport_size({'width': dw, 'height': 900}); pg.wait_for_timeout(150)
+        g2 = pg.evaluate("""() => { const w = document.querySelector('.budget-wrap'); const rows = [...document.querySelectorAll('#rows tr')];
+          return { scroll: w.scrollWidth - w.clientWidth, clipped: rows.map(tr => tr.querySelector('.r-n')).filter(i => i.scrollWidth > i.clientWidth + 1).map(i => i.value),
+                   totalIn: rows.every(tr => tr.querySelector('.r-t').getBoundingClientRect().right <= w.getBoundingClientRect().right + 1) }; }""")
+        ck('tablet/desktop-site width %d px: no sideways scroll, names whole, Total inside the box' % dw, g2['scroll'] <= 1 and g2['clipped'] == [] and g2['totalIn'], g2)
+    pg.set_viewport_size({'width': 1280, 'height': 900})
     c.close()
 
     # --- mobile
@@ -269,6 +287,24 @@ with sync_playwright() as p:
     mp.wait_for_timeout(200)
     ck('mobile 360px with three scenarios and a guess scenario: no horizontal overflow', mp.evaluate('() => document.documentElement.scrollWidth <= innerWidth + 1'), mp.evaluate('() => [document.documentElement.scrollWidth, innerWidth]'))
     ck('mobile: scenarios and the guess scenario are rendered', 'Must have: $80' in mp.inner_text('#calc-out') and 'Your rough-guess scenario' in mp.inner_text('#calc-out'), mp.inner_text('#calc-out')[:200].replace('\n', ' / '))
+    # --- owner's real phone (8 Nov): the table scrolled sideways, so Qty and Price were off-screen and names were cut
+    mp.goto(URL, wait_until='load'); mp.wait_for_timeout(300)  # fresh load: the default 7-item template, as on the owner's phone
+    geo = mp.evaluate("""() => {
+      const w = document.querySelector('.budget-wrap'); const rows = [...document.querySelectorAll('#rows tr')];
+      const inView = e => { const r = e.getBoundingClientRect(); return r.left >= 0 && r.right <= innerWidth && r.width > 40; };
+      return { wrapScroll: w.scrollWidth - w.clientWidth, rows: rows.length,
+        fields: rows.every(tr => ['.r-n', '.r-p', '.r-q', '.r-u', '.r-g'].every(s => inView(tr.querySelector(s)))),
+        clipped: rows.map(tr => tr.querySelector('.r-n')).filter(i => i.scrollWidth > i.clientWidth + 1).map(i => i.value),
+        stacked: rows.every(tr => Math.abs(tr.querySelector('.r-q').getBoundingClientRect().top - tr.querySelector('.r-u').getBoundingClientRect().top) < 5),
+        tap: rows.every(tr => tr.querySelector('.r-x').getBoundingClientRect().height >= 40),
+        theadHidden: document.querySelector('.budget-table thead').getBoundingClientRect().width <= 2 };
+    }""")
+    ck('mobile 360px: the table does not scroll sideways any more', geo['wrapScroll'] <= 1, geo)
+    ck('mobile 360px: item, priority, qty, price and guess of every row are fully on screen', geo['fields'] and geo['rows'] >= 7, geo)
+    ck('mobile 360px: no item name is cut off in its field', geo['clipped'] == [], geo['clipped'])
+    ck('mobile 360px: rows are cards (qty and price side by side), remove button is tap-sized, header only for screen readers', geo['stacked'] and geo['tap'] and geo['theadHidden'], geo)
+    lab = mp.evaluate("() => [...document.querySelectorAll('#rows tr:first-child td[data-label]')].map(td => td.dataset.label)")
+    ck('mobile cards show a visible label above every field', lab == ['Item', 'Priority', 'Qty', 'Price each ($)', 'Rough guess (optional)', 'Total'], lab)
     ck('mobile: no page errors', not merr, merr)
     mc.close()
     b.close()
