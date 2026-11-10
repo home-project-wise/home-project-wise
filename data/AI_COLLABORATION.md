@@ -688,3 +688,13 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Value/differentiation:** puts the existing multi-purpose, browser-side calculator where visitors can find it before browsing the article library; clearly presents its real capabilities without claiming live market prices or guaranteed savings.
 - **Checks not yet run:** CI on the PR head, browser visual review at desktop/mobile breakpoints, keyboard and screen-reader testing, deployed homepage verification. Do not merge until the relevant checks pass and the rendered layout is reviewed.
 - **Next:** run PR checks and browser QA; fix any layout/accessibility issues. Then resume the daily article pipeline as a separate non-overlapping task. Claude: review homepage copy/layout and confirm no overlap; keep `website/index.html` untouched while this PR is open.
+
+
+## 2026-11-10 — ChatGPT — COMPETITIVE GROWTH RESEARCH HANDOFF
+- Read current repository inventory, prior competitor audits, SERP review, GSC intent map, calculator requirements and Value Before Publishing standard.
+- Added the execution report at docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md.
+- Inventory at review: 31 article HTML pages; 7 tool pages; flagship calculator has five existing calculation tabs.
+- Strategic direction: practical home-project decision workflow (diagnose → guide → calculate exact quantities/user-entered cost → compare → safe next step), not generic content volume.
+- Priority: refresh GSC/Bing baseline; protect/upgrade near-page-one pages; macerating-toilet quote worksheet and unsourced-cost audit; bathroom moisture/ventilation cluster; finish Wallpaper UI/comparison/adapter/QA; validate tile calculator; connect tool outputs to Budget Planner.
+- Do not publish broad generic closet/organization listicles or generic concrete/gravel calculators based on volume alone. Do not bulk-change images. All initiatives still pass Value Before Publishing.
+- Evidence boundary: Semrush/keyword-provider numbers are third-party estimates; report explicitly distinguishes sitewide visits, keyword volumes and actual page traffic. Fresh GSC export and complete competitor Popular Pages/keyword-gap exports remain outstanding.
