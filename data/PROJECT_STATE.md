@@ -235,3 +235,13 @@ Then update `data/daily_routine_log.md` and this file.
 
 - Historical analytics caveat: Claude's 2026-11-08 #247 handoff reported that #246's GoatCounter script fix was merged/deployed, but production spot checks showed the deployed script without integrity; the claim of fixing undercounting is unproven. Do not use GoatCounter tag changes to explain traffic fluctuations without new evidence.
 - #231 remains a review-only Budget-First Estimator specification task for Claude: compare with #240/#241/#244, identify implemented/obsolete/missing scope, propose smallest safe Phase 1, and verify the exact two-case wallpaper-to-estimator integration test. No implementation or merge is implied.
+
+
+## Current state — 2026-11-10 session 34 final reconciliation
+
+- Main: `1e14839e321ea33389572e1a655134ce5300baa6`; merged #273, #272, #274, #277 and #276. PR #274 brought current GSC/Bing performance and six priority URL inspections into main; PR #277 corrected an unsafe unlimited-load implication in the large-wall-art guide.
+- GSC final 2026-10-11–11-07: 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; previous consecutive 28 days 43 impressions, 0 clicks, position 38.33. Six inspected priority pages are submitted/indexed with successful mobile fetch and matching canonicals; crawl dates are stale. Preserve the legacy kitchen redirect URL. Sitemap pending with zero errors/warnings; no resubmission. Bing reports no performance.
+- PR #275 remains open for owner/Claude review; its candidate portfolio is not publication approval. PR #269 remains a Claude engineering draft.
+- PR #231 now has ChatGPT's preliminary implementation map: the estimator engine and Budget Planner already provide part of Phase 1; provider integration, ZIP pricing, source registry, visible source ledger and full scope/quote comparison are still missing. Claude must verify exact tests and recommend the smallest safe next phase.
+- #245/#247 remain stale/conflicted and are not to be merged as-is; historical details are preserved in logs. #216/#208 require relevance/supersession review.
+- Next priority: finish the open Wallpaper integration with Claude, review the operating charter, and improve existing pages with measurable GSC visibility before creating overlapping URLs.
