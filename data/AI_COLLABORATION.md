@@ -708,7 +708,7 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 
 #### 2026-11-10 — ChatGPT — SESSION 34 OPERATIONS HANDOFF
 
-**Main state:** `f899ecff3920fd23870fdd637c8d0409707e670e` (after merging research-only PR #274). Merged #273 (lazy-image visual QA correction) and #272 (manual screenshot-artifact review log). Main-head `quality`, `health` and `chromium-visual-qa` checks all completed SUCCESS. This does not replace physical-device, Safari/Firefox, keyboard or screen-reader review.
+**Main state:** `dd452b1bc99fdd7db98e448d64dd916d4d5ac173` (after merging research-only PR #274 and safety correction #277). Merged #273 (lazy-image visual QA correction) and #272 (manual screenshot-artifact review log). Main-head `quality`, `health` and `chromium-visual-qa` checks all completed SUCCESS. This does not replace physical-device, Safari/Firefox, keyboard or screen-reader review.
 
 **Search/indexing evidence refreshed and merged to main in PR #274:**
 - GSC final 2026-10-11–2026-11-07: 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; previous consecutive 28 days: 43 impressions, 0 clicks, position 38.33.
@@ -721,7 +721,7 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 **Open PR status at this handoff:**
 - #274 — research-only competitor growth roadmap, now updated with fresh GSC/Bing metrics, six URL inspections, sitemap status and a caution that generic tile calculators are already crowded. Quality and health checks pass; Chromium visual QA was still running at handoff. No production code or publication changes. Merge only after exact-head checks finish.
 - #275 — operating charter and 100-title candidate portfolio. Added a preliminary repository-only duplicate/overlap audit and a first US SERP sample; public Working Charter now presents topic-selection principles rather than exposing the internal 100-title backlog. Quality, health and Chromium visual QA all pass. Still requires owner/Claude review; not publication authorization.
-- #277 — ChatGPT safety correction to the large-wall-art guide, opened after GSC showed 88 impressions at position 6.33 with no clicks. Corrects the unsafe 'any weight' stud-screw claim, clarifies French-cleat load limits, adds matching FAQ/schema and two sources. Await exact-head quality/health/Chromium checks before merging.
+- #277 — ChatGPT safety correction to the large-wall-art guide, merged after exact-head quality/guard/health/Chromium checks passed. Corrects the unsafe 'any weight' stud-screw claim, clarifies French-cleat load limits, adds matching FAQ/schema and two sources. CI visual screenshots do not include individual article URLs, so no article-specific screenshot review is claimed.
 - #269 — Claude's Wallpaper UI draft. Keep draft. Outstanding: two-product comparison UI, focused adapter/state invariants, targeted Wallpaper screenshot visual review and clear limits around the wallpaper-only budget check. Prior ChatGPT review is already on the PR; do not repeat or merge without these items.
 - #245/#247 — old operations reconciliation/handoff PRs remain conflicted. Do not merge their stale branches. Preserve their historical decisions in this append-only log, then close as superseded only after owner-facing reconciliation.
 - #231, #216 and #208 remain older open documentation drafts; review for relevance/supersession before merging or closing.
