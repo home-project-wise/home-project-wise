@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Repeatable visual QA for HomeProjectWise. Captures screenshots and a machine-readable report."""
 from __future__ import annotations
-import json, os, subprocess, sys, time, urllib.request
+import json, os, re, subprocess, sys, time, urllib.request
 from pathlib import Path
 from urllib.parse import urlparse
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
@@ -54,12 +54,23 @@ try:
                     )
                     page = context.new_page()
                     def handle_request(route):
-                        host = (urlparse(route.request.url).hostname or "").lower()
-                        # Analytics is intentionally excluded from CI. Fulfil it with an empty
-                        # response instead of aborting: Chromium reports aborted scripts as
-                        # generic console errors (ERR_FAILED), which falsely fails application QA.
-                        if host == "gc.zgo.at" or "goatcounter" in host:
-                            route.fulfill(status=204, body="", content_type="text/plain")
+                        request = route.request
+                        host = (urlparse(request.url).hostname or "").lower()
+                        # Remove the analytics script from the local HTML response before
+                        # Chromium evaluates its SRI attribute. A blank JS response causes an
+                        # integrity mismatch console error, even though analytics is excluded.
+                        if request.resource_type == "document":
+                            response = route.fetch()
+                            html = response.text()
+                            html = re.sub(
+                                r'<script\\b(?=[^>]*(?:gc\\.zgo\\.at|goatcounter))[^>]*>\\s*</script>',
+                                '',
+                                html,
+                                flags=re.IGNORECASE,
+                            )
+                            route.fulfill(response=response, body=html)
+                        elif host == "gc.zgo.at" or "goatcounter" in host:
+                            route.abort()
                         else:
                             route.continue_()
 
