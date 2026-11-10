@@ -223,3 +223,63 @@ This addendum supersedes the earlier deployment status and the corresponding "Cl
 1. Create one focused accessibility PR (CSS and tests only, no image or editorial changes).
 2. Create one focused wallpaper UI integration PR after exact-head Node, adapter, privacy and real-browser tests.
 3. Leave content gap/title research and image replacements as separate workstreams with their existing evidence gates.
+
+
+---
+
+## Owner recording + Claude's latest calculator PR — verified follow-up (2026-11-10)
+
+### Owner-provided 39.15-second recording reviewed
+
+- Source: owner-uploaded `screenrecorder-2026-11-10-13-41-42-74_siP0ePdU.mp4`, 480×800 portrait, 23.833 fps, 933 frames.
+- Sampled one frame every two seconds across the full recording.
+- From 0–22 seconds, the recording shows the normal phone-width site: homepage hero and calculator CTA, problem/category sections, Guides cards, tools, footer and a wallpaper article. In the sampled frames, content stacks vertically and no definite horizontal overflow or clipped page edge was visible.
+- At approximately 24–26 seconds, Chrome's browser menu is opened and the "Desktop site" option is selected. The later dense multi-column layout is Chrome desktop-site mode rendered on the same phone, **not a recording from a physical desktop/laptop**.
+- Therefore this recording is useful phone evidence and a limited desktop-site-mode check only. It does not establish true 1280px desktop rendering, dark-mode accessibility, keyboard operation, or full-page behaviour on every route. Do not report it as a physical desktop test.
+- No image replacement was requested or performed from this recording.
+
+### Accessibility follow-up supersedes the earlier remaining-target-size list
+
+- PR #266 merged as `5a924aff2337` and #267 evidence merged as `7f8495c5b406`.
+- Claude's engineering record reports 364/364 Chromium checks for the accessibility regression suite, covering calculator/article targets, six viewport widths, light/dark schemes and keyboard interactions.
+- The previously listed small checkbox/radio, Print, On this page and Budget Planner Add Item target-size defects were addressed by #266. Do not repeat that CSS work.
+- Not independently verified in this follow-up: Safari, Firefox, assistive technology/screen readers or a physical device.
+
+### Latest Claude work: PR #269 — Wallpaper tab integration (not merged)
+
+- PR: [#269](https://github.com/home-project-wise/home-project-wise/pull/269)
+- Exact head: `ba71af770c47393e8790d32631f2aac941c8352f`; base `main` at `7f8495c5b406`.
+- Scope: adds a sixth Wallpaper tab inside `website/home-project-calculator.html`; loads the existing wallpaper engine and Project Estimator Engine 1.0.2; multiple rooms/walls; exact product-label dimensions; free/random/straight match; disabled half-drop/mural choices; optional user price with null preserved; per-room package rounding; wallpaper-line-only budget check.
+- Changed files: `website/home-project-calculator.html`, `scripts/qa_browser_wallpaper_calculator.py`, `scripts/qa_browser_home_calculator.py`.
+- GitHub exact-head checks: `quality` success (run 42819674901) and `health` success (run 42819619729).
+- Claude reports: wallpaper engine 39/39; wallpaper-to-estimator adapter 2/2; new Chromium suite 67/67 at 320, 360, 390, 412, 768, 1280 and 740×360; existing home calculator suite passed apart from local-harness font 404s. These browser/Node results are **author-reported in the PR description**, not independently reproduced in this audit.
+- Claude says screenshots were captured at 360px, 1280px and 390px dark, but not visually inspected. GitHub Actions currently exposes no uploaded screenshot artifact for the two exact-head runs.
+- PR remains draft and must not be merged yet. Required gaps already posted as a review comment:
+  1. Two-product comparison via `compareWallpaperProducts(commonInput, products)` is not in the UI.
+  2. Budget check is for the wallpaper line only; it does not append to a shared project estimate or existing Budget Planner. Do not describe it as whole-project integration.
+  3. Add focused adapter/UI-state tests: duplicate IDs, null price, currency mismatch, room/wall add-edit-remove and proving no existing budget lines mutate.
+  4. Inspect and attach the 360px, 1280px and 390px dark screenshots; verify dark-mode note/border/button contrast and fix if needed.
+  5. Re-run the existing home-calculator suite on the exact final head and separate harness font 404s from page-originated errors.
+- The wallpaper calculation engine itself and the two-case adapter tests predate #269; do not rewrite their arithmetic in the UI adapter.
+
+### PR #268 disposition
+
+- The integration contract/handoff document was merged after exact-head `quality` and `health` checks passed.
+- Merge commit: `17d78472e707`.
+- It is now a stable reference for reviewing #269; it does not authorize bypassing the missing acceptance checks.
+
+### Current work order
+
+1. Claude completes the explicit #269 review items and updates its evidence on the exact final head. Keep the PR draft until visual inspection and all tests are recorded.
+2. Independently review the final diff, exact-head checks and screenshots. Merge only when the acceptance gaps are closed.
+3. After merge/deploy, verify the calculator page and six-tab UI at phone and true desktop widths. The owner video is not a substitute for 1280px desktop evidence.
+4. Continue the separate shared Header/Footer and site-wide focus-visible consistency review; do not mix it into #269.
+5. Validate Energy/Repair content gaps against current query-level Search Console/SERP evidence; do not publish from hypotheses.
+6. Keep all image changes deferred to the separate image phase.
+
+### Current PR boundaries
+
+- Shared operations files `data/WORK_LOG.md`, `data/AI_COLLABORATION.md`, `data/PROJECT_STATE.md`, `data/daily_routine_log.md` remain protected from edits while #245/#247 are open.
+- #269 owns the current calculator UI files. Do not create a competing edit to `website/home-project-calculator.html` while it remains open.
+- #268 is merged; #265 is this audit closeout PR. #245/#247/#231/#216/#208 remain open.
+- No images, article URLs, Awin links, editorial freeze, generated output or workflows were changed in this follow-up.
