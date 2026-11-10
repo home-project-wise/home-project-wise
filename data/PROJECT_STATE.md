@@ -220,3 +220,18 @@ Then update `data/daily_routine_log.md` and this file.
 - Verified run #8 on main: https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 — SUCCESS, 400/400 checks, zero report failures, 40 full-page screenshots uploaded.
 - Covered pages: Home, Guides, Tools, Home Project Calculator, Budget Planner, Search and About; light/dark; mobile and desktop viewport matrix as configured. Download artifact from the run (artifact id 13770300034; 14-day retention).
 - Agents can now inspect the captured screenshots and QA report without requiring the owner to record routine phone/desktop videos for those covered pages. This is artifact-based review after each CI run, not unrestricted live browsing or a substitute for real-device/Safari/Firefox/screen-reader testing or human visual judgment. Expand page coverage as needed.
+
+
+## Update 2026-11-10 (session 34 — current operational state)
+
+- Main head: `dd452b1bc99fdd7db98e448d64dd916d4d5ac173` after merging research-only PR #274 and safety correction #277. PR #273 merged the lazy-image loading/decode correction in the visual QA harness; PR #272 merged the manual review record for run #8. Main-head quality, health and Chromium visual QA checks all passed.
+- Visual QA limitation remains explicit: configured CI pages/viewports only; not every article, physical Android/iOS device, Safari/Firefox, screen-reader or complete human design review.
+- Search baseline and indexing refresh were merged to main through PR #274: GSC 2026-10-11–11-07 = 800 impressions, 4 clicks, CTR 0.50%, position 17.13; prior consecutive 28 days = 43 impressions, 0 clicks, position 38.33. Six high-priority pages are submitted/indexed with successful mobile fetch and matching canonicals, but crawl dates range 2026-10-01 to 2026-10-29. Legacy kitchen stub and destination are both indexed; preserve the stub. Sitemap pending with 0 errors/warnings; no resubmission. Bing returned no reported performance.
+- PR #274 is merged to main; its quality, health and Chromium visual QA checks all passed.
+- PR #275 contains the internal operating charter, 100 candidate ideas, preliminary overlap audit and shortened public Working Charter page. All checks passed; owner/Claude review still required. It does not authorize publication.
+- PR #277 merged with a focused safety correction to the large-wall-art guide; exact-head quality/guard/health/Chromium checks passed. PR #269 remains a draft requiring Wallpaper product comparison UI, adapter/state tests and targeted visual review. No changes were made to its code in this session.
+- PR #245/#247 remain stale/conflicted; do not merge as-is. #231/#216/#208 remain old drafts for review against the newer charter/roadmap.
+- The project should prioritize existing pages with meaningful GSC impressions and near-page-one positions before creating new URLs. Generic tile-calculator functionality is already well represented by competitors; only proceed if a differentiated project-budget workflow is proven.
+
+- Historical analytics caveat: Claude's 2026-11-08 #247 handoff reported that #246's GoatCounter script fix was merged/deployed, but production spot checks showed the deployed script without integrity; the claim of fixing undercounting is unproven. Do not use GoatCounter tag changes to explain traffic fluctuations without new evidence.
+- #231 remains a review-only Budget-First Estimator specification task for Claude: compare with #240/#241/#244, identify implemented/obsolete/missing scope, propose smallest safe Phase 1, and verify the exact two-case wallpaper-to-estimator integration test. No implementation or merge is implied.

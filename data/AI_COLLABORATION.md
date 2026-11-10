@@ -704,3 +704,31 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - Negative: Guides full-page capture contains many empty article-card image spaces. Root cause is a test-harness blind spot: prior image assertion only caught completed images with naturalWidth=0 and missed native lazy-loaded images that had not yet been requested before capture. This does not prove source image URLs are broken.
 - Follow-up: PR #273 forces images eager, awaits image decode, reports total/loaded/failed/pending and fails if any image is not ready before capture. Do not call screenshot pipeline fully reliable until PR #273 is checked and a fresh artifact is visually reviewed.
 - Wallpaper limitation: run #8 captures Home Project Calculator default tab only; it does not select Wallpaper. Therefore it is not visual sign-off for Wallpaper. ChatGPT posted this exact result and the remaining #269 gaps to Claude on PR #269. #269 stays draft pending compare UI, adapter/UI-state tests and targeted Wallpaper screenshot review.
+
+
+#### 2026-11-10 — ChatGPT — SESSION 34 OPERATIONS HANDOFF
+
+**Main state:** `dd452b1bc99fdd7db98e448d64dd916d4d5ac173` (after merging research-only PR #274 and safety correction #277). Merged #273 (lazy-image visual QA correction) and #272 (manual screenshot-artifact review log). Main-head `quality`, `health` and `chromium-visual-qa` checks all completed SUCCESS. This does not replace physical-device, Safari/Firefox, keyboard or screen-reader review.
+
+**Search/indexing evidence refreshed and merged to main in PR #274:**
+- GSC final 2026-10-11–2026-11-07: 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; previous consecutive 28 days: 43 impressions, 0 clicks, position 38.33.
+- Top click pages: smart-plug guide (2), motion-lighting (1), legacy kitchen redirect stub (1). Highest-impression pages include smart-plug (133), macerating toilet (128), condensation (91), wall art (88), leak sensors (58).
+- Six priority URLs inspected: all submitted/indexed, robots allowed, mobile fetch successful and user/Google canonicals match. Crawl dates are stale (condensation 10-01; macerating 10-06; smart-plug/wall-art/motion 10-22; leak sensors 10-29).
+- Legacy `stop-kitchen-counter-clutter` remains indexed under its old canonical (last crawl 10-01); destination is also indexed (10-22). Preserve both; do not delete or alter during recrawl lag.
+- Google sitemap pending, 0 errors/warnings, last submitted 11-01; no resubmission. Bing returned 0 impressions/clicks and empty query/page rows; sitemap Success, 45 URLs, last crawled 11-01.
+- Do not attribute growth to a particular PR or article. No new indexing settings or sitemap submissions were made.
+
+**Open PR status at this handoff:**
+- #274 — research-only competitor growth roadmap, now updated with fresh GSC/Bing metrics, six URL inspections, sitemap status and a caution that generic tile calculators are already crowded. Quality and health checks pass; Chromium visual QA was still running at handoff. No production code or publication changes. Merge only after exact-head checks finish.
+- #275 — operating charter and 100-title candidate portfolio. Added a preliminary repository-only duplicate/overlap audit and a first US SERP sample; public Working Charter now presents topic-selection principles rather than exposing the internal 100-title backlog. Quality, health and Chromium visual QA all pass. Still requires owner/Claude review; not publication authorization.
+- #277 — ChatGPT safety correction to the large-wall-art guide, merged after exact-head quality/guard/health/Chromium checks passed. Corrects the unsafe 'any weight' stud-screw claim, clarifies French-cleat load limits, adds matching FAQ/schema and two sources. CI visual screenshots do not include individual article URLs, so no article-specific screenshot review is claimed.
+- #269 — Claude's Wallpaper UI draft. Keep draft. Outstanding: two-product comparison UI, focused adapter/state invariants, targeted Wallpaper screenshot visual review and clear limits around the wallpaper-only budget check. Prior ChatGPT review is already on the PR; do not repeat or merge without these items.
+- #245/#247 — old operations reconciliation/handoff PRs remain conflicted. Do not merge their stale branches. Preserve their historical decisions in this append-only log, then close as superseded only after owner-facing reconciliation.
+- #231, #216 and #208 remain older open documentation drafts; review for relevance/supersession before merging or closing.
+
+**Next work:** ChatGPT continues research, GSC/query mapping, competitor gap review and safe documentation/content audits. Claude owns the remaining Wallpaper UI engineering and final independent technical/content review. No mass image replacement, new article publication beyond the scoped #277 correction, URL migration, Awin change or sitemap submission is authorized by this handoff.
+
+
+**Historical analytics caution from Claude's 2026-11-08 #247 handoff:** #246 merged/deployed and its author checked the canonical GoatCounter script/hash on 27 article files, but three production spot checks (calm-room, smart-lighting, what-size-dehumidifier-crawl-space) showed the deployed `/count` script without integrity. A deployment rewrite likely occurred; the earlier claim that #246 fixed undercounting is unproven. Do not attribute low GoatCounter totals to that tag change without fresh evidence. Keep GSC as the current search-performance baseline; GoatCounter/API anomalies are a separate analytics diagnostic.
+
+**Claude review-only task retained:** review PR #231's Budget-First Estimator spec against current main and #240/#241/#244; map implemented, obsolete and missing scope; recommend the smallest safe Phase 1 slice; report risks/dependencies and exact tests. Verify whether `scripts/test_wallpaper_project_estimator_integration.js` (2 cases) ran on the exact current head, with command and raw result. This is review-only; do not implement or merge the old draft without a new owner decision.
