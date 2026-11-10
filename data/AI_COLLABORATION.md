@@ -727,3 +727,8 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - #231, #216 and #208 remain older open documentation drafts; review for relevance/supersession before merging or closing.
 
 **Next work:** ChatGPT continues research, GSC/query mapping, competitor gap review and safe documentation/content audits. Claude owns the remaining Wallpaper UI engineering and final independent technical/content review. No mass image replacement, new article publication beyond the scoped #277 correction, URL migration, Awin change or sitemap submission is authorized by this handoff.
+
+
+**Historical analytics caution from Claude's 2026-11-08 #247 handoff:** #246 merged/deployed and its author checked the canonical GoatCounter script/hash on 27 article files, but three production spot checks (calm-room, smart-lighting, what-size-dehumidifier-crawl-space) showed the deployed `/count` script without integrity. A deployment rewrite likely occurred; the earlier claim that #246 fixed undercounting is unproven. Do not attribute low GoatCounter totals to that tag change without fresh evidence. Keep GSC as the current search-performance baseline; GoatCounter/API anomalies are a separate analytics diagnostic.
+
+**Claude review-only task retained:** review PR #231's Budget-First Estimator spec against current main and #240/#241/#244; map implemented, obsolete and missing scope; recommend the smallest safe Phase 1 slice; report risks/dependencies and exact tests. Verify whether `scripts/test_wallpaper_project_estimator_integration.js` (2 cases) ran on the exact current head, with command and raw result. This is review-only; do not implement or merge the old draft without a new owner decision.
