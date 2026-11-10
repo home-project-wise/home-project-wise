@@ -54,7 +54,7 @@ try:
                     page = context.new_page()
                     page.route("**/*", lambda route: route.abort() if "gc.zgo.at" in route.request.url or "goatcounter" in route.request.url else route.continue_())
                     console_errors, page_errors, failed_responses = [], [], []
-                    page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
+                    page.on("console", lambda msg: console_errors.append({"text": msg.text, "url": (msg.location or {}).get("url", "")}) if msg.type == "error" else None)
                     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
                     page.on("requestfailed", lambda req: failed_responses.append(req.url + " " + str(req.failure)))
                     url = base + path
@@ -96,10 +96,15 @@ try:
                             ok, detail = checked_targets[link]
                             if not ok: bad.append([link, detail])
                         check(f"{page_name}/{mode}/{vp_name}: internal links resolve", not bad, bad[:8])
-                        # Ignore known browser console noise from blocked analytics; report application errors.
-                        app_console = [x for x in console_errors if "gc.zgo.at" not in x and "goatcounter" not in x]
+                        # Analytics is intentionally blocked in CI; identify it by the console source URL,
+                        # because Chromium reports aborted scripts with the generic text "net::ERR_FAILED".
+                        def is_blocked_analytics(url):
+                            return "gc.zgo.at" in url or "goatcounter" in url
+                        app_console = [x for x in console_errors if not is_blocked_analytics(x["url"])]
+                        unexpected_failed = [x for x in failed_responses if not is_blocked_analytics(x.split(" ", 1)[0])]
                         check(f"{page_name}/{mode}/{vp_name}: no page errors", not page_errors, page_errors)
                         check(f"{page_name}/{mode}/{vp_name}: no application console errors", not app_console, app_console[:5])
+                        check(f"{page_name}/{mode}/{vp_name}: no unexpected failed requests", not unexpected_failed, unexpected_failed[:5])
                     except Exception as e:
                         check(f"{page_name}/{mode}/{vp_name}: navigation and render", False, repr(e))
                     finally:
