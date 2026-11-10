@@ -21,11 +21,14 @@ This is more defensible than publishing generic lists. It joins practical guides
 - Repository inventory on 2026-11-10: **31 article HTML pages and 7 tool pages** (including the flagship Home Project Calculator, Project Budget Planner and Home Check-up).
 - The flagship calculator currently has five tabs: area/volume, paint, flooring/materials, electricity cost and project cost.
 - Four library categories exist: Storage & Organization, Home Design, Weekend Projects and Smart Home.
-- The latest dated Search Console snapshot available in the repository is the 2026-11-03 intent analysis for 2026-10-06–2026-10-31: 432 property impressions, 1 click, 0.231% CTR and average position 19.96. This is an early baseline, not evidence of competitive traction. It must be refreshed before using it as a current KPI.
-- The strongest visible page signals in that window were macerating toilet/basement bathroom (109 impressions, position 11.28), bathroom condensation (78, position 52.01), large wall art (44, position 5.64), musty towels (31, position 24.81), leak-sensor placement (20, position 38.20), evening/motion lighting (19 each, positions 6.53/6.21), smart-plug suitability (19, position 7.05), cable clutter (18, position 11.39) and small-bathroom cleaning (17, position 10.82).
+- Fresh Google Search Console performance was retrieved on 2026-11-10 for the final 28-day window 2026-10-11–2026-11-07: **800 impressions, 4 clicks, 0.50% CTR and average position 17.13**. The immediately preceding 28-day window (2026-09-13–2026-10-10) had 43 impressions, 0 clicks and average position 38.33. This is encouraging growth from a very small baseline, not proof that a particular article or change caused it.
+- In the refreshed window, the strongest page signals were smart-plug suitability (133 impressions, 2 clicks, position 6.21), macerating toilet (128, 0, 13.01), bathroom condensation (91, 0, 49.96), large wall art (88, 0, 6.33), leak-sensor placement (58, 0, 19.22), musty towels (49, 0, 26.35), evening lighting (40, 0, 5.25), the legacy kitchen redirect stub (39, 1, 12.79), small-bathroom cleaning (39, 0, 9.13) and motion lighting (29, 1, 6.10).
+- Country/device read: the United States contributed 428 impressions and 1 click; the UK 89/1; Canada 62/0; India 32/1; France 3/1. Mobile generated 417 impressions and all 4 clicks (average position 12.17); desktop generated 376 impressions and 0 clicks (average position 22.88); tablet generated 7 impressions and 0 clicks (average position 3.57). The US supplied 53.5% of impressions but only 1 of 4 clicks.
+- Bing returned 0 impressions/clicks and empty query/page rows. Its sitemap is marked Success with 45 URLs and last crawled 2026-11-01. No fresh Google URL Inspection was performed in this refresh, so indexing counts remain unverified.
+- The legacy kitchen redirect URL still received 39 impressions and 1 click; preserve it while Google catches up with the redirect. Do not remove it.
 - Important limitation: the current GSC file is not a live November 10 export. Search Console's query table was incomplete/anonymised, and its visible rows represented only a portion of property impressions.
 
-**Strategic implication:** First improve and connect pages that already receive impressions or rank near page one. Do not flood the site with generic high-volume topics where domain authority is insufficient.
+**Strategic implication:** First improve and connect pages that already receive impressions or rank near page one. The immediate page-review shortlist is smart-plug, motion/evening lighting, large wall art and macerating-toilet content. Do not rewrite the condensation guide blindly while its queries remain far from page one and indexing has not been freshly inspected. Do not flood the site with generic high-volume topics where domain authority is insufficient.
 
 ---
 
@@ -301,7 +304,7 @@ Scoring: Impact (1–5), confidence (1–5), effort (1–5; higher = more effort
 
 | Order | Initiative | Impact | Confidence | Effort | Why it comes here | Acceptance evidence |
 |---:|---|---:|---:|---:|---|---|
-| 0 | Refresh GSC + indexing baseline and map every query to one canonical URL | 5 | 5 | 2 | Current repository data is dated and early; prevents us from investing on stale assumptions | New 28/90-day query/page exports, country/device breakdown, index status, documented baseline |
+| 0 | Complete indexing inspection and preserve the refreshed query-to-URL baseline | 5 | 5 | 2 | Performance data is now refreshed; index status and recrawl state still need direct inspection | Key-URL inspections, sitemap status, query/page map, dated baseline and no unsupported index claims |
 | 1 | Repair existing near-page-one pages and internal paths (wall art, smart plug, lighting, cable, small bathroom) | 4 | 4 | 2 | Protects pages already near page one; less risky than launching broad new content | Before/after SERP + GSC snapshot; improved CTR/impressions; no duplicate intent |
 | 2 | Macerating-toilet project scope/quote worksheet and source audit | 5 | 4 | 3 | 109 impressions at position 11.28; decision intent and commercial relevance | Every cost either sourced by geography/date/scope or removed; worksheet covers all major quote components; test cases |
 | 3 | Bathroom moisture/ventilation cluster refresh | 5 | 4 | 3 | Strong query variety and connected existing guide/tool assets | One intent map; revised pages with primary sources; calculator/guide path; no overlapping URLs |
@@ -314,8 +317,8 @@ Scoring: Impact (1–5), confidence (1–5), effort (1–5; higher = more effort
 
 ### 0–30 days: evidence and protect current assets
 
-- Refresh Search Console and Bing Webmaster exports; record exact date windows and country/device segments.
-- Reconcile the URL inventory with indexed/not-indexed status and identify orphan pages, redirects and duplicate intents.
+- Performance baseline refreshed on 2026-11-10 for 2026-10-11–2026-11-07; now inspect key URLs and reconcile indexed/not-indexed status, sitemap discovery, redirects and duplicate intents.
+- Keep query-to-URL and country/device segments separate; do not combine anonymized query rows with page totals.
 - Improve the near-page-one pages only where a real SERP/content gap is verified.
 - Audit unsourced price ranges in the macerating toilet guide.
 - Complete visual QA PR #273 and review a fresh artifact before trusting image assertions.
@@ -342,7 +345,7 @@ Scoring: Impact (1–5), confidence (1–5), effort (1–5; higher = more effort
 
 ### Baseline to refresh
 
-The 2026-11-03 report contains a 26-day window (2026-10-06–2026-10-31): 432 impressions, 1 click, 0.231% CTR and average position 19.96. Treat this only as a historical baseline. Capture a fresh 28-day and 90-day window before evaluating any initiative.
+Current final 28-day baseline retrieved 2026-11-10: 2026-10-11–2026-11-07, 800 impressions, 4 clicks, 0.50% CTR, average position 17.13. Previous consecutive 28-day period 2026-09-13–2026-10-10: 43 impressions, 0 clicks, average position 38.33. A 90-day export and URL Inspection/indexing refresh remain outstanding.
 
 ### KPIs
 
@@ -422,4 +425,4 @@ Do not interpret this roadmap as permission to change images, publish all propos
 - `data/ROADMAP.md`
 - Current repository inventory and current source files on `main`, inspected 2026-11-10.
 
-**Research integrity note:** Third-party traffic/search metrics are estimates. Competitor page-level traffic is only stated where the public source exposes a keyword/page signal. No competitor's private analytics, complete top-page list, current backlinks export, Lighthouse field data or fresh live Search Console export was available in this research pass. Those remain explicit next research tasks.
+**Research integrity note:** Third-party traffic/search metrics are estimates. Competitor page-level traffic is only stated where the public source exposes a keyword/page signal. A fresh Search Console 28-day performance export and Bing performance/sitemap reports were retrieved on 2026-11-10; Google URL Inspection/indexing counts, a 90-day export, competitor private analytics, complete top-page lists, current backlinks export and Lighthouse field data were not retrieved and remain explicit next research tasks.
