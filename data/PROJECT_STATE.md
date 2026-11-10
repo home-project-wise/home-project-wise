@@ -213,3 +213,11 @@ Then update `data/daily_routine_log.md` and this file.
 - Wallpaper engine now exports a project-budget adapter compatible with Project Estimator Engine 1.0.2. It maps total sale units and exact package label into a line item, maps manual price as user-input, and preserves unknown prices as null. Currency input now requires a three-letter uppercase code. Local Node suite expanded to 39/39 passing tests.
 
 - Added scripts/test_wallpaper_project_estimator_integration.js to verify the wallpaper adapter against Project Estimator Engine 1.0.2: manual package prices become user-input line items, and unknown prices remain null and block a misleading budget verdict. This 2-case integration harness is committed but still requires an exact-head run by Claude; the separate wallpaper engine suite has 39/39 local passes.
+
+
+## 2026-11-10 — Competitive growth roadmap
+- Research report: docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md.
+- Current inventory reviewed: 31 article pages, 7 tool pages; flagship calculator has five tabs.
+- Strategic position: a practical home-project decision workflow connecting diagnostic guides, transparent calculators, user-entered prices and whole-project budgeting.
+- First priorities: refresh search/indexing baseline; improve existing near-page-one URLs; audit unsupported cost ranges and add a basement-project quote worksheet; strengthen bathroom moisture/ventilation; complete Wallpaper integration; validate tile calculator; connect calculators to Budget Planner.
+- No new article or tool is authorized by this roadmap until SERP intent, unique reader value, sources, formulas, tests and release criteria are documented.
