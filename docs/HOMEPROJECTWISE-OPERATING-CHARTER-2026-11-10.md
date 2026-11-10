@@ -76,6 +76,8 @@ Before any new article:
 
 The 100 titles below are **candidate portfolio ideas**, not approved briefs and not permission to create 100 URLs. Claude must mark each as KEEP / REVISE / REPLACE / DUPLICATE / OUT OF SCOPE after comparing it with the current inventory and live SERPs.
 
+A preliminary repository-only overlap review has now been recorded in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`. It flags likely duplicate or overlapping candidates and records a first US SERP sample for the energy-audit, tile-calculator and contractor-quote opportunities. This is not a final 100-title approval: the remaining candidates still require individual live-SERP, query-demand and cannibalization checks.
+
 ## 5. Proposed article portfolio — 100 named candidates
 
 ### Pillar A — Home Repairs & Troubleshooting (20)
@@ -199,7 +201,7 @@ These five are initial candidates because they can form connected content/tool j
 
 - How to Find the Source of a Hidden Water Leak — connect to existing leak-sensor placement coverage; must add a distinct diagnostic process, not repeat sensor placement.
 - How to Perform a Home Energy Audit Without Special Equipment — potential entry page for an energy cluster and energy-cost tool.
-- Matter vs. Zigbee vs. Thread vs. Wi-Fi: Which Smart Home Standard Should You Choose? — only proceed if it adds a practical compatibility decision beyond current connectivity/offline guides.
+- How to Find Air Leaks Around Windows, Doors, and Outlets — proceed only with a whole-home diagnostic workflow distinct from the existing door-sealing guide; include safe checks and clear limits.
 - How to Patch a Large Hole in Drywall Without Replacing the Wall — task-led repair guide with materials, dimensions, finish checks and safe limits.
 - How to Compare Contractor Quotes Apples to Apples — useful decision guide that can support a quote-comparison tool.
 
