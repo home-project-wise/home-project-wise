@@ -215,9 +215,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Added scripts/test_wallpaper_project_estimator_integration.js to verify the wallpaper adapter against Project Estimator Engine 1.0.2: manual package prices become user-input line items, and unknown prices remain null and block a misleading budget verdict. This 2-case integration harness is committed but still requires an exact-head run by Claude; the separate wallpaper engine suite has 39/39 local passes.
 
 
-## 2026-11-10 — Competitive growth roadmap
-- Research report: docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md.
-- Current inventory reviewed: 31 article pages, 7 tool pages; flagship calculator has five tabs.
-- Strategic position: a practical home-project decision workflow connecting diagnostic guides, transparent calculators, user-entered prices and whole-project budgeting.
-- First priorities: refresh search/indexing baseline; improve existing near-page-one URLs; audit unsupported cost ranges and add a basement-project quote worksheet; strengthen bathroom moisture/ventilation; complete Wallpaper integration; validate tile calculator; connect calculators to Budget Planner.
-- No new article or tool is authorized by this roadmap until SERP intent, unique reader value, sources, formulas, tests and release criteria are documented.
+## Always-on visual QA — verified operational (2026-11-10)
+- PR #270 introduced Chromium/Playwright visual QA; PR #271 fixed the first post-merge run's two observed causes: GoatCounter SRI console errors and a 2px Budget Planner mobile overflow.
+- Verified run #8 on main: https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 — SUCCESS, 400/400 checks, zero report failures, 40 full-page screenshots uploaded.
+- Covered pages: Home, Guides, Tools, Home Project Calculator, Budget Planner, Search and About; light/dark; mobile and desktop viewport matrix as configured. Download artifact from the run (artifact id 13770300034; 14-day retention).
+- Agents can now inspect the captured screenshots and QA report without requiring the owner to record routine phone/desktop videos for those covered pages. This is artifact-based review after each CI run, not unrestricted live browsing or a substitute for real-device/Safari/Firefox/screen-reader testing or human visual judgment. Expand page coverage as needed.

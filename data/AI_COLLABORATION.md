@@ -690,11 +690,17 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Next:** run PR checks and browser QA; fix any layout/accessibility issues. Then resume the daily article pipeline as a separate non-overlapping task. Claude: review homepage copy/layout and confirm no overlap; keep `website/index.html` untouched while this PR is open.
 
 
-## 2026-11-10 — ChatGPT — COMPETITIVE GROWTH RESEARCH HANDOFF
-- Read current repository inventory, prior competitor audits, SERP review, GSC intent map, calculator requirements and Value Before Publishing standard.
-- Added the execution report at docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md.
-- Inventory at review: 31 article HTML pages; 7 tool pages; flagship calculator has five existing calculation tabs.
-- Strategic direction: practical home-project decision workflow (diagnose → guide → calculate exact quantities/user-entered cost → compare → safe next step), not generic content volume.
-- Priority: refresh GSC/Bing baseline; protect/upgrade near-page-one pages; macerating-toilet quote worksheet and unsourced-cost audit; bathroom moisture/ventilation cluster; finish Wallpaper UI/comparison/adapter/QA; validate tile calculator; connect tool outputs to Budget Planner.
-- Do not publish broad generic closet/organization listicles or generic concrete/gravel calculators based on volume alone. Do not bulk-change images. All initiatives still pass Value Before Publishing.
-- Evidence boundary: Semrush/keyword-provider numbers are third-party estimates; report explicitly distinguishes sitewide visits, keyword volumes and actual page traffic. Fresh GSC export and complete competitor Popular Pages/keyword-gap exports remain outstanding.
+#### 2026-11-10 — ChatGPT — VERIFIED VISUAL QA PIPELINE
+- **Status:** OPERATIONAL — merged PRs #270 and #271; verified main run #8 (`42826666264`) SUCCESS, 400/400 checks, zero failures, 40 screenshots.
+- **Coverage:** Home, Guides, Tools, Home Project Calculator, Budget Planner, Search, About; light/dark and configured mobile/desktop viewport matrix.
+- **Artifacts:** workflow run https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 ; artifact `homeprojectwise-visual-qa-42826666264-1` (14-day retention).
+- **Workflow:** push to main, pull requests to main, or manual dispatch. Review screenshots/report artifact after each run.
+- **Limits:** captured CI pages only; not live unrestricted browsing, real physical device/browser matrix, or full human visual/accessibility review. Do not claim every article/page is covered.
+
+
+#### 2026-11-10 — ChatGPT — MANUAL REVIEW OF VISUAL QA ARTIFACT
+- Downloaded and opened the actual run #8 artifact; confirmed report 400/400, 0 failures, 40 screenshots. Reviewed Home, Guides and representative mobile/desktop/dark captures.
+- Positive: page shell, navigation and responsive card structure generally coherent in reviewed captures.
+- Negative: Guides full-page capture contains many empty article-card image spaces. Root cause is a test-harness blind spot: prior image assertion only caught completed images with naturalWidth=0 and missed native lazy-loaded images that had not yet been requested before capture. This does not prove source image URLs are broken.
+- Follow-up: PR #273 forces images eager, awaits image decode, reports total/loaded/failed/pending and fails if any image is not ready before capture. Do not call screenshot pipeline fully reliable until PR #273 is checked and a fresh artifact is visually reviewed.
+- Wallpaper limitation: run #8 captures Home Project Calculator default tab only; it does not select Wallpaper. Therefore it is not visual sign-off for Wallpaper. ChatGPT posted this exact result and the remaining #269 gaps to Claude on PR #269. #269 stays draft pending compare UI, adapter/UI-state tests and targeted Wallpaper screenshot review.
