@@ -18,7 +18,7 @@ Use GSC signals to identify promising **topics and clusters**, not to keep revis
 |---|---|---|---|
 | Intake | BACKLOG | ChatGPT | Candidate is in-scope and has a clear reader problem. |
 | Research | RESEARCHING | ChatGPT | Keyword/query map, intent, GSC/Bing evidence where available, live US SERP, 3–5 competitor-page reviews, sources, and repository overlap check are recorded. |
-| Editorial decision | QUALIFIED / REFRAME / MERGE / REJECT | ChatGPT proposes; Claude challenges; owner decides strategic exceptions | Clear reason to create a new URL rather than improve/link an existing asset. |
+| Editorial decision | QUALIFIED / REFRAME / MERGE / REJECT / DEFER (reason and review trigger required) | ChatGPT proposes; Claude challenges; owner decides strategic exceptions | Clear reason to create a new URL rather than improve/link an existing asset. |
 | Brief ready | READY FOR CLAUDE | ChatGPT | Complete brief scores at least 85/100 under the existing editorial scorecard, has no unresolved critical safety/factual issue, and names the differentiator and acceptance tests. |
 | Independent review | CLAUDE REVIEW | Claude | Claude verifies current code/inventory, overlap, feasibility, sources, safety, outline, media needs and any tool/link dependencies; returns PASS or specific changes. |
 | Production | IN PRODUCTION | Claude | Draft/article source, metadata, schema, internal links, relevant visual assets and required tests implemented. |
@@ -58,11 +58,19 @@ Each proposed article must have a record containing:
 - A visual must depict the actual device/task/layout accurately, be suitable for the US audience, have useful alt text, and be optimized for the page. No decorative filler or misleading AI imagery.
 - Existing images are not to be replaced without an individually verified reason.
 
-## 5. Initial ordered validation queue — Smart Home cluster
+## 5. Qualified production queue
+
+**Currently empty.** An item appears here only after it has passed the full research and quality gate in §3 and holds a decision of QUALIFIED. There is no minimum queue size; an empty queue is a valid state. Nothing in §5b is qualified work and nothing in §5b is sent to Claude.
+
+Balance rule (owner direction, 2026-11-10): keep a deliberate portfolio across the topic areas (energy and efficiency; moisture, ventilation and indoor air; plumbing; maintenance and repair; lighting and smart home; project costs, planning and calculators). Balance is strategic, not an equal quota. Smart Home is one candidate cluster among several, not the default priority; by filename it already accounts for about 9 of the 31 articles on main.
+
+## 5b. Research backlog (unqualified candidates)
+
+Listing order below is **not** a priority ranking. Every row is an unqualified research task, not an approved title. Each candidate ends in one explicit decision: QUALIFIED / REFRAME / MERGE / REJECT / DEFER.
 
 All rows below are **candidate research tasks**, not approved article titles or permission to publish. Proposed queries are starting hypotheses and must be validated against current GSC query data and live US SERPs before a brief can pass.
 
-| Rank | ID | Candidate topic from the approved working portfolio | Provisional primary query | Why investigate / required distinction | Status |
+| # | ID | Candidate topic from the approved working portfolio | Provisional primary query | Why investigate / required distinction | Status |
 |---:|---|---|---|---|---|
 | 1 | SH-001 | Can You Use Smart Switches With Three-Way Lighting? | smart switch 3 way wiring | Potentially distinct practical compatibility/setup intent; must be safety-gated, manufacturer-specific and clear about when a licensed electrician is required. Do not provide unsafe universal wiring instructions. | RESEARCHING |
 | 2 | SH-002 | How to Choose a Smart Dimmer for LED Lights | smart dimmer LED compatibility | Could solve flicker, minimum-load, neutral, dimming-protocol and compatibility decisions; first check whether existing `smart-lighting` can fully serve the intent. New URL only if SERP and intent are distinct. | BACKLOG |
@@ -104,3 +112,17 @@ After the first Smart Home batch has been researched, review the existing portfo
 The owner may reprioritize the queue at any time. ChatGPT maintains it; Claude reviews feasibility and execution; owner direction overrides provisional rankings. Any change to the five editorial pillars, quality threshold, safety boundaries or URL policy must be explicitly recorded in the operating charter and operations room.
 
 ---
+
+## 10. Repository overlap findings for SH-001 to SH-005 (Claude, main `d02a9ef`, 2026-11-10)
+
+Keyword counts over stripped HTML; evidence of coverage, not of ranking. Live SERP and GSC validation is still required for every row.
+
+| ID | Existing coverage | Provisional decision |
+|---|---|---|
+| SH-001 | `smart-lighting` covers smart bulb vs switch, neutral wire check, no-neutral trade-offs and a 3-way row (matching companion switch; no single-switch model on a 3-way circuit). Safety-critical electrical topic. | MERGE into `smart-lighting` unless a distinct intent plus safety design is proven |
+| SH-002 | Dimmer mentioned 13 times and flicker 6, but minimum load once and no worked compatibility check. Clearest gap of the five. | Research first; REFRAME toward LED dimmer compatibility |
+| SH-003 | Overlaps `smart-home-wifi-outage-test`, `smart-devices-keep-going-offline` and section 5 of `smart-lighting`. | REFRAME or MERGE |
+| SH-004 | Overlaps section 6 of `smart-lighting`, `what-can-you-plug-into-a-smart-plug` and the energy tab of the calculator. | REFRAME toward a measured-standby method tied to the calculator, or MERGE |
+| SH-005 | Overlaps section 5 of `smart-lighting` and the Wi-Fi outage test; fast-changing standards. | DEFER until current authoritative specs and a distinct decision tree exist |
+
+Alternative rule: when Claude rejects or merges a candidate it must name the replacement or the better-fitting existing URL and give evidence (query-level demand, SERP review, size of the reader problem) in the research brief, so work continues instead of stopping.
