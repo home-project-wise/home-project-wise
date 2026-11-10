@@ -1,258 +1,339 @@
-# HomeProjectWise Operating Charter & 12-Month Work Plan
+# HomeProjectWise — Operating Charter, Editorial Portfolio & Product Roadmap
 
-**Version:** 0.1 — foundation draft  
-**Owner:** Site owner  
-**Effective period:** 10 November 2026 – 9 November 2027  
-**Applies to:** ChatGPT, Claude, human contributors, editors, designers, developers and any commissioned worker.  
-**Status:** Proposed for owner approval. Until approved, it is the controlling draft for planning; no new editorial quota is implied.
+**Status: Consolidated proposal — awaiting owner and Claude review.**
+**This is a working strategy, not an approved publishing schedule. No publication dates or monthly quotas are assigned.**
+**Applies to:** owner, ChatGPT, Claude, editors, designers, developers and any commissioned contributor.
 
-## 1. Why this charter exists
+## 1. Purpose: stop reactive work
 
-HomeProjectWise will no longer publish or build reactively. Every article, calculator, design change, technical change and promotional activity must serve a defined audience need and a documented annual strategy.
+This document combines the useful governance, competitor-learning, quality, technical and measurement rules from the original Charter with a concrete proposed portfolio of 100 article briefs, calculator work, design improvements and technical work.
 
-This charter is the single operating reference. Individual assistants may propose improvements, but may not replace the strategy with an unrelated idea or start a new content stream without recording the case against this charter.
+It is the single proposal to review. It does not authorize automatic publication, deletion, URL changes, redesigns or calculator releases. The owner approves the portfolio; Claude reviews feasibility, duplication and implementation; contributors execute only approved work.
 
-## 2. Mission and market
+The objective is not to publish 100 articles as a quota. It is to select and build a coherent set of useful pages and tools that can earn relevant search demand and make HomeProjectWise materially more useful than a generic advice site.
 
-**Mission:** Help US and UK homeowners make better home-project decisions: understand the problem, choose a safe next step, calculate what is needed, estimate their own costs, and know when professional help is appropriate.
+## 2. Mission, audience and positioning
 
-**Strategic position:** A practical home-project decision platform — not a generic lifestyle magazine, retailer, contractor marketplace, or endless listicle site.
+**Mission:** Help homeowners and renters make better home-project decisions: diagnose a problem, choose a safe next step, understand options, calculate quantities and costs, compare materials or quotes, and know when professional help is appropriate.
 
-**Primary audiences:**
-- Homeowners and renters planning a defined repair, installation or improvement.
-- Beginners who need clear steps, constraints and safety boundaries.
-- People comparing materials, quantities, product compatibility or project quotes.
+**Positioning:** A practical home-project decision platform — not a generic lifestyle magazine, retailer, contractor marketplace or undifferentiated listicle site.
 
-**Editorial boundary:** Focus on repairs and troubleshooting; smart home and lighting; energy, airflow and comfort; bounded DIY installation; tools, materials and buying decisions. Generic decluttering, closet/pantry organization, storage inspiration and broad decor-only listicles belong outside this site's core remit (the separate Home Organization Ideas project owns those topics).
+**Primary audience:** People planning or maintaining a home, especially readers who need clear explanations, measurements, safe checks, material choices, cost planning and practical next steps.
 
-## 3. Binding operating principles
+**Five editorial pillars**
+1. Home Repairs & Troubleshooting.
+2. Smart Home & Lighting.
+3. Energy, Airflow & Comfort.
+4. DIY Projects & Installation.
+5. Tools, Materials & Buying Decisions.
 
-1. **Strategy before production.** No article, tool or redesign starts without a written brief linked to a quarterly objective.
-2. **Evidence before selection.** Use Search Console/Bing data, live SERPs, competitor page patterns, keyword research and real user questions. Label estimates and unknowns.
-3. **Learn, do not clone.** Study high-performing competitors' headlines, intent coverage, formats, navigation, visual explanation, trust systems and conversion paths. Never copy their wording, structure wholesale, images, data or unsupported claims.
-4. **Reader outcome first.** Every deliverable must help a reader understand, decide, calculate, compare, complete or safely stop a task.
-5. **Original value is mandatory.** Add something competitors do not give the reader in the same useful combination: transparent calculations, explicit assumptions, diagrams, decision trees, worked examples, printable checklists, or honest limits.
-6. **Quality beats volume.** There is no mandatory daily article quota. Publishing frequency is a capacity decision, not a target that overrides quality.
-7. **One primary intent per URL.** Avoid near-duplicate pages and keyword cannibalization. Improve an existing URL when it already serves the intent.
-8. **Safety and honesty.** Never invent testing, expertise, credentials, costs, statistics, product availability, code compliance or personal experience. Cite primary sources for technical and safety claims.
-9. **Mobile-first usefulness.** Design for a small phone screen first, then tablet and desktop; test light/dark modes where supported.
-10. **No silent scope changes.** Do not change published URLs, categories, formulas, images or affiliate disclosures without impact analysis and review.
-11. **Measure after release.** A green build is not proof of ranking, usability or business impact. Review real data after indexing and enough observation time.
-12. **Document the handoff.** Every substantial task ends with changed files, PR/commit, actual checks, limitations, next action and explicit non-goals in the operations room.
+**Boundary:** Generic decluttering, closet/pantry organization, storage inspiration and broad decor-only listicles are not a growth priority for this site. Existing URLs remain published unless query-level evidence and owner approval justify a change. Do not silently migrate categories or remove legacy content.
 
-## 4. Competitor intelligence: who to study and what to learn
+## 3. Competitor intelligence: study leaders, extract strengths, improve weaknesses
 
-### Traffic benchmark (estimated whole-domain visits)
+### 3.1 Domain-level traffic benchmarks
 
-The following are third-party estimates for **September 2026**, not publisher-reported analytics and not visits to one individual article. The threshold of 5 million is a research filter, not proof that every topic or page on the domain is successful.
+These are third-party estimates of whole-domain visits for September 2026, not publisher analytics and emphatically not traffic to one page. They are a shortlist for systematic study, not proof that every page on each site performs well.
 
-| Publisher / reference | Estimated monthly domain visits | Why study it | Patterns to adapt |
-|---|---:|---|---|
-| [Good Housekeeping](https://www.goodhousekeeping.com/) | 23.73M | Largest direct editorial benchmark in this set | Clear utility headlines, service journalism, product evaluation, recurring seasonal needs, visible testing/editorial standards |
-| [The Spruce](https://www.thespruce.com/) | 10.33M | Broad home advice and practical how-to library | Topic clusters, accessible explanations, strong category discovery, concise task-led pages |
-| [Martha Stewart](https://www.marthastewart.com/) | 10.99M | Adjacent lifestyle/home publisher | Strong packaging, recognizable editorial voice, evergreen household problem framing; not a direct scope template |
-| [HGTV](https://www.hgtv.com/) | 8.27M | Visual home/project discovery | Visual storytelling, project galleries, room/project pathways and video used where they clarify |
-| [Real Simple](https://www.realsimple.com/) | 7.85M | Everyday problem-solving and household utility | Direct titles, practical steps, scannable layouts, useful checklists and low-friction explanations |
-| [Better Homes & Gardens](https://www.bhg.com/) | 6.53M | Home/lifestyle breadth and visual publishing | Strong topic packaging, seasonal relevance, image-led hubs and accessible project framing |
-| [Houzz](https://www.houzz.com/) | 7.01M | Design discovery and project planning platform | Rich visual discovery, project context, professional boundary and deeper browsing paths |
+| Publisher | Estimated monthly domain visits | Strengths to study |
+|---|---:|---|
+| [Good Housekeeping](https://www.goodhousekeeping.com/) | 23.73M | Service journalism, utility-led headlines, product evaluation, recurring needs, visible editorial/testing standards |
+| [The Spruce](https://www.thespruce.com/) | 10.33M | Topic clusters, accessible how-to explanations, category discovery, breadth of practical coverage |
+| [Martha Stewart](https://www.marthastewart.com/) | 10.99M | Editorial packaging, evergreen household problem framing, strong presentation; adjacent rather than a direct scope template |
+| [HGTV](https://www.hgtv.com/) | 8.27M | Visual storytelling, project galleries, room/project pathways and video where it clarifies |
+| [Real Simple](https://www.realsimple.com/) | 7.85M | Direct titles, practical steps, checklists, scannable explanations |
+| [Houzz](https://www.houzz.com/) | 7.01M | Visual discovery, project context, professional perspectives and deep browsing paths |
+| [Better Homes & Gardens](https://www.bhg.com/) | 6.53M | Topic packaging, seasonal relevance, image-led hubs and accessible project framing |
 
-**Source note:** Semrush public domain overview snapshots, September 2026, last updated 11 October 2026: [Good Housekeeping](https://www.semrush.com/website/goodhousekeeping.com/overview/), [The Spruce](https://www.semrush.com/website/thespruce.com/overview/), [Real Simple](https://www.semrush.com/website/realsimple.com/overview/), [BHG](https://www.semrush.com/website/bhg.com/overview/), [HGTV](https://www.semrush.com/website/hgtv.com/overview/), [Houzz](https://www.semrush.com/website/houzz.com/overview/), [Martha Stewart competitor snapshot](https://www.semrush.com/website/marthastewart.com/competitors/). These are estimates; different providers may report different totals and traffic mixes.
+Source snapshots: public Semrush domain overview/competitor pages for September 2026. Estimates vary by provider and methodology. References: [Good Housekeeping](https://www.semrush.com/website/goodhousekeeping.com/overview/), [The Spruce](https://www.semrush.com/website/thespruce.com/overview/), [Real Simple](https://www.semrush.com/website/realsimple.com/overview/), [BHG](https://www.semrush.com/website/bhg.com/overview/), [HGTV](https://www.semrush.com/website/hgtv.com/overview/), [Houzz](https://www.semrush.com/website/houzz.com/overview/), [Martha Stewart](https://www.semrush.com/website/marthastewart.com/competitors/).
 
-### Page-level evidence is a separate dataset
+### 3.2 Page-level evidence is mandatory
 
-Do not call a domain's 23.73M visits a "page with 23.73M visits". For individual URLs, record the exact page, target query, country, date, ranking/traffic estimate, search intent and evidence source. Example public keyword signals from September 2026 include:
-- Real Simple ranking #1 for "how to organize closet" (estimated US search volume 74,000/month).
-- Apartment Therapy ranking #2 for "how to organize desk drawers" (estimated US search volume 60,500/month; third-party estimate of about 6,600 visits attributed to that keyword).
-- The Spruce ranking #1 for "how to clean stone countertops" (estimated US search volume 49,500/month).
+Never describe a domain's 23.73M visits as the visits of an individual page. For every proposed priority article, record the exact competitor URL, target query, country, search intent, observed title/H1, estimated keyword/page traffic (if available), date and source. A keyword's search volume is not the same as a page's visits.
 
-These examples demonstrate demand and title/intent patterns; they do **not** automatically qualify as HomeProjectWise topics. The first two overlap the separate organization site's remit. The third may fit only if the page offers safe, material-specific cleaning guidance and a distinct reader benefit. Sources: [Real Simple Semrush snapshot](https://www.semrush.com/website/realsimple.com/overview/), [Apartment Therapy keyword snapshot](https://analytics.explodingtopics.com/website/apartmenttherapy.com), [The Spruce Semrush snapshot](https://www.semrush.com/website/thespruce.com/overview/).
+The earlier research surfaced examples such as Real Simple ranking for “how to organize closet”, Apartment Therapy for “how to organize desk drawers”, and The Spruce for “how to clean stone countertops”. They are learning examples, not automatic content approvals; generic organization remains outside this site's core scope.
 
-### Required competitor study protocol
+### 3.3 Required competitor study for every approved content cluster
 
-For every proposed priority topic:
-- Inspect at least 5 live SERP results in the target country and record the date.
-- Study at least 3 competing URLs in depth, including the strongest relevant publisher and one specialist/primary source where applicable.
-- Capture title/H1, promise, intent, page type, first-screen answer, outline, tools, diagrams, sources, author/reviewer signals, update date, related links, mobile UX and visible weaknesses.
-- Separate observed facts from hypotheses. Never label a competitor's weakness without evidence.
-- Write an adaptation note: **keep / improve / avoid / our original advantage**.
-- Recheck the SERP before publication; search results and competitor pages change.
+- Review the top 10 live search results in the target country; record date and query.
+- Deep-review at least 3–5 relevant competing pages, including a high-traffic publisher and a specialist or primary source.
+- Record headline/H1, promise, intent, first-screen answer, outline, media, tables, tools, sources, trust signals, author/reviewer disclosures, internal links, mobile UX and gaps.
+- Separate observed weaknesses from hypotheses. Do not claim a competitor is weak without evidence.
+- Produce a “Keep / Improve / Avoid / Our advantage” comparison.
+- Learn from strong headlines and page structures, but never copy wording, images, data, proprietary diagrams or unsupported claims.
+- Recheck the SERP before drafting and before publication.
 
-## 5. The HomeProjectWise content system
+## 4. Existing-site inventory and anti-duplication rules
 
-Every content idea must belong to one of these pillars:
+The latest inventory snapshot records 30 indexable guide articles and 7 tools. The repository inventory and live sitemap are the source of truth; re-check them before approving each title because the count may change.
 
-1. **Home Repairs & Troubleshooting** — symptoms, causes, safe checks, repair options, prevention and professional-help boundaries.
-2. **Smart Home & Lighting** — setup, compatibility, connectivity, privacy, automations, power/load and practical use cases.
-3. **Energy, Airflow & Comfort** — drafts, insulation basics, ventilation, condensation, humidity and efficient comfort improvements.
-4. **DIY Projects & Installation** — bounded projects with measurements, tools, materials, skill level, steps and finish checks.
-5. **Tools, Materials & Buying Decisions** — product/material comparisons, quantities, specifications and quote preparation where evidence supports the decision.
+Before any new article:
+1. Search the inventory and repository for matching topics, synonyms and overlapping intent.
+2. Inspect existing page performance in Search Console and Bing Webmaster Tools.
+3. Decide whether to improve an existing URL, add a genuinely distinct supporting page, or reject the idea.
+4. Define one primary intent per URL. Avoid cannibalization and near-duplicate pages.
+5. Preserve existing URLs. Redirect, merge, rename or recategorize only with evidence, owner approval and tested migration plan.
 
-### Content formats to build deliberately
+The 100 titles below are **candidate portfolio ideas**, not approved briefs and not permission to create 100 URLs. Claude must mark each as KEEP / REVISE / REPLACE / DUPLICATE / OUT OF SCOPE after comparing it with the current inventory and live SERPs.
 
-- Diagnostic guide: symptom → likely causes → safe checks → decision tree → when to stop.
-- Step-by-step project guide: suitability → preparation → materials/tools → measured steps → quality check → troubleshooting.
-- Comparison/buying guide: decision criteria → trade-offs → compatibility → who should choose what → evidence and disclosure.
-- Cost/quote guide: scope → cost drivers → user-entered/local prices → exclusions → comparable quote checklist.
-- Reference guide: dimensions, standards, compatibility, conversions or material properties, sourced and maintained.
-- Cluster hub: one broad user problem that routes to distinct supporting guides and tools.
+## 5. Proposed article portfolio — 100 named candidates
 
-### Mandatory article brief (must exist before drafting)
+### Pillar A — Home Repairs & Troubleshooting (20)
 
-- Audience, country, reader situation and one primary search intent.
-- Proposed title/H1 and 3–6 title alternatives based on SERP language, not keyword stuffing.
-- Primary query, close variants, secondary questions and intent classification.
-- Existing URL overlap/cannibalization check.
-- Search Console evidence or explicit reason the topic is a strategic new opportunity.
-- Five-result SERP review and three-page competitor analysis.
-- What competitors do well; what they omit or make hard; our specific original advantage.
-- Proposed outline with a direct answer near the top.
-- Sources, facts needing expert review, safety/permit/code boundaries.
-- Original diagram/photo/tool/checklist plan.
-- Internal links in and out; target cluster and next-step path.
-- Success metric and review date.
+1. How to Fix a Running Toilet: Causes, Parts, and Repair Costs
+2. Why Is My Water Heater Making Noise? Causes and Safe Checks
+3. How to Find the Source of a Hidden Water Leak
+4. What to Do Immediately After Discovering a Water Leak
+5. How to Fix a Slow-Draining Bathroom Sink
+6. Why Does My Toilet Keep Clogging? Causes and Solutions
+7. How to Repair Cracked Drywall Before Painting
+8. How to Patch a Large Hole in Drywall Without Replacing the Wall
+9. How to Fix Peeling Paint on Walls and Ceilings
+10. Why Does Paint Bubble or Blister? Causes and Prevention
+11. How to Repair Cracked Caulk Around a Bathtub
+12. How to Remove and Replace Old Bathroom Caulk
+13. Why Is Grout Cracking and When Should You Replace It?
+14. How to Fix Loose Floor Tiles Without Replacing the Entire Floor
+15. Why Does My Door Stick? How to Diagnose and Fix It
+16. How to Fix a Door That Will Not Latch Properly
+17. How to Stop Water From Seeping Into a Basement
+18. Why Is My Ceiling Stained? How to Identify the Cause
+19. How to Diagnose a Musty Smell Coming From a Crawl Space
+20. Home Maintenance Problems You Should Fix Before They Become Expensive
 
-### Article acceptance standard
+### Pillar B — Smart Home & Lighting (20)
 
-A page cannot publish unless it:
-- Answers the main question early and completely.
-- Is accurate, original, readable and materially more useful than the pages reviewed.
-- Includes relevant measurements, assumptions, examples, tools/materials and decision limits where the topic needs them.
-- Cites primary/authoritative sources for safety, technical, legal, product and numerical claims.
-- Distinguishes sourced facts, estimates, rules of thumb and user-entered values.
-- Includes useful original visuals or a functional decision aid where they add clarity; no decorative image quota.
-- Has descriptive title/H1, meta description, canonical, correct structured data, useful alt text, working links and no broken layout.
-- Links to the most relevant tool/guide and 2–3 next steps without generic link stuffing.
-- Passes editorial, technical, mobile, accessibility and visual QA.
-- Has no invented byline, reviewer, field test, product test or claim of hands-on experience.
+21. Smart Thermostat Compatibility: How to Check Before You Buy
+22. C-Wire vs. No C-Wire: What Your Thermostat Actually Needs
+23. Matter vs. Zigbee vs. Thread vs. Wi-Fi: Which Smart Home Standard Should You Choose?
+24. Why Do Smart Bulbs Disconnect and How Can You Fix Them?
+25. Smart Switch vs. Smart Bulb: Which Is Better for Your Room?
+26. How to Choose a Smart Dimmer for LED Lights
+27. Can You Use Smart Switches With Three-Way Lighting?
+28. How to Build a Smart Lighting Schedule That Saves Energy
+29. Smart Home Hub vs. No Hub: What Do You Really Need?
+30. How to Check Whether Smart Devices Work Together Before Buying
+31. Smart Door Sensors vs. Motion Sensors: Which Should You Use?
+32. Where to Place Smart Motion Sensors for Reliable Detection
+33. Smart Water Shutoff Valves: Are They Worth Installing?
+34. Smart Leak Detector vs. Automatic Water Shutoff: What's the Difference?
+35. How to Make Smart Home Devices Work During an Internet Outage
+36. How to Secure a Smart Home Network Without Complicated Settings
+37. Smart Plug vs. Smart Power Strip: Which Is Safer?
+38. How Much Electricity Do Smart Home Devices Use on Standby?
+39. How to Choose a Smart Smoke and Carbon Monoxide Alarm
+40. A Practical Smart Home Upgrade Plan for Older Houses
 
-## 6. Product and calculator charter
+### Pillar C — Energy, Airflow & Comfort (20)
 
-A calculator is a product, not a page-count target. It must solve a repeated, meaningful decision and be better than a simple formula copied into a paragraph.
+41. How to Perform a Home Energy Audit Without Special Equipment
+42. Where Does a House Lose the Most Heat? A Room-by-Room Guide
+43. How to Find Air Leaks Around Windows, Doors, and Outlets
+44. Attic Insulation vs. Air Sealing: What Should You Do First?
+45. How Much Insulation Does Your Attic Need?
+46. How to Choose the Right Insulation for Your Home
+47. Why Is One Room Colder Than the Rest of the House?
+48. How to Reduce Heating Costs Without Replacing Your HVAC System
+49. Heat Pump vs. Furnace: Cost, Efficiency, and Home Compatibility
+50. How Often Should You Replace HVAC Filters?
+51. How to Choose the Right HVAC Filter MERV Rating
+52. Why Does My Air Conditioner Run but Not Cool the House?
+53. How to Reduce Indoor Humidity Without Overusing a Dehumidifier
+54. What Is the Ideal Indoor Humidity for Different Rooms?
+55. How to Improve Bedroom Ventilation Without Losing Comfort
+56. Bathroom Fan vs. Open Window: Which Removes Moisture Better?
+57. How to Stop Condensation on Windows in Winter
+58. Why Does My Attic Get Too Hot? Causes and Practical Fixes
+59. How to Calculate the Running Cost of a Space Heater
+60. Which Home Upgrades Reduce Energy Bills the Most?
 
-Every calculator must specify:
-- User decision and primary intent.
-- Inputs with units, validation, defaults and explanation.
-- Formula, source, assumptions, rounding and uncertainty.
-- Output that leads to a real next action (purchase units, quantity, comparison, checklist or budget).
-- Edge cases and test vectors with expected results.
-- Accessibility, mobile behavior, keyboard use, privacy and performance.
-- Limitations, regional/code differences and when a professional is needed.
-- A guide that explains the method and a contextual link back from that guide.
+### Pillar D — DIY Projects & Installation (20)
 
-**Product direction:** connect measurement → material quantity/waste → product pack/unit conversion → user-entered cost → quote comparison → project budget. Prefer a coherent workflow over many isolated calculators. Do not invent live prices or imply supplier availability.
+61. How to Install a Bathroom Exhaust Fan: Planning, Wiring, and Venting
+62. How to Replace a Bathroom Faucet Without Damaging the Sink
+63. How to Install a Kitchen Backsplash: Materials, Layout, and Cost
+64. How to Prepare a Wall Before Painting
+65. How to Paint a Room Without Visible Roller Marks
+66. How to Choose and Apply Primer for Different Wall Surfaces
+67. How to Install Peel-and-Stick Wallpaper Without Common Mistakes
+68. How to Remove Wallpaper Without Damaging Drywall
+69. How to Plan a Tile Layout Before Cutting the First Tile
+70. How to Install Floor Tiles: Subfloor Preparation to Grouting
+71. How to Install Vinyl Plank Flooring Around Doorways
+72. Laminate vs. Vinyl Plank Flooring: Installation and Long-Term Costs
+73. How to Install Baseboards and Avoid Visible Gaps
+74. How to Replace Interior Door Weatherstripping
+75. How to Install a Door Sweep and Check the Seal
+76. How to Build a Simple Under-Sink Leak Protection Setup
+77. How to Install a Water Leak Sensor Near Appliances
+78. How to Plan Lighting Layers Before Renovating a Room
+79. How to Prepare a Basement for a Moisture-Safe Renovation
+80. How to Plan a Small Bathroom Renovation Before Buying Materials
 
-## 7. Design, UX and accessibility charter
+### Pillar E — Tools, Materials & Buying Decisions (20)
 
-- Every screen must make the next useful action obvious.
-- Prioritize mobile layout, readable type, strong contrast, touch targets, visible focus and clear form errors.
-- Use consistent navigation, breadcrumbs, topic hubs, search and related next steps.
-- Visuals must explain the task, measurement, placement, comparison or outcome; avoid generic stock/AI images that add no information.
-- Keep page templates consistent but adapt the layout to the task; do not force every topic into one long article template.
-- Support reduced motion, keyboard navigation, semantic headings, labels, alt text and dark mode where available.
-- Measure Core Web Vitals/Lighthouse on representative pages, but never treat a synthetic score as a substitute for real-user evidence.
-- Run automated Chromium visual QA on mobile/tablet/desktop and light/dark; inspect screenshots and fix failures before merge.
+81. How Much Tile Do You Need? Waste, Cuts, and Box Coverage Explained
+82. How Much Paint Do You Need for Two Coats?
+83. How Many Wallpaper Rolls Do You Need for Patterned Walls?
+84. How to Calculate Flooring Waste Before Ordering
+85. How to Compare Flooring Quotes Apples to Apples
+86. How to Estimate the Total Cost of a Bathroom Renovation
+87. How to Compare Contractor Quotes Before Hiring
+88. How to Choose the Right Caulk for Bathrooms, Windows, and Trim
+89. Silicone vs. Acrylic Caulk: Where Each One Works Best
+90. Thinset vs. Mastic: Which Tile Adhesive Should You Use?
+91. Grout Types Explained: Sanded, Unsanded, and Epoxy
+92. Primer vs. Paint-and-Primer: What Is the Real Difference?
+93. Paint Sheen Guide: Flat, Eggshell, Satin, and Semi-Gloss
+94. How to Choose a Dehumidifier by Room Size and Moisture Level
+95. How to Choose an Exhaust Fan by Bathroom Size and Duct Length
+96. What Size Air Filter Does Your HVAC System Need?
+97. How to Choose the Right Extension Cord for Home Appliances
+98. How to Calculate Appliance Electricity Costs Before Buying
+99. What Should a Home Renovation Estimate Include?
+100. DIY vs. Hiring a Contractor: How to Compare the Real Cost
 
-## 8. Technical, SEO and trust requirements
+## 6. First proposed article batch — pending evidence and owner approval
 
-- Preserve every published URL; any move requires a tested redirect and canonical plan.
-- Keep sitemap, RSS, search, category indexes and internal links in sync through their source generators.
-- Prevent duplicate intent, orphan pages, broken internal links, invalid structured data and accidental noindex/canonical errors.
-- Use descriptive titles and headings that match the real task; no clickbait or keyword repetition.
-- Keep sources close to the claims they support; prefer government, standards bodies, manufacturers and recognized research.
-- Clearly disclose affiliate relationships and distinguish editorial recommendations from paid placements.
-- Maintain author, editorial policy, corrections/contact and update practices.
-- Never claim rankings, indexing, traffic growth or test success without measured evidence.
+These five are initial candidates because they can form connected content/tool journeys. They are not automatically approved until the SERP and duplicate checks are complete:
 
-## 9. Twelve-month strategic roadmap
+- How to Find the Source of a Hidden Water Leak — connect to existing leak-sensor placement coverage; must add a distinct diagnostic process, not repeat sensor placement.
+- How to Perform a Home Energy Audit Without Special Equipment — potential entry page for an energy cluster and energy-cost tool.
+- Matter vs. Zigbee vs. Thread vs. Wi-Fi: Which Smart Home Standard Should You Choose? — only proceed if it adds a practical compatibility decision beyond current connectivity/offline guides.
+- How to Patch a Large Hole in Drywall Without Replacing the Wall — task-led repair guide with materials, dimensions, finish checks and safe limits.
+- How to Compare Contractor Quotes Apples to Apples — useful decision guide that can support a quote-comparison tool.
 
-This is a sequence of outcomes, not a promise to publish a fixed number of articles. Monthly scope is adjusted only after measurement and documented owner approval.
+Claude must verify overlap with the actual current article files, especially smart-home connectivity, bathroom leak sensors, paint/wallpaper and existing project-cost content. Replace any overlapping candidate before approval.
 
-| Month | Strategic focus | Required outputs |
-|---|---|---|
-| Nov 2026 | Establish governance and baseline | Approve charter; refresh Search Console/Bing baseline; inventory URLs/tools; map query → URL → intent; freeze unapproved ideas |
-| Dec 2026 | Repair and protect existing assets | Improve the strongest near-page-one pages; resolve intent overlap; strengthen titles, answers, sources, internal links and conversion paths |
-| Jan 2027 | Build the first high-value topic cluster | Complete bathroom moisture/ventilation hub and supporting pages; add diagnostic flow and fan-sizing/condensation next steps |
-| Feb 2027 | Finish the calculator product foundation | Complete Wallpaper calculator, comparison, adapter, test coverage and budget handoff; verify formulas and mobile UX |
-| Mar 2027 | Expand measured-material decisions | Validate tile quantity calculator against live SERPs, manufacturer packaging and waste assumptions; publish only if unique value is proven |
-| Apr 2027 | Improve project-cost decisions | Create quote-scope worksheet and cost-driver guides; use user-entered local prices; audit unsupported price claims |
-| May 2027 | Improve the full site experience | Navigation, search, topic hubs, internal linking, accessibility, page speed, responsive images and visual QA |
-| Jun 2027 | Build authority and original assets | Publish source-backed diagrams/checklists/reference assets; prepare outreach and expert review requests; no manufactured backlinks |
-| Jul 2027 | Smart-home decision cluster | Prioritize compatibility, connectivity, power/load, privacy and offline behavior based on actual query demand |
-| Aug 2027 | Energy, airflow and comfort cluster | Focus on insulation, ventilation, humidity and comfort questions with strong source support and clear safety limits |
-| Sep 2027 | Refresh and consolidate | Revisit pages with impressions but weak CTR/rank; improve or merge overlapping content only with evidence and URL protection |
-| Oct–9 Nov 2027 | Annual review and next plan | Compare outcomes to baseline; review top pages, tool usage, conversions, technical health and competitor changes; approve next annual plan |
+## 7. Calculator and interactive-tool portfolio
 
-### Portfolio balance (initial planning guardrails)
+### Existing tools — improve before multiplying
 
-Until refreshed analytics support a better allocation, use this as a planning mix, not a quota:
-- 40% improve existing pages and internal journeys.
-- 25% build/upgrade calculators and decision tools.
-- 25% publish new, evidence-backed supporting guides.
-- 10% design, technical, accessibility, measurement and distribution improvements.
+- Complete Wallpaper Calculator: product comparison, adapter coverage, test cases, edge cases, mobile UX, accessible controls and a verified handoff to the Budget Planner.
+- Audit the existing main project calculator and Budget Planner for formula transparency, assumptions, validation, keyboard/accessibility, mobile behavior and consistency.
+- Ensure paint, flooring, wallpaper and project-cost journeys cross-link without silently duplicating calculations.
 
-A quarter may shift this mix when Search Console, user feedback or a critical technical issue justifies it. No pillar receives content merely to fill a percentage.
+### Proposed new tools
 
-## 10. Prioritization and approval gates
+1. **Tile Quantity & Cost Calculator** — room dimensions, tile dimensions, layout/waste allowance, box coverage, boxes to buy and user-entered price.
+2. **Home Energy Cost Calculator** — appliance wattage, hours/day, days, user-entered electricity rate, daily/monthly/annual estimates.
+3. **Insulation Estimator** — area, existing insulation, target specification and package coverage; clearly label climate/building-code limitations.
+4. **Bathroom Ventilation Calculator** — room dimensions, recommended airflow method, duct/installation caveats and fan-selection guide.
+5. **Contractor Quote Comparison Tool** — normalize scope, quantities, allowances, exclusions, labor/materials and unknowns across quotes.
+6. **Home Repair Cost Planner** — user-entered line items, contingency assumptions and project total; no fabricated market prices.
+7. **HVAC Filter Replacement Planner** — filter dimensions/type, manufacturer guidance and user-set reminder interval; do not prescribe a universal interval.
+
+Each proposed tool needs demand validation, a distinct job-to-be-done, formula specification, test vectors, edge-case handling, accessibility/privacy review and a supporting guide. Do not build tools solely to increase the tool count.
+
+### Product direction
+
+Build a coherent workflow: **measure → calculate quantity and waste → convert to real pack/unit sizes → enter the user's price → compare quotes/options → add to project budget → produce a useful checklist/summary.**
+
+Never invent live prices, supplier stock, local labor rates or code compliance. Show assumptions and let users enter local values.
+
+## 8. Design and user-experience work backlog
+
+These are proposed product improvements, to be prioritized after an audit of the current implementation:
+
+1. A task-first article template: quick answer, suitability, tools/materials, time/skill, steps, checks, troubleshooting, safety and sources — include only sections useful to that task.
+2. A consistent calculator pattern: clear inputs/units, live or explicit calculate action, explainable results, assumptions, reset/edit and next step.
+3. Contextual article ↔ calculator links, with the relevant tool embedded or linked near the decision point.
+4. A Guides discovery experience filterable by problem, room, project type and skill level, if the current library structure supports it.
+5. Search that understands problem phrasing and synonyms, not only exact title matches.
+6. Better topic hubs that explain the problem space and guide readers through distinct supporting pages.
+7. Clear trust information: author/editorial policy, source quality, review/update history and correction path; never fabricate expert review.
+8. Mobile-first tables, forms, diagrams and long calculator results; prevent horizontal overflow.
+9. Original, task-specific visuals: measurement diagrams, decision trees, before/after context and step images where they add information.
+10. Consistent breadcrumbs, related next steps and useful internal navigation without link stuffing.
+11. Accessible focus states, labels, error messages, keyboard operation, contrast, touch targets and reduced-motion behavior.
+12. Image performance and loading checks: responsive dimensions, appropriate formats, lazy loading below the fold, meaningful alt text and visual verification that images actually render.
+13. Page-level design review across representative article, tool, hub and search pages in mobile, desktop, light and dark modes.
+
+No broad redesign is approved by this document alone. Each design item needs an audit, a clear user problem and a scoped PR.
+
+## 9. Technical, SEO, accessibility and trust standards
+
+- Preserve existing URLs; migrations require tested redirects, canonical decisions and owner approval.
+- Update source files and generators, not generated Guides cards, tool indexes, sitemap or category pages by hand.
+- Maintain sitemap, RSS, search index, metadata, canonical tags, structured data and internal links.
+- Prevent orphan pages, broken links, duplicate intent, accidental noindex and invalid structured data.
+- Use descriptive titles/H1s matching the actual task; no clickbait or keyword stuffing.
+- Cite primary/authoritative sources for safety, technical, numerical, legal and product claims.
+- Disclose affiliate relationships and separate editorial judgment from paid placements.
+- Never invent author credentials, expert reviews, tests, hands-on experience, statistics, rankings, prices or product availability.
+- Meet semantic HTML, keyboard navigation, visible focus, form labels, error announcements, alt text, sufficient contrast and usable touch-target standards.
+- Test responsive behavior and dark mode where supported.
+- Run automated browser QA and inspect actual screenshots. A green automated test is not proof that every page looks correct.
+- Record browser coverage and known limits; automated Chromium checks do not replace real-device, cross-browser or screen-reader testing.
+
+## 10. Mandatory article brief and acceptance gate
+
+Before drafting, every candidate must have:
+- Target reader, country, situation and one primary intent.
+- Primary query, variants, related questions and evidence of demand.
+- Current-site duplicate/cannibalization check.
+- SERP review and competitor-page notes.
+- Competitor strengths, verified weaknesses and our original advantage.
+- Proposed title/H1 and outline with a direct answer near the top.
+- Source list, fact-check requirements, safety/permit/code boundaries and expert-review needs.
+- Original visual, table, calculator or checklist plan.
+- Internal links in and out; cluster role and next reader action.
+- Success metric and review condition.
+
+A page is publishable only if it is accurate, original, complete for its intent, materially useful, sourced, safe, readable and technically sound. It must pass editorial, technical, mobile, accessibility and visual QA. No invented claims or decorative media quotas.
+
+## 11. Prioritization and approval
 
 Score each proposal from 0–5 on:
 - Reader pain/importance.
-- Evidence of demand (GSC, SERP, credible keyword evidence).
-- Fit with our editorial mission.
-- Competitive gap and feasible differentiation.
-- Ability to provide original value.
-- Internal cluster/tool leverage.
-- Confidence in facts, sources and safe delivery.
+- Demand evidence and SERP opportunity.
+- Fit with the five pillars.
+- Competitive gap.
+- Original value we can provide.
+- Leverage from existing pages/tools.
+- Feasibility and confidence.
 
-Subtract risk for:
-- Topic overlap/cannibalization.
-- Weak or unverifiable sources.
-- High safety/regulatory complexity without qualified review.
-- Large maintenance burden or low-confidence formulas.
-- Thin commercial intent or dependency on invented pricing.
+Subtract risk for duplication, weak sources, safety, uncertain formulas, maintenance burden and unclear intent. High search volume alone is never sufficient.
 
-**Gate:** A proposal must have a written brief, clear intent, distinct URL need, evidence, original advantage, source plan and owner priority before implementation. High-risk technical guidance requires appropriate expert review or must be narrowed to safe general information.
+**Approval flow:** research → brief → owner approval → draft/build → editorial/technical review → visual QA → PR checks → owner merge decision → post-release measurement. A worker must not treat a suggestion, draft PR or passing unit test as publication approval.
 
-## 11. Measurement and review cadence
+## 12. Measurement and review
 
-### Monthly dashboard
-- Google Search Console: clicks, impressions, CTR, average position, query/page pairs, country and device.
-- Bing Webmaster Tools: clicks, impressions, indexing and query/page pairs.
-- Analytics: engaged sessions, landing-page behavior, tool starts/completions and useful next-step clicks (with privacy-respecting measurement).
-- Indexing and technical health: indexed URLs, sitemap errors, broken links, structured data, Core Web Vitals and visual QA failures.
-- Editorial portfolio: pages refreshed/published, sources checked, clusters strengthened, cannibalization and pages with no measurable purpose.
+Use Search Console and Bing Webmaster Tools at query and URL level: clicks, impressions, CTR, position, country, device and query-to-page fit. Add privacy-conscious analytics for engaged use, calculator starts/completions and next-step actions where available.
 
-### Decision rhythm
-- Weekly: operations-room handoff and blockers; no arbitrary article quota.
-- Monthly: review metrics and re-rank the backlog.
-- Quarterly: competitor re-audit and roadmap adjustment.
-- Every 6 months: substantive source/fact review of evergreen pages.
-- Annually: compare to baseline and approve the next charter.
+Review:
+- Which pages attract relevant impressions but weak CTR?
+- Which pages rank near the first page and merit improvement?
+- Which queries map to multiple URLs?
+- Which calculators are started, completed or abandoned?
+- Which internal paths lead to a useful next step?
+- Which pages lose traffic or become outdated?
+- Which competitor pages have materially changed?
 
-Do not judge a new page after a few days. Record the publication/indexing date and choose a sensible observation window; use early technical checks separately from search-performance conclusions.
+A traffic estimate is not a result. A ranking claim requires measured data. Compare performance with a recorded baseline and annotate significant releases.
 
-## 12. Roles and change control
+## 13. Roles and operations-room handoff
 
-- **Owner:** approves strategy, priorities, high-risk changes and material scope changes.
-- **ChatGPT / Claude:** read this charter and current operations room before work; propose evidence-backed tasks; avoid overlapping ownership; implement and test; record exact handoffs.
-- **Researcher/editor:** verifies SERPs, competitor evidence, sources, intent and editorial quality.
-- **Developer:** owns implementation, formula tests, accessibility, responsive behavior, CI and rollback/redirect safety.
-- **Designer/visual contributor:** produces task-specific visuals and validates them against the real page and brief.
+**Owner:** sets scope, approves portfolio and major changes, decides merges/publication priorities.
 
-Any worker may challenge a rule with evidence, but must propose a replacement and record the owner's decision. No worker may silently bypass the charter.
+**Claude:** reviews current inventory and feasibility, researches SERPs and competitor URLs, flags duplicates, implements approved articles/tools/site work, runs tests and leaves exact handoff notes.
 
-## 13. Definition of success after 12 months
+**ChatGPT:** performs independent competitor/content analysis, proposes improvements, audits outputs and visual evidence available to its environment, and records verifiable findings. It must not claim Claude can access screenshots or tools unless that access has been tested.
 
-Success is not "we published 100 articles". It is:
-- More qualified organic clicks and stronger query-to-page relevance than the November 2026 baseline.
-- More pages earning meaningful impressions/clicks, not just a larger URL count.
-- Repeatable use of calculators and measurable completion of useful next steps.
-- Fewer orphan/overlapping pages and stronger topic clusters.
-- Better mobile usability, accessibility, performance and verified visual quality.
-- Clearer trust signals, source quality and correction practices.
-- A distinctive end-to-end workflow competitors cannot match merely by publishing another article.
+**Every worker:** reads this charter, project state, content inventory, work log, AI collaboration handoff and open PRs before starting; avoids file/branch collisions; records files changed, evidence, checks, limitations and next action.
 
-## 14. Reference principles
+No one silently changes the strategy, adds a new content pillar, creates a competing URL, edits images or merges work outside the agreed approval flow.
 
-- Google Search Central, [Creating Helpful, Reliable, People-First Content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content): original, useful, trustworthy content; avoid search-first mass production.
-- Existing project standards: `data/AI_EXECUTION_STANDARD.md`, `data/COMPETITOR_BENCHMARK.md`, `data/COMPETITOR_RESEARCH_DESIGN_AND_EDITORIAL_PLAN.md`, `docs/COMPETITIVE-ADVANTAGE-AUDIT-2026-11-02.md`.
-- This charter complements the site's Editorial Policy. It governs internal decisions and delivery; the public Editorial Policy governs what readers are told about our methods.
+## 14. Decisions requested from owner and Claude
+
+1. Approve, revise or reject the five-pillar scope.
+2. Review the 100 candidate titles against the actual current inventory and SERPs; return a deduplicated, evidence-ranked shortlist.
+3. Confirm or replace the proposed first five candidates.
+4. Approve which calculator should follow Wallpaper completion.
+5. Review design/technical backlog and identify the highest-impact verified gaps.
+6. Confirm the portfolio only after competitor evidence, overlap checks and feasibility review.
+
+**No publication dates are set in this charter.** Work is selected by approved priority and readiness, not by calendar pressure. The portfolio can be revised when evidence changes, with a short decision note explaining why.
+
+---
+**Review state:** Awaiting Claude's written review and owner's approval. This document supersedes the earlier time-based 12-month schedule as the proposed operating plan; useful governance and competitor research from the earlier version are retained.
