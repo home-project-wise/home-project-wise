@@ -3,6 +3,7 @@
 from __future__ import annotations
 import json, os, subprocess, sys, time, urllib.request
 from pathlib import Path
+from urllib.parse import urlparse
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from threading import Thread
 from playwright.sync_api import sync_playwright
@@ -52,7 +53,17 @@ try:
                         reduced_motion="reduce",
                     )
                     page = context.new_page()
-                    page.route("**/*", lambda route: route.abort() if "gc.zgo.at" in route.request.url or "goatcounter" in route.request.url else route.continue_())
+                    def handle_request(route):
+                        host = (urlparse(route.request.url).hostname or "").lower()
+                        # Analytics is intentionally excluded from CI. Fulfil it with an empty
+                        # response instead of aborting: Chromium reports aborted scripts as
+                        # generic console errors (ERR_FAILED), which falsely fails application QA.
+                        if host == "gc.zgo.at" or "goatcounter" in host:
+                            route.fulfill(status=204, body="", content_type="text/plain")
+                        else:
+                            route.continue_()
+
+                    page.route("**/*", handle_request)
                     console_errors, page_errors, failed_responses = [], [], []
                     page.on("console", lambda msg: console_errors.append({"text": msg.text, "url": (msg.location or {}).get("url", "")}) if msg.type == "error" else None)
                     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
@@ -96,8 +107,7 @@ try:
                             ok, detail = checked_targets[link]
                             if not ok: bad.append([link, detail])
                         check(f"{page_name}/{mode}/{vp_name}: internal links resolve", not bad, bad[:8])
-                        # Analytics is intentionally blocked in CI; identify it by the console source URL,
-                        # because Chromium reports aborted scripts with the generic text "net::ERR_FAILED".
+                        # Analytics responses are stubbed above, so any remaining console/network error is actionable.
                         def is_blocked_analytics(url):
                             return "gc.zgo.at" in url or "goatcounter" in url
                         app_console = [x for x in console_errors if not is_blocked_analytics(x["url"])]
