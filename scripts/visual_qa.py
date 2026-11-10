@@ -26,6 +26,7 @@ server = ThreadingHTTPServer(("127.0.0.1", 0), QuietHandler)
 Thread(target=server.serve_forever, daemon=True).start()
 base = f"http://127.0.0.1:{server.server_port}"
 report = {"base_url": base, "pages": [], "checks": [], "failures": [], "screenshots": []}
+checked_targets = {}
 
 def check(name, ok, detail=""):
     item = {"name": name, "passed": bool(ok), "detail": str(detail)[:500]}
@@ -51,15 +52,18 @@ try:
                         reduced_motion="reduce",
                     )
                     page = context.new_page()
+                    page.route("**/*", lambda route: route.abort() if "gc.zgo.at" in route.request.url or "goatcounter" in route.request.url else route.continue_())
                     console_errors, page_errors, failed_responses = [], [], []
                     page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
                     page.on("pageerror", lambda exc: page_errors.append(str(exc)))
                     page.on("requestfailed", lambda req: failed_responses.append(req.url + " " + str(req.failure)))
                     url = base + path
                     try:
-                        response = page.goto(url, wait_until="networkidle", timeout=30000)
+                        response = page.goto(url, wait_until="domcontentloaded", timeout=30000)
                         check(f"{page_name}/{mode}/{vp_name}: HTTP 200", bool(response and response.status == 200), response.status if response else "no response")
-                        page.wait_for_timeout(150)
+                        page.wait_for_load_state("load", timeout=15000)
+                        page.evaluate("() => document.fonts.ready")
+                        page.wait_for_timeout(100)
                         metrics = page.evaluate("""() => ({
                           title: document.title, h1: document.querySelectorAll('h1').length,
                           width: document.documentElement.scrollWidth, viewport: innerWidth,
@@ -82,12 +86,15 @@ try:
                         links = page.locator("a[href]").evaluate_all("""els => [...new Set(els.map(a => a.href).filter(u => u.startsWith(location.origin)))].slice(0,100)""")
                         bad = []
                         for link in links:
-                            try:
-                                req = urllib.request.Request(link, method="HEAD")
-                                with urllib.request.urlopen(req, timeout=8) as r:
-                                    if r.status >= 400: bad.append([link, r.status])
-                            except Exception as e:
-                                bad.append([link, str(e)[:120]])
+                            if link not in checked_targets:
+                                try:
+                                    req = urllib.request.Request(link, method="HEAD")
+                                    with urllib.request.urlopen(req, timeout=8) as response:
+                                        checked_targets[link] = (response.status < 400, response.status)
+                                except Exception as e:
+                                    checked_targets[link] = (False, str(e)[:120])
+                            ok, detail = checked_targets[link]
+                            if not ok: bad.append([link, detail])
                         check(f"{page_name}/{mode}/{vp_name}: internal links resolve", not bad, bad[:8])
                         # Ignore known browser console noise from blocked analytics; report application errors.
                         app_console = [x for x in console_errors if "gc.zgo.at" not in x and "goatcounter" not in x]
