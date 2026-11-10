@@ -112,3 +112,73 @@ Each Claude session: pull totals and the page and query tables for the last 28 d
 
 ### Method note
 - quality_gate.py --all on raw main: 28 PASS, only the redirect stub fails. After running rebuild_site_indexes.py first (deploy-style), 12 more articles exceed the 130-word intro limit because the rebuild adds breadcrumb and date text before the first H2. CI does not run it that way; nothing was changed because of this. Do not trim intros on the strength of a post-rebuild run.
+
+
+## 2026-11-10 entry (ChatGPT — fresh 28-day performance and Bing refresh)
+
+### Google Search Console, Search type Web, data_state final
+
+- Current 28-day window: **2026-10-11 to 2026-11-07** — 800 impressions, 4 clicks, CTR 0.50%, average position 17.13.
+- Previous consecutive 28-day window: **2026-09-13 to 2026-10-10** — 43 impressions, 0 clicks, CTR 0%, average position 38.33.
+- Interpretation: impressions and clicks increased substantially from a very small early baseline. This does not establish which publication, page edit, indexing event or other change caused the increase. Do not claim causal attribution.
+- Top pages by impressions in the current window (clicks; average position):
+  - `what-can-you-plug-into-a-smart-plug`: 133 (2; 6.21).
+  - `macerating-toilet-basement-bathroom`: 128 (0; 13.01).
+  - `reduce-bathroom-condensation`: 91 (0; 49.96).
+  - `how-to-hang-large-wall-art-without-damage`: 88 (0; 6.33).
+  - `where-to-put-water-leak-sensors`: 58 (0; 19.22).
+  - `stop-musty-bathroom-towels`: 49 (0; 26.35).
+  - `better-evening-home-lighting-without-overcomplicating-it`: 40 (0; 5.25).
+  - Legacy `stop-kitchen-counter-clutter` redirect stub: 39 (1; 12.79).
+  - `small-bathroom-easier-to-clean`: 39 (0; 9.13).
+  - `motion-lighting-that-actually-helps`: 29 (1; 6.10).
+  - `reduce-cable-clutter`: 28 (0; 11.21).
+  - `how-to-fix-damp-crawl-space-humidity`: 24 (0; 66.25).
+- Query examples with page mapping:
+  - `why does my kitchen clutter keep coming back`: 20 impressions, position 7.65, mapped to the legacy kitchen redirect stub.
+  - `bad condensation in bathroom`: 12 impressions, position 91.08, mapped to `reduce-bathroom-condensation`.
+  - `condensation on bathroom walls`: 9 impressions, position 87.11, same condensation guide.
+  - `where to place water leak sensors`: 5 impressions, position 71.60, mapped to `where-to-put-water-leak-sensors`.
+- Country breakdown (impressions; clicks): United States 428;1, United Kingdom 89;1, Canada 62;0, India 32;1, France 3;1. Other countries each contributed smaller totals. The US supplied 53.5% of impressions but only 1 of 4 clicks.
+- Device breakdown: Mobile 417 impressions, 4 clicks, CTR 0.959%, average position 12.17; Desktop 376 impressions, 0 clicks, average position 22.88; Tablet 7 impressions, 0 clicks, average position 3.57.
+- The query export returned 80 visible rows; anonymized queries may be omitted by Search Console. Do not sum query totals and page totals together.
+- Important legacy URL note: the kitchen redirect stub still appears in Search Console and received 39 impressions and 1 click. Preserve the stub and its canonical/meta-refresh behavior while Google recrawls; do not remove it based on the current data.
+
+### Bing Webmaster Tools
+
+- Daily totals report returned 0 impressions and 0 clicks across the returned dates from 2026-10-04 through 2026-11-07.
+- Top-query and top-page reports returned empty row sets. This is a returned zero/no-row report, not proof of indexing failure.
+- Sitemap `https://home-project-wise.github.io/home-project-wise/sitemap.xml`: status Success, 45 URLs, last crawled 2026-11-01. The feed metadata returned file_size 0; do not infer a sitemap-content problem from that field alone because status was Success and URL count was 45.
+
+### Scope and limitations
+
+- No Google URL Inspection was run in this refresh. Do not update indexed/unknown/crawled-not-indexed counts from this entry.
+- No sitemap was submitted or changed.
+- Search data is performance evidence, not a direct quality score. Review the exact query/page pairs and live SERPs before editing titles, rewriting pages or approving new articles.
+
+### Google URL Inspection and sitemap — 2026-11-10
+
+Six high-priority article URLs were inspected. All six returned **Submitted and indexed**, `INDEXING_ALLOWED`, `SUCCESSFUL` page fetch, `ALLOWED` robots.txt, mobile crawl, and matching user/Google canonical URLs:
+
+| URL | Last Google crawl |
+|---|---|
+| `what-can-you-plug-into-a-smart-plug` | 2026-10-22 |
+| `macerating-toilet-basement-bathroom` | 2026-10-06 |
+| `reduce-bathroom-condensation` | 2026-10-01 |
+| `how-to-hang-large-wall-art-without-damage` | 2026-10-22 |
+| `where-to-put-water-leak-sensors` | 2026-10-29 |
+| `motion-lighting-that-actually-helps` | 2026-10-22 |
+
+Additional legacy URL check:
+- `stop-kitchen-counter-clutter` remains **Submitted and indexed** with Google canonical still pointing to the old stub URL; last crawl 2026-10-01.
+- Destination `kitchen-counter-zone-that-stays-clear` is also **Submitted and indexed**, canonical matches itself; last crawl 2026-10-22.
+- This confirms Google has not yet recrawled the legacy stub to observe its current meta-refresh/canonical behavior. Preserve both the stub and destination; do not delete or change the URL based on this lag.
+
+Google sitemap `https://home-project-wise.github.io/home-project-wise/sitemap.xml`:
+- `isPending=true`, errors 0, warnings 0, last submitted 2026-11-01 06:20:44 UTC.
+- No sitemap submission was made. Pending with zero errors/warnings is recorded as returned, not treated as a failure.
+
+Inspection caveats:
+- Rich-results output reported Breadcrumbs PASS for these URLs; it is not a complete audit of every structured-data type.
+- Mobile usability returned `VERDICT_UNSPECIFIED`; do not describe it as a pass or fail.
+- Inspection results may lag live changes by several days.
