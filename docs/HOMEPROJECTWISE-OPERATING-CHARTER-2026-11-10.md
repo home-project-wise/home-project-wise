@@ -337,3 +337,47 @@ No one silently changes the strategy, adds a new content pillar, creates a compe
 
 ---
 **Review state:** Awaiting Claude's written review and owner's approval. This document supersedes the earlier time-based 12-month schedule as the proposed operating plan; useful governance and competitor research from the earlier version are retained.
+
+## 15. Mandatory weekly research and continuous charter improvement law
+
+**This charter is a living standard, not a one-time research snapshot. ChatGPT must conduct a fresh research and review cycle every week and use verified findings to improve this charter and its candidate portfolio.** The initial competitor scan and 100-title portfolio are a starting hypothesis, not a permanent or complete market map.
+
+### 15.1 Weekly research duties
+
+At least once every seven days, ChatGPT must:
+
+1. Recheck the target-country search results for the highest-priority candidate topics and the first approved content cluster. Record the exact query, country, date, ranking URLs and material SERP changes.
+2. Revisit the strongest relevant competitors and specialist/authoritative sources. Identify newly useful pages, tools, formats, topic clusters and meaningful changes in their content or presentation.
+3. Study page-level evidence wherever available. Keep whole-domain traffic estimates, keyword search volume, estimated page traffic and measured HomeProjectWise traffic clearly separate; label estimates, dates, geography and data-provider limitations.
+4. Look for emerging reader questions, changing terminology, product/platform changes, seasonal needs, technical standards, safety guidance and topics competitors are serving poorly or incompletely.
+5. Recheck HomeProjectWise's live sitemap, content inventory, tools, open pull requests and available Search Console/Bing performance before recommending new topics or changes. Do not rely on stale counts or assume a candidate is still unserved.
+6. Review the existing 100 candidates and tool/design backlog. Keep, improve, reorder, replace or retire candidates based on evidence, user value, site fit, feasibility and duplication risk. The list may grow or shrink; 100 is not a quota.
+7. Identify weaknesses in our own pages, tools and user journeys, then recommend specific improvements that are more useful than merely matching a competitor.
+
+### 15.2 Evidence and reporting standard
+
+Every weekly review must leave a concise, dated research note in the operations room and a traceable summary of proposed charter changes. Include:
+- Sources and direct URLs, search country/query, review date and relevant competitor page URLs.
+- What changed since the previous review and what remains unchanged.
+- Verified observations separately from estimates, assumptions and unanswered questions.
+- The practical implication for HomeProjectWise and the exact section, candidate, tool or design item affected.
+- A priority recommendation with rationale, confidence and duplication/safety/maintenance risks.
+- A short list of decisions requiring owner approval.
+
+Do not manufacture traffic numbers, ranking positions, competitor weaknesses, trends or evidence. If a source is unavailable or a claim cannot be verified, label it unverified and do not use it as a basis for a major change.
+
+### 15.3 How the charter may be updated
+
+ChatGPT is responsible for maintaining the research-informed proposal: refresh competitor evidence, add or remove candidate ideas, refine priorities, record newly discovered gaps and improve recommendations when the evidence justifies it. Keep the main charter and its public working page consistent, and preserve a brief change history so the owner and Claude can see what changed and why.
+
+The following remain protected decisions and must not be changed or executed without owner approval: mission and site scope, new editorial pillars, publication or URL decisions, redirects/deletions, major design or architecture changes, tool releases, publishing, merging and spending. Weekly research is not permission to implement or publish.
+
+Claude should review material technical/content feasibility changes and flag conflicts with active work. ChatGPT must check open PRs and current project state before proposing overlapping work. If GitHub or analytics access is unavailable, ChatGPT must say so, provide the research note and proposed patch, and never claim the repository or data was updated.
+
+### 15.4 Weekly decision loop
+
+**Observe → verify → compare → identify gaps → revise proposal → record changes → request approval → measure later.**
+
+The purpose is continuous learning, not change for its own sake. Retain a strong rule or candidate when the evidence still supports it. Prefer a small number of high-confidence improvements over a large volume of speculative edits. Do not create publication deadlines or output quotas through the weekly review.
+
+**This weekly review law takes effect as an operating requirement once approved by the owner.** Until then, it is part of this consolidated proposal and must be reviewed with the rest of the charter.
