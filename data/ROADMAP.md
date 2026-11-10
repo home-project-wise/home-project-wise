@@ -58,3 +58,12 @@ How to add a tool (about 10 minutes): follow the docstring in scripts/tool_page.
 
 ## Competitive growth strategy (2026-11-10)
 The current execution priorities and evidence are maintained in [docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md](../docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md). Follow its ranked sequence rather than starting unrelated articles/tools: (1) refresh GSC/Bing baseline and query-to-URL map; (2) improve existing near-page-one pages; (3) audit macerating-toilet costs and build quote-scope worksheet; (4) strengthen bathroom ventilation/moisture cluster; (5) complete Wallpaper UI/comparison/adapter; (6) validate tile quantity calculator; (7) connect calculator outputs to Budget Planner. All work remains subject to Value Before Publishing. No bulk image changes are authorized.
+
+
+## 2026-11-10 — Search performance refresh
+
+Google Search Console final 28-day data (2026-10-11 to 2026-11-07): 800 impressions, 4 clicks, 0.50% CTR, average position 17.13. The previous consecutive 28-day period (2026-09-13 to 2026-10-10) had 43 impressions and 0 clicks. This is growth from a very small baseline, not causal proof.
+
+Current leading pages: smart-plug suitability (133 impressions, 2 clicks, position 6.21), macerating toilet (128, 0, 13.01), bathroom condensation (91, 0, 49.96), large wall art (88, 0, 6.33), leak-sensor placement (58, 0, 19.22), evening lighting (40, 0, 5.25), legacy kitchen redirect stub (39, 1, 12.79), and motion lighting (29, 1, 6.10). US contributed 428 impressions and 1 click; mobile 417 impressions and all 4 clicks; desktop 376 impressions and no clicks. Bing returned 0 impressions/clicks and empty query/page rows; sitemap status Success, 45 URLs, last crawled 2026-11-01.
+
+Next: inspect indexing status for the high-impression URLs; improve existing near-page-one pages before creating overlapping articles; keep the generic tile calculator on hold until a distinct advantage over current competitors is proven.
