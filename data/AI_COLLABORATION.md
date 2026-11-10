@@ -708,9 +708,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 
 #### 2026-11-10 — ChatGPT — SESSION 34 OPERATIONS HANDOFF
 
-**Main state:** `f6e6c950a0cd7fa1c79ebea8d8b66d2ef58e1c18`. Merged #273 (lazy-image visual QA correction) and #272 (manual screenshot-artifact review log). Main-head `quality`, `health` and `chromium-visual-qa` checks all completed SUCCESS. This does not replace physical-device, Safari/Firefox, keyboard or screen-reader review.
+**Main state:** `f899ecff3920fd23870fdd637c8d0409707e670e` (after merging research-only PR #274). Merged #273 (lazy-image visual QA correction) and #272 (manual screenshot-artifact review log). Main-head `quality`, `health` and `chromium-visual-qa` checks all completed SUCCESS. This does not replace physical-device, Safari/Firefox, keyboard or screen-reader review.
 
-**Search/indexing evidence refreshed (not yet merged to main; see PR #274):**
+**Search/indexing evidence refreshed and merged to main in PR #274:**
 - GSC final 2026-10-11–2026-11-07: 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; previous consecutive 28 days: 43 impressions, 0 clicks, position 38.33.
 - Top click pages: smart-plug guide (2), motion-lighting (1), legacy kitchen redirect stub (1). Highest-impression pages include smart-plug (133), macerating toilet (128), condensation (91), wall art (88), leak sensors (58).
 - Six priority URLs inspected: all submitted/indexed, robots allowed, mobile fetch successful and user/Google canonicals match. Crawl dates are stale (condensation 10-01; macerating 10-06; smart-plug/wall-art/motion 10-22; leak sensors 10-29).
@@ -721,8 +721,9 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 **Open PR status at this handoff:**
 - #274 — research-only competitor growth roadmap, now updated with fresh GSC/Bing metrics, six URL inspections, sitemap status and a caution that generic tile calculators are already crowded. Quality and health checks pass; Chromium visual QA was still running at handoff. No production code or publication changes. Merge only after exact-head checks finish.
 - #275 — operating charter and 100-title candidate portfolio. Added a preliminary repository-only duplicate/overlap audit and a first US SERP sample; public Working Charter now presents topic-selection principles rather than exposing the internal 100-title backlog. Quality, health and Chromium visual QA all pass. Still requires owner/Claude review; not publication authorization.
+- #277 — ChatGPT safety correction to the large-wall-art guide, opened after GSC showed 88 impressions at position 6.33 with no clicks. Corrects the unsafe 'any weight' stud-screw claim, clarifies French-cleat load limits, adds matching FAQ/schema and two sources. Await exact-head quality/health/Chromium checks before merging.
 - #269 — Claude's Wallpaper UI draft. Keep draft. Outstanding: two-product comparison UI, focused adapter/state invariants, targeted Wallpaper screenshot visual review and clear limits around the wallpaper-only budget check. Prior ChatGPT review is already on the PR; do not repeat or merge without these items.
 - #245/#247 — old operations reconciliation/handoff PRs remain conflicted. Do not merge their stale branches. Preserve their historical decisions in this append-only log, then close as superseded only after owner-facing reconciliation.
 - #231, #216 and #208 remain older open documentation drafts; review for relevance/supersession before merging or closing.
 
-**Next work:** ChatGPT continues research, GSC/query mapping, competitor gap review and safe documentation/content audits. Claude owns the remaining Wallpaper UI engineering and final independent technical/content review. No mass image replacement, new article publication, URL migration, Awin change or sitemap submission is authorized by this handoff.
+**Next work:** ChatGPT continues research, GSC/query mapping, competitor gap review and safe documentation/content audits. Claude owns the remaining Wallpaper UI engineering and final independent technical/content review. No mass image replacement, new article publication beyond the scoped #277 correction, URL migration, Awin change or sitemap submission is authorized by this handoff.
