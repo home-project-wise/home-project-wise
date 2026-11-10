@@ -1,5 +1,7 @@
 name: Always-on visual QA
 on:
+  push:
+    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
