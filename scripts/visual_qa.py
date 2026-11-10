@@ -85,15 +85,32 @@ try:
                         check(f"{page_name}/{mode}/{vp_name}: HTTP 200", bool(response and response.status == 200), response.status if response else "no response")
                         page.wait_for_load_state("load", timeout=15000)
                         page.evaluate("() => document.fonts.ready")
-                        page.wait_for_timeout(100)
+                        # Force native lazy-loaded images to fetch before measuring or capturing.
+                        # Otherwise a full-page screenshot can contain blank card images even
+                        # though the DOM reports no broken images (the images were never requested).
+                        image_state = page.evaluate("""async () => {
+                          const imgs = [...document.images];
+                          for (const img of imgs) img.loading = "eager";
+                          await Promise.all(imgs.map(img => img.decode().catch(() => null)));
+                          return {
+                            total: imgs.length,
+                            loaded: imgs.filter(img => img.complete && img.naturalWidth > 0).length,
+                            failed: imgs.filter(img => img.complete && img.naturalWidth === 0).map(img => img.currentSrc || img.src).slice(0, 20),
+                            pending: imgs.filter(img => !img.complete).map(img => img.currentSrc || img.src).slice(0, 20)
+                          };
+                        }""")
+                        page.wait_for_timeout(150)
                         metrics = page.evaluate("""() => ({
                           title: document.title, h1: document.querySelectorAll('h1').length,
                           width: document.documentElement.scrollWidth, viewport: innerWidth,
                           bodyHeight: document.body.scrollHeight,
-                          brokenImages: [...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src).slice(0,10),
+                          totalImages: document.images.length,
+                          loadedImages: [...document.images].filter(i => i.complete && i.naturalWidth > 0).length,
+                          brokenImages: [...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src).slice(0,20),
                           missingAlt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
                           emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length
                         })""")
+                        check(f"{page_name}/{mode}/{vp_name}: all images loaded", image_state["loaded"] == image_state["total"] and not image_state["failed"] and not image_state["pending"], image_state)
                         check(f"{page_name}/{mode}/{vp_name}: no horizontal overflow", metrics["width"] <= width + 1, metrics)
                         check(f"{page_name}/{mode}/{vp_name}: exactly one H1", metrics["h1"] == 1, metrics["h1"])
                         check(f"{page_name}/{mode}/{vp_name}: images load", not metrics["brokenImages"], metrics["brokenImages"])
