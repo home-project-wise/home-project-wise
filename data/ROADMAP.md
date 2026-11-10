@@ -69,3 +69,10 @@ Current leading pages: smart-plug suitability (133 impressions, 2 clicks, positi
 Next: inspect indexing status for the high-impression URLs; improve existing near-page-one pages before creating overlapping articles; keep the generic tile calculator on hold until a distinct advantage over current competitors is proven.
 
 Indexing follow-up from 2026-11-10: six high-impression articles inspected in GSC are all submitted and indexed with successful mobile fetches and matching canonicals. Crawl dates are stale (macerating 2026-10-06; condensation 2026-10-01; smart plug/large wall art/motion lighting 2026-10-22; leak sensors 2026-10-29). The legacy kitchen redirect stub remains indexed under its old canonical (last crawl 2026-10-01), while the destination is also indexed (2026-10-22). Preserve both and allow recrawl. Google sitemap pending, 0 errors/0 warnings, last submitted 2026-11-01; do not resubmit merely because it says pending.
+
+
+## Editorial execution system — 2026-11-10
+
+The single canonical, ordered article queue is `docs/ARTICLE-PRODUCTION-QUEUE.md`. All new article candidates must pass through it. The queue implements the Operating Charter and Value Before Publishing, uses GSC to identify topic clusters rather than repeatedly optimizing a single URL for a small number of clicks, and targets 2–3 high-value articles/day only when research and quality permit. ChatGPT researches and prepares complete briefs; Claude reviews and completes only READY FOR CLAUDE items in ordered batches, then handles implementation, QA, PR and verified deployment. No scattered parallel article requests.
+
+The initial validation cluster is Smart Home. SH-001 is first; SH-002 must first be checked against the existing smart-lighting guide. All initial entries are candidates, not publication authorization. Word count is evidence-led with no quota; images are limited to 0–2 purposeful, high-quality assets, with no speculative replacements. See the queue for mandatory brief fields, 85/100 score threshold, workflow statuses and release rules.
