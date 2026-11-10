@@ -174,3 +174,53 @@ After #245 and #247 resolve, reconcile one canonical work-log entry, the project
 - Updated `data/CONTENT_INVENTORY.md` with the 2026-11-10 verified counts, seven new articles, current metadata status, overlap decisions and unvalidated gap hypotheses.
 - Added this audit and handoff record.
 - No production code, image, Awin link, editorial-freeze file or workflow was changed.
+
+
+---
+
+## Reconciliation after Claude's engineering work — 2026-11-10 (verified on current main)
+
+This addendum supersedes the earlier deployment status and the corresponding "Claude handoff" deployment task above. It is based on the merged PRs and the current GitHub Actions records, not the earlier pending state.
+
+### What Claude completed after the initial audit
+
+1. **#263 — Pages deployment repair** — merged 2026-11-10 at 11:39:48 UTC as `cd7c63791b`.
+   - The owner explicitly authorized the narrowly scoped protected workflow edit in Claude's session.
+   - Removed the stale-artifact deletion step that failed with HTTP 403 because the workflow intentionally did not grant `actions: write`.
+   - Set both upload and deploy artifact names to `github-pages-${{ github.run_attempt }}`, so retries use a unique artifact name.
+   - Kept the existing least-privilege permissions; did not add `actions: write`.
+   - No site content, images, affiliate links, editorial freeze or other workflow changed.
+   - YAML and workflow input assertions passed; quality and health checks passed before merge.
+
+2. **#264 — deployment evidence record** — merged 2026-11-10 at 11:41:12 UTC.
+   - Added the successful runner and live endpoint verification to `docs/operations/CLAUDE-PHASE1-ENGINEERING-2026-11-10.md`.
+   - No shared operations log was changed because #245 and #247 remain open.
+
+3. **Deployment is now repaired and live.**
+   - Pages run [#42809299624](https://github.com/home-project-wise/home-project-wise/actions/runs/42809299624) completed successfully on the first attempt after #263.
+   - The built-in deployed-homepage/all-article-images verification step passed.
+   - HTTP checks from the Composio sandbox returned 200 for homepage, Tools, Guides, sitemap and wallpaper article. Sitemap returned 49 URLs. Wallpaper JPG returned 200 as image/jpeg (233,708 bytes), and the article references it.
+   - The wallpaper hero is therefore live; the earlier statement that production was one commit behind main is obsolete.
+
+### What remains from Phase 1
+
+- **P1 accessibility:** small checkbox/radio controls, Print this guide, On this page and Budget Planner Add Item targets; known long item-name clipping at 320px. Build a focused PR, run the relevant exact-head browser suites and new mobile checks. Do not claim Safari, Firefox, screen-reader or real-device coverage without evidence.
+- **P1 flagship calculator:** wallpaper calculation engine and 2/2 budget-adapter tests exist, but the wallpaper module is not yet integrated into the visible Home Project Calculator UI. Implement only inside the flagship calculator, preserving null for unknown prices and refusing unsupported match patterns.
+- **P2 content/SEO:** validate Energy/Repair coverage gaps and 15 long-title candidates against current query-level Search Console/SERP evidence. No article or title changes until the 85/100 Value Before Publishing and intent/cannibalization checks pass.
+- **P2 design consistency:** header/footer and site-wide focus-visible consistency remain candidates; no measured implementation has yet been recorded.
+- **Image phase remains separate:** no further image replacement is authorized by this audit. The wallpaper hero is done and live. Smart Lighting remains the only confirmed replacement candidate from the visual review; Calm Room stays. Re-audit pending/error items rather than treating them as mismatches.
+
+### PR and file boundaries at reconciliation
+
+- Open PRs verified: #262 (this audit), #247, #245, #231, #216, #208.
+- #263 and #264 are merged. #261 and #260 are merged; wallpaper image is deployed.
+- Do not edit `data/WORK_LOG.md`, `data/AI_COLLABORATION.md`, `data/PROJECT_STATE.md` or `data/daily_routine_log.md` while #245/#247 remain open. After those PRs resolve, reconcile the append-only records once, using this audit and the Claude engineering record as evidence.
+- #262 changes only `data/CONTENT_INVENTORY.md` and this audit file. It is documentation-only; quality and health passed on its exact head at the time of the check. Re-run after this addendum before merge.
+- Protected `.github/workflows/` change for #263 is complete and deployed; do not make further workflow edits without separate owner approval.
+
+### Immediate next execution order
+
+1. Finish and merge this documentation reconciliation PR only after its updated exact-head checks are green.
+2. Create one focused accessibility PR (CSS and tests only, no image or editorial changes).
+3. Create one focused wallpaper UI integration PR after exact-head Node, adapter, privacy and real-browser tests.
+4. Leave content gap/title research and image replacements as separate workstreams with their existing evidence gates.
