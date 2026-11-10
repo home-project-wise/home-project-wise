@@ -748,3 +748,12 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 **Search baseline now in main through #274:** GSC final 2026-10-11–11-07 = 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; prior consecutive 28 days = 43 impressions, 0 clicks, position 38.33. Six high-impression URLs inspected and indexed; crawl dates are old. Preserve the legacy kitchen redirect stub while Google recrawls. Google sitemap pending, 0 errors/warnings; no resubmission. Bing reports 0 impressions/clicks.
 
 **Operational division:** ChatGPT continues competitor research, search/query mapping, editorial audits, requirements and safe documentation/content improvements. Claude handles complex calculator UI engineering, exact test evidence and independent technical review. No mass image replacement, Awin change, URL migration or unsupported live pricing.
+
+
+#### 2026-11-10 — OWNER INSTRUCTION: ONE EDITORIAL QUEUE AND BATCHED CLAUDE HANDOFF
+
+The canonical article pipeline is `docs/ARTICLE-PRODUCTION-QUEUE.md`. ChatGPT owns research and briefs; Claude receives only fully researched READY FOR CLAUDE items in one ordered batch, reviews them against the Operating Charter and current repository, then completes implementation, QA, PR and deployment verification. Do not send fragmented commands or choose unresearched titles directly from the 100-candidate portfolio.
+
+The queue is subordinate to the Operating Charter, Value Before Publishing, the current inventory and owner decisions. It aims for 2–3 valuable articles/day when qualified topics exist, with no forced quota. GSC signals are used to expand promising topic clusters, not to orbit one URL for one or two clicks. Each brief requires query/intent mapping, GSC evidence where available, current US SERP review, 3–5 competitor-page reviews, overlap/cannibalization audit, defensible differentiation, sources/safety, practical outline, word-count rationale (no quota), image plan (0–2 purposeful assets), acceptance tests and the charter scorecard. Minimum 85/100 to enter READY FOR CLAUDE; critical safety/factual/duplicate failures cannot be offset by score.
+
+Initial research sequence starts with Smart Home candidates SH-001 through SH-005; they remain validation candidates, not approved publications. Research SH-001 first and confirm whether SH-002 can be handled inside the existing smart-lighting URL before proposing a new page.
