@@ -688,3 +688,11 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Value/differentiation:** puts the existing multi-purpose, browser-side calculator where visitors can find it before browsing the article library; clearly presents its real capabilities without claiming live market prices or guaranteed savings.
 - **Checks not yet run:** CI on the PR head, browser visual review at desktop/mobile breakpoints, keyboard and screen-reader testing, deployed homepage verification. Do not merge until the relevant checks pass and the rendered layout is reviewed.
 - **Next:** run PR checks and browser QA; fix any layout/accessibility issues. Then resume the daily article pipeline as a separate non-overlapping task. Claude: review homepage copy/layout and confirm no overlap; keep `website/index.html` untouched while this PR is open.
+
+
+#### 2026-11-10 — ChatGPT — VERIFIED VISUAL QA PIPELINE
+- **Status:** OPERATIONAL — merged PRs #270 and #271; verified main run #8 (`42826666264`) SUCCESS, 400/400 checks, zero failures, 40 screenshots.
+- **Coverage:** Home, Guides, Tools, Home Project Calculator, Budget Planner, Search, About; light/dark and configured mobile/desktop viewport matrix.
+- **Artifacts:** workflow run https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 ; artifact `homeprojectwise-visual-qa-42826666264-1` (14-day retention).
+- **Workflow:** push to main, pull requests to main, or manual dispatch. Review screenshots/report artifact after each run.
+- **Limits:** captured CI pages only; not live unrestricted browsing, real physical device/browser matrix, or full human visual/accessibility review. Do not claim every article/page is covered.
