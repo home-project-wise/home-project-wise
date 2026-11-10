@@ -1,0 +1,38 @@
+name: Always-on visual QA
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: visual-qa-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  chromium-visual-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild generated guide, tool and search pages
+        run: python scripts/rebuild_site_indexes.py
+      - name: Install Chromium and Playwright
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Run visual, responsive and link QA
+        run: python scripts/visual_qa.py
+      - name: Upload screenshots and report even when checks fail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: homeprojectwise-visual-qa-${{ github.run_id }}-${{ github.run_attempt }}
+          path: visual-qa-results/
+          if-no-files-found: warn
+          retention-days: 14
