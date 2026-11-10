@@ -54,3 +54,7 @@ Goal: build the most useful, trustworthy and best-made beginner home-improvement
 ## Tools (free calculators)
 Each tool applies the rules and sources of one guide to the reader's own measurements. Live: rug size, crawl space dehumidifier size. See the Tools page (tools.html, generated).
 How to add a tool (about 10 minutes): follow the docstring in scripts/tool_page.py. In short: write and test the JS logic (jsdom, real scenarios), build the page with build_tool_page(...), save it as website/<slug>.html, add one entry to TOOLS in scripts/rebuild_site_indexes.py (that adds it to the Tools page, its category hub, search and the sitemap), add a callout in the related guide, and cite the sources the rules come from. Results are estimates and every tool says so. No affiliate links inside tools.
+
+
+## Competitive growth strategy (2026-11-10)
+The current execution priorities and evidence are maintained in [docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md](../docs/HOMEPROJECTWISE-COMPETITIVE-GROWTH-ROADMAP-2026-11-10.md). Follow its ranked sequence rather than starting unrelated articles/tools: (1) refresh GSC/Bing baseline and query-to-URL map; (2) improve existing near-page-one pages; (3) audit macerating-toilet costs and build quote-scope worksheet; (4) strengthen bathroom ventilation/moisture cluster; (5) complete Wallpaper UI/comparison/adapter; (6) validate tile quantity calculator; (7) connect calculator outputs to Budget Planner. All work remains subject to Value Before Publishing. No bulk image changes are authorized.
