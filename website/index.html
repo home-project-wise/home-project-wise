@@ -34,6 +34,19 @@
 @media(max-width:760px){.calculator-feature{grid-template-columns:1fr;padding:30px 20px}.calculator-feature-list{grid-template-columns:1fr 1fr}.calculator-feature-action{padding:20px}.calculator-feature-action .button{width:100%}}
 @media(max-width:420px){.calculator-feature-list{grid-template-columns:1fr}}
 @media(prefers-color-scheme:dark){.calculator-feature{background:#1c262b;border-color:#34444b}.calculator-feature .eyebrow{color:#8db8a6}.calculator-feature h2{color:#eef1ee}.calculator-feature-copy>p:not(.eyebrow){color:#bcc6c8}.calculator-feature-list strong{color:#eef1ee}.calculator-feature-list span,.calculator-feature-copy .calculator-feature-note{color:#aeb9bc}.calculator-feature-action{background:#202b30;border-color:#34444b;box-shadow:none}.calculator-feature-label{color:#8db8a6}.calculator-feature-secondary{color:#eef1ee;text-decoration-color:#e8905f}}
+
+/* First-screen compaction: the calculator section must start sooner (measured 1294px on phones, 804px at 1280x800). */
+@media(min-width:901px){.hero{margin-bottom:48px}.hero-card img{height:520px}}
+@media(max-width:760px){
+.hero{margin:12px auto 32px;gap:20px}
+.hero h1{font-size:clamp(31px,8.6vw,38px);line-height:1.1;margin-bottom:14px}
+.hero .lead{font-size:16.5px;line-height:1.55;margin-bottom:16px}
+.hero .actions{margin-top:16px;gap:6px 18px;flex-wrap:wrap}
+.hero .actions .button{flex:1 0 100%;text-align:center;padding:15px 18px;min-height:52px;box-sizing:border-box}
+.hero-card img{height:auto;aspect-ratio:16/10}
+.hero .image-note{left:12px;right:12px;bottom:12px;padding:12px 14px;border-radius:14px}
+.hero .image-note strong{font-size:17px}
+}
 </style>
 </head>
 <body>
