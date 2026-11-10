@@ -54,3 +54,10 @@ Results: new test on unmodified CSS 106 failures of 276 checks (before the lands
 Not tested: Safari, Firefox, screen readers, real devices, print preview; screenshots were not reviewed by eye; `check_contrast.js` did not run (no npm/jsdom in the sandbox) although no colours were added; the focus check is Tab reachability plus a computed outline of at least 2 px, not a visual review. Live behaviour after merge is verified separately below.
 
 Remaining defects after this PR: wallpaper module not in the Home Project Calculator UI; header/footer and site-wide focus-visible consistency not measured; content-gap and long-title validation; Smart Lighting hero (image phase).
+
+### Result of #266 (appended after merge and deployment)
+
+- #266 squash-merged as `5a924aff2337` after exact-head `quality` and `health` checks passed (final diff: 3 files, +127 lines: `article-overrides.css` +9, new test +102, this record +16).
+- Pages run #42814108608 (attempt 1, push to `main`) completed `success`.
+- Live check: the deployed `style.css` contains the accessibility block, and `qa_browser_accessibility_targets.py` run against the live site URLs (7 tool pages and 3 guides, 8 viewport sizes, light and dark, keyboard focus) gave 364/364 passed. Chromium emulation only; no Safari, Firefox, screen reader or real device.
+- Next: wallpaper UI integration inside the Home Project Calculator (separate PR); then content/SEO validation and image phase per their own gates. Shared logs (`WORK_LOG`, `AI_COLLABORATION`, `PROJECT_STATE`, `daily_routine_log`) still wait for #245/#247.
