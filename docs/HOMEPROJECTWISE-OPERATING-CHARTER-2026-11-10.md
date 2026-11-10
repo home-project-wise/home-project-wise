@@ -381,3 +381,107 @@ Claude should review material technical/content feasibility changes and flag con
 The purpose is continuous learning, not change for its own sake. Retain a strong rule or candidate when the evidence still supports it. Prefer a small number of high-confidence improvements over a large volume of speculative edits. Do not create publication deadlines or output quotas through the weekly review.
 
 **This weekly review law takes effect as an operating requirement once approved by the owner.** Until then, it is part of this consolidated proposal and must be reviewed with the rest of the charter.
+
+## 16. Competitive intelligence system and mandatory competitor dossiers
+
+**Purpose:** replace a static competitor-name list with a repeatable, evidence-led system that explains which sites and pages win our target searches, why they win, where they are weak, and how HomeProjectWise can provide a more useful answer. The seven publishers in the initial benchmark are a starting cohort only. Specialist sites, independent experts, manufacturers, public authorities and focused niche publishers must also be discovered from live search results.
+
+### 16.1 Competitor universe: three layers
+
+Maintain three distinct competitor groups:
+
+1. **Major publisher cohort:** Good Housekeeping, The Spruce, Martha Stewart, HGTV, Real Simple, Houzz and Better Homes & Gardens. Keep them in the benchmark while they remain relevant to our target market and pillars.
+2. **Topic-level specialist competitors:** smaller or focused websites that repeatedly rank for a particular problem, room, repair, product, calculator or project. Discover these from actual target-country SERPs; do not exclude them because their domain traffic is small.
+3. **Reference and authority sources:** manufacturers, standards bodies, utilities, government agencies, trade associations and qualified professionals. These may not compete for broad traffic, but are essential for accuracy, safety, specifications and original evidence.
+
+A domain is not automatically a competitor for every topic. Assign relevance by pillar, query cluster and page intent. Record the reason for inclusion and the date last validated. Add newly discovered competitors and retire irrelevant ones with a dated reason; do not freeze the list at seven.
+
+### 16.2 Required individual competitor dossier
+
+Create and maintain one dossier per relevant competitor. Each dossier must contain the following fields; use **Not publicly available**, **Not verified**, or **Not applicable** rather than guessing.
+
+1. **Identity and scope:** domain, publisher/site type, target countries/languages, relevant pillars, audience, business model, ownership where verifiable, and reason it competes with or informs us.
+2. **Content inventory:** best available count of published editorial articles; method, source, date, scope and confidence. Prefer a reproducible sitemap/CMS/category/archive inventory, deduplicated by canonical URL and filtered to genuine editorial articles. Separate guides, news, recipes, product reviews, videos, forum/community pages, profiles, category/tag pages, tools and other indexable URLs. If exact counting is impossible, report a range and method. Never relabel indexed URLs, Google result counts or SEO-tool URL counts as article counts.
+3. **Top 20 performing pages:** a ranked table of up to 20 relevant URLs with page title, canonical URL, topic/pillar, page format, target country, ranking queries, position/date where available, estimated organic visits and provider/date, and measured traffic only if the owner has legitimately supplied access to first-party analytics. Record whether the ranking is based on estimated traffic, keyword visibility, backlinks or another explicit metric. Do not mix unlike metrics into one unexplained rank. If page-level traffic is unavailable, show the 20 strongest pages by the best available transparent proxy and label the proxy.
+4. **Top 10 topic clusters:** the ten topic/query clusters where the competitor has the strongest demonstrated search presence in our target market. For each, list representative queries, intent, ranking URLs, observed SERP coverage (for example, number of top-10 placements across a fixed query sample), country, device if relevant and observation date. Explain the sampling rule. Do not call a topic “owned” or claim market dominance from one query or one screenshot.
+5. **Traffic-driving formats:** classify relevant winning pages as how-to guides, troubleshooting, checklists, comparisons, buying guides, reviews, calculators, templates, galleries, videos, FAQs, inspiration or other observed formats. Explain which formats appear to serve which search intents.
+6. **Tools and interactive assets:** list calculators, quizzes, selectors, planners, downloadable templates, comparison features and other functional assets. Record URL, purpose, inputs/outputs, assumptions, mobile usability, accessibility, monetization and whether calculations/sources can be verified. Distinguish genuinely interactive tools from static articles or promotional widgets.
+7. **Editorial strengths:** demonstrated expertise, author/reviewer transparency, sourcing, firsthand testing, specificity, step-by-step clarity, original examples, visuals, update practices, safety coverage and correction policies. Cite examples; do not infer quality from brand reputation alone.
+8. **Technical and UX strengths:** observed navigation, information architecture, internal links, page speed/Core Web Vitals where measured, mobile layout, accessibility, structured data, image handling, search/filtering, ad load and intrusive elements. Record the test method, device, date and any measurement tool.
+9. **Commercial strengths:** affiliate disclosures, product testing, retailer links, lead generation, professional directories, subscriptions, sponsorships, advertising, commerce and other visible business models. Record only what is observable and distinguish disclosure from inference.
+10. **Weaknesses and exploitable gaps:** specific, reproducible shortcomings such as missing steps, unclear assumptions, outdated information, weak local relevance, inaccessible controls, poor mobile presentation, thin comparisons, missing calculators, unsupported claims or unanswered reader questions. Every weakness must cite the affected URL, screenshot/test or evidence, date and impact. Do not invent weaknesses or treat personal preference as proof.
+11. **Our better-answer opportunity:** a concrete improvement HomeProjectWise can deliver, for a defined reader and intent. Specify the missing value, required evidence/expertise, original visual/tool/checklist, safety boundary, maintenance cost and why our proposed page/tool would be meaningfully better—not merely longer.
+12. **Confidence and follow-up:** evidence quality, unknowns, last checked date, next verification date, owner/Claude review needs and change history.
+
+### 16.3 How to count articles without misleading ourselves
+
+Use this hierarchy:
+
+- **High confidence:** complete, accessible sitemap or content export with canonical URLs, cross-checked against category/archive pages and a sample of live URLs.
+- **Medium confidence:** systematic archive/category pagination or crawl with deduplication, known coverage gaps and a documented sampling check.
+- **Low confidence:** third-party SEO index or search-engine index estimate only. Label as an indexed-page proxy, never as an article count.
+
+For every count, state: retrieval date; domain/subdomain scope; included content types; excluded URL types; canonical/duplicate handling; pagination or crawl coverage; and confidence. Report a range where coverage is incomplete. Do not compare competitors' totals unless the same inclusion rules and comparable collection method were used. Show the number of tools, videos, recipes, reviews and other major formats separately when useful. Reconcile the figure on the next review rather than silently overwriting the previous count.
+
+### 16.4 Page-level research and ranking evidence
+
+For each priority topic cluster:
+
+1. Define target country, language, search intent and a fixed query set before looking at results.
+2. Capture the first page of results (normally top 10; extend to top 20 when justified), including organic pages and relevant SERP features. Record date, query, country, device and ranking URL.
+3. Review the actual competing pages—not just their homepages, domain scores or search snippets. Read the content, inspect visuals, tools, citations, update dates and user journey.
+4. Where a suitable SEO platform is available, collect page-level estimated organic traffic, ranking keywords, positions and trend history. Record provider, database/country, date and metric definitions. Treat these as estimates, not first-party analytics.
+5. Use first-party traffic only for HomeProjectWise when authorized Search Console, analytics or equivalent data is actually connected. Competitor measured analytics are not publicly knowable unless the competitor or a credible source discloses them.
+6. Save direct URLs and concise evidence notes. Search-result snippets and cached extracts alone are insufficient to establish a page's quality, functionality or weakness.
+
+### 16.5 Specialist competitor discovery
+
+At every weekly review, and whenever a new content cluster is proposed:
+
+- Search the target country's SERPs for the cluster's primary and supporting queries.
+- Record recurring domains that rank across multiple relevant queries, even if they are small, narrowly focused, local or individual-expert sites.
+- Check specialist repair, DIY, organization, energy, smart-home, building-science and trade sources as relevant to the query—not as a generic list.
+- Separate commercial competitors from technical authorities and product/manufacturer documentation.
+- Add a specialist to the active dossier set when repeated relevant visibility or uniquely valuable expertise is demonstrated. Record the exact queries and ranking URLs that justified inclusion.
+- Do not assume a major publisher is the strongest competitor for every topic. Topic-level SERP evidence takes precedence over overall domain size.
+
+### 16.6 Comparative scorecard and decision rules
+
+Score each relevant competitor/page cluster on a 1–5 scale, with evidence and confidence attached to every score:
+
+- Search visibility and page-level performance evidence.
+- Intent match and completeness of the answer.
+- Accuracy, sourcing, expertise and safety.
+- Originality and practical usefulness.
+- Visual explanation and interactive utility.
+- Mobile UX, accessibility and technical quality.
+- Internal discovery and related-topic coverage.
+- Trust, transparency and update discipline.
+
+A score without a cited observation is **unscored**, not zero. Do not collapse all dimensions into a single league table unless weights and purpose are explicitly documented. Use the scorecard to identify repeatable strengths, gaps and opportunities—not to copy layouts or wording.
+
+For every proposed HomeProjectWise response, document:
+- What competitors already answer well and what readers can learn from them.
+- What is missing, confusing, outdated, weakly evidenced or difficult to use.
+- The exact improvement we can credibly deliver.
+- What original evidence, test, calculation, diagram, photo or expert review is required.
+- Whether the opportunity is worth the production and maintenance cost.
+- Duplicate/cannibalization risk against our own URLs and tools.
+
+### 16.7 Deliverables, ownership and update cadence
+
+Maintain a competitor register linking to each dossier, plus dated topic-level SERP studies and a concise comparison summary in the operations room. The seven initial major publishers must each receive a dossier; add specialist dossiers as evidence warrants. Do not fabricate a complete top-20 page list when the data source cannot support it: record the limitation and the best defensible proxy.
+
+- **Weekly:** discover relevant specialist domains, refresh priority query samples, note material competitor/page/tool changes, and update the most decision-relevant dossiers.
+- **For each new article/tool proposal:** complete a topic-level competitor study before approval, including 3–5 actual ranking pages (or all relevant results when fewer are available).
+- **Periodic deep review:** complete or refresh all seven major-publisher dossiers in a planned rotation; no claim that all 7 are freshly audited unless each was actually reviewed.
+- **ChatGPT:** independent research, source checking, gap analysis and proposal updates; must identify access limitations.
+- **Claude:** validate inventory/technical feasibility, inspect actual URLs and tools, challenge unsupported weakness claims and check overlap with active work.
+- **Owner:** approves strategic choices, scope changes, production, publishing and merges.
+
+### 16.8 Evidence integrity and prohibited shortcuts
+
+Never invent article counts, page traffic, rankings, keyword ownership, conversion rates, tool functionality, author credentials or competitor weaknesses. Never present domain-wide traffic as traffic to a specific article. Never treat keyword search volume as page visits, indexed URLs as articles, or estimated SEO traffic as measured analytics. Never scrape or bypass access controls in violation of source terms. Respect robots.txt, rate limits, licensing and privacy. If a tool/paywall or analytics account is unavailable, state that limitation and continue with accessible primary evidence where possible.
+
+**Acceptance gate:** a competitor dossier is decision-ready only when its scope, date, method, sources, article-count confidence, page-level evidence, topic sample, tools/formats, strengths, evidenced weaknesses, HomeProjectWise opportunity and unresolved unknowns are all recorded. A competitor list without these dossiers is not a completed competitive analysis.
+
