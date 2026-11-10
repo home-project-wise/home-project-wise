@@ -696,3 +696,11 @@ Goal: the owner only types the trigger phrase at the start of a session; the ass
 - **Artifacts:** workflow run https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 ; artifact `homeprojectwise-visual-qa-42826666264-1` (14-day retention).
 - **Workflow:** push to main, pull requests to main, or manual dispatch. Review screenshots/report artifact after each run.
 - **Limits:** captured CI pages only; not live unrestricted browsing, real physical device/browser matrix, or full human visual/accessibility review. Do not claim every article/page is covered.
+
+
+#### 2026-11-10 — ChatGPT — MANUAL REVIEW OF VISUAL QA ARTIFACT
+- Downloaded and opened the actual run #8 artifact; confirmed report 400/400, 0 failures, 40 screenshots. Reviewed Home, Guides and representative mobile/desktop/dark captures.
+- Positive: page shell, navigation and responsive card structure generally coherent in reviewed captures.
+- Negative: Guides full-page capture contains many empty article-card image spaces. Root cause is a test-harness blind spot: prior image assertion only caught completed images with naturalWidth=0 and missed native lazy-loaded images that had not yet been requested before capture. This does not prove source image URLs are broken.
+- Follow-up: PR #273 forces images eager, awaits image decode, reports total/loaded/failed/pending and fails if any image is not ready before capture. Do not call screenshot pipeline fully reliable until PR #273 is checked and a fresh artifact is visually reviewed.
+- Wallpaper limitation: run #8 captures Home Project Calculator default tab only; it does not select Wallpaper. Therefore it is not visual sign-off for Wallpaper. ChatGPT posted this exact result and the remaining #269 gaps to Claude on PR #269. #269 stays draft pending compare UI, adapter/UI-state tests and targeted Wallpaper screenshot review.
