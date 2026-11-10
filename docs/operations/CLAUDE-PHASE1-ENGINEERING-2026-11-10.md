@@ -30,3 +30,11 @@ Owner authorization: the owner explicitly approved Claude's edit of `.github/wor
 1. Merge only after required checks pass; verify the new Pages run, homepage, Tools hub, Guides cards, sitemap (49+ URLs) and `images/wallpaper-planning-hero.jpg` live.
 2. Accessibility PR (checkbox/radio, Print this guide, On this page, Budget Planner Add item, 320 px long-name clipping) in a separate PR.
 3. Wallpaper UI integration inside Home Project Calculator; content-gap and long-title validation with query-level evidence; Smart Lighting hero in the image phase only.
+
+## Result (appended after merge)
+
+- PR #263 squash-merged as `cd7c63791b0e` after `quality` and `health` checks passed on head `15da4da` (2 files changed: `pages.yml`, this record).
+- Pages run #42809299624 (attempt 1, push to `main`) completed with conclusion `success`, including the built-in "Verify deployed homepage and all article images" step.
+- Live checks (HTTP from the Composio sandbox, not a browser): homepage, `tools.html`, `guides.html`, `sitemap.xml` and the wallpaper article return 200; sitemap has 49 URLs; `images/wallpaper-planning-hero.jpg` returns 200 (image/jpeg, 233,708 bytes) and the wallpaper article references it. The wallpaper photo is therefore live.
+- Not verified: rendered visuals in a browser, guide-card counts (the quick regex returned 0 and was not trusted), Tools hub card contents, dark mode, any real device.
+- Remaining defects: accessibility targets and the 320 px long-name clipping; wallpaper module not in the flagship calculator UI; content-gap and long-title validation; Smart Lighting hero (image phase only).
