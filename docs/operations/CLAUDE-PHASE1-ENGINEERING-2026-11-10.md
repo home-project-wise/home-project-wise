@@ -38,3 +38,19 @@ Owner authorization: the owner explicitly approved Claude's edit of `.github/wor
 - Live checks (HTTP from the Composio sandbox, not a browser): homepage, `tools.html`, `guides.html`, `sitemap.xml` and the wallpaper article return 200; sitemap has 49 URLs; `images/wallpaper-planning-hero.jpg` returns 200 (image/jpeg, 233,708 bytes) and the wallpaper article references it. The wallpaper photo is therefore live.
 - Not verified: rendered visuals in a browser, guide-card counts (the quick regex returned 0 and was not trusted), Tools hub card contents, dark mode, any real device.
 - Remaining defects: accessibility targets and the 320 px long-name clipping; wallpaper module not in the flagship calculator UI; content-gap and long-title validation; Smart Lighting hero (image phase only).
+
+## Accessibility PR #266 — 2026-11-10 (branch `claude/accessibility-targets-2026-11-10`, base `main` 265f1b27)
+
+Scope: CSS and test only. Files: `website/article-overrides.css` (+735 bytes, appended block), `scripts/qa_browser_accessibility_targets.py` (new), this record.
+
+Method: Chromium (Playwright chromium 1254, headless shell, Debian sandbox) against the site built as the Pages workflow builds it (`python scripts/rebuild_site_indexes.py && cat website/article-overrides.css >> website/style.css`).
+
+Findings reproduced on unmodified `main` before any change: inputs 13x13 / 14x18 / 18x18 with label rows 21-26 px (rug, crawl space, bathroom fan, home check-up); `Print this guide` 31 px; `On this page` summary 26 px; `+ Add an item` 21 px.
+
+Long item name: the audit note ("about 15 px at 320 px") was not what I reproduced. A long unbroken item name widens the plan summary and the whole page to a scroll width of 768 px at every viewport up to 768 px. The earlier overflow checks compared `scrollWidth` with `innerWidth`; under mobile emulation `innerWidth` grows to the content, so that comparison cannot detect it. The new test compares with the configured width. Text scrolling inside the input field itself is native input behaviour and was not changed.
+
+Results: new test on unmodified CSS 106 failures of 276 checks (before the landscape sizes were added); with the change 276/276, then 364/364 with 667x375 and 844x390. Existing suites on the modified build: `test_home_calculator.js` all passed; `test_budget_planner.js`, `test_bathroom_fan_calculator.js`, `test_project_estimator_engine.js`, `test_wallpaper_calculator_engine.js` (39), `test_wallpaper_project_estimator_integration.js` (2) passed; `qa_browser_home_calculator.py` TOTAL 53 FAILS []; `qa_browser_four_tools.py` 71 passed 0 failed; `qa_browser_tools_finder.py` TOTAL 34 FAILS []; `qa_browser_budget_planner.py` TOTAL 68 FAILS []; `qa_browser_bathroom_fan_calculator.py` TOTAL 36 FAILS []. `check_site.py`: 3 errors, identical to `main` (the intentional `stop-kitchen-counter-clutter` redirect stub).
+
+Not tested: Safari, Firefox, screen readers, real devices, print preview; screenshots were not reviewed by eye; `check_contrast.js` did not run (no npm/jsdom in the sandbox) although no colours were added; the focus check is Tab reachability plus a computed outline of at least 2 px, not a visual review. Live behaviour after merge is verified separately below.
+
+Remaining defects after this PR: wallpaper module not in the Home Project Calculator UI; header/footer and site-wide focus-visible consistency not measured; content-gap and long-title validation; Smart Lighting hero (image phase).
