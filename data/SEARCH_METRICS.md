@@ -155,3 +155,30 @@ Each Claude session: pull totals and the page and query tables for the last 28 d
 - No Google URL Inspection was run in this refresh. Do not update indexed/unknown/crawled-not-indexed counts from this entry.
 - No sitemap was submitted or changed.
 - Search data is performance evidence, not a direct quality score. Review the exact query/page pairs and live SERPs before editing titles, rewriting pages or approving new articles.
+
+### Google URL Inspection and sitemap — 2026-11-10
+
+Six high-priority article URLs were inspected. All six returned **Submitted and indexed**, `INDEXING_ALLOWED`, `SUCCESSFUL` page fetch, `ALLOWED` robots.txt, mobile crawl, and matching user/Google canonical URLs:
+
+| URL | Last Google crawl |
+|---|---|
+| `what-can-you-plug-into-a-smart-plug` | 2026-10-22 |
+| `macerating-toilet-basement-bathroom` | 2026-10-06 |
+| `reduce-bathroom-condensation` | 2026-10-01 |
+| `how-to-hang-large-wall-art-without-damage` | 2026-10-22 |
+| `where-to-put-water-leak-sensors` | 2026-10-29 |
+| `motion-lighting-that-actually-helps` | 2026-10-22 |
+
+Additional legacy URL check:
+- `stop-kitchen-counter-clutter` remains **Submitted and indexed** with Google canonical still pointing to the old stub URL; last crawl 2026-10-01.
+- Destination `kitchen-counter-zone-that-stays-clear` is also **Submitted and indexed**, canonical matches itself; last crawl 2026-10-22.
+- This confirms Google has not yet recrawled the legacy stub to observe its current meta-refresh/canonical behavior. Preserve both the stub and destination; do not delete or change the URL based on this lag.
+
+Google sitemap `https://home-project-wise.github.io/home-project-wise/sitemap.xml`:
+- `isPending=true`, errors 0, warnings 0, last submitted 2026-11-01 06:20:44 UTC.
+- No sitemap submission was made. Pending with zero errors/warnings is recorded as returned, not treated as a failure.
+
+Inspection caveats:
+- Rich-results output reported Breadcrumbs PASS for these URLs; it is not a complete audit of every structured-data type.
+- Mobile usability returned `VERDICT_UNSPECIFIED`; do not describe it as a pass or fail.
+- Inspection results may lag live changes by several days.
