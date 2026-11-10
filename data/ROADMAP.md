@@ -69,3 +69,18 @@ Current leading pages: smart-plug suitability (133 impressions, 2 clicks, positi
 Next: inspect indexing status for the high-impression URLs; improve existing near-page-one pages before creating overlapping articles; keep the generic tile calculator on hold until a distinct advantage over current competitors is proven.
 
 Indexing follow-up from 2026-11-10: six high-impression articles inspected in GSC are all submitted and indexed with successful mobile fetches and matching canonicals. Crawl dates are stale (macerating 2026-10-06; condensation 2026-10-01; smart plug/large wall art/motion lighting 2026-10-22; leak sensors 2026-10-29). The legacy kitchen redirect stub remains indexed under its old canonical (last crawl 2026-10-01), while the destination is also indexed (2026-10-22). Preserve both and allow recrawl. Google sitemap pending, 0 errors/0 warnings, last submitted 2026-11-01; do not resubmit merely because it says pending.
+
+
+## Owner strategy update — 2026-11-10: topic expansion and publishing cadence
+
+This section supersedes any earlier roadmap language that makes optimizing existing near-page-one articles the default priority over new topic coverage.
+
+1. **Expand topics, not single URLs.** Use GSC signals to discover which SUBJECT AREAS merit deeper coverage. A page with one or two clicks is a clue about a potentially promising topic, not a reason to keep revising that same page. For example, smart-home search traction should prompt research into related smart-home problems, devices, setup, compatibility, troubleshooting, safety and cost questions where genuine search intent exists.
+2. **Target 2–3 high-value articles per day** when research and quality gates support that pace. Build a large library over time, comparable in breadth to strong competitors, while ensuring every page has a distinct purpose and practical solution. Do not force the quota when the evidence or quality is insufficient.
+3. **Research each article before drafting:** primary and secondary keywords/query variants; search intent; current US search results; leading competitor coverage; what is missing or poorly explained; the concrete visitor problem; evidence-backed differentiation; internal overlap/cannibalization; sources; and a practical answer structure. Keep a traceable brief/query map.
+4. **No word-count quota.** Use competitor scope as context, not a template. Article length is determined by the complexity of the problem and the amount of explanation needed for a complete, accurate solution. No padding to hit a target.
+5. **Images are functional editorial assets.** Use one or two high-quality, accurate images or diagrams when they improve understanding, trust or decision-making. There is no minimum image count. Never add irrelevant imagery to meet a quota; never replace existing images without a verified reason.
+6. **Balance expansion and maintenance.** Improve an existing page when a real factual, usefulness, UX or search-intent gap is demonstrated, and when the improvement supports the wider topic cluster. Do not let this work crowd out differentiated new coverage.
+7. **Value Before Publishing remains non-negotiable.** The target is a large library of useful solutions, not mass-produced SEO pages. Every article needs distinct search intent, verified claims/sources, real practical value and a compelling reason to choose HomeProjectWise.
+
+**Initial candidate cluster:** Smart Home. Current GSC signals (smart-plug suitability and motion lighting clicks/impressions) justify investigating the wider cluster. Validate individual subtopics with query data and US SERPs before assigning publication slots; do not infer demand from a single page's clicks alone.
