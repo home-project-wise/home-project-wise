@@ -212,15 +212,14 @@ This addendum supersedes the earlier deployment status and the corresponding "Cl
 
 ### PR and file boundaries at reconciliation
 
-- Open PRs verified: #262 (this audit), #247, #245, #231, #216, #208.
+- Open PRs after this audit merged: #247, #245, #231, #216, #208. PR #262 was squash-merged as `265f1b27c6f2` on 2026-11-10.
 - #263 and #264 are merged. #261 and #260 are merged; wallpaper image is deployed.
 - Do not edit `data/WORK_LOG.md`, `data/AI_COLLABORATION.md`, `data/PROJECT_STATE.md` or `data/daily_routine_log.md` while #245/#247 remain open. After those PRs resolve, reconcile the append-only records once, using this audit and the Claude engineering record as evidence.
-- #262 changes only `data/CONTENT_INVENTORY.md` and this audit file. It is documentation-only; quality and health passed on its exact head at the time of the check. Re-run after this addendum before merge.
+- #262 changed only `data/CONTENT_INVENTORY.md` and this audit file. It was documentation-only and was squash-merged after the updated exact-head `quality` and `health` checks both passed on commit `693befbd94d1`.
 - Protected `.github/workflows/` change for #263 is complete and deployed; do not make further workflow edits without separate owner approval.
 
 ### Immediate next execution order
 
-1. Finish and merge this documentation reconciliation PR only after its updated exact-head checks are green.
-2. Create one focused accessibility PR (CSS and tests only, no image or editorial changes).
-3. Create one focused wallpaper UI integration PR after exact-head Node, adapter, privacy and real-browser tests.
-4. Leave content gap/title research and image replacements as separate workstreams with their existing evidence gates.
+1. Create one focused accessibility PR (CSS and tests only, no image or editorial changes).
+2. Create one focused wallpaper UI integration PR after exact-head Node, adapter, privacy and real-browser tests.
+3. Leave content gap/title research and image replacements as separate workstreams with their existing evidence gates.
