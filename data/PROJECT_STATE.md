@@ -254,3 +254,11 @@ Then update `data/daily_routine_log.md` and this file.
 - ChatGPT prepares complete research briefs; Claude receives only READY FOR CLAUDE items in ordered batches. Each brief includes keyword/query map, intent, GSC evidence where available, US SERP and 3–5 competitor pages, overlap audit, differentiation, sources/safety, practical outline, length rationale, 0–2 purposeful image plan, acceptance tests and scorecard. Threshold: 85/100; critical safety/factual/duplication issues are blockers.
 - Initial Smart Home research queue: SH-001 three-way smart switches (researching), SH-002 LED smart dimmer selection, SH-003 hub vs no hub, SH-004 smart-home standby power, SH-005 Matter/Zigbee/Thread decision. These are candidates only, not publishing approvals. Existing smart-lighting/connectivity content must be checked before creating new URLs.
 - Do not treat the 100-title portfolio as a publication queue; the production queue is the only route into Claude execution.
+
+
+## Operations status — 2026-11-11 (Claude)
+
+- Main now contains the operating charter and portfolio audit (documents only), the production queue (qualified queue empty; SH-001..SH-005 unqualified, provisional decisions recorded), the budget-first estimator specification, the CAO/generative-AI addendum with the dated Search Console baseline, the four-engine and AI-search plans (dated 2026-10-31; the charter and queue win where they differ) and the Wallpaper tab with two-product comparison in the flagship calculator.
+- The public working-charter page and its links were deliberately not merged.
+- Open and unverified: visual and cross-browser review of the Wallpaper tab; #281 (finder routing for wallpaper); issue #129 (image audit and README cadence statement); no candidate article is qualified yet.
+- Planning-only drafts #245 and #247 are superseded by the 2026-11-11 WORK_LOG entry.
