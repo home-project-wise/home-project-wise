@@ -76,3 +76,6 @@
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(36,50,56,.1)}}
 @media(prefers-color-scheme:dark){.card{border-color:#34444b}}
 .card-link{display:block;margin-top:.55rem}
+
+/* Footer newsletter button: the label touched the button edges on phones (seen on a screenshot) */
+.footer-newsletter .newsletter-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;box-sizing:border-box;text-align:center}
