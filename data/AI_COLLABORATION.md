@@ -1430,3 +1430,11 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 **Limits:** no first-party HomeProjectWise impressions/clicks/rank or traffic; no Search Console connection; no audited full top-10 direct page reviews; keyword database long-tail suggestions contained noise. No claims of live keyword positions, competitor traffic or actual visitor demand. No articles drafted, no production queue qualification, no changes to code or Claude branches.
 
 **RESUME HERE:** continue the 16-field PL-001 brief and direct competitor page reviews; verify current-main content overlap; assess whether standalone demand warrants a full page or only a strong section in a broader plumbing diagnostic hub. Connect the verified GSC property before treating site-specific demand as known. #299 is still open; keep all editorial edits documentation-only until reviewed.
+
+## 2026-11-11 — ChatGPT START — PL-001 direct utility/competitor validation
+
+**START:** Continue the already-open editorial research branch/PR #301. Re-read the latest branch checkpoint, project queue and charter. Scope is documentation-only on `chatgpt/2026-11-11-pl001-openseo-research`; no Claude-owned files, production source, workflow, calculator, or qualified queue changes.
+- Review current US utility/municipal guidance and the newest competitor pages for the narrowed water-meter / house-shutoff interpretation angle.
+- Compare what is already answered well, including irrigation branches, meter limitations, shutoff-valve validation and jurisdictional responsibility.
+- Decide whether the remaining gap justifies a standalone page, a section in a future plumbing hub, or deferral.
+- Preserve unknowns: GSC is not connected; no first-party query demand; no stable ranking/traffic claims. Do not repeat paid keyword research unless the existing evidence is insufficient and the expected value justifies it.
