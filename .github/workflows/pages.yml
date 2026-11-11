@@ -33,29 +33,17 @@ jobs:
       - name: Apply article presentation layer
         run: cat website/article-overrides.css >> website/style.css
       - uses: actions/configure-pages@v5
-      - name: Remove stale Pages artifacts from this run
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const artifacts = await github.paginate(
-              github.rest.actions.listWorkflowRunArtifacts,
-              { owner: context.repo.owner, repo: context.repo.repo, run_id: context.runId, per_page: 100 }
-            );
-            for (const artifact of artifacts.filter(a => a.name === 'github-pages')) {
-              await github.rest.actions.deleteArtifact({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                artifact_id: artifact.id
-              });
-              core.info(`Deleted stale artifact ${artifact.id}`);
-            }
       - uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
+          # Attempt-specific name: a re-run never collides with the artifact of a previous attempt,
+          # so no actions:write permission (artifact deletion) is needed.
+          name: github-pages-${{ github.run_attempt }}
           path: ./website
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
       - name: Verify deployed homepage and all article images
         env:
           DEPLOY_URL: ${{ steps.deployment.outputs.page_url }}

@@ -1,0 +1,287 @@
+'use strict';
+
+/*
+ * HomeProjectWise wallpaper quantity engine.
+ * Pure calculation only: no DOM, storage, network, URL, or analytics access.
+ * All dimensions in one call must use the same unit.
+ */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.HomeProjectWiseWallpaper = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  const EPSILON = 1e-10;
+
+  function fail(code, message) {
+    return { ok: false, error: { code, message } };
+  }
+
+  function isFiniteNumber(value) {
+    return typeof value === 'number' && Number.isFinite(value);
+  }
+
+  function floorWithTolerance(value) {
+    const nearest = Math.round(value);
+    return Math.abs(value - nearest) <= EPSILON ? nearest : Math.floor(value);
+  }
+
+  function money(value) {
+    return Math.round((value + Number.EPSILON) * 100) / 100;
+  }
+
+  function estimateWallpaper(input) {
+    if (!input || typeof input !== 'object') {
+      return fail('invalid_input', 'Provide the room measurements and exact product-label dimensions.');
+    }
+
+    if (typeof input.unit !== 'string' || !input.unit.trim()) {
+      return fail('invalid_unit', 'Choose one measurement unit and use it for every dimension.');
+    }
+    if (typeof input.saleUnitLabel !== 'string' || !input.saleUnitLabel.trim()) {
+      return fail('invalid_sale_unit', 'Name the exact sale unit shown on the product label (for example, double roll or package).');
+    }
+
+    const walls = input.walls;
+    if (!Array.isArray(walls) || walls.length === 0) {
+      return fail('walls_required', 'Enter at least one wall width.');
+    }
+
+    const normalizedWalls = [];
+    for (let index = 0; index < walls.length; index += 1) {
+      const wall = typeof walls[index] === 'number' ? { width: walls[index] } : walls[index];
+      if (!wall || !isFiniteNumber(wall.width) || wall.width <= 0) {
+        return fail('invalid_wall_width', `Wall ${index + 1} must have a width greater than zero.`);
+      }
+      normalizedWalls.push({
+        label: typeof wall.label === 'string' && wall.label.trim() ? wall.label.trim() : `Wall ${index + 1}`,
+        width: wall.width
+      });
+    }
+
+    const requiredPositive = [
+      ['wallHeight', input.wallHeight, 'Wall height'],
+      ['rollWidth', input.rollWidth, 'Usable roll width'],
+      ['usableLengthPerSaleUnit', input.usableLengthPerSaleUnit, 'Usable length per sale unit']
+    ];
+    for (const [key, value, label] of requiredPositive) {
+      if (!isFiniteNumber(value) || value <= 0) {
+        return fail(`invalid_${key}`, `${label} must be a number greater than zero.`);
+      }
+    }
+
+    if (!isFiniteNumber(input.trimAllowance) || input.trimAllowance < 0) {
+      return fail('invalid_trim_allowance', 'Enter a non-negative trimming allowance from the product instructions.');
+    }
+
+    const matchType = input.matchType;
+    if (matchType !== 'free' && matchType !== 'random' && matchType !== 'straight') {
+      return fail('unsupported_match_type', "This version supports free/random and straight match only. Use the manufacturer's calculator for half-drop, offset or complex patterns.");
+    }
+
+    if (matchType === 'straight' && (!isFiniteNumber(input.patternRepeat) || input.patternRepeat <= 0)) {
+      return fail('invalid_pattern_repeat', 'A straight-match pattern needs its positive vertical repeat from the product label.');
+    }
+
+    const workingHeight = input.wallHeight + input.trimAllowance;
+    // Conservative straight-match allowance: one full repeat is added after trim.
+    // Product-specific manufacturer instructions/calculators take precedence.
+    const dropLength = matchType === 'straight'
+      ? workingHeight + input.patternRepeat
+      : workingHeight;
+
+    if (!isFiniteNumber(dropLength) || dropLength <= 0) {
+      return fail('invalid_drop_length', 'The calculated drop length is not valid. Check the height, trim and pattern repeat.');
+    }
+
+    const dropsPerSaleUnit = floorWithTolerance(input.usableLengthPerSaleUnit / dropLength);
+    if (!Number.isSafeInteger(dropsPerSaleUnit)) {
+      return fail('quantity_out_of_range', 'The usable sale-unit length is outside the safe calculation range.');
+    }
+    if (dropsPerSaleUnit < 1) {
+      return fail('sale_unit_too_short', 'This sale unit cannot produce one complete drop at the entered wall height and pattern repeat.');
+    }
+
+    const wallResults = normalizedWalls.map(wall => ({
+      label: wall.label,
+      width: wall.width,
+      dropsRequired: Math.ceil(wall.width / input.rollWidth)
+    }));
+    if (wallResults.some(wall => !Number.isSafeInteger(wall.dropsRequired))) {
+      return fail('quantity_out_of_range', 'The entered wall width or roll width is outside the safe calculation range.');
+    }
+    const totalDrops = wallResults.reduce((sum, wall) => sum + wall.dropsRequired, 0);
+    const saleUnits = Math.ceil(totalDrops / dropsPerSaleUnit);
+    if (!Number.isSafeInteger(totalDrops) || !Number.isSafeInteger(saleUnits)) {
+      return fail('quantity_out_of_range', 'The calculated drop or sale-unit count is outside the safe calculation range.');
+    }
+
+    const hasPrice = input.pricePerSaleUnit !== undefined && input.pricePerSaleUnit !== null && input.pricePerSaleUnit !== '';
+    if (hasPrice && (!isFiniteNumber(input.pricePerSaleUnit) || input.pricePerSaleUnit < 0)) {
+      return fail('invalid_price', 'Enter a non-negative price per sale unit, or leave it blank when unknown.');
+    }
+    if (hasPrice && (typeof input.currency !== 'string' || !/^[A-Z]{3}$/.test(input.currency.trim()))) {
+      return fail('invalid_currency', 'Enter a three-letter uppercase ISO currency code for the sale-unit price.');
+    }
+    if (hasPrice && (!Number.isFinite(saleUnits * input.pricePerSaleUnit) || saleUnits * input.pricePerSaleUnit > Number.MAX_SAFE_INTEGER / 100)) {
+      return fail('cost_out_of_range', 'The estimated material cost is outside the safe calculation range.');
+    }
+
+    return {
+      ok: true,
+      unit: input.unit.trim(),
+      matchType,
+      wallHeight: input.wallHeight,
+      trimAllowance: input.trimAllowance,
+      workingHeight,
+      patternRepeat: matchType === 'straight' ? input.patternRepeat : null,
+      dropLength,
+      rollWidth: input.rollWidth,
+      usableLengthPerSaleUnit: input.usableLengthPerSaleUnit,
+      saleUnitLabel: input.saleUnitLabel.trim(),
+      walls: wallResults,
+      totalDrops,
+      dropsPerSaleUnit,
+      saleUnits,
+      pricePerSaleUnit: hasPrice ? input.pricePerSaleUnit : null,
+      currency: hasPrice ? input.currency.trim() : null,
+      materialCost: hasPrice ? money(saleUnits * input.pricePerSaleUnit) : null,
+      assumptions: [
+        'Each wall is rounded up separately; no offcut reuse across corners is assumed.',
+        'Ordinary doors and windows are not deducted automatically.',
+        'The entered sale-unit length and price must describe the same product package.',
+        'For straight match, one full pattern repeat is added after trim as a conservative estimate; follow product-specific manufacturer instructions.',
+        'Complex offset patterns, murals and irregular wall layouts are not calculated.'
+      ]
+    };
+  }
+
+  function estimateWallpaperProject(input) {
+    if (!input || typeof input !== 'object' || !Array.isArray(input.rooms) || input.rooms.length === 0) {
+      return fail('rooms_required', 'Add at least one room with its own wall widths and height.');
+    }
+    const { rooms, ...productInput } = input;
+    const roomResults = [];
+    for (let index = 0; index < rooms.length; index += 1) {
+      const room = rooms[index];
+      if (!room || typeof room !== 'object') {
+        return { ok: false, error: { code: 'invalid_room', message: `Room ${index + 1} is not valid.`, roomIndex: index } };
+      }
+      const estimate = estimateWallpaper({
+        ...productInput,
+        walls: room.walls,
+        wallHeight: room.wallHeight,
+        trimAllowance: room.trimAllowance
+      });
+      if (!estimate.ok) {
+        return { ok: false, error: { code: 'invalid_room', message: `Room ${index + 1}: ${estimate.error.message}`, roomIndex: index, cause: estimate.error } };
+      }
+      roomResults.push({
+        label: typeof room.label === 'string' && room.label.trim() ? room.label.trim() : `Room ${index + 1}`,
+        estimate
+      });
+    }
+
+    const totalDrops = roomResults.reduce((sum, item) => sum + item.estimate.totalDrops, 0);
+    const totalSaleUnits = roomResults.reduce((sum, item) => sum + item.estimate.saleUnits, 0);
+    if (!Number.isSafeInteger(totalDrops) || !Number.isSafeInteger(totalSaleUnits)) {
+      return fail('quantity_out_of_range', 'The combined room quantities are outside the safe calculation range.');
+    }
+    const hasPrice = productInput.pricePerSaleUnit !== undefined && productInput.pricePerSaleUnit !== null && productInput.pricePerSaleUnit !== '';
+    const rawCost = hasPrice ? totalSaleUnits * productInput.pricePerSaleUnit : null;
+    if (hasPrice && (!Number.isFinite(rawCost) || rawCost > Number.MAX_SAFE_INTEGER / 100)) {
+      return fail('cost_out_of_range', 'The combined material cost is outside the safe calculation range.');
+    }
+    return {
+      ok: true,
+      unit: typeof productInput.unit === 'string' ? productInput.unit.trim() : productInput.unit,
+      saleUnitLabel: typeof productInput.saleUnitLabel === 'string' ? productInput.saleUnitLabel.trim() : productInput.saleUnitLabel,
+      pricePerSaleUnit: hasPrice ? productInput.pricePerSaleUnit : null,
+      currency: hasPrice ? productInput.currency.trim() : null,
+      rooms: roomResults,
+      totalDrops,
+      totalSaleUnits,
+      materialCost: hasPrice ? money(rawCost) : null,
+      assumptions: [
+        'Each room is calculated separately using its own wall widths and height.',
+        'Sale units are rounded up per room; leftover roll length is not pooled across rooms.',
+        'No offcut reuse across corners or rooms is assumed.',
+        'All rooms in this estimate use the same wallpaper product and sale-unit specification.',
+        'Ordinary doors and windows are not deducted automatically.'
+      ]
+    };
+  }
+
+  function toProjectBudgetLineItem(estimate, options) {
+    if (!estimate || typeof estimate !== 'object' || estimate.ok !== true) {
+      return fail('invalid_estimate', 'Provide a successful wallpaper estimate before adding it to a project budget.');
+    }
+    if (!options || typeof options !== 'object' || typeof options.id !== 'string' || !options.id.trim() ||
+        typeof options.name !== 'string' || !options.name.trim()) {
+      return fail('invalid_line_item_identity', 'A unique line-item ID and a clear item name are required.');
+    }
+    if (options.required !== undefined && typeof options.required !== 'boolean') {
+      return fail('invalid_required_flag', 'The required flag must be true or false.');
+    }
+    const quantity = Number.isSafeInteger(estimate.totalSaleUnits) ? estimate.totalSaleUnits : estimate.saleUnits;
+    if (!Number.isSafeInteger(quantity) || quantity < 0 || typeof estimate.saleUnitLabel !== 'string' || !estimate.saleUnitLabel.trim()) {
+      return fail('invalid_estimate_quantity', 'The estimate must contain a valid sale-unit quantity and label.');
+    }
+    let price = null;
+    if (estimate.pricePerSaleUnit !== null && estimate.pricePerSaleUnit !== undefined) {
+      if (!isFiniteNumber(estimate.pricePerSaleUnit) || estimate.pricePerSaleUnit < 0 ||
+          typeof estimate.currency !== 'string' || !/^[A-Z]{3}$/.test(estimate.currency)) {
+        return fail('invalid_estimate_price', 'The estimate price must have a non-negative amount and a three-letter uppercase currency code.');
+      }
+      price = {
+        kind: 'user-input',
+        amount: estimate.pricePerSaleUnit,
+        currency: estimate.currency,
+        unit: estimate.saleUnitLabel.trim()
+      };
+    }
+    return {
+      ok: true,
+      lineItem: {
+        id: options.id.trim(),
+        name: options.name.trim(),
+        unit: estimate.saleUnitLabel.trim(),
+        quantity,
+        required: options.required !== false,
+        price
+      }
+    };
+  }
+
+  function compareWallpaperProducts(commonInput, products) {
+    if (!Array.isArray(products) || products.length !== 2) {
+      return fail('two_products_required', 'Provide exactly two product-label sets to compare.');
+    }
+    const comparisons = products.map(product => {
+      const combinedInput = { ...commonInput, ...product };
+      const estimate = Array.isArray(combinedInput.rooms)
+        ? estimateWallpaperProject(combinedInput)
+        : estimateWallpaper(combinedInput);
+      return {
+        productLabel: product && typeof product.productLabel === 'string' ? product.productLabel : 'Wallpaper option',
+        estimate
+      };
+    });
+    const valid = comparisons.every(item => item.estimate.ok);
+    const sameUnit = valid && comparisons[0].estimate.unit === comparisons[1].estimate.unit;
+    const costComparable = sameUnit && comparisons.every(item => item.estimate.materialCost !== null) &&
+      comparisons[0].estimate.currency === comparisons[1].estimate.currency;
+    return {
+      ok: true,
+      products: comparisons,
+      comparable: sameUnit,
+      costComparable,
+      note: !sameUnit
+        ? 'Quantity results can only be compared when both products use the same measurement unit.'
+        : costComparable
+          ? 'Both material costs use the same currency and each product’s stated sale unit.'
+          : 'Quantities are comparable, but a cost comparison needs prices for both products in the same currency.'
+    };
+  }
+
+  return { estimateWallpaper, estimateWallpaperProject, compareWallpaperProducts, toProjectBudgetLineItem };
+});

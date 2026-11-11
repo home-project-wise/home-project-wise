@@ -16,3 +16,6 @@ One line per day: new article / old article improved / look improvement.
 - Next old-article queue: better-evening-home-lighting, smart-lighting
 - Next look queue: dark mode
 
+
+- 2026-11-07 (historical reconciliation): new = how-to-calculate-wallpaper-rolls-pattern-repeat (#244) | improved = where-to-put-water-leak-sensors model-specific placement (#243) | look = homepage calculator discovery/hero CTA (#242). All three merged; manual QA debt retained separately and not represented as passed.
+- 2026-11-10: new = none | improved = how-to-hang-large-wall-art-without-damage (mounting load limits and French-cleat safety, #277 merged) | look = visual QA harness now waits for lazy images to load/decode before screenshots (#273 merged); manual screenshot QA review log recorded (#272 merged).

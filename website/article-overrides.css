@@ -166,3 +166,12 @@ li{break-inside:avoid}
 .calc input[type=text]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid #c9d2ce;border-radius:10px;background:#fff;color:#243238;max-width:100%}
 .r-x{font:inherit;border:1px solid #c9d2ce;background:#fff;color:#243238;border-radius:8px;cursor:pointer;padding:4px 10px}
 @media (prefers-color-scheme:dark){.budget-table th{color:#aeb9bc;border-bottom-color:#8fa0a6}.budget-table td{border-bottom-color:#34444b}.calc input[type=text]{background:#202b30;border-color:#44565e;color:#eef1ee}.r-x{background:#202b30;border-color:#44565e;color:#eef1ee}}
+
+/* Accessibility pass (10 Nov 2026): 24px controls with 44px rows, 44px buttons, wrapping of long user-entered text (WCAG 2.2 SC 2.5.8) */
+body input[type=checkbox],body input[type=radio]{width:24px;height:24px;margin:0;flex:none}
+body label:has(>input[type=checkbox]),body label:has(>input[type=radio]){display:inline-flex;align-items:center;gap:10px;min-height:44px}
+body .calc-checks label{align-items:center}
+body .print-btn{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px}
+body .toc summary{display:flex;align-items:center;justify-content:space-between;min-height:44px}
+body #add-row{display:inline-flex;align-items:center;min-height:44px}
+.calc-out,.calc-out *,.budget-table .r-h{overflow-wrap:anywhere}
