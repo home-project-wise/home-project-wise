@@ -1170,3 +1170,38 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 - **Design (follows the existing Paint/Area convention, so no new pattern):** a "Measurements" select (Metres / Feet, default Metres, so existing behaviour and tests are unchanged) as the first field; length, width and pack coverage are all entered in that one unit (labels show m/m² or ft/ft², updated on change); the area arithmetic is done in the chosen unit with no conversion step (so 10×10 ft, 0%, 20 ft² is exactly 100/20 = 5); the result shows the surface area in the chosen unit with the other unit in brackets, as Paint does; the 1e-10 round-up tolerance stays.
 - **Acceptance:** (a) 12×10 ft, 5%, 20 ft²/pack → 120 ft², 126 ft², 7 packs; (b) 10×10 ft, 0%, 20 → exactly 5; (c) metric parity: the same room entered in metres and in feet gives the same pack count; (d) all existing material tests still pass unchanged; (e) real-browser check at 320/390/desktop, light and dark, with production CSS: no overflow, labels switch, result correct; (f) exact-head CI.
 - **Next action:** build the branch, then log DONE with commit SHA and test output.
+
+
+## 2026-11-11 — Claude QA verification report (owner relayed; recorded by ChatGPT)
+
+**Scope:** PR #293 visual refresh, head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`. This entry records the detailed result Claude reported to the owner and supplied to ChatGPT. ChatGPT did not independently rerun this browser matrix in this session; evidence is attributed to Claude's reported local Playwright/Chromium run.
+
+### Clean production-CSS full-QA and rendered layout measurements
+
+- Claude reports using the production CSS composition (`website/style.css` + `website/article-overrides.css`) and local Chromium/Playwright, comparing #293 against main.
+- Matrix: 3 variants × light/dark × widths 320, 390, 768, 1280 × six calculator tabs = **144 rendered measurements**.
+- Reported: no horizontal overflow, clipping or off-screen elements in the measured cases; no JS errors; all six tabs select exactly one active panel; no tab-card labels clipped; controls at least 48px high except Wallpaper compare checkbox 24×24 inside a 44px label row; Calculate button 312×55 at 390px; visible keyboard focus ring.
+- Reported production dark-mode result: page chrome and calculator panel are coherent when `article-overrides.css` is included. The earlier mixed-light/dark CI screenshot was a harness artifact caused by the CI renderer omitting that stylesheet, not a defect introduced by #293. This conclusion applies to the local production-CSS render, not the current CI artifact or deployed site.
+- Reported contrast minima across all tabs (light/dark): panel heading and field text ≥13.22:1 / ≥12.73:1; selected card and button text ≥13.22:1 / ≥13.72:1; error text 5.74:1 / 6.93:1; formula note 5.57:1 / 8.70:1; input border 3.89:1 / 5.04:1; focus ring 5.94:1 / 6.91:1. These were computed from rendered/computed styles and colour values, not a human visual inspection.
+- Reported behavior comparison: same calculations and validation messages as main across the five non-Wallpaper tabs in light/dark; Wallpaper output/errors also match main; add-wall/add-room and long validation text do not overflow at 320px. Reported test examples: paint 5×4m with 10% and 2.2m²/pack = 10 packs; energy 1500W × 3h × 30d = 135kWh; project 3×120 + 50, 10% + 8% tax = 487.08; wallpaper 12ft wall, 1.75ft roll, 8ft strip and 33ft roll = 2 rolls, total 90.
+- Exact-head CI on #293 head `5c6accf`: `quality`, `chromium-visual-qa`, and `health` all reported success. Earlier run details in room identify run IDs 43004838274, 43004838326 and 130470357082 respectively; the 464/464 Visual QA result does not itself prove visual appearance.
+
+### Limitations and decision status
+
+- Not verified: Safari, Firefox, a physical phone, screen reader, or the currently deployed Pages page. Claude reports it did not personally view screenshots; the QA conclusion is based on DOM/layout/style measurements. Human visual review remains useful for aesthetics.
+- #293 remains **OPEN / NOT MERGED**. It is ready for the owner's merge decision based on the reported checks; this entry does not authorize merge or deployment.
+
+### Flooring & materials imperial units — separate work reported by Claude
+
+- Branch: `claude/flooring-imperial-units`, stacked on #293 branch `claude/calculator-visual-refresh`.
+- Reported commits: `95816a2` (page), `a16cca6` (Node tests), `bd2745a` (browser test).
+- Reported implementation: new Measurements selector, Metres default preserved, Feet option updates labels and calculations, outputs in selected units with equivalent in parentheses; no suggested waste percentage added.
+- Reported tests: 45 Node tests pass; 57 browser checks pass after resolving missing font files in the test environment; 320–1280px light/dark measurements report no overflow and 48px select height. Test vectors: 12×10ft +5%, 20ft²/box = 7 boxes; 10×10ft 0% = exactly 5; metric parity retained.
+- **Not yet complete:** no Flooring PR opened and no CI run on its new commits. Keep it unmerged until a PR is opened and exact-head CI is green. Its base is #293 branch; retarget/rebase to main only after #293 merge as appropriate.
+
+### Remaining work / next checkpoint
+
+1. Owner decides whether to merge #293; no merge performed by this report.
+2. Claude (or next session) opens a separate PR for `claude/flooring-imperial-units`, then checks exact-head CI and records the result.
+3. Continue with explicit START/DONE checkpoints to trace Paint/Flooring quantity handoff to Project cost, tab URL/hash behavior, and the Paint walls-only scope statement. These were not completed in the reported session.
+4. Before any quota/session stop, append RESUME HERE with branch, commit, tests, PR link and exact next action.
