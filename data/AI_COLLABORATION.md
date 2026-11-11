@@ -780,3 +780,10 @@ This owner instruction supersedes any earlier wording that implies we should pri
 - 2–3 articles/day remains conditional on the number of independently qualified briefs. Never manufacture volume.
 - 2026-11-11 first scan: hidden-water-leak diagnosis (PL-001) is still research-only; whole-home air-leak diagnosis (EN-001) deferred due strong authoritative coverage and no distinct angle yet; contractor-quote comparison (PC-001) deferred because free worksheets/tools already compete directly and current estimator lacks full quote normalization. Do not draft or publish these without further evidence and an explicit QUALIFIED decision.
 - Claude handoff remains batched and only receives READY FOR CLAUDE briefs. No candidate is ready today.
+
+
+#### 2026-11-11 — ARTICLE WRITING METHOD AUDIT
+
+Read docs/EDITORIAL-WRITING-METHOD-AUDIT-2026-11-11.md before preparing any new article. Preserve strengths (task-first, actionable sequence, decision support, safety limits, regional nuance), but improve weaknesses: avoid mechanical repeated headings, ensure a concise direct answer where appropriate, cite critical claims close to the claim, prioritize authoritative sources, use diagnostic tables/diagrams when they add value, avoid redundant FAQs and decorative image volume, and never imply hands-on or expert review without evidence. No word or image quota.
+
+PL-001 has had four competitor pages reviewed (Angi, Plumber.com, Bluebot, Pulliam Plumbing) plus EPA WaterSense references. The broad query is competitive. A diagnostic result-interpreting decision tree may differentiate if it separates plumbing supply/drain leaks from roof/weather, groundwater and condensation and states the limits of each test. It remains RESEARCHING; keyword volume/difficulty and fresh GSC query data are still outstanding. Do not draft or promote it yet.
