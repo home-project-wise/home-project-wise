@@ -770,3 +770,13 @@ This owner instruction supersedes any earlier wording that implies we should pri
 - **Quality gate remains mandatory:** Value Before Publishing is unchanged. No invented data, fabricated first-hand experience, unsupported claims, duplicate intent pages or publication merely to hit cadence. Every article must offer a real solution and a clear reason to choose it.
 - **Initial expansion direction:** investigate the Smart Home cluster first because current GSC data shows early search traction for smart-plug suitability and motion lighting. Treat this as a hypothesis to validate with query data and US SERPs, not proof that every smart-home subtopic has demand.
 - **Agent division:** ChatGPT should perform topic discovery, keyword/intent research, competitor/SERP analysis, overlap checks, briefs, source verification and editorial drafting where possible. Reserve Claude for complex implementation, technical review, and independent final checks that materially benefit from its expertise. Batch Claude requests to conserve quota.
+
+
+#### 2026-11-11 — OWNER DIRECTION: QUALIFIED QUEUE ONLY + BALANCED RESEARCH
+
+- The production queue is admission-only: include an article only after complete keyword/intent validation, current US SERP review, 3–5 deep competitor-page reviews, repository overlap/cannibalization audit, defensible differentiation, authoritative sourcing/safety review, practical outline, acceptance checklist and score >=85/100 with no critical blocker.
+- Unqualified candidates do not occupy the production queue and are never sent to Claude. Keep only a small, balanced candidate-investigation register in the portfolio audit. The qualified production queue may legitimately remain empty.
+- Balance research across energy/efficiency, moisture/ventilation, plumbing, maintenance/repair, lighting/smart home and project costs/planning/calculators. No cluster gets automatic priority based on one or two clicks.
+- 2–3 articles/day remains conditional on the number of independently qualified briefs. Never manufacture volume.
+- 2026-11-11 first scan: hidden-water-leak diagnosis (PL-001) is still research-only; whole-home air-leak diagnosis (EN-001) deferred due strong authoritative coverage and no distinct angle yet; contractor-quote comparison (PC-001) deferred because free worksheets/tools already compete directly and current estimator lacks full quote normalization. Do not draft or publish these without further evidence and an explicit QUALIFIED decision.
+- Claude handoff remains batched and only receives READY FOR CLAUDE briefs. No candidate is ready today.
