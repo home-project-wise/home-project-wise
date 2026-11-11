@@ -322,3 +322,54 @@ The potential article must not be another generic “turn off taps and watch the
 - **Research priority for next pass:** PL-001 (finish exact 3–5 competitor dossier and scorecard); DR-001 (compare the strongest competitor outlines and verify lead/fire-rated-wall boundaries); HVAC-001 (determine whether query demand justifies a guide distinct from PNNL/Trane content).
 - Pull fresh US GSC/Bing query exports if available; until then demand is **unknown**, not zero. Capture a complete top-10 SERP with date, result type and URL for the exact primary query before any QUALIFIED decision.
 - Before qualification, complete all 16 brief fields and score using the current charter; minimum 85/100 and no critical factual, safety, overlap or evidence blocker.
+
+
+## 2026-11-11 — second research pass: competitor gaps and editorial differentiation
+
+This pass adds source-level findings from current web results. It does **not** establish keyword volume, ranking difficulty, traffic or GSC demand. Search-result samples are not a complete top-10 capture.
+
+### PL-001 — hidden water leak diagnosis: competitor gap sharpened
+
+**Keep RESEARCHING; NOT READY FOR CLAUDE.**
+
+- EPA WaterSense's homeowner guidance is authoritative for the first-stage checks: compare bills, perform a no-use meter check over two hours, and use a toilet dye test. EPA also distinguishes point moisture sensors from whole-house flow monitoring devices and notes that some in-line shutoff devices are more invasive and may need professional installation: https://www.epa.gov/watersense/home-maintenance ; https://www.epa.gov/watersense/leak-detection-and-flow-monitoring-devices.
+- El Paso Water gives a particularly useful localization procedure: isolate the house using the main shutoff and observe whether the meter still moves, helping distinguish a leak on the house side from the service line side: https://www.epwater.org/residential/services-and-information/leaks-and-property-protection/finding-leaks.
+- Clark County Plumber (Las Vegas/Clark County; updated 2026-09-03) already explains meter and toilet dye tests with an outcome-led flow. This is a strong local competitor, so a generic meter/dye-test article would be weak: https://www.clarkcountyplumber.org/guides/find-a-hidden-water-leak/.
+- DisasterStatus already covers meter test, toilet dye, visible clues and slab-leak escalation in a concise four-minute guide: https://disasterstatus.com/guides/how-to-find-a-water-leak.
+- Plumber.com covers professional acoustic/electronic detection and pressure testing for concealed wall/slab/buried-line leaks: https://www.plumber.com/how-to-guides/find-a-water-leak.
+- **Editorial decision implication:** the differentiator must be a homeowner-safe *decision tree that interprets test outcomes*, not a longer checklist. It should separate (1) meter moves when all uses are off; (2) meter stops after house shutoff; (3) meter still moves after house shutoff; (4) meter stable but a localized moisture symptom persists; and (5) no meter access / shared meter / irrigation / water softener confounders. Pair each branch with the next safe check, what the test cannot prove, and when to stop and call a licensed plumber/utility. Clearly state that a meter test detects flow, not exact location, and that a moisture sensor is not the same as a flow monitor. Avoid advising pressure testing, opening walls, or slab work as DIY.
+- **New overlap caution:** existing PL-001 research must confirm whether the target is broad “find a hidden leak” or narrower “water meter test interpretation”. Do not split into two thin pages. Choose one primary page with a diagnostic flow and supporting sections.
+
+### DR-001 — large drywall-hole repair: competitor gap sharpened
+
+**Keep RESEARCHING; NOT READY FOR CLAUDE.**
+
+- This Old House (updated 2026-06-08) explicitly segments repairs by diameter: mesh for 1/2–1 1/2 in, reinforced patch for 1 1/2–6 in, and wood backing + drywall patch for >6 in. It also describes a California patch and drywall clips in a companion guide: https://www.thisoldhouse.com/walls/how-to-fix-a-hole-in-the-wall ; https://www.thisoldhouse.com/walls/how-to-patch-holes-in-drywall.
+- Ace Hardware (updated September 2026) provides a highly actionable large/extra-large sequence using drywall brackets, fiber mesh tape and three thin coats; warns that compound applied too thickly leaves a raised repair: https://www.acehardware.com/tips/maintenance-repair/how-to-patch-a-hole-in-drywall/.
+- Fine Homebuilding gives trade-level detail: furring/plywood backing or clips, multiple coats, and a different framing approach for very large openings: https://www.finehomebuilding.com/project-guides/drywall/repairing-holes-in-drywall.
+- **Editorial decision implication:** “large hole drywall repair” is already very well covered. A page can only qualify if it solves the choice problem better: hole size *and* edge integrity, access to framing, damaged/soft/wet substrate, existing wall type (drywall vs plaster), and whether the opening crosses studs/services or a fire-rated/shared assembly. A single fixed diameter threshold is not enough; explain that size bands are practical guides and manufacturer kit limits differ. Include a clear pre-cut inspection gate and professional escalation. Do not duplicate the existing cracked-drywall-before-painting content; verify inventory and consolidate the related large-hole candidate into one comprehensive page.
+
+### HVAC-001 — filter size and MERV compatibility: competitor gap sharpened
+
+**Keep RESEARCHING; likely DEFER unless a clear query/use-case gap emerges. NOT READY FOR CLAUDE.**
+
+- Trane's guide already explains filter location, common nominal sizes, actual dimensions often being smaller, and MERV selection: https://www.trane.com/residential/en/resources/troubleshooting/gas-furnaces/furnace-filter-guide/.
+- EPA explains what MERV measures and recommends MERV 13 or the highest rating the system fan and filter slot can accommodate, with professional advice where needed: https://www.epa.gov/indoor-air-quality-iaq/what-merv-rating.
+- DOE/PNNL Building America Solution Center explains that pressure drop depends on filter design/surface area as well as MERV; a high-MERV filter with excessive resistance can reduce airflow and harm system performance. Filter pressure drop must meet system specifications: https://basc.pnnl.gov/resource-guides/high-merv-filters.
+- PNNL's homeowner replacement guide already tells readers to check actual dimensions and thickness, not just nominal size, and explains the airflow direction arrow: https://basc.pnnl.gov/diy-guides/replace-air-filter-located-furnace-or-central-heat-pump-air-filter-slot.
+- **Editorial decision implication:** a generic “choose the right HVAC filter” article would mostly restate Trane/EPA/PNNL. Consider only a focused worksheet/decision guide for recording nominal vs actual L×W×D, filter-slot/cabinet type, system manual's allowable resistance, MERV, airflow arrow and fit/seal. Do not imply that MERV alone predicts pressure drop or that MERV 13 fits every system. If exact query demand or a tool opportunity cannot be demonstrated, DEFER HVAC-001 rather than publish a me-too guide.
+
+### Comparative editorial score — provisional, not final qualification
+
+| Candidate | Differentiation potential | Competition / overlap concern | Editorial direction |
+|---|---|---|---|
+| PL-001 hidden leak | Medium–high if outcome tree and safe localization are genuinely useful | Strong utility/plumber guides already cover meter + dye basics | Prioritize further research; one diagnostic guide, not generic checklist |
+| DR-001 large drywall hole | Medium at best; only if decision/safety workflow is materially better | Very strong This Old House/Ace/Fine Homebuilding coverage; related existing content | Reframe and test demand; likely consolidate with existing drywall repair coverage |
+| HVAC-001 filter size/MERV | Low–medium | EPA/PNNL/Trane already authoritative and comprehensive | Defer unless exact query evidence supports a unique worksheet/tool |
+
+Scores are qualitative editorial judgments, not keyword difficulty or traffic metrics. No candidate has passed the 16-field brief, 85/100 gate, exact URL-overlap audit or full top-10 SERP capture. No article should be drafted from this section alone.
+
+### Research priority update
+1. PL-001 first: capture exact top-10 SERP for the chosen primary query; complete competitor page comparison and the outcome-based diagnostic tree; check for local utility variants that may reveal query clusters.
+2. DR-001 second: compare exact SERP and verify whether “large hole” is a distinct intent from general drywall patching; otherwise merge into an existing comprehensive repair guide.
+3. HVAC-001 third: hold/defer pending query-level demand; do not spend drafting resources on a generic filter guide.
