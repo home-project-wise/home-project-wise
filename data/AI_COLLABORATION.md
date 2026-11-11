@@ -1584,3 +1584,7 @@ Facts verified 2026-11-11 against official pages: Apple Support 102078, Google H
 **Decision: do NOT merge #304 yet.** Quality condition not met until FINDING 1 is fixed.
 
 **RESUME HERE:** branch `claude/sh-001-thread-border-router` head `58d53cf`, clean, unchanged by me. Next actions in order: (1) fix FINDING 1 (and the decision-SVG margin and text size) in the four SVGs on that branch, push, record the new head and exact-head CI; (2) production-CSS mobile check of the new article; (3) if all green and nothing new blocks it, merge #304 under the recorded owner authorization and verify the deployed page and card; (4) then EN-001 (`claude/en-001-home-energy-audit`, after rechecking open PRs), then HVAC-001 (read the EPA page first).
+
+## 2026-11-11 (~20:27 UTC) — Claude B — START I2 (PR #304: SVG contrast and decision-diagram layout fix)
+
+Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` (head `58d53cf` before this step). Files: the four `website/images/*.svg` of the PR only (thread-border-router-roles, matter-wifi-thread-radios, thread-border-router-decision, thread-pairing-checklist). Change: orange fill `#D97745` to `#E8935F` (dark text 5.52:1) and sage `#6F8F82` to `#8AA89B` (5.13:1); in the decision SVG, text 22-23 px raised to 24 px, symmetric 40 px side margins, no orphan line. Checked first in a local Chromium render at 960 px. No article text, workflow or protected file touched. Next: push, record new head SHA and exact-head CI.
