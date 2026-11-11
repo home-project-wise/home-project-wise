@@ -83,15 +83,16 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <h2>Flooring, tile and material packs</h2><p>Use this for products sold by pack, box, roll or container when the label states how much area one unit covers.</p>
 <form class="calc" id="material-form" novalidate>
 <div class="calc-grid">
-<div class="calc-field"><label for="material-length">Floor / surface length (m)</label><input id="material-length" type="number" min="0" step="any" required></div>
-<div class="calc-field"><label for="material-width">Floor / surface width (m)</label><input id="material-width" type="number" min="0" step="any" required></div>
-<div class="calc-field"><label for="material-coverage">Coverage per pack (m²)</label><input id="material-coverage" type="number" min="0" step="any" required placeholder="From product label"></div>
+<div class="calc-field"><label for="material-unit">Measurements</label><select id="material-unit"><option value="m">Metres</option><option value="ft">Feet</option></select><small>Enter both sizes and the pack coverage in this unit.</small></div>
+<div class="calc-field"><label for="material-length">Floor / surface length (<span class="material-len-unit">m</span>)</label><input id="material-length" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="material-width">Floor / surface width (<span class="material-len-unit">m</span>)</label><input id="material-width" type="number" min="0" step="any" required></div>
+<div class="calc-field"><label for="material-coverage">Coverage per pack (<span class="material-area-unit">m²</span>)</label><input id="material-coverage" type="number" min="0" step="any" required placeholder="From product label"></div>
 <div class="calc-field"><label for="material-waste">Extra allowance (%)</label><input id="material-waste" type="number" min="0" max="50" step="any" value="10"></div>
 <div class="calc-field"><label for="material-price">Price per pack (optional)</label><input id="material-price" type="number" min="0" step="any" placeholder="Your local price"></div>
 <div class="calc-field"><label for="material-currency">Currency symbol</label><input id="material-currency" type="text" maxlength="5" value="$"></div>
 </div><p class="calc-error" id="material-error" role="alert"></p><button class="calc-btn" type="submit">Estimate packs needed</button>
 </form><div class="tool-result" id="material-result" aria-live="polite"></div>
-<p class="formula">Formula: surface area = length × width; required packs = round up[(area × (1 + allowance)) ÷ coverage per pack]. Check pack coverage, pattern matching, cuts, substrate and supplier return rules before ordering.</p>
+<p class="formula">Formula: surface area = length × width; required packs = round up[(area × (1 + allowance)) ÷ coverage per pack], all in the unit you select (metres or feet). Check pack coverage, pattern matching, cuts, substrate and supplier return rules before ordering.</p>
 </section>
 <section class="tool-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
 <h2>Electricity running cost</h2><p>Estimate the energy use and running cost of one appliance from its rated wattage, daily use and your electricity tariff.</p>
@@ -302,11 +303,14 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
  show('paint-result',html);
 });
+function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
+byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
 byId('material-form').addEventListener('submit',function(e){e.preventDefault();error('material-error','');show('material-result','');
  if(!validPositive(['material-length','material-width','material-coverage'])){error('material-error','Enter positive dimensions and coverage per pack from the product label.');return;}
  if(!validNonNegative(['material-waste','material-price'])||value('material-waste')>50){error('material-error','Allowance must be 0–50%, and price cannot be negative.');return;}
  var area=value('material-length')*value('material-width'),allow=value('material-waste')/100,needed=area*(1+allow),packs=Math.ceil(needed/value('material-coverage')-1e-10),price=byId('material-price').value===''?null:value('material-price');
- var html='Surface area: <strong>'+fmt(area)+' m²</strong><br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' m²<br>Required: <strong>'+packs+' pack(s)</strong>';
+ var ft=byId('material-unit').value==='ft',au=ft?'ft²':'m²',ou=ft?'m²':'ft²',other=ft?area*0.09290304:area/0.09290304;
+ var html='Surface area: <strong>'+fmt(area)+' '+au+'</strong> ('+fmt(other)+' '+ou+')<br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' '+au+'<br>Required: <strong>'+packs+' pack(s)</strong>';
  if(price!==null){if(!Number.isFinite(price)||price<0){error('material-error','Price cannot be negative.');return;}html+='<br>Estimated material cost: <strong>'+money(packs*price,byId('material-currency').value)+'</strong>';}
  show('material-result',html);
 });
