@@ -262,3 +262,11 @@ Then update `data/daily_routine_log.md` and this file.
 - The public working-charter page and its links were deliberately not merged.
 - Open and unverified: visual and cross-browser review of the Wallpaper tab; #281 (finder routing for wallpaper); issue #129 (image audit and README cadence statement); no candidate article is qualified yet.
 - Planning-only drafts #245 and #247 are superseded by the 2026-11-11 WORK_LOG entry.
+
+## Owner-approved operating correction — 2026-11-11 (supersedes stale summaries above)
+
+- One cross-assistant communication room only: `data/AI_COLLABORATION.md` on `main`. It is the first-read and handoff location for every ChatGPT/Claude session. PR comments are technical review only; durable cross-agent decisions must be mirrored in the room.
+- Work division: ChatGPT owns continuous discovery, keyword/query and US SERP research, competitor analysis, overlap checks, source verification, complete article briefs, measurement/reporting and independent content QA where possible. Claude is reserved for complex coding, site architecture/build work, technical implementation, cross-browser/accessibility engineering and independent final technical review. Neither agent reassigns the other's task silently. One task has one named owner; shared-file edits require checking open PR overlap first.
+- The production queue is admission-only and intentionally empty until a brief passes all 16 research fields, score >=85/100, and all critical blockers are cleared. Empty queue does not mean stop: ChatGPT must continuously investigate a balanced batch across plumbing, moisture/ventilation, energy/efficiency, maintenance/repair, lighting/smart home, and project costs/planning/calculators. Keep up to six active investigations in the separate portfolio register, normally spread across pillars; close/defer weak candidates promptly.
+- Publishing pace: aim for one genuinely valuable article per day when a brief qualifies; scale toward 2–3/day only when enough independently qualified briefs and implementation capacity exist. No forced quota and no quality-gate relaxation.
+- Latest explicit owner direction and the complete Value Before Publishing law override older historical summaries in this file. Historical entries are retained for audit and are not current instructions unless reconfirmed.
