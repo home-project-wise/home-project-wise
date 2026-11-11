@@ -273,3 +273,59 @@ The potential article must not be another generic “turn off taps and watch the
 6. Escalation: active spreading water, ceiling bulging, water near energized equipment, sewage, suspected slab/service-line leaks, structural damage or concealed persistent moisture require stopping DIY checks and contacting the utility/qualified professional as appropriate.
 
 **Still required before qualification:** re-open and verify all 3–5 competitor pages used for the final dated SERP dossier; complete a query-level GSC check if a fresh export becomes available (currently unavailable; absence is not zero demand); complete the 16-field brief and scorecard; independently check exact article/URL overlap on current main. No keyword volume, ranking, traffic or demand number is asserted. Do not add PL-001 to the qualified production queue yet.
+
+## 2026-11-11 — PL-001 query demand and focused SERP study (ChatGPT / OpenSEO)
+
+**Status: RESEARCHING — not qualified; do not draft yet.** Market: United States, English; desktop SERP capture through OpenSEO on 2026-11-11. OpenSEO project: HomeProjectWise (project ID bfc2efa7-1372-48f2-be31-5e3c1878547f). Search Console is not connected; no first-party impressions/clicks/queries are available. The website setup crawler could not read either the current Pages site or the GitHub Pages calculator URL, so automated site overview and automatic competitor discovery did not complete.
+
+### Metric evidence (DataForSEO via OpenSEO; estimated monthly volume)
+- `water leak test`: **260**, KD **22**, informational intent, CPC **$27.43**, paid competition **0.89 (high)**. Monthly trend is mostly 260–390 in the returned 2022–2026 rows; do not equate CPC/paid competition with organic ranking difficulty.
+- `how to find water leak between meter and house`: **30**, KD **1**, informational intent, CPC **$7.45**, paid competition **0.52 (medium)**. The returned monthly series is small (mostly 20–50 in recent years, with some historical 90 values).
+- Earlier seed suggestions returned `how to find a hidden water leak`: 20; `water meter leak test`: 40; `water meter test`: 390 in a broad seed suggestion set. These are separate keyword rows and must not be added blindly; close variants and topic overlap can cause shared/grouped demand. `water meter still moving` returned null/no usable demand.
+- The broad-seed suggestion list included obvious irrelevant terms (e.g. water pumps and unrelated water queries). Treat long-tail discovery as noisy; retain only manually relevant terms and verify each separately before making a volume claim.
+- No traffic, rank, impressions, clicks, conversion or HomeProjectWise performance number is asserted.
+
+### US SERP evidence sample (three repeated reads merged by OpenSEO; `bestPosition` is the best position observed in any read, not a stable rank)
+- `how to find a hidden water leak`: sample included Benjamin Franklin Plumbing, Call Waldrop, Universal Home Experts, Just Plumbing AZ, Cold Is on the Right and Riteway AC, plus public discussion/video/AI Overview features. The top result title was a generic Q&A about hidden leak detection; local service businesses recur.
+- `water meter still moving after main shut off`: sample included r/Plumbing, MyWater, ABV Plumbing and DIY forums. MyWater is a utility-style educational result; ABV Plumbing provides a reason-based list. This query is troubleshooting-oriented but has no confirmed search volume.
+- `water meter moves when all water is off irrigation`: sample included Superior Plumbing, The Leak Hunter, a DIY irrigation thread, DIY StackExchange, social discussions and additional service pages. Irrigation is an important confounder, but not a demonstrated high-volume cluster.
+- `how to tell if water leak is between meter and house`: sample included Johnson Comfort, Shafer Services, MyWater, Donovan AC and Roto-Rooter, alongside owner questions. The SERP is mixed between service intent and diagnostic learning.
+- `water meter leak indicator moving with valves off`: Sinton, Texas utility guidance appeared and described flow between the meter and shutoff valve; Saving Water explains that a meter stopping after the house shutoff points to an inside-house leak. This supports precise valve-position diagrams and jurisdiction-aware caveats.
+- OpenSEO results were merged across three reads; their `rank` is an aggregation order, not Google rank. Some Google redirect URLs obscured direct destinations. This is a dated SERP sample, not a full manual review of every result page.
+
+### Editorial conclusion — narrower scope, weaker commercial case than initially assumed
+PL-001 should **not** be a broad “how to find a hidden water leak” article as a standalone priority on the present evidence. Generic hidden-leak checklists are already served by utility/plumber pages, and the broad seed only shows 20 estimated monthly searches. The phrase family around `water leak test` has stronger observed demand (260) but broader ambiguous intent and high paid competition. The meter-to-house phrase has low estimated demand (30) but a clear informational need and low estimated organic difficulty (1).
+
+**Revised candidate:** one compact, exceptionally clear diagnostic guide/decision tree provisionally titled “What It Means When Your Water Meter Keeps Moving”. Its core value must be the safe interpretation sequence:
+1. Verify that all indoor and outdoor water uses are truly off; explicitly check irrigation, automatic pool/top-up systems, water softeners, refrigerator/ice maker and other scheduled/automatic uses where installed.
+2. Confirm the meter's low-flow indicator and allow for intermittent cycling; distinguish continuous movement from a brief pulse.
+3. Close only the homeowner-accessible house main shutoff (never manipulate a utility-owned meter valve or sealed fitting); observe the meter again.
+4. Explain what stopping vs continuing movement suggests, without claiming exact leak location or certainty; if it continues, the segment between meter and house may be implicated, but utility ownership and meter/valve layout vary by jurisdiction.
+5. If the meter stops after the house shutoff, check accessible toilets/fixtures and visible connections; use dye testing for toilets only as an appropriate targeted check.
+6. If the meter is stable but moisture persists, explain that a water-meter test cannot rule out drain leaks, rain/groundwater intrusion, condensation or intermittent events.
+7. Escalate active leaks, water near electricity, ceiling swelling, sewage, suspected slab/service-line leaks, inaccessible valves or unclear ownership to the utility/licensed professional.
+
+**Original asset required:** a simple, original split-flow diagram showing utility meter → property-side main shutoff → house branches, with inside-house vs meter-to-house/service-line outcomes. Accompany it with a concise diagnostic table stating what each result suggests, what it does not prove, and the next safe action. Do not include a fake universal valve layout; label the diagram conceptual and note local arrangements vary.
+
+### Candidate score (provisional, 100-point charter scale; blocked pending the full 16 fields)
+- Reader problem and intent definition: 14/15
+- Evidence/source quality: 17/20
+- Differentiation: 13/20
+- Search demand and feasibility: 8/15 (partial metrics only, mixed intents, no GSC)
+- Safety and accuracy plan: 17/20
+- Internal overlap/production feasibility: 6/10 (exact current-main overlap check not yet completed)
+- **Provisional total: 75/100 — below 85; NOT READY FOR CLAUDE.**
+This is a screening score, not a final qualification score. Missing evidence includes full 16-field brief, direct page reviews for 3–5 exact SERP competitors, stable URL/rank captures, complete live inventory/overlap audit, expert review path, and first-party demand after Search Console connection.
+
+### OpenSEO setup and limitations
+- Created HomeProjectWise project for US/en and saved two measured candidates: `water leak test` (260/KD22) and `how to find water leak between meter and house` (30/KD1).
+- Added five initial publisher/retailer competitor records from the operating charter (This Old House, The Spruce, Family Handyman, Bob Vila, Lowe's); specialist utilities and plumbers remain to be added from topic evidence.
+- No Google Search Console accounts are connected. Project setup crawler could not read the provided website URLs, so no automatic site overview or competitor discovery was completed.
+- Credits remaining were not rechecked after paid research calls; do not assume the original balance remains.
+
+### RESUME HERE
+1. Complete the exact 16-field brief and direct competitor page reviews for the water-meter diagnostic angle.
+2. Search current main inventory for water, leak, plumbing and utility-related overlap (the old 30-guide snapshot is not enough).
+3. Decide whether modest standalone query demand justifies a full article or whether this is a section in a larger plumbing diagnostics hub.
+4. Connect the verified Search Console property and rerun demand/striking-distance analysis; do not qualify above 85 without it unless strong alternative demand evidence exists.
+5. Keep DR-001 and HVAC-001 in research/defer status. No article assignment to Claude yet.
