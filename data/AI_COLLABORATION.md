@@ -1135,3 +1135,27 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 4. Then, as a separate PR with a fresh CLAIM: Flooring & materials imperial units (test vectors in the room).
 
 **Locks and exclusions (unchanged):** `website/home-project-calculator.html` locked to Claude until #293 is merged/closed. Not touched: `scripts/visual_qa.py`, `.github/workflows`, `website/article-overrides.css`, Awin links, `.editorial-freeze`, articles, queue. Room entries are appended to `main` as docs-only commits; code goes only to task branches/PRs and merges stay with the owner.
+
+## 2026-11-11 — Claude — DONE (Step 1–3: PR #293 verified in a real browser with production CSS; no code change needed)
+
+**Status: #293 verified at "real Chromium, production-faithful CSS, local" level. Still OPEN, NOT merged. Merge decision: owner.**
+
+**START (logged retroactively in the claim above): test whether the dark-mode inconsistency ChatGPT saw is a defect in #293 or a harness artifact.**
+
+**What I did (all local, run by me, Playwright + Chromium 1.x in a remote sandbox; I still cannot view images, so everything below is computed from the live DOM, not eyeballed):**
+- Built two local copies of the site files: `prod` = `website/style.css` + `website/article-overrides.css` concatenated (what the Pages workflow deploys) and `ci` = `style.css` only (what the CI visual-QA harness serves). Plus the two engine scripts the page loads. Rendered the #293 head (`5c6accf`) and current `main` file in both.
+- Grid: 3 variants × light/dark × widths 320/390/768/1280 × all six tabs = **144 measurements**.
+
+**Findings (evidence level: local, rendered in Chromium; not Safari/Firefox; not a physical device):**
+1. **ChatGPT's dark-mode finding is reproduced and is a harness artifact, not a defect in #293.** `ci` + dark: body background stays light (`rgb(247,245,240)`) while the calculator panel is dark (`rgb(32,43,48)`) — exactly the mixed look in the CI screenshot. Cause: `style.css` has no `prefers-color-scheme` rules at all; all dark page chrome lives in `article-overrides.css`, which the CI harness does not append. `prod` + dark: body `rgb(24,33,38)`, panel `rgb(32,43,48)`, text `rgb(238,241,238)` — coherent. So the CI dark screenshot is not production-faithful; do not use it to reject #293. (Fixing the harness means `scripts/visual_qa.py` or workflows, both locked; owner decision.)
+2. **#293 fixes a real production bug present on `main` today.** `prod` + dark on current `main`: the tool panel is white (`rgb(255,255,255)`) while the panel heading is light (`rgb(238,241,238)`) → contrast **1.14:1**, i.e. the heading is effectively invisible in dark mode. Same measurement on #293: heading 12.73:1 on a dark panel.
+3. **No layout defects on #293 (prod CSS).** Document horizontal overflow = 0 and no off-screen element at 320/390/768/1280, light and dark, on every tab; no tab-card label clipped (320px cards 135×84–97 px, 6-up on desktop); exactly one active panel at a time; no JS errors. Inputs 48 px high, Calculate button 312×55 at 390 px (full width), keyboard focus ring present (3 px solid, light `rgb(47,111,88)` / dark `rgb(240,160,122)`; Wallpaper controls 2 px `rgb(141,184,166)` from the page's own rules). Smallest control on any tab: the Wallpaper compare checkbox, 24×24, inside a 44 px-high label row (tap area is the label).
+4. **Contrast, measured from computed styles (prod, light / dark minimum across all tabs):** panel heading and field text ≥ 13.22 / ≥ 12.73. (Matches the token arithmetic in the earlier handoff.)
+5. **Behaviour is unchanged in a real browser.** For the five non-wallpaper tabs I filled identical inputs on `main` and on #293 at 320 px, light and dark, clicked Calculate and compared: **result text and empty-form error text identical on every tab/scheme**. Hand-checked: 5×4 m, 10% allowance, 2.2 m² per pack → 22 m² → 10 packs; energy 1500 W × 3 h × 30 d = 135 kWh; project 3 × 120 + 50 = 410, +10% = 41, tax 8% of 451 = 36.08 → 487.08; Wallpaper 12 ft wall, 1.75 ft roll → 7 strips, 8 ft strips, 33 ft roll → 4 per roll → 2 rolls, ×45 = 90. Wallpaper result and error text also identical to `main`; Add wall / Add room at 320 px causes no overflow; long Wallpaper validation message (169 px tall at 320) wraps cleanly.
+6. Exact-head CI on `5c6accf` is complete: `quality`, `chromium-visual-qa`, `health` all `success`.
+
+**What is still NOT verified:** Safari, Firefox, a physical phone, a screen reader; the deployed Pages page; any visual judgement of aesthetics (I measured, I did not see). The two design-brief items still open (one-line purpose under each card; grouping inputs into labelled steps) are polish, not blockers.
+
+**Code change this step:** none. #293 needs no further commit.
+
+**Next action / recipient:** Owner: #293 is ready for a merge decision (no conflict: branch is ahead 1 / behind 1 with the behind commit docs-only). If merged, someone should look at the deployed page once. Claude: starting Flooring & materials imperial units next under its own CLAIM, as a PR stacked on #293 so it cannot conflict with it.
