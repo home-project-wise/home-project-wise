@@ -176,3 +176,81 @@ Then update `data/daily_routine_log.md` and this file.
 - Owner standing authorization (restated 2026-11-01): Claude and ChatGPT act without asking whenever the work serves the project and does not harm it; the gates (Value Before Publishing, 85/100 threshold, editorial freeze, Awin, workflows, 2026-11-05 baseline) still apply.
 - Google Search Console and Bing Webmaster Tools are connected through Composio; numbers live in data/SEARCH_METRICS.md. Indexing is the current bottleneck: 21 URLs unknown to Google, key pages last crawled before our edits.
 - New plan section: assets other sites need from us (docs/CAO-INTEGRATION.md section 8).
+
+## Update 2026-11-01 (session 18)
+- stop-a-drafty-door brought back inside the quality gate (PR from claude/drafty-door-gate, layout only). Remaining gate failures: musty towels, wobbly furniture, evening lighting, wifi outage test, motion lighting. Open draft PRs by ChatGPT: #208, #214 (home project calculator and tools.html), #216; none merged by Claude. Constraint unchanged: no homepage or route-template implementation before the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-02 (session 23)
+- Merged #226 (motion-lighting) and #227 (fix-wobbly-furniture, new SVG): quality_gate.py --all passes on every article except the intentional redirect stub. The gate-repair queue is finished. ChatGPT's reactivation handoff is on main (#223 closed as superseded after a conflict). Open PRs: #208, #214, #216 (ChatGPT drafts), #221 and #222 (my patches for #214/#216, waiting for ChatGPT). Constraint unchanged: no homepage or route-template work before the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-03 (session 24)
+- Open PRs: #208, #214, #216, #228, #230 (ChatGPT drafts), #221 and #222 (my patches, #222 accepted by ChatGPT, to be integrated into #216), #225 (ChatGPT, calculator cost benchmark docs), #229 (single calculator implementation, supersedes #214/#221). Nothing merged today.
+- #229 at bb4e926: ChatGPT's blank-field finding fixed, Node suite and the exact committed Playwright script pass (53/53, desktop and mobile), quality and health green. Waiting for ChatGPT's re-review and the owner's go-ahead; it adds a tool page and regenerated hubs inside the measurement window.
+- Search Console (final data): 432 impressions, 1 click, position 19.96 for 2026-10-06 to 10-31; 446 for 2026-09-20 to 10-31 versus the 414 logged on 2026-11-01 (both kept). Indexing unchanged: 23 indexed, 21 unknown, 1 crawled-not-indexed. Details in data/SEARCH_METRICS.md.
+- Constraint unchanged: no homepage or route-template work before the 2026-11-05 Search Console comparison.
+
+## Update 2026-11-03 (session 25)
+- Open PRs: #229 (calculator, technically accepted, unmerged), #231, #232, #233 (ChatGPT drafts; #233 conflicts with main). #214, #221, #225, #228, #230 closed, #222 merged.
+- #232 (budget-estimator engine) reviewed read-only: four reproduced defects posted on the PR (nothing-priced estimate passes the budget check, unit price rounded to cents before multiplying, assessBudget trusts a forged estimate, provenance dates not validated). Awaiting ChatGPT.
+- Constraint unchanged: no homepage or route-template work, and no merge of #229, before the owner's 2026-11-05 Search Console comparison.
+
+
+## Update 2026-11-07 (ChatGPT-led operations; Claude final review on return)
+
+- Owner's operating direction: ChatGPT is the active operator while Claude is unavailable; Claude returns as final independent reviewer. Keep work moving in parallel: flagship calculator visibility and feature development, one genuinely useful article per day, competitor research, and site UX. Quality gates must accelerate the pipeline, not halt unrelated work. Do not publish weak work to satisfy cadence; keep blocked items moving in the backlog.
+- Confirmed current open drafts: #242 homepage calculator visibility and #243 water-leak-sensor placement. Both edit AI_COLLABORATION.md and WORK_LOG.md; these shared files are intentionally excluded from the current independent task until the PRs are resolved.
+- New vertical slice prepared on branch chatgpt/wallpaper-roll-planning-2026-11-07: wallpaper-planning article, original SVG illustrations, guide-library card, sitemap entry, and research-backed product requirements for adding wallpaper roll planning to the existing flagship calculator. This is a draft PR only; article publication, merge and deployment await exact-head CI, editorial/visual QA and final review.
+- Calculator product decision: do not create a duplicate standalone wallpaper calculator. Add it to the flagship calculator only after the formula/test contract is independently validated. MVP supports free/random and straight match with exact product-label dimensions; half-drop/complex match, murals and live prices remain unsupported until validated.
+- Next active queue: (1) exact-head checks and review for this wallpaper slice; (2) continue calculator visibility PR #242 through desktop/mobile/accessibility verification; (3) prepare the next differentiated calculator feature slice; (4) choose the next daily article from verified visitor need and competitor gaps; (5) reconcile WORK_LOG.md and AI_COLLABORATION.md after #242/#243 are resolved.
+
+
+- Further implementation progress on PR #244: added isolated pure calculation engine at website/wallpaper-calculator-engine.js and scripts/test_wallpaper_calculator_engine.js. Local Node 22.16.0 run: 39/39 tests pass, covering the worked example, free/random and straight match, exact/near repeat boundaries, complete-drop rounding, independent wall rounding, zero/unknown prices, required unit/package/currency labels, invalid inputs, unsupported half-drop, metric/imperial equivalence and two-product comparison. Engine is not yet integrated into the visible calculator; exact PR-head rerun and Claude review remain required.
+
+- Formula correction on PR #244: after checking the manufacturer guidance, the straight-match drop length now uses a conservative one-full-repeat allowance after trim (wall height + trim + repeat), not rounding the working height to a repeat multiple. The worked example is now about 10.167 ft per drop, still 3 full drops per 33-ft sale unit and 12 sale units. The article, SVG, engine, test suite and feature spec were updated together; 39 local Node tests were rerun successfully. Product-specific manufacturer instructions remain authoritative.
+
+- Wallpaper feature competitor review expanded after checking Calcs24, CalcTools UK, PlainTools, Layout Foundry and Calk-USA. Basic roll math, manual price, multi-room input, unit conversion and export already exist elsewhere; do not call those alone unique. The defensible direction is integration into whole-project budgeting, multi-room roll totals, currency-safe product comparison and future verified regional cost ranges. Added a multi-room engine wrapper that rounds packages per room and never pools leftovers; 34 local Node tests pass.
+
+- Wallpaper engine now exports a project-budget adapter compatible with Project Estimator Engine 1.0.2. It maps total sale units and exact package label into a line item, maps manual price as user-input, and preserves unknown prices as null. Currency input now requires a three-letter uppercase code. Local Node suite expanded to 39/39 passing tests.
+
+- Added scripts/test_wallpaper_project_estimator_integration.js to verify the wallpaper adapter against Project Estimator Engine 1.0.2: manual package prices become user-input line items, and unknown prices remain null and block a misleading budget verdict. This 2-case integration harness is committed but still requires an exact-head run by Claude; the separate wallpaper engine suite has 39/39 local passes.
+
+
+## Always-on visual QA — verified operational (2026-11-10)
+- PR #270 introduced Chromium/Playwright visual QA; PR #271 fixed the first post-merge run's two observed causes: GoatCounter SRI console errors and a 2px Budget Planner mobile overflow.
+- Verified run #8 on main: https://github.com/home-project-wise/home-project-wise/actions/runs/42826666264 — SUCCESS, 400/400 checks, zero report failures, 40 full-page screenshots uploaded.
+- Covered pages: Home, Guides, Tools, Home Project Calculator, Budget Planner, Search and About; light/dark; mobile and desktop viewport matrix as configured. Download artifact from the run (artifact id 13770300034; 14-day retention).
+- Agents can now inspect the captured screenshots and QA report without requiring the owner to record routine phone/desktop videos for those covered pages. This is artifact-based review after each CI run, not unrestricted live browsing or a substitute for real-device/Safari/Firefox/screen-reader testing or human visual judgment. Expand page coverage as needed.
+
+
+## Update 2026-11-10 (session 34 — current operational state)
+
+- Main head: `dd452b1bc99fdd7db98e448d64dd916d4d5ac173` after merging research-only PR #274 and safety correction #277. PR #273 merged the lazy-image loading/decode correction in the visual QA harness; PR #272 merged the manual review record for run #8. Main-head quality, health and Chromium visual QA checks all passed.
+- Visual QA limitation remains explicit: configured CI pages/viewports only; not every article, physical Android/iOS device, Safari/Firefox, screen-reader or complete human design review.
+- Search baseline and indexing refresh were merged to main through PR #274: GSC 2026-10-11–11-07 = 800 impressions, 4 clicks, CTR 0.50%, position 17.13; prior consecutive 28 days = 43 impressions, 0 clicks, position 38.33. Six high-priority pages are submitted/indexed with successful mobile fetch and matching canonicals, but crawl dates range 2026-10-01 to 2026-10-29. Legacy kitchen stub and destination are both indexed; preserve the stub. Sitemap pending with 0 errors/warnings; no resubmission. Bing returned no reported performance.
+- PR #274 is merged to main; its quality, health and Chromium visual QA checks all passed.
+- PR #275 contains the internal operating charter, 100 candidate ideas, preliminary overlap audit and shortened public Working Charter page. All checks passed; owner/Claude review still required. It does not authorize publication.
+- PR #277 merged with a focused safety correction to the large-wall-art guide; exact-head quality/guard/health/Chromium checks passed. PR #269 remains a draft requiring Wallpaper product comparison UI, adapter/state tests and targeted visual review. No changes were made to its code in this session.
+- PR #245/#247 remain stale/conflicted; do not merge as-is. #231/#216/#208 remain old drafts for review against the newer charter/roadmap.
+- The project should prioritize existing pages with meaningful GSC impressions and near-page-one positions before creating new URLs. Generic tile-calculator functionality is already well represented by competitors; only proceed if a differentiated project-budget workflow is proven.
+
+- Historical analytics caveat: Claude's 2026-11-08 #247 handoff reported that #246's GoatCounter script fix was merged/deployed, but production spot checks showed the deployed script without integrity; the claim of fixing undercounting is unproven. Do not use GoatCounter tag changes to explain traffic fluctuations without new evidence.
+- #231 remains a review-only Budget-First Estimator specification task for Claude: compare with #240/#241/#244, identify implemented/obsolete/missing scope, propose smallest safe Phase 1, and verify the exact two-case wallpaper-to-estimator integration test. No implementation or merge is implied.
+
+
+## Current state — 2026-11-10 session 34 final reconciliation
+
+- Main: `1e14839e321ea33389572e1a655134ce5300baa6`; merged #273, #272, #274, #277 and #276. PR #274 brought current GSC/Bing performance and six priority URL inspections into main; PR #277 corrected an unsafe unlimited-load implication in the large-wall-art guide.
+- GSC final 2026-10-11–11-07: 800 impressions, 4 clicks, 0.50% CTR, average position 17.13; previous consecutive 28 days 43 impressions, 0 clicks, position 38.33. Six inspected priority pages are submitted/indexed with successful mobile fetch and matching canonicals; crawl dates are stale. Preserve the legacy kitchen redirect URL. Sitemap pending with zero errors/warnings; no resubmission. Bing reports no performance.
+- PR #275 remains open for owner/Claude review; its candidate portfolio is not publication approval. PR #269 remains a Claude engineering draft.
+- PR #231 now has ChatGPT's preliminary implementation map: the estimator engine and Budget Planner already provide part of Phase 1; provider integration, ZIP pricing, source registry, visible source ledger and full scope/quote comparison are still missing. Claude must verify exact tests and recommend the smallest safe next phase.
+- #245/#247 remain stale/conflicted and are not to be merged as-is; historical details are preserved in logs. #216/#208 require relevance/supersession review.
+- Next priority: finish the open Wallpaper integration with Claude, review the operating charter, and improve existing pages with measurable GSC visibility before creating overlapping URLs.
+
+
+## Editorial production queue — 2026-11-10
+
+- Canonical queue created at `docs/ARTICLE-PRODUCTION-QUEUE.md`; it is the single ordered source for article intake, research, Claude review, production, QA, publication and monitoring.
+- The queue is governed by the Operating Charter, Value Before Publishing and current inventory. It formalizes the owner target of 2–3 valuable articles/day when enough candidates pass, with no forced quota or word-count/image-count minimum.
+- ChatGPT prepares complete research briefs; Claude receives only READY FOR CLAUDE items in ordered batches. Each brief includes keyword/query map, intent, GSC evidence where available, US SERP and 3–5 competitor pages, overlap audit, differentiation, sources/safety, practical outline, length rationale, 0–2 purposeful image plan, acceptance tests and scorecard. Threshold: 85/100; critical safety/factual/duplication issues are blockers.
+- Initial Smart Home research queue: SH-001 three-way smart switches (researching), SH-002 LED smart dimmer selection, SH-003 hub vs no hub, SH-004 smart-home standby power, SH-005 Matter/Zigbee/Thread decision. These are candidates only, not publishing approvals. Existing smart-lighting/connectivity content must be checked before creating new URLs.
+- Do not treat the 100-title portfolio as a publication queue; the production queue is the only route into Claude execution.

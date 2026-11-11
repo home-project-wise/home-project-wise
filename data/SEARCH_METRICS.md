@@ -74,5 +74,127 @@ Both tools are connected to the project through Composio (Google Search Console:
 ### Actions taken on 2026-11-01
 Google sitemap resubmitted; Bing sitemap resubmitted; 45 URLs submitted to Bing. Google offers no public API to request indexing of ordinary pages, so recrawl waits on Google.
 
+## 2026-11-03 entry (Claude; reconciles ChatGPT's retrieval of the same day)
+
+### Google Search Console, performance (web, data state final, retrieved 2026-11-03 via Composio)
+- 2026-10-06 to 2026-10-31: 432 impressions, 1 click, CTR 0.231%, average position 19.96. Same figures as ChatGPT's retrieval. Asking for 2026-10-06 to 2026-11-01 returns the same 432, so final data stops at 2026-10-31.
+- 2026-09-20 to 2026-10-31: 446 impressions, 1 click, CTR 0.224%, average position 20.74. The 2026-11-01 snapshot above logged 414 impressions, CTR 0.24%, position 20.8 for the same dates. Both retrievals are kept; the 414 is not overwritten. Cause of the +32 is not verified (interpretation: Search Console can revise recent days after a first read, so the earlier figure was probably incomplete).
+- Dimensions are not additive: the page table (19 rows) sums to the 432 total; the query table (49 rows) sums to only 87 impressions because anonymised queries are hidden. Never add pages and queries together.
+- Pages by impressions (position), 2026-10-06 to 2026-10-31: macerating-toilet-basement-bathroom 109 (11.3); how-to-hang-large-wall-art-without-damage 44 (5.6); stop-kitchen-counter-clutter 23 (10.0, the only click, now a redirect stub); better-evening-home-lighting 19 (6.5); calm-room 6 (9.7); kitchen-counter-zone-that-stays-clear 3 (9.0); home page 3 (5.0); how-to-fix-damp-crawl-space-humidity 1 (61).
+- Daily impressions, data state all (provisional), 2026-10-25 to 2026-11-02: 32, 32, 23, 25, 27, 33, 32, 53, 29. The provisional 2026-11-01 row shows 1 click; it is not part of the final data above and must be re-read after finalisation.
+
+### Google, indexing (URL Inspection on all 45 sitemap URLs, 2026-11-03)
+- Submitted and indexed: 23. Unknown to Google: 21. Crawled, currently not indexed: 1 (choose-bathroom-exhaust-fan, last crawled 2026-10-29). Counts are identical to 2026-11-01; the 21 unknown URLs are the same set. reduce-bathroom-condensation is still recorded as last crawled on 2026-10-01.
+
+### Legacy kitchen URL, read-only check (2026-11-03)
+- Live stop-kitchen-counter-clutter.html answers HTTP 200 (GitHub Pages cannot send a 301) with a canonical and a 0-second meta refresh to kitchen-counter-zone-that-stays-clear, plus a visible link. No page in the repository links to the stub, and the live sitemap, guides page, feed and home page do not list it.
+- The destination answers 200, has a self-canonical and is linked from 5 articles (stop-mail-and-paper-pile, small-bathroom-easier-to-clean, simple-home-reset, reduce-cable-clutter, calm-room).
+- Google's last crawl of the stub URL is 2026-10-01 and Google still holds the stub URL as its own canonical (the pre-redirect page); the destination was crawled 2026-10-22. So Google has not yet seen the redirect: recrawl lag, not a defect. No change made.
+
 ## Routine
 Each Claude session: pull totals and the page and query tables for the last 28 days; re-inspect the URLs still unknown; append an entry here. Do not report a metric as zero when the tool returned no data.
+
+## 2026-11-05 entry (Claude, session 27; Search Console comparison day)
+
+### Google Search Console, performance (web, data state all; final data ends 2026-11-02, firstIncompleteDate 2026-11-03)
+- 2026-10-06 to 2026-11-02: 530 impressions, 2 clicks, CTR 0.377%, average position 19.30. Baseline logged 2026-11-03 for 2026-10-06 to 2026-10-31: 432 impressions, 1 click, CTR 0.231%, position 19.96.
+- 2026-09-20 to 2026-11-02: 544 impressions, 2 clicks, CTR 0.368%, position 19.95 (2026-09-20 to 10-31 re-read as 446 / 1 / 0.224% / 20.74, same as 11-03).
+- Last 7 final days 10-27 to 11-02: 238 impressions; previous 7 days 10-20 to 10-26: 169. Clicks: 1 on 10-23, 1 on 11-01. Provisional (incomplete) days: 11-03 73 impressions, 11-04 43.
+- Pages, 2026-10-06 to 2026-11-05 (provisional tail; sums to 648 impressions, 2 clicks; not comparable with the 432 window above): macerating 128 (11.9), reduce-bathroom-condensation 86 (52.0), what-can-you-plug-into-a-smart-plug 72 (5.9), how-to-hang-large-wall-art 64 (6.0), where-to-put-water-leak-sensors 41 (23.8), small-bathroom-easier-to-clean 38 (9.2), stop-musty-bathroom-towels 37 (25.8), better-evening-home-lighting 34 (5.8), stop-kitchen-counter-clutter stub 33 (12.9, 1 click), motion-lighting 25 (6.2, 1 click), reduce-cable-clutter 24 (12.1), how-to-fix-damp-crawl-space-humidity 15 (73.3), smart-lighting 12 (18.6).
+- Queries (69 rows, 137 impressions; anonymised queries hidden, never add to page totals): "why does my kitchen clutter keep coming back" 15 (8.7), "bad condensation in bathroom" 12 (89.6), "bathroom dampness" 6 (86.8), "condensation on bathroom walls" 5 (90.4), "where to place water leak sensors" 5 (71.6). Crawl-space and condensation queries sit at positions 60 to 100.
+- Interpretation (not a verified cause): impressions grew modestly and position is flat; the pages that matter most for revenue (crawl space, condensation) are still far from page 1 and Google has not recrawled them.
+
+### Google, indexing (URL Inspection on all 45 live sitemap URLs, 2026-11-05)
+- Submitted and indexed 23; unknown to Google 21; crawled, currently not indexed 1 (choose-bathroom-exhaust-fan). Identical to 2026-11-01 and 2026-11-03; the unknown set is the same. reduce-bathroom-condensation still last crawled 2026-10-01. Sitemap: pending, last submitted 2026-11-01, 0 errors, 0 warnings.
+
+### Bing Webmaster Tools
+- Daily totals 2026-10-04 to 2026-11-02: 0 impressions, 0 clicks.
+
+### Method note
+- quality_gate.py --all on raw main: 28 PASS, only the redirect stub fails. After running rebuild_site_indexes.py first (deploy-style), 12 more articles exceed the 130-word intro limit because the rebuild adds breadcrumb and date text before the first H2. CI does not run it that way; nothing was changed because of this. Do not trim intros on the strength of a post-rebuild run.
+
+
+## 2026-11-10 entry (ChatGPT — fresh 28-day performance and Bing refresh)
+
+### Google Search Console, Search type Web, data_state final
+
+- Current 28-day window: **2026-10-11 to 2026-11-07** — 800 impressions, 4 clicks, CTR 0.50%, average position 17.13.
+- Previous consecutive 28-day window: **2026-09-13 to 2026-10-10** — 43 impressions, 0 clicks, CTR 0%, average position 38.33.
+- Interpretation: impressions and clicks increased substantially from a very small early baseline. This does not establish which publication, page edit, indexing event or other change caused the increase. Do not claim causal attribution.
+- Top pages by impressions in the current window (clicks; average position):
+  - `what-can-you-plug-into-a-smart-plug`: 133 (2; 6.21).
+  - `macerating-toilet-basement-bathroom`: 128 (0; 13.01).
+  - `reduce-bathroom-condensation`: 91 (0; 49.96).
+  - `how-to-hang-large-wall-art-without-damage`: 88 (0; 6.33).
+  - `where-to-put-water-leak-sensors`: 58 (0; 19.22).
+  - `stop-musty-bathroom-towels`: 49 (0; 26.35).
+  - `better-evening-home-lighting-without-overcomplicating-it`: 40 (0; 5.25).
+  - Legacy `stop-kitchen-counter-clutter` redirect stub: 39 (1; 12.79).
+  - `small-bathroom-easier-to-clean`: 39 (0; 9.13).
+  - `motion-lighting-that-actually-helps`: 29 (1; 6.10).
+  - `reduce-cable-clutter`: 28 (0; 11.21).
+  - `how-to-fix-damp-crawl-space-humidity`: 24 (0; 66.25).
+- Query examples with page mapping:
+  - `why does my kitchen clutter keep coming back`: 20 impressions, position 7.65, mapped to the legacy kitchen redirect stub.
+  - `bad condensation in bathroom`: 12 impressions, position 91.08, mapped to `reduce-bathroom-condensation`.
+  - `condensation on bathroom walls`: 9 impressions, position 87.11, same condensation guide.
+  - `where to place water leak sensors`: 5 impressions, position 71.60, mapped to `where-to-put-water-leak-sensors`.
+- Country breakdown (impressions; clicks): United States 428;1, United Kingdom 89;1, Canada 62;0, India 32;1, France 3;1. Other countries each contributed smaller totals. The US supplied 53.5% of impressions but only 1 of 4 clicks.
+- Device breakdown: Mobile 417 impressions, 4 clicks, CTR 0.959%, average position 12.17; Desktop 376 impressions, 0 clicks, average position 22.88; Tablet 7 impressions, 0 clicks, average position 3.57.
+- The query export returned 80 visible rows; anonymized queries may be omitted by Search Console. Do not sum query totals and page totals together.
+- Important legacy URL note: the kitchen redirect stub still appears in Search Console and received 39 impressions and 1 click. Preserve the stub and its canonical/meta-refresh behavior while Google recrawls; do not remove it based on the current data.
+
+### Bing Webmaster Tools
+
+- Daily totals report returned 0 impressions and 0 clicks across the returned dates from 2026-10-04 through 2026-11-07.
+- Top-query and top-page reports returned empty row sets. This is a returned zero/no-row report, not proof of indexing failure.
+- Sitemap `https://home-project-wise.github.io/home-project-wise/sitemap.xml`: status Success, 45 URLs, last crawled 2026-11-01. The feed metadata returned file_size 0; do not infer a sitemap-content problem from that field alone because status was Success and URL count was 45.
+
+### Scope and limitations
+
+- No Google URL Inspection was run in this refresh. Do not update indexed/unknown/crawled-not-indexed counts from this entry.
+- No sitemap was submitted or changed.
+- Search data is performance evidence, not a direct quality score. Review the exact query/page pairs and live SERPs before editing titles, rewriting pages or approving new articles.
+
+### Google URL Inspection and sitemap — 2026-11-10
+
+Six high-priority article URLs were inspected. All six returned **Submitted and indexed**, `INDEXING_ALLOWED`, `SUCCESSFUL` page fetch, `ALLOWED` robots.txt, mobile crawl, and matching user/Google canonical URLs:
+
+| URL | Last Google crawl |
+|---|---|
+| `what-can-you-plug-into-a-smart-plug` | 2026-10-22 |
+| `macerating-toilet-basement-bathroom` | 2026-10-06 |
+| `reduce-bathroom-condensation` | 2026-10-01 |
+| `how-to-hang-large-wall-art-without-damage` | 2026-10-22 |
+| `where-to-put-water-leak-sensors` | 2026-10-29 |
+| `motion-lighting-that-actually-helps` | 2026-10-22 |
+
+Additional legacy URL check:
+- `stop-kitchen-counter-clutter` remains **Submitted and indexed** with Google canonical still pointing to the old stub URL; last crawl 2026-10-01.
+- Destination `kitchen-counter-zone-that-stays-clear` is also **Submitted and indexed**, canonical matches itself; last crawl 2026-10-22.
+- This confirms Google has not yet recrawled the legacy stub to observe its current meta-refresh/canonical behavior. Preserve both the stub and destination; do not delete or change the URL based on this lag.
+
+Google sitemap `https://home-project-wise.github.io/home-project-wise/sitemap.xml`:
+- `isPending=true`, errors 0, warnings 0, last submitted 2026-11-01 06:20:44 UTC.
+- No sitemap submission was made. Pending with zero errors/warnings is recorded as returned, not treated as a failure.
+
+Inspection caveats:
+- Rich-results output reported Breadcrumbs PASS for these URLs; it is not a complete audit of every structured-data type.
+- Mobile usability returned `VERDICT_UNSPECIFIED`; do not describe it as a pass or fail.
+- Inspection results may lag live changes by several days.
+
+
+## Historical 2026-11-07 checkpoint (preserved from the earlier operations handoff)
+
+This snapshot is retained for audit history; its 28-day window overlaps the 2026-11-10 window and must not be treated as a consecutive-period comparison.
+
+### Google Search Console, final data
+
+- 2026-10-08 to 2026-11-04: **652 impressions, 2 clicks, CTR 0.307%, average position 18.17**.
+- Previous equal window 2026-09-10 to 2026-10-07: **21 impressions, 0 clicks, average position 44.29**.
+- 2026-11-01 to 2026-11-04: 227 impressions, 1 click, CTR 0.441%, average position 15.52.
+- Top pages then: macerating-toilet-basement-bathroom 125 impressions (position 11.88); reduce-bathroom-condensation 84 (50.99); what-can-you-plug-into-a-smart-plug 77 (5.74); how-to-hang-large-wall-art-without-damage 67 (6.60); where-to-put-water-leak-sensors 42 (23.43).
+- Query examples: "bad condensation in bathroom" 12 impressions (position 89.58); "bathroom dampness" 6 (86.83); "condensation on bathroom walls" 5 (90.4); "where to place water leak sensors" 5 (71.6); "why does my kitchen clutter keep coming back" 15 (8.67). Query totals are incomplete/anonymized and must not be added to page totals.
+- Historical URL inspection at that time: homepage indexed (last crawl 2026-10-29); leak-sensor page indexed but not recrawled after its 2026-11-07 edit; homepage calculator and wallpaper guide were then unknown to Google. These statuses are historical and superseded where later inspections exist.
+- Sitemap was pending with 0 errors and 0 warnings, last submitted 2026-11-01. Bing daily totals were 0 impressions/clicks through 2026-11-04; top queries/pages empty.
+- No indexing setting, sitemap or URL submission was changed in that checkpoint.

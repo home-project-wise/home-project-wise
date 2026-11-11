@@ -4,17 +4,17 @@
     "me": "GoatCounter HTTP 404 on /me"
   },
   "api_user_ok": false,
-  "generated_at": "2026-11-01T03:30:15.106708+00:00",
-  "period_start": "2026-10-31T03:00:00+00:00",
-  "period_end": "2026-11-01T03:30:15.106708+00:00",
-  "visitors": 2,
+  "generated_at": "2026-11-10T05:24:33.301524+00:00",
+  "period_start": "2026-11-09T05:00:00+00:00",
+  "period_end": "2026-11-10T05:24:33.301524+00:00",
+  "visitors": 8,
   "pageviews": {
-    "total": 2,
+    "total": 8,
     "total_events": 0,
-    "total_utc": 2,
+    "total_utc": 8,
     "stats": [
       {
-        "day": "2026-10-31",
+        "day": "2026-11-09",
         "hourly": [
           0,
           0,
@@ -28,25 +28,25 @@
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          1,
-          0,
+          4,
+          2,
           0,
           0,
           0,
           0,
           0,
           0,
-          1
+          0,
+          2,
+          0,
+          0
         ],
-        "daily": 2,
-        "weekly": 2,
-        "monthly": 2
+        "daily": 8,
+        "weekly": 8,
+        "monthly": 8
       },
       {
-        "day": "2026-11-01",
+        "day": "2026-11-10",
         "hourly": [
           0,
           0,
@@ -80,18 +80,88 @@
   "paths": {
     "hits": [
       {
-        "count": 1,
-        "path_id": 117200794,
-        "path": "/home-project-wise/articles/where-to-put-water-leak-sensors.html",
+        "count": 2,
+        "path_id": 120149666,
+        "path": "/home-project-wise/budget-planner.html",
         "event": false,
-        "title": "Where to Put Water Leak Sensors: Six Spots That Catch Leaks Early | HomeProjectWise",
-        "max": 1,
+        "title": "Project Budget Planner | HomeProjectWise",
+        "max": 2,
         "stats": [
           {
-            "day": "2026-10-31",
+            "day": "2026-11-09",
             "hourly": [
               0,
               0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 2,
+            "weekly": 2,
+            "monthly": 2
+          },
+          {
+            "day": "2026-11-10",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 120495215,
+        "path": "/home-project-wise/about.html",
+        "event": false,
+        "title": "About HomeProjectWise | Practical home guides",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-09",
+            "hourly": [
               0,
               0,
               0,
@@ -113,6 +183,8 @@
               0,
               0,
               0,
+              0,
+              0,
               0
             ],
             "daily": 1,
@@ -120,7 +192,7 @@
             "monthly": 1
           },
           {
-            "day": "2026-11-01",
+            "day": "2026-11-10",
             "hourly": [
               0,
               0,
@@ -153,14 +225,46 @@
       },
       {
         "count": 1,
-        "path_id": 109172442,
-        "path": "/home-project-wise/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+        "path_id": 119982597,
+        "path": "/home-project-wise/home-project-calculator.html",
         "event": false,
-        "title": "Better Evening Home Lighting Without Overcomplicating It | HomeProjectWise",
+        "title": "Home Project Calculator | HomeProjectWise",
         "max": 1,
         "stats": [
           {
-            "day": "2026-10-31",
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-10",
             "hourly": [
               0,
               0,
@@ -185,14 +289,270 @@
               0,
               0,
               0,
-              1
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 119982570,
+        "path": "/home-project-wise",
+        "event": false,
+        "title": "HomeProjectWise — Make Home Better, One Smart Project at a Time",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
             ],
             "daily": 1,
             "weekly": 1,
             "monthly": 1
           },
           {
-            "day": "2026-11-01",
+            "day": "2026-11-10",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 112888851,
+        "path": "/home-project-wise/tools.html",
+        "event": false,
+        "title": "Free Home Calculators | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-10",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 109978105,
+        "path": "/home-project-wise/articles/macerating-toilet-basement-bathroom.html",
+        "event": false,
+        "title": "Basement Bathroom Without Breaking the Floor: Macerating Toilets Explained",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-10",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 108372734,
+        "path": "/home-project-wise/guides.html",
+        "event": false,
+        "title": "Guides & Categories — HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-09",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-10",
             "hourly": [
               0,
               0,
@@ -224,16 +584,21 @@
         ]
       }
     ],
-    "total": 2,
+    "total": 8,
     "more": false
   },
   "referrers": {
     "stats": [
       {
-        "id": "Google",
-        "name": "Google",
-        "count": 1,
-        "ref_scheme": "g"
+        "name": "",
+        "count": 2,
+        "ref_scheme": "o"
+      },
+      {
+        "id": "chatgpt.com",
+        "name": "chatgpt.com",
+        "count": 2,
+        "ref_scheme": "c"
       }
     ],
     "more": false
@@ -243,24 +608,24 @@
       {
         "id": "TN",
         "name": "Tunisia",
-        "count": 1
+        "count": 7
       },
       {
-        "id": "US",
-        "name": "United States",
-        "count": 1
+        "id": "CA",
+        "name": "Canada",
+        "count": 2
       }
     ],
     "more": false
   },
-  "previous_period_visitors": 0,
+  "previous_period_visitors": 8,
   "previous_period_pageviews": {
-    "total": 0,
+    "total": 8,
     "total_events": 0,
-    "total_utc": 0,
+    "total_utc": 8,
     "stats": [
       {
-        "day": "2026-10-30",
+        "day": "2026-11-08",
         "hourly": [
           0,
           0,
@@ -271,31 +636,33 @@
           0,
           0,
           0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          3,
           0,
           0,
           0,
           0,
           0,
           0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          3,
           0,
           0
         ],
-        "daily": 0
+        "daily": 7,
+        "weekly": 8,
+        "monthly": 8
       },
       {
-        "day": "2026-10-31",
+        "day": "2026-11-09",
         "hourly": [
           0,
           0,
           0,
-          0,
+          1,
           0,
           0,
           0,
@@ -317,7 +684,7 @@
           0,
           0
         ],
-        "daily": 0
+        "daily": 1
       }
     ]
   }

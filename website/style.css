@@ -126,3 +126,9 @@ footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
 .cards.guide-grid{grid-template-columns:1fr}
 .cards.guide-grid>.card,.cards.guide-grid>.card:last-child:nth-child(3n+1),.cards.guide-grid>.card:nth-last-child(2):nth-child(3n+1),.cards.guide-grid>.card:last-child:nth-child(3n+2),.cards.guide-grid>.card:last-child:nth-child(odd){grid-column:auto}
 }
+
+/* UX pass (10 Nov 2026): mobile nav fits without hidden links; WCAG 2.2 minimum 24px targets for breadcrumb and footer links */
+@media(max-width:480px){header.nav nav{gap:18px;mask-image:none}header.nav nav a[href="guides.html#projects"],header.nav nav a[href="about.html"]{display:none}}
+.breadcrumb a{display:inline-block;padding:5px 0;min-height:24px}
+footer nav a,footer .newsletter-cta{display:inline-block;padding:5px 0;min-height:24px}
+.calculator-feature-secondary{display:inline-flex;align-items:center;min-height:44px}

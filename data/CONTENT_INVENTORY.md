@@ -53,3 +53,46 @@ Pillars (from the plan): A Repairs & Troubleshooting, B Smart Home & Lighting, C
 1. Add `dateModified` to the 10 guides above, using the real date of the last content edit.
 2. Quick answer block on stop-a-drafty-door-without-replacing-it.
 3. Cross-links: towels -> condensation, evening lighting -> smart-lighting and motion-lighting, dehumidifier sizing <-> crawl-space guide.
+
+
+---
+
+## Current-state delta — 2026-11-10 (verified against main and the latest successful Pages artifact)
+
+This section supersedes the 2026-10-24 counts above. It does not change any article URL or category tag.
+
+### Verified inventory
+
+- **30 indexable guide articles** are present in the generated Guides library. There are 31 HTML files under `website/articles/`; `stop-kitchen-counter-clutter.html` is an intentional redirect stub and is excluded from the library and sitemap.
+- Generated Guides category counts: **Storage & Organization 5, Home Design 7, Weekend Projects 10, Smart Home 8**.
+- The seven article additions since the 2026-10-24 snapshot are:
+  - `choose-bathroom-exhaust-fan` — choose bathroom fan capacity and fit (Weekend Projects).
+  - `how-to-calculate-wallpaper-rolls-pattern-repeat` — per-wall drops, pattern repeat and sale-unit yield (Home Design).
+  - `bathroom-exhaust-fan-dripping-water` — diagnose water at the bathroom fan (Weekend Projects).
+  - `choose-paint-finish-for-each-room` — select finish by room and use (Home Design).
+  - `smart-devices-keep-going-offline` — troubleshoot repeated smart-device disconnections (Smart Home).
+  - `smart-thermostat-without-c-wire` — check thermostat compatibility and C-wire options (Smart Home).
+  - `where-to-put-water-leak-sensors` — place sensors at likely leak points (Smart Home).
+- Static audit of the 30 indexable article pages: **30/30** have a canonical URL, meta description, Sources section, `dateModified`, Article/BlogPosting structured data and FAQPage structured data. The ten missing `dateModified` entries listed in the 2026-10-24 snapshot are now resolved.
+- The successful Pages build generated 30 guide cards, 7 tool cards, four category hubs, a Tools hub and a 49-URL sitemap. The generated pages are build outputs from `scripts/rebuild_site_indexes.py`; do not manually create or maintain `tools.html`, category hubs, generated Guides cards or generated sitemap entries. Update the generator/article source instead.
+- The prior 2026-10-24 note that PR #151 was still pending is obsolete: **PR #151 merged on 2026-10-24**.
+
+### Current overlap and editorial decisions
+
+- `how-to-fix-damp-crawl-space-humidity` and `what-size-dehumidifier-crawl-space` remain distinct: diagnosis versus sizing/buying.
+- `choose-bathroom-exhaust-fan` and `bathroom-exhaust-fan-dripping-water` remain distinct: selection versus symptom diagnosis.
+- `smart-home-wifi-outage-test` and `smart-devices-keep-going-offline` remain distinct: offline fallback versus recurring disconnection troubleshooting; cross-link rather than merge.
+- `reduce-bathroom-condensation` and `stop-musty-bathroom-towels` remain distinct but should continue to cross-link.
+- `calm-room` and `make-small-living-room-feel-bigger` overlap in decor/layout. Keep both URLs; do not merge or redirect without query-level evidence.
+- The Storage & Organization category still conflicts with the five-pillar editorial boundary. Keep its five existing URLs and content stable. A category migration is an owner decision; do not silently rename, redirect or remove routes.
+
+### Coverage gaps (hypotheses, not validated search demand)
+
+- **Energy:** no dedicated energy-efficiency guide cluster is present. The flagship calculator has an electricity-use module and Smart Plug content covers load safety, but neither replaces guides on whole-home energy audits, air sealing/insulation, HVAC or heat-pump efficiency, and appliance running-cost decisions.
+- **Smart Home:** current coverage now includes lighting, motion lighting, plug loads, Wi-Fi outages, recurring disconnections, privacy, C-wire compatibility and leak sensors. A Matter/Thread/Zigbee compatibility guide is a possible gap only if it adds a practical decision method beyond the existing connectivity guides.
+- **Home Improvement / Repairs:** current coverage includes paint finish, wallpaper quantity, wall hanging, rug sizing, bathroom ventilation, damp crawl spaces, condensation, draft sealing, furniture stability and macerating toilets. Drywall patching, caulk/grout repair, flooring transitions and safe leak response are candidate clusters, not approved briefs.
+- No new guide is approved by this inventory update. No fresh query-level Search Console export was pulled for this audit; validate demand and cannibalization before writing. Apply the Value Before Publishing scorecard and the 85/100 threshold.
+
+### Metadata follow-up
+
+Fifteen current article titles exceed 70 characters. No automatic title shortening was made: review query intent, impressions, CTR and the exact page promise from Search Console before changing titles or risking search-intent drift.

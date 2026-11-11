@@ -1,8 +1,8 @@
 # Image vision report
 
-Generated 2026-11-01 11:14 UTC with `gemini-3.8-flash`.
+Generated 2026-11-08 11:09 UTC with `gemini-3.8-flash`.
 
-Totals: error=9, keep=8, pending=16, replace=1, weak=13
+Totals: error=7, keep=10, pending=15, replace=1, weak=14
 
 ## All images
 
@@ -18,8 +18,6 @@ Totals: error=9, keep=8, pending=16, replace=1, weak=13
 | calm-room | inner | 3. Change the light before the furniture | 6 | weak | A warm living room with sunlight filtering through sheer curtains, a beige sofa, wooden coffee table, and a gl | weak-match |
 | calm-room | inner | 5. Reduce visual competition | 9 | weak | A wooden sideboard in a sunlit room holds a wooden tray arranged with a ceramic vase containing olive branches | generic |
 | fix-wobbly-furniture | hero | Introduction | 7 | weak | A wooden table leg rests on a thin cardboard shim and felt pad on a hardwood floor, with a spirit level sittin | weak-match |
-| kitchen-counter-zone-that-stays-clear | hero | Introduction | - | error |  | The read operation timed out |
-| macerating-toilet-basement-bathroom | hero | Short answer for a basement bathroom | - | error |  | The read operation timed out |
 | make-small-living-room-feel-bigger | hero | Introduction | 7 | weak | A bright living room featuring a gray fabric sofa with cushions, a round wooden coffee table on a woven jute r | weak-match |
 | make-small-living-room-feel-bigger | inner | 7. Use a mirror only where it reflects s | - | error |  | The read operation timed out |
 | motion-lighting-that-actually-helps | inner | 3. Map the actual walking path | 7 | weak | A dimly lit hallway viewed from a bedroom doorway, featuring a warm LED strip along the baseboard and a small  | weak-match |
@@ -30,27 +28,29 @@ Totals: error=9, keep=8, pending=16, replace=1, weak=13
 | simple-home-reset-that-prevents-weekend-chaos | hero | Introduction | - | error |  | The read operation timed out |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 1. Reset for tomorrow, not for perfectio | - | error |  | The read operation timed out |
 | simple-home-reset-that-prevents-weekend-chaos | inner | 5. Reset the entryway before morning | - | error |  | The read operation timed out |
-| small-bathroom-easier-to-clean | hero | Introduction | - | error |  | The read operation timed out |
-| small-bathroom-easier-to-clean | inner | 3. Stop water from becoming tomorrow's c | - | pending |  | time budget used |
-| small-bathroom-easier-to-clean | inner | 4. Keep the floor open enough to clean i | - | pending |  | time budget used |
-| smart-home-privacy-check | hero | Introduction | - | pending |  | time budget used |
-| smart-home-wifi-outage-test | hero | Introduction | - | pending |  | time budget used |
-| smart-lighting | hero | Introduction | - | pending |  | time budget used |
-| smart-lighting | inner | 4. Combine them where it makes sense | - | pending |  | time budget used |
-| smart-thermostat-without-c-wire | hero | Introduction | - | pending |  | time budget used |
-| stop-a-drafty-door-without-replacing-it | hero | Introduction | - | pending |  | time budget used |
-| stop-a-drafty-door-without-replacing-it | inner | Find the draft before buying anything | - | pending |  | time budget used |
-| stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | time budget used |
-| stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | time budget used |
-| stop-mail-and-paper-pile | hero | Introduction | - | pending |  | time budget used |
-| stop-musty-bathroom-towels | hero | Introduction | - | pending |  | time budget used |
-| what-can-you-plug-into-a-smart-plug | hero | Introduction | - | pending |  | time budget used |
-| what-size-dehumidifier-crawl-space | hero | Introduction | - | pending |  | time budget used |
-| where-to-put-water-leak-sensors | hero | Introduction | - | pending |  | time budget used |
+| small-bathroom-easier-to-clean | hero | Introduction | 6 | weak | A compact white bathroom featuring a pedestal sink, a toilet, a small wooden shelf with toiletries, and a glas | weak-match, generic |
+| small-bathroom-easier-to-clean | inner | 3. Stop water from becoming tomorrow's c | - | error |  | The read operation timed out |
+| small-bathroom-easier-to-clean | inner | 4. Keep the floor open enough to clean i | - | pending |  | daily quota exhausted |
+| smart-home-privacy-check | hero | Introduction | - | pending |  | quota exhausted |
+| smart-home-wifi-outage-test | hero | Introduction | - | pending |  | quota exhausted |
+| smart-lighting | hero | Introduction | - | pending |  | quota exhausted |
+| smart-lighting | inner | 4. Combine them where it makes sense | - | pending |  | quota exhausted |
+| smart-thermostat-without-c-wire | hero | Introduction | - | pending |  | quota exhausted |
+| stop-a-drafty-door-without-replacing-it | hero | Introduction | - | pending |  | quota exhausted |
+| stop-a-drafty-door-without-replacing-it | inner | Find the draft before buying anything | - | pending |  | quota exhausted |
+| stop-a-drafty-door-without-replacing-it | inner | Inspect the existing weatherstripping | - | pending |  | quota exhausted |
+| stop-a-drafty-door-without-replacing-it | inner | Deal with the bottom edge | - | pending |  | quota exhausted |
+| stop-mail-and-paper-pile | hero | Introduction | - | pending |  | quota exhausted |
+| stop-musty-bathroom-towels | hero | Introduction | - | pending |  | quota exhausted |
+| what-can-you-plug-into-a-smart-plug | hero | Introduction | - | pending |  | quota exhausted |
+| what-size-dehumidifier-crawl-space | hero | Introduction | - | pending |  | quota exhausted |
+| where-to-put-water-leak-sensors | hero | Introduction | - | pending |  | quota exhausted |
 | choose-bathroom-exhaust-fan | hero | Introduction | 9 | keep | A square white ceiling exhaust fan mounted directly above a glass-enclosed shower stall with a metal rain show |  |
 | choose-paint-finish-for-each-room | hero | Introduction | 10 | keep | A hand holds three sage-green rectangular paint boards side-by-side against an off-white wall, showing flat, e |  |
 | how-to-fix-damp-crawl-space-humidity | hero | Introduction | 10 | keep | A clean crawl space fully lined with white vapor barrier plastic on the floor and walls, exposed wooden ceilin |  |
 | how-to-hang-large-wall-art-without-damage | hero | Introduction | 8 | keep | Large framed abstract painting hung on a wall above a wooden console and sofa. A spirit level, tape measure, p |  |
+| kitchen-counter-zone-that-stays-clear | hero | Introduction | 10 | keep | Sunlit wooden kitchen countertop featuring an empty cutting board with a knife in the center. A knife block st |  |
+| macerating-toilet-basement-bathroom | hero | Short answer for a basement bathroom | 9 | keep | A white skirted toilet sits on a concrete floor in an unfinished basement beside an unconnected macerating pum |  |
 | motion-lighting-that-actually-helps | hero | Introduction | 8 | keep | A dark hallway with wood floors and dark walls. A plug-in night light glows low on the left wall, a small roun |  |
 | reduce-bathroom-condensation | hero | Introduction | 9 | keep | Bright bathroom interior with heavy condensation droplets covering a large window, mirror, and glass shower wa |  |
 | reduce-cable-clutter | inner | Start by mapping what each cable does | 10 | keep | Top-down view of hands attaching a blue silicone tag to a black monitor cable. Parallel cables from a charger, |  |
