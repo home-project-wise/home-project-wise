@@ -1,8 +1,36 @@
 # HomeProjectWise — Operating Charter, Editorial Portfolio & Product Roadmap
 
-**Status: Consolidated proposal — awaiting owner and Claude review.**
-**This is a working strategy, not an approved publishing schedule. No publication dates or monthly quotas are assigned.**
+**Status: Operating framework approved by owner on 2026-11-11.**
+**The governance, quality gates, portfolio balance and role boundaries below are binding. The 100-title portfolio remains a candidate library, not an approved publishing schedule or publication quota.**
 **Applies to:** owner, ChatGPT, Claude, editors, designers, developers and any commissioned contributor.
+
+
+## 0. Operating authority, role boundaries and execution control (owner-approved 2026-11-11)
+
+### Source hierarchy
+1. Latest explicit owner decision recorded in `data/AI_COLLABORATION.md`.
+2. This operating charter and the complete mandatory law in `docs/VALUE-BEFORE-PUBLISHING.md`.
+3. The qualified-only production queue in `docs/ARTICLE-PRODUCTION-QUEUE.md`.
+4. Specialized evidence records: `data/SEARCH_METRICS.md`, `data/PROJECT_STATE.md`, `data/WORK_LOG.md`, portfolio audit and technical specifications.
+5. PR descriptions/comments and chat history are not durable authority. Mirror any lasting decision into the operations room.
+
+### Single communication room and startup rule
+Every ChatGPT or Claude session, including replacement/new sessions, must read the latest `main` version of `data/AI_COLLABORATION.md` before acting. It must record its claim, task owner, files/PR, evidence, exclusions and next action there. No parallel operations room or handoff document may be created. No assistant is assumed to receive notifications or see another session's chat.
+
+### Non-interchangeable primary responsibilities
+- **ChatGPT — research/editorial/measurement lead:** topic discovery; query and intent mapping; GSC/Bing analysis; current US SERP and competitor research; site overlap/cannibalization checks; primary-source verification; complete article briefs and editorial drafts where possible; performance reporting; independent content/UX review.
+- **Claude — engineering/technical lead:** complex code and architecture changes; calculator implementation; responsive/accessibility/cross-browser engineering; automation and build/test work; technical review of changes; implementation PRs and deployment verification.
+- Either may flag a risk outside its primary lane, but must hand off the task rather than silently take over or duplicate the other's active work. The owner resolves conflicts and strategic exceptions.
+- Every active task has one named owner and a defined file/PR scope. Before shared-file edits, inspect open PR changed-file overlap. No two agents edit the same file concurrently. Record a temporary file/task lock in the operations room and release it when done.
+
+### Article pipeline and speed without quality erosion
+- Research continuously across all six portfolio areas: energy/efficiency; moisture/ventilation; plumbing; maintenance/repair; lighting/smart home; project costs/planning/calculators.
+- Maintain a small balanced investigation register (normally no more than six active candidates, spread across areas). The register is research-only and is not the production queue.
+- The production queue contains only READY/QUALIFIED briefs. Admission requires all 16 brief fields, a score of at least 85/100, defensible distinct value, a completed overlap audit and no critical evidence, factual, safety or duplication blocker.
+- Empty production queue never means stop researching. ChatGPT must progress several candidate investigations in parallel (normally up to three at once), close weak candidates promptly, and promote only qualified briefs.
+- Working publishing cadence: aim for one valuable article per day when qualified work exists; scale toward 2–3/day only when independently qualified briefs and implementation capacity exist. Never lower quality gates to meet cadence.
+- Claude receives one ordered batch of READY FOR CLAUDE briefs, not speculative ideas or scattered micro-commands. ChatGPT prepares the research; Claude challenges feasibility and implements approved work; the owner decides strategic exceptions.
+- Quality applies to both article and product work. CI green is not live-site success; distinguish local, PR-head, merged-main, deployed and real-device evidence explicitly.
 
 ## 1. Purpose: stop reactive work
 
