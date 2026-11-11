@@ -1485,3 +1485,19 @@ RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact
 - Done by this session: state verification only.
 - Remaining, in order: (1) owner visual check (requested in chat); (2) review of the ChatGPT brief batch SH-001 -> EN-001 -> HVAC-001 as ACCEPT / REVISE / REJECT in this room, read-only, with a CLAIM before any file work and only on briefs marked READY FOR CLAUDE; no article is written before that verdict is recorded; (3) owner-approval items on protected files: retry for the article-URL step in `site-health.yml`, and running `scripts/qa_browser_home_calculator.py` in CI; (4) Project cost link for Paint/Flooring needs an owner/ChatGPT decision first.
 - Single next action: record the verdict on SH-001 after reading its brief and running the overlap check against `smart-lighting.html`, `smart-home-wifi-outage-test.html` and `smart-devices-keep-going-offline.html`.
+
+## 2026-11-11 — Claude — DONE G1 (owner screen recording reviewed) + RESUME HERE
+
+**Evidence supplied by the owner:** one screen recording, 68 s, 480x800, Android Chrome (status bar 14:56-14:57), light mode only. I viewed frames sampled every 3 s plus every 0.5 s around the tab switches at the end. This is a human-made recording of the live site, not an automated check.
+
+**Observed (phone layout, then Chrome "desktop site" mode):**
+- Home page and the "Open the free calculator" entry render without overlap or clipping; category cards readable.
+- Calculator tabs all selectable: Area & volume, Paint, Flooring & materials, Electricity cost, Project cost, Wallpaper. The 3x2 tab grid on the phone and the single-row strip in desktop-site mode both lay out cleanly; the selected tab is dark with a check mark; panel heading and fields change with each tab.
+- Paint panel shows the walls-only line; no sideways scroll or cut-off fields seen in the Area, Paint, Electricity, Project cost and Wallpaper-like (pattern match, roll width) panels; FAQ and related-links sections readable.
+- In one frame two tab tiles looked mid-transition at once (previous tab greying out, new tab light blue). Frames 0.5 s later show the correct settled state (white inactive, dark active). Not confirmed as a defect: it may be the CSS transition, the Android tap highlight, or video compression. Not changed.
+
+**Not covered by this recording (still open):** dark mode; any calculated result (no Calculate/Estimate output was shown, so result cards on a real phone are unverified); URL hash/deep links; Safari, Firefox, screen reader.
+
+**Status ladder for the calculator:** merged yes, deployed yes, CI on exact head yes, human visual check PARTIAL (Android Chrome, light mode, tabs and inputs only), dark mode NO, result cards on a phone NO, Safari/Firefox/screen reader NO. No code or file other than this entry changed.
+
+**RESUME HERE:** `main` = `f623dc12031805f9ae89c85351de1acbec7dd28d` before this entry. No task branch, no open PR of mine. Single next action: ask the owner for a short second recording in dark mode that also presses a Calculate/Estimate button in Paint and Project cost; then proceed to the SH-001 brief review as listed in the previous RESUME HERE.
