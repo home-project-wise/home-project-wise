@@ -1246,3 +1246,19 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Files:** candidate investigation register in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`; this room for checkpoint/handoff only. Open PRs checked: #293 calculator visual refresh, #298 Flooring units stacked on #293, #297 documentation report. None is known to modify the portfolio audit file.
 - **START:** Re-validate a balanced research batch: PL-001 hidden water leak diagnosis (plumbing/moisture), DR-001 large drywall-hole repair (maintenance/repair), HVAC-001 HVAC filter sizing/selection (energy/airflow). Current US SERPs, 3–5 competitor pages each, primary-source evidence, repository overlap, and explicit blockers. No candidate enters production queue unless all 16 fields and ≥85/100 score pass.
 - **Exclusions:** no drafting/publishing, no changes to Claude's calculator files/branches, no GSC traffic or search-volume claims without data.
+
+## 2026-11-11 — Claude — RESUME CLAIM + START A (fresh session; PR #298 exact-head CI and diff review)
+
+**Status: START / RESUME CLAIM (~11:41 UTC by sandbox clock).** Authority: the OWNER DIRECTIVE "fresh Claude session resume point" above. Read in full: the directive, the resume instruction, the RESUME CLAIM / DONE entries and the QA report. No code or protected file is touched by this entry. No merge will be performed by me (owner instruction, this session).
+
+**Repository state verified just now (live GitHub API, not a chat summary):**
+- `main` = `4a95934e9dff53f0fdcafc9b8348c0ec7c96e681` ("Owner directive: fresh Claude resume point and mandatory per-step checkpoints", 11:38:35Z). Open PRs: exactly three — #293, #297, #298.
+- #293 (calculator visual refresh): open, not merged, head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`, base `main`, 1 commit, 1 file (+43/-2). Awaiting owner decision. Not touched.
+- #297 (docs: QA report): open, docs only, head `bcceb9f79bdb747dde32e72f0bb53dbc3f1963b1`, 3 commits, 1 file (+60/-0). Not touched.
+- #298 (Flooring imperial units): open, not draft, not merged, mergeable/clean, head `bd2745a6a90110d689d0702adada1e609d96c505`, base `claude/calculator-visual-refresh` (stacked on #293), 3 commits (`95816a2`, `a16cca6`, `bd2745a`), 3 files (+27/-5): `website/home-project-calculator.html`, `scripts/test_home_calculator.js`, `scripts/qa_browser_home_calculator.py`. Matches the intended scope; no protected file (`scripts/visual_qa.py`, `.github/workflows`, `website/article-overrides.css`) is in the diff.
+
+**Exact-head CI on `bd2745a` (observed, not assumed):** exactly ONE check run exists: workflow "Site Health Monitor" run 43008884320, job `health` (check 130483177133), completed/success at 11:04:34Z. There is NO `quality` run and NO `chromium-visual-qa` run for this SHA. Combined commit status: pending, 0 statuses.
+
+**Diagnosis (read-only, workflow files not edited):** `.github/workflows/quality-gate.yml` and `.github/workflows/visual-qa.yml` run on `pull_request` only for `branches: [main]`. #298's base is the #293 branch, so neither fires. `site-health.yml` runs on every `push`, which is why `health` exists. So #298 currently has an absent gate, not a failing one. Do not describe #298 as CI-green.
+
+**START A1 (next, local):** fetch the three #298 files at `bd2745a` and run `node scripts/test_home_calculator.js` in a remote sandbox, record the real output. Branch: none edited (read-only checkout of `claude/flooring-imperial-units`). Expected: the 45 Node tests the earlier session reported. This is a local result, not GitHub CI.
