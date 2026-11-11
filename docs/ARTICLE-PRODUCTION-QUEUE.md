@@ -1,8 +1,8 @@
 # HomeProjectWise — Editorial Research & Production Queue
 
 **Created:** 2026-11-10  
-**Status:** Operating system proposal; first Smart Home candidates are in validation, not approved for publication.  
-**Authority:** This queue implements the owner-approved direction and must remain subordinate to `docs/HOMEPROJECTWISE-OPERATING-CHARTER-2026-11-10.md`, the Value Before Publishing law, the current repository inventory, and the latest operations handoff. If any queue item conflicts with those sources, the charter and owner decision prevail.
+**Status:** Active operating workflow. The qualified production queue is admission-only and may be empty; research continues in a separate, balanced investigation register.  
+**Authority:** This queue implements the owner-approved direction and is subordinate to `docs/HOMEPROJECTWISE-OPERATING-CHARTER-2026-11-10.md`, `docs/VALUE-BEFORE-PUBLISHING.md`, current repository inventory, and the latest entry in `data/AI_COLLABORATION.md`. If any queue item conflicts with these sources, the latest explicit owner decision prevails.
 
 ## 1. Purpose and single source of truth
 
@@ -10,7 +10,7 @@ This is the one ordered editorial queue. New ideas do not become parallel tasks 
 
 The publishing ambition is **2–3 valuable articles per day when enough candidates pass the gates**. It is not a quota that permits thin, duplicate or weakly researched pages. Build a large library over time by covering distinct, useful search intents across the five charter pillars.
 
-Use GSC signals to identify promising **topics and clusters**, not to keep revising one URL because it earned one or two clicks. Smart Home is the first cluster to validate based on the current early search signals; this is a research hypothesis, not proof of demand for every Smart Home subtopic.
+Use GSC signals to identify promising **topics and clusters**, not to overfit one URL because it earned one or two clicks. Research must remain balanced across plumbing, moisture/ventilation, energy/efficiency, maintenance/repair, lighting/smart home, and project costs/planning/calculators. No cluster receives automatic priority; current demand evidence, SERP opportunity, site overlap, reader value and production feasibility determine the next candidates.
 
 ## 2. Required stages and ownership
 
@@ -26,7 +26,7 @@ Use GSC signals to identify promising **topics and clusters**, not to keep revis
 | Release | READY TO MERGE / PUBLISHED | Claude prepares; owner approval rules apply | PR checks green, owner/approved workflow permits merge; merge and deployment are verified. |
 | Learning | MONITOR | ChatGPT | URL, publication date, target queries and baseline recorded; review performance at scheduled intervals without making click count the sole success measure. |
 
-**Important:** Only items marked READY FOR CLAUDE should be sent as execution tasks. BACKLOG and RESEARCHING items are not writing or publishing authorization. Claude must not skip the research gate or select an arbitrary item directly from the 100-title portfolio.
+**Important:** Only items marked READY FOR CLAUDE should be sent as execution tasks. BACKLOG and RESEARCHING items are not writing or publishing authorization. Claude must not skip the research gate or select an arbitrary item directly from the 100-title portfolio. An empty qualified queue is not permission to stop: ChatGPT must continue candidate discovery and validation in the separate investigation register, across multiple pillars, until at least one complete brief qualifies. Never move an unqualified candidate into this queue merely to make it look populated.
 
 ## 3. Mandatory research brief — no exceptions
 
@@ -58,39 +58,21 @@ Each proposed article must have a record containing:
 - A visual must depict the actual device/task/layout accurately, be suitable for the US audience, have useful alt text, and be optimized for the page. No decorative filler or misleading AI imagery.
 - Existing images are not to be replaced without an individually verified reason.
 
-## 5. Qualified production queue
+## 5. Qualified production queue — admission-only
 
-**Currently empty.** An item appears here only after it has passed the full research and quality gate in §3 and holds a decision of QUALIFIED. There is no minimum queue size; an empty queue is a valid state. Nothing in §5b is qualified work and nothing in §5b is sent to Claude.
+**Currently empty as of 2026-11-11.** This section contains only fully qualified briefs, never speculative ideas or research tasks. An item enters only after all 16 fields in §3 are complete, the score is at least 85/100, a QUALIFIED decision is recorded, and no critical factual, safety, duplication or evidence blocker remains. There is no minimum queue size. An empty queue is an accurate status, not a stop signal: candidate research continues outside this queue.
 
 Balance rule (owner direction, 2026-11-10): keep a deliberate portfolio across the topic areas (energy and efficiency; moisture, ventilation and indoor air; plumbing; maintenance and repair; lighting and smart home; project costs, planning and calculators). Balance is strategic, not an equal quota. Smart Home is one candidate cluster among several, not the default priority; by filename it already accounts for about 9 of the 31 articles on main.
 
-## 5b. Research backlog (unqualified candidates)
+## 6. Candidate investigation register (not production queue)
 
-Listing order below is **not** a priority ranking. Every row is an unqualified research task, not an approved title. Each candidate ends in one explicit decision: QUALIFIED / REFRAME / MERGE / REJECT / DEFER.
-
-All rows below are **candidate research tasks**, not approved article titles or permission to publish. Proposed queries are starting hypotheses and must be validated against current GSC query data and live US SERPs before a brief can pass.
-
-| # | ID | Candidate topic from the approved working portfolio | Provisional primary query | Why investigate / required distinction | Status |
-|---:|---|---|---|---|---|
-| 1 | SH-001 | Can You Use Smart Switches With Three-Way Lighting? | smart switch 3 way wiring | Potentially distinct practical compatibility/setup intent; must be safety-gated, manufacturer-specific and clear about when a licensed electrician is required. Do not provide unsafe universal wiring instructions. | RESEARCHING |
-| 2 | SH-002 | How to Choose a Smart Dimmer for LED Lights | smart dimmer LED compatibility | Could solve flicker, minimum-load, neutral, dimming-protocol and compatibility decisions; first check whether existing `smart-lighting` can fully serve the intent. New URL only if SERP and intent are distinct. | BACKLOG |
-| 3 | SH-003 | Smart Home Hub vs. No Hub: What Do You Really Need? | smart home hub vs no hub | Potential purchase/architecture decision for mixed protocols; must go beyond generic protocol definitions and offer a usable compatibility decision method. | BACKLOG |
-| 4 | SH-004 | How Much Electricity Do Smart Home Devices Use on Standby? | smart home standby power consumption | Could connect smart-home devices to the existing electricity-cost calculator; distinguish standby draw, active use, measured watts and user-entered utility rates. Do not invent average device consumption. | BACKLOG |
-| 5 | SH-005 | Matter vs. Zigbee vs. Thread vs. Wi-Fi: Which Smart Home Standard Should You Choose? | Matter vs Zigbee vs Thread | Conditional only: fast-changing standards and overlap with existing connectivity/offline guides. Requires current authoritative specifications and a practical buyer decision tree, not a generic glossary. | BACKLOG |
-
-### Queue rule for the Smart Home cluster
-
-Research SH-001 first. Do not automatically start SH-002 the same day: first determine whether the existing smart-lighting guide can satisfy the intent. Once the first brief reaches READY FOR CLAUDE, ChatGPT may research the next candidates in parallel so the queue remains stocked. Keep no more than three items in active research at once unless the owner changes the capacity rule.
-
-## 6. Next cluster after Smart Home
-
-After the first Smart Home batch has been researched, review the existing portfolio validation queue in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`. Candidate topics include hidden water-leak diagnosis, home energy audit, whole-home air-leak diagnosis, drywall repair and contractor quote comparison. Do not jump clusters merely because a title sounds attractive: compare topic-level demand, strategic fit, overlap and production dependencies first.
+Unqualified ideas and active research candidates belong in the balanced candidate-investigation register in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`, not in this production queue. Keep the register small (normally up to 6 active candidates, one per topic pillar where possible), assign each a stable ID, one owner, a status, evidence gaps and next action. The register is for research only; it is not a drafting or publication authorization. Current decisions are summarized in the latest `data/AI_COLLABORATION.md` entry. Do not maintain a second candidate list here.
 
 ## 7. Daily operating rhythm
 
 1. ChatGPT checks the queue, current main/inventory, open PRs and latest search evidence before selecting work.
-2. ChatGPT advances up to 2–3 candidates through research only when evidence and time allow; active research is capped at three items to avoid scattering.
-3. Every completed brief is scored and placed in READY FOR CLAUDE only after all mandatory fields are complete.
+2. ChatGPT advances a balanced batch of up to three candidates at a time, preferably from different topic pillars, with one clear owner and next action per candidate. Complete and close weak candidates quickly rather than leaving them indefinitely RESEARCHING.
+3. Every completed brief is scored and placed in READY FOR CLAUDE only after all mandatory fields are complete. Aim for at least one valuable publication per day when a brief qualifies; 2–3/day is an expansion target, never a quota.
 4. Claude receives a **single ordered batch** containing the READY FOR CLAUDE briefs, not scattered one-line commands. For each item Claude returns: accept/revise/reject, overlap check, technical/editorial concerns, planned implementation, exact tests and PR link.
 5. Claude implements accepted briefs in queue order, normally one article per PR or a tightly related small batch; it does not silently skip ahead or publish an unreviewed candidate.
 6. Claude records the article URL, PR, checks, merge/deploy evidence and handoff in the queue and operations logs.
