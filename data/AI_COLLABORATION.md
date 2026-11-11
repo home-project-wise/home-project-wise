@@ -1561,3 +1561,26 @@ Facts verified 2026-11-11 against official pages: Apple Support 102078, Google H
 **Heads-up for ChatGPT A:** my H1 commit changed `data/AI_COLLABORATION.md` on main, so open PRs #297, #301 and #303 (which also edit it) will need a base update before merge.
 
 **RESUME HERE:** `main` = `701a57ee2cbf69c1ae02d6f7ec455fc6d551a793` before this entry; open PR of mine: #304 (head `58d53cf`). Next actions in order: (1) read PR #304 exact-head checks and record workflow names, run IDs and results; (2) fix anything CI flags; (3) start EN-001 on branch `claude/en-001-home-energy-audit` after rechecking open PRs; (4) then HVAC-001 after reading the EPA page. Do not claim #304 live until it is merged, deployed and the live page (and generated guide card) are checked.
+
+## 2026-11-11 (~20:19 UTC) — Claude B — RESUME CLAIM + DONE I1 (PR #304 verification, read-only; nothing changed on the branch) + RESUME HERE
+
+**Takeover:** Claude B continues from Claude A's H3 entry. GitHub access now goes through the Composio connector (the previous token returned 401 and was re-authorized by the owner). Owner standing authorization from the H1 entry is unchanged. All handoffs stay in this file.
+
+**Verified against GitHub now (not from notes):** PR #304 is open, not draft, head `58d53cf285e25369362a1e54c4cb08567a1d006c` (matches H3), 1 commit, 6 files, base `701a57e`. `main` now resolves to `46c8fd38a2323de69ed68d8b22f6de3cd22d627b`, so the PR base is behind main; I did not inspect what changed in between or the PR's mergeable state. Open PRs: #297, #299, #301, #302, #303, #304.
+
+**CI on the exact head `58d53cf`:** `guard` (run 43089426673), `health` (43089390516), `quality` (43089426986), `chromium-visual-qa` (43089426834): all completed, conclusion success.
+
+**check_site.py (local, fresh clone of the PR head, after `scripts/rebuild_site_indexes.py`; rebuild output not committed):** 3 errors, 2 warnings, all in `articles/stop-kitchen-counter-clutter.html` (legacy redirect stub: no h1, no datePublished, canonical mismatch). The same 3 errors appear on a fresh clone of `main` `46c8fd3` after the same rebuild, so they are pre-existing and not caused by #304. Before the rebuild it reports 13 errors (missing generated pages), as its docstring says. The new article and the generated guide card and sitemap entry were present after the rebuild.
+**quality_gate.py (same clone):** new article PASS (1981 words, 14 H2, 7 images, 9 FAQ, 28 internal links, counted after the rebuild). `smart-lighting.html` FAIL "140 words before first H2", identical on `main`; the PR changes one line of that file, outside the intro.
+
+**Visual review of the 4 SVGs (rendered in headless Chromium at 960 px and 360 px widths from the committed source):**
+- Layout is clean: no clipped or overlapping text, arrows land on the right boxes, step order in the checklist is correct.
+- FINDING 1 (contrast): dark text `#243238` on `#D97745` is 4.2:1 and on `#6F8F82` is 3.73:1. Normal-weight 22-23 px text in those boxes is below 4.5:1 (roles, radios and decision SVGs). Text on `#F7F5F0` (12.13) and `#BFD0C8` (8.23) is fine.
+- FINDING 2 (small screens): in `thread-border-router-decision.svg` the smallest text renders at about 8 px at a 360 px width.
+- Minor: in the decision SVG the "Add one" box ends 20 px from the right edge versus 40 px on the left, and "needed" sits alone on a line.
+
+**NOT done:** real-browser mobile check of the article page on production CSS (no served copy of the site in this session), CI after any fix, owner or ChatGPT review of the article text. Merged: no. Deployed: no. Verified live: no.
+
+**Decision: do NOT merge #304 yet.** Quality condition not met until FINDING 1 is fixed.
+
+**RESUME HERE:** branch `claude/sh-001-thread-border-router` head `58d53cf`, clean, unchanged by me. Next actions in order: (1) fix FINDING 1 (and the decision-SVG margin and text size) in the four SVGs on that branch, push, record the new head and exact-head CI; (2) production-CSS mobile check of the new article; (3) if all green and nothing new blocks it, merge #304 under the recorded owner authorization and verify the deployed page and card; (4) then EN-001 (`claude/en-001-home-energy-audit`, after rechecking open PRs), then HVAC-001 (read the EPA page first).
