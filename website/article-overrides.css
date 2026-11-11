@@ -175,3 +175,18 @@ body .print-btn{display:inline-flex;align-items:center;min-height:44px;padding:8
 body .toc summary{display:flex;align-items:center;justify-content:space-between;min-height:44px}
 body #add-row{display:inline-flex;align-items:center;min-height:44px}
 .calc-out,.calc-out *,.budget-table .r-h{overflow-wrap:anywhere}
+
+/* ===== Design sprint, Phase 1: shared design tokens and mobile fixes (additive, appended last) =====
+   Tokens mirror the current look so nothing shifts by itself. Namespaced --hpw-* to avoid clashing with the calculator's local --cp-* tokens. */
+:root{--hpw-ink:#243238;--hpw-ink-soft:#4f5c61;--hpw-accent:#d97745;--hpw-sage:#6f8f82;--hpw-line:#d4ddda;--hpw-radius-card:22px;--hpw-radius-pill:999px;--hpw-space-2:8px;--hpw-space-3:12px;--hpw-space-4:16px;--hpw-space-6:24px;--hpw-tap:44px;--hpw-measure:68ch}
+body .card{border-radius:var(--hpw-radius-card)}
+body .nav-cta,body .button{border-radius:var(--hpw-radius-pill)}
+@media(max-width:600px){
+  /* 44px tap targets for the header links on phones (WCAG 2.2 target size) */
+  body .nav nav a{padding:12px 0;min-height:var(--hpw-tap);box-sizing:border-box}
+  /* Calculator page only: reach the tool sooner on a phone (:has is ignored by older browsers, which keep today's layout) */
+  main.section.article:has(.calc-tabs)>h1{font-size:clamp(30px,9vw,38px);line-height:1.1;margin-bottom:var(--hpw-space-3)}
+  main.section.article:has(.calc-tabs)>p.lead{font-size:16px;line-height:1.55;margin-bottom:var(--hpw-space-2)}
+  body .calc-tabs{gap:var(--hpw-space-2);margin:var(--hpw-space-4) 0 var(--hpw-space-4)}
+  body .calc-tabs button{min-height:76px}
+}
