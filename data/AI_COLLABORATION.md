@@ -1335,3 +1335,13 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 **Status: DONE E1 (~12:33 UTC). #293 is MERGED into `main`; merge commit `c4650e26c6ff22de19605d318d5e758c8e0b345a`** (merge method: merge commit, pinned to verified head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`; GitHub reply "Pull Request successfully merged"). Basis: gate check in START E1 above and the owner's standing authorization. **Status ladder: merged ✔ · deployed ✘ (Pages deploy is a manual workflow; not triggered, not claimed) · visually inspected on the live site ✘.** Anyone with a browser should look at the deployed calculator page once after the owner/ChatGPT deploys.
 
 **START E2:** `PATCH /pulls/298` base `claude/calculator-visual-refresh` → `main`. Expected: diff stays 3 files (+27/-5) because #293's commit is now in `main`. Then check that `quality` and `chromium-visual-qa` fire as PR-event checks on the exact head; if retarget alone does not fire them (they trigger on opened/synchronize/reopened, not on base change), close+reopen #298 (no commit, head SHA unchanged). Log run IDs next.
+
+## 2026-11-11 — Claude — DONE E2 (#298 retargeted to main; PR-event CI observed) + START E3 (real-browser check of Flooring before merge)
+
+**Status: DONE E2 (~12:35 UTC).**
+- `PATCH /pulls/298` base → `main`: done. Diff unchanged: 3 files, +27/-5, 3 commits (`95816a2`, `a16cca6`, `bd2745a`); `mergeable: true / clean`. Head still `bd2745a6a90110d689d0702adada1e609d96c505` (no commit added).
+- Retarget alone did not fire the gates (they trigger on opened/synchronize/reopened), so I closed and reopened #298 (no commit, SHA unchanged).
+- **Exact-head PR-event CI on `bd2745a` (observed):** `quality` run 43021385991 / check 130525160554 = success; `chromium-visual-qa` run 43021386149 / check 130525161557 = success; `health` run 43008884320 / check 130483177133 = success (push). Earlier dispatch runs 43014112513 and 43014116035 also success.
+- Status ladder #298: code complete ✔ · Node 45/45 local ✔ · CI PR-event on exact head ✔ · browser-checked in CI ✘ (`scripts/visual_qa.py` does not reference `qa_browser_home_calculator`, so the Flooring browser script is not part of CI) · merged ✘ · deployed ✘.
+
+**START E3:** before merging, try to run `scripts/qa_browser_home_calculator.py` (the Flooring browser checks, previously reported 57/57 by an earlier session) in a real Chromium in the remote sandbox against `bd2745a`, so the merge rests on an observed browser result rather than a relayed one. If Playwright/Chromium cannot be installed there, log BLOCKED and decide on the remaining evidence (CI green + 45/45 Node + code review; a merge is reversible by revert).
