@@ -235,3 +235,41 @@ This is a preliminary research update only. No candidate below is approved for d
 ### Search-demand and qualification caveat
 
 The currently stored GSC exports do not provide verified query-level demand for PL-001, DR-001 or HVAC-001. A blank or absent query row is not proof of zero market demand. No keyword-volume tool/export was available in this research pass. These candidates must remain in investigation, and none may be moved into the qualified production queue until all 16 fields are complete, the score is at least 85/100, the value/differentiation case is defensible and critical evidence/safety/overlap blockers are closed.
+
+
+## PL-001 — supplemental primary-source and current SERP pass (ChatGPT, 2026-11-11)
+
+**Status remains RESEARCHING — NOT READY FOR CLAUDE.** This pass strengthens the diagnostic distinction and safety boundaries but does not invent search volume or close the full scorecard.
+
+### New primary/technical evidence
+
+- **EPA WaterSense — Home Maintenance:** recommends comparing the meter during a no-use interval and notes that a changed reading may indicate a leak; it also recommends leak alerts/flow monitoring where available. https://www.epa.gov/watersense/home-maintenance
+- **EPA WaterSense — Leak Detection and Flow Monitoring Devices:** distinguishes moisture-sensing devices (detect water at a location) from flow-monitoring devices (detect abnormal flow patterns); useful for explaining that point sensors and meter-based systems answer different questions. https://www.epa.gov/watersense/leak-detection-and-flow-monitoring-devices
+- **EPA — A Brief Guide to Mold, Moisture and Your Home:** advises keeping indoor RH below 60% (ideally 30–50%), describes condensation on windows/walls/pipes as a possible sign of high humidity, and recommends drying wet materials within 24–48 hours in most cases to limit mold growth. https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home
+- **National Academies / NCBI Bookshelf — Damp Indoor Spaces and Health, chapter 6:** explains that moisture control must account separately for rainwater/groundwater, plumbing/wash water and water vapor/surface temperatures; moisture can originate from several interacting mechanisms. https://www.ncbi.nlm.nih.gov/books/NBK215647/
+- **National Academies / NCBI Bookshelf — Prevention and Remediation of Damp Indoor Environments:** documents non-destructive and targeted investigative approaches, including operating plumbing fixtures to test sinks/drains and shower pans, and warns that moisture can travel along building materials before appearing elsewhere. https://www.ncbi.nlm.nih.gov/books/NBK215647/?report=printable
+- **EPA — Moisture Control Guidance for Building Design, Construction and Maintenance:** identifies plumbing supply and drain-line leaks as distinct moisture sources and notes that hidden condensation within assemblies can be mistaken for rainwater or plumbing leaks. https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=P100HF07.TXT
+- **Cocoa, Florida — Household Leak Detection:** explicitly warns that meter sensitivity varies, a meter test does not locate a leak, and it may not detect small leaks. It recommends accounting for automatic devices and repeating a test. https://www.cocoafl.gov/1129/Household-Leak-Detection
+- **Massachusetts — Moisture Measuring Devices:** identifies envelope leaks, plumbing/HVAC releases, condensation and sustained high humidity as separate moisture sources. Search result was available; page open returned HTTP 403, so do not quote detailed page text until independently accessible. https://www.mass.gov/info-details/use-of-moisture-measuring-devices-for-evaluating-water-damage-in-buildings
+
+### Current US SERP observations (2026-11-11)
+
+A current search sample for hidden-water-leak diagnosis returned EPA WaterSense resources, Plumber.com, Plumbing Advisors, DryHomeLab/HelpMeNow, and other plumbing-service pages. Four competitor pages (Angi, Plumber.com, Bluebot, Pulliam Plumbing) had already received deeper review in this portfolio audit. Newly inspected examples:
+
+- Plumber.com, “How to Find a Water Leak”: https://www.plumber.com/how-to-guides/find-a-water-leak — practical meter/dye test and clear DIY-to-professional framing, but broad coverage and a plumbing-service conversion path.
+- Plumbing Advisors, “How to Find a Hidden Plumbing Leak”: https://www.plumbingadvisors.com/resources/how-to-find-a-hidden-plumbing-leak — useful test limitations: meter movement does not locate the loss; automatic devices can create false positives; a still meter does not rule out intermittent, drain, roof or condensation sources. It also explains that thermal cameras show temperature differences, not water itself.
+- DryHomeLab/HelpMeNow, “How to find a hidden water leak”: https://www.dryhomelab.com/guides/how-to-find-hidden-water-leak — strong symptom-first branches separating supply, drain/shower-pan, rain/groundwater and condensation, but prominent lead-capture form and commercial contractor funnel precede the guide.
+- EPA WaterSense “Home Maintenance” and “Leak Detection and Flow Monitoring Devices” are the authoritative baseline, not direct editorial competitors.
+
+### Sharpened differentiator and remaining blockers
+
+The potential article must not be another generic “turn off taps and watch the meter” checklist. Its added value should be a **result-interpreting diagnostic pathway** that first classifies the symptom, then states what each safe check proves and cannot prove:
+
+1. No-use meter check: account for irrigation, ice makers, water softeners, humidifiers and other scheduled/automatic uses; repeat if uncertain. Meter movement indicates unexplained metered supply flow, not exact location; a still meter does not rule out intermittent, drain, roof, groundwater or condensation sources.
+2. Toilet dye test and visible supply-side inspection: use as targeted checks, not a blanket diagnosis. Never advise opening walls, floors or ceilings.
+3. Fixture-triggered drain/fixture test: observe only accessible areas while operating one fixture at a time; NCBI describes filling a sink and observing the basket drain/trap, and testing a shower pan through fixture operation and moisture observations. Do not encourage flooding, invasive pressure tests or disassembly by an unqualified homeowner.
+4. Weather-linked and ground-linked moisture: compare timing with rainfall, snowmelt and visible exterior drainage clues; refer roof/foundation investigations to appropriate professionals.
+5. Condensation/HVAC: consider cold pipes/ducts, indoor humidity, bathroom ventilation and condensate drains; EPA guidance supports humidity/condensation prevention but does not make a visual clue a definitive diagnosis.
+6. Escalation: active spreading water, ceiling bulging, water near energized equipment, sewage, suspected slab/service-line leaks, structural damage or concealed persistent moisture require stopping DIY checks and contacting the utility/qualified professional as appropriate.
+
+**Still required before qualification:** re-open and verify all 3–5 competitor pages used for the final dated SERP dossier; complete a query-level GSC check if a fresh export becomes available (currently unavailable; absence is not zero demand); complete the 16-field brief and scorecard; independently check exact article/URL overlap on current main. No keyword volume, ranking, traffic or demand number is asserted. Do not add PL-001 to the qualified production queue yet.
