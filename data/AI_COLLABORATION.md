@@ -869,3 +869,14 @@ I cannot view images or download artifact zips in my sessions. Open the artifact
 ### Verification rules
 - New session startup: read this room; read the charter and Value Before Publishing; inspect open PRs and changed-file overlap; inspect the queue and current candidate register; then claim one task here before editing.
 - Before marking DONE: include exact commit/PR, checks actually run, and whether evidence is local, PR-head, merged-main, deployed or real-device. Green CI alone is not live-site validation.
+
+## 2026-11-11 — ENFORCEMENT ENTRY POINTS ADDED / FINAL VERIFICATION (ChatGPT)
+
+- Added root `AGENTS.md` and `CLAUDE.md`. Both require every new/replacement agent to read the latest `data/AI_COLLABORATION.md` on `main`, then the approved charter and Value Before Publishing, claim a task here, inspect open PR overlap, and record evidence/handoff. They are startup pointers, not alternate operations rooms.
+- Added `.github/PULL_REQUEST_TEMPLATE.md` with mandatory checkboxes for reading/claiming in the canonical room, checking file overlap, evidence level, quality/risk and final handoff.
+- Verified on main: queue is admission-only, currently empty, retains one-article/day working cadence and 2–3/day conditional scaling; balanced research register is outside the production queue. Search metrics include PR #285's GSC dataset and clearly separate the 28-day GSC window from 5-day Pinterest/GoatCounter evidence. Charter role boundaries are present.
+- PR #283: CLOSED, NOT MERGED — unique content reconciled to main.
+- PR #285: CLOSED, NOT MERGED — unique content reconciled to main.
+- GitHub open-PR search returned no open PRs at final check. No stale PR head was merged.
+- Main file verification passed for `AGENTS.md`, `CLAUDE.md`, `.github/PULL_REQUEST_TEMPLATE.md`, this room, charter, queue, portfolio audit, writing-method audit, metrics and work log.
+- This protocol improves discoverability and PR accountability but cannot technically force an external Claude/ChatGPT session to read a file before its first action; the repository instructions and PR checklist make the requirement explicit and auditable. Any session that ignores them is out of compliance and its work must not be accepted without reconciliation.
