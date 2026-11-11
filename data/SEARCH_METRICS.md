@@ -263,3 +263,24 @@ Pinterest has a complete five-day daily series for **2026-11-06 to 2026-11-10**;
 - The kitchen-clutter query is visible at position 3 but maps to the legacy URL. Preserve the legacy redirect/canonical behavior while Google recrawls; do not remove the stub.
 - Pinterest distribution weakened sharply in the latest five days and produced no outbound site clicks. Review cadence, creative relevance and pin-to-article matching before increasing volume.
 - No new URL Inspection or sitemap submission was performed in this checkpoint. The Nov 10 inspection/sitemap state remains historical: six priority URLs indexed with successful mobile fetches; sitemap pending with zero errors/warnings.
+
+## 2026-11-11 — PR #285 evidence consolidated on main
+
+### Google Search Console — Web, final data
+- Current complete 28-day window: **2026-10-14 to 2026-11-10** — **831 impressions, 4 clicks, CTR 0.481%, average position 16.86**.
+- Previous immediately preceding 28-day window: **2026-09-16 to 2026-10-13** — **65 impressions, 0 clicks, CTR 0%, average position 32.48**.
+- Equal-window change: **+766 impressions (+1,178.5%)**, **+4 clicks** (relative percentage undefined because the previous value was zero), CTR **+0.481 percentage points**, average position improved by **15.62 places**.
+- The query export returned 81 visible rows and the page export 21 rows. Query rows exposed no clicks although page aggregation reports four; anonymized queries may be omitted. Do not assign page-level clicks to guessed queries or add query and page totals.
+- Pages with page-level clicks: `what-can-you-plug-into-a-smart-plug` 146 impressions / 2 clicks / position 6.29; `motion-lighting-that-actually-helps` 30 / 1 / 6.17; legacy `stop-kitchen-counter-clutter` 39 / 1 / 12.92. Destination `kitchen-counter-zone-that-stays-clear` had 7 impressions and no clicks. Preserve the legacy URL and its redirect/canonical behavior while Google recrawls.
+- Other leading pages: macerating toilet 121 impressions (position 13.34); large wall art 92 (6.41); bathroom condensation 91 (48.31); leak sensors 63 (17.92); musty towels 49 (26.31); evening lighting 46 (5.11); cable clutter 29 (10.86); crawl-space humidity 29 (65.52).
+- Visible query examples: `why does my kitchen clutter keep coming back` 22 impressions (position 7.05); `bad condensation in bathroom` 10 (91.7); `condensation on bathroom walls` 10 (86.7); `how to keep towels from smelling musty` 8 (64.38); `cable clutter meaning` 7 (7.86). These are visible rows, not the complete query set.
+- Filtered queries containing `energy` and `air leak` returned no visible rows. This does not prove market demand is zero.
+- Bing Webmaster Tools `top_queries` returned an empty row set; do not infer indexing failure from that alone.
+
+### Candidate research transferred from PR #285 — not production approval
+- **#41 Home Energy Audit Without Special Equipment:** RESEARCHING only. Preliminary differentiation hypothesis: homeowner-safe, no-special-equipment walkthrough that distinguishes air leakage from insulation/HVAC/moisture clues and clearly separates safe visual checks from professional diagnostics. Do not claim a certified/quantified audit, promise bill savings, disturb insulation, enter unsafe attics, handle electrical/gas equipment, block combustion air or perform unsafe smoke/depressurization tests. Whole-home air-leak candidate #43 should be a section/pathway of #41 unless evidence proves distinct intent. Full top-10 US SERP, 3–5 deep competitor reviews, query evidence and scorecard remain outstanding.
+- **#87 Contractor Quote Comparison:** DEFER. Generic quote comparison is crowded. Reopen only with a genuinely differentiated privacy-first worksheet that normalizes scope, materials, allowances, exclusions, permits, cleanup, schedule, payment milestones, change orders and warranty; do not rank contractors or treat missing costs as zero.
+- This research is evidence for candidate triage only, not authorization to draft, publish or add either candidate to the qualified production queue.
+
+### Pinterest / GoatCounter source note
+- The 6–10 Nov Pinterest comparison and the 10–11 Nov GoatCounter rolling snapshot are already recorded in the 5-day checkpoint above. They are not part of the 28-day GSC window and must not be combined with it.
