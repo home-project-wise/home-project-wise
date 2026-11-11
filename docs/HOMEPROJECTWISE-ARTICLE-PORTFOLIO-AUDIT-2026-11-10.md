@@ -200,3 +200,17 @@ This pass classifies every candidate against the current repository inventory. I
 - **Merge into existing pages or sibling candidates:** thermostat/C-wire, smart lighting, motion sensors, Wi-Fi outage, privacy, crawl-space musty odor, bathroom ventilation, door sealing, wallpaper quantity, paint sheen, fan sizing, and the paired drywall/paint/caulk/primer topics.
 - **Hold or deprioritize:** generic maintenance lists, generic energy-saving rankings, generic tile calculator, bathroom renovation cost estimates without reliable data, and broad old-house smart-home plans.
 - This is a repository-level content architecture decision. It does not establish demand. Every retained candidate still needs a query/page check, live US SERP study, source audit, value score and owner approval.
+
+## Candidate investigations — consolidated from PR #283 (2026-11-11)
+
+These candidates remain outside the qualified production queue. The research register is deliberately limited and balanced; no candidate is approved for drafting or publication.
+
+| ID | Area | Status | Decision and evidence gap |
+|---|---|---|---|
+| PL-001 | Plumbing / hidden water leak diagnosis | RESEARCHING | Four deep competitor reviews completed (Angi, Plumber.com, Bluebot, Pulliam Plumbing), plus EPA WaterSense primary guidance. Potential differentiator: safe result-interpreting diagnostic path separating supply leaks from drain leaks, roof/weather intrusion, groundwater and condensation; explain what each test proves and does not prove. Still needs verified keyword demand/GSC query evidence, remaining primary-source checks and complete scorecard. |
+| EN-001 | Energy / whole-home air-leak diagnosis | DEFER | ENERGY STAR and DOE already provide strong authoritative coverage; no distinct angle proven. Reopen only with evidence for a genuinely different diagnostic workflow or tool-linked decision. |
+| PC-001 / portfolio #87 | Project planning / contractor quote comparison | DEFER | Generic guides and free worksheets compete directly. Reopen only with a genuinely useful privacy-first comparison workflow that normalizes scope, materials, allowances, exclusions, permits, cleanup, schedule, payments, change orders and warranty without ranking contractors or treating missing values as zero. |
+
+PL-001 qualitative query language (not measured search volume): how to find a water leak in your house; how to find a hidden water leak; water meter leak test; meter moving when water is off; signs of hidden water leak; water leak behind wall; slab leak signs; damp wall but no meter movement; condensation vs plumbing leak; when to call a plumber. No keyword-volume/difficulty export or fresh GSC query export was available in this pass.
+
+Read `docs/EDITORIAL-WRITING-METHOD-AUDIT-2026-11-11.md` before preparing future article drafts. It records a seven-article writing-method audit and the four deep competitor reviews for PL-001. The production queue remains admission-only.
