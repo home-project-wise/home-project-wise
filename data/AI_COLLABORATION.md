@@ -1396,3 +1396,22 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Test change:** +5 Node checks (no rewrite on load; click writes hash; keyboard writes hash; replaceState-only shape; Paint line present). I also fixed one pre-existing stale expectation: `direct project-cost link opens the Project cost tab` (only runs with `HPW_TEST_HASH=#panel-project`) still expected 5 tabs; with six tabs the correct string is `false,false,false,false,true,false` (it failed on unmodified `main` too; CI never sets that env var, so it was invisible).
 - **Results so far (local, before commit):** Node default env 50 PASS / 0 FAIL; with `HPW_TEST_HASH=#panel-project` 51 PASS / 0 FAIL; `#panel-material` 50 / 0; negative control against the old HTML fails the 4 new checks as expected. Real Chromium (prod CSS, 390/320 px): first load has no hash; click Flooring → `#panel-material`; ArrowRight → `#panel-energy`; `history.length` unchanged; reload restores the tab; fresh-load deep links `#panel-project`, `#panel-wallpaper`, `#panel-material` open the right tab; Paint line visible; no overflow at 320; 0 JS errors; existing `qa_browser_home_calculator.py` 57/57.
 - **Next action:** push the branch (2 commits), open the PR against `main`, check exact-head CI, then merge if green and log DONE with SHAs.
+
+## 2026-11-11 — Claude — DONE F1 (PR #300 merged and live) + RESUME HERE
+
+**Status: DONE F1 (~12:45 UTC). PR #300 "Calculator: tab URL hash sync and Paint walls-only line" MERGED into `main`; merge commit `5576c6026bf7f6af4f5ba8b988a7c3c2d122685b`** (merge commit, pinned to verified head `93e5722e4623db7a486164005a957c527f1d21aa`; branch commits `7f2cef6` tests, `93e5722` page). Files changed: `website/home-project-calculator.html`, `scripts/test_home_calculator.js` only.
+
+- **Exact-head CI on `93e5722` (PR-event, observed):** `quality` run 43022664224 (check 130529449767) success; `chromium-visual-qa` run 43022664218 (check 130529449382) success; `health` check 130529367878 success.
+- **Push CI on `main` `5576c60` (observed):** Editorial Quality Gate 43022883732 success; Always-on visual QA 43022883739 success; Pages deployment 43022883587 success; Site Health Monitor 43022883609 success.
+- **Live check:** the deployed calculator page returns HTTP 200 and contains `syncHash` and the line "Walls only: ceilings, trim and primer are not included." (string check on the served HTML; not a visual inspection).
+- **Local evidence recorded in CLAIM F1:** Node 50/0 (51/0 with `#panel-project`), real-Chromium hash/deep-link/320 px checks, existing browser QA 57/57.
+- **Status ladder:** merged ✔ · deployed ✔ (served HTML contains the change) · CI on exact head ✔ · visually inspected by a human ✘ · Safari/Firefox/physical phone/screen reader ✘.
+
+## 2026-11-11 — Claude — RESUME HERE (after F1)
+
+- **Repo:** `main` = `5576c6026bf7f6af4f5ba8b988a7c3c2d122685b` at merge time (plus later docs-only room commits). Working tree: none; sandbox files are scratch only. Merged task branches not deleted: `claude/calculator-visual-refresh`, `claude/flooring-imperial-units`, `claude/calculator-copy-and-hash`.
+- **Open PRs at last check:** #297 (docs only; not mine to merge without reading it — it duplicates content already on `main`; ChatGPT/owner to close or merge).
+- **Done today by this session:** A (CI + review), D1–D3, E1–E4 (#293, #298 merged), F1 (#300 merged). Everything deployed (push to `main` triggers `pages.yml`).
+- **Remaining, all optional:** (1) a human opens the live calculator on a phone and a desktop and looks at the six tabs, light and dark (nobody has eyeballed it; this is the biggest open gap); (2) D1 Paint/Flooring → Project cost handoff: new feature, owner/ChatGPT decision; (3) suggestion for owner approval (protected file): `site-health.yml` article-URL step has no retry and failed once on a transient 503 during a deploy; (4) CI gap: `scripts/qa_browser_home_calculator.py` is not run by any workflow (adding it means editing a workflow, needs owner approval); (5) ChatGPT's article/keyword queue is untouched by me.
+- **Last commands/results:** Node 50 PASS/0 FAIL on the merged page logic; browser script 57/57; all `main` workflows success on `5576c60`.
+- **Single next action for the next session:** read this room, verify `main` head against GitHub, then pick from the Remaining list; if nothing is requested, ask the owner for a visual review of the live calculator rather than starting new code.
