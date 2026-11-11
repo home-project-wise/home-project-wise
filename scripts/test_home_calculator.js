@@ -98,11 +98,11 @@ if (process.env.HPW_TEST_HASH === '#panel-project') ok('direct project-cost link
 ok('tabs have keydown handlers', tabEls.every(e => typeof e.handlers.keydown === 'function'), 'no keydown handler');
 if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
   ok('exactly one tab in the tab order (roving tabindex)', tabEls.filter(e => e.attrs.tabindex === '0').length === 1, tabEls.map(e => e.attrs.tabindex).join(','));
-  key(tabEls[0], 'ArrowRight'); ok('ArrowRight selects and focuses next tab', sel() === 'false,true,false,false,false' && tabEls[1].focused, sel());
-  key(tabEls[1], 'End'); ok('End selects last tab', sel() === 'false,false,false,false,true', sel());
-  key(tabEls[4], 'ArrowRight'); ok('ArrowRight wraps to first tab', sel() === 'true,false,false,false,false', sel());
-  key(tabEls[0], 'ArrowLeft'); ok('ArrowLeft wraps to last tab', sel() === 'false,false,false,false,true', sel());
-  key(tabEls[4], 'Home'); ok('Home selects first tab', sel() === 'true,false,false,false,false', sel());
+  key(tabEls[0], 'ArrowRight'); ok('ArrowRight selects and focuses next tab', sel() === 'false,true,false,false,false,false' && tabEls[1].focused, sel());
+  key(tabEls[1], 'End'); ok('End selects last tab', sel() === 'false,false,false,false,false,true', sel());
+  key(tabEls[5], 'ArrowRight'); ok('ArrowRight wraps to first tab', sel() === 'true,false,false,false,false,false', sel());
+  key(tabEls[0], 'ArrowLeft'); ok('ArrowLeft wraps to last tab', sel() === 'false,false,false,false,false,true', sel());
+  key(tabEls[5], 'Home'); ok('Home selects first tab', sel() === 'true,false,false,false,false,false', sel());
 }
 console.log(fail ? '\n' + fail + ' check(s) failed' : '\nAll checks passed');
 process.exit(fail ? 1 : 0);

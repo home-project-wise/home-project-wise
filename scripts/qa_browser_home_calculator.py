@@ -20,7 +20,7 @@ with sync_playwright() as p:
     pg.goto(URL,wait_until='load'); pg.wait_for_timeout(500)
     ck('title',pg.title().startswith('Home Project Calculator'),pg.title())
     ck('one h1',pg.locator('h1').count()==1)
-    ck('five tabs',pg.locator('[role=tab]').count()==5)
+    ck('six tabs',pg.locator('[role=tab]').count()==6)
     bad=[]
     for el in pg.locator('input,select').all():
         i=el.get_attribute('id')
@@ -33,9 +33,9 @@ with sync_playwright() as p:
     pg.locator('#tab-measure').focus(); pg.keyboard.press('ArrowRight'); pg.wait_for_timeout(100)
     ck('ArrowRight -> paint selected+focused',act()=='tab-paint' and pg.get_attribute('#tab-paint','aria-selected')=='true')
     ck('paint panel visible, measure hidden',pg.locator('#panel-paint').is_visible() and not pg.locator('#panel-measure').is_visible())
-    pg.keyboard.press('End'); ck('End -> last tab',act()=='tab-project')
+    pg.keyboard.press('End'); ck('End -> last tab',act()=='tab-wallpaper')
     pg.keyboard.press('Home'); ck('Home -> first tab',act()=='tab-measure')
-    pg.keyboard.press('ArrowLeft'); ck('ArrowLeft wraps to last',act()=='tab-project')
+    pg.keyboard.press('ArrowLeft'); ck('ArrowLeft wraps to last',act()=='tab-wallpaper')
     pg.keyboard.press('Tab'); ck('Tab from tablist enters active panel',pg.evaluate("()=>!!document.activeElement.closest('.tool-panel.active')"),act())
     ck('exactly one tab in tab order',pg.evaluate("()=>[...document.querySelectorAll('[role=tab]')].filter(t=>t.tabIndex===0).length")==1)
     tab=lambda n: pg.click('#tab-'+n)

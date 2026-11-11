@@ -6,6 +6,7 @@
 <button type="button" role="tab" aria-selected="false" aria-controls="panel-material" id="tab-material" data-panel="material">Flooring & materials</button>
 <button type="button" role="tab" aria-selected="false" aria-controls="panel-energy" id="tab-energy" data-panel="energy">Electricity cost</button>
 <button type="button" role="tab" aria-selected="false" aria-controls="panel-project" id="tab-project" data-panel="project">Project cost</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="panel-wallpaper" id="tab-wallpaper" data-panel="wallpaper">Wallpaper</button>
 </div>
 <section class="tool-panel active" id="panel-measure" role="tabpanel" aria-labelledby="tab-measure">
 <h2>Room area and volume</h2><p>Calculate floor area, perimeter and—if you enter a depth or height—volume. Choose the unit you measured in.</p>
@@ -78,11 +79,145 @@
 </form><div class="tool-result" id="project-result" aria-live="polite"></div>
 <p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
 </section>
+<style>
+.wp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.wp-room{border:1px solid #d8ded9;border-radius:14px;padding:14px 16px;margin:12px 0;min-width:0}.wp-room legend{font-weight:600;padding:0 6px}.wp-wall{display:flex;gap:8px;align-items:center;margin:8px 0}.wp-wall input{flex:1;min-width:0}.wp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wp-btn{min-height:44px;min-width:44px;padding:10px 16px;border-radius:999px;border:1px solid #243238;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.wp-btn:disabled{opacity:.45;cursor:not-allowed}#panel-wallpaper h3{font-size:18px;margin:22px 0 4px}.wp-note{font-size:13px;color:#637075;margin:6px 0 0}#wp-budget{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}#wp-budget[hidden],.calc-field[hidden]{display:none}.tool-result ul{margin:10px 0 0;padding-left:20px}.wp-check{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:8px;cursor:pointer}.wp-check input{width:24px;height:24px;flex:none;margin:0}#wp-compare-fields[hidden]{display:none}.wp-compare-out{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}@media (prefers-color-scheme:dark){.wp-note{color:#aeb9bc}.wp-compare-out{border-top-color:#44565e}.wp-btn{border-color:#6f8189}.wp-btn:hover:not(:disabled){border-color:#eef1ee}.wp-room{border-color:#44565e}#wp-budget{border-top-color:#44565e}#panel-wallpaper .wp-btn:focus-visible,#panel-wallpaper input:focus-visible,#panel-wallpaper select:focus-visible{outline:2px solid #8db8a6;outline-offset:2px}}
+</style>
+<section class="tool-panel" id="panel-wallpaper" role="tabpanel" aria-labelledby="tab-wallpaper">
+<h2>Wallpaper rolls</h2><p>Plan wallpaper from the exact numbers printed on the product label. Every figure uses the one unit you choose, and each room is calculated and rounded up separately.</p>
+<form class="calc" id="wp-form" novalidate>
+<h3>Product label</h3>
+<div class="calc-grid">
+<div class="calc-field"><label for="wp-unit">Unit for every measurement</label><select id="wp-unit"><option value="ft">Feet</option><option value="in">Inches</option><option value="m">Metres</option><option value="cm">Centimetres</option></select></div>
+<div class="calc-field"><label for="wp-saleunit">Sale unit named on the label</label><input id="wp-saleunit" type="text" maxlength="40" placeholder="e.g. double roll" autocomplete="off"></div>
+<div class="calc-field"><label for="wp-rollwidth">Usable roll width (<span class="wp-unit-name">ft</span>)</label><input id="wp-rollwidth" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp-length">Usable length per sale unit (<span class="wp-unit-name">ft</span>)</label><input id="wp-length" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp-match">Pattern match</label><select id="wp-match"><option value="free">Free match / no pattern</option><option value="random">Random match</option><option value="straight">Straight match</option><option disabled>Half-drop / offset (not supported)</option><option disabled>Mural / panel set (not supported)</option></select></div>
+<div class="calc-field" id="wp-repeat-field" hidden><label for="wp-repeat">Vertical pattern repeat (<span class="wp-unit-name">ft</span>)</label><input id="wp-repeat" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp-price">Price per sale unit (optional)</label><input id="wp-price" type="number" min="0" step="any" placeholder="Leave blank if unknown"></div>
+<div class="calc-field"><label for="wp-currency">Currency code (needed with a price)</label><input id="wp-currency" type="text" maxlength="3" value="USD" autocomplete="off"></div>
+</div>
+<p class="wp-note">Half-drop, offset, mural and irregular patterns are not guessed: use the manufacturer&#x27;s own calculator for those. Take every figure from the label of the exact product you will buy.</p>
+<div class="wp-check-row"><label class="wp-check" for="wp-compare"><input type="checkbox" id="wp-compare"><span>Compare with a second product (same rooms)</span></label></div>
+<div id="wp-compare-fields" hidden>
+<h3>Second product label</h3>
+<p class="wp-note">Both products are calculated for the same rooms and the same unit, each rounded up per room. Enter the second product&#x27;s own label figures and, if you like, short names for both.</p>
+<div class="calc-grid">
+<div class="calc-field"><label for="wp-name1">First product name (optional)</label><input id="wp-name1" type="text" maxlength="40" placeholder="Product 1" autocomplete="off"></div>
+<div class="calc-field"><label for="wp-name2">Second product name (optional)</label><input id="wp-name2" type="text" maxlength="40" placeholder="Product 2" autocomplete="off"></div>
+<div class="calc-field"><label for="wp2-saleunit">Second product: sale unit on the label</label><input id="wp2-saleunit" type="text" maxlength="40" placeholder="e.g. single roll" autocomplete="off"></div>
+<div class="calc-field"><label for="wp2-rollwidth">Second product: usable roll width (<span class="wp-unit-name">ft</span>)</label><input id="wp2-rollwidth" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp2-length">Second product: usable length per sale unit (<span class="wp-unit-name">ft</span>)</label><input id="wp2-length" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp2-match">Second product: pattern match</label><select id="wp2-match"><option value="free">Free match / no pattern</option><option value="random">Random match</option><option value="straight">Straight match</option><option disabled>Half-drop / offset (not supported)</option><option disabled>Mural / panel set (not supported)</option></select></div>
+<div class="calc-field" id="wp2-repeat-field" hidden><label for="wp2-repeat">Second product: vertical pattern repeat (<span class="wp-unit-name">ft</span>)</label><input id="wp2-repeat" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp2-price">Second product: price per sale unit (optional)</label><input id="wp2-price" type="number" min="0" step="any" placeholder="Leave blank if unknown"></div>
+<div class="calc-field"><label for="wp2-currency">Second product: currency code (needed with a price)</label><input id="wp2-currency" type="text" maxlength="3" value="USD" autocomplete="off"></div>
+</div>
+</div>
+<h3>Rooms</h3>
+<div id="wp-rooms"></div>
+<div class="wp-actions"><button type="button" class="wp-btn" id="wp-add-room">Add room</button></div>
+<p class="calc-error" id="wp-error" role="alert"></p><button class="calc-btn" type="submit">Calculate wallpaper</button>
+</form>
+<div class="tool-result" id="wp-result" aria-live="polite"></div>
+<div id="wp-budget" hidden>
+<h3>Check this wallpaper against a budget</h3>
+<div class="calc-grid">
+<div class="calc-field"><label for="wp-budget-amount">Budget for wallpaper</label><input id="wp-budget-amount" type="number" min="0" step="any"></div>
+<div class="calc-field"><label for="wp-budget-currency">Budget currency code</label><input id="wp-budget-currency" type="text" maxlength="3" value="USD" autocomplete="off"></div>
+<div class="calc-field"><label for="wp-contingency">Contingency (%)</label><input id="wp-contingency" type="number" min="0" max="100" step="any" value="10"></div>
+</div>
+<button type="button" class="calc-btn" id="wp-budget-btn">Check against budget</button>
+<div class="tool-result" id="wp-budget-out" aria-live="polite"></div>
+</div>
+<p class="formula">Method: each wall needs round up(wall width ÷ usable roll width) strips. A strip is wall height + trim allowance (+ one full pattern repeat for straight match). Strips per sale unit = round down(usable length ÷ strip length); sale units per room = round up(strips ÷ strips per sale unit). Leftovers are not carried between walls or rooms, and doors and windows are not deducted. Prices are only what you type; unknown prices stay unknown and are never treated as zero. Follow the manufacturer&#x27;s instructions where they differ. See the <a href="articles/how-to-calculate-wallpaper-rolls-pattern-repeat.html">wallpaper roll guide</a>.</p>
+</section>
 <h2>How to get a more useful estimate</h2>
 <ul><li>Measure the actual area and split irregular rooms into simple shapes.</li><li>Use coverage and yield from the exact product label, not a generic internet average.</li><li>Enter your local electricity tariff and current supplier prices.</li><li>Keep the exact quantity separate from the extra allowance; the allowance is a planning choice, not a guarantee.</li></ul>
 <h2>Frequently Asked Questions</h2><h3>Are these results exact?</h3><p>No. They are planning estimates based on the values you enter. Measurement errors, product coverage, waste, site conditions, taxes and supplier rules can change the final amount.</p><h3>Does the calculator store my measurements or prices?</h3><p>No. Calculations run in your browser. The page does not send the values you enter to HomeProjectWise.</p><h3>Can I use it outside the United States?</h3><p>Yes. The measurement and material calculators accept metric inputs, and you can enter your own electricity tariff, prices and currency symbol.</p><h3>Can it tell me whether electrical work is safe or code-compliant?</h3><p>No. The electricity section estimates energy consumption and cost only. It does not assess wiring, circuit capacity, appliance suitability or electrical code requirements.</p><h2>Related tools and guides</h2>
 <p><a href="tools.html">Browse all HomeProjectWise tools</a> · <a href="budget-planner.html">Project Budget Planner</a> · <a href="articles/choose-paint-finish-for-each-room.html">Choose a paint finish</a> · <a href="articles/right-rug-size-painters-tape-test.html">Choose the right rug size</a></p>
-</main><footer><div class="brand"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script>
+</main><footer><div class="brand"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script><script>
+(function(){
+'use strict';
+function byId(id){return document.getElementById(id);}
+function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
+function error(id,msg){byId(id).textContent=msg;}
+/* Wallpaper tab: DOM adapter only. All arithmetic lives in wallpaper-calculator-engine.js and project-estimator-engine.js. Nothing is stored, logged or sent. */
+var WP=window.HomeProjectWiseWallpaper,EST=window.HPWProjectEstimator,wpRoomN=0,wpWallN=0,wpLast=null;
+function wpEl(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e;}
+function wpNum(v){v=String(v).trim();return v===''?NaN:Number(v);}
+function wpUnit(){return byId('wp-unit').value;}
+function wpClear(){wpLast=null;byId('wp-error').textContent='';byId('wp-result').textContent='';byId('wp-budget-out').textContent='';byId('wp-budget').hidden=true;}
+function wpField(label,type,cls,attrs,unit){var id='wp-f'+(++wpWallN),d=wpEl('div','calc-field'),l=wpEl('label','',label);l.setAttribute('for',id);
+ if(unit){l.appendChild(document.createTextNode(' ('));l.appendChild(wpEl('span','wp-unit-name',wpUnit()));l.appendChild(document.createTextNode(')'));}
+ var i=wpEl('input',cls);i.id=id;i.type=type;Object.keys(attrs||{}).forEach(function(k){i.setAttribute(k,attrs[k]);});d.appendChild(l);d.appendChild(i);return d;}
+function wpAddWall(room,focus){var box=room.querySelector('.wp-walls'),w=wpEl('div','wp-wall'),i=wpEl('input','wp-wallw'),lb=wpEl('label','wp-sr');i.id='wp-w'+(++wpWallN);lb.setAttribute('for',i.id);i.type='number';i.min='0';i.step='any';i.placeholder='Wall width';
+ var b=wpEl('button','wp-btn wp-remove-wall','Remove');b.type='button';w.appendChild(lb);w.appendChild(i);w.appendChild(b);box.appendChild(w);wpRenumber();if(focus)i.focus();}
+function wpAddRoom(focus){var fs=wpEl('fieldset','wp-room');fs.appendChild(wpEl('legend','wp-room-title','Room'));
+ var g=wpEl('div','calc-grid');g.appendChild(wpField('Room name (optional)','text','wp-room-label',{maxlength:'40',autocomplete:'off'}));
+ g.appendChild(wpField('Wall height','number','wp-height',{min:'0',step:'any'},true));
+ var t=wpField('Trim allowance','number','wp-trim',{min:'0',step:'any',value:'0'},true);g.appendChild(t);fs.appendChild(g);
+ fs.appendChild(wpEl('p','wp-note','Enter each wall width you will paper. Add one entry per wall.'));
+ fs.appendChild(wpEl('div','wp-walls'));
+ var a=wpEl('div','wp-actions'),aw=wpEl('button','wp-btn wp-add-wall','Add wall'),rr=wpEl('button','wp-btn wp-remove-room','Remove room');aw.type='button';rr.type='button';a.appendChild(aw);a.appendChild(rr);fs.appendChild(a);
+ byId('wp-rooms').appendChild(fs);wpAddWall(fs,false);wpRenumber();if(focus)fs.querySelector('.wp-room-label').focus();}
+function wpRenumber(){var u=wpUnit(),rooms=byId('wp-rooms').children;
+ Array.prototype.forEach.call(rooms,function(r,ri){var n=ri+1,walls=r.querySelectorAll('.wp-wall');
+  r.querySelector('.wp-room-title').textContent='Room '+n;
+  Array.prototype.forEach.call(walls,function(w,wi){w.querySelector('label').textContent='Room '+n+', wall '+(wi+1)+' width ('+u+')';var b=w.querySelector('button');b.setAttribute('aria-label','Remove room '+n+', wall '+(wi+1));b.disabled=walls.length===1;});
+  r.querySelector('.wp-add-wall').setAttribute('aria-label','Add a wall to room '+n);
+  var rm=r.querySelector('.wp-remove-room');rm.setAttribute('aria-label','Remove room '+n);rm.disabled=rooms.length===1;});
+ document.querySelectorAll('#panel-wallpaper .wp-unit-name').forEach(function(s){s.textContent=u;});}
+byId('wp-add-room').addEventListener('click',function(){wpClear();wpAddRoom(true);});
+byId('wp-rooms').addEventListener('click',function(e){var t=e.target.closest('button');if(!t)return;var room=t.closest('.wp-room');wpClear();
+ if(t.classList.contains('wp-add-wall'))wpAddWall(room,true);
+ else if(t.classList.contains('wp-remove-wall')){var next=room.querySelector('.wp-add-wall');t.closest('.wp-wall').remove();wpRenumber();next.focus();}
+ else if(t.classList.contains('wp-remove-room')){room.remove();wpRenumber();byId('wp-add-room').focus();}});
+byId('wp-unit').addEventListener('change',function(){wpClear();wpRenumber();});
+byId('wp-match').addEventListener('change',function(){byId('wp-repeat-field').hidden=byId('wp-match').value!=='straight';});
+byId('wp-form').addEventListener('input',wpClear);
+function wpRender(res){var out=byId('wp-result');out.textContent='';var p=wpEl('p');p.appendChild(wpEl('strong','','Total to buy: '+fmt(res.totalSaleUnits,0)+' × '+res.saleUnitLabel));out.appendChild(p);
+ res.rooms.forEach(function(r){var e=r.estimate,q=wpEl('p');q.appendChild(wpEl('strong','',r.label+': '+fmt(e.saleUnits,0)+' × '+res.saleUnitLabel));q.appendChild(document.createElement('br'));
+  q.appendChild(document.createTextNode(e.totalDrops+' strip(s) ('+e.walls.map(function(w){return w.label+': '+w.dropsRequired;}).join(', ')+'); each strip '+fmt(e.dropLength,2)+' '+res.unit+'; '+e.dropsPerSaleUnit+' strip(s) per '+res.saleUnitLabel+'.'));out.appendChild(q);});
+ var c=wpEl('p');if(res.materialCost!==null){c.appendChild(document.createTextNode('Estimated material cost: '));c.appendChild(wpEl('strong','',res.currency+' '+fmt(res.materialCost,2)));}else{c.textContent='Cost: not entered (no price given, so no cost is shown).';}out.appendChild(c);
+ var ul=wpEl('ul');res.assumptions.forEach(function(a){ul.appendChild(wpEl('li','',a));});out.appendChild(ul);}
+function wpProduct(p){var match=byId(p+'-match').value,priceRaw=byId(p+'-price').value.trim(),o={saleUnitLabel:byId(p+'-saleunit').value,rollWidth:wpNum(byId(p+'-rollwidth').value),usableLengthPerSaleUnit:wpNum(byId(p+'-length').value),matchType:match};
+ if(match==='straight')o.patternRepeat=wpNum(byId(p+'-repeat').value);
+ if(priceRaw!==''){o.pricePerSaleUnit=wpNum(priceRaw);o.currency=byId(p+'-currency').value.trim().toUpperCase();}
+ return o;}
+function wpRooms(){return Array.prototype.map.call(byId('wp-rooms').children,function(r){return {label:r.querySelector('.wp-room-label').value,wallHeight:wpNum(r.querySelector('.wp-height').value),trimAllowance:wpNum(r.querySelector('.wp-trim').value),
+   walls:Array.prototype.map.call(r.querySelectorAll('.wp-wallw'),function(w,j){return {label:'Wall '+(j+1),width:wpNum(w.value)};})};});}
+function wpRenderCompare(c){var out=byId('wp-result'),box=wpEl('div','wp-compare-out');box.appendChild(wpEl('h3','','Product comparison'));
+ c.products.forEach(function(p){var e=p.estimate,q=wpEl('p');q.appendChild(wpEl('strong','',p.productLabel+': '+fmt(e.totalSaleUnits,0)+' × '+e.saleUnitLabel));q.appendChild(document.createElement('br'));
+  q.appendChild(document.createTextNode(e.materialCost!==null?'Estimated material cost: '+e.currency+' '+fmt(e.materialCost,2):'Cost: not entered (no price given, so no cost is shown).'));box.appendChild(q);});
+ if(c.costComparable){var x=c.products[0],y=c.products[1],cx=x.estimate.materialCost,cy=y.estimate.materialCost;
+  box.appendChild(wpEl('p','',cx===cy?'Both products have the same estimated material cost.':'Lower estimated material cost: '+(cx<cy?x.productLabel:y.productLabel)+'.'));}
+ box.appendChild(wpEl('p','wp-note',c.note+' Both products use the same rooms and the same unit. The budget check below uses the first product.'));out.appendChild(box);}
+byId('wp-compare').addEventListener('change',function(){byId('wp-compare-fields').hidden=!byId('wp-compare').checked;});
+byId('wp2-match').addEventListener('change',function(){byId('wp2-repeat-field').hidden=byId('wp2-match').value!=='straight';});
+byId('wp-form').addEventListener('submit',function(e){e.preventDefault();wpClear();
+ var input=Object.assign({unit:wpUnit(),rooms:wpRooms()},wpProduct('wp')),cmp=null;
+ if(byId('wp-compare').checked){var n1=byId('wp-name1').value.trim()||'Product 1',n2=byId('wp-name2').value.trim()||'Product 2';
+  cmp=WP.compareWallpaperProducts({unit:wpUnit(),rooms:wpRooms()},[Object.assign({productLabel:n1},wpProduct('wp')),Object.assign({productLabel:n2},wpProduct('wp2'))]);
+  if(!cmp.ok){error('wp-error',cmp.error.message);return;}
+  for(var i=0;i<2;i++){if(!cmp.products[i].estimate.ok){error('wp-error','Product '+(i+1)+': '+cmp.products[i].estimate.error.message);return;}}}
+ var res=WP.estimateWallpaperProject(input);if(!res.ok){error('wp-error',res.error.message);return;}
+ wpLast=res;wpRender(res);if(cmp)wpRenderCompare(cmp);byId('wp-budget').hidden=false;if(res.currency)byId('wp-budget-currency').value=res.currency;});
+byId('wp-budget-btn').addEventListener('click',function(){var out=byId('wp-budget-out');out.textContent='';
+ function say(m){out.textContent=m;}
+ if(!wpLast||!EST){say('Calculate the wallpaper first.');return;}
+ var cur=byId('wp-budget-currency').value.trim().toUpperCase();
+ if(!/^[A-Z]{3}$/.test(cur)){say('Enter a three-letter currency code for the budget, for example USD.');return;}
+ if(wpLast.currency&&wpLast.currency!==cur){say('The budget currency ('+cur+') differs from the price currency ('+wpLast.currency+'). Amounts are never converted: use '+wpLast.currency+' for both.');return;}
+ var item=WP.toProjectBudgetLineItem(wpLast,{id:'wallpaper',name:'Wallpaper'});if(!item.ok){say(item.error.message);return;}
+ try{var est=EST.calculateEstimate({currency:cur,contingencyPct:wpNum(byId('wp-contingency').value),lineItems:[item.lineItem]}),
+   a=EST.assessBudget(est,{currency:cur,amount:wpNum(byId('wp-budget-amount').value)});
+  out.appendChild(wpEl('p','','Result: '+a.status.replace(/-/g,' ')+'. '+a.reason));
+  if(a.estimateLow!==undefined){out.appendChild(wpEl('p','','Wallpaper estimate with contingency: '+cur+' '+fmt(a.estimateLow,2)+(a.estimateHigh!==a.estimateLow?' to '+fmt(a.estimateHigh,2):'')+'. Left in budget: '+cur+' '+fmt(a.remainingLow,2)+'.'));}
+  out.appendChild(wpEl('p','wp-note','This checks the wallpaper line only; it does not include paint, labour or other project costs.'));
+ }catch(err){say(err.message);}});
+wpAddRoom(false);
+})();
+</script><script>
 (function(){
 'use strict';
 function byId(id){return document.getElementById(id);}
