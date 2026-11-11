@@ -33,8 +33,10 @@ global.document = {
   getElementById: mk,
   querySelectorAll: s => s === '.calc-tabs button' ? tabEls : []
 };
-global.window = { location: { hash: process.env.HPW_TEST_HASH || '' } };
+const hashWrites = [];
+global.window = { location: { hash: process.env.HPW_TEST_HASH || '' }, history: { replaceState(s, title, url) { hashWrites.push(url); } } };
 eval(script);
+const hashWritesAtLoad = hashWrites.length;
 let fail = 0;
 function submit(form, vals) {
   for (const k in vals) els[k].value = String(vals[k]);
@@ -106,7 +108,7 @@ ok('stale result cleared after invalid submit', bad.res === '', JSON.stringify(b
 // Tabs keyboard pattern
 function key(el, k) { let prevented = false; el.handlers.keydown && el.handlers.keydown({ key: k, preventDefault() { prevented = true; } }); return prevented; }
 const sel = () => tabEls.map(e => e.attrs['aria-selected']).join(',');
-if (process.env.HPW_TEST_HASH === '#panel-project') ok('direct project-cost link opens the Project cost tab', sel() === 'false,false,false,false,true', sel());
+if (process.env.HPW_TEST_HASH === '#panel-project') ok('direct project-cost link opens the Project cost tab', sel() === 'false,false,false,false,true,false', sel());
 ok('tabs have keydown handlers', tabEls.every(e => typeof e.handlers.keydown === 'function'), 'no keydown handler');
 if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
   ok('exactly one tab in the tab order (roving tabindex)', tabEls.filter(e => e.attrs.tabindex === '0').length === 1, tabEls.map(e => e.attrs.tabindex).join(','));
@@ -116,5 +118,11 @@ if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
   key(tabEls[0], 'ArrowLeft'); ok('ArrowLeft wraps to last tab', sel() === 'false,false,false,false,false,true', sel());
   key(tabEls[5], 'Home'); ok('Home selects first tab', sel() === 'true,false,false,false,false,false', sel());
 }
+// Tab selection writes the tab's panel id to the URL hash (replaceState, no history entries); reading the hash on load is unchanged
+ok('loading the page does not rewrite the URL hash', hashWritesAtLoad === 0, String(hashWritesAtLoad));
+tabEls[2].handlers.click(); ok('clicking a tab writes #<panel id>', hashWrites[hashWrites.length - 1] === '#' + tabEls[2].attrs['aria-controls'], JSON.stringify(hashWrites));
+key(tabEls[2], 'ArrowRight'); ok('keyboard tab move writes the new tab hash', hashWrites[hashWrites.length - 1] === '#' + tabEls[3].attrs['aria-controls'], JSON.stringify(hashWrites));
+ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+$/.test(u)), JSON.stringify(hashWrites));
+ok('Paint intro states walls only (ceilings, trim and primer not included)', /Walls only: ceilings, trim and primer are not included\./.test(html), 'paint scope line missing');
 console.log(fail ? '\n' + fail + ' check(s) failed' : '\nAll checks passed');
 process.exit(fail ? 1 : 0);
