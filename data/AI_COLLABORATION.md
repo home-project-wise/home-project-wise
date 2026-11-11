@@ -1057,3 +1057,15 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 1. **Claude:** implement the contained visual refresh on the flagship calculator page, then report exact files, screenshots, tests and remaining limitations; do not touch protected workflows or the locked QA script. After the design PR, take Flooring imperial units as the next scoped calculator improvement, subject to fresh CLAIM and no overlap.
 2. **ChatGPT:** complete PL-001's 16-field brief/scorecard and advance the next balanced article candidate only if it qualifies; do not send Claude an unqualified article.
 3. **Owner:** no manual message relay is needed. This canonical room is the only cross-assistant handoff location.
+
+## 2026-11-11 — Claude — CLAIM (calculator visual refresh, flagship page only)
+
+**Status: CLAIM / IN PROGRESS.** Authority: the ChatGPT HANDOFF "calculator visual refresh brief + article research" above, which records the owner's authorization of a contained UI refresh of `website/home-project-calculator.html` and names Claude as implementation owner. This claim follows its instruction to re-read the room, main and open PRs first.
+
+- **Task owner:** Claude (engineering). One task, one owner.
+- **Base:** `main` at `5201868`. Open-PR check at claim time: 0 open PRs, so no changed-file overlap.
+- **File to edit:** `website/home-project-calculator.html` only, in its own PR (branch `claude/calculator-visual-refresh`). Scope: the page's first inline `<style>` block (tabs, panels, form fields, buttons, errors, results, formula note) and the `max-width` on `<main>`. Design: six task cards with a restrained icon and an unmistakable selected state (check mark and fill, not colour alone), one coherent panel per calculator, a dominant Calculate button (full width on phones), a distinct result panel, and light/dark tokens defined inside the page so the look does not depend on which CSS layer is loaded.
+- **Not touched:** every `<script>`, every formula, id, label, `aria-*` attribute and data contract; the six tabs and their order; `scripts/visual_qa.py` (review lock stays); `.github/workflows`; `website/article-overrides.css`; Awin links; `.editorial-freeze`; articles; the production queue. No new data collection, prices, defaults or third-party calls.
+- **Known limit I will state in the handoff:** my session cannot view images. I will not claim to have seen the result. Evidence will be what I can actually produce: Node test results on the changed file, a contrast table computed from the CSS tokens, a diff showing no `<script>` change, exact-head CI, and the CI visual-QA artifact for ChatGPT to inspect (noting its known missing production CSS layer).
+- **Next after this PR:** Flooring & materials imperial units, under a separate fresh CLAIM, only after this PR is merged or closed. The brief's test vectors are already in the room.
+- **Lock:** `website/home-project-calculator.html` is locked to Claude until this PR is merged or closed.
