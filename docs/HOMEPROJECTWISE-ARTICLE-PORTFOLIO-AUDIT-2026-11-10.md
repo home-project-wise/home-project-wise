@@ -374,3 +374,82 @@ However, these points are too small to justify a standalone article against the 
 - No traffic, rank, impressions, clicks or competitor page traffic are asserted.
 
 **Next action:** close PL-001 as DEFER (with a revisit trigger: Search Console evidence, a clearly distinct query cluster, or a broader hub brief) and advance balanced research in a different pillar. Keep DR-001 and HVAC-001 under their existing RESEARCHING/DEFER screens; do not draft them by default.
+
+
+## EN-001 — home energy audit demand and safety-first SERP reassessment (ChatGPT, 2026-11-11)
+
+**Status: DEFER as a standalone article on current evidence.** The repository inventory confirms no dedicated Energy guide cluster, so this is a real coverage gap at the pillar level; it does not automatically make this specific article differentiated.
+
+### Keyword metrics (DataForSEO via OpenSEO; United States, English; estimates)
+
+| Keyword | Estimated monthly searches | KD | Intent / caveat |
+|---|---:|---:|---|
+| home energy audit | 8,100 | 10 | Broad informational label, but current SERP is mixed with local professional-audit services, state programs and audit explanations; not 8,100 DIY readers |
+| DIY home energy audit | 140 | 0 | Clearer DIY informational intent; low-volume estimate |
+| home energy audit checklist | 70 | 2 | Checklist intent; SERP contains official and utility/education checklists |
+| DIY home energy audit checklist | 50 | 0 | Close variant of the same small cluster |
+
+These are third-party estimates, not first-party clicks or impressions. Search Console is not connected, and no traffic forecast is made.
+
+### Competitor / authority matrix
+
+| Result / source | Observed coverage | What it means for differentiation |
+|---|---|---|
+| [U.S. DOE — Consumer Guide to Home Energy Assessments](https://www.energy.gov/sites/default/files/2021-08/ES-Home%20Energy%20Assessments_080221.pdf) | DIY walk-through, common leakage points, professional assessment, blower-door and infrared methods, finding certified providers, preparation and costs. Its suggested smoke/depressurization test includes combustion-appliance steps. | The broad DIY-vs-professional distinction is already authoritative. A new article must not simply paraphrase DOE. |
+| [ENERGY STAR — DIY Checks and Inspections](https://www.energystar.gov/saveathome/seal_insulate/identify-problems-you-want-fix/diy-checks-inspections) | Attic insulation inspection and R-value estimates by climate zone; explicit vermiculite/asbestos warning, fall-through hazard, wall-insulation check around an electrical outlet, visual/light/paper/smoke tests for leaks. | Very comprehensive and safety-aware, though some listed checks involve attic access, electrical-outlet covers or smoke testing that should not be presented as casual, universal DIY tasks. |
+| [This Old House — How to Perform a Home Energy Audit](https://www.thisoldhouse.com/inspections/how-to-perform-a-home-energy-audit) | Updated 2026-05-29; 2–4 hours; infrared camera, attic insulation, foam/insulation work, eave ventilation and baffles; expert commentary. | Strong visual/video and expert-led project treatment; not a simple no-equipment walkthrough. |
+| [Virginia EnergySense — Do-It-Yourself Home Energy Audit](https://www.virginiaenergysense.org/tips-to-save-energy-money/at-home/do-it-yourself-energy-audit/) | Room-by-room checklist, materials, air leaks, insulation, ducts, lighting, appliances, qualified help for restricted spaces, combustion backdraft warning and link to EPA Home Energy Yardstick. | One of the closest utility/education competitors; already has a printable checklist and next-step pathways. |
+| [Perch Energy — DIY Home Energy Audit Checklist](https://www.perchenergy.com/blog/lifestyle/diy-home-energy-audit-checklist) | Twelve-month utility-bill review and base-load calculation, systems, insulation, lighting, appliances, phantom loads, air leaks, ducts, prioritization and calculator links. | Already offers a broad checklist and an action-priority section; weakens the case for another generic checklist. |
+| [APG&E — How to Perform a DIY Home Energy Audit](https://www.apge.com/blog/how-to-perform-a-diy-home-energy-audit) | Simple step-by-step audit covering exterior, windows, insulation, lighting, HVAC, appliances, bill review and action plan. | Another broad, conventional checklist, albeit less technically detailed. |
+| [Retrofit Relay — DIY Home Energy Audit Checklist](https://www.retrofitrelay.com/guides/home-energy-audit-checklist/) | Search extract positions a one-hour/no-special-tools walk-through as step zero, clearly explains what DIY cannot measure, and sends the user toward a professional blower-door/infrared/combustion-safety assessment. Direct retrieval returned a cache miss in this pass. | Even the proposed “safe, no-special-equipment pre-audit” differentiation is already being pursued by a newer specialist publisher. Treat details as search-extract-only. |
+
+### SERP and editorial decision
+
+Across three repeated US SERP reads for `DIY home energy audit`, results include utility/energy providers, trade/industry organizations, a home-improvement contractor, Perch Energy and DOE. The `home energy audit` SERP is more service- and program-oriented; `free home energy audit` is heavily utility-program / local-offer oriented. These are SERP observations, not stable rank claims.
+
+A safe, observation-only checklist could avoid advising readers to climb into unsafe attics, disturb insulation, remove electrical outlet covers, handle combustion appliances or conduct a depressurization test. It could also separate observations from measured diagnostics and explain when to call a qualified assessor. However, DOE, ENERGY STAR, Virginia EnergySense, Perch and Retrofit Relay already cover most of this territory. A safety correction alone is not yet a sufficiently unique article proposition.
+
+**Decision:** keep the Energy pillar gap on the roadmap, but **DEFER standalone EN-001**. Reopen only with first-party query evidence or a clearly distinct, user-tested workflow that does more than restate the current checklists. Do not add to the qualified production queue.
+
+---
+
+## HVAC-001 — furnace / HVAC filter sizing and selection SERP validation (ChatGPT, 2026-11-11)
+
+**Status: DEFER as a standalone guide on current evidence.** No dedicated HVAC filter guide exists in the current 30-guide inventory, but the high-ranking pages already cover the proposed safety and selection points in depth.
+
+### Keyword metrics (DataForSEO via OpenSEO; United States, English; estimates)
+
+| Keyword | Estimated monthly searches | KD | Caveat |
+|---|---:|---:|---|
+| furnace filter size | 3,600 | 17 | Mixed informational and product-selection SERP |
+| furnace filter sizes | 3,600 | 17 | Variant, not additive demand |
+| air filter sizes | 2,900 | 11 | Broad; includes non-HVAC filters |
+| what size air filter do i need | 210 | 28 | Mixed household/other filter intent |
+| furnace filter sizes chart | 480 | 9 | Chart / lookup intent |
+| standard air filter sizes | 590 | 4 | Broad and commercial-heavy |
+| how to measure air filter size | 140 | 9 | Practical measurement intent |
+| what size furnace filter do i need | 70 | 0 | Narrow informational variant |
+
+### Competitor and authority matrix
+
+| Source | Verified coverage | Implication |
+|---|---|---|
+| [Trane — Furnace Filter Guide](https://www.trane.com/residential/en/resources/troubleshooting/gas-furnaces/furnace-filter-guide/) | Full page inspected. Filter location (cabinet or return grille), reading printed dimensions, nominal vs actual size, MERV comparison, replacement timing, airflow arrow and expert review by a senior systems engineer. | Strong manufacturer-backed guide; covers nearly the full proposed article scope. |
+| [PNNL Building America Solution Center — Return grille filter replacement](https://basc.pnnl.gov/diy-guides/replace-air-filter-located-return-air-filter-grille) | Search extract covers reading dimensions/MERV, measuring the slot including maximum depth, nominal vs actual dimensions, MERV 13+ compatibility check with HVAC provider, airflow arrow and perimeter bypass. | Strong public technical guide with diagrams and exact homeowner workflow. |
+| [PNNL — Furnace/central heat-pump filter slot](https://basc.pnnl.gov/diy-guides/replace-air-filter-located-furnace-or-central-heat-pump-air-filter-slot) | Search extract distinguishes furnace slot from return grille, measures slot, discusses thickness, MERV, pressure drop, fit, airflow direction and bypass sealing. | Covers the exact system-location and fit mistakes proposed as differentiators. |
+| [U.S. EPA — What is a MERV rating?](https://www.epa.gov/indoor-air-quality-iaq/what-merv-rating) | Full page inspected. Defines MERV, particle capture ranges and efficiencies, advises using MERV 13 or the highest rating the system fan and filter slot can accommodate, with technician advice if needed. | Primary authority for filtration claims; do not oversimplify MERV as “higher is always better.” |
+| [Filterbuy — Common Furnace Filter Size Issues](https://filterbuy.com/resources/air-filter-basics/the-furnace-filter-size-issue/) | Search extract, updated 2026-09-04: nominal vs actual dimensions, manufacturer variation, bypass gaps, wrong thickness, sizing quiz, face velocity and bypass-area calculations. Direct page retrieval returned 403; observations are search-extract-only. | Commercial competitor already addresses the most likely measurement/fit gap with detailed calculations and a selector. |
+| [Filtrete — Filter Selection: Does Size Matter?](https://www.filtrete.com/3M/en_US/filtrete/home-tips/full-story/~/filter-selection-does-size-matter/) | Current SERP result: discusses standard vs deep-pleat filter thickness and size choice. | Manufacturer competition is present for size-selection questions. |
+
+### Decision
+
+The current SERP is commercially dense with filter retailers, filter-finder tools, manufacturer content, PNNL and EPA. The candidate's proposed differentiators—actual vs nominal dimensions, measuring the slot, thickness limits, filter location, MERV compatibility and airflow direction—are already covered by Trane and PNNL; Filterbuy adds bypass/face-velocity calculations and a size quiz.
+
+**Decision:** **DEFER HVAC-001** as a standalone article. Do not write a generic filter-size chart or duplicate manufacturer/PNNL instructions. Reopen only if a distinct first-party query cluster or a specific unresolved homeowner problem is evidenced. Do not add to the qualified production queue.
+
+### Evidence and limitations
+
+- Search-volume and KD figures are third-party estimates, not site performance.
+- Three repeated SERP reads were used for each primary query cluster; `bestPosition` is the best observed position in the sample, not a stable ranking.
+- PNNL and Filterbuy details above are search-extract-only where noted; direct page retrieval was not successful for those two URLs in this pass.
+- No competitor organic traffic, exact domain keyword counts, referring-domain totals, or article counts were purchased or asserted. Search Console remains unconnected.
