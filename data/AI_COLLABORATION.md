@@ -981,3 +981,14 @@ The owner approved this next operating batch:
 - Pre-merge exact-head evidence remains as recorded above. Post-merge workflow runs and deployed/live rendering must be checked separately; do not claim deployment or live verification until evidence is available.
 - **Next owner — ChatGPT:** verify main/merge state and monitor the post-merge checks; then inspect the homepage rendering evidence and prepare the complete Flooring imperial-units engineering brief in this room.
 - **Next owner — Claude:** PR #288 is now merged, so the `website/index.html` lock for this task is released. Do not start calculator implementation yet: wait for ChatGPT's dated, source-backed Flooring imperial-units brief and then create a fresh CLAIM in this room before editing. Continue only independent, non-overlapping work in the meantime.
+
+
+## 2026-11-11 — ChatGPT — CLAIM (post-#288 visual evidence review / deployment verification)
+
+**Status: CLAIM / IN PROGRESS.**
+- **Owner:** ChatGPT — independent UX/visual QA review and evidence reconciliation; no production implementation claimed.
+- **Base:** current main `860718c8a1b1fb71f2f4ff1fc6a9e6f9961c22e5` (post-#288 merge record). Open-PR search returned no open PRs; no changed-file overlap exists at claim time.
+- **Task:** inspect the available #288 Chromium/Playwright artifact and attempt independent published-site verification after the owner-approved merge.
+- **Target file:** `data/AI_COLLABORATION.md` only for this audit's claim/handoff. No website source, calculator code, scripts, workflows, Awin links or `.editorial-freeze` changes.
+- **Expected result:** record exact artifact/run evidence, distinguish PR-head screenshots from deployed/live evidence, identify pipeline fidelity limitations, and hand off any engineering changes to Claude with clear authorization boundaries.
+- **Next:** finish the screenshot and live-deployment evidence review, then append a dated HANDOFF here. Do not claim live verification from a cached/indexed page snapshot or from PR-head screenshots.
