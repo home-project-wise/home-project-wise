@@ -1598,3 +1598,35 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 **CI on `66f003d`: NOT yet observed.** Runs exist but were still `queued` about 3 minutes after the push: Editorial Quality Gate 43096217092, Image Vision Guard 43096217069, Always-on visual QA 43096216983 (all `pull_request`), Site Health Monitor 43096213967 (`push`). No result is claimed.
 
 **RESUME HERE:** PR #304, head `66f003d`, mergeable, 6 files. Next actions in order: (1) re-read the four runs above and record conclusions; if any fails, read its log and fix; (2) production-CSS mobile check of `do-you-need-a-thread-border-router.html` (still not done in this session); (3) only if CI is green and the mobile check passes, merge #304 (squash) under the recorded owner authorization, then verify the deployed page and the generated guide card and record it; (4) then EN-001 on `claude/en-001-home-energy-audit` after rechecking open PRs; (5) then HVAC-001 after reading the EPA page itself. Not merged, not deployed, not live-verified.
+
+## 2026-11-11 — Claude (design account) — CLAIM + START DS-0 (Design & UX Sprint: audit, then Phase 1 visual foundation)
+
+**Owner assignment (relayed in chat):** dedicated Design & UX Improvement Sprint: brand identity, homepage, article template, responsive behaviour, performance/accessibility. Three short phases, one focused PR each. Content publishing, article research and calculator feature work continue independently and are NOT blocked by this sprint.
+
+**Read before claiming:** this room, `data/PROJECT_STATE.md`, `data/WORK_LOG.md`, `CLAUDE.md`/`AGENTS.md`, open PRs #297, #299, #301, #302 (all documents/editorial research; none changes `website/`, so no file overlap), and the current `website/style.css`, `website/article-overrides.css`, `website/index.html` on `main`.
+
+**Verified current state (source inspection of `main`, not a rendered check):**
+- The homepage already has a flagship calculator section (`.calculator-feature`), a problem grid, category cards, a tools section and dark-mode rules. Earlier visual work (#293) is merged.
+- The CSS has no design tokens: 0 CSS custom properties, 75 distinct hex colours across `style.css` + `article-overrides.css`, 56 `body .x` specificity overrides, 19 `!important`, 18 inline `style=""` attributes on `index.html`, 12 declarations at 12px or smaller. Two stylesheets fight each other through specificity.
+- No headless browser is available to this session yet, so **nothing below is claimed as visually inspected**.
+
+**CLAIM (Phase 1 only):** introduce shared design tokens (colour, type scale, spacing, radius, shadow) as CSS custom properties and route buttons, cards, navigation and eyebrow/tag styles through them, keeping the current look as the baseline and improving consistency, contrast and tap targets. Possible small logo/favicon refinement only if a before/after is reviewed first.
+- **Files (exact):** `website/style.css`, `website/article-overrides.css`; `website/index.html` only to remove inline `style=""` duplicates of existing rules. Branch `claude-design/2026-11-11-phase1-visual-foundation`.
+- **Exclusions:** `.github/workflows`, `.editorial-freeze`, Awin links, GoatCounter tags, structured data, canonical/meta, article HTML bodies, calculator logic (`*.js`, `home-project-calculator.html` behaviour), `sitemap.xml`, `guides.html` content, URLs. No new dependencies.
+- **Acceptance (evidence labelled local / PR-head / merged / deployed):** no horizontal overflow at 320, 390, 768, 1280 px; contrast >= 4.5:1 text and 3:1 controls in light and dark; focus ring visible; calculator, quality gate and offline `scripts/check_site.py` results unchanged; before/after screenshots at mobile and desktop attached to the PR.
+- **Merge rule:** not merged until a real-browser render has been compared with `main`. I will not call anything live before checking the deployed site.
+
+**RESUME HERE:** see the progress entry below. Next: obtain real-browser rendering, record the audit findings and chosen palette/typography direction here, then open the Phase 1 PR. If another agent needs `website/style.css` or `website/article-overrides.css`, record a BLOCKED note here and I will rebase rather than overwrite.
+
+### 2026-11-11 — Claude (design account) — PROGRESS LOG (updated after every step; newest facts last)
+
+- **S1 done — GitHub access:** connected through Composio to account `Fadhel-docom` (write access to this repo confirmed by opening PR #303).
+- **S2 done — context read:** this room, `PROJECT_STATE.md`, `WORK_LOG.md`, `CLAUDE.md`, `AGENTS.md`.
+- **S3 done — conflict check:** open PRs #297, #299, #301, #302 touch no `website/` file.
+- **S4 done — source audit (code only, not rendered):** 0 CSS custom properties, 75 distinct hex colours, 56 `body .x` overrides, 19 `!important`, 18 inline `style=""` on `index.html`, 12 declarations at <=12px. Homepage already has a flagship calculator section and dark-mode rules.
+- **S5 done — claim:** PR #303 (this file only). Branch re-based on current `main` so the entry merges without conflict.
+- **S6 attempted — real-browser baseline:** dispatched the existing `visual-qa.yml` on `main` (run 43049377689). It FAILED and produced no artifact. Runs 157-160 (14:33-15:32 UTC, including unrelated branches and docs-only PR #303) all failed while runs 161+ succeeded, so a transient cause is likely, but the cause is unconfirmed because the job logs could not be read.
+- **S7 blocked — screenshots:** successful runs keep a ~34 MB screenshot artifact (for example artifact 13887153306 of run 43089507039), but Composio returns HTTP 502 for artifact zip, job and log endpoints, so Claude cannot fetch them. Nothing is claimed as visually inspected.
+- **Owner offered:** a phone and desktop screen recording of the live site. Still-image frames or screenshots work better for Claude than video.
+
+**RESUME HERE (design account):** (1) obtain real screenshots: owner uploads screenshots/frames, or downloads the `homeprojectwise-visual-qa-*` artifact from the Actions page and shares the images; (2) record audit, palette and typography direction in this room; (3) open the Phase 1 PR from `claude-design/2026-11-11-phase1-visual-foundation` touching only the files listed in the CLAIM; (4) do not merge any visual change without a rendered comparison with `main`.
