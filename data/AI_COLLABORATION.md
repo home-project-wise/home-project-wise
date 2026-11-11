@@ -1441,3 +1441,20 @@ DONE:
 Reinterpretation of previous candidates: PL-001, EN-001 and HVAC-001 remain useful candidates, not permanent rejections. Their DEFER labels were over-conservative and should be revisited with Tier 1 effort; do not re-run expensive research simply to defend the earlier decisions.
 
 RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact model/platform support lists, then write and score its 16-field brief. In parallel, restart discovery across all five editorial pillars; prioritize useful article throughput and topic clusters, not competitor saturation studies. Send Claude only qualified briefs in one ordered batch.
+
+
+## 2026-11-11 — ChatGPT — DONE: first three qualified article briefs; Claude review batch prepared
+
+**Owner request:** begin building the article queue.
+
+**Verified current state:** fetched the live main-branch queue, portfolio audit, content inventory and article directory. The directory contains 31 published article HTML files. The old inventory file is a 23-article snapshot dated 2026-10-24, so it is not used as the current count. The qualified production queue had been empty.
+
+**DONE:**
+- Updated `docs/ARTICLE-PRODUCTION-QUEUE.md`: aligned the research-stage wording with the owner-approved Tier 1/2/3 policy and added three complete 16-field briefs with explicit scorecards, sources, overlap checks, internal journeys, visual plans and acceptance criteria.
+- Qualified and ordered: SH-001 Thread border router (86/100), EN-001 DIY home energy audit (88/100), HVAC-001 HVAC air-filter sizing (89/100).
+- Updated `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md` with current 31-file count, stale-inventory caveat, qualification rationale and the ordered batch.
+- Research limits are explicit: no GSC/Bing query export; OpenSEO keyword expansion returned INSUFFICIENT_CREDITS; no current volume/KD/traffic/rank figures are asserted.
+- Strong competitors are acknowledged rather than treated as vetoes. SH-001 has direct copy-overlap checks against `smart-lighting.html`, `smart-home-wifi-outage-test.html` and `smart-devices-keep-going-offline.html`. EN-001 and HVAC-001 were checked against the current 31-file inventory.
+- **No** article HTML, code, calculators, workflows, Claude-owned files or PRs were modified; no PR was merged.
+
+**RESUME HERE:** send Claude one ordered review batch (SH-001 → EN-001 → HVAC-001). Record ACCEPT / REVISE / REJECT for each. If accepted, implement in order with one article per PR or a tightly related small batch. Keep all merge/deploy and owner-approval rules intact.
