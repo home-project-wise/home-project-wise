@@ -66,6 +66,18 @@ const K = { 'material-length': 5, 'material-width': 4, 'material-coverage': 2.1,
 has('material 20 m2 +10% = 22 m2 / 2.1 -> 11 packs, cost 330', submit('material-form', K), 'Required: 11 pack(s) Estimated material cost: $330');
 has('material exact pack boundary 21 / 2.1 = 10', submit('material-form', { ...K, 'material-length': 7, 'material-width': 3, 'material-waste': 0, 'material-price': '' }), 'Required: 10 pack(s)');
 has('material zero price is a valid price', submit('material-form', { ...K, 'material-price': 0 }), 'Estimated material cost: $0');
+// 3b Material packs, imperial (feet / ft²): same arithmetic in either unit, no conversion step in the pack count
+const KI = { 'material-unit': 'ft', 'material-length': 12, 'material-width': 10, 'material-coverage': 20, 'material-waste': 5, 'material-price': '' };
+has('material imperial 12x10 ft +5% = 126 ft2 / 20 -> 7 packs', submit('material-form', KI), 'Surface area: 120 ft² (11.15 m²) With 5% allowance: 126 ft² Required: 7 pack(s)');
+has('material imperial exact boundary 10x10 ft, 0%, 20 ft2/pack = exactly 5 (not 6)', submit('material-form', { ...KI, 'material-length': 10, 'material-width': 10, 'material-waste': 0 }), 'Surface area: 100 ft² (9.29 m²) With 0% allowance: 100 ft² Required: 5 pack(s)');
+has('material imperial price: 7 packs x 45 = 315', submit('material-form', { ...KI, 'material-price': 45 }), 'Required: 7 pack(s) Estimated material cost: $315');
+rejects('material imperial zero width rejected', submit('material-form', { ...KI, 'material-width': 0 }));
+rejects('material imperial allowance above 50% rejected', submit('material-form', { ...KI, 'material-waste': 51 }));
+// metric parity: the same physical room entered in metres gives the same pack count (12 ft = 3.6576 m, 10 ft = 3.048 m, 20 ft2 = 1.8580608 m2)
+const KM = { 'material-unit': 'm', 'material-length': 3.6576, 'material-width': 3.048, 'material-coverage': 1.8580608, 'material-waste': 5, 'material-price': '' };
+has('material metric parity with the 12x10 ft case: 7 packs', submit('material-form', KM), 'Surface area: 11.15 m² (120 ft²) With 5% allowance: 11.71 m² Required: 7 pack(s)');
+has('material metric parity at the exact boundary (10x10 ft, 0%): 5 packs', submit('material-form', { ...KM, 'material-length': 3.048, 'material-width': 3.048, 'material-waste': 0 }), 'Required: 5 pack(s)');
+els['material-unit'].value = 'm';
 // 4 Electricity
 const E = { 'energy-watts': 1000, 'energy-hours': 2, 'energy-days': 30, 'energy-rate': 0.2 };
 has('energy 1000 W, 2 h, 30 d, 0.20 -> 60 kWh, 12', submit('energy-form', E), '60 kWh per month Daily use: 2 kWh Estimated monthly cost: $12');
