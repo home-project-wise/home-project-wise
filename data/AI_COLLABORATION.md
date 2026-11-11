@@ -1088,3 +1088,30 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 - **Design brief items not done:** one-line purpose text under each card (would change button text; skipped on purpose to keep accessible names and test selectors stable); grouping inputs into labelled steps (needs markup changes per tab). Both can be a follow-up if wanted.
 - **Overlap / locks:** `website/home-project-calculator.html` stays locked to Claude until #293 is merged or closed. `scripts/visual_qa.py`, `.github/workflows` and `website/article-overrides.css` untouched.
 - **Next action / recipient:** ChatGPT: inspect the artifact (and any real-device capture) against the risk list above and report defects here. Owner: decide merge of #293 (Claude has not merged it). Claude: after #293 is merged or closed, add a fresh CLAIM and implement Flooring & materials imperial units as a separate PR, using the test vectors already in this room (12 × 10 ft, 5%, 20 ft² per box = 7 boxes; 10 × 10 ft, 0%, 20 ft² per box = exactly 5; metric parity). No unsourced waste percentages.
+
+
+## 2026-11-11 — OWNER INSTRUCTION — fresh Claude session: resume, finish, checkpoint (read first)
+
+**Continue the existing HomeProjectWise project. Do not restart from scratch, and do not ask the owner to relay messages.**
+
+**Read/write locations**
+1. First read the latest `data/AI_COLLABORATION.md` on `main`, then inspect current main, every open PR and changed-file overlap. Read PR #293 and this PR #294 before acting.
+2. This file, `data/AI_COLLABORATION.md`, is the only shared operations room. Append CLAIMs, checkpoints, blockers and HANDOFFs here. No second room or chat-only handoff.
+3. Code goes in repository source files on a task branch and PR, never in the operations room.
+
+**Resume and finish line**
+- Resume PR #293 (`website/home-project-calculator.html`, branch `claude/calculator-visual-refresh`, head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`). It is open and not merged. PR #294 is the documentation handoff. Do not duplicate either; check live PR state before continuing.
+- ChatGPT inspected the CI screenshots: mobile light mode looks coherent; the dark-mode screenshot leaves the surrounding page/header/sections light while the calculator panel is dark. Resolve this inconsistency or document a deliberate reason. Inspect 320px Wallpaper controls, long labels/errors, 390px mobile and desktop, all six tabs. CI artifact limitations remain; do not call it real-device or production verification.
+- Finish visual refresh and sign-off: six tabs functional; no clipping/horizontal overflow at 320/390px; intentional light/dark experience; accessible focus/labels/errors; no calculation regression. Then take Flooring & materials imperial units as a separate task with a fresh CLAIM and tests: 12×10 ft, 5% allowance, 20 ft²/box = 7 boxes; 10×10 ft, 0% = exactly 5 boxes; preserve metric parity. Trace/report Paint/Flooring-to-Project-cost handoff, tab URL/hash behavior and Paint's walls-only scope statement; change only when supported by existing contracts.
+- Do not edit `scripts/visual_qa.py` while review-locked; no `.github/workflows` or `website/article-overrides.css` edits without explicit owner approval. No unrelated pages, Awin or editorial freeze changes.
+
+**Mandatory small-step checkpoints — so quota/session stops never lose work**
+- Before each atomic edit/test, append **START** here: task, exact file(s), branch, expected result.
+- Immediately after each step append **DONE**: exact change, commit SHA, test command/result, next step. If blocked, append **BLOCKED** with error and safe next action.
+- Keep steps small (one focused edit or test group), commit coherent milestones frequently, and push each milestone. Never leave significant work only in the local session.
+- Before stopping for any reason, append **RESUME HERE**: branch + latest commit, changed files, completed work, exact unfinished step, last commands/tests and results, PR link, next action. A fresh session must be able to continue without asking the owner what happened.
+- Separate statuses honestly: code complete / CI passed / visually inspected / merged / deployed. Never claim one based on another.
+
+**Division:** Claude owns engineering and technical/browser QA for calculator completion. ChatGPT owns competitor research, sources, keyword/intent, article qualification, briefs and independent evidence review; ChatGPT continues this in parallel. No article drafting until a brief is explicitly marked READY FOR CLAUDE in the production queue. Owner approves merges/deployment. One shared room only.
+
+**First action:** read this instruction and PR #293/#294, then append a fresh **RESUME CLAIM** with the exact current repository state before touching code.
