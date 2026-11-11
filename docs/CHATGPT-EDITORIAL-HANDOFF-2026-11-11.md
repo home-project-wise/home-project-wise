@@ -53,11 +53,12 @@ Project ID: `bfc2efa7-1372-48f2-be31-5e3c1878547f`.
 
 Available and relevant actions include:
 - `mcp__OpenSEO__list_projects` and `get_project_context`: identify the correct project and read saved website/competitor/keyword context before new research.
-- `research_keywords` / `get_keyword_metrics`: keyword volume, difficulty, CPC, intent and trends, when credits are available.
-- `get_serp_results`: live Google organic result sample for target queries.
-- `get_ranked_keywords`, `get_domain_keyword_suggestions`, `find_serp_competitors`, `get_domain_overview`: competitor keyword/domain intelligence where justified.
-- `get_search_console_performance` and `list_search_console_sites`: first-party GSC data, only if a verified property is actually connected.
-- `show_serp_results` can display already-fetched SERP results interactively; it does not fetch new data or spend credits.
+- `mcp__OpenSEO__research_keywords` / `mcp__OpenSEO__get_keyword_metrics`: keyword volume, difficulty, CPC, intent and trends, when credits are available.
+- `mcp__OpenSEO__get_serp_results`: live Google organic result sample for target queries.
+- `mcp__OpenSEO__get_ranked_keywords`, `mcp__OpenSEO__get_domain_keyword_suggestions`, `mcp__OpenSEO__find_serp_competitors`, `mcp__OpenSEO__get_domain_overview`: competitor keyword/domain intelligence where justified.
+- `mcp__OpenSEO__get_search_console_performance` and `mcp__OpenSEO__list_search_console_sites`: first-party GSC data, only if a verified property is actually connected.
+- `mcp__OpenSEO__show_serp_results` can display already-fetched SERP results interactively; it does not fetch new data or spend credits.
+- Standard web research used the web search/open workflow (fast/slow search and opening primary-source/competitor pages); cite any claims derived from those pages in the final editorial output.
 Important limits: prior keyword expansion returned `INSUFFICIENT_CREDITS`. Search Console was not connected/available in the inspected context. Therefore the latest three briefs do **not** claim fresh monthly volume, KD, rankings, traffic or GSC demand. Do not invent these values or rerun paid research just to make a brief look more quantitative. Use official sources and observed SERP intent while credits/data are unavailable.
 
 ### C. General web research
