@@ -1452,3 +1452,8 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Not claimed:** GSC impressions/clicks, organic rank, actual traffic, exact article count, full competitor-domain inventory, or direct review of the four cache-miss commercial pages.
 
 **RESUME HERE:** close PL-001 as DEFER in the candidate investigation register (not the production queue) with revisit triggers: verified GSC demand, a distinct query cluster, or a separately qualified plumbing hub. Then advance a different pillar. Next balanced candidates should be evaluated against the current repository inventory before any new brief is promoted; DR-001 and HVAC-001 remain unqualified.
+
+
+## 2026-11-11 — ChatGPT START — EN-001 reassessment (home energy audit)
+
+**START:** Following PL-001's defer decision, resume balanced research in the energy pillar using the pre-existing EN-001 candidate rather than inventing a new topic. Check whether exact US query demand and the current SERP reveal a distinct homeowner decision gap beyond DOE, ENERGY STAR and This Old House. Research only; no draft, no production queue entry, no code/workflow/Claude changes. Keep the scope DIY-safe and distinguish a visual walk-through from a formal energy assessment.
