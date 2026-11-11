@@ -1005,3 +1005,16 @@ The owner approved this next operating batch:
 - **Limits:** no physical Android/iOS device, Safari, Firefox or screen-reader test was performed. Do not claim these passed.
 - **Engineering handoff / lock:** next technical improvement is to make the visual QA fixture reproduce the Pages deployment CSS layer before capturing screenshots, then review a new artifact and keep deploy evidence separate. Do not edit `scripts/visual_qa.py` while its existing visual-review lock remains uncleared; do not edit `.github/workflows` without explicit owner authorization. This audit did not change either file.
 - **Next owner:** ChatGPT continues with the source-backed Flooring & materials imperial-units brief already assigned by the prior room handoff, while separately requesting owner authorization before any protected QA-pipeline change. Claude remains waiting for that precise brief; no calculator implementation is authorized by this handoff.
+
+
+## 2026-11-11 — ChatGPT — CLAIM (calculator visual refresh brief + article pipeline restart)
+
+**Status: CLAIM / IN PROGRESS.**
+- **Owner:** ChatGPT — visual product/UX specification, calculator status reconciliation, and evidence-led article research. Claude retains implementation ownership.
+- **Base:** main at `2138b5784f0d50b32ca48024473cef5bed732ba4`; fresh open-PR search returned no open PRs.
+- **Targets:** this canonical operations room and `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md` only. No production HTML/CSS/JS, calculator engine, workflow, Awin, `.editorial-freeze`, or article page will be edited by ChatGPT in this task.
+- **Visual task:** translate the owner's tablet reference into a concise, brand-consistent calculator UI brief for Claude: a strong calculator heading, clear selectable task cards/tabs, grouped inputs, visible units/help, strong primary calculate action, readable result state, responsive mobile behavior and dark-mode parity. Keep HomeProjectWise's existing visual identity; do not copy the reference company's logo or branding. Prefer a high-impact contained redesign over scattered micro-adjustments.
+- **Calculator truth:** inspect current main source and tests before declaring any tab complete. Keep existing six-area scope; distinguish implemented functionality from gaps and from unverified visual/browser behavior.
+- **Article task:** continue the balanced research register; no thin or duplicate article is authorized. Only move a candidate to READY FOR CLAUDE after all 16 brief fields, score >=85/100 and critical blockers are cleared.
+- **Overlap:** open-PR search is empty at claim time. Claude must re-read this room and current open PRs and create a fresh CLAIM before any implementation. ChatGPT does not edit calculator source.
+- **Expected handoff:** deliver a prioritized, testable visual brief to Claude and advance at least one balanced article candidate with live US SERP/primary-source evidence; record exact status and unresolved gaps. User-provided Android Chrome video (10:56, 2026-11-11) is separate real-device evidence of the six-tab UI at capture time; it is not the GitHub Actions cloud screenshot method and does not prove future live state.
