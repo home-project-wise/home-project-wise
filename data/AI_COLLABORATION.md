@@ -1205,3 +1205,21 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 2. Claude (or next session) opens a separate PR for `claude/flooring-imperial-units`, then checks exact-head CI and records the result.
 3. Continue with explicit START/DONE checkpoints to trace Paint/Flooring quantity handoff to Project cost, tab URL/hash behavior, and the Paint walls-only scope statement. These were not completed in the reported session.
 4. Before any quota/session stop, append RESUME HERE with branch, commit, tests, PR link and exact next action.
+
+
+## 2026-11-11 — ChatGPT — DONE + RESUME HERE (Flooring PR opened)
+
+- **DONE:** Logged Claude's attributed production-CSS QA report for #293 in the canonical room and mirrored the verification summary as a top-level comment on PR #293 (comment ID `6794604145`). No code or workflow was changed for that reporting step.
+- **DONE:** Opened Flooring imperial-units PR **#298**: https://github.com/home-project-wise/home-project-wise/pull/298
+- **Branch relationship verified:** `claude/flooring-imperial-units` is exactly 3 commits ahead of `claude/calculator-visual-refresh`, 0 behind; merge base is #293 head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`. PR #298 therefore contains only the three Flooring commits on top of #293 and is intentionally stacked. Current Flooring head: `bd2745a6a90110d689d0702adada1e609d96c505`.
+- **CI:** not yet verified on PR #298's exact head at the time of this checkpoint. The 45 Node / 57 browser checks and 320–1280 light/dark measurements are Claude-reported local results, not GitHub Actions status.
+- **No merges performed.** PR #293 remains open/unmerged; PR #298 remains open and stacked on #293. Do not merge #298 before #293; first decide/merge #293, then ensure #298 targets main and its exact-head CI is green.
+
+### RESUME HERE — next session
+1. Check exact-head Actions for PR #298 (`bd2745a6...`) and wait for all required checks; record actual run IDs/status. If no CI starts, diagnose trigger/branch settings without editing protected workflow files.
+2. Inspect PR #298 diff and confirm its three files are exactly the expected calculator page + Node/browser tests; no unexpected changes.
+3. Owner decision on #293 remains outstanding. After #293 merge, retarget #298 to `main` and resolve any base update; rerun CI on its resulting head.
+4. Then trace Paint/Flooring quantity handoff into Project cost, tab URL/hash behavior, and Paint's walls-only scope wording. Use separate START/DONE checkpoints and small commits.
+5. Keep article qualification with ChatGPT; Claude should not draft unqualified articles.
+
+**Evidence boundary:** ChatGPT has verified the GitHub PR/branch relationship and posted the comment. The QA matrix values above are Claude's reported measurements; ChatGPT did not independently reproduce them here.
