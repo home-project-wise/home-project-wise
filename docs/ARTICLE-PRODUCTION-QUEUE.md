@@ -126,3 +126,40 @@ Keyword counts over stripped HTML; evidence of coverage, not of ranking. Live SE
 | SH-005 | Overlaps section 5 of `smart-lighting` and the Wi-Fi outage test; fast-changing standards. | DEFER until current authoritative specs and a distinct decision tree exist |
 
 Alternative rule: when Claude rejects or merges a candidate it must name the replacement or the better-fitting existing URL and give evidence (query-level demand, SERP review, size of the reader problem) in the research brief, so work continues instead of stopping.
+
+
+## 11. 2026-11-11 cross-cluster research checkpoint (ChatGPT)
+
+### Fresh demand evidence
+
+- Search Console final Web data for 2026-10-14 to 2026-11-10: 831 impressions, 4 clicks, 0.481% CTR, average position 16.86; preceding equal 28-day period 2026-09-16 to 2026-10-13: 65 impressions, 0 clicks, position 32.48.
+- The visible query export contains 81 rows. Query filters for terms containing `energy` and `air leak` returned no visible rows. This is not evidence that market demand is zero; it means the site's current query report provides no direct demand signal for those exact topic families yet.
+- Bing Webmaster Tools `top_queries` returned an empty row set.
+- Page-level clicks and query-level visible rows do not reconcile because Search Console can omit anonymized queries. Do not invent query attribution.
+
+### Candidate #41 — Home Energy Audit Without Special Equipment
+
+**Status: RESEARCHING — not qualified and not approved for production.**
+
+Initial US search-result review on 2026-11-11 surfaced:
+
+- [ENERGY STAR — What to Look For: DIY Checks and Inspections](https://www.energystar.gov/saveathome/seal_insulate/identify-problems-you-want-fix/diy-checks-inspections): useful visual inspection and paper/light checks; it also warns that vermiculite insulation may contain asbestos and should not be disturbed unless properly tested.
+- [ENERGY STAR — Locating Air Leaks](https://www.energystar.gov/saveathome/seal_insulate/do-it-yourself-guide/locating-air-leaks): identifies hidden attic/basement leakage locations, not only obvious window and door drafts.
+- [U.S. DOE — Consumer Guide to Air Sealing the Home](https://www.energy.gov/sites/default/files/2021-08/ES-Air%20Sealing_080421.pdf): distinguishes accessible DIY sealing from hidden leaks and work requiring a qualified professional.
+- [This Old House — How to Perform a Home Energy Audit](https://www.thisoldhouse.com/inspections/how-to-perform-a-home-energy-audit): uses infrared equipment and attic inspection/insulation work, a materially different scope from a no-special-equipment homeowner walk-through.
+- [Sealed — DIY thermal leak detector: How to find air leaks in your house](https://www.sealed.com/resources/how-to-find-air-leaks/): offers several hands-on checks, including smoke and device-based methods; these require tighter safety framing than a simple visual checklist.
+- [Pennsylvania DEP — Measure Your Energy Usage](https://www.pa.gov/agencies/dep/residents/saving-energy/home-energy-efficiency-and-conservation/measure-your-energy-usage): distinguishes free homeowner energy-use tools from a professional audit using blower-door and infrared equipment.
+
+**Preliminary differentiation hypothesis:** a homeowner-safe, no-special-equipment walkthrough that records observable symptoms by area, distinguishes air leakage from insulation/HVAC/moisture clues, prioritizes findings by evidence and comfort impact, and clearly separates safe visual checks from professional-only diagnostics. It must not claim to be a certified or quantified energy audit, promise bill savings, or instruct readers to disturb insulation, enter unsafe attics, handle electrical/gas equipment, block combustion air, or perform depressurization/smoke tests around fuel-burning appliances.
+
+**Overlap decision:** candidate #43 (whole-home air-leak diagnosis) should initially be treated as a section/diagnostic pathway within #41, not a second URL. Existing `stop-a-drafty-door-without-replacing-it` owns the single-door sealing task; the new candidate must stay at whole-home assessment/triage level and link to that page rather than repeat its repair instructions. Link to the existing electricity-cost and Smart Plug tools only where they help readers interpret their own usage; do not claim those tools measure whole-home energy performance.
+
+**Still required before qualification:** complete top-10 US SERP review for the primary and secondary queries; deep-review 3–5 competing pages and record exact titles, outlines, formats, trust signals, mobile UX and specific gaps; verify keyword/query variants and any available country/device GSC evidence; check current article/tool inventory and open PRs again; complete the charter's scorecard and all 16 research-brief fields. No search volume, traffic estimate or ranking difficulty is asserted here.
+
+### Candidate #87 — Contractor Quote Comparison
+
+**Status: DEFER pending a genuinely differentiated worksheet/tool concept.**
+
+The current US results are crowded with recent line-by-line quote-comparison guides and worksheets, including [Pond](https://www.pond.com/home/how-to-compare-contractor-quotes), [Practical Homeownership](https://practicalhomeownership.com/hire-or-diy/compare-contractor-estimates/), [ServiceGoat](https://servicegoat.com/homeowner-guides/how-to-compare-contractor-estimates/), [4Homes](https://4homes.com/homeowner-guides/contractor-quote-comparison) and [Crewdax](https://www.crewdax.com/resources/how-to-compare-contractor-quotes). A generic checklist article would not be sufficiently differentiated. Revisit only with a privacy-first comparison worksheet that normalizes scope, materials, allowances, exclusions, permits, cleanup, schedule, payment milestones, change orders and warranty without ranking contractors or treating missing costs as zero; technical feasibility and owner approval are prerequisites.
+
+**Next research action:** finish candidate #41's full SERP and scorecard work, then compare it with a distinct plumbing/repair candidate so the next batch is not confined to Energy or Smart Home.
