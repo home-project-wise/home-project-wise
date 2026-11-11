@@ -182,3 +182,19 @@ Inspection caveats:
 - Rich-results output reported Breadcrumbs PASS for these URLs; it is not a complete audit of every structured-data type.
 - Mobile usability returned `VERDICT_UNSPECIFIED`; do not describe it as a pass or fail.
 - Inspection results may lag live changes by several days.
+
+
+## Historical 2026-11-07 checkpoint (preserved from the earlier operations handoff)
+
+This snapshot is retained for audit history; its 28-day window overlaps the 2026-11-10 window and must not be treated as a consecutive-period comparison.
+
+### Google Search Console, final data
+
+- 2026-10-08 to 2026-11-04: **652 impressions, 2 clicks, CTR 0.307%, average position 18.17**.
+- Previous equal window 2026-09-10 to 2026-10-07: **21 impressions, 0 clicks, average position 44.29**.
+- 2026-11-01 to 2026-11-04: 227 impressions, 1 click, CTR 0.441%, average position 15.52.
+- Top pages then: macerating-toilet-basement-bathroom 125 impressions (position 11.88); reduce-bathroom-condensation 84 (50.99); what-can-you-plug-into-a-smart-plug 77 (5.74); how-to-hang-large-wall-art-without-damage 67 (6.60); where-to-put-water-leak-sensors 42 (23.43).
+- Query examples: "bad condensation in bathroom" 12 impressions (position 89.58); "bathroom dampness" 6 (86.83); "condensation on bathroom walls" 5 (90.4); "where to place water leak sensors" 5 (71.6); "why does my kitchen clutter keep coming back" 15 (8.67). Query totals are incomplete/anonymized and must not be added to page totals.
+- Historical URL inspection at that time: homepage indexed (last crawl 2026-10-29); leak-sensor page indexed but not recrawled after its 2026-11-07 edit; homepage calculator and wallpaper guide were then unknown to Google. These statuses are historical and superseded where later inspections exist.
+- Sitemap was pending with 0 errors and 0 warnings, last submitted 2026-11-01. Bing daily totals were 0 impressions/clicks through 2026-11-04; top queries/pages empty.
+- No indexing setting, sitemap or URL submission was changed in that checkpoint.
