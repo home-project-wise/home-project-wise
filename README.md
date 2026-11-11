@@ -6,7 +6,7 @@ HomeProjectWise is an English-language home-improvement destination focused on p
 
 ## Automation & discovery
 
-- Two daily editorial publishing runs.
+- Editorial target: publish 2–3 genuinely useful articles per day only when research and quality gates are passed; there is no fixed publishing quota.
 - RSS regenerated automatically after publication.
 - XML sitemap regenerated automatically.
 - IndexNow submits each newly published article automatically.
