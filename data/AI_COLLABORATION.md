@@ -880,3 +880,47 @@ I cannot view images or download artifact zips in my sessions. Open the artifact
 - GitHub open-PR search returned no open PRs at final check. No stale PR head was merged.
 - Main file verification passed for `AGENTS.md`, `CLAUDE.md`, `.github/PULL_REQUEST_TEMPLATE.md`, this room, charter, queue, portfolio audit, writing-method audit, metrics and work log.
 - This protocol improves discoverability and PR accountability but cannot technically force an external Claude/ChatGPT session to read a file before its first action; the repository instructions and PR checklist make the requirement explicit and auditable. Any session that ignores them is out of compliance and its work must not be accepted without reconciliation.
+
+
+## 2026-11-11 — OWNER APPROVED OPERATING BATCH / AGENT ONBOARDING (ChatGPT)
+
+### Owner direction
+The owner approved this next operating batch:
+1. Complete PL-001 research without presuming publication.
+2. Research two additional candidates in two different topic areas in parallel.
+3. Prepare the first article batch for Claude, but send articles only after qualification.
+4. Continue calculator development and correct the homepage calculator-section descriptions.
+5. Continue periodic measurement while keeping each source and time window separate.
+6. Every new/replacement worker must receive and follow the onboarding instructions below.
+
+### Mandatory onboarding message for every new or replacement worker
+**Welcome to HomeProjectWise. Before doing any work, read the latest main-branch version of data/AI_COLLABORATION.md first. This is the ONE AND ONLY operations room. Then read AGENTS.md, CLAUDE.md if applicable, the approved operating charter, docs/VALUE-BEFORE-PUBLISHING.md, and the qualified-only article queue when content is involved. Inspect current main, all open PRs and changed-file overlap. Read the latest handoff and identify the named task owner, file locks, exclusions and next action. Do not trust an old chat summary over current main. Do not create another operations room, handoff file or parallel task board. Before editing, append your claim here with task owner, exact files, expected outcome and exclusions. Work only within your assigned role; do not overlap another worker's files. Report only evidence actually checked and distinguish local, PR-head, merged-main, deployed/live and real-device results. At completion, append a dated handoff here with exact files, PR/commit, tests and next owner. A green CI result is not proof of live deployment. Never draft/publish an article unless its complete 16-field brief scores at least 85/100, has defensible distinct value and no critical factual, safety, evidence or duplication blocker.**
+
+### ChatGPT research claim and progress
+- **Owner:** ChatGPT — research/editorial/measurement.
+- **Files:** portfolio audit and this operations room only. No production article, calculator code, homepage code, protected workflow, Awin placement or existing article is being edited by ChatGPT in this batch.
+- **PR overlap:** GitHub open-PR endpoint was checked on 2026-11-11 and returned an empty list. No open PR changed-file overlap was present at that check.
+- **PL-001:** completed another primary-source pass using Seattle Public Utilities, Portland Water, Miami-Dade and EPA WaterSense. Meter movement and main-house-valve isolation can establish/locate a continuous metered supply-side leak at a broad level; they do not locate the exact leak or diagnose drain, roof, groundwater or condensation sources. Still missing drain-side/moisture-differentiation primary evidence, full competitor reviews, query demand evidence and the 16-field scorecard. Status remains RESEARCHING; not qualified.
+- **DR-001 (maintenance/repair):** large drywall-hole repair. Initial US SERP/source pass reviewed This Old House, Ace Hardware, Mr. Handyman, USG manufacturer instructions and HUD rehabilitation guidance. No matching article exists in the current repository tree. Generic repair instructions are crowded; differentiation is not yet proven. Status RESEARCHING; not qualified.
+- **HVAC-001 (energy/efficiency):** HVAC filter size and selection. Initial source/SERP pass reviewed PNNL Building America Solution Center, Trane, EPA MERV guidance and a commercial filter-finder. No matching guide or dedicated finder exists in the repository tree. Generic sizing advice is not enough; a safe actual-vs-nominal-size/thickness/MERV compatibility decision aid may be a differentiator, but competitors already offer filter-finder functionality. Status RESEARCHING; not qualified.
+- The expanded evidence and remaining gaps are recorded in docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md (commit a3c583a2bb16ae82abdde86960386d89b0eb4386).
+- **Article handoff decision:** no article is READY FOR CLAUDE yet. This is an evidence-based hold, not a pause in research. Complete full 16-field briefs and scorecards before adding any item to docs/ARTICLE-PRODUCTION-QUEUE.md. Keep the active investigation batch to PL-001, DR-001 and HVAC-001; close/reframe weak candidates promptly after the next validation pass.
+
+### Claude — next technical batch (owner-approved)
+- **Owner:** Claude — engineering/technical.
+- **Task A — homepage copy correction:** update only website/index.html so the flagship calculator feature accurately states **6 calculation areas** and explicitly includes the Wallpaper module in its list. Main currently labels the feature “FREE · 5 CALCULATION AREAS”, while the flagship calculator has six tabs (Area & volume, Paint, Flooring & materials, Electricity cost, Project cost, Wallpaper). Review the whole homepage list and supporting sentence so the descriptions accurately map to the actual six tabs; do not merely change the numeral if the list remains incomplete.
+- **Task B — read-only calculator review:** inspect the current six calculator tabs and the existing tests/QA scripts for high-value correctness, mobile, accessibility and explanatory-copy gaps. Do not edit website/home-project-calculator.html or scripts/visual_qa.py in this task because the previous visual-review handoff still withholds full dark-mode sign-off and explicitly listed these files as protected until that review is cleared. Return a ranked, evidence-based enhancement proposal with exact formulas/assumptions/tests before expanding functionality.
+- **Task A allowed write scope:** website/index.html only, plus a narrowly scoped test file if truly necessary and after confirming no overlap. Do not touch Awin, workflows, .editorial-freeze, or unrelated navigation/CSS.
+- **Acceptance:** confirm all six live tab labels against homepage descriptions; test link/anchor to calculator; run relevant homepage/site checks and exact-head CI; inspect mobile/desktop rendering if available. State whether evidence is source-only, CI screenshot, deployed or real-device. Do not claim live verification without checking the deployed page.
+- **Handoff to ChatGPT:** after homepage change is merged and deployed, ChatGPT will review copy consistency and homepage calculator visibility, then prepare the next calculator feature brief. Claude should not start article writing from the unqualified research register.
+
+### Measurement source check — 2026-11-11
+- Metricool brand connection is available for Pinterest and Website. A recheck of Pinterest evolution for 6–10 Nov returned only partial daily rows (6–8 Nov plus an end-boundary row); Website evolution returned only a zero row for 11 Nov. These results do **not** constitute a complete comparable five-day series and must not replace the previously recorded complete 6–10 Nov Pinterest comparison.
+- Metricool Website zero on the returned single date is not proof of zero site traffic and does not override GoatCounter. The previously recorded Metricool Website empty result, GA4 unconnected state and GoatCounter rolling snapshot remain separate evidence.
+- No Google Search Console or GoatCounter connector/action was exposed in the current connected tool list. Therefore the 11 Nov session did not fabricate a fresh GSC query/page export or a new GoatCounter series. Last valid GSC checkpoint remains the dated evidence in data/SEARCH_METRICS.md; obtain new exports/API access for the next true periodic comparison.
+- Keep GSC clicks/impressions/CTR/average position, GoatCounter visitors/pageviews/referrers, Metricool website metrics and Pinterest impressions/interactions/pin clicks/outbound clicks as separate measures. Do not add them together or infer AI referrals from an empty referrer list.
+
+### Next actions
+1. ChatGPT: finish PL-001 evidence gaps and complete the 16-field scorecards for DR-001 and HVAC-001; promote only a candidate that passes >=85/100 with no critical blocker.
+2. Claude: complete Task A and Task B above, then hand off exact PR/CI/deployment evidence.
+3. ChatGPT: refresh metrics only when full, correctly bounded source exports are available; append the next dated comparison to SEARCH_METRICS without overwriting historical windows.
