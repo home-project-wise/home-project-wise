@@ -62,7 +62,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <p class="formula">Formulas: area = length × width; perimeter = 2 × (length + width); volume = area × depth. Unit conversions use 1 ft = 0.3048 m exactly.</p>
 </section>
 <section class="tool-panel" id="panel-paint" role="tabpanel" aria-labelledby="tab-paint">
-<h2>Paint quantity and cost</h2><p>Estimate paint from the room dimensions, number of coats, the coverage printed on your paint tin and the price you enter.</p>
+<h2>Paint quantity and cost</h2><p>Estimate paint from the room dimensions, number of coats, the coverage printed on your paint tin and the price you enter. Walls only: ceilings, trim and primer are not included.</p>
 <form class="calc" id="paint-form" novalidate>
 <div class="calc-grid">
 <div class="calc-field"><label for="paint-unit">Room measurements</label><select id="paint-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
@@ -275,11 +275,12 @@ var tabs=Array.prototype.slice.call(document.querySelectorAll('.calc-tabs button
 function selectTab(btn,focus){tabs.forEach(function(b){var on=b===btn;b.setAttribute('aria-selected',String(on));b.setAttribute('tabindex',on?'0':'-1');});
  document.querySelectorAll('.tool-panel').forEach(function(p){p.classList.toggle('active',p.id===btn.getAttribute('aria-controls'));});
  if(focus)btn.focus();}
+function syncHash(btn){try{if(window.history&&window.history.replaceState)window.history.replaceState(null,'','#'+btn.getAttribute('aria-controls'));}catch(err){}}
 tabs.forEach(function(btn,i){btn.setAttribute('tabindex',i===0?'0':'-1');
- btn.addEventListener('click',function(){selectTab(btn,false);});
+ btn.addEventListener('click',function(){selectTab(btn,false);syncHash(btn);});
  btn.addEventListener('keydown',function(e){var k=e.key,n=-1;
   if(k==='ArrowRight')n=(i+1)%tabs.length;else if(k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;
-  if(n<0)return;e.preventDefault();selectTab(tabs[n],true);});});
+  if(n<0)return;e.preventDefault();selectTab(tabs[n],true);syncHash(tabs[n]);});});
 var requestedPanel=window.location.hash.slice(1);
 if(requestedPanel){var deepLinkTab=tabs.find(function(btn){return btn.getAttribute('aria-controls')===requestedPanel;});if(deepLinkTab)selectTab(deepLinkTab,false);}
 byId('measure-form').addEventListener('submit',function(e){e.preventDefault();error('measure-error','');show('measure-result','');
