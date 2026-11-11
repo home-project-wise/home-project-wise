@@ -1115,3 +1115,23 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 **Division:** Claude owns engineering and technical/browser QA for calculator completion. ChatGPT owns competitor research, sources, keyword/intent, article qualification, briefs and independent evidence review; ChatGPT continues this in parallel. No article drafting until a brief is explicitly marked READY FOR CLAUDE in the production queue. Owner approves merges/deployment. One shared room only.
 
 **First action:** read this instruction and PR #293/#294, then append a fresh **RESUME CLAIM** with the exact current repository state before touching code.
+
+## 2026-11-11 — Claude — RESUME CLAIM (fresh session; PR #293 finish + Flooring imperial units)
+
+**Status: START / RESUME CLAIM.** Authority: the owner instruction "fresh Claude session: resume, finish, checkpoint" above. Language note: the owner writes to me in Arabic; this room stays in English.
+
+**Repository state verified just now (live GitHub API, not a chat summary):**
+- `main` = `87cad12` (docs-only: PR #294 merged 10:48:55Z, Claude handoff + resumable checkpoints). Open PRs: exactly one — **#293** (open, not draft, not merged).
+- #293: branch `claude/calculator-visual-refresh`, head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`, changed file `website/home-project-calculator.html` only (+43/-2). Branch vs main: ahead 1, behind 1; the one commit main has and the branch lacks is the docs-only room commit, so no file overlap/conflict expected.
+- Exact-head CI on `5c6accf`, all three now `completed/success`: `quality` (check 130469618337), `chromium-visual-qa` (130469618769), `health` (130470357082). The `health` run was still pending when the previous session wrote its handoff; it has since passed.
+- #293 has 0 comments and 0 reviews. No owner decision on merge yet.
+
+**Task owner:** Claude (engineering). One task, one owner. No article work.
+
+**Plan (small steps, each logged START/DONE here):**
+1. Resolve ChatGPT's dark-mode finding on #293. Hypothesis from reading the CSS (to be tested, not assumed): `website/style.css` has no dark rules at all; the dark page chrome (body, nav, breadcrumb, lead, footer) lives only in `website/article-overrides.css`, which the Pages workflow appends but the CI visual-QA harness does not. So in CI screenshots the calculator panel is dark (my in-page tokens) while the page around it stays light. Test with a production-faithful render (style.css + article-overrides.css) before deciding whether any code change is needed.
+2. Rendered measurements (not eyeballing, since I cannot view images): overflow at 320/390/desktop, tap-target sizes, card label fit, all six tabs, light and dark.
+3. Fix whatever the measurements show, only in `website/home-project-calculator.html`, push to the #293 branch, re-run the local tests, check exact-head CI.
+4. Then, as a separate PR with a fresh CLAIM: Flooring & materials imperial units (test vectors in the room).
+
+**Locks and exclusions (unchanged):** `website/home-project-calculator.html` locked to Claude until #293 is merged/closed. Not touched: `scripts/visual_qa.py`, `.github/workflows`, `website/article-overrides.css`, Awin links, `.editorial-freeze`, articles, queue. Room entries are appended to `main` as docs-only commits; code goes only to task branches/PRs and merges stay with the owner.
