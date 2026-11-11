@@ -1457,3 +1457,27 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 ## 2026-11-11 — ChatGPT START — EN-001 reassessment (home energy audit)
 
 **START:** Following PL-001's defer decision, resume balanced research in the energy pillar using the pre-existing EN-001 candidate rather than inventing a new topic. Check whether exact US query demand and the current SERP reveal a distinct homeowner decision gap beyond DOE, ENERGY STAR and This Old House. Research only; no draft, no production queue entry, no code/workflow/Claude changes. Keep the scope DIY-safe and distinguish a visual walk-through from a formal energy assessment.
+
+
+## 2026-11-11 — ChatGPT DONE — EN-001 and HVAC-001 balanced energy-pillar screen
+
+**DONE:** Reassessed the existing energy-pillar candidates using US keyword estimates, repeated SERP samples, full competitor/authority page reviews where retrieval succeeded, and the verified 30-guide repository inventory. Updated the same documentation-only PR #301 branch; no production files, Claude-owned work, workflows, calculators or qualified queue entries were changed.
+
+### EN-001 — home energy audit
+- Third-party estimates: `home energy audit` 8,100/KD10 (mixed service/program intent); `DIY home energy audit` 140/KD0; `home energy audit checklist` 70/KD2; DIY checklist variant 50/KD0.
+- Reviewed DOE Consumer Guide, ENERGY STAR DIY checks, This Old House (updated 2026-05-29), Virginia EnergySense, Perch Energy and APG&E. Also observed Retrofit Relay's one-hour/no-tools "step zero" proposition in the SERP extract; direct retrieval was blocked.
+- The safety-first, observation-only differentiator is sensible but not sufficiently unique against current authority and specialist coverage.
+- **Decision: DEFER standalone EN-001.** The Energy pillar remains a real inventory gap, but this specific article is not approved.
+
+### HVAC-001 — furnace/HVAC filter sizing
+- Third-party estimates: `furnace filter size` 3,600/KD17; `air filter sizes` 2,900/KD11; `what size air filter do I need` 210/KD28; `how to measure air filter size` 140/KD9.
+- Reviewed Trane's guide directly, EPA MERV guidance directly, and PNNL filter-slot/return-grille guidance via source extracts. Filterbuy's 2026-09 update extract covers nominal/actual sizing, bypass gaps, face velocity and a selector; direct retrieval was blocked. The current SERP also contains Filtrete, FilterTime and filter-retailer size charts.
+- The proposed unique value (actual vs nominal dimensions, slot depth, filter location, MERV compatibility, airflow arrow and bypass) is already comprehensively covered by Trane/PNNL; Filterbuy adds more technical fit analysis.
+- **Decision: DEFER standalone HVAC-001.** Do not create a generic size chart or filter finder without a distinct query/use case.
+
+### Durable updates and limitations
+- Added topic-specific competitors to OpenSEO project context: APG&E, Perch Energy, Virginia EnergySense, Trane and Filterbuy; appended research log entries for EN-001 and HVAC-001.
+- Search Console remains unconnected. Keyword figures are third-party estimates, not HomeProjectWise traffic or impressions. No competitor traffic, full domain keyword counts, backlinks, or article counts were measured in this pass.
+- PR #301 remains documentation-only and open. Updated audit: `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`, latest research commit `e01c7db1051d6f7b31d130a6fc2cdd075c31fc18`. No merge attempted.
+
+**RESUME HERE:** The first candidate screen now shows three defensible DEFER decisions (PL-001, EN-001, HVAC-001); DR-001 remains unqualified pending its deeper competitor and safety/overlap work. Do not force an article out of this batch. Next high-value work is the competitive-intelligence matrix requested by the owner: establish the final competitor set and collect verified domain/page metrics. Do not invent article counts or top-page traffic. The OpenSEO credit balance was 99 before the EN/HVAC keyword and SERP calls; check the remaining balance before any paid domain-wide competitor runs. Public search and verified sitemap/URL counts may be used as labelled proxies, not as organic traffic estimates.
