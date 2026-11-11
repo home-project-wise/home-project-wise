@@ -1365,3 +1365,23 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - Not verified: Safari, Firefox, physical phone, screen reader, aesthetics by eye, the live site.
 
 **START E4:** merge #298 into `main` with a merge commit pinned to head `bd2745a6a90110d689d0702adada1e609d96c505`. Gate: open, `mergeable: true/clean`, base `main`, scope 3 intended files, PR-event CI `quality` 43021385991 + `chromium-visual-qa` 43021386149 + `health` 43008884320 all success, Node 45/45, browser 57/57, 8 prod-CSS measurements clean, owner standing authorization. Revert path if anything surfaces: revert the merge commit.
+
+## 2026-11-11 — Claude — DONE E4 (#298 merged; deployed; main CI) + CORRECTION + RESUME HERE
+
+**Status: DONE E4 (~12:40 UTC). #298 is MERGED into `main`; merge commit `4ddbe0eb389a0b687e3166502da88300ee60b67c`** (merge commit, pinned to verified head `bd2745a6a90110d689d0702adada1e609d96c505`). Both calculator PRs are now in `main`: #293 (`c4650e2`) and #298 (`4ddbe0e`).
+
+**CORRECTION to my DONE E1 entry:** I wrote "deployed ✘ (Pages deploy is a manual workflow; not triggered)". That was wrong. The workflow named "Manual HomeProjectWise Pages Deployment" (`pages.yml`) runs on every push to `main`: run 43021899664 on `4ddbe0e` completed/success at 12:37:42Z. I had not read `pages.yml` before asserting that; I should have. So merging deploys.
+
+**Post-merge observations (observed, not assumed):**
+- `main` push CI on `4ddbe0e`: `Editorial Quality Gate` 43021899775 success; `Always-on visual QA` 43021899641 success; Pages deployment 43021899664 success; **`Site Health Monitor` 43021899631 FAILED** at step "Check published article URLs from sitemap" with `HTTP Error 503: Service Unavailable` (it started 12:38:03Z, ~20 s after the deploy finished, while the live site was still switching over). Earlier push runs of this workflow were `cancelled` (superseded by my consecutive room commits), not failed.
+- Re-checks: live `https://home-project-wise.github.io/home-project-wise/home-project-calculator.html` → HTTP 200 and contains `id="material-unit"` (Flooring Feet selector is live) and the refreshed `tool-panel` markup; all **30** article URLs from the live sitemap → HTTP 200; **`Site Health Monitor` re-run via `workflow_dispatch` on `main`: run 43022283403, head `4ddbe0e`, success.** So the failure was a transient 503 during deployment, not a regression. (Not fixed in the workflow: it has no retry for article URLs; editing workflows needs owner approval — suggestion only.)
+- Status ladder: #293 merged ✔ deployed ✔ (live page returns the new markup) · #298 merged ✔ deployed ✔ · visually inspected by a human ✘ · Safari/Firefox/physical phone/screen reader ✘.
+
+## 2026-11-11 — Claude — RESUME HERE (after E4)
+
+- **Repo:** `main` = `4ddbe0eb389a0b687e3166502da88300ee60b67c` at the time of the merge (plus any later docs-only room commits). Working tree: none (all work via the GitHub API; sandbox files are scratch only). Clean. No open Claude code branch except merged `claude/calculator-visual-refresh` and `claude/flooring-imperial-units` (not deleted).
+- **Open PRs at last check:** #297 (docs, ChatGPT/owner relay; not touched).
+- **Completed:** A (CI + review of #298), D1–D3 findings, E1 merge #293, E2 retarget + PR-event CI, E3 real-browser 57/57 + 8 prod-CSS measurements, E4 merge #298, post-merge health re-check.
+- **Not done / next, in order (all optional, small, each needs its own CLAIM + START):** (1) D3 copy: one visible line in the Paint intro "Walls only — ceilings and trim are not included" (supported by the existing formula note); (2) D2: write the selected tab to `location.hash` in `selectTab` (use `history.replaceState`, keep read-on-load) with a Node test; (3) D1 stays a decision for owner/ChatGPT (new feature, no existing contract); (4) human visual check of the live calculator page (a person with a browser/phone); (5) suggestion for owner: add a retry to the article-URL step in `site-health.yml` (protected file; do not edit without approval).
+- **Last commands/results:** `node scripts/test_home_calculator.js` 45 PASS/0 FAIL (on `bd2745a`); `scripts/qa_browser_home_calculator.py` 57 PASS/0 FAIL (Chromium, local); main CI as above.
+- **Single next action:** CLAIM + START for item (1)+(2) on a new branch `claude/calculator-copy-and-hash` from `main` `4ddbe0e`, touching only `website/home-project-calculator.html` and `scripts/test_home_calculator.js`.
