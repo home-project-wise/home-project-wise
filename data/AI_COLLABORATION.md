@@ -1,6 +1,6 @@
 # HomeProjectWise — AI Collaboration Handoff
 
-Purpose: Claude and ChatGPT should work as independent collaborators with shared project awareness, useful peer advice, and minimal owner relay. This file is the durable handoff point; it does not replace code review, tests, or the canonical work log.
+Purpose: This is the ONE AND ONLY shared operations room for the owner, ChatGPT and every Claude session. All cross-assistant instructions, claims, status updates, decisions, handoffs and review requests must be recorded here. Do not create or use a second operations-room document, parallel handoff page, or PR-comment thread as an alternative communication channel. Specialized files (WORK_LOG, PROJECT_STATE, SEARCH_METRICS, article queue, specs and PRs) remain evidence/source records only; they are not competing operations rooms. This file does not replace code review, tests or specialized data records.
 
 ## One-command start trigger (2026-10-24)
 
@@ -804,3 +804,43 @@ I cannot view images or download artifact zips in my sessions. Open the artifact
 **Content / operating progress:** the wallpaper-roll planning guide is dated 7 Nov and covers drop counts, pattern repeat, worked examples, tricky layouts and label/batch checks; the smart-plug/bulb offline troubleshooting guide is dated 10 Nov. Existing updates include water-leak sensor placement (7 Nov), large-wall-art load limits (10 Nov) and macerating-toilet cost sourcing (5 Nov). These are practical additions/updates, not proof of search performance yet. The production queue's qualified/READY list was still empty in Claude's 11 Nov status; continue qualifying candidates across Smart Home, moisture/ventilation, plumbing and energy rather than treating the empty queue as a reason to stop expansion.
 
 **Next actions:** (1) update the homepage calculator feature from five to six areas and add Wallpaper; (2) obtain the owner's post-deployment Budget Planner phone/desktop check and decide whether desktop cards are desired; (3) verify dark mode with the deploy-time CSS and later real-device/accessibility checks; (4) investigate Pinterest's reduced distribution and prepare better-matched pins; (5) qualify the next batch of evidence-led article briefs across multiple topic clusters.
+
+## 2026-11-11 — OWNER DIRECTIVE: SINGLE CANONICAL OPERATIONS ROOM (supersedes older communication wording)
+
+**Owner concern:** The owner uses more than one Claude session and ChatGPT, and is concerned that assistants may write in different places, miss one another's instructions, or continue from stale context.
+
+### Binding rule — one room only
+1. **Canonical shared room:** `data/AI_COLLABORATION.md` on the repository's `main` branch. This is the only place for cross-assistant communication.
+2. Every assistant must read this file first, including the latest dated entries, before starting work. Then inspect the relevant specialized source records and current GitHub state as required by the task.
+3. Every assistant must write its CLAIM, IN PROGRESS, DONE, BLOCKED, HANDOFF, review request, owner decision and next action in this file. When replying to another assistant, append the reply here. Do not rely on PR comments, chat history, private notes, another file, or an assumed notification as the handoff.
+4. PR comments are reserved for technical review of that specific PR (line-level defects, check evidence and merge discussion). If a PR comment contains a cross-assistant request or durable decision, mirror its substance into this room and link the PR. Do not treat the comment as the shared message.
+5. Do not create another file titled or functioning as an operations room, AI handoff, assistant coordination log or parallel task board. Existing specialised records remain in place and are referenced from this room:
+   - `data/WORK_LOG.md`: append-only record of completed repository tasks, one line per finished task.
+   - `data/PROJECT_STATE.md`: technical/project state and constraints.
+   - `data/SEARCH_METRICS.md`: dated measurement evidence and limitations.
+   - `docs/ARTICLE-PRODUCTION-QUEUE.md`: qualified article intake and production workflow.
+   - Operating Charter, Value Before Publishing, CAO and calculator specifications: governing requirements for their respective subjects.
+   These records are not substitutes for the shared room. Do not copy their full contents into this file; summarize only the current decision/status and link to the source.
+6. Maintain one latest status per task in the newest dated room entry. Older entries remain historical; if an old instruction conflicts with a newer owner instruction, the newer explicit owner instruction wins. Record supersession clearly instead of silently deleting history.
+7. Before editing any shared file, inspect all open PRs and their changed-file overlap. Never overwrite another branch's work. If the room or work log is touched by multiple open PRs, coordinate the merge order, preserve every valid entry and reconcile sequentially. Do not merge a stale/conflicted PR merely to clear the list.
+8. No assistant is assumed to run in the background or see a new entry immediately. The next session must read the room at startup. The owner should not have to relay messages manually.
+
+### Current reconciliation checkpoint — 2026-11-11
+- Repository checked: `home-project-wise/home-project-wise`; canonical room is this file on `main`.
+- Latest open PR search returned **#285** (“Record Nov 11 search metrics and cross-cluster research”) and **#283** (“Editorial governance: keep the production queue qualified and balanced”). Both were reported by GitHub as open and `mergeable: false` at the time of inspection. Their PR descriptions indicate documentation/handoff changes; do not merge either stale/conflicted head as-is. Inspect their exact changed files and reconcile against current main before any merge. Preserve all unique research, metrics and owner decisions.
+- Claude's 11 Nov handoff reports #284 merged and #283 reviewed with wording corrections A–C. Those corrections must be checked against the actual current #283 diff/head before merge; a review comment alone is not proof they were applied.
+- The latest performance checkpoint is recorded in `data/SEARCH_METRICS.md`; its 5–9 Nov GSC comparison, 6–10 Nov Pinterest comparison and GoatCounter limitations must remain evidence, not be copied as unverified live traffic claims.
+- The latest operational task state and visual QA evidence are recorded in the dated handoffs above and in the relevant PR/workflow records. In particular, the Wallpaper visual screenshot review is complete for the six requested captures, but dark-mode sign-off remains withheld because the harness lacked deploy-time CSS. Physical-device, Safari/Firefox and screen-reader verification remain open.
+- Homepage calculator feature still needs the homepage wording/list updated from five to six modules to include Wallpaper. Budget Planner desktop card-vs-table treatment remains a design decision; live physical-device verification is not closed by CI screenshots.
+- The article queue is governed by `docs/ARTICLE-PRODUCTION-QUEUE.md`; an empty READY queue means no candidate has yet passed the complete qualification gate, not that article research or unrelated project work should stop. Continue topic discovery across the site's subject areas and batch only fully researched briefs for Claude.
+
+### Required format for all future room updates
+- **Date / assistant / status:** CLAIM, IN PROGRESS, DONE, BLOCKED or HANDOFF.
+- **Task and owner:** one clearly named task owner.
+- **Files / PR / commit:** exact paths and links; say “none” if none.
+- **Evidence:** checks actually run and their exact result; distinguish local, PR-head, merged-main and live-site evidence.
+- **Overlap / exclusions:** files or articles another assistant must not touch.
+- **Next action / recipient:** one concrete next step and who should take it.
+
+**This directive supersedes any older wording that permits cross-assistant handoffs to be left only in PR comments or separate coordination records.** Keep the historical notes above; append new updates here.
+
