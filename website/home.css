@@ -79,3 +79,7 @@
 
 /* Footer newsletter button: the label touched the button edges on phones (seen on a screenshot) */
 .footer-newsletter .newsletter-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;box-sizing:border-box;text-align:center}
+
+/* Crop the top of the planning photo: a third-party brand logo is visible on the man's shirt. Scaled from the bottom edge so the hands and plans stay in view. Retouching the JPG is the permanent fix. */
+.split-image{overflow:hidden}
+.split-image img{transform:scale(1.3);transform-origin:50% 100%}
