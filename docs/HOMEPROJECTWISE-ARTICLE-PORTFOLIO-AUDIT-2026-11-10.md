@@ -309,3 +309,15 @@ The owner explicitly corrected the recent over-conservative screening approach. 
 **Demand and limitation:** OpenSEO keyword expansion returned INSUFFICIENT_CREDITS in this pass. No monthly search volume, KD, GSC/Bing demand, traffic forecast or rank is claimed. This is a real SERP-observed user task with official support documentation and existing site pillar fit; proceed to a concise Tier 1 brief rather than stall for paid metrics.
 
 **Next action:** complete the repository page-copy overlap check, verify the current supported-model lists for the target market, then prepare the 16-field brief and score it on reader value / factual accuracy / usability (not on absence of competitors). If it qualifies, mark READY FOR CLAUDE and send as part of the next ordered batch.
+
+
+## 2026-11-11 — Growth-first reassessment and first qualified batch
+
+The current repository contains **31 published article HTML files** under `website/articles/` (verified directly on main on 2026-11-11). The older `data/CONTENT_INVENTORY.md` describes a 23-article snapshot from 2026-10-24 and must not be treated as the current count. No current GSC/Bing query export was available; OpenSEO keyword expansion had returned `INSUFFICIENT_CREDITS`, so this batch does not claim current search volume, KD, traffic or ranking data.
+
+Three prior or newly active candidates were reassessed under the owner-approved proportional research policy and qualified as Tier 1 briefs. The complete 16-field briefs and scorecards are now in `docs/ARTICLE-PRODUCTION-QUEUE.md`, in this order:
+1. **SH-001 — Do You Need a Thread Border Router? Check What You Already Own Before Buying** (86/100). Exact site-copy check found only a short paragraph in `smart-lighting.html` mentioning Matter-over-Thread and border routers; no dedicated model/setup decision guide. Strong specialists already exist, including MatterCatalog's finder and Smart Living Web's guide. Qualification is based on a practical homeowner workflow and official Apple/Google/Amazon model references, not a claim of zero competition.
+2. **EN-001 — DIY Home Energy Audit: A Room-by-Room Walkthrough to Find What to Fix First** (88/100). No dedicated energy-audit page in the current 31 files; existing pages cover narrower repairs and will serve as linked next steps. Scope is a safe visual walk-through and prioritization log, not a substitute for a professional audit.
+3. **HVAC-001 — What Size HVAC Air Filter Do I Need? Measure the Slot, Check the Fit and Choose MERV** (89/100). No dedicated central HVAC filter sizing page; bathroom exhaust-fan sizing is a different task. Differentiator is nominal-vs-actual size, depth, fit and MERV/pressure-drop caveats, grounded in Trane, PNNL and EPA guidance.
+
+**Status:** READY FOR CLAUDE review in one ordered batch; not yet in production. Owner approval requirements for PR merge/deployment remain unchanged. Recheck platform/device lists before SH-001 publication. No code, article HTML, calculator, workflow or Claude-owned file was changed by this editorial queue update.
