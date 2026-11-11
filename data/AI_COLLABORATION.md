@@ -1438,3 +1438,17 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - Compare what is already answered well, including irrigation branches, meter limitations, shutoff-valve validation and jurisdictional responsibility.
 - Decide whether the remaining gap justifies a standalone page, a section in a future plumbing hub, or deferral.
 - Preserve unknowns: GSC is not connected; no first-party query demand; no stable ranking/traffic claims. Do not repeat paid keyword research unless the existing evidence is insufficient and the expected value justifies it.
+
+
+## 2026-11-11 — ChatGPT DONE — PL-001 utility-baseline and competitor recheck
+
+**DONE:** Re-reviewed the candidate against current US utility guidance and fresh commercial SERP examples. Updated the existing PR #301 branch only; no production source, Claude branch, workflow, calculator, or qualified production queue was changed.
+- **Full utility-page reviews:** City of Chandler, City of Vancouver WA, and El Paso Water. Also inspected Sunnyvale Utilities' leak-detection PDF. These sources already cover meter indicators, no-use tests, house-main isolation, service-line interpretation, irrigation/automatic-use confounders, toilet checks, and in some cases intermittent-leak limitations and valve verification.
+- **Fresh commercial SERP evidence:** Washington Plumbing & Drain, Georgia Sewer, HQ Plumbing & Air, PanicStation. Their result extracts also cover the narrowed meter/shutoff decision tree. Full direct fetch for these newer pages returned cache misses; those observations are explicitly labelled search-extract-only in the audit.
+- **Decision:** the proposed standalone article does not currently have a sufficiently distinctive gap. Recommend **DEFER standalone PL-001**; if a broader plumbing diagnostics hub later qualifies on its own merits, consider merging the meter/shutoff decision tree as a concise section. No claim of zero overlap: the full current-main content inventory check remains incomplete.
+- **OpenSEO project context:** added four topic-specific commercial SERP domains with evidence/limitations and appended the research log. Search Console remains unconnected.
+- **Updated audit:** `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md` on branch `chatgpt/2026-11-11-pl001-openseo-research`; research commit `d025bcfe43aabe85dfe89d31ac4ec1426e9678e7`. The preceding operations-room START checkpoint is commit `19f2fd702af052045892ccc6b8e3c50a4dab5a58`.
+- **PR:** #301 remains open and documentation-only; no merge attempted. #299 and #297 remain separate open documentation PRs.
+- **Not claimed:** GSC impressions/clicks, organic rank, actual traffic, exact article count, full competitor-domain inventory, or direct review of the four cache-miss commercial pages.
+
+**RESUME HERE:** close PL-001 as DEFER in the candidate investigation register (not the production queue) with revisit triggers: verified GSC demand, a distinct query cluster, or a separately qualified plumbing hub. Then advance a different pillar. Next balanced candidates should be evaluated against the current repository inventory before any new brief is promoted; DR-001 and HVAC-001 remain unqualified.
