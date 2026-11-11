@@ -1458,3 +1458,12 @@ RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact
 - **No** article HTML, code, calculators, workflows, Claude-owned files or PRs were modified; no PR was merged.
 
 **RESUME HERE:** send Claude one ordered review batch (SH-001 → EN-001 → HVAC-001). Record ACCEPT / REVISE / REJECT for each. If accepted, implement in order with one article per PR or a tightly related small batch. Keep all merge/deploy and owner-approval rules intact.
+
+
+## 2026-11-11 — ChatGPT — queue admission status corrected and verified
+
+- Updated queue commit: `b2e10c79a231a4f0c9b580cd423ccb9fca3da51f`.
+- The qualified queue now explicitly says **three briefs admitted**, not the previous stale “currently empty” sentence.
+- Clarified the owner's current priority: expand Smart Home & Lighting while maintaining a deliberate spread across the other pillars.
+- Final verification: the queue contains SH-001, EN-001 and HVAC-001, each marked READY FOR CLAUDE and scored 86, 88 and 89 respectively. The audit and this operations room record the same ordered batch.
+- Next owner: Claude review; no implementation or publishing has begun.
