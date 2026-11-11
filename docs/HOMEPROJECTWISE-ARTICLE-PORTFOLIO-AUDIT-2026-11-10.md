@@ -329,3 +329,48 @@ This is a screening score, not a final qualification score. Missing evidence inc
 3. Decide whether modest standalone query demand justifies a full article or whether this is a section in a larger plumbing diagnostics hub.
 4. Connect the verified Search Console property and rerun demand/striking-distance analysis; do not qualify above 85 without it unless strong alternative demand evidence exists.
 5. Keep DR-001 and HVAC-001 in research/defer status. No article assignment to Claude yet.
+
+
+## PL-001 — direct utility-baseline and competitor recheck (ChatGPT, 2026-11-11)
+
+**Status: REFRAME / likely DEFER as a standalone article; still not qualified.** This is a focused follow-up to the OpenSEO metric/SERP pass, not a new paid keyword run. Market: United States, English. Search sample: 2026-11-11.
+
+### What the current utility guidance already does well
+
+| Source | Type | Verified coverage | Implication for HomeProjectWise |
+|---|---|---|---|
+| [City of Chandler — How to Check for a Water Leak](https://www.chandleraz.gov/residents/water/water-conservation/education-and-resources/for-residents/how-to-check-for-a-water-leak) | Municipal utility authority | Full page inspected. Explains analog vs digital meter indicators, waiting 10 minutes for slow leaks, house shutoff isolation, service-line interpretation, and automatic pool fillers / irrigation / evaporative coolers as confounders. Also links dedicated tutorials for irrigation, pool, supply line, toilets and water softeners. | Already a strong homeowner pathway with multiple related guides and videos; the generic meter/shutoff article is not an open gap. |
+| [City of Vancouver, WA — Detecting Water Leaks](https://www.cityofvancouver.us/government/department/public-works/water-sewer-and-stormwater/detecting-water-leaks/) | Municipal utility authority | Full page inspected. Covers bill anomaly, analog/digital indicators, two-hour no-use comparison, shutoff verification by opening a faucet, inside-vs-service-line result, toilet dye, irrigation, visible wet/green areas and call-before-you-dig. | Repeats nearly the complete candidate workflow, including safety-relevant valve verification and irrigation caveat. |
+| [El Paso Water — Finding Leaks](https://www.epwater.org/residential/services-and-information/leaks-and-property-protection/finding-leaks) | Municipal utility authority | Full page inspected. Covers meter test, house main shutoff, inside/outside split, toilet dye, water-softener recharge, irrigation, evaporative coolers and pool auto-fill. | Existing authoritative coverage is broad and practical; our article cannot claim to introduce these checks. |
+| [Sunnyvale Utilities — How to Use Your Water Meter to Detect a Leak](https://www.sunnyvale.ca.gov/home/showpublisheddocument/3218/637879707427170000) | Municipal utility PDF | Full PDF text inspected. Explicitly says an intermittent running toilet may not be caught during a single meter check; includes house shutoff, irrigation isolation and service-line outcomes. | Intermittent-vs-continuous limitation and irrigation isolation are already documented by a utility. |
+
+### Commercial SERP observations and comparison
+
+The current query sample also surfaced several commercial guides, in addition to the previously reviewed Plumber.com, Plumbing Advisors and DryHomeLab/HelpMeNow pages:
+
+- [Washington Plumbing — How to Use Your Water Meter to Find a Hidden Leak](https://www.washington-plumbing.com/resources/how-to-read-your-water-meter-for-leaks/) (search result published/updated Oct. 16, 2026): meter indicator types, no-use check, house-main isolation, service-line vs inside-house interpretation, irrigation/outbuilding branches, and a warning that an old gate valve that does not fully close makes the test unreliable. Direct page retrieval returned a cache miss in this pass; observations are limited to the search extract.
+- [Georgia Sewer — How to Use Your Water Meter to Find a Leak](https://georgiasewer.com/guides/water-meter-leak-test/) (published Oct. 22, 2026): meter check, house shutoff, verification that the valve actually stops flow by opening a faucet, irrigation branch caveat, result table and repair-responsibility framing. Direct page retrieval returned a cache miss; observations are limited to the search extract.
+- [HQ Plumbing & Air — Meter Still Moving, Main Valve Off](https://hqplumbingandair.com/resources/faqs/water-meter-still-moves-main-valve-off-leak) (updated Sep. 29, 2026): narrowly answers the exact diagnostic question and names the service line, irrigation tee and faulty valve as possible explanations. It cites Chandler and Phoenix responsibility guidance. Direct page retrieval returned a cache miss; observations are limited to the search extract.
+- [PanicStation — Water meter moving with all taps off](https://www.panicstation.org/us/your-water-meter-is-moving-even-though-all-taps-and-appliances-are-off/) (published Jun. 19, 2026; reviewed Jul. 17, 2026): symptom-first answer and explicit warnings not to force valves or dig near the service line. Search extract only; no full page review claimed.
+
+### Differentiation test: what remains genuinely additive?
+
+The initial concept was a decision tree interpreting meter movement before/after the house shutoff. This pass shows that the core tree is already explicitly provided by municipal utilities and commercial plumbers. Even several supposed differentiators—irrigation before/after the shutoff, confirming the house valve actually closed, intermittent leaks, analog/digital indicators, and service-line responsibility—are already covered by the sources above.
+
+Potential remaining value is narrower and conditional:
+1. A **jurisdiction-aware ownership handoff** that tells readers not to infer responsibility solely from the meter location, and to ask their local utility for its service-boundary diagram and customer-side shutoff location.
+2. A **failure-mode panel** explaining when the test is inconclusive: valve does not fully seat, irrigation/pool branches tee upstream, automatic devices cycle intermittently, meter resolution/indicator differs by model, or meter remains still while drain/rain/condensation moisture persists.
+3. A conceptual diagram clearly labelled as non-universal, with a result table distinguishing “suggests” from “proves”.
+
+However, these points are too small to justify a standalone article against the current measured evidence. They are better used as a concise section in a broader future plumbing/water-loss troubleshooting hub, or as a supporting visual/checklist only if a broader hub is independently qualified.
+
+### Decision and remaining blockers
+
+- **Recommendation: DEFER standalone PL-001; consider MERGE into a future broader plumbing diagnostics page only after that hub has its own evidence-backed brief.**
+- Do not send to Claude, do not add to the qualified production queue, and do not create a new URL from this candidate on the present evidence.
+- The broad hidden-leak seed was estimated at 20 searches/month; the broad "water leak test" row at 260 has ambiguous intent and strong paid competition; the meter-to-house phrase was estimated at 30 with KD 1. These are third-party estimates, not first-party site demand. They do not override the saturated utility SERP.
+- Search Console remains unconnected. The current repository overlap check is still not complete against a verified current-main inventory; do not claim zero overlap.
+- Direct retrieval of the four newer commercial pages above was blocked by cache misses, so their coverage statements are search-extract-only. Full direct page review remains required if the topic is revived.
+- No traffic, rank, impressions, clicks or competitor page traffic are asserted.
+
+**Next action:** close PL-001 as DEFER (with a revisit trigger: Search Console evidence, a clearly distinct query cluster, or a broader hub brief) and advance balanced research in a different pillar. Keep DR-001 and HVAC-001 under their existing RESEARCHING/DEFER screens; do not draft them by default.
