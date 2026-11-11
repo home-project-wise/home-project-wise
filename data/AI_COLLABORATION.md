@@ -1426,3 +1426,18 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - Treat the 100-title portfolio as a starting library to expand, not a ceiling. Add current smart-home opportunities tied to real platform/device developments, not just old troubleshooting topics.
 - Reassess deferred candidates under the corrected rule; DEFER means "not currently prioritized", not "competition saturated / never publish".
 - Do not touch Claude-owned engineering files or workflows. This work is editorial documentation only.
+
+
+## 2026-11-11 — ChatGPT DONE — growth-first policy adopted; SH-001 started
+
+DONE:
+- Updated the operating charter on main at commit 6e7718dd7fcb7d1e3398fd9e266437a6ae04fa28 with an owner-approved growth-first correction. Competition is not a veto; research effort is now risk-based (Tier 1 standard, Tier 2 priority, Tier 3 flagship/high-risk). A differentiated practical answer is enough; no requirement to find an uncrowded subject.
+- Added 12 current Smart Home & Lighting candidate directions to the charter, including Matter 1.6 setup/multi-ecosystem sharing, Thread border routers, Matter cameras, smart blinds/garage doors, energy management, presence sensing, local-vs-cloud automation and smart irrigation.
+- Added the owner's correction and a new SH-001 investigation to docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md, main commit 7d6bb5214f5f025754e647064017f8764e686b07.
+- SH-001: "Do You Need a Thread Border Router?" is now RESEARCHING, not rejected for competition. Inventory shows no dedicated guide; current US SERP includes specialist explainers/tools and official Apple, Google and Amazon guidance. A useful article can prevent unnecessary purchases by separating Matter controller vs Thread border router, checking Wi-Fi vs Thread, and verifying exact existing device models. It needs a final overlap check and current model validation before a full brief.
+- OpenSEO keyword expansion was blocked by INSUFFICIENT_CREDITS; no search-volume or KD figure is claimed. Search/SERP and official documentation provide enough evidence to advance a Tier 1 brief without paid metrics.
+- No code, production article, workflow, calculator, or Claude-owned file was modified. No PR merged.
+
+Reinterpretation of previous candidates: PL-001, EN-001 and HVAC-001 remain useful candidates, not permanent rejections. Their DEFER labels were over-conservative and should be revisited with Tier 1 effort; do not re-run expensive research simply to defend the earlier decisions.
+
+RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact model/platform support lists, then write and score its 16-field brief. In parallel, restart discovery across all five editorial pillars; prioritize useful article throughput and topic clusters, not competitor saturation studies. Send Claude only qualified briefs in one ordered batch.
