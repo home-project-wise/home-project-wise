@@ -132,3 +132,204 @@ footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
 .breadcrumb a{display:inline-block;padding:5px 0;min-height:24px}
 footer nav a,footer .newsletter-cta{display:inline-block;padding:5px 0;min-height:24px}
 .calculator-feature-secondary{display:inline-flex;align-items:center;min-height:44px}
+/* Group 1 production publish trigger: editorial closure passed Quality Gate. */
+/* HomeProjectWise article presentation layer: keep reading width calm, prevent oversized hero images, and make long-form guides consistent. */
+.article,.section.article{max-width:860px;margin:72px auto 96px;padding:0 28px}.article h1,.section.article h1{font-family:"Playfair Display",serif;font-size:clamp(42px,6vw,68px);line-height:1.04;letter-spacing:-.025em;margin:0 0 20px;max-width:820px}.article .lead,.section.article .lead{font-size:19px;line-height:1.65;max-width:760px;margin-bottom:30px}.article>p,.article>ul,.article>ol,.article>h2,.article>h3,.article>aside,.section.article>p,.section.article>ul,.section.article>ol,.section.article>h2,.section.article>h3,.section.article>aside{max-width:760px;margin-left:auto;margin-right:auto}.article>p,.section.article>p{font-size:17px;line-height:1.82;color:#465359}.article h2,.section.article h2{font-size:34px;margin-top:54px;margin-bottom:16px}.article h3,.section.article h3{font-size:21px;margin-top:28px;margin-bottom:8px}.article-hero{display:block;width:min(100%,760px);height:360px;max-height:52vh;object-fit:cover;border-radius:24px;margin:34px auto 44px;box-shadow:0 18px 45px rgba(36,50,56,.10)}.article figure,.section.article figure{max-width:760px;margin:38px auto}.article figure img,.section.article figure img{display:block;width:100%;height:360px;max-height:52vh;object-fit:cover;border-radius:22px;box-shadow:0 14px 38px rgba(36,50,56,.08)}.article figcaption,.section.article figcaption{font-size:12px;color:#7a8588;margin-top:9px;padding:0 6px}.article ul,.article ol,.section.article ul,.section.article ol{padding-left:24px;color:#465359}.article li,.section.article li{margin:10px 0}.article aside.author-box,.section.article aside.author-box{margin-top:58px;padding:24px 26px;background:#e5ebe6;border-radius:20px;color:#425056}.article aside.author-box p,.section.article aside.author-box p{margin:7px 0 0;font-size:14px}.article .text-link,.section.article .text-link{display:inline-block;margin-top:26px;font-weight:700}.article a,.section.article a{color:#526f66}.article blockquote,.section.article blockquote{margin:42px auto;max-width:720px;padding:22px 28px;border-left:3px solid #d97745;background:#fff;border-radius:0 16px 16px 0;font-family:"Playfair Display",serif;font-size:24px}.article .article-meta,.section.article .article-meta{display:flex;gap:10px;flex-wrap:wrap;margin:0 auto 22px;max-width:760px;color:#7a8588;font-size:12px}.article .article-meta span,.section.article .article-meta span{background:#eeeae2;padding:6px 10px;border-radius:999px}@media(max-width:600px){.article,.section.article{margin:38px auto 70px;padding:0 20px}.article h1,.section.article h1{font-size:clamp(38px,11vw,52px)}.article .lead,.section.article .lead{font-size:17px}.article-hero,.article figure img,.section.article figure img{height:250px;max-height:none;border-radius:18px}.article h2,.section.article h2{font-size:29px;margin-top:42px}.article>p,.section.article>p{font-size:16px;line-height:1.75}.article blockquote,.section.article blockquote{font-size:20px;padding:18px 20px}}
+
+/* Readability and focus: darker muted text (WCAG AA 4.5:1), larger small text, visible keyboard focus, easier tap targets */
+body .eyebrow,body .article .eyebrow,body .section.article p.eyebrow,body .article p.eyebrow,body .article .article-newsletter .eyebrow{color:#456b5b;font-size:12px}
+body .tag,body .image-note span{color:#a8481d;font-size:12px}
+body .promise span,body .library-meta span,body .quote>p:last-child,body .library-intro>p:last-child,body .section-intro,body .newsletter p,body .footer-newsletter p,body .article-newsletter p:not(.eyebrow),body footer{color:#566266}
+body .promise span{font-size:14px}
+body .article figcaption,body .section.article figcaption{font-size:14px;color:#566266}
+body .article .article-meta,body .section.article .article-meta{font-size:13px;color:#566266}
+body footer{font-size:13px}
+body footer nav a{font-size:13px;display:inline-block;padding:6px 0}
+body .card a{font-size:14px;display:inline-block;padding:6px 0}
+body a:focus-visible,body button:focus-visible,body summary:focus-visible,body input:focus-visible{outline:3px solid #a8481d;outline-offset:3px;border-radius:4px}
+
+/* Diagrams and tablet gutters: never crop SVG diagrams; add side gutters between 851px and 1240px */
+body .article figure img[src$=".svg"],body .section.article figure img[src$=".svg"]{height:auto;max-height:none;object-fit:contain}
+@media(min-width:851px){.section,.promise,.newsletter{width:calc(100% - 56px)}}
+
+/* Mobile: side margin for the three promise lines (text touched the screen edge); guide library sub-headings */
+@media(max-width:850px){.promise{margin:0 20px}}
+.library-subhead{font-family:"Playfair Display",serif;font-size:26px;line-height:1.2;margin:44px 0 16px;color:#243238}
+.library-subhead span{font-family:"DM Sans",sans-serif;font-size:13px;font-weight:500;color:#566266;margin-left:8px}
+
+/* Navigation aids: breadcrumbs, visible dates, related guides, category hub links */
+.breadcrumb{font-size:14px;color:#566266;margin:0 0 14px}
+.breadcrumb a{color:#456b5b;text-decoration:none}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span{margin:0 8px;color:#8a979b}
+body .article-dates{font-size:14px;color:#566266;margin:-6px 0 22px}
+.related-guides{margin:56px 0 0}
+.related-guides h2{margin-bottom:18px}
+.hub-link{margin:6px 0 22px}
+.hub-link a{font-weight:600;color:#456b5b}
+
+/* Site search */
+.search-form{display:flex;gap:10px;margin:18px 0 6px;max-width:560px}
+.search-form input{flex:1;min-width:0;font:inherit;font-size:17px;padding:13px 16px;border:1px solid #c9d2ce;border-radius:12px;background:#fff;color:#243238}
+.search-form button{font:inherit;font-weight:600;padding:13px 20px;border:0;border-radius:12px;background:#243238;color:#fff;cursor:pointer}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.search-results{list-style:none;padding:0;margin:22px 0 0}
+.search-results li{padding:18px 0;border-top:1px solid #e1e5e0}
+.search-results li span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#a8481d;margin-bottom:4px}
+.search-results li a{font-family:"Playfair Display",serif;font-size:22px;color:#243238;text-decoration:none}
+.search-results li a:hover{text-decoration:underline}
+.search-results li p{margin:6px 0 0;color:#566266;font-size:15px}
+
+/* Cookie consent banner (Awin tag is loaded only after Accept) */
+.consent-banner{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));max-width:640px;margin:0 auto;background:#243238;color:#fff;padding:16px 18px;border-radius:14px;z-index:60;box-shadow:0 10px 40px rgba(0,0,0,.25);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.consent-banner p{margin:0;font-size:14px;line-height:1.5;flex:1 1 280px;color:#fff}
+.consent-banner a{color:#fff;text-decoration:underline}
+.consent-actions{display:flex;gap:10px}
+.consent-banner button{font:inherit;font-size:14px;font-weight:600;padding:10px 18px;border-radius:10px;border:1px solid #fff;cursor:pointer;background:transparent;color:#fff}
+.consent-banner .consent-accept{background:#a8481d;border-color:#a8481d}
+.consent-reset{font:inherit;font-size:14px;padding:8px 14px;border-radius:10px;border:1px solid #243238;background:#fff;color:#243238;cursor:pointer}
+
+/* Rug calculator and tool links */
+.calc{background:#fff;border:1px solid #dfe5e1;border-radius:18px;padding:22px;margin:22px 0}
+.calc-units{border:0;padding:0;margin:0 0 16px}
+.calc-units legend{font-weight:600;margin-bottom:6px}
+.calc-units label{margin-right:18px;font-size:16px}
+.calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.calc-field label{display:block;font-weight:600;font-size:15px;margin-bottom:6px;color:#243238}
+.calc-field small{display:block;color:#566266;font-size:13px;margin-top:6px;line-height:1.4}
+.calc select,.calc input[type=number]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid #c9d2ce;border-radius:10px;background:#fff;color:#243238;max-width:100%}
+.calc select{width:100%}
+.calc .dim input{width:84px}
+.calc .u-us,.calc .u-m{display:flex;align-items:center;gap:8px}
+.calc[data-unit="us"] .u-m,.calc[data-unit="m"] .u-us{display:none}
+.calc-err{color:#a8481d;font-weight:600;margin:14px 0 0;min-height:1.2em}
+.calc-btn{margin-top:14px;font:inherit;font-weight:700;padding:14px 26px;border:0;border-radius:12px;background:#243238;color:#fff;cursor:pointer}
+.calc-out{margin:8px 0 28px}
+.calc-best{font-size:22px;margin:6px 0}
+.calc-best span{font-size:16px;color:#566266}
+.calc-list{padding-left:20px}
+.calc-preview svg{width:100%;max-width:520px;height:auto;display:block;margin:12px 0}
+.calc-note{color:#566266}
+.tool-callout{border-left:4px solid #d97745;background:#f7f5f0;padding:14px 18px;border-radius:8px;margin:18px 0}
+.tool-list{list-style:none;padding:0;margin:0 0 8px}
+.tool-list li{padding:14px 0;border-top:1px solid #e1e5e0}
+.tool-list a{font-family:"Playfair Display",serif;font-size:22px;color:#243238;text-decoration:none}
+.tool-list a:hover{text-decoration:underline}
+.tool-list span{display:block;color:#566266;font-size:15px;margin-top:4px}
+
+/* Calculator extras: unit labels, checkboxes, warning */
+.calc[data-unit="us"] .u-m-t,.calc[data-unit="m"] .u-us-t{display:none}
+.calc-checks{border:0;padding:0;margin:18px 0 0}
+.calc-checks legend{font-weight:600;margin-bottom:8px}
+.calc-checks label{display:flex;gap:10px;align-items:flex-start;font-size:16px;margin:8px 0}
+.calc-checks input{margin-top:5px;width:18px;height:18px}
+.calc-warn{border-left:4px solid #a8481d;background:#fbeee6;padding:14px 18px;border-radius:8px;margin:16px 0}
+
+/* Smart plug check: verdict colours and load bar */
+.calc-ok{border-left:4px solid #2f7d5b;background:#e9f3ee;padding:14px 18px;border-radius:8px;margin:16px 0}
+.calc-caution{border-left:4px solid #b7791f;background:#fbf3e3;padding:14px 18px;border-radius:8px;margin:16px 0}
+.calc-bar{position:relative;height:16px;background:#e1e5e0;border-radius:8px;overflow:hidden;margin:14px 0 4px}
+.calc-bar-fill{height:100%}
+.calc-bar-mark{position:absolute;left:80%;top:0;width:3px;height:100%;background:#243238}
+
+/* Calculator finder on the Tools page */
+.ask-examples{margin:10px 0 0;font-size:15px;color:#566266}
+.ask-examples .chip{font:inherit;font-size:14px;padding:6px 12px;margin:4px 6px 4px 0;border:1px solid #c9d2ce;border-radius:999px;background:#fff;color:#243238;cursor:pointer}
+.ask-examples .chip:hover{border-color:#243238}
+.ask-form{max-width:680px}
+.ask-card{background:#fff;border:1px solid #dfe5e1;border-left:4px solid #d97745;border-radius:12px;padding:16px 20px;margin:18px 0}
+.ask-card p{margin:8px 0}
+.ask-said{color:#566266;font-size:15px}
+.ask-go{display:inline-block;text-decoration:none;margin-top:6px}
+
+/* Home Check-up */
+.quiz-q{background:#fff;border:1px solid #dfe5e1;border-radius:12px;padding:14px 18px;margin:12px 0}
+.quiz-q legend{font-weight:600;padding:0 6px}
+.quiz-top li{margin:12px 0}
+.quiz-areas{list-style:none;padding:0;margin:8px 0}
+.quiz-areas li{display:grid;grid-template-columns:minmax(150px,220px) 1fr 70px;gap:12px;align-items:center;margin:10px 0}
+.quiz-level{font-size:14px;color:#566266}
+@media(max-width:560px){.quiz-areas li{grid-template-columns:1fr 70px}.quiz-areas .quiz-name{grid-column:1/-1}}
+
+/* Dark mode: explicit palette mirroring every colour rule of the light theme; contrast checked by scripts/check_contrast.js */
+
+/* Contrast fixes (checked by scripts/check_contrast.js) */
+body .split .eyebrow,body .split-copy .eyebrow{color:#a9c0b6}
+body .hero h1 em{color:#c45a22}
+.breadcrumb span{color:#66727a}
+main p a:not([class]),main li a:not([class]),main td a:not([class]){color:#456b5b}
+[style*="background:#D97745" i]{background:#a8481d!important}
+body .article a.cta-affiliate,body .section.article a.cta-affiliate{color:#fff}
+:root{color-scheme:light dark}
+@media (prefers-color-scheme:dark){body{background:#182126;color:#eef1ee}.brand{color:#eef1ee}.nav nav a,.text-link,footer a{color:#b4bfc2}.nav-cta,.button{background:#e8ecea;color:#182126}.eyebrow{color:#8db8a6}.hero h1 em{color:#e8905f}.lead{color:#b4bfc2}.image-note{background:rgba(24,33,38,.94)}.image-note span,.tag{color:#e8905f}.promise{border-top:1px solid #34444b;border-bottom:1px solid #34444b}.promise div{border-right:1px solid #34444b}.promise span{color:#a3aeb1}.section-head>a{color:#eef1ee}.card{background:#202b30}.card p{color:#aab5b8}.card a{color:#eef1ee}.quote>p:last-child{color:#a3aeb1}.newsletter{background:#22302e}.newsletter p{color:#aab5b8}footer{background:#1f292e;color:#aab5b8}}
+@media (prefers-color-scheme:dark) and (max-width:850px){.promise div{border-bottom:1px solid #34444b}}
+@media (prefers-color-scheme:dark){.library-intro>p:last-child,.section-intro{color:#aab5b8}.library-meta{border-top:1px solid #34444b;border-bottom:1px solid #34444b}.library-meta span{color:#a3aeb1}.problem-grid a{background:#202b30;border:1px solid #34444b;color:#eef1ee}.problem-grid span{color:#aab5b8}.footer-newsletter{border-top:1px solid #34444b;border-bottom:1px solid #34444b}.footer-newsletter p{color:#aab5b8}.newsletter-cta{background:#e8ecea;color:#182126 !important}.article-newsletter{background:#22302e}.article-newsletter p:not(.eyebrow){color:#aab5b8}.cta-affiliate{background:#e8ecea;color:#182126}.cta-affiliate:hover{background:#ffffff}.article .lead{color:#b4bfc2}.article p a,.article li a{color:#eef1ee;text-decoration-color:#e8905f}.article figcaption{color:#aab5b8}.article th,.article td{border:1px solid #34444b}.article th{background:#22302e;color:#eef1ee}.article tbody tr:nth-child(even){background:#1c262b}.section.article p.eyebrow,.article p.eyebrow{color:#8db8a6}.toc{background:#182126;border:1px solid #34444b;border-left:4px solid #e8905f}.toc summary{color:#eef1ee}.toc summary::after{color:#e8905f}.toc a{color:#eef1ee;border-bottom:1px solid #e8905f}.guide-grid .card-body a:hover{color:#e8905f}.guide-grid .card-body a:focus-visible{outline:3px solid #e8905f}}
+@media (prefers-color-scheme:dark) and (max-width:850px){.nav nav a{color:#eef1ee}}
+@media (prefers-color-scheme:dark){.article>p,.section.article>p{color:#bcc6c8}.article figcaption,.section.article figcaption{color:#a3aeb1}.article ul,.article ol,.section.article ul,.section.article ol{color:#bcc6c8}.article aside.author-box,.section.article aside.author-box{background:#22302e;color:#bcc6c8}.article a,.section.article a{color:#8db8a6}.article blockquote,.section.article blockquote{border-left:3px solid #e8905f;background:#202b30}.article .article-meta,.section.article .article-meta{color:#a3aeb1}.article .article-meta span,.section.article .article-meta span{background:#26333a}body .eyebrow,body .article .eyebrow,body .section.article p.eyebrow,body .article p.eyebrow,body .article .article-newsletter .eyebrow{color:#8db8a6}body .tag,body .image-note span{color:#f0a07a}body .promise span,body .library-meta span,body .quote>p:last-child,body .library-intro>p:last-child,body .section-intro,body .newsletter p,body .footer-newsletter p,body .article-newsletter p:not(.eyebrow),body footer{color:#aeb9bc}body .article figcaption,body .section.article figcaption{color:#aeb9bc}body .article .article-meta,body .section.article .article-meta{color:#aeb9bc}body a:focus-visible,body button:focus-visible,body summary:focus-visible,body input:focus-visible{outline:3px solid #f0a07a}.library-subhead{color:#eef1ee}.library-subhead span{color:#aeb9bc}.breadcrumb{color:#aeb9bc}.breadcrumb a{color:#8db8a6}.breadcrumb span{color:#9aa6a9}body .article-dates{color:#aeb9bc}.hub-link a{color:#8db8a6}.search-form input{border:1px solid #44565e;background:#202b30;color:#eef1ee}.search-form button{background:#e8ecea;color:#182126}.search-results li{border-top:1px solid #34444b}.search-results li span{color:#f0a07a}.search-results li a{color:#eef1ee}.search-results li p{color:#aeb9bc}.consent-reset{border:1px solid #8fa0a6;background:#202b30;color:#eef1ee}.calc{background:#202b30;border:1px solid #34444b}.calc-field label{color:#eef1ee}.calc-field small{color:#aeb9bc}.calc select,.calc input[type=number]{border:1px solid #44565e;background:#202b30;color:#eef1ee}.calc-err{color:#f0a07a}.calc-btn{background:#e8ecea;color:#182126}.calc-best span{color:#aeb9bc}.calc-note{color:#aeb9bc}.tool-callout{border-left:4px solid #e8905f;background:#182126}.tool-list li{border-top:1px solid #34444b}.tool-list a{color:#eef1ee}.tool-list span{color:#aeb9bc}.calc-warn{border-left:4px solid #f0a07a;background:#3a2418}.calc-ok{border-left:4px solid #7fc3a3;background:#1f3329}.calc-caution{border-left:4px solid #e0b45a;background:#3a3220}.calc-bar{background:#34444b}.calc-bar-mark{background:#e8ecea}.ask-examples{color:#aeb9bc}.ask-examples .chip{border:1px solid #44565e;background:#202b30;color:#eef1ee}.ask-examples .chip:hover{border-color:#8fa0a6}.ask-card{background:#202b30;border:1px solid #34444b;border-left:4px solid #e8905f}.ask-said{color:#aeb9bc}.quiz-q{background:#202b30;border:1px solid #34444b}.quiz-level{color:#aeb9bc}}
+@media (prefers-color-scheme:dark){.brand-logo,.brand-logo-footer{filter:invert(1) hue-rotate(180deg)}.calc-bar{background:#34444b}.calc-bar-mark{background:#eef1ee}.calc-ok{background:#1f3329}.calc-caution{background:#3a3220}img{opacity:.94}.split img{opacity:1}.cta-affiliate{background:#e8ecea}.cta-affiliate:hover{background:#ffffff}body .article a.cta-affiliate,body .section.article a.cta-affiliate{color:#182126}body .hero h1 em{color:#e8905f}body .breadcrumb span{color:#8a979b}
+[style*="background:#F7F5F0" i],[style*="background:#f5f7f6" i],[style*="background:#f7f6f1" i],[style*="background:#f3f5f4" i]{background:#202b30!important}
+table td,table th{border-color:#34444b!important}table th{border-color:#8fa0a6!important}
+[style*="solid #E4ECE8" i]{border-color:#34444b!important}
+main p a:not([class]),main li a:not([class]),main td a:not([class]){color:#8db8a6}}
+
+/* Print: clean, ink-friendly pages and a print button on guides */
+.print-btn{font:inherit;font-size:13px;padding:3px 10px;border:1px solid #c9d2ce;border-radius:999px;background:transparent;color:#566266;cursor:pointer;margin-left:2px}
+.print-btn:hover{border-color:#243238;color:#243238}
+@media (prefers-color-scheme:dark){.print-btn{border-color:#44565e;color:#aeb9bc}.print-btn:hover{border-color:#8fa0a6;color:#eef1ee}}
+@media print{
+header.nav,footer,.consent-banner,.article-newsletter,.related-guides,.breadcrumb,.search-form,.print-btn,.tool-callout,.hub-link,.calc-btn,.ask-examples{display:none!important}
+*{background:transparent!important;color:#000!important;box-shadow:none!important;text-shadow:none!important}
+body{font-size:12pt;line-height:1.5}
+main,.section{max-width:100%!important;width:auto!important;margin:0!important;padding:0!important}
+a{text-decoration:underline}
+.article a[href^="http"]::after{content:" (" attr(href) ")";font-size:9pt;word-break:break-all}
+img{max-width:100%!important;height:auto!important;opacity:1!important;filter:none!important;break-inside:avoid}
+h1,h2,h3{break-after:avoid}
+table,figure,.calc,.calc-out,.quiz-q{break-inside:avoid}
+li{break-inside:avoid}
+}
+
+/* Budget planner (new colours have a dark mirror below) */
+.budget-wrap{overflow-x:auto;margin:14px 0}
+.budget-table{width:100%;border-collapse:collapse;min-width:640px}
+.budget-table th{text-align:left;font-size:13px;color:#566266;padding:6px 8px;border-bottom:2px solid #243238}
+.budget-table td{padding:6px 8px;border-bottom:1px solid #e1e5e0}
+.budget-table input[type=text]{width:100%;min-width:180px}
+.budget-table input[type=number]{width:90px}
+.budget-table select{width:auto;font-size:15px}
+.calc input[type=text]{font:inherit;font-size:17px;padding:11px 12px;border:1px solid #c9d2ce;border-radius:10px;background:#fff;color:#243238;max-width:100%}
+.r-x{font:inherit;border:1px solid #c9d2ce;background:#fff;color:#243238;border-radius:8px;cursor:pointer;padding:4px 10px}
+@media (prefers-color-scheme:dark){.budget-table th{color:#aeb9bc;border-bottom-color:#8fa0a6}.budget-table td{border-bottom-color:#34444b}.calc input[type=text]{background:#202b30;border-color:#44565e;color:#eef1ee}.r-x{background:#202b30;border-color:#44565e;color:#eef1ee}}
+
+/* Accessibility pass (10 Nov 2026): 24px controls with 44px rows, 44px buttons, wrapping of long user-entered text (WCAG 2.2 SC 2.5.8) */
+body input[type=checkbox],body input[type=radio]{width:24px;height:24px;margin:0;flex:none}
+body label:has(>input[type=checkbox]),body label:has(>input[type=radio]){display:inline-flex;align-items:center;gap:10px;min-height:44px}
+body .calc-checks label{align-items:center}
+body .print-btn{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px}
+body .toc summary{display:flex;align-items:center;justify-content:space-between;min-height:44px}
+body #add-row{display:inline-flex;align-items:center;min-height:44px}
+.calc-out,.calc-out *,.budget-table .r-h{overflow-wrap:anywhere}
+
+/* ===== Design sprint, Phase 1: shared design tokens and mobile fixes (additive, appended last) =====
+   Tokens mirror the current look so nothing shifts by itself. Namespaced --hpw-* to avoid clashing with the calculator's local --cp-* tokens. */
+:root{--hpw-ink:#243238;--hpw-ink-soft:#4f5c61;--hpw-accent:#d97745;--hpw-sage:#6f8f82;--hpw-line:#d4ddda;--hpw-radius-card:22px;--hpw-radius-pill:999px;--hpw-space-2:8px;--hpw-space-3:12px;--hpw-space-4:16px;--hpw-space-6:24px;--hpw-tap:44px;--hpw-measure:68ch}
+body .card{border-radius:var(--hpw-radius-card)}
+body .nav-cta,body .button{border-radius:var(--hpw-radius-pill)}
+@media(max-width:600px){
+  /* 44px tap targets for the header links on phones (WCAG 2.2 target size) */
+  body .nav nav a{padding:12px 0;min-height:var(--hpw-tap);box-sizing:border-box}
+  /* Calculator page only: reach the tool sooner on a phone (:has is ignored by older browsers, which keep today's layout) */
+  main.section.article:has(.calc-tabs)>h1{font-size:clamp(30px,9vw,38px);line-height:1.1;margin-bottom:var(--hpw-space-3)}
+  main.section.article:has(.calc-tabs)>p.lead{font-size:16px;line-height:1.55;margin-bottom:var(--hpw-space-2)}
+  body .calc-tabs{gap:var(--hpw-space-2);margin:var(--hpw-space-4) 0 var(--hpw-space-4)}
+  body .calc-tabs button{min-height:76px}
+}
+
+/* Phase 1b: calculator page. Seen on phone screenshots: `.article h2{margin-top:54px}` (this file) beat `.tool-panel h2{margin:0 0 8px}` (inline) and left an empty band above every panel heading. Restore the panel heading's own size and spacing. */
+main.section.article .tool-panel>h2{margin:0 0 8px;font-size:clamp(23px,3.2vw,30px);line-height:1.2}
+/* Related links on the calculator page as tappable pills instead of one wrapped sentence */
+main.section.article:has(.calc-tabs)>p:last-child{display:flex;flex-wrap:wrap;gap:10px;margin:0 auto 8px;font-size:0;line-height:0}
+main.section.article:has(.calc-tabs)>p:last-child a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;box-sizing:border-box;border:1.5px solid #c9d2ce;border-radius:999px;background:#fff;color:#243238;font-size:15px;line-height:1.2;text-decoration:none}
+main.section.article:has(.calc-tabs)>p:last-child a:hover{border-color:#243238}
+main.section.article:has(.calc-tabs)>p:last-child a:focus-visible{outline:3px solid #d97745;outline-offset:2px}
+@media(prefers-color-scheme:dark){main.section.article:has(.calc-tabs)>p:last-child a{background:#202b30;border-color:#34444b;color:#eef1ee}}
