@@ -1501,3 +1501,13 @@ RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact
 **Status ladder for the calculator:** merged yes, deployed yes, CI on exact head yes, human visual check PARTIAL (Android Chrome, light mode, tabs and inputs only), dark mode NO, result cards on a phone NO, Safari/Firefox/screen reader NO. No code or file other than this entry changed.
 
 **RESUME HERE:** `main` = `f623dc12031805f9ae89c85351de1acbec7dd28d` before this entry. No task branch, no open PR of mine. Single next action: ask the owner for a short second recording in dark mode that also presses a Calculate/Estimate button in Paint and Project cost; then proceed to the SH-001 brief review as listed in the previous RESUME HERE.
+
+
+## 2026-11-11 — ChatGPT — DONE: video review and cross-agent editorial/tool handoff
+
+- Owner supplied a 67.7-second mobile screen recording. Inspected sampled frames throughout: HomeProjectWise homepage/library, Home Project Calculator, all six calculator categories (Area & Volume, Paint, Flooring & Materials, Electricity Cost, Project Cost, Wallpaper), forms, explanatory notes, FAQs, related links, and a wider responsive calculator view.
+- The recording shows light mode only. It does not prove dark-mode support or show a site-level theme toggle. Owner was given Android Settings → Display → Dark theme / quick-settings tile steps, with the caveat that the site changes only if it supports system `prefers-color-scheme` or has its own theme toggle. Claude should clarify whether he needs device-theme screenshots, a site-level toggle test, or dark-mode implementation/QA.
+- Created `docs/CHATGPT-EDITORIAL-HANDOFF-2026-11-11.md` with editorial/engineering ownership, owner-approved growth-first research tiers, the first three article briefs and order, exact OpenSEO/GitHub/web research workflow, tool names, limitations, video findings, and next actions.
+- The doc is the handoff to the user's previous ChatGPT conversation/agent; no direct cross-conversation notification is claimed. The owner can paste the doc link or message.
+- No source code, article HTML, calculator implementation, workflow, Claude-owned file, PR or deployment was changed.
+- **RESUME HERE:** Claude reviews SH-001 → EN-001 → HVAC-001 in the queue; ChatGPT continues parallel Tier 1 candidate discovery across all pillars. Keep this operations room canonical.
