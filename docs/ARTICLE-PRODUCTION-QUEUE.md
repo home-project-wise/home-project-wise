@@ -8,7 +8,7 @@
 
 This is the one ordered editorial queue. New ideas do not become parallel tasks in chat, branches or Claude handoffs. Every candidate enters here, receives a stable ID, moves through the same evidence gates, and has one explicit status and next owner.
 
-The publishing ambition is **2–3 valuable articles per day when enough candidates pass the gates**. It is not a quota that permits thin, duplicate or weakly researched pages. Build a large library over time by covering distinct, useful search intents across the five charter pillars.
+The working cadence is **one valuable article per day when a brief qualifies**, scaling toward **2–3 per day only when enough independent briefs pass the gates and implementation capacity exists**. This is not a quota and never permits thin, duplicate or weakly researched pages. Build a large library over time by covering distinct, useful search intents across the portfolio.
 
 Use GSC signals to identify promising **topics and clusters**, not to overfit one URL because it earned one or two clicks. Research must remain balanced across plumbing, moisture/ventilation, energy/efficiency, maintenance/repair, lighting/smart home, and project costs/planning/calculators. No cluster receives automatic priority; current demand evidence, SERP opportunity, site overlap, reader value and production feasibility determine the next candidates.
 
