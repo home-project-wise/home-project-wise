@@ -21,6 +21,8 @@ HOME = 'home-project-calculator.html'
 CASES = [
     ('paint for a room', HOME, 'panel-paint'),
     ('how much paint do I need', HOME, 'panel-paint'),
+    ('how many rolls of wallpaper do I need', HOME, 'panel-wallpaper'),
+    ('wallpaper for a bedroom feature wall', HOME, 'panel-wallpaper'),
     ('flooring for a bedroom', HOME, 'panel-material'),
     ('laminate flooring for a kitchen', HOME, 'panel-material'),
     ('electricity cost of running a heater', HOME, 'panel-energy'),
