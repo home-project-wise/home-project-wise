@@ -265,3 +265,10 @@ Then update `data/daily_routine_log.md` and this file.
 - Current candidate scan (2026-11-11): PL-001 hidden-water-leak diagnosis remains RESEARCHING pending keyword demand evidence and deep competitor review; EN-001 whole-home air-leak diagnosis is DEFERRED because authoritative coverage is strong and a distinct angle is unproven; PC-001 contractor-quote comparison is DEFERRED because multiple competing worksheets/tools already exist and the current estimator lacks full multi-quote normalization. None is READY FOR CLAUDE.
 - Search-performance figures in the prior baseline remain the latest recorded GSC dataset (final through 2026-11-07); do not imply a fresh GSC pull was made in this session.
 - Supersedes stale instructions elsewhere in this file that say to choose the weakest category, publish a new article every day, or prioritize existing near-page-one pages by default. Editorial decisions follow the owner-approved balanced portfolio and qualification gate.
+
+
+## Editorial method upgrade — 2026-11-11
+
+A seven-article sample was audited (leak sensors, bathroom condensation, crawl-space humidity, smart-plug safety, evening lighting, wall-art hanging, Wi-Fi outage test). Strengths: task-first sequence, decision aids, safety/escalation and regional distinctions. Weaknesses: repeated formula sections can feel templated; quick answers are inconsistent; critical claims are sometimes supported only by a source list rather than nearby citations; images are sometimes numerous without unique diagnostic value; FAQ sections can repeat the body; decision tables/diagrams are underused. Full findings and the upgraded writing standard are in docs/EDITORIAL-WRITING-METHOD-AUDIT-2026-11-11.md.
+
+Future articles must use reader-decision-first briefs, evidence-backed decision paths, nearby citations for critical claims, explicit limits/stop conditions, differentiated diagrams/tables/tools only when useful, non-redundant FAQs, and a reader simulation. No word-count, image-count or fixed-heading quota. PL-001 stays research-only; four competitor pages have been reviewed, but keyword-volume/difficulty and fresh GSC query evidence remain unavailable.
