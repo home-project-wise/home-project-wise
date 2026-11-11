@@ -147,6 +147,59 @@ try:
                         check(f"{page_name}/{mode}/{vp_name}: navigation and render", False, repr(e))
                     finally:
                         context.close()
+        # Wallpaper tab evidence: the default calculator capture never opens it, so capture it
+        # explicitly with a worked two-product comparison (light/dark, phone and desktop).
+        for mode in ("light", "dark"):
+            for vp_name, width, height in (("mobile", 390, 844), ("mobile-small", 320, 740), ("desktop", 1280, 900)):
+                label = f"wallpaper-tab/{mode}/{vp_name}"
+                context = browser.new_context(viewport={"width": width, "height": height}, color_scheme=mode, reduced_motion="reduce")
+                page = context.new_page()
+                page_errors, app_console = [], []
+                page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+                page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+                def wp_route(route, pg=page):
+                    request = route.request
+                    host = (urlparse(request.url).hostname or "").lower()
+                    if request.resource_type == "document":
+                        response = route.fetch()
+                        html = re.sub(r'<script\\b(?=[^>]*(?:gc\\.zgo\\.at|goatcounter))[^>]*>\\s*</script>', '', response.text(), flags=re.IGNORECASE)
+                        route.fulfill(response=response, body=html)
+                    elif host == "gc.zgo.at" or "goatcounter" in host:
+                        route.abort()
+                    else:
+                        route.continue_()
+                page.route("**/*", wp_route)
+                try:
+                    page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                    page.wait_for_selector("#tab-wallpaper", timeout=15000)
+                    page.evaluate("() => document.fonts.ready")
+                    page.click("#tab-wallpaper")
+                    check(f"{label}: Wallpaper panel visible", page.is_visible("#panel-wallpaper"))
+                    page.select_option("#wp-unit", "in")
+                    page.check("#wp-compare")
+                    for pre, sale, ln, match, price in (("wp", "double roll", "396", "straight", "24.99"), ("wp2", "single roll", "198", "free", "12.5")):
+                        page.fill(f"#{pre}-saleunit", sale); page.fill(f"#{pre}-rollwidth", "20.5"); page.fill(f"#{pre}-length", ln)
+                        page.select_option(f"#{pre}-match", match)
+                        if match == "straight": page.fill(f"#{pre}-repeat", "20")
+                        page.fill(f"#{pre}-price", price); page.fill(f"#{pre}-currency", "USD")
+                    page.fill("#wp-name1", "Product A"); page.fill("#wp-name2", "Product B")
+                    room = page.locator(".wp-room").first
+                    room.locator(".wp-room-label").fill("Living room"); room.locator(".wp-height").fill("96"); room.locator(".wp-trim").fill("6")
+                    while room.locator(".wp-wallw").count() < 4: room.locator(".wp-add-wall").click()
+                    for i, w in enumerate((144, 180, 144, 180)): room.locator(".wp-wallw").nth(i).fill(str(w))
+                    page.click("#wp-form button[type=submit]")
+                    result = page.inner_text("#wp-result")
+                    check(f"{label}: worked comparison shown", "Product A" in result and "Product B" in result and "USD" in result, result[:200])
+                    check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
+                    check(f"{label}: no page or console errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+                    page.wait_for_timeout(150)
+                    shot = OUT / f"wallpaper-tab-{mode}-{width}x{height}.png"
+                    page.screenshot(path=str(shot), full_page=True, animations="disabled")
+                    report["screenshots"].append(str(shot.relative_to(ROOT)))
+                except Exception as e:
+                    check(f"{label}: capture", False, repr(e))
+                finally:
+                    context.close()
         browser.close()
 finally:
     server.shutdown()
