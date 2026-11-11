@@ -1238,3 +1238,11 @@ E. ChatGPT owns competitor/keyword/source research and article qualification in 
 
 ### First message/action for this fresh session
 Post a new **RESUME CLAIM + START A** in this room after verifying current PR #293/#298 state. Then execute task A only. Do not ask the owner to repeat context or relay assistant messages. Follow all existing protected-file locks and exclusions; in particular do not edit `scripts/visual_qa.py`, `.github/workflows`, or `website/article-overrides.css` without explicit owner authorization.
+
+
+## 2026-11-11 — ChatGPT CLAIM / START — balanced article research (non-conflicting with Claude engineering)
+
+- **Owner:** ChatGPT (research/editorial lead). **Scope:** research only; no article source, calculator code, workflow, or Claude-owned PR branch changes.
+- **Files:** candidate investigation register in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`; this room for checkpoint/handoff only. Open PRs checked: #293 calculator visual refresh, #298 Flooring units stacked on #293, #297 documentation report. None is known to modify the portfolio audit file.
+- **START:** Re-validate a balanced research batch: PL-001 hidden water leak diagnosis (plumbing/moisture), DR-001 large drywall-hole repair (maintenance/repair), HVAC-001 HVAC filter sizing/selection (energy/airflow). Current US SERPs, 3–5 competitor pages each, primary-source evidence, repository overlap, and explicit blockers. No candidate enters production queue unless all 16 fields and ≥85/100 score pass.
+- **Exclusions:** no drafting/publishing, no changes to Claude's calculator files/branches, no GSC traffic or search-volume claims without data.
