@@ -58,33 +58,16 @@ Each proposed article must have a record containing:
 - A visual must depict the actual device/task/layout accurately, be suitable for the US audience, have useful alt text, and be optimized for the page. No decorative filler or misleading AI imagery.
 - Existing images are not to be replaced without an individually verified reason.
 
-## 5. Qualified production queue
+## 5. Qualified production queue — admission-only
 
-**Currently empty.** An item appears here only after it has passed the full research and quality gate in §3 and holds a decision of QUALIFIED. There is no minimum queue size; an empty queue is a valid state. Nothing in §5b is qualified work and nothing in §5b is sent to Claude.
+**Currently empty.** This section is the actual production queue, not a discovery backlog. An article may appear here only after its research is complete, the editorial decision is QUALIFIED, all mandatory brief fields in §3 are documented, the score is at least 85/100, and no critical factual, safety, duplication or evidence blocker remains.
 
-Balance rule (owner direction, 2026-11-10): keep a deliberate portfolio across the topic areas (energy and efficiency; moisture, ventilation and indoor air; plumbing; maintenance and repair; lighting and smart home; project costs, planning and calculators). Balance is strategic, not an equal quota. Smart Home is one candidate cluster among several, not the default priority; by filename it already accounts for about 9 of the 31 articles on main.
+- Do not place speculative titles, keyword ideas, unresearched candidates, or items still marked BACKLOG / RESEARCHING / DEFER in this production queue.
+- Candidate discovery and active validation are tracked in the portfolio audit under "Candidate investigations (not production queue)". That register is deliberately small and balanced across subject areas; it is not an instruction to publish.
+- There is no minimum queue size. An empty production queue is preferable to a crowded queue of weak or repetitive ideas.
+- Smart Home is one subject area among the site's broader portfolio. No Smart Home candidate is automatically first, and SH-001–SH-005 remain unqualified pending individual evidence and overlap decisions.
 
-## 5b. Research backlog (unqualified candidates)
-
-Listing order below is **not** a priority ranking. Every row is an unqualified research task, not an approved title. Each candidate ends in one explicit decision: QUALIFIED / REFRAME / MERGE / REJECT / DEFER.
-
-All rows below are **candidate research tasks**, not approved article titles or permission to publish. Proposed queries are starting hypotheses and must be validated against current GSC query data and live US SERPs before a brief can pass.
-
-| # | ID | Candidate topic from the approved working portfolio | Provisional primary query | Why investigate / required distinction | Status |
-|---:|---|---|---|---|---|
-| 1 | SH-001 | Can You Use Smart Switches With Three-Way Lighting? | smart switch 3 way wiring | Potentially distinct practical compatibility/setup intent; must be safety-gated, manufacturer-specific and clear about when a licensed electrician is required. Do not provide unsafe universal wiring instructions. | RESEARCHING |
-| 2 | SH-002 | How to Choose a Smart Dimmer for LED Lights | smart dimmer LED compatibility | Could solve flicker, minimum-load, neutral, dimming-protocol and compatibility decisions; first check whether existing `smart-lighting` can fully serve the intent. New URL only if SERP and intent are distinct. | BACKLOG |
-| 3 | SH-003 | Smart Home Hub vs. No Hub: What Do You Really Need? | smart home hub vs no hub | Potential purchase/architecture decision for mixed protocols; must go beyond generic protocol definitions and offer a usable compatibility decision method. | BACKLOG |
-| 4 | SH-004 | How Much Electricity Do Smart Home Devices Use on Standby? | smart home standby power consumption | Could connect smart-home devices to the existing electricity-cost calculator; distinguish standby draw, active use, measured watts and user-entered utility rates. Do not invent average device consumption. | BACKLOG |
-| 5 | SH-005 | Matter vs. Zigbee vs. Thread vs. Wi-Fi: Which Smart Home Standard Should You Choose? | Matter vs Zigbee vs Thread | Conditional only: fast-changing standards and overlap with existing connectivity/offline guides. Requires current authoritative specifications and a practical buyer decision tree, not a generic glossary. | BACKLOG |
-
-### Queue rule for the Smart Home cluster
-
-Research SH-001 first. Do not automatically start SH-002 the same day: first determine whether the existing smart-lighting guide can satisfy the intent. Once the first brief reaches READY FOR CLAUDE, ChatGPT may research the next candidates in parallel so the queue remains stocked. Keep no more than three items in active research at once unless the owner changes the capacity rule.
-
-## 6. Next cluster after Smart Home
-
-After the first Smart Home batch has been researched, review the existing portfolio validation queue in `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`. Candidate topics include hidden water-leak diagnosis, home energy audit, whole-home air-leak diagnosis, drywall repair and contractor quote comparison. Do not jump clusters merely because a title sounds attractive: compare topic-level demand, strategic fit, overlap and production dependencies first.
+A qualified item is inserted here with its complete brief, scorecard, acceptance checklist, owner and next action. Only then can it be sent to Claude in an ordered batch.
 
 ## 7. Daily operating rhythm
 
