@@ -273,3 +273,39 @@ The potential article must not be another generic “turn off taps and watch the
 6. Escalation: active spreading water, ceiling bulging, water near energized equipment, sewage, suspected slab/service-line leaks, structural damage or concealed persistent moisture require stopping DIY checks and contacting the utility/qualified professional as appropriate.
 
 **Still required before qualification:** re-open and verify all 3–5 competitor pages used for the final dated SERP dossier; complete a query-level GSC check if a fresh export becomes available (currently unavailable; absence is not zero demand); complete the 16-field brief and scorecard; independently check exact article/URL overlap on current main. No keyword volume, ranking, traffic or demand number is asserted. Do not add PL-001 to the qualified production queue yet.
+
+
+## Owner correction applied — editorial momentum and Smart Home expansion (2026-11-11)
+
+The owner explicitly corrected the recent over-conservative screening approach. Competitor coverage is normal and must not be treated as a veto. The operating charter now defines risk-based research tiers. The earlier PL-001, EN-001 and HVAC-001 DEFER labels are prioritization decisions made under the previous overly strict approach, not permanent rejection. Revisit them with proportionate research and select useful reader tasks; do not repeat paid research solely to defend a defer decision.
+
+### New investigation SH-001 — Do You Need a Thread Border Router?
+
+**Status: RESEARCHING — Tier 1/2 candidate; not yet READY FOR CLAUDE.** Proposed intent: homeowner deciding whether a planned Matter-over-Thread device needs additional hardware, and whether a device already owned can perform the required role. This is a specific setup/purchase decision, not another general Matter-vs-Zigbee explainer.
+
+**Repository overlap:** Current inventory has Smart Home guides for lighting selection, motion lighting, smart plug load safety, Wi-Fi outage behavior, recurring device disconnections, privacy/security, thermostat C-wire compatibility and water-leak sensor placement. No dedicated Thread border-router decision guide appears in the current inventory. The existing broad connectivity/compatibility candidate remains related but does not automatically make this exact setup task duplicate. Final overlap check must inspect the actual smart-lighting and connectivity page copy before brief approval.
+
+**Fast US SERP sample — 2026-11-11 (representative, not a complete top-10 audit):**
+- [MatterCatalog — Do I Need a Thread Border Router?](https://mattercatalog.com/tools/do-i-need-a-thread-border-router): model lookup tool, distinguishes Matter-over-Thread from Wi-Fi/Ethernet and identifies devices that already combine roles.
+- [Smart Living Web — Thread border routers: the complete guide](https://smartlivingweb.com/thread/border-routers/): detailed technical explanation and model support; strong specialist competitor.
+- [Matterhome.io — Do you need a Thread border router?](https://matterhome.io/guides/do-you-need-a-thread-border-router): plain-English explanation, Thread-vs-Wi-Fi and an Apple-specific setup caveat.
+- [Google Home support — Prepare your smart home for Matter](https://support.google.com/googlehome/answer/12391458): official platform device list distinguishing Wi-Fi-only hubs from Wi-Fi + Thread border routers.
+- [Apple Support — Thread Border Router Required alert](https://support.apple.com/en-ca/102078): explains when Thread hardware is needed for automations, notifications and remote control, and lists supported Apple Thread devices.
+- [Amazon Alexa developer docs — Thread support](https://developer.amazon.com/en-US/docs/alexa/smarthome/thread-support.html): identifies Thread-enabled Echo devices and their border-router role.
+- [Thread Group — What is a Thread Border Router?](https://threadgroup.org/Newsroom/Blog/what-is-a-thread-border-router-and-how-is-it-different-from-a-hub-or-a-bridge): primary explanation that border-router functionality can be built into existing powered devices.
+
+**Useful article proposition (not a zero-competition claim):** A practical homeowner decision path:
+1. Check the exact accessory's radio: Matter over Wi-Fi/Ethernet vs Matter over Thread. Matter certification alone does not imply Thread.
+2. Explain the separate jobs of Matter controller, Thread border router and Wi-Fi router; one product may perform more than one role.
+3. Check the exact generation/model of devices already owned against the current platform/manufacturer support lists before buying another hub.
+4. Explain what an iPhone or phone can do during local setup versus what an always-on border router/home hub is needed for (automations, notifications and remote access vary by platform).
+5. Troubleshoot the "Thread border router required" / network-not-found message with a safe, brand-neutral checklist.
+6. Provide a date-stamped cross-platform table and explain that compatibility/firmware changes; link to official live lists rather than imply a permanent universal model list.
+
+**Differentiation:** Not an unprecedented topic. The value is a simple no-unnecessary-purchase decision, explicit separation of controller vs border-router roles, exact-model verification, and current official Apple/Google/Amazon references. Some specialist competitors already provide device-finder tools; we should not pretend otherwise. A model-specific interactive finder could be considered later if there is enough verified data and engineering capacity.
+
+**Evidence anchor:** CSA Matter 1.6 release (2026-06-17) adds full NFC commissioning and Joint Fabric / multi-ecosystem co-administration capabilities; CSA Matter 1.5 (2025-11-20) added camera, closure, soil-sensor and energy-management categories. These are technology context, not proof every retail device or platform has implemented each feature. Verify actual platform and device support at publication time.
+
+**Demand and limitation:** OpenSEO keyword expansion returned INSUFFICIENT_CREDITS in this pass. No monthly search volume, KD, GSC/Bing demand, traffic forecast or rank is claimed. This is a real SERP-observed user task with official support documentation and existing site pillar fit; proceed to a concise Tier 1 brief rather than stall for paid metrics.
+
+**Next action:** complete the repository page-copy overlap check, verify the current supported-model lists for the target market, then prepare the 16-field brief and score it on reader value / factual accuracy / usability (not on absence of competitors). If it qualifies, mark READY FOR CLAUDE and send as part of the next ordered batch.
