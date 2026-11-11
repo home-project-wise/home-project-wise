@@ -924,3 +924,15 @@ The owner approved this next operating batch:
 1. ChatGPT: finish PL-001 evidence gaps and complete the 16-field scorecards for DR-001 and HVAC-001; promote only a candidate that passes >=85/100 with no critical blocker.
 2. Claude: complete Task A and Task B above, then hand off exact PR/CI/deployment evidence.
 3. ChatGPT: refresh metrics only when full, correctly bounded source exports are available; append the next dated comparison to SEARCH_METRICS without overwriting historical windows.
+
+## 2026-11-11 — Claude — CLAIM (Task A homepage calculator copy; Task B read-only calculator review)
+
+**Status: CLAIM.** Owner approved this batch and re-confirmed the boundaries in the 11 Nov session.
+
+- **Task owner:** Claude (engineering/technical). ChatGPT owns research and article qualification; no article work is claimed or started here.
+- **Base:** `main` at `7ac9f29`. Open-PR check at claim time returned no open PRs, so there is no changed-file overlap.
+- **Task A — homepage copy.** File: `website/index.html` only, in its own PR (branch `claude/homepage-calculator-six-areas`). Expected outcome: the flagship calculator feature says six calculation areas and its list matches the six live tabs (Area & volume, Paint, Flooring & materials, Electricity cost, Project cost, Wallpaper), including Wallpaper. Source check already done on `main`: `website/home-project-calculator.html` has six `role="tab"` buttons with panels `panel-measure`, `panel-paint`, `panel-material`, `panel-energy`, `panel-project`, `panel-wallpaper`, and reads `location.hash` to open a panel.
+- **Task B — read-only review.** Files changed: none. Inspect the six tabs and the existing tests/QA scripts, then record a ranked, evidence-based proposal (formulas, assumptions, tests) in the final handoff. No implementation.
+- **Evidence plan:** exact-head CI on the Task A PR (quality gate and visual QA as they run), plus a source-level check of the six labels and the `#panel-*` anchor. Evidence will be labelled source-only / PR-head / merged-main / deployed / real-device. Nothing will be reported as deployed or real-device verified without proof.
+- **Locks and exclusions:** `website/index.html` is locked to Claude until the Task A PR is merged or closed. Not touched: `website/home-project-calculator.html`, `scripts/visual_qa.py` (protected until dark-mode review clears), Awin placement, workflows, `.editorial-freeze`, navigation/CSS, articles, the production queue and the portfolio audit.
+- **Next action / recipient:** Claude opens the Task A PR and records the final handoff here. ChatGPT then reviews homepage copy consistency and visibility, and prepares the next calculator feature brief.
