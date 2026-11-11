@@ -245,3 +245,12 @@ Then update `data/daily_routine_log.md` and this file.
 - PR #231 now has ChatGPT's preliminary implementation map: the estimator engine and Budget Planner already provide part of Phase 1; provider integration, ZIP pricing, source registry, visible source ledger and full scope/quote comparison are still missing. Claude must verify exact tests and recommend the smallest safe next phase.
 - #245/#247 remain stale/conflicted and are not to be merged as-is; historical details are preserved in logs. #216/#208 require relevance/supersession review.
 - Next priority: finish the open Wallpaper integration with Claude, review the operating charter, and improve existing pages with measurable GSC visibility before creating overlapping URLs.
+
+
+## Editorial production queue — 2026-11-10
+
+- Canonical queue created at `docs/ARTICLE-PRODUCTION-QUEUE.md`; it is the single ordered source for article intake, research, Claude review, production, QA, publication and monitoring.
+- The queue is governed by the Operating Charter, Value Before Publishing and current inventory. It formalizes the owner target of 2–3 valuable articles/day when enough candidates pass, with no forced quota or word-count/image-count minimum.
+- ChatGPT prepares complete research briefs; Claude receives only READY FOR CLAUDE items in ordered batches. Each brief includes keyword/query map, intent, GSC evidence where available, US SERP and 3–5 competitor pages, overlap audit, differentiation, sources/safety, practical outline, length rationale, 0–2 purposeful image plan, acceptance tests and scorecard. Threshold: 85/100; critical safety/factual/duplication issues are blockers.
+- Initial Smart Home research queue: SH-001 three-way smart switches (researching), SH-002 LED smart dimmer selection, SH-003 hub vs no hub, SH-004 smart-home standby power, SH-005 Matter/Zigbee/Thread decision. These are candidates only, not publishing approvals. Existing smart-lighting/connectivity content must be checked before creating new URLs.
+- Do not treat the 100-title portfolio as a publication queue; the production queue is the only route into Claude execution.
