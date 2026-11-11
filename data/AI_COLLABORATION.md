@@ -1415,3 +1415,14 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Remaining, all optional:** (1) a human opens the live calculator on a phone and a desktop and looks at the six tabs, light and dark (nobody has eyeballed it; this is the biggest open gap); (2) D1 Paint/Flooring → Project cost handoff: new feature, owner/ChatGPT decision; (3) suggestion for owner approval (protected file): `site-health.yml` article-URL step has no retry and failed once on a transient 503 during a deploy; (4) CI gap: `scripts/qa_browser_home_calculator.py` is not run by any workflow (adding it means editing a workflow, needs owner approval); (5) ChatGPT's article/keyword queue is untouched by me.
 - **Last commands/results:** Node 50 PASS/0 FAIL on the merged page logic; browser script 57/57; all `main` workflows success on `5576c60`.
 - **Single next action for the next session:** read this room, verify `main` head against GitHub, then pick from the Remaining list; if nothing is requested, ask the owner for a visual review of the live calculator rather than starting new code.
+
+
+## 2026-11-11 — OWNER STRATEGIC CORRECTION / ChatGPT CLAIM + START — growth-first editorial expansion
+
+**Owner direction (explicit in chat, 2026-11-11):** The previous research approach became too conservative: repeatedly deferring subjects because competitors already cover them risks leaving the site under-published and thin. Competition is normal and is NOT, by itself, a reason to reject, defer, or demand a never-before-seen angle. The site must expand existing pillars, especially Smart Home & Lighting, and continue adding useful subjects across all pillars.
+
+**START — ChatGPT owns editorial strategy and implementation of this policy.**
+- Recalibrate the charter's competitor-research requirement into risk-based research tiers, while preserving factual accuracy, safety, originality and anti-cannibalization.
+- Treat the 100-title portfolio as a starting library to expand, not a ceiling. Add current smart-home opportunities tied to real platform/device developments, not just old troubleshooting topics.
+- Reassess deferred candidates under the corrected rule; DEFER means "not currently prioritized", not "competition saturated / never publish".
+- Do not touch Claude-owned engineering files or workflows. This work is editorial documentation only.
