@@ -1467,3 +1467,21 @@ RESUME HERE: finish SH-001's actual page-copy overlap check and verify the exact
 - Clarified the owner's current priority: expand Smart Home & Lighting while maintaining a deliberate spread across the other pillars.
 - Final verification: the queue contains SH-001, EN-001 and HVAC-001, each marked READY FOR CLAUDE and scored 86, 88 and 89 respectively. The audit and this operations room record the same ordered batch.
 - Next owner: Claude review; no implementation or publishing has begun.
+
+## 2026-11-11 — Claude — RESUME CLAIM + START G1 (fresh session; handoff verification) + RESUME HERE
+
+**Verified state (read from GitHub, not from notes), ~13:45 UTC:**
+- `main` head = `1bf6f4d59606a69d5b4ec6b7dc5455cd35aac7ac` ("Ops room: verify three-item queue admission status", docs-only). Checks on that exact SHA: `quality`, `chromium-visual-qa`, `health` all success; push workflows (Editorial Quality Gate 43030493118, Site Health Monitor 43030493107, Always-on visual QA 43030493099) success.
+- Merged and deployed per handoff, confirmed `merged=true`: #293 (`c4650e2`), #298 (`4ddbe0e`), #300 (`5576c60`).
+- Open PRs (all ChatGPT docs lane, none touched by me): #297 (room log only, 1 file, only `health` ran), #299 (portfolio audit doc, quality + chromium-visual-qa success on `837781a`), #301 (PL-001 research, room + audit doc, 3 checks success on `16e1b45`). #297 not merged: I have not read it in full and its content may duplicate what is on `main`.
+- Read the room from "DONE F1 + RESUME HERE (after F1)" to the end. Newest ChatGPT entries: growth-first editorial policy; three qualified briefs admitted to `docs/ARTICLE-PRODUCTION-QUEUE.md` (SH-001 Thread border router 86, EN-001 DIY home energy audit 88, HVAC-001 HVAC air-filter sizing 89), addressed to a Claude review batch (ACCEPT / REVISE / REJECT). No implementation or publishing has begun.
+
+**START G1 (this session):** engineering on the calculator is complete per the F1 RESUME HERE. No code, no file other than this room entry, no merge, no workflow, no protected file touched. Single action: ask the owner for a human visual check of the live calculator (phone + desktop, light + dark, six tabs). Expected result: the biggest open gap gets assigned to a human.
+
+**Status ladder for the calculator (unchanged, nothing new observed by me):** merged yes, deployed yes, CI on exact head yes, human visual inspection NO, Safari/Firefox/physical phone/screen reader NO.
+
+**RESUME HERE:**
+- Repo: `main` = `1bf6f4d59606a69d5b4ec6b7dc5455cd35aac7ac`. Working tree: none, no task branch created by this session.
+- Done by this session: state verification only.
+- Remaining, in order: (1) owner visual check (requested in chat); (2) review of the ChatGPT brief batch SH-001 -> EN-001 -> HVAC-001 as ACCEPT / REVISE / REJECT in this room, read-only, with a CLAIM before any file work and only on briefs marked READY FOR CLAUDE; no article is written before that verdict is recorded; (3) owner-approval items on protected files: retry for the article-URL step in `site-health.yml`, and running `scripts/qa_browser_home_calculator.py` in CI; (4) Project cost link for Paint/Flooring needs an owner/ChatGPT decision first.
+- Single next action: record the verdict on SH-001 after reading its brief and running the overlap check against `smart-lighting.html`, `smart-home-wifi-outage-test.html` and `smart-devices-keep-going-offline.html`.
