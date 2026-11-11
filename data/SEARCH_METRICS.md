@@ -198,3 +198,68 @@ This snapshot is retained for audit history; its 28-day window overlaps the 2026
 - Historical URL inspection at that time: homepage indexed (last crawl 2026-10-29); leak-sensor page indexed but not recrawled after its 2026-11-07 edit; homepage calculator and wallpaper guide were then unknown to Google. These statuses are historical and superseded where later inspections exist.
 - Sitemap was pending with 0 errors and 0 warnings, last submitted 2026-11-01. Bing daily totals were 0 impressions/clicks through 2026-11-04; top queries/pages empty.
 - No indexing setting, sitemap or URL submission was changed in that checkpoint.
+
+
+## 2026-11-11 checkpoint — five-day performance report
+
+### Google Search Console (Web, data_state=final)
+
+Latest finalized date returned by the API: **2026-11-09** (2026-11-10 had not appeared yet; Search Console data is delayed). Therefore the comparable five-day windows are:
+
+- Current: **2026-11-05 to 2026-11-09** — **280 impressions, 2 clicks, CTR 0.714%, average position 14.45**.
+- Previous: **2026-10-31 to 2026-11-04** — **259 impressions, 1 click, CTR 0.386%, average position 16.01**.
+- Change: **+21 impressions (+8.1%)**, **+1 click (+100%)**, CTR **+0.328 percentage points**, average position improved by **1.57 places** (lower is better).
+- November baseline, **2026-11-01 to 2026-11-09**: **507 impressions, 3 clicks, CTR 0.592%, average position 14.93**.
+- Daily totals for Nov 5–9: Nov 5 55/0 clicks; Nov 6 64/1; Nov 7 51/1; Nov 8 53/0; Nov 9 57/0 (impressions/clicks).
+
+Top pages in the current five-day window (impressions; clicks; average position):
+- `what-can-you-plug-into-a-smart-plug`: **87; 2; 6.85** (CTR 2.30%).
+- `how-to-hang-large-wall-art-without-damage`: **32; 0; 5.66**.
+- `macerating-toilet-basement-bathroom`: **28; 0; 14.64**.
+- `where-to-put-water-leak-sensors`: **28; 0; 6.29**.
+- `reduce-bathroom-condensation`: **20; 0; 51.30**.
+- `how-to-fix-damp-crawl-space-humidity`: **18; 0; 55.67**.
+- `stop-musty-bathroom-towels`: **15; 0; 25.20**.
+- `better-evening-home-lighting-without-overcomplicating-it`: **14; 0; 2.86**.
+- `reduce-cable-clutter`: **7; 0; 4.71**.
+
+Visible query examples (query rows do not expose the two page-level clicks in this export; anonymized queries may be omitted):
+- `why does my kitchen clutter keep coming back`: **9 impressions, position 3.00** (previous window: 6 impressions, position 6.50).
+- `condensation on bathroom walls`: 5 impressions, position 83.00.
+- `how to keep towels from smelling musty`: 4 impressions, position 65.75.
+- `bad condensation in bathroom`: 3 impressions, position 89.00.
+- `how to dry out a crawl space`: 3 impressions, position 94.33.
+
+Country/device signals for Nov 5–9:
+- United States: **137 impressions, 0 clicks**; United Kingdom: 42 impressions, 1 click; India: 11 impressions, 1 click.
+- Mobile: **152 impressions, 2 clicks, position 9.64**; Desktop: 124 impressions, 0 clicks, position 20.59; Tablet: 4 impressions, 0 clicks, position 6.75.
+- Search appearance returned only `TRANSLATED_RESULT` (4 impressions, 0 clicks). This API slice did not expose an AI Overview/AI Mode row and is not a substitute for the separate Search Generative AI performance report.
+
+### GoatCounter / site traffic
+
+Latest daily snapshot status **OK** (API user check passed), generated 2026-11-11 03:55 UTC:
+- Window 2026-11-10 03:00 to 2026-11-11 03:55 UTC: **15 visitors, 15 pageviews**.
+- Previous rolling snapshot: 8 visitors, 8 pageviews. The windows differ slightly in duration (24h55 vs 24h24), so this is directional only, not a strict equal-period comparison.
+- Latest referrer list is empty; all 15 visits were geolocated to Tunisia. Top paths: homepage 4, Guides 3, Budget Planner 2, Wallpaper guide 2, flagship calculator 2, smart-device troubleshooting guide 1, Tools 1.
+- This is a one-day rolling snapshot, not a five-day total. Do not attribute it to AI search; current referrer attribution is absent.
+
+Metricool's Website connector returned zero for visits/pageviews/visitors and empty source/page/post rows. The Google Analytics toolkit has no active connection. Treat website analytics from those sources as **unavailable**, not as proof of zero visits. No reliable five-day GoatCounter history was retrieved.
+
+### Pinterest (Metricool; connected profile: home organization ideas)
+
+Pinterest has a complete five-day daily series for **2026-11-06 to 2026-11-10**; compare with **2026-11-01 to 2026-11-05**:
+- Impressions: **17 vs 102** (**-85; -83.3%**).
+- Interactions: **0 vs 6** (**-6; -100%**).
+- Pin clicks: **0 vs 5** (**-5; -100%**).
+- Outbound clicks: **0 vs 1** (**-1; -100%**).
+- Saves: **0 vs 0** (no change).
+- All 17 impressions occurred on Nov 6; Nov 7–10 returned zero for these metrics.
+- Per-pin/post rows were empty, so top-performing pin titles and individual pin attribution are unavailable. Do not infer that no pins were published from the empty per-pin result.
+
+### Interpretation and cautions
+
+- Search visibility improved modestly across the two equal finalized five-day windows, but clicks remain very low and the US produced no clicks in the current window.
+- Smart-plug content is the only page with page-level clicks in the current five-day export. Water-leak sensors and large-wall-art pages have useful positions but no clicks; inspect their query/snippet fit before editing.
+- The kitchen-clutter query is visible at position 3 but maps to the legacy URL. Preserve the legacy redirect/canonical behavior while Google recrawls; do not remove the stub.
+- Pinterest distribution weakened sharply in the latest five days and produced no outbound site clicks. Review cadence, creative relevance and pin-to-article matching before increasing volume.
+- No new URL Inspection or sitemap submission was performed in this checkpoint. The Nov 10 inspection/sitemap state remains historical: six priority URLs indexed with successful mobile fetches; sitemap pending with zero errors/warnings.
