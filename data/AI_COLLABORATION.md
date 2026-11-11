@@ -1205,3 +1205,36 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 2. Claude (or next session) opens a separate PR for `claude/flooring-imperial-units`, then checks exact-head CI and records the result.
 3. Continue with explicit START/DONE checkpoints to trace Paint/Flooring quantity handoff to Project cost, tab URL/hash behavior, and the Paint walls-only scope statement. These were not completed in the reported session.
 4. Before any quota/session stop, append RESUME HERE with branch, commit, tests, PR link and exact next action.
+
+
+## 2026-11-11 — OWNER DIRECTIVE — fresh Claude session resume point (READ FIRST)
+
+**Continue the existing HomeProjectWise project from the actual repository state. No restart, no parallel operations room, no chat-only progress.**
+
+### Where to read and where to write
+- First read this entire `data/AI_COLLABORATION.md` on current `main`, including the latest entries and all open PR links. Then inspect current main, all open PRs, changed-file overlap, and latest commits. Treat this file as the single source of truth; newer dated entries override older conflicting notes.
+- Write every CLAIM, START, DONE, BLOCKED and RESUME HERE checkpoint by appending to this same `data/AI_COLLABORATION.md` on `main` (docs-only commit). No second room, no alternate handoff document, no relying on conversation memory.
+- Write code only to the relevant source/test files on the existing task branch and push commits frequently. Keep code out of the operations room.
+
+### Exact resume point (checked 2026-11-11)
+1. **PR #293 — calculator visual refresh:** OPEN, NOT MERGED. Branch `claude/calculator-visual-refresh`, head `5c6accf7273c1fc8a49fe9e98e7b5e88de3232b1`. Claude's latest detailed report in this room says its production-CSS local Chromium matrix passed (144 measurements; no overflow/clipping/JS errors; functional outputs match main; dark mode coherent when both production CSS layers are loaded). Exact-head CI `quality`, `chromium-visual-qa`, `health` reported green. No Safari/Firefox/physical-phone/screen-reader/deployed-site verification. Owner's merge decision remains outstanding. Do not merge without owner approval.
+2. **PR #298 — Flooring imperial units:** OPEN, NOT MERGED, mergeable; branch `claude/flooring-imperial-units`, head `bd2745a6a90110d689d0702adada1e609d96c505`; base is deliberately `claude/calculator-visual-refresh` (stacked on #293), three commits / three changed files. The reported local results are 45 Node tests and 57 browser checks, plus layout measurements at 320–1280 in light/dark. Test vectors: 12×10 ft, 5%, 20 ft²/pack = 7; 10×10 ft, 0% = exactly 5; metric parity. **Exact-head GitHub Actions CI was not observed when last queried**; do not call it green until checked on this SHA. Do not merge #298 before #293. Once #293 is merged by owner, retarget #298 to main, resolve any base update, and require exact-head CI green.
+3. **PR #297 — documentation report:** OPEN, documentation only, contains the detailed Claude QA report and checkpoint log. It is not a code PR. Avoid duplicating its contents; this newer directive is now recorded on main.
+
+### Your next tasks, in order
+A. Resume Flooring PR #298: check the PR Checks tab / Actions for exact head `bd2745a6...`; record each workflow name, run ID, head SHA and final result in this room. If no run exists, diagnose why without editing protected workflow files. Inspect the full diff and confirm only the intended calculator page + Node/browser test files changed. Do not claim local Claude-reported tests are GitHub CI.
+B. Await the owner's merge decision for #293; do not merge it yourself. Do not alter the #293 visual-refresh branch while the existing PR is awaiting owner review unless the owner explicitly asks.
+C. After #293 merges, retarget/rebase #298 onto main as needed, then rerun and record exact-head CI. Do not merge #298 without owner approval.
+D. After the two calculator PRs are handled, investigate (not assume) these outstanding questions as separate small tasks: whether Paint/Flooring quantities can feed Project cost under the current data contract; whether calculator tab selection should update/read URL hash; and whether Paint copy clearly states walls-only scope (not ceilings/trim). Report findings first; make changes only when justified and within the existing code contract.
+E. ChatGPT owns competitor/keyword/source research and article qualification in parallel. Do not draft/publish an unqualified article; Claude must not take over article work without a READY FOR CLAUDE brief in the production queue.
+
+### Mandatory anti-loss protocol — EVERY atomic step
+- Before each small edit, test, review or GitHub operation, append **START** with timestamp, task, exact branch, exact file(s)/PR, intended result.
+- Immediately after it, append **DONE** with what changed, commit SHA, exact command/test, pass/fail/count, CI run ID/head SHA if relevant, and the next action. If anything blocks progress, append **BLOCKED** with the exact error, what was preserved, and the smallest safe recovery step.
+- Keep each step small (one focused edit or test group). Commit and push each coherent milestone before moving to the next. Never leave valuable work only in a local session or unpushed workspace.
+- Before any stop — quota, timeout, context limit, interruption, or end of day — append **RESUME HERE** stating current branch + full HEAD SHA, clean/dirty status, changed files, completed items, exact unfinished item, commands/tests last run and results, open PR link/base/head, CI state, and the single next action. This is mandatory even if the session is ending unexpectedly; write the checkpoint before doing any optional cleanup.
+- At the start of every fresh session, read the latest RESUME HERE and verify its SHA against GitHub before acting. Never trust stale notes over current repository state.
+- Distinguish clearly: locally tested ≠ CI passed ≠ visually inspected ≠ owner-approved/merged ≠ deployed. Never invent evidence or claim success before observing it.
+
+### First message/action for this fresh session
+Post a new **RESUME CLAIM + START A** in this room after verifying current PR #293/#298 state. Then execute task A only. Do not ask the owner to repeat context or relay assistant messages. Follow all existing protected-file locks and exclusions; in particular do not edit `scripts/visual_qa.py`, `.github/workflows`, or `website/article-overrides.css` without explicit owner authorization.
