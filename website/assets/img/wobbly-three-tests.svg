@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d"><title id="t">Three tests to find the cause of a wobble</title><desc id="d">Floor test: move the furniture to another flat spot. Contact test: slide a thin card under each foot. Joint test: press each leg-to-frame joint on empty furniture.</desc>
+<rect width="1200" height="630" rx="28" fill="#f4efe6"/>
+<text x="600" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="700" fill="#243238">Find the cause in three tests</text>
+<g font-family="Arial,sans-serif" fill="#243238">
+<rect x="50" y="105" width="340" height="425" rx="22" fill="#fff" stroke="#d9d4c8" stroke-width="4"/>
+<rect x="430" y="105" width="340" height="425" rx="22" fill="#fff" stroke="#d9d4c8" stroke-width="4"/>
+<rect x="810" y="105" width="340" height="425" rx="22" fill="#fff" stroke="#d9d4c8" stroke-width="4"/>
+<text x="80" y="155" font-size="26" font-weight="700">1  Floor test</text>
+<text x="460" y="155" font-size="26" font-weight="700">2  Contact test</text>
+<text x="840" y="155" font-size="26" font-weight="700">3  Joint test</text>
+<!-- panel 1: table on a dipped floor, then on a flat floor -->
+<path d="M75 345 H165 Q190 385 215 345 H235" fill="none" stroke="#6f8f82" stroke-width="5" stroke-linecap="round"/>
+<rect x="85" y="265" width="140" height="14" rx="4" fill="#243238"/>
+<rect x="93" y="279" width="12" height="66" fill="#243238"/>
+<rect x="205" y="279" width="12" height="52" fill="#243238"/>
+<text x="155" y="250" text-anchor="middle" font-size="18" fill="#c96f3d" font-weight="700">rocks here</text>
+<path d="M250 305 H300" stroke="#c96f3d" stroke-width="5" stroke-linecap="round"/><path d="M290 295 L302 305 L290 315" fill="none" stroke="#c96f3d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M312 345 H378" fill="none" stroke="#6f8f82" stroke-width="5" stroke-linecap="round"/>
+<rect x="316" y="296" width="58" height="8" rx="3" fill="#243238"/>
+<rect x="320" y="304" width="7" height="41" fill="#243238"/>
+<rect x="363" y="304" width="7" height="41" fill="#243238"/>
+<text x="345" y="280" text-anchor="middle" font-size="18" fill="#6f8f82" font-weight="700">steady</text>
+<text x="80" y="440" font-size="18">Move it to a flat spot.</text>
+<text x="80" y="470" font-size="18">Changes? Suspect the floor.</text>
+<!-- panel 2: top view, one foot lifted, card slides in -->
+<rect x="480" y="215" width="240" height="140" rx="14" fill="#f4efe6" stroke="#243238" stroke-width="4"/>
+<circle cx="500" cy="235" r="9" fill="#243238"/><circle cx="700" cy="235" r="9" fill="#243238"/><circle cx="500" cy="335" r="9" fill="#243238"/>
+<circle cx="700" cy="335" r="9" fill="#c96f3d"/>
+<rect x="716" y="322" width="44" height="26" rx="3" fill="#fff" stroke="#c96f3d" stroke-width="3"/>
+<text x="738" y="382" text-anchor="middle" font-size="18" fill="#c96f3d" font-weight="700">card slides in</text>
+<text x="460" y="440" font-size="18">Card under each foot.</text>
+<text x="460" y="470" font-size="18">One foot lifts? Short foot.</text>
+<!-- panel 3: leg joint with a gap -->
+<rect x="880" y="230" width="220" height="28" rx="4" fill="#243238"/>
+<rect x="962" y="270" width="28" height="100" rx="4" fill="#243238"/>
+<rect x="962" y="258" width="28" height="12" fill="#c96f3d"/>
+<path d="M940 300 L952 292 L944 316 L956 308" fill="none" stroke="#c96f3d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1012 300 L1024 292 L1016 316 L1028 308" fill="none" stroke="#c96f3d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="976" y="402" text-anchor="middle" font-size="18" fill="#c96f3d" font-weight="700">gap or creak</text>
+<text x="840" y="440" font-size="18">Press each joint, unloaded.</text>
+<text x="840" y="470" font-size="18">Gap or creak? Loose joint.</text>
+<text x="600" y="580" text-anchor="middle" font-size="22" font-weight="700">One test at a time. Stop if a load-bearing part is cracked.</text>
+</g></svg>

@@ -73,6 +73,8 @@ def rows():
     out = []
     for p in ARTICLES.glob("*.html"):
         t = p.read_text(encoding="utf-8", errors="ignore")
+        if re.search(r'http-equiv=["\']refresh["\']', t, re.I):
+            continue  # redirect stub for a moved guide: keep the file for old links, never list it
         desc = meta_content(t, "name", "description")
         title = re.search("<title>(.*?)</title>", t, re.S | re.I)
         img = first_image(t)
@@ -331,9 +333,15 @@ TOOLS = [
     {"slug": "crawl-space-dehumidifier-calculator", "hub": "projects", "title": "Crawl Space Dehumidifier Size Calculator",
      "desc": "Enter your crawl space size and conditions to get a benchmark capacity in pints per day and what to fix first.",
      "kw": "calculator dehumidifier crawl space basement damp humidity pints tool"},
+    {"slug": "bathroom-fan-size-calculator", "hub": "projects", "title": "Bathroom Exhaust Fan Size Calculator",
+     "desc": "Enter your bathroom size, fixtures and how the fan runs to get an airflow target in CFM, what to shop for and a duct size check.",
+     "kw": "calculator bathroom exhaust fan cfm size airflow duct ventilation humidity moisture tool"},
     {"slug": "smart-plug-load-check", "hub": "smart-home", "title": "Smart Plug Load Check",
      "desc": "Enter your plug rating and a device to see if it is a good fit, needs care or should not go on a smart plug.",
      "kw": "calculator smart plug watts amps load safety heater kettle tool"},
+    {"slug": "home-project-calculator", "hub": "projects", "title": "Home Project Calculator",
+     "desc": "Work out room area and volume, paint and flooring quantities, electricity running costs and a project cost estimate from your own measurements and prices.",
+     "kw": "calculator area volume square metres feet paint flooring materials electricity cost kwh project estimate budget tool"},
 ]
 
 
@@ -344,22 +352,26 @@ var EXTRA={'rug-size-calculator':'rug rugs carpet living dining table bedroom be
 /*fn*/
 function norm(s){return (s||'').toLowerCase().replace(/\u00d7/g,'x').replace(/crawl\s*space/g,'crawlspace');}
 function wordset(s){var o={};norm(s).split(/[^a-z0-9]+/).forEach(function(w){if(w.length>2){o[w]=1;}});return o;}
-function score(t,q){var hay=wordset(t.kw+' '+t.title+' '+t.desc+' '+(EXTRA[t.slug]||'')),n=0;Object.keys(wordset(q)).forEach(function(w){if(hay[w]){n+=1;}else if(w.length>3&&w.charAt(w.length-1)==='s'&&hay[w.slice(0,-1)]){n+=1;}});return n;}
+var STOP={how:1,much:1,many:1,what:1,for:1,the:1,can:1,you:1,with:1,need:1,want:1,should:1,would:1,where:1,does:1,and:1,are:1,find:1,make:1,get:1,our:1,this:1,that:1};
+function qwords(s){var o=wordset(s);Object.keys(o).forEach(function(k){if(STOP[k]){delete o[k];}});return o;}
+var HEAVY={'home-project-calculator':'paint painting primer emulsion flooring laminate tile tiles vinyl plank kwh electricity tariff'};
+function score(t,q){var hay=wordset(t.kw+' '+t.title+' '+t.desc+' '+(EXTRA[t.slug]||'')+' '+(HEAVY[t.slug]||'')),hv=wordset(HEAVY[t.slug]||''),n=0;Object.keys(qwords(q)).forEach(function(w){var st=(w.length>3&&w.charAt(w.length-1)==='s')?w.slice(0,-1):'';if(hay[w]||(st&&hay[st])){n+=1;}if(hv[w]||(st&&hv[st])){n+=1;}});return n;}
 function allDims(q){var re=/(\d+(?:\.\d+)?)\s*(ft|feet|foot|metres|meters|m|cm)?\s*(?:x|by)\s*(\d+(?:\.\d+)?)\s*(ft|feet|foot|metres|meters|m|cm)?/g,m,res=[],s=norm(q);while((m=re.exec(s))){var a=parseFloat(m[1]),b=parseFloat(m[3]),u=m[4]||m[2]||'';var unit=(u==='m'||u==='metres'||u==='meters')?'m':(u==='cm'?'cm':((u==='')&&(a>40||b>40)?'cm':'ft'));res.push({a:a,b:b,unit:unit});}res.sort(function(x,y){return y.a*y.b-x.a*x.b;});return res;}
 function toIn(v,unit){return unit==='ft'?v*12:(unit==='m'?v*100/2.54:v/2.54);}
 function r1(x){return Math.round(x*10)/10;}
 function rug(q){var s=norm(q),d=allDims(q),p=new URLSearchParams(),said=[];var type=/dining|table/.test(s)?'dining':(/bed/.test(s)?'bedroom':'living');var metric=d.length&&d[0].unit!=='ft';p.set('u',metric?'m':'us');p.set('t',type);said.push(type==='living'?'living room':(type==='dining'?'dining room':'bedroom'));if(d.length){p.set('rw',r1(toIn(Math.min(d[0].a,d[0].b),d[0].unit)));p.set('rl',r1(toIn(Math.max(d[0].a,d[0].b),d[0].unit)));said.push('room '+d[0].a+' x '+d[0].b+' '+d[0].unit);if(type==='dining'&&d[1]){p.set('tw',r1(toIn(Math.min(d[1].a,d[1].b),d[1].unit)));p.set('tl',r1(toIn(Math.max(d[1].a,d[1].b),d[1].unit)));said.push('table '+d[1].a+' x '+d[1].b+' '+d[1].unit);}}if(type==='bedroom'&&!metric){var bi={twin:0,full:1,queen:2,king:3}[(s.match(/twin|full|queen|king/)||[''])[0]];if(bi!==undefined){p.set('bed',bi);said.push(['twin','full','queen','king'][bi]+' bed');}}return {p:p,said:said};}
 function dehum(q){var s=norm(q),d=allDims(q),p=new URLSearchParams(),said=[];if(d.length){var u=d[0].unit==='ft'?'us':'m';p.set('u',u);var f=function(v){return d[0].unit==='cm'?v/100:v;};p.set('l',r1(f(Math.max(d[0].a,d[0].b))));p.set('w',r1(f(Math.min(d[0].a,d[0].b))));said.push('crawl space '+d[0].a+' x '+d[0].b+' '+d[0].unit);}var rh=s.match(/(\d{2,3})\s*(%|percent)/);if(rh){p.set('rh',rh[1]);said.push('humidity '+rh[1]+'%');}var bits=0;if(/\bcold|cool/.test(s)){bits+=1;said.push('cold');}if(/musty|damp|wet|condensation|smell|moist/.test(s)){bits+=2;said.push('damp signs');}if(/vent|unsealed|not sealed/.test(s)){bits+=4;said.push('open vents');}if(/bare soil|dirt|no vapor|no vapour/.test(s)){bits+=8;said.push('bare soil');}if(/standing water|leak|flood/.test(s)){bits+=16;said.push('water or leak');}if(bits){p.set('f',bits);}return {p:p,said:said};}
 function plug(q){var s=norm(q),p=new URLSearchParams(),said=[];var rating=s.match(/(\d{2})\s*(?:a|amp|amps)\b/),region=0;if(rating){var a=parseInt(rating[1],10);region={15:0,13:1,10:2,16:3}[a];if(region===undefined){region=0;}else{said.push(a+' A plug');}}else if(/\buk\b|britain|british|england/.test(s)){region=1;said.push('UK plug');}else if(/europe|\beu\b/.test(s)){region=3;said.push('European plug');}p.set('r',region);var dev='other',list=[['heater',/heater/],['kettle',/kettle|toaster|hair ?dryer|hairdryer|\biron\b/],['fridge',/fridge|freezer|refrigerator/],['critical',/medical|oxygen|alarm|cpap/],['ac',/air conditioner|aircon|\bac\b/],['pump',/dehumidifier|\bpump/],['strip',/power strip|extension/],['lamp',/lamp|bulb|\blight\b/],['charger',/charger/],['router',/router|modem/],['tv',/\btv\b|television/],['fan',/\bfan\b/]];for(var i=0;i<list.length;i++){if(list[i][1].test(s)){dev=list[i][0];break;}}p.set('d',dev);said.push(dev==='other'?'other device':dev);var w=s.match(/(\d+(?:\.\d+)?)\s*(?:w|watts?)\b/);if(w){p.set('m','w');p.set('x',w[1]);said.push(w[1]+' W');}else if(['pump','strip','critical','other'].indexOf(dev)<0){p.set('m','t');}else{p.set('m','w');}return {p:p,said:said};}
+function homecalc(q){var s=norm(q),p=new URLSearchParams(),said=[],h='',go='';var panels=[['paint',/paint|primer|emulsion|\bcoats?\b/,'Paint'],['material',/floor|tile|laminate|vinyl|plank|material|skirting|carpet/,'Flooring & materials'],['energy',/electric|energy|kwh|tariff|running cost|cost to run|power bill|appliance/,'Electricity cost'],['project',/project cost|total cost|estimate|quote/,'Project cost']];for(var i=0;i<panels.length;i++){if(panels[i][1].test(s)){h='#panel-'+panels[i][0];said.push(panels[i][2]+' calculator');go='Open the '+panels[i][2]+' calculator';break;}}return {p:p,said:said,h:h,go:go};}
 /*endfn*/
-var BUILD={'rug-size-calculator':rug,'crawl-space-dehumidifier-calculator':dehum,'smart-plug-load-check':plug};
+var BUILD={'rug-size-calculator':rug,'crawl-space-dehumidifier-calculator':dehum,'smart-plug-load-check':plug,'home-project-calculator':homecalc};
 function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML;}
 function run(q){out.innerHTML='';if(!norm(q).trim()){out.innerHTML='<p>Type what you want to work out, or tap an example.</p>';return;}
 var ranked=TOOLS.map(function(t){return {t:t,s:score(t,q)};}).filter(function(x){return x.s>0;}).sort(function(a,b){return b.s-a.s;});
 var html='';
 if(!ranked.length){html='<div class="ask-card"><strong>I could not match that to a calculator yet.</strong><p>Browse the tools below, or tell us what you would like on the <a href="contact.html">Contact</a> page.</p></div>';}
-else{var best=ranked[0].t,b=BUILD[best.slug];var href=best.slug+'.html',said=[];if(b){var r=b(q);var qs=r.p.toString();if(qs){href+='?'+qs;}said=r.said;}
-html='<div class="ask-card"><strong>Best match: '+esc(best.title)+'</strong><p>'+esc(best.desc)+'</p>'+(said.length?'<p class="ask-said">I picked up: '+esc(said.join(', '))+'.</p>':'')+'<a class="calc-btn ask-go" href="'+esc(href)+'">Open with my numbers</a></div>';
+else{var best=ranked[0].t,b=BUILD[best.slug];var href=best.slug+'.html',said=[],go='Open with my numbers';if(b){var r=b(q);var qs=r.p.toString();if(qs){href+='?'+qs;}if(r.h){href+=r.h;}if(r.go){go=r.go;}said=r.said;}
+html='<div class="ask-card"><strong>Best match: '+esc(best.title)+'</strong><p>'+esc(best.desc)+'</p>'+(said.length?'<p class="ask-said">I picked up: '+esc(said.join(', '))+'.</p>':'')+'<a class="calc-btn ask-go" href="'+esc(href)+'">'+esc(go)+'</a></div>';
 if(ranked.length>1){html+='<p>Other tools that may fit: '+ranked.slice(1,3).map(function(x){return '<a href="'+esc(x.t.slug)+'.html">'+esc(x.t.title)+'</a>';}).join(', ')+'.</p>';}}
 html+='<p>Looking for advice instead of a number? <a href="search.html?q='+encodeURIComponent(q.trim())+'">Search the guides for this</a>.</p>';out.innerHTML=html;}
 form.addEventListener('submit',function(e){e.preventDefault();run(input.value);});
