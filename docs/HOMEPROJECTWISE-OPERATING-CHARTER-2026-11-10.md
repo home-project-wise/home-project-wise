@@ -515,3 +515,77 @@ Never invent article counts, page traffic, rankings, keyword ownership, conversi
 
 **Acceptance gate:** a competitor dossier is decision-ready only when its scope, date, method, sources, article-count confidence, page-level evidence, topic sample, tools/formats, strengths, evidenced weaknesses, HomeProjectWise opportunity and unresolved unknowns are all recorded. A competitor list without these dossiers is not a completed competitive analysis.
 
+
+
+## 14. Owner-approved editorial growth correction — 2026-11-11
+
+This section clarifies and supersedes any interpretation of Sections 3.3, 4, and the candidate research workflow that makes competitor saturation or the absence of a wholly unique angle a reason to stop publishing.
+
+### 14.1 Competition is normal, not a veto
+
+- **Never reject or defer a useful topic solely because competitors already cover it.** Most worthwhile homeowner questions have existing answers. The objective is to publish a more useful, clearer, safer, more current, more actionable, or better-structured answer—not to find topics with zero competition.
+- "Distinct value" does not mean an unprecedented subject. It can mean a better explanation, clearer decision path, accurate worked example, practical checklist, updated standards, more useful comparison, original illustration, calculator connection, realistic constraints, or better internal journey.
+- A competitor covering the same broad subject is not proof of search-intent duplication. Check the actual query, task, audience and expected answer. A distinct subtask or stage of the homeowner journey may deserve its own page.
+- Use **improve existing page / add a supporting page / build a topic cluster / publish a new page** as real options. Do not default to merging everything into one giant article.
+- Defer only for a concrete reason: true same-intent cannibalization with an existing URL, weak reader value, unsafe or unsupported claims, poor fit with the site's mission, or production constraints. State a practical revisit trigger. "Competitors already cover it" is not an acceptable standalone reason.
+
+### 14.2 Risk-based research tiers — match effort to the article
+
+The former requirement to deeply review 3–5 pages and capture the top 10 for every approved content cluster is replaced by the following proportional workflow:
+
+**Tier 1 — Standard useful article (default for most articles)**
+- Confirm the reader task and primary search intent.
+- Check the current site inventory and likely overlap.
+- Review a representative SERP sample (normally top 5) and 2–3 useful competitor pages.
+- Verify the important factual claims against 2–4 credible sources appropriate to the topic.
+- Record a concise outline, the practical improvement we offer, safety limits and internal links.
+- Do not buy domain-wide competitor metrics or perform exhaustive keyword research by default.
+
+**Tier 2 — Priority cluster / strategic article**
+- Review the top 10 results and 3–5 competitor pages.
+- Map primary and secondary queries, related subtopics and internal-link relationships.
+- Compare page structure, examples, visuals, tools, sources and reader decision support.
+- Use keyword metrics when available and decision-relevant; label estimates and uncertainty.
+
+**Tier 3 — Flagship, high-risk or technical article**
+- Deep evidence review, authoritative/primary sources, expert or manufacturer guidance as relevant, complete competitor matrix, safety and limitation analysis, and stronger editorial/technical review.
+- Apply to electrical, gas, structural, health/safety-adjacent, code-sensitive, expensive-system, flagship comparison and calculator-linked decisions where error costs are high.
+
+Research tiers are a floor for sound work, not a reason to delay indefinitely. If a source is unavailable, document the limitation and use the best reliable alternative. Do not claim exhaustive coverage when a representative sample was used.
+
+### 14.3 Publishing momentum and portfolio breadth
+
+- The 100-title list is a starting portfolio, not a ceiling. ChatGPT should continuously add useful candidates and supporting subtopics as technologies, standards, homeowner questions and site coverage evolve.
+- Research multiple candidates in parallel, normally up to three, and move qualified briefs forward without waiting for every competitor to be exhaustively profiled.
+- Maintain the quality score and mandatory factual/safety checks, but interpret the score as **reader value and execution quality**, not novelty or absence of competition. An article may qualify while competing with strong pages if it offers a defensible practical improvement.
+- A candidate marked DEFER for lack of a sufficiently distinct standalone angle may still be useful as a section, update, visual, checklist, FAQ or supporting page in a larger cluster. Record this distinction.
+- Prioritize steady publication of useful, independently qualified articles. Empty queue means increase discovery and brief preparation—not stop publishing research or repeatedly re-audit already deferred topics.
+
+### 14.4 Smart Home & Lighting — active expansion priority
+
+Smart Home is a current, evolving pillar and must not be limited to old device troubleshooting. Expand across interoperability, setup, automations, energy, security, cameras, sensors, privacy, reliability, accessibility and retrofit planning. Examples to investigate (not automatic publication approvals):
+
+1. What Matter 1.6 Means for Homeowners: Setup, Sharing and Device Compatibility.
+2. Do You Need a Thread Border Router? How to Check Before Buying More Devices.
+3. Matter Multi-Admin: Share One Smart Home Across Apple, Google and Alexa.
+4. Matter Cameras: What Works Across Platforms, and What Still Depends on the Brand App?
+5. Smart Blinds and Garage Doors: Compatibility, Controls and Safety Checks.
+6. Smart Home Energy Management: Coordinate EV Charging, Solar, Batteries and Time-of-Use Rates.
+7. Smart Home Presence Sensors: mmWave vs PIR Motion Sensors and Where Each Works Best.
+8. Local vs Cloud Smart Home Automations: What Keeps Working When the Internet Is Down?
+9. Smart Irrigation and Soil Sensors: Automate Watering Without Overwatering.
+10. Smart Home Security Sensor History: What Event Logs Can and Cannot Tell You.
+11. How to Build a Reliable Smart Home Network: Wi-Fi Coverage, Thread Border Routers and Device Placement.
+12. A Practical Smart Home Retrofit Plan for Renters and Older Houses.
+
+Before creating a new URL, check the existing Smart Home guides and update them when the intent is genuinely the same. Where the new subject is a different homeowner task or a major new standard capability, a supporting article is encouraged rather than automatically rejected as overlap.
+
+**Current technology anchor:** Matter 1.5 added camera, closure, soil-sensor and energy-management capabilities (CSA, 2025-11-20); Matter 1.6 added setup, multi-ecosystem and context-driven-control improvements (CSA, 2026-06-17). Recheck official release notes and actual certified-device support at drafting time; do not imply every announced capability is available in every retail device or ecosystem.
+
+### 14.5 Reassessment of the recent DEFER decisions
+
+PL-001, EN-001 and HVAC-001 were deferred under an overly conservative interpretation of competitor coverage. Their current records remain useful research, but the decision must not be read as a permanent ban:
+- PL-001 may be a useful homeowner diagnostic guide or a strong section in a broader water-loss troubleshooting cluster if we make the decision path clearer and safer than typical generic instructions.
+- EN-001 may be a practical, low-risk first-pass walk-through with explicit stop points and next steps; it need not outperform every comprehensive audit guide to help readers.
+- HVAC-001 may be a useful filter-selection/measurement guide with a clear chart and compatibility caveats; existing manufacturer guidance is a source to build on, not a reason to avoid the subject.
+Reassess these candidates with Tier 1 or Tier 2 effort, select the strongest next one based on reader usefulness and production feasibility, and do not repeat paid research merely to justify moving forward.
