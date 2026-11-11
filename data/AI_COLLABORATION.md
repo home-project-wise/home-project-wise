@@ -844,3 +844,28 @@ I cannot view images or download artifact zips in my sessions. Open the artifact
 
 **This directive supersedes any older wording that permits cross-assistant handoffs to be left only in PR comments or separate coordination records.** Keep the historical notes above; append new updates here.
 
+## 2026-11-11 — OWNER REQUEST: OPERATING SYSTEM CONSOLIDATION / PR RECONCILIATION (ChatGPT)
+
+**Status: MAIN UPDATED; PRs READY TO CLOSE AS SUPERSEDED AFTER final verification.**
+
+### Decisions now binding
+- One shared room only: this file on `main`. Every new/replacement Claude or ChatGPT session reads it first and records durable updates here. No parallel handoff/operations file.
+- Role boundaries are now explicit in `docs/HOMEPROJECTWISE-OPERATING-CHARTER-2026-11-10.md`: ChatGPT leads discovery/research/SERP/competitor/briefs/sources/measurement/content QA; Claude leads complex engineering/implementation/accessibility/cross-browser and technical final review. One task = one named owner. No silent role swaps or concurrent edits to the same shared file; declare and release file/task locks here.
+- Complete quality law remains `docs/VALUE-BEFORE-PUBLISHING.md`; the operating charter is approved as the binding workflow; the 100-title list remains a candidate library, not an approved publishing plan.
+- Qualified article queue is admission-only and currently empty. That is not a stop condition. ChatGPT must keep researching up to three candidates at once, balanced across plumbing, moisture/ventilation, energy, maintenance/repair, smart home/lighting and project costs/calculators; normally cap the active investigation register at six. Only all-16-field briefs scoring >=85/100 with no critical blocker can enter READY FOR CLAUDE.
+- Cadence: aim for one genuinely valuable article/day when a brief qualifies; scale to 2–3/day only when qualified briefs and implementation capacity exist. No forced quota or quality compromise.
+
+### PR reconciliation — unique content copied to main
+- **PR #285:** GSC 2026-10-14–11-10 28-day evidence and #41/#87 research copied into `data/SEARCH_METRICS.md`; README conditional cadence copied; operational summary recorded in `data/WORK_LOG.md`. Pinterest/GoatCounter 5-day evidence remains in its own separately dated section. Do not combine windows or metrics.
+- **PR #283:** qualified-only queue and balanced research rule applied directly to `docs/ARTICLE-PRODUCTION-QUEUE.md`; writing method audit preserved as `docs/EDITORIAL-WRITING-METHOD-AUDIT-2026-11-11.md`; PL-001/EN-001/PC-001 investigation decisions copied into the portfolio audit; role and source-of-truth rules added to the charter and project state.
+- Both PR heads were stale/conflicted (`mergeable: false`) and were not merged. Their unique content has been reconciled on main in separate commits. Close both PRs as superseded after checking the main files; do not re-merge stale heads.
+- Relevant main commits: README `4e22505`; queue `16b2ff7`; project state `caeb51f`; metrics `52ac5d7`; charter `4ab4941`; writing audit `57af359`; portfolio audit `c746228`; work log `3abebcd`.
+
+### Current active work allocation
+- **ChatGPT — IN PROGRESS:** build a balanced candidate research batch (up to three simultaneous candidates), starting with completion/scorecard of PL-001 and comparative demand/SERP validation across a different pillar. Do not draft until qualified. Report each candidate's evidence gaps and decision in the portfolio register and this room.
+- **Claude — WAITING FOR BATCH:** no article execution task is ready. Reserve Claude for complex calculator/site engineering and independent technical reviews; next technical assignment must be batched with exact files, expected behavior and tests.
+- **Owner:** no immediate decision required. If the owner wants to change strategic priority or approve a deviation from the quality gate, record it here first.
+
+### Verification rules
+- New session startup: read this room; read the charter and Value Before Publishing; inspect open PRs and changed-file overlap; inspect the queue and current candidate register; then claim one task here before editing.
+- Before marking DONE: include exact commit/PR, checks actually run, and whether evidence is local, PR-head, merged-main, deployed or real-device. Green CI alone is not live-site validation.
