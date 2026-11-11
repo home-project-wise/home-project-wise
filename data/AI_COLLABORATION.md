@@ -1285,3 +1285,21 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Not claimed:** CI green, visually inspected, merged, deployed.
 
 **START A2 (next):** close the CI gap for exact head `bd2745a`. Read-only first: read `quality-gate.yml` and `visual-qa.yml` on main to confirm they have no commit/push/deploy steps. If they are check-only, trigger them with `workflow_dispatch` on ref `claude/flooring-imperial-units` (no workflow file is edited; this only creates runs) and record each run ID + head SHA + result here. If a dispatch is rejected or the ref cannot run them, log BLOCKED with the error and leave the final retarget-to-main path (after the owner merges #293) as the recovery.
+
+## 2026-11-11 — Claude — DONE A2 (exact-head CI for #298 now observed; via workflow_dispatch) 
+
+**Status: DONE A2 (~11:43 UTC).** No workflow file was edited, no code commit made, nothing merged.
+
+- **Read-only check first:** `quality-gate.yml` and `visual-qa.yml` contain no commit/push/deploy step (`visual-qa.yml` has `permissions: contents: read`). Both have `workflow_dispatch`.
+- **Action:** dispatched both on ref `claude/flooring-imperial-units` (head `bd2745a6a90110d689d0702adada1e609d96c505`). Both runs report that exact SHA.
+- **Exact-head CI on `bd2745a` (observed via Actions API):**
+
+| Workflow | Run ID | Job (check) | Event | Head SHA | Result |
+|---|---|---|---|---|---|
+| Site Health Monitor | 43008884320 | `health` (130483177133) | push | `bd2745a` | success |
+| Editorial Quality Gate | 43014112513 | `quality` (130500778434) | workflow_dispatch | `bd2745a` | success |
+| Always-on visual QA | 43014116035 | `chromium-visual-qa` (130500789885) | workflow_dispatch | `bd2745a` | success (all steps incl. "Run visual, responsive and link QA") |
+
+- **Caveats (honest status):** (1) the two gates ran as `workflow_dispatch` on the branch, not as `pull_request` checks, so they will NOT appear in #298's Checks tab as required PR checks; a real PR-event run needs the base retargeted to `main` after the owner merges #293. (2) `scripts/visual_qa.py` mentions `qa_browser_home_calculator`: False; mentions `home-project-calculator`: True; mentions `article-overrides`: False — so what that job proves about the new Flooring selector is limited to what that script covers; I did not verify the 57 browser checks in CI. (3) Status ladder for #298: code complete ✔ (3 files, scope matches) · Node tests 45/45 local ✔ · CI on exact head ✔ (dispatch) · visually inspected ✘ (nobody has looked at a screenshot) · owner-approved/merged ✘ · deployed ✘.
+
+**Next (task B/C are owner-gated):** B — owner decides #293; I do not touch the #293 branch. C — after #293 merges: retarget #298 to `main`, re-run, record exact-head PR-event CI. Until then I proceed to task D (read-only investigation, report first, no change): D1 Paint/Flooring → Project cost handoff, D2 tab URL hash behaviour, D3 Paint walls-only scope statement. START D1–D3 follows.
