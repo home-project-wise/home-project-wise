@@ -273,3 +273,183 @@ The potential article must not be another generic “turn off taps and watch the
 6. Escalation: active spreading water, ceiling bulging, water near energized equipment, sewage, suspected slab/service-line leaks, structural damage or concealed persistent moisture require stopping DIY checks and contacting the utility/qualified professional as appropriate.
 
 **Still required before qualification:** re-open and verify all 3–5 competitor pages used for the final dated SERP dossier; complete a query-level GSC check if a fresh export becomes available (currently unavailable; absence is not zero demand); complete the 16-field brief and scorecard; independently check exact article/URL overlap on current main. No keyword volume, ranking, traffic or demand number is asserted. Do not add PL-001 to the qualified production queue yet.
+
+## 2026-11-11 — PL-001 query demand and focused SERP study (ChatGPT / OpenSEO)
+
+**Status: RESEARCHING — not qualified; do not draft yet.** Market: United States, English; desktop SERP capture through OpenSEO on 2026-11-11. OpenSEO project: HomeProjectWise (project ID bfc2efa7-1372-48f2-be31-5e3c1878547f). Search Console is not connected; no first-party impressions/clicks/queries are available. The website setup crawler could not read either the current Pages site or the GitHub Pages calculator URL, so automated site overview and automatic competitor discovery did not complete.
+
+### Metric evidence (DataForSEO via OpenSEO; estimated monthly volume)
+- `water leak test`: **260**, KD **22**, informational intent, CPC **$27.43**, paid competition **0.89 (high)**. Monthly trend is mostly 260–390 in the returned 2022–2026 rows; do not equate CPC/paid competition with organic ranking difficulty.
+- `how to find water leak between meter and house`: **30**, KD **1**, informational intent, CPC **$7.45**, paid competition **0.52 (medium)**. The returned monthly series is small (mostly 20–50 in recent years, with some historical 90 values).
+- Earlier seed suggestions returned `how to find a hidden water leak`: 20; `water meter leak test`: 40; `water meter test`: 390 in a broad seed suggestion set. These are separate keyword rows and must not be added blindly; close variants and topic overlap can cause shared/grouped demand. `water meter still moving` returned null/no usable demand.
+- The broad-seed suggestion list included obvious irrelevant terms (e.g. water pumps and unrelated water queries). Treat long-tail discovery as noisy; retain only manually relevant terms and verify each separately before making a volume claim.
+- No traffic, rank, impressions, clicks, conversion or HomeProjectWise performance number is asserted.
+
+### US SERP evidence sample (three repeated reads merged by OpenSEO; `bestPosition` is the best position observed in any read, not a stable rank)
+- `how to find a hidden water leak`: sample included Benjamin Franklin Plumbing, Call Waldrop, Universal Home Experts, Just Plumbing AZ, Cold Is on the Right and Riteway AC, plus public discussion/video/AI Overview features. The top result title was a generic Q&A about hidden leak detection; local service businesses recur.
+- `water meter still moving after main shut off`: sample included r/Plumbing, MyWater, ABV Plumbing and DIY forums. MyWater is a utility-style educational result; ABV Plumbing provides a reason-based list. This query is troubleshooting-oriented but has no confirmed search volume.
+- `water meter moves when all water is off irrigation`: sample included Superior Plumbing, The Leak Hunter, a DIY irrigation thread, DIY StackExchange, social discussions and additional service pages. Irrigation is an important confounder, but not a demonstrated high-volume cluster.
+- `how to tell if water leak is between meter and house`: sample included Johnson Comfort, Shafer Services, MyWater, Donovan AC and Roto-Rooter, alongside owner questions. The SERP is mixed between service intent and diagnostic learning.
+- `water meter leak indicator moving with valves off`: Sinton, Texas utility guidance appeared and described flow between the meter and shutoff valve; Saving Water explains that a meter stopping after the house shutoff points to an inside-house leak. This supports precise valve-position diagrams and jurisdiction-aware caveats.
+- OpenSEO results were merged across three reads; their `rank` is an aggregation order, not Google rank. Some Google redirect URLs obscured direct destinations. This is a dated SERP sample, not a full manual review of every result page.
+
+### Editorial conclusion — narrower scope, weaker commercial case than initially assumed
+PL-001 should **not** be a broad “how to find a hidden water leak” article as a standalone priority on the present evidence. Generic hidden-leak checklists are already served by utility/plumber pages, and the broad seed only shows 20 estimated monthly searches. The phrase family around `water leak test` has stronger observed demand (260) but broader ambiguous intent and high paid competition. The meter-to-house phrase has low estimated demand (30) but a clear informational need and low estimated organic difficulty (1).
+
+**Revised candidate:** one compact, exceptionally clear diagnostic guide/decision tree provisionally titled “What It Means When Your Water Meter Keeps Moving”. Its core value must be the safe interpretation sequence:
+1. Verify that all indoor and outdoor water uses are truly off; explicitly check irrigation, automatic pool/top-up systems, water softeners, refrigerator/ice maker and other scheduled/automatic uses where installed.
+2. Confirm the meter's low-flow indicator and allow for intermittent cycling; distinguish continuous movement from a brief pulse.
+3. Close only the homeowner-accessible house main shutoff (never manipulate a utility-owned meter valve or sealed fitting); observe the meter again.
+4. Explain what stopping vs continuing movement suggests, without claiming exact leak location or certainty; if it continues, the segment between meter and house may be implicated, but utility ownership and meter/valve layout vary by jurisdiction.
+5. If the meter stops after the house shutoff, check accessible toilets/fixtures and visible connections; use dye testing for toilets only as an appropriate targeted check.
+6. If the meter is stable but moisture persists, explain that a water-meter test cannot rule out drain leaks, rain/groundwater intrusion, condensation or intermittent events.
+7. Escalate active leaks, water near electricity, ceiling swelling, sewage, suspected slab/service-line leaks, inaccessible valves or unclear ownership to the utility/licensed professional.
+
+**Original asset required:** a simple, original split-flow diagram showing utility meter → property-side main shutoff → house branches, with inside-house vs meter-to-house/service-line outcomes. Accompany it with a concise diagnostic table stating what each result suggests, what it does not prove, and the next safe action. Do not include a fake universal valve layout; label the diagram conceptual and note local arrangements vary.
+
+### Candidate score (provisional, 100-point charter scale; blocked pending the full 16 fields)
+- Reader problem and intent definition: 14/15
+- Evidence/source quality: 17/20
+- Differentiation: 13/20
+- Search demand and feasibility: 8/15 (partial metrics only, mixed intents, no GSC)
+- Safety and accuracy plan: 17/20
+- Internal overlap/production feasibility: 6/10 (exact current-main overlap check not yet completed)
+- **Provisional total: 75/100 — below 85; NOT READY FOR CLAUDE.**
+This is a screening score, not a final qualification score. Missing evidence includes full 16-field brief, direct page reviews for 3–5 exact SERP competitors, stable URL/rank captures, complete live inventory/overlap audit, expert review path, and first-party demand after Search Console connection.
+
+### OpenSEO setup and limitations
+- Created HomeProjectWise project for US/en and saved two measured candidates: `water leak test` (260/KD22) and `how to find water leak between meter and house` (30/KD1).
+- Added five initial publisher/retailer competitor records from the operating charter (This Old House, The Spruce, Family Handyman, Bob Vila, Lowe's); specialist utilities and plumbers remain to be added from topic evidence.
+- No Google Search Console accounts are connected. Project setup crawler could not read the provided website URLs, so no automatic site overview or competitor discovery was completed.
+- Credits remaining were not rechecked after paid research calls; do not assume the original balance remains.
+
+### RESUME HERE
+1. Complete the exact 16-field brief and direct competitor page reviews for the water-meter diagnostic angle.
+2. Search current main inventory for water, leak, plumbing and utility-related overlap (the old 30-guide snapshot is not enough).
+3. Decide whether modest standalone query demand justifies a full article or whether this is a section in a larger plumbing diagnostics hub.
+4. Connect the verified Search Console property and rerun demand/striking-distance analysis; do not qualify above 85 without it unless strong alternative demand evidence exists.
+5. Keep DR-001 and HVAC-001 in research/defer status. No article assignment to Claude yet.
+
+
+## PL-001 — direct utility-baseline and competitor recheck (ChatGPT, 2026-11-11)
+
+**Status: REFRAME / likely DEFER as a standalone article; still not qualified.** This is a focused follow-up to the OpenSEO metric/SERP pass, not a new paid keyword run. Market: United States, English. Search sample: 2026-11-11.
+
+### What the current utility guidance already does well
+
+| Source | Type | Verified coverage | Implication for HomeProjectWise |
+|---|---|---|---|
+| [City of Chandler — How to Check for a Water Leak](https://www.chandleraz.gov/residents/water/water-conservation/education-and-resources/for-residents/how-to-check-for-a-water-leak) | Municipal utility authority | Full page inspected. Explains analog vs digital meter indicators, waiting 10 minutes for slow leaks, house shutoff isolation, service-line interpretation, and automatic pool fillers / irrigation / evaporative coolers as confounders. Also links dedicated tutorials for irrigation, pool, supply line, toilets and water softeners. | Already a strong homeowner pathway with multiple related guides and videos; the generic meter/shutoff article is not an open gap. |
+| [City of Vancouver, WA — Detecting Water Leaks](https://www.cityofvancouver.us/government/department/public-works/water-sewer-and-stormwater/detecting-water-leaks/) | Municipal utility authority | Full page inspected. Covers bill anomaly, analog/digital indicators, two-hour no-use comparison, shutoff verification by opening a faucet, inside-vs-service-line result, toilet dye, irrigation, visible wet/green areas and call-before-you-dig. | Repeats nearly the complete candidate workflow, including safety-relevant valve verification and irrigation caveat. |
+| [El Paso Water — Finding Leaks](https://www.epwater.org/residential/services-and-information/leaks-and-property-protection/finding-leaks) | Municipal utility authority | Full page inspected. Covers meter test, house main shutoff, inside/outside split, toilet dye, water-softener recharge, irrigation, evaporative coolers and pool auto-fill. | Existing authoritative coverage is broad and practical; our article cannot claim to introduce these checks. |
+| [Sunnyvale Utilities — How to Use Your Water Meter to Detect a Leak](https://www.sunnyvale.ca.gov/home/showpublisheddocument/3218/637879707427170000) | Municipal utility PDF | Full PDF text inspected. Explicitly says an intermittent running toilet may not be caught during a single meter check; includes house shutoff, irrigation isolation and service-line outcomes. | Intermittent-vs-continuous limitation and irrigation isolation are already documented by a utility. |
+
+### Commercial SERP observations and comparison
+
+The current query sample also surfaced several commercial guides, in addition to the previously reviewed Plumber.com, Plumbing Advisors and DryHomeLab/HelpMeNow pages:
+
+- [Washington Plumbing — How to Use Your Water Meter to Find a Hidden Leak](https://www.washington-plumbing.com/resources/how-to-read-your-water-meter-for-leaks/) (search result published/updated Oct. 16, 2026): meter indicator types, no-use check, house-main isolation, service-line vs inside-house interpretation, irrigation/outbuilding branches, and a warning that an old gate valve that does not fully close makes the test unreliable. Direct page retrieval returned a cache miss in this pass; observations are limited to the search extract.
+- [Georgia Sewer — How to Use Your Water Meter to Find a Leak](https://georgiasewer.com/guides/water-meter-leak-test/) (published Oct. 22, 2026): meter check, house shutoff, verification that the valve actually stops flow by opening a faucet, irrigation branch caveat, result table and repair-responsibility framing. Direct page retrieval returned a cache miss; observations are limited to the search extract.
+- [HQ Plumbing & Air — Meter Still Moving, Main Valve Off](https://hqplumbingandair.com/resources/faqs/water-meter-still-moves-main-valve-off-leak) (updated Sep. 29, 2026): narrowly answers the exact diagnostic question and names the service line, irrigation tee and faulty valve as possible explanations. It cites Chandler and Phoenix responsibility guidance. Direct page retrieval returned a cache miss; observations are limited to the search extract.
+- [PanicStation — Water meter moving with all taps off](https://www.panicstation.org/us/your-water-meter-is-moving-even-though-all-taps-and-appliances-are-off/) (published Jun. 19, 2026; reviewed Jul. 17, 2026): symptom-first answer and explicit warnings not to force valves or dig near the service line. Search extract only; no full page review claimed.
+
+### Differentiation test: what remains genuinely additive?
+
+The initial concept was a decision tree interpreting meter movement before/after the house shutoff. This pass shows that the core tree is already explicitly provided by municipal utilities and commercial plumbers. Even several supposed differentiators—irrigation before/after the shutoff, confirming the house valve actually closed, intermittent leaks, analog/digital indicators, and service-line responsibility—are already covered by the sources above.
+
+Potential remaining value is narrower and conditional:
+1. A **jurisdiction-aware ownership handoff** that tells readers not to infer responsibility solely from the meter location, and to ask their local utility for its service-boundary diagram and customer-side shutoff location.
+2. A **failure-mode panel** explaining when the test is inconclusive: valve does not fully seat, irrigation/pool branches tee upstream, automatic devices cycle intermittently, meter resolution/indicator differs by model, or meter remains still while drain/rain/condensation moisture persists.
+3. A conceptual diagram clearly labelled as non-universal, with a result table distinguishing “suggests” from “proves”.
+
+However, these points are too small to justify a standalone article against the current measured evidence. They are better used as a concise section in a broader future plumbing/water-loss troubleshooting hub, or as a supporting visual/checklist only if a broader hub is independently qualified.
+
+### Decision and remaining blockers
+
+- **Recommendation: DEFER standalone PL-001; consider MERGE into a future broader plumbing diagnostics page only after that hub has its own evidence-backed brief.**
+- Do not send to Claude, do not add to the qualified production queue, and do not create a new URL from this candidate on the present evidence.
+- The broad hidden-leak seed was estimated at 20 searches/month; the broad "water leak test" row at 260 has ambiguous intent and strong paid competition; the meter-to-house phrase was estimated at 30 with KD 1. These are third-party estimates, not first-party site demand. They do not override the saturated utility SERP.
+- Search Console remains unconnected. The current repository overlap check is still not complete against a verified current-main inventory; do not claim zero overlap.
+- Direct retrieval of the four newer commercial pages above was blocked by cache misses, so their coverage statements are search-extract-only. Full direct page review remains required if the topic is revived.
+- No traffic, rank, impressions, clicks or competitor page traffic are asserted.
+
+**Next action:** close PL-001 as DEFER (with a revisit trigger: Search Console evidence, a clearly distinct query cluster, or a broader hub brief) and advance balanced research in a different pillar. Keep DR-001 and HVAC-001 under their existing RESEARCHING/DEFER screens; do not draft them by default.
+
+
+## EN-001 — home energy audit demand and safety-first SERP reassessment (ChatGPT, 2026-11-11)
+
+**Status: DEFER as a standalone article on current evidence.** The repository inventory confirms no dedicated Energy guide cluster, so this is a real coverage gap at the pillar level; it does not automatically make this specific article differentiated.
+
+### Keyword metrics (DataForSEO via OpenSEO; United States, English; estimates)
+
+| Keyword | Estimated monthly searches | KD | Intent / caveat |
+|---|---:|---:|---|
+| home energy audit | 8,100 | 10 | Broad informational label, but current SERP is mixed with local professional-audit services, state programs and audit explanations; not 8,100 DIY readers |
+| DIY home energy audit | 140 | 0 | Clearer DIY informational intent; low-volume estimate |
+| home energy audit checklist | 70 | 2 | Checklist intent; SERP contains official and utility/education checklists |
+| DIY home energy audit checklist | 50 | 0 | Close variant of the same small cluster |
+
+These are third-party estimates, not first-party clicks or impressions. Search Console is not connected, and no traffic forecast is made.
+
+### Competitor / authority matrix
+
+| Result / source | Observed coverage | What it means for differentiation |
+|---|---|---|
+| [U.S. DOE — Consumer Guide to Home Energy Assessments](https://www.energy.gov/sites/default/files/2021-08/ES-Home%20Energy%20Assessments_080221.pdf) | DIY walk-through, common leakage points, professional assessment, blower-door and infrared methods, finding certified providers, preparation and costs. Its suggested smoke/depressurization test includes combustion-appliance steps. | The broad DIY-vs-professional distinction is already authoritative. A new article must not simply paraphrase DOE. |
+| [ENERGY STAR — DIY Checks and Inspections](https://www.energystar.gov/saveathome/seal_insulate/identify-problems-you-want-fix/diy-checks-inspections) | Attic insulation inspection and R-value estimates by climate zone; explicit vermiculite/asbestos warning, fall-through hazard, wall-insulation check around an electrical outlet, visual/light/paper/smoke tests for leaks. | Very comprehensive and safety-aware, though some listed checks involve attic access, electrical-outlet covers or smoke testing that should not be presented as casual, universal DIY tasks. |
+| [This Old House — How to Perform a Home Energy Audit](https://www.thisoldhouse.com/inspections/how-to-perform-a-home-energy-audit) | Updated 2026-05-29; 2–4 hours; infrared camera, attic insulation, foam/insulation work, eave ventilation and baffles; expert commentary. | Strong visual/video and expert-led project treatment; not a simple no-equipment walkthrough. |
+| [Virginia EnergySense — Do-It-Yourself Home Energy Audit](https://www.virginiaenergysense.org/tips-to-save-energy-money/at-home/do-it-yourself-energy-audit/) | Room-by-room checklist, materials, air leaks, insulation, ducts, lighting, appliances, qualified help for restricted spaces, combustion backdraft warning and link to EPA Home Energy Yardstick. | One of the closest utility/education competitors; already has a printable checklist and next-step pathways. |
+| [Perch Energy — DIY Home Energy Audit Checklist](https://www.perchenergy.com/blog/lifestyle/diy-home-energy-audit-checklist) | Twelve-month utility-bill review and base-load calculation, systems, insulation, lighting, appliances, phantom loads, air leaks, ducts, prioritization and calculator links. | Already offers a broad checklist and an action-priority section; weakens the case for another generic checklist. |
+| [APG&E — How to Perform a DIY Home Energy Audit](https://www.apge.com/blog/how-to-perform-a-diy-home-energy-audit) | Simple step-by-step audit covering exterior, windows, insulation, lighting, HVAC, appliances, bill review and action plan. | Another broad, conventional checklist, albeit less technically detailed. |
+| [Retrofit Relay — DIY Home Energy Audit Checklist](https://www.retrofitrelay.com/guides/home-energy-audit-checklist/) | Search extract positions a one-hour/no-special-tools walk-through as step zero, clearly explains what DIY cannot measure, and sends the user toward a professional blower-door/infrared/combustion-safety assessment. Direct retrieval returned a cache miss in this pass. | Even the proposed “safe, no-special-equipment pre-audit” differentiation is already being pursued by a newer specialist publisher. Treat details as search-extract-only. |
+
+### SERP and editorial decision
+
+Across three repeated US SERP reads for `DIY home energy audit`, results include utility/energy providers, trade/industry organizations, a home-improvement contractor, Perch Energy and DOE. The `home energy audit` SERP is more service- and program-oriented; `free home energy audit` is heavily utility-program / local-offer oriented. These are SERP observations, not stable rank claims.
+
+A safe, observation-only checklist could avoid advising readers to climb into unsafe attics, disturb insulation, remove electrical outlet covers, handle combustion appliances or conduct a depressurization test. It could also separate observations from measured diagnostics and explain when to call a qualified assessor. However, DOE, ENERGY STAR, Virginia EnergySense, Perch and Retrofit Relay already cover most of this territory. A safety correction alone is not yet a sufficiently unique article proposition.
+
+**Decision:** keep the Energy pillar gap on the roadmap, but **DEFER standalone EN-001**. Reopen only with first-party query evidence or a clearly distinct, user-tested workflow that does more than restate the current checklists. Do not add to the qualified production queue.
+
+---
+
+## HVAC-001 — furnace / HVAC filter sizing and selection SERP validation (ChatGPT, 2026-11-11)
+
+**Status: DEFER as a standalone guide on current evidence.** No dedicated HVAC filter guide exists in the current 30-guide inventory, but the high-ranking pages already cover the proposed safety and selection points in depth.
+
+### Keyword metrics (DataForSEO via OpenSEO; United States, English; estimates)
+
+| Keyword | Estimated monthly searches | KD | Caveat |
+|---|---:|---:|---|
+| furnace filter size | 3,600 | 17 | Mixed informational and product-selection SERP |
+| furnace filter sizes | 3,600 | 17 | Variant, not additive demand |
+| air filter sizes | 2,900 | 11 | Broad; includes non-HVAC filters |
+| what size air filter do i need | 210 | 28 | Mixed household/other filter intent |
+| furnace filter sizes chart | 480 | 9 | Chart / lookup intent |
+| standard air filter sizes | 590 | 4 | Broad and commercial-heavy |
+| how to measure air filter size | 140 | 9 | Practical measurement intent |
+| what size furnace filter do i need | 70 | 0 | Narrow informational variant |
+
+### Competitor and authority matrix
+
+| Source | Verified coverage | Implication |
+|---|---|---|
+| [Trane — Furnace Filter Guide](https://www.trane.com/residential/en/resources/troubleshooting/gas-furnaces/furnace-filter-guide/) | Full page inspected. Filter location (cabinet or return grille), reading printed dimensions, nominal vs actual size, MERV comparison, replacement timing, airflow arrow and expert review by a senior systems engineer. | Strong manufacturer-backed guide; covers nearly the full proposed article scope. |
+| [PNNL Building America Solution Center — Return grille filter replacement](https://basc.pnnl.gov/diy-guides/replace-air-filter-located-return-air-filter-grille) | Search extract covers reading dimensions/MERV, measuring the slot including maximum depth, nominal vs actual dimensions, MERV 13+ compatibility check with HVAC provider, airflow arrow and perimeter bypass. | Strong public technical guide with diagrams and exact homeowner workflow. |
+| [PNNL — Furnace/central heat-pump filter slot](https://basc.pnnl.gov/diy-guides/replace-air-filter-located-furnace-or-central-heat-pump-air-filter-slot) | Search extract distinguishes furnace slot from return grille, measures slot, discusses thickness, MERV, pressure drop, fit, airflow direction and bypass sealing. | Covers the exact system-location and fit mistakes proposed as differentiators. |
+| [U.S. EPA — What is a MERV rating?](https://www.epa.gov/indoor-air-quality-iaq/what-merv-rating) | Full page inspected. Defines MERV, particle capture ranges and efficiencies, advises using MERV 13 or the highest rating the system fan and filter slot can accommodate, with technician advice if needed. | Primary authority for filtration claims; do not oversimplify MERV as “higher is always better.” |
+| [Filterbuy — Common Furnace Filter Size Issues](https://filterbuy.com/resources/air-filter-basics/the-furnace-filter-size-issue/) | Search extract, updated 2026-09-04: nominal vs actual dimensions, manufacturer variation, bypass gaps, wrong thickness, sizing quiz, face velocity and bypass-area calculations. Direct page retrieval returned 403; observations are search-extract-only. | Commercial competitor already addresses the most likely measurement/fit gap with detailed calculations and a selector. |
+| Filtrete — “Filter Selection: Does Size Matter?” (SERP result; direct article URL not verified) | Current SERP result: discusses standard vs deep-pleat filter thickness and size choice. | Manufacturer competition is present for size-selection questions. |
+
+### Decision
+
+The current SERP is commercially dense with filter retailers, filter-finder tools, manufacturer content, PNNL and EPA. The candidate's proposed differentiators—actual vs nominal dimensions, measuring the slot, thickness limits, filter location, MERV compatibility and airflow direction—are already covered by Trane and PNNL; Filterbuy adds bypass/face-velocity calculations and a size quiz.
+
+**Decision:** **DEFER HVAC-001** as a standalone article. Do not write a generic filter-size chart or duplicate manufacturer/PNNL instructions. Reopen only if a distinct first-party query cluster or a specific unresolved homeowner problem is evidenced. Do not add to the qualified production queue.
+
+### Evidence and limitations
+
+- Search-volume and KD figures are third-party estimates, not site performance.
+- Three repeated SERP reads were used for each primary query cluster; `bestPosition` is the best observed position in the sample, not a stable ranking.
+- PNNL and Filterbuy details above are search-extract-only where noted; direct page retrieval was not successful for those two URLs in this pass.
+- No competitor organic traffic, exact domain keyword counts, referring-domain totals, or article counts were purchased or asserted. Search Console remains unconnected.

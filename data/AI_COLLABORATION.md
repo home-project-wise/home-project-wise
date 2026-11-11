@@ -1415,3 +1415,69 @@ Post a new **RESUME CLAIM + START A** in this room after verifying current PR #2
 - **Remaining, all optional:** (1) a human opens the live calculator on a phone and a desktop and looks at the six tabs, light and dark (nobody has eyeballed it; this is the biggest open gap); (2) D1 Paint/Flooring → Project cost handoff: new feature, owner/ChatGPT decision; (3) suggestion for owner approval (protected file): `site-health.yml` article-URL step has no retry and failed once on a transient 503 during a deploy; (4) CI gap: `scripts/qa_browser_home_calculator.py` is not run by any workflow (adding it means editing a workflow, needs owner approval); (5) ChatGPT's article/keyword queue is untouched by me.
 - **Last commands/results:** Node 50 PASS/0 FAIL on the merged page logic; browser script 57/57; all `main` workflows success on `5576c60`.
 - **Single next action for the next session:** read this room, verify `main` head against GitHub, then pick from the Remaining list; if nothing is requested, ask the owner for a visual review of the live calculator rather than starting new code.
+
+
+## 2026-11-11 — ChatGPT START / DONE — OpenSEO setup and PL-001 measured research
+
+**START:** Revalidated the live PRs and canonical operations room before new work. #293 merged; #298 has since merged as well (merge commit `4ddbe0eb389a0b687e3166502da88300ee60b67c`). Claude's latest log records E4 complete, Pages deployment run 43021899664 successful, transient post-deploy Site Health 503 followed by successful rerun 43022283403. Live URL and 30 sitemap article URLs were reported HTTP 200 by Claude. No physical-device/Safari/Firefox/screen-reader visual check is claimed. #299 remains open, and #297 remains an open docs PR.
+
+**OpenSEO setup:** Connected OpenSEO was available, but the account initially had no projects. Created project HomeProjectWise for United States (locationCode 2840), English. GSC listing returned no connected Google accounts. Automated website research failed to read the supplied Pages URL and the GitHub Pages calculator URL, so the project context was seeded manually with a concise site overview and five initial publishers/retailers from the charter (This Old House, The Spruce, Family Handyman, Bob Vila, Lowe's). That list is an initial set, not a complete competitor dossier. Saved measured candidate terms `water leak test` (260/month, KD 22) and `how to find water leak between meter and house` (30/month, KD 1). The remaining credits were not checked after paid calls.
+
+**PL-001 DONE:** Used OpenSEO DataForSEO keyword metrics and three-read merged US desktop SERP samples for hidden water leak, meter movement with all water off, shutoff isolation, irrigation as confounder, and meter-to-house supply-line questions. Detailed figures, caveats, result domains, safe decision-tree scope, provisional 75/100 screen and RESUME HERE are appended to the existing article portfolio audit on ChatGPT research branch `chatgpt/2026-11-11-pl001-openseo-research`, commit `2285fadae0d9fc6a86100a6936285702c043a1fa`.
+
+**Editorial conclusion:** do not publish a broad generic hidden-water-leak article from this evidence. The broad seed `how to find a hidden water leak` returned estimated volume 20; `water leak test` returned 260 but is broader and paid-competitive; `how to find water leak between meter and house` returned 30 with KD 1. The more defensible differentiator is a safe, clearly bounded interpretation tree explaining meter movement before/after a homeowner-accessible house shutoff, including irrigation/automatic system confounders, ownership boundaries and escalation. That candidate scores provisionally 75/100, below the charter's 85 qualification threshold. It is **NOT READY FOR CLAUDE**: full 16-field brief, direct 3–5 page reviews, full current inventory overlap check and Search Console evidence remain outstanding.
+
+**Limits:** no first-party HomeProjectWise impressions/clicks/rank or traffic; no Search Console connection; no audited full top-10 direct page reviews; keyword database long-tail suggestions contained noise. No claims of live keyword positions, competitor traffic or actual visitor demand. No articles drafted, no production queue qualification, no changes to code or Claude branches.
+
+**RESUME HERE:** continue the 16-field PL-001 brief and direct competitor page reviews; verify current-main content overlap; assess whether standalone demand warrants a full page or only a strong section in a broader plumbing diagnostic hub. Connect the verified GSC property before treating site-specific demand as known. #299 is still open; keep all editorial edits documentation-only until reviewed.
+
+## 2026-11-11 — ChatGPT START — PL-001 direct utility/competitor validation
+
+**START:** Continue the already-open editorial research branch/PR #301. Re-read the latest branch checkpoint, project queue and charter. Scope is documentation-only on `chatgpt/2026-11-11-pl001-openseo-research`; no Claude-owned files, production source, workflow, calculator, or qualified queue changes.
+- Review current US utility/municipal guidance and the newest competitor pages for the narrowed water-meter / house-shutoff interpretation angle.
+- Compare what is already answered well, including irrigation branches, meter limitations, shutoff-valve validation and jurisdictional responsibility.
+- Decide whether the remaining gap justifies a standalone page, a section in a future plumbing hub, or deferral.
+- Preserve unknowns: GSC is not connected; no first-party query demand; no stable ranking/traffic claims. Do not repeat paid keyword research unless the existing evidence is insufficient and the expected value justifies it.
+
+
+## 2026-11-11 — ChatGPT DONE — PL-001 utility-baseline and competitor recheck
+
+**DONE:** Re-reviewed the candidate against current US utility guidance and fresh commercial SERP examples. Updated the existing PR #301 branch only; no production source, Claude branch, workflow, calculator, or qualified production queue was changed.
+- **Full utility-page reviews:** City of Chandler, City of Vancouver WA, and El Paso Water. Also inspected Sunnyvale Utilities' leak-detection PDF. These sources already cover meter indicators, no-use tests, house-main isolation, service-line interpretation, irrigation/automatic-use confounders, toilet checks, and in some cases intermittent-leak limitations and valve verification.
+- **Fresh commercial SERP evidence:** Washington Plumbing & Drain, Georgia Sewer, HQ Plumbing & Air, PanicStation. Their result extracts also cover the narrowed meter/shutoff decision tree. Full direct fetch for these newer pages returned cache misses; those observations are explicitly labelled search-extract-only in the audit.
+- **Decision:** the proposed standalone article does not currently have a sufficiently distinctive gap. Recommend **DEFER standalone PL-001**; if a broader plumbing diagnostics hub later qualifies on its own merits, consider merging the meter/shutoff decision tree as a concise section. No claim of zero overlap: the full current-main content inventory check remains incomplete.
+- **OpenSEO project context:** added four topic-specific commercial SERP domains with evidence/limitations and appended the research log. Search Console remains unconnected.
+- **Updated audit:** `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md` on branch `chatgpt/2026-11-11-pl001-openseo-research`; research commit `d025bcfe43aabe85dfe89d31ac4ec1426e9678e7`. The preceding operations-room START checkpoint is commit `19f2fd702af052045892ccc6b8e3c50a4dab5a58`.
+- **PR:** #301 remains open and documentation-only; no merge attempted. #299 and #297 remain separate open documentation PRs.
+- **Not claimed:** GSC impressions/clicks, organic rank, actual traffic, exact article count, full competitor-domain inventory, or direct review of the four cache-miss commercial pages.
+
+**RESUME HERE:** close PL-001 as DEFER in the candidate investigation register (not the production queue) with revisit triggers: verified GSC demand, a distinct query cluster, or a separately qualified plumbing hub. Then advance a different pillar. Next balanced candidates should be evaluated against the current repository inventory before any new brief is promoted; DR-001 and HVAC-001 remain unqualified.
+
+
+## 2026-11-11 — ChatGPT START — EN-001 reassessment (home energy audit)
+
+**START:** Following PL-001's defer decision, resume balanced research in the energy pillar using the pre-existing EN-001 candidate rather than inventing a new topic. Check whether exact US query demand and the current SERP reveal a distinct homeowner decision gap beyond DOE, ENERGY STAR and This Old House. Research only; no draft, no production queue entry, no code/workflow/Claude changes. Keep the scope DIY-safe and distinguish a visual walk-through from a formal energy assessment.
+
+
+## 2026-11-11 — ChatGPT DONE — EN-001 and HVAC-001 balanced energy-pillar screen
+
+**DONE:** Reassessed the existing energy-pillar candidates using US keyword estimates, repeated SERP samples, full competitor/authority page reviews where retrieval succeeded, and the verified 30-guide repository inventory. Updated the same documentation-only PR #301 branch; no production files, Claude-owned work, workflows, calculators or qualified queue entries were changed.
+
+### EN-001 — home energy audit
+- Third-party estimates: `home energy audit` 8,100/KD10 (mixed service/program intent); `DIY home energy audit` 140/KD0; `home energy audit checklist` 70/KD2; DIY checklist variant 50/KD0.
+- Reviewed DOE Consumer Guide, ENERGY STAR DIY checks, This Old House (updated 2026-05-29), Virginia EnergySense, Perch Energy and APG&E. Also observed Retrofit Relay's one-hour/no-tools "step zero" proposition in the SERP extract; direct retrieval was blocked.
+- The safety-first, observation-only differentiator is sensible but not sufficiently unique against current authority and specialist coverage.
+- **Decision: DEFER standalone EN-001.** The Energy pillar remains a real inventory gap, but this specific article is not approved.
+
+### HVAC-001 — furnace/HVAC filter sizing
+- Third-party estimates: `furnace filter size` 3,600/KD17; `air filter sizes` 2,900/KD11; `what size air filter do I need` 210/KD28; `how to measure air filter size` 140/KD9.
+- Reviewed Trane's guide directly, EPA MERV guidance directly, and PNNL filter-slot/return-grille guidance via source extracts. Filterbuy's 2026-09 update extract covers nominal/actual sizing, bypass gaps, face velocity and a selector; direct retrieval was blocked. The current SERP also contains Filtrete, FilterTime and filter-retailer size charts.
+- The proposed unique value (actual vs nominal dimensions, slot depth, filter location, MERV compatibility, airflow arrow and bypass) is already comprehensively covered by Trane/PNNL; Filterbuy adds more technical fit analysis.
+- **Decision: DEFER standalone HVAC-001.** Do not create a generic size chart or filter finder without a distinct query/use case.
+
+### Durable updates and limitations
+- Added topic-specific competitors to OpenSEO project context: APG&E, Perch Energy, Virginia EnergySense, Trane and Filterbuy; appended research log entries for EN-001 and HVAC-001.
+- Search Console remains unconnected. Keyword figures are third-party estimates, not HomeProjectWise traffic or impressions. No competitor traffic, full domain keyword counts, backlinks, or article counts were measured in this pass.
+- PR #301 remains documentation-only and open. Updated audit: `docs/HOMEPROJECTWISE-ARTICLE-PORTFOLIO-AUDIT-2026-11-10.md`, latest research commit `e01c7db1051d6f7b31d130a6fc2cdd075c31fc18`. No merge attempted.
+
+**RESUME HERE:** The first candidate screen now shows three defensible DEFER decisions (PL-001, EN-001, HVAC-001); DR-001 remains unqualified pending its deeper competitor and safety/overlap work. Do not force an article out of this batch. Next high-value work is the competitive-intelligence matrix requested by the owner: establish the final competitor set and collect verified domain/page metrics. Do not invent article counts or top-page traffic. The OpenSEO credit balance was 99 before the EN/HVAC keyword and SERP calls; check the remaining balance before any paid domain-wide competitor runs. Public search and verified sitemap/URL counts may be used as labelled proxies, not as organic traffic estimates.
