@@ -60,9 +60,9 @@ Each proposed article must have a record containing:
 
 ## 5. Qualified production queue — admission-only
 
-**Currently empty as of 2026-11-11.** This section contains only fully qualified briefs, never speculative ideas or research tasks. An item enters only after all 16 fields in §3 are complete, the score is at least 85/100, a QUALIFIED decision is recorded, and no critical factual, safety, duplication or evidence blocker remains. There is no minimum queue size. An empty queue is an accurate status, not a stop signal: candidate research continues outside this queue.
+**Three qualified briefs admitted on 2026-11-11.** This section contains only fully qualified briefs, never speculative ideas or research tasks. Each admitted item has all 16 fields in §3 complete, a score of at least 85/100, a QUALIFIED decision, and no unresolved critical factual, safety, duplication or evidence blocker. There is no minimum queue size; new items are added only when they qualify.
 
-Balance rule (owner direction, 2026-11-10): keep a deliberate portfolio across the topic areas (energy and efficiency; moisture, ventilation and indoor air; plumbing; maintenance and repair; lighting and smart home; project costs, planning and calculators). Balance is strategic, not an equal quota. Smart Home is one candidate cluster among several, not the default priority; by filename it already accounts for about 9 of the 31 articles on main.
+Balance rule (owner direction, clarified 2026-11-11): keep a deliberate portfolio across energy and efficiency; moisture, ventilation and indoor air; plumbing; maintenance and repair; lighting and smart home; project costs, planning and calculators. Smart Home & Lighting is an active expansion priority, while the next research batch should still include other pillars so the site grows broadly. Balance is strategic, not an equal quota.
 
 
 ### First qualified batch — 2026-11-11 (ordered)
