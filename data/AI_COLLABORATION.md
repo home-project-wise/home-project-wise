@@ -1223,3 +1223,10 @@ The owner supplied a tablet screenshot of a home-renovation calculator. The usef
 5. Keep article qualification with ChatGPT; Claude should not draft unqualified articles.
 
 **Evidence boundary:** ChatGPT has verified the GitHub PR/branch relationship and posted the comment. The QA matrix values above are Claude's reported measurements; ChatGPT did not independently reproduce them here.
+
+
+### 2026-11-11 — follow-up: exact-head CI lookup for Flooring PR #298
+
+- Queried GitHub Actions runs associated with Flooring head `bd2745a6a90110d689d0702adada1e609d96c505` immediately after opening PR #298.
+- Result: no PR-triggered workflow runs were returned yet. Therefore **CI is pending/not observed**, not failed and not passed. Recheck later from PR #298 Checks tab or query the same exact head again.
+- No workflow configuration was changed.
