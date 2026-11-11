@@ -198,3 +198,27 @@ This snapshot is retained for audit history; its 28-day window overlaps the 2026
 - Historical URL inspection at that time: homepage indexed (last crawl 2026-10-29); leak-sensor page indexed but not recrawled after its 2026-11-07 edit; homepage calculator and wallpaper guide were then unknown to Google. These statuses are historical and superseded where later inspections exist.
 - Sitemap was pending with 0 errors and 0 warnings, last submitted 2026-11-01. Bing daily totals were 0 impressions/clicks through 2026-11-04; top queries/pages empty.
 - No indexing setting, sitemap or URL submission was changed in that checkpoint.
+
+
+## 2026-11-11 entry (ChatGPT — fresh GSC 28-day comparison and cross-cluster research)
+
+### Google Search Console, Search type Web, data_state final
+
+- Current complete 28-day window: **2026-10-14 to 2026-11-10** — **831 impressions, 4 clicks, CTR 0.481%, average position 16.86**.
+- Previous immediately preceding 28-day window: **2026-09-16 to 2026-10-13** — **65 impressions, 0 clicks, CTR 0%, average position 32.48**.
+- Change between equal windows: +766 impressions and +4 clicks; average position improved by about 15.61 positions. This is a descriptive comparison only; it does not prove which article, edit, indexing event or other change caused the increase.
+- The query export returned 81 visible rows and the page export 21 rows. The query rows exposed no clicks even though the page aggregation reports four; treat this as an anonymized/aggregation visibility limitation, not as a reason to assign the four clicks to guessed queries. Do not add query and page totals together.
+- Pages with clicks in the current window: `what-can-you-plug-into-a-smart-plug` 146 impressions / 2 clicks / position 6.29; `motion-lighting-that-actually-helps` 30 / 1 / 6.17; legacy `stop-kitchen-counter-clutter` stub 39 / 1 / 12.92. Preserve the legacy URL while Google recrawls; the destination page `kitchen-counter-zone-that-stays-clear` had 7 impressions and no clicks in this window.
+- Other leading pages by impressions: `macerating-toilet-basement-bathroom` 121 (position 13.34); `how-to-hang-large-wall-art-without-damage` 92 (6.41); `reduce-bathroom-condensation` 91 (48.31); `where-to-put-water-leak-sensors` 63 (17.92); `stop-musty-bathroom-towels` 49 (26.31); `better-evening-home-lighting-without-overcomplicating-it` 46 (5.11); `reduce-cable-clutter` 29 (10.86); `how-to-fix-damp-crawl-space-humidity` 29 (65.52).
+- Visible query examples: `why does my kitchen clutter keep coming back` 22 impressions (position 7.05); `bad condensation in bathroom` 10 (91.7); `condensation on bathroom walls` 10 (86.7); `how to keep towels from smelling musty` 8 (64.38); `cable clutter meaning` 7 (7.86); `bathroom dampness` 5 (88.2); `where to place water leak sensors` 5 (71.6). These are visible query rows, not the complete set of all searches.
+- Filtered query checks for terms containing `energy` and `air leak` returned no visible rows. This means no such query was surfaced in this site's current 28-day report; it does **not** establish that market demand is zero.
+
+### Bing Webmaster Tools
+
+- The current `top_queries` report returned an empty row set for the verified site. Record as no rows returned; do not infer crawl or indexing failure from this alone.
+
+### Interpretation and next research
+
+- The site's total search visibility is materially higher than the immediately preceding equal window, but four clicks remain a very small sample. Use page/topic patterns to generate hypotheses, not to overfit one or two clicks.
+- Continue cross-pillar research. The home-energy-audit candidate has no visible GSC query signal yet; it remains a research candidate only and needs current US SERP validation, a distinct reader benefit and a complete scorecard before READY FOR CLAUDE.
+- Do not attribute the page-level clicks to individual query rows when Search Console does not expose that attribution.
