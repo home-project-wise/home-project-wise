@@ -190,3 +190,12 @@ body .nav-cta,body .button{border-radius:var(--hpw-radius-pill)}
   body .calc-tabs{gap:var(--hpw-space-2);margin:var(--hpw-space-4) 0 var(--hpw-space-4)}
   body .calc-tabs button{min-height:76px}
 }
+
+/* Phase 1b: calculator page. Seen on phone screenshots: `.article h2{margin-top:54px}` (this file) beat `.tool-panel h2{margin:0 0 8px}` (inline) and left an empty band above every panel heading. Restore the panel heading's own size and spacing. */
+main.section.article .tool-panel>h2{margin:0 0 8px;font-size:clamp(23px,3.2vw,30px);line-height:1.2}
+/* Related links on the calculator page as tappable pills instead of one wrapped sentence */
+main.section.article:has(.calc-tabs)>p:last-child{display:flex;flex-wrap:wrap;gap:10px;margin:0 auto 8px;font-size:0;line-height:0}
+main.section.article:has(.calc-tabs)>p:last-child a{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;box-sizing:border-box;border:1.5px solid #c9d2ce;border-radius:999px;background:#fff;color:#243238;font-size:15px;line-height:1.2;text-decoration:none}
+main.section.article:has(.calc-tabs)>p:last-child a:hover{border-color:#243238}
+main.section.article:has(.calc-tabs)>p:last-child a:focus-visible{outline:3px solid #d97745;outline-offset:2px}
+@media(prefers-color-scheme:dark){main.section.article:has(.calc-tabs)>p:last-child a{background:#202b30;border-color:#34444b;color:#eef1ee}}
