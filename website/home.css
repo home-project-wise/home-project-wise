@@ -80,9 +80,6 @@
 /* Footer newsletter button: the label touched the button edges on phones (seen on a screenshot) */
 .footer-newsletter .newsletter-cta{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 20px;box-sizing:border-box;text-align:center}
 
-/* Crop the top of the planning photo: a third-party brand logo is visible on the man's shirt. Scaled from the bottom edge so the hands and plans stay in view. Retouching the JPG is the permanent fix. */
-.split-image{overflow:hidden}
-.split-image img{transform:scale(1.3);transform-origin:50% 100%}
 
 /* ===== Stage 1: quiet-luxury layer (appended; overrides the Phase 2 base above) ===== */
 @font-face{font-family:"Playfair Display";font-style:italic;font-weight:600 700;font-display:swap;src:url(fonts/playfair-display-italic-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
@@ -137,3 +134,12 @@
 @media(max-width:600px){.hero .eyebrow{letter-spacing:.1em;gap:10px}.hero .eyebrow::before{width:24px}}
 .hero .actions .text-link{white-space:nowrap}
 main .section.tasks{margin-top:clamp(56px,7vw,88px);padding-top:0}
+
+/* Stage 3: brand photography (hero arch and feature image) with a quiet "AI-generated" credit */
+.hero-visual{flex-direction:column}
+.hero-visual .hero-card img{object-position:50% 55%}
+@media(min-width:851px){.hero-visual .hero-card img{height:600px}}
+.split-image img{object-position:50% 28%}
+.img-credit{margin:10px 0 0;font-size:12px;line-height:1.4;letter-spacing:.02em;color:#5c686b;text-align:right}
+.img-credit-split{margin-top:18px;text-align:left;color:#a9c0b6}
+@media(prefers-color-scheme:dark){.img-credit{color:#aeb9bc}}
