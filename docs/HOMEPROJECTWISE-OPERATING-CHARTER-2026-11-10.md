@@ -589,3 +589,36 @@ PL-001, EN-001 and HVAC-001 were deferred under an overly conservative interpret
 - EN-001 may be a practical, low-risk first-pass walk-through with explicit stop points and next steps; it need not outperform every comprehensive audit guide to help readers.
 - HVAC-001 may be a useful filter-selection/measurement guide with a clear chart and compatibility caveats; existing manufacturer guidance is a source to build on, not a reason to avoid the subject.
 Reassess these candidates with Tier 1 or Tier 2 effort, select the strongest next one based on reader usefulness and production feasibility, and do not repeat paid research merely to justify moving forward.
+
+
+## 15. Owner-approved hub-and-spoke editorial architecture — 2026-11-12
+
+HomeProjectWise adopts a **pillar / hub-and-spoke content model** as a core editorial and internal-discovery principle. This is an architecture for serving the homeowner's journey, not a quota to manufacture URLs.
+
+### 15.1 Roles
+
+- **Pillar / hub article:** the broad, authoritative starting point for a clearly defined homeowner problem or topic. It explains the problem, helps readers understand the main decision factors, maps the major solution paths, gives safe first steps and realistic expectations, and directs readers to deeper specialist answers. It should be genuinely useful on its own; it is not merely a link directory.
+- **Specialist / spoke article:** a focused page that resolves one distinct sub-problem, decision, method, symptom, comparison or stage of the task in enough depth to stand alone. It must have a distinct reader outcome and search intent, not just a different keyword phrasing.
+- **Supporting assets:** calculators, checklists, diagrams, comparison tables, glossaries, troubleshooting flows and FAQs may support a hub or spoke. They do not automatically require separate URLs; choose the format that best serves the task.
+
+### 15.2 Linking model
+
+- The hub links to its relevant specialist spokes at the exact point where the reader needs more detail, with descriptive anchors and a short explanation of what the linked page answers.
+- Each spoke links back to its parent hub where broader context or the next decision is useful.
+- Spokes may link sideways to sibling pages when the reader's next likely task genuinely connects; do not force every spoke to link to every other spoke.
+- Add links within the body where contextually useful, not only in a generic "related articles" block. A compact "continue with" section may supplement contextual links.
+- Links must resolve to the canonical live URL, use natural descriptive anchor text, and avoid repetitive exact-match anchors.
+
+### 15.3 When to create a separate spoke
+
+Create a separate specialist page when research supports a distinct user task or search intent, meaningful depth, enough evidence/examples to answer it well, and a useful relationship to the hub. Keep it as a section, FAQ, table, tool or checklist inside an existing page when the question is too small, substantially duplicates the same intent, or would produce a thin page. A hub may link to dozens of spokes over time when the subject genuinely warrants it; there is no fixed spoke-count ceiling. Do not add 60 links indiscriminately to one screen: group them by decision stage or subtopic, summarize each group, and expose only the next useful choices.
+
+### 15.4 Cluster planning and governance
+
+Every new hub/spoke candidate must be mapped in the editorial queue or portfolio audit with: cluster ID/name; proposed role (hub, spoke, supporting asset); parent hub URL/ID (or planned hub); primary reader task and query intent; specialist outcome; existing coverage and cannibalization check; proposed contextual links (up, down, sideways); evidence and source needs; and status (planned / ready / drafted / published / linked / reviewed). Assign one owner per page and coordinate parallel writers through this map.
+
+Before publishing a spoke, verify the hub exists or record the planned hub and interim navigation path. Before publishing a hub, inventory existing pages that can serve as spokes and link them; do not rewrite or republish useful existing URLs just to fit the model. Audit existing content for cluster opportunities and orphan pages, then improve links in place. Prioritize clusters with real reader demand and business/site fit; do not let incomplete clusters block useful standalone publishing.
+
+### 15.5 Operating principle
+
+Build **depth through a connected library**, not by forcing every detail into one mega-article and not by splitting every paragraph into a URL. The hub gives orientation; spokes deliver depth; tools help users act; internal links connect the journey. This model applies across all pillars, including kitchens, energy, HVAC, plumbing, moisture, smart home, storage, painting and project costs.
