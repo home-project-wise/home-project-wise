@@ -1707,3 +1707,18 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 - Search Engine Journal hub/spoke linking: https://www.searchenginejournal.com/hub-spoke-internal-links/442005/
 
 **Status:** Strategy recorded in the operating charter and this operations room. No existing articles, URLs, queue assignments or open PRs were changed by this strategy entry. Next ChatGPT A action: audit the existing portfolio and current queue for the first 2–3 practical clusters, map current pages to hubs/spokes, identify missing links and specialist gaps, then add prioritized cluster briefs without disturbing reserved Claude assignments or design ownership.
+
+
+## 2026-11-12 — ChatGPT A — Owner-approved continuous initiative principle
+
+**Owner decision:** Adopted the principle of continuous initiative, creativity and evidence-led improvement as a mandatory operating standard for ChatGPT and Claude. This is not a motivational slogan: it defines expected behaviour, a repeatable initiative loop, autonomy boundaries and proactive reporting.
+
+**Required behaviour:** Collaborators must actively inspect the project and market, identify opportunities and risks, challenge assumptions, rank recommendations by long-term value, explain evidence and uncertainty, and take safe in-scope action instead of waiting for the owner to provide every task. Bring forward practical, evidence-backed improvements across content, SEO/CAO, UX, calculators, technology, distribution, trust and monetization. Do not flood the owner with unranked ideas.
+
+**Autonomy:** Research, analysis, briefs, prototypes, non-destructive checks and in-scope reversible documentation work can proceed proactively. Owner approval remains required for merge/deploy, live publishing or material live changes, URL/architecture/navigation/brand changes, commercial spend or affiliate changes, sensitive/security/privacy matters, irreversible actions, strategic priority changes and work in another collaborator's protected ownership. Initiative never overrides safety, quality, evidence integrity or owner authority.
+
+**Operating loop:** Observe → Diagnose → Propose → Act (within authority) → Verify → Learn and record. Distinguish proposed / implemented / tested / merged / deployed / live-verified. At meaningful checkpoints report the strongest opportunity, key risk, evidence, action taken, approval needed and next highest-value step.
+
+**Long-term objective:** Build HomeProjectWise into a useful, trusted, distinctive and commercially sustainable home-improvement resource with strong homeowner outcomes, tools, UX, organic and AI-search visibility, engagement and conversion—not simply a larger site.
+
+**Status:** The principle is now Section 16 of the operating charter and recorded here in the central operations room. ChatGPT A and Claude collaborators are expected to follow it; future handoffs should explicitly require the incoming account to read and apply Section 16. No production code, live content, merge or deployment was changed by this policy update.
