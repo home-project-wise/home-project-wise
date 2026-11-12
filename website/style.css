@@ -334,32 +334,39 @@ main.section.article:has(.calc-tabs)>p:last-child a:hover{border-color:#243238}
 main.section.article:has(.calc-tabs)>p:last-child a:focus-visible{outline:3px solid #d97745;outline-offset:2px}
 @media(prefers-color-scheme:dark){main.section.article:has(.calc-tabs)>p:last-child a{background:#202b30;border-color:#34444b;color:#eef1ee}}
 
-/* Phase 1c: calculator look. Scoped to the calculator page with :has(), so other tools keep today's look; browsers without :has keep today's layout. CSS only: no markup or script change. */
-main:has(.calc-tabs) .tool-panel{border-top:4px solid #d97745;box-shadow:0 12px 34px rgba(36,50,56,.07)}
-main:has(.calc-tabs) .calc-tabs button{box-shadow:0 2px 6px rgba(36,50,56,.05)}
-main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]{box-shadow:inset 0 -4px 0 #d97745}
-main:has(.calc-tabs) .calc-field label{font-size:14px;font-weight:700}
-main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]),main:has(.calc-tabs) .tool-panel .calc select{border-radius:12px}
-main:has(.calc-tabs) .tool-panel .calc-btn{background:#a94a1a;color:#fff;border-radius:14px;box-shadow:0 6px 16px rgba(169,74,26,.25)}
-main:has(.calc-tabs) .tool-panel .calc-btn:hover{background:#8f3d14;opacity:1}
-main:has(.calc-tabs) .tool-panel .calc-btn:focus-visible{outline:3px solid #243238;outline-offset:3px}
-main:has(.calc-tabs) .tool-result{background:#243238;color:#e8eeec;border:0;border-radius:18px;padding:22px 24px;line-height:1.7;box-shadow:0 14px 34px rgba(36,50,56,.18)}
+
+/* Phase 1c (v2): calculator look, quiet-luxury direction. Scoped to the calculator page with :has(); browsers without :has keep today's layout. CSS only. Colours stay in the ink/white family the owner preferred; brass is used only as a fine accent. */
+main:has(.calc-tabs) .tool-panel{position:relative;background:#FFFEFB;border:1px solid #E6DECB;border-radius:22px;box-shadow:0 24px 48px -28px rgba(27,46,42,.28)}
+main:has(.calc-tabs) .tool-panel::before{content:"";position:absolute;left:clamp(18px,3.2vw,32px);top:-1px;width:56px;height:3px;border-radius:0 0 3px 3px;background:#B98B45}
+main:has(.calc-tabs) .calc-tabs button{box-shadow:0 1px 2px rgba(27,46,42,.06)}
+main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]{background:#1B2E2A;box-shadow:inset 0 -3px 0 #B98B45}
+main:has(.calc-tabs) .calc-field label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#4f5c61}
+main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]),main:has(.calc-tabs) .tool-panel .calc select{border-radius:12px;background-color:#fff;transition:box-shadow .15s,border-color .15s}
+main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]):focus,main:has(.calc-tabs) .tool-panel .calc select:focus{outline:none;border-color:#1B2E2A;box-shadow:0 0 0 3px rgba(185,139,69,.45)}
+main:has(.calc-tabs) .tool-panel .calc-btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;background:#1B2E2A;color:#fff;font-weight:600;letter-spacing:.01em;box-shadow:0 12px 24px -12px rgba(27,46,42,.6);transition:background-color .15s}
+main:has(.calc-tabs) .tool-panel .calc-btn::after{content:"\2192";color:#D9B77A;transition:transform .15s}
+main:has(.calc-tabs) .tool-panel .calc-btn:hover{background:#24403A;opacity:1}
+main:has(.calc-tabs) .tool-panel .calc-btn:hover::after{transform:translateX(3px)}
+main:has(.calc-tabs) .tool-panel .calc-btn:focus-visible{outline:3px solid #B98B45;outline-offset:3px}
+main:has(.calc-tabs) .tool-result{background:#1B2E2A;color:#E4ECE8;border:1px solid rgba(217,183,122,.35);border-radius:18px;padding:22px 24px 22px 28px;line-height:1.7;box-shadow:inset 4px 0 0 #B98B45,0 24px 40px -24px rgba(27,46,42,.6)}
 main:has(.calc-tabs) .tool-result strong{display:block;margin:0 0 8px;font-family:"Playfair Display",Georgia,serif;font-size:clamp(24px,4.6vw,32px);line-height:1.15;font-weight:700;color:#fff}
-main:has(.calc-tabs) .tool-result a{color:#f0b08a}
+main:has(.calc-tabs) .tool-result a{color:#D9B77A}
 @media(prefers-color-scheme:dark){
-  main:has(.calc-tabs) .tool-panel .calc-btn{background:#e8905f;color:#1b1410;box-shadow:none}
-  main:has(.calc-tabs) .tool-panel .calc-btn:hover{background:#f0a77c}
-  main:has(.calc-tabs) .tool-panel .calc-btn:focus-visible{outline-color:#eef1ee}
-  main:has(.calc-tabs) .tool-result{background:#16201f;border:1px solid #3a4b52;box-shadow:none}
+  main:has(.calc-tabs) .tool-panel{background:#202b30;border-color:#34444b;box-shadow:none}
+  main:has(.calc-tabs) .calc-field label{color:#bcc6c8}
+  main:has(.calc-tabs) .tool-panel .calc-btn{background:#D9B77A;color:#1B2E2A;box-shadow:none}
+  main:has(.calc-tabs) .tool-panel .calc-btn::after{color:#1B2E2A}
+  main:has(.calc-tabs) .tool-panel .calc-btn:hover{background:#E6C792}
+  main:has(.calc-tabs) .tool-result{background:#12201d;box-shadow:inset 4px 0 0 #B98B45}
 }
 @media(min-width:960px){
   main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);column-gap:40px;align-items:start}
   main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>h2,main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>p{grid-column:1/-1}
   main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.calc{grid-column:1;grid-row:3}
   main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result{grid-column:2;grid-row:3;margin-top:20px;position:sticky;top:16px}
-  main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty{display:flex;align-items:center;justify-content:center;min-height:180px;padding:24px;background:transparent;border:2px dashed #c9d2ce;box-shadow:none;color:#5c686b;text-align:center}
+  main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty{display:flex;align-items:center;justify-content:center;min-height:180px;padding:24px;background:transparent;border:2px dashed #CDBF9F;box-shadow:none;color:#6a6455;text-align:center}
   main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty::before{content:"Your estimate will appear here.";font-size:15px;line-height:1.5}
 }
-@media(min-width:960px) and (prefers-color-scheme:dark){
-  main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty{border-color:#3a4b52;color:#aeb9bc}
-}
+@media(min-width:960px) and (prefers-color-scheme:dark){main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty{border-color:#3a4b52;color:#aeb9bc}}
+/* Header links on narrow phones: wrap instead of being clipped (seen on the guide library page) */
+@media(max-width:600px){body .nav{flex-wrap:wrap;height:auto;row-gap:4px}body .nav nav{flex-wrap:wrap;gap:0 18px;max-width:100%}}
