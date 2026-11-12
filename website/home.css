@@ -127,3 +127,13 @@
   .tasks-list a{border-bottom-color:var(--hp-rule)}
 }
 @media(min-width:1000px) and (prefers-color-scheme:light),(min-width:1000px) and (prefers-color-scheme:no-preference){.tasks-list li+li a{border-left-color:var(--hp-rule)}}
+
+/* Stage 2b (owner feedback on the live site): the offset outline read as an extra line around the hero image, so it is removed. The hero becomes a true portrait arch on phones (4:5), the image no longer carries its own rounded corners inside the arch, and a few spacing details are tightened. */
+.hero-visual::before{display:none}
+.hero-visual .hero-card{box-shadow:0 30px 50px -34px rgba(27,46,42,.45)}
+.hero-visual .hero-card img{display:block;border-radius:0}
+@media(max-width:850px){.hero-visual .hero-card img{height:auto;aspect-ratio:4/5}}
+.hero .eyebrow{letter-spacing:.14em}
+@media(max-width:600px){.hero .eyebrow{letter-spacing:.1em;gap:10px}.hero .eyebrow::before{width:24px}}
+.hero .actions .text-link{white-space:nowrap}
+main .section.tasks{margin-top:clamp(56px,7vw,88px);padding-top:0}
