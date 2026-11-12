@@ -668,3 +668,43 @@ Avoid flooding the owner with unranked ideas or repetitive status messages. Cons
 ### 16.5 Long-term success measure
 
 Judge initiative by durable progress toward a useful, trusted, distinctive and commercially sustainable home-improvement resource: better homeowner outcomes, stronger topical coverage, excellent tools and experience, qualified organic and AI-search visibility, meaningful engagement, trust, conversion and learning. More articles, features, links or activity are not success by themselves. Continue experimenting and improving while preserving evidence integrity, quality and the owner's decision rights.
+
+## 17. Owner-approved article-first image production — 2026-11-12
+
+**Decision:** Stop treating the owner as the prompt operator. The image-producing AI collaborator must read and understand the actual article, then independently develop and create the visual assets that best communicate that article. Do not routinely send the owner image prompts to copy into another ChatGPT conversation. The prompt is an internal production instrument, not the deliverable.
+
+### 17.1 Required article-first workflow
+
+1. **Read before creating:** read the complete approved article draft, including its headings, examples, safety limits, diagrams, tables and intended reader task. Check the target audience, article intent, and existing site image style (including S19).
+2. **Build a visual plan internally:** identify the article's central promise and the 2–5 most useful visual moments. For each proposed image, define the exact point it explains, what must be visible, the intended composition/crop, and why a reader benefits. The hero must communicate the article's actual subject at a glance—not merely show an attractive room or a generic person writing notes.
+3. **Choose the right visual form:** use photorealistic editorial photography for real-world scenes and outcomes; use a precise diagram, annotated illustration or comparison only when it explains structure, measurement, sequence or a decision better than a photograph. Do not use decorative images to fill a quota.
+4. **Create directly:** use the available image-generation capability to produce the final candidate(s) yourself. Do not stop after writing a prompt, and do not transfer prompt-writing and generation work to the owner. Keep prompts and iteration notes in the internal workflow/PR record when useful.
+5. **Ground every detail:** depict only products, materials, geometry, actions and outcomes supported by the article or reliable reference material. Do not invent technical labels, measurements, safety procedures, product features or results. If a concept is difficult to depict faithfully, choose a simpler and safer composition or a diagram.
+6. **Iterate with purpose:** inspect each candidate at full resolution and at phone display size. Regenerate when the subject is unclear, the visual story is inaccurate, or defects reduce trust. Each attempt must change a diagnosed weakness, not merely reword the same prompt. Maximum three meaningful attempts before escalation with the evidence and a proposed alternative.
+7. **Quality-control and handoff:** record asset ID, article/section served, generation method, dimensions, file format, alt text, reviewer, PASS/FAIL, and any known limitation. Inspect hands, tools, text, geometry, lighting, shadows, materials, US-home details and crop safety. Verify that the image actually exists in the PR/repository before calling it committed.
+8. **Integrate and verify:** the responsible editorial/engineering collaborator handles responsive sizes, compression, width/height, lazy loading or priority loading as appropriate, descriptive alt text, captions/disclosure under the site's policy, and page placement. Run exact-head checks and inspect the rendered page on phone and desktop. Distinguish generated, reviewed, committed, merged, deployed and visually inspected states.
+
+### 17.2 Image value and acceptance standard
+
+An image is accepted only when it passes all four tests:
+- **Subject accuracy:** a reader can identify the article-specific subject or task immediately.
+- **Explanatory value:** it demonstrates, clarifies, compares or contextualizes something useful; beauty alone is insufficient.
+- **Editorial quality:** sophisticated, coherent, believable photography/design aligned with S19's quiet-luxury direction, without generic stock clichés or obvious AI artefacts.
+- **Technical integrity:** plausible anatomy, object geometry, scale, materials, light and shadows; no fabricated readable text, logos, watermarks or misleading technical detail.
+
+Reject attractive but generic scenes that could illustrate dozens of unrelated articles. Reject any image that implies an unsafe action or a result the article does not support. Do not accept an asset merely because it took several generations to produce.
+
+### 17.3 Image set planning and restraint
+
+- Choose image count by reader need, not by a fixed quota. Every image must have a distinct job and a planned placement in the article.
+- A hero should express the article's defining problem, action or outcome. Supporting images should explain distinct steps, components, mistakes, comparisons or decisions that text alone makes harder to understand.
+- Avoid near-duplicate angles, redundant decorative scenes and images that simply repeat a nearby heading.
+- A single well-executed image is better than several mediocre or repetitive images. If the article does not need another image, do not create one.
+- Design crops with both article presentation and Pinterest reuse in mind where practical, but never compromise the article's visual accuracy merely to force a social format.
+
+### 17.4 Role boundaries and owner experience
+
+- The assigned article/image collaborator owns reading, visual planning, generation, iteration, image QA and documenting the asset handoff.
+- The design account retains ownership of site-front/brand imagery, shared templates and site-wide visual identity unless the owner changes that assignment.
+- The owner should receive finished, reviewed image assets or a concise exception requiring a decision—not routine prompts to paste elsewhere.
+- Owner approval remains required for live publication, material brand changes, licensing/rights questions, paid services and other reserved decisions under Section 16.3.
