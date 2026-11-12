@@ -1757,3 +1757,25 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 - Keep the prompt IDs `EN-001-HERO` and `HVAC-001-HERO`; after generation record prompt ID, PASS/FAIL and reviewer. Maximum three attempts before escalating to the owner.
 
 **Next actions:** (1) fix the unrelated HVAC “Keep going” links; (2) render and inspect both hero candidates and all eight SVG diagrams at full size and phone size; (3) test the EN log on a real phone; (4) run any missing full-tree checks if required; (5) report exact-head CI again after any commit changes. Do not mark either PR ready or merge without owner approval.
+
+## 2026-11-12 — Owner decision: article-first image creation (replaces prompt handoff to owner)
+
+The owner approved a better workflow: the image collaborator must read the actual article and independently create professional images that accurately express its subject and add visual value. The owner does not want to receive prompts to paste into a separate ChatGPT image conversation.
+
+**New binding standard:** see Section 17 of `docs/HOMEPROJECTWISE-OPERATING-CHARTER-2026-11-10.md` (commit `1088c749c65154e72edc14af2b306f302bf36655`).
+
+**Operating change:**
+- Read the complete article first; understand the reader task, examples, limitations and safety constraints.
+- Plan internally the hero plus only the supporting visuals that genuinely clarify distinct parts of the article.
+- Choose photography, diagram or illustration based on what best explains the subject.
+- Generate the actual image assets directly. Prompts remain internal production notes; do not ask the owner to copy/paste prompts or act as the image-production operator.
+- Reject generic attractive room scenes that do not communicate the article's specific topic. The image must make the subject clear at a glance and provide explanatory value as well as editorial beauty.
+- Ground every visible detail in the article or reliable references. No invented dimensions, labels, equipment details, unsafe demonstrations or unsupported outcomes.
+- Inspect full size and phone size; iterate to fix diagnosed defects, not merely rephrase prompts. Maximum three meaningful attempts before escalation.
+- Record asset ID, article/section, dimensions, format, alt text, reviewer, PASS/FAIL and limitations. Confirm the actual asset is present in the PR/repository before claiming it is committed.
+- Keep S19 quiet-luxury quality and US-home realism. Design account retains site-front/brand image ownership; article images stay with the editorial/image workflow.
+- Owner receives reviewed finished assets or a specific exception requiring a decision—not routine image prompts.
+
+**Immediate consequence for EN-001 and HVAC-001:** their current prompt-only hero files are not finished image deliverables. The assigned image collaborator must read PR #318 and #319 article drafts, generate article-specific hero candidates (and assess whether each diagram genuinely helps), inspect them at full and phone size, then hand off actual assets and QA evidence. This does not authorize merge or deployment. Also retain the outstanding HVAC unrelated-link correction and the EN mobile log check.
+
+**Verification status:** policy added to the operating charter; operations-room entry added here. No article images were generated or committed by this documentation update.
