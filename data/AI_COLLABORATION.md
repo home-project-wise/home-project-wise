@@ -1681,3 +1681,29 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 - **S20 done — owner asked to merge so the work shows on the live site and to keep iterating (2026-11-12).** Merged #305 (`72a7da1`) and #306 (`053aa54`) after marking them ready; both heads had `quality` and `chromium-visual-qa` passing (`health` had been cancelled by the `site-health` concurrency queue, not failed). Pages deployments runs 665 and 666 completed successfully. **Live check by cache-busted HTTP requests (content, not appearance):** `index.html` 200 with the quick-start band, `home.css`, arch wrapper, skip link, `id="categories"`, the generated "latest" section, canonical, JSON-LD, GoatCounter, exactly one `h1` and the `#panel-*` deep links; `home.css`, `style.css` (tokens and the `:has(.calc-tabs)` scope present), the italic woff2, the calculator page, `guides.html` and `articles/calm-room.html` all 200. **Evidence:** tested = CI on both heads; merged = yes; live = verified by content; visually inspected = NO (no screenshot of the live result yet). Site Health Monitor on the merge commits was still running or cancelled by queue at time of writing.
 
 **RESUME HERE (design account):** (1) read the owner's screenshots of the LIVE site (it now carries Stage 1) and iterate; (2) image prompts: wait for ids from the prompt agents (S19), then integrate `HOME-HERO` and `HOME-PLANNING`; (3) Stage 2: header, type scale, guide-library page (clipped header link, empty band above its title) and article template in the quiet-luxury language; (4) logo decision (Option 4 recommended, not applied); (5) rollback if needed: revert commits 72a7da1 (#305) and 053aa54 (#306). Every later change: PR, CI, merge, then verify the deployed site and say which of tested / merged / live / visually inspected is true.
+
+
+## 2026-11-12 — ChatGPT A — Owner-approved hub-and-spoke editorial strategy
+
+**Decision:** The owner approved adopting a pillar / hub-and-spoke model across HomeProjectWise. The operating charter now contains Section 15, defining hub roles, specialist spokes, contextual bidirectional links, cluster mapping and rules for deciding when a question deserves its own URL.
+
+**Competitive patterns reviewed:**
+- The Spruce's home-improvement navigation separates broad areas (e.g. Kitchen, Bathroom, Painting, Exteriors) and surfaces specialist topic links inside articles; the inspected apartment-gardening article links directly to container gardening, sunlight, potting mix, grow lights and related specialist answers in context. This is a useful pattern: answer the immediate question, then offer the next relevant depth link.
+- This Old House's Home Improvement A–Z organizes many home areas and breaks each into task families such as budget, how-to/DIY, installation, maintenance, planning, renovation, safety and tools/materials. This suggests a reusable taxonomy for our hubs rather than a flat pile of articles.
+- Search Engine Journal's hub-and-spoke guidance supports contextual links between a broad hub and focused pages, without forcing a page to link to dozens of unrelated pages.
+
+**Implementation rules:**
+1. Do not turn every subsection into a URL. A spoke must solve a distinct homeowner task / search intent with enough depth to stand alone.
+2. A hub must give useful orientation and classify solution paths, not just list links.
+3. Link hub → spokes at the relevant decision point; spoke → hub for context; spoke ↔ spoke only when the next task is genuinely related.
+4. A cluster can contain many spokes, including dozens when justified, but group them by subtopic or decision stage and avoid an overwhelming link dump.
+5. Existing useful URLs should be mapped and linked in place; do not mass-rewrite, duplicate or migrate URLs to impose the new model.
+6. Add cluster ID, hub/spoke role, parent ID/URL, intent, overlap check and proposed internal links to new briefs / queue records. Audit existing inventory for clusters and missing links.
+7. This architecture must accelerate useful coverage, not become a publication gate. Continue the daily production target while building clusters in parallel.
+
+**Competitor references checked 2026-11-12:**
+- The Spruce article structure: https://www.thespruce.com/the-ultimate-guide-to-urban-gardening-7555044
+- This Old House topic taxonomy: https://www.thisoldhouse.com/home-improvement
+- Search Engine Journal hub/spoke linking: https://www.searchenginejournal.com/hub-spoke-internal-links/442005/
+
+**Status:** Strategy recorded in the operating charter and this operations room. No existing articles, URLs, queue assignments or open PRs were changed by this strategy entry. Next ChatGPT A action: audit the existing portfolio and current queue for the first 2–3 practical clusters, map current pages to hubs/spokes, identify missing links and specialist gaps, then add prioritized cluster briefs without disturbing reserved Claude assignments or design ownership.
