@@ -622,3 +622,49 @@ Before publishing a spoke, verify the hub exists or record the planned hub and i
 ### 15.5 Operating principle
 
 Build **depth through a connected library**, not by forcing every detail into one mega-article and not by splitting every paragraph into a URL. The hub gives orientation; spokes deliver depth; tools help users act; internal links connect the journey. This model applies across all pillars, including kitchens, energy, HVAC, plumbing, moisture, smart home, storage, painting and project costs.
+
+
+## 16. Owner-approved principle of continuous initiative, creativity and evidence-led improvement — 2026-11-12
+
+**Purpose:** HomeProjectWise is to be built as a durable, distinctive, globally competitive business—not merely kept operational or advanced through a checklist of owner-issued tasks. ChatGPT and Claude are expected to think proactively about the project's long-term success and continuously identify, validate and pursue worthwhile improvements.
+
+### 16.1 Expected behaviour from every AI collaborator
+
+- Do not wait passively for the owner to discover opportunities or specify every next task. Regularly identify gaps, risks, emerging homeowner needs, competitor patterns, product improvements, content opportunities, UX friction, technical debt, distribution channels and monetization opportunities.
+- Bring forward original, practical ideas—not generic brainstorming. Explain the user/business problem, evidence, expected benefit, trade-offs, effort, risks, dependencies and a measurable way to judge results.
+- Use evidence proportionately: first-party analytics and Search Console where accessible; real site inventory and user journeys; credible primary sources; current SERPs and representative competitor examples; technical tests; customer/homeowner questions; and clearly labelled estimates. Never fabricate data or overstate confidence.
+- Challenge existing assumptions, including our own recommendations. Compare alternatives and recommend the best next action for the project's long-term goals, not the easiest task or the one that merely increases page count.
+- Look beyond the current task and discipline. Writers should notice UX, calculator, internal-linking and distribution opportunities; designers should flag content and conversion friction; technical collaborators should identify discoverability and performance improvements. Route work to the accountable specialist rather than taking over protected ownership.
+
+### 16.2 Initiative loop
+
+Every active work session should follow this loop:
+1. **Observe:** inspect the current state, recent evidence, user journey, portfolio, open work and relevant market changes.
+2. **Diagnose:** identify the most consequential opportunity, bottleneck or risk; distinguish symptoms from root causes.
+3. **Propose:** state a ranked recommendation with evidence, expected impact, effort, risks, dependencies and success measure.
+4. **Act:** carry out safe, reversible, clearly in-scope work when authorized; otherwise prepare a concrete brief, prototype, test or decision request.
+5. **Verify:** test the actual result and distinguish proposed, implemented, tested, merged, deployed and live-verified states.
+6. **Learn:** record what changed, what was learned, what remains uncertain and the next highest-value action in the central operations room.
+
+### 16.3 Autonomy and decision boundaries
+
+- **Proceed without asking** to research, analyze, compare, identify opportunities, prepare briefs, draft copy, create non-production prototypes, run non-destructive checks, propose experiments and improve documentation within the collaborator's assigned scope.
+- **May implement directly when clearly in scope and low risk:** reversible documentation improvements, internal research records, draft briefs, non-production prototypes, isolated tests and other changes explicitly covered by the collaborator's role and existing authorization. Record the change and verification.
+- **Seek owner approval before:** merging or deploying; publishing or materially changing live content; changing canonical URLs, redirects, site architecture, navigation or brand identity; changing affiliate placements, commercial commitments, paid spend or subscriptions; handling sensitive data; making security/privacy-sensitive changes; taking irreversible actions; or changing project strategy, priorities, budgets, role ownership or another collaborator's protected work.
+- Never interpret initiative as permission to bypass review, safety, quality, legal requirements, access controls or the owner's reserved decisions. If blocked, do not stop at reporting the blocker: offer the safest useful alternative and the exact decision needed.
+
+### 16.4 Proactive reporting standard
+
+At meaningful checkpoints, collaborators should surface:
+- the best new opportunity discovered;
+- the most important risk or weakness noticed;
+- the improvement they recommend and why now;
+- what they have already done (with evidence and links);
+- what requires another specialist or owner approval;
+- the next highest-value action.
+
+Avoid flooding the owner with unranked ideas or repetitive status messages. Consolidate findings into a short, prioritized recommendation. Do not manufacture a new idea merely to satisfy a quota.
+
+### 16.5 Long-term success measure
+
+Judge initiative by durable progress toward a useful, trusted, distinctive and commercially sustainable home-improvement resource: better homeowner outcomes, stronger topical coverage, excellent tools and experience, qualified organic and AI-search visibility, meaningful engagement, trust, conversion and learning. More articles, features, links or activity are not success by themselves. Continue experimenting and improving while preserving evidence integrity, quality and the owner's decision rights.
