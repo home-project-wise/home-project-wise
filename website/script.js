@@ -29,3 +29,6 @@ document.querySelectorAll('a[href="#"]').forEach(a=>a.addEventListener('click',e
   bar.querySelector('.consent-decline').addEventListener('click', function(){ choose('declined'); });
   document.body.appendChild(bar);
 })();
+
+/* Whole-card click (design Stage 4a): a card with a single destination becomes one big link target. Cards with several different links (for example the problem cards) are left alone. */
+(function(){try{var cs=document.querySelectorAll('.card');for(var i=0;i<cs.length;i++){var as=cs[i].querySelectorAll('a[href]');if(!as.length)continue;var h=as[0].getAttribute('href'),same=true;for(var j=1;j<as.length;j++){if(as[j].getAttribute('href')!==h){same=false;break;}}if(same)as[as.length-1].classList.add('card-main');}}catch(e){}})();

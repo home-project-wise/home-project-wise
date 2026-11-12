@@ -253,3 +253,10 @@ main.guide-library .guide-grid{display:grid;grid-template-columns:repeat(auto-fi
 main.guide-library .guide-grid>.card{width:auto;max-width:none;margin:0}
 @media(prefers-reduced-motion:no-preference) and (hover:hover){main.guide-library .guide-grid>.card{transition:transform .2s ease,box-shadow .2s ease}main.guide-library .guide-grid>.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(36,50,56,.1)}}
 @media(prefers-color-scheme:dark){main.guide-library .library-meta{border-color:#34444b}}
+
+/* Stage 4a: the whole card is clickable (the script marks the single link of each card as .card-main; its overlay covers the card, so tapping anywhere opens the guide). Still a real link: keyboard, middle-click and screen readers work as before. */
+.card{position:relative}
+.card .card-main::after{content:"";position:absolute;inset:0;z-index:1}
+.card:has(.card-main){cursor:pointer}
+.card .card-main:focus-visible{outline:none}
+.card:has(.card-main:focus-visible){outline:3px solid #B98B45;outline-offset:3px}
