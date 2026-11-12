@@ -1730,3 +1730,30 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 **Long-term objective:** Build HomeProjectWise into a useful, trusted, distinctive and commercially sustainable home-improvement resource with strong homeowner outcomes, tools, UX, organic and AI-search visibility, engagement and conversion—not simply a larger site.
 
 **Status:** The principle is now Section 16 of the operating charter and recorded here in the central operations room. ChatGPT A and Claude collaborators are expected to follow it; future handoffs should explicitly require the incoming account to read and apply Section 16. No production code, live content, merge or deployment was changed by this policy update.
+
+## 2026-11-12 — ChatGPT A — Review checkpoint: EN-001 / HVAC-001 CI and image briefs
+
+**Pull requests and exact heads reviewed (drafts; neither merged):**
+- EN-001 — PR #318: https://github.com/home-project-wise/home-project-wise/pull/318
+  - Head: `b7b85259a3cf5f1792f6d3012dc97f80fae9bb16`
+  - Workflow runs on this exact commit: Editorial Quality Gate #1603 (run 43213689487) PASS; Image Vision Guard #155 (run 43213689502) PASS; Always-on visual QA #214 (run 43213689499) PASS.
+  - Job-level confirmation: `quality`, `guard`, and `chromium-visual-qa` all completed successfully. In the image guard, the separate “Audit and fix images” and “Content value audit” steps were skipped; therefore this is not a human image review or a full image-quality sign-off.
+- HVAC-001 — PR #319: https://github.com/home-project-wise/home-project-wise/pull/319
+  - Head: `b786bab47a419f44d631a4958ce0c817609a153c`
+  - Workflow runs on this exact commit: Always-on visual QA #215 (run 43214255752) PASS; Image Vision Guard #156 (run 43214256208) PASS; Editorial Quality Gate #1604 (run 43214255676) PASS.
+  - Job-level confirmation: `chromium-visual-qa`, `guard`, and `quality` all completed successfully. As above, the separate “Audit and fix images” and “Content value audit” steps were skipped; no human visual review has been performed.
+
+**Editorial review notes:**
+- EN-001: the room-by-room sequence, explicit stop rules, non-claiming of savings, and distinction between a DIY visual walkthrough and a professional assessment are coherent. The four SVGs have distinct purposes (route, stop rules, window checks, priority ladder); their XML/source and titles/descriptions were inspected, but they have not yet been rendered and visually inspected by a human. The 5-column phone log remains a real-device check, not proven by CI alone.
+- HVAC-001: the core sizing logic is cautious and useful: start with a snug old filter’s printed size; otherwise measure length/width/depth; do not force a filter; respect the equipment’s MERV limit; point the arrow toward the unit. The one nominal/actual size example is clearly labelled illustrative. Four diagrams have distinct jobs and the article source/alt text were inspected; no human rendered-image review has occurred.
+- HVAC-001 has one editorial-linking issue to resolve before final approval: its “Keep going” section points to bathroom exhaust-fan selection and bathroom condensation. The copy says these are separate tasks, but they are not a useful next step for a reader solving HVAC filter sizing. Replace with relevant HVAC/airflow/filter resources if an existing match is available, or remove the section rather than force unrelated links.
+- Neither PR has been merged, deployed, or live-verified. CI PASS is not publication approval.
+
+**S19 image prompt handoff:**
+- Existing prompt files are present in each PR: `docs/image-prompts/EN-001-HERO.md` and `docs/image-prompts/HVAC-001-HERO.md`. Both remain PROMPT ONLY; no image has been generated or committed.
+- Refine/generate each as a portrait 3:4 editorial hero at minimum 1600 × 2133 px, matching S19 quiet-luxury photography, US-home details, natural light, realistic materials, no readable text/numbers/logos/watermarks, and phone-size + 100% inspection. Keep the two article subjects unmistakably distinct.
+- EN-001 subject: close editorial scene of hands documenting a home walkthrough at a real US double-hung window: blank notebook, plain flashlight and pencil on a wood sill, white trim/drywall and soft linen curtain; no visible outlet work, flame, incense, attic entry or unsafe testing.
+- HVAC-001 subject: close editorial scene in a clean American utility closet showing a homeowner measuring the external dimensions of an accessible filter slot with an imperial tape and a correctly sized pleated HVAC filter beside it; ordinary sheet-metal cabinet, drywall and concrete floor; no exposed wiring, open sealed equipment panels, forced filter, readable tape numbers or invented technical labels. Ensure the filter arrow, if visible, points toward the air handler.
+- Keep the prompt IDs `EN-001-HERO` and `HVAC-001-HERO`; after generation record prompt ID, PASS/FAIL and reviewer. Maximum three attempts before escalating to the owner.
+
+**Next actions:** (1) fix the unrelated HVAC “Keep going” links; (2) render and inspect both hero candidates and all eight SVG diagrams at full size and phone size; (3) test the EN log on a real phone; (4) run any missing full-tree checks if required; (5) report exact-head CI again after any commit changes. Do not mark either PR ready or merge without owner approval.
