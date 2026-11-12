@@ -260,3 +260,21 @@ main.guide-library .guide-grid>.card{width:auto;max-width:none;margin:0}
 .card:has(.card-main){cursor:pointer}
 .card .card-main:focus-visible{outline:none}
 .card:has(.card-main:focus-visible){outline:3px solid #B98B45;outline-offset:3px}
+
+/* Stage 4b: article template polish in the quiet-luxury language, reading progress, skip link, scrolling tables. */
+main.section.article>h1{letter-spacing:-.025em}
+main.section.article>.eyebrow{display:flex;align-items:center;gap:12px;letter-spacing:.16em}
+main.section.article>.eyebrow::before{content:"";flex:none;width:28px;height:1px;background:#B98B45}
+main.section.article>h2::before{content:"";display:block;width:40px;height:2px;margin-bottom:14px;background:#B98B45}
+main.section.article figure img{border-radius:18px;box-shadow:0 24px 48px -28px rgba(27,46,42,.35)}
+main.section.article figcaption{font-size:13px;line-height:1.5;letter-spacing:.01em}
+.table-scroll{overflow-x:auto;max-width:100%;margin:0 0 1.2em}
+.table-scroll table{margin:0}
+@media(prefers-color-scheme:light),(prefers-color-scheme:no-preference){
+  main.section.article th{background:#EFE8D8}
+  main.section.article tbody tr:nth-child(even) td{background:rgba(216,204,180,.18)}
+}
+.read-progress{position:fixed;top:0;left:0;right:0;height:3px;background:#B98B45;transform-origin:0 50%;transform:scaleX(0);z-index:60;pointer-events:none}
+.skip-link{position:absolute;left:12px;top:-64px;z-index:100;background:#243238;color:#fff;padding:12px 16px;border-radius:10px;font-weight:600;text-decoration:none}
+.skip-link:focus{top:12px;outline:3px solid #D97745;outline-offset:2px}
+@media print{.read-progress,.skip-link{display:none}}
