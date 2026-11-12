@@ -236,3 +236,20 @@ main:has(.calc-tabs) .tool-result a{color:#D9B77A}
 @media(min-width:960px) and (prefers-color-scheme:dark){main:has(.calc-tabs) :is(#panel-measure,#panel-paint,#panel-material,#panel-energy).active>.tool-result:empty{border-color:#3a4b52;color:#aeb9bc}}
 /* Header links on narrow phones: wrap instead of being clipped (seen on the guide library page) */
 @media(max-width:600px){body .nav{flex-wrap:wrap;height:auto;row-gap:4px}body .nav nav{flex-wrap:wrap;gap:0 18px;max-width:100%}}
+
+/* Stage 2a: guide library and card polish in the quiet-luxury language (CSS only). Thumbnails get a steady 16:10 ratio so cards stop filling a whole phone screen; the library grid becomes a real grid, so a last row of one or two cards aligns left. */
+body .card>img{height:auto;aspect-ratio:16/10;object-fit:cover;width:100%}
+main.guide-library{padding-top:clamp(20px,4vw,48px)}
+main.guide-library .library-intro{margin-top:0;padding-top:0}
+main.guide-library .library-intro .eyebrow{display:flex;align-items:center;gap:12px;letter-spacing:.18em}
+main.guide-library .library-intro .eyebrow::before{content:"";flex:none;width:36px;height:1px;background:#B98B45}
+main.guide-library h1{letter-spacing:-.025em}
+main.guide-library .library-search{display:flex;gap:10px;max-width:640px}
+main.guide-library .library-search input{flex:1;min-width:0;min-height:48px;padding:0 18px;border-radius:999px;transition:box-shadow .15s,border-color .15s}
+main.guide-library .library-search input:focus{outline:none;border-color:#1B2E2A;box-shadow:0 0 0 3px rgba(185,139,69,.45)}
+main.guide-library .library-search button{min-height:48px;padding:0 24px;border-radius:999px}
+main.guide-library .library-meta{border-top:1px solid #D8CCB4;border-bottom:1px solid #D8CCB4}
+main.guide-library .guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:24px;justify-content:stretch}
+main.guide-library .guide-grid>.card{width:auto;max-width:none;margin:0}
+@media(prefers-reduced-motion:no-preference) and (hover:hover){main.guide-library .guide-grid>.card{transition:transform .2s ease,box-shadow .2s ease}main.guide-library .guide-grid>.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(36,50,56,.1)}}
+@media(prefers-color-scheme:dark){main.guide-library .library-meta{border-color:#34444b}}
