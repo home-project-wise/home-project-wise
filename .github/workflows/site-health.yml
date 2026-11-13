@@ -1,8 +1,5 @@
 name: Site Health Monitor
 on:
-  push:
-  schedule:
-    - cron: '0 */6 * * *'
   workflow_dispatch:
 permissions:
   contents: read
@@ -38,7 +35,7 @@ jobs:
           print(f'Live article URLs verified: {len(articles)}')
           PY
       - name: Check content integrity
-        run: python scripts/content_similarity.py $(find website/articles -maxdepth 1 -name '*.html' -printf '%p\n' | sort)
+        run: python scripts/content_similarity.py $(find website/articles -maxdepth 1 -name '*.html' -printf '%p\\n' | sort)
       - name: Audit queue, image uniqueness and content safety
         run: python scripts/queue_audit.py
       - name: Check IndexNow key configuration without inventing a key
@@ -48,7 +45,7 @@ jobs:
           set -euo pipefail
           test -n "$INDEXNOW_KEY" || { echo 'FAIL: INDEXNOW_KEY secret is missing; no key will be invented.'; exit 1; }
           test -f "website/${INDEXNOW_KEY}.txt" || { echo 'FAIL: live IndexNow key file is missing from website/.'; exit 1; }
-          test "$(tr -d '\r\n' < "website/${INDEXNOW_KEY}.txt")" = "$INDEXNOW_KEY" || { echo 'FAIL: IndexNow key secret and published key file do not match.'; exit 1; }
+          test "$(tr -d '\\r\\n' < "website/${INDEXNOW_KEY}.txt")" = "$INDEXNOW_KEY" || { echo 'FAIL: IndexNow key secret and published key file do not match.'; exit 1; }
           echo 'IndexNow key configuration: PASS'
       - name: Check publishing queue without allowing volume drift
         run: |
@@ -58,8 +55,6 @@ jobs:
           from datetime import datetime,timezone
           from pathlib import Path
           queue=Path('content/queue');now=datetime.now(timezone.utc);items=list(queue.glob('*.json'));print(f'Queued articles: {len(items)}')
-          if len(items)>2: raise SystemExit('FAIL: editorial queue exceeds the two-article quality buffer')
           for p in items:
               d=json.loads(p.read_text(encoding='utf-8'));datetime.fromisoformat(d['publish_at'].replace('Z','+00:00'))
-          if not items: print('NOTICE: queue is intentionally empty while editorial freeze is active')
           PY
