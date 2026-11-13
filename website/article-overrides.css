@@ -291,3 +291,9 @@ html{scroll-padding-top:84px}
 .read-progress{z-index:80}
 @media(prefers-color-scheme:dark){body>header.nav{background:#182126;box-shadow:0 0 0 100vmax #182126}}
 @media print{body>header.nav{position:static}}
+
+/* Stage 6: smart header (owner request). header.js hides it while you read down and brings it back on any upward scroll; without JavaScript it stays sticky as in Stage 5. --hdr-h is set by the script so anchors and keyboard focus are never hidden under it (WCAG 2.2 SC 2.4.11). */
+body>header.nav{transition:transform .25s ease;will-change:transform}
+body>header.nav.nav-hidden{transform:translateY(-110%)}
+html{scroll-padding-top:calc(var(--hdr-h,84px) + 16px)}
+@media(prefers-reduced-motion:reduce){body>header.nav{transition:none}}

@@ -143,3 +143,9 @@ main .section.tasks{margin-top:clamp(56px,7vw,88px);padding-top:0}
 .img-credit{margin:10px 0 0;font-size:12px;line-height:1.4;letter-spacing:.02em;color:#5c686b;text-align:right}
 .img-credit-split{margin-top:18px;text-align:left;color:#a9c0b6}
 @media(prefers-color-scheme:dark){.img-credit{color:#aeb9bc}}
+
+/* Stage 6: compact phone header on the homepage: brand and Menu on one row, about 56 px tall (research S37: persistent headers should stay near a tenth of the screen). */
+@media(max-width:600px){
+  .js .hpw-header{min-height:56px;padding:6px 16px}
+  .hpw-header .brand-logo{height:28px;width:auto}
+}

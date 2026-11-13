@@ -417,6 +417,8 @@ def ensure_head_tags(path, prefix):
     for font in ("dm-sans-latin.woff2", "playfair-display-latin.woff2"):
         if font not in html:
             add += '<link rel="preload" href="' + prefix + 'fonts/' + font + '" as="font" type="font/woff2" crossorigin>'
+    if 'header.js' not in html:
+        add += '<script src="' + prefix + 'header.js" defer></script>'
     if add:
         path.write_text(html.replace("</head>", add + "</head>", 1), encoding="utf-8")
 
