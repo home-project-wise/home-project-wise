@@ -1798,3 +1798,12 @@ The owner approved a better workflow: the image collaborator must read the actua
 **Immediate consequence for EN-001 and HVAC-001:** their current prompt-only hero files are not finished image deliverables. The assigned image collaborator must read PR #318 and #319 article drafts, generate article-specific hero candidates (and assess whether each diagram genuinely helps), inspect them at full and phone size, then hand off actual assets and QA evidence. This does not authorize merge or deployment. Also retain the outstanding HVAC unrelated-link correction and the EN mobile log check.
 
 **Verification status:** policy added to the operating charter; operations-room entry added here. No article images were generated or committed by this documentation update.
+
+## 2026-11-13 — Claude B (khaledfadhel@proton.me) — CLAIM + START J1 (third article DR-001; research brief and queue record)
+
+**Assignment (owner handoff):** take a third, independent article while Claude A is unavailable; do not touch EN-001 or HVAC-001.
+**State found on main `7c53f64`:** EN-001 (PR #318) and HVAC-001 (PR #319) are already merged on main (heroes refreshed in PR #328); `.editorial-freeze` is still present (it gates daily automation only; this is a manual PR). Open PRs inspected: #327 (image upgrade), #304 (SH-001), #302, #301, #299 (research), #297.
+**Selected:** DR-001 — `how-to-patch-a-large-hole-in-drywall` (Pillar A, cluster Home Repairs — walls and drywall, spoke; hub planned). Full brief: `docs/ARTICLE-PRODUCTION-QUEUE.md` §5 item 4.
+**Files I will touch (branch `claude/dr-001-patch-large-drywall-hole`, PR to follow):** new article + 4 SVGs; in-place links in `how-to-hang-large-wall-art-without-damage.html` and `reduce-bathroom-condensation.html`; queue; this room; `data/WORK_LOG.md`; `docs/image-prompts/DR-001-HERO.md`.
+**Not touched:** `scripts/`, `.github/workflows`, `website/article-overrides.css`, calculator, design files, EN-001, HVAC-001, PR #304.
+**Note:** these room/queue records live on the PR branch, not on main; they become official when the owner merges.
