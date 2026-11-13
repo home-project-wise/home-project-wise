@@ -1,7 +1,5 @@
 name: Image Vision Guard
 on:
-  schedule:
-    - cron: '40 3 * * 0'
   workflow_dispatch:
     inputs:
       mode:
@@ -47,7 +45,7 @@ jobs:
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
         run: python -u automation/vision_guard.py "${{ inputs.mode || 'audit' }}" --max-replace 4
       - name: Content value audit (report only)
-        if: github.event_name == 'schedule' || inputs.mode == 'content' || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[full-audit]'))
+        if: inputs.mode == 'content' || (github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[full-audit]'))
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python automation/vision_guard.py content
