@@ -95,7 +95,7 @@ def rows():
 
 
 def footer():
-    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./tools.html">Tools</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
+    return '<footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./tools.html">Tools</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
 
 
 def card(x, featured=False):
