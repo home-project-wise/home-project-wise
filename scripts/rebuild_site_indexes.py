@@ -405,6 +405,26 @@ def write_tools_hub():
     (WEBSITE / "tools.html").write_text(page, encoding="utf-8")
 
 
+def enhance_images(html):
+    """Performance polish applied to every page at build (idempotent): reserve the header and footer wordmark's space through its aspect ratio, and let the browser load every image after the first two (header logo and main image) lazily."""
+    def logo(m):
+        tag = m.group(0)
+        if "brand-logo" in tag and "aspect-ratio" not in tag and "style=" not in tag:
+            tag = tag.replace("<img", '<img style="aspect-ratio:642/96"', 1)
+        return tag
+    html = re.sub(r"<img\b[^>]*>", logo, html)
+    seen = [0]
+    def lazy(m):
+        seen[0] += 1
+        tag = m.group(0)
+        if seen[0] <= 2 or re.search(r"\bloading=|\bfetchpriority=", tag):
+            return tag
+        if tag.endswith("/>"):
+            return tag[:-2].rstrip() + ' loading="lazy" decoding="async"/>'
+        return tag[:-1].rstrip() + ' loading="lazy" decoding="async">'
+    return re.sub(r"<img\b[^>]*>", lazy, html)
+
+
 def ensure_head_tags(path, prefix):
     html = path.read_text(encoding="utf-8", errors="ignore")
     if "</head>" not in html:
@@ -419,8 +439,14 @@ def ensure_head_tags(path, prefix):
             add += '<link rel="preload" href="' + prefix + 'fonts/' + font + '" as="font" type="font/woff2" crossorigin>'
     if 'header.js' not in html:
         add += '<script src="' + prefix + 'header.js" defer></script>'
-    if add:
-        path.write_text(html.replace("</head>", add + "</head>", 1), encoding="utf-8")
+    if 'og:image' not in html:
+        add += '<meta property="og:image" content="' + BASE + '/images/og-home.jpg">'
+        if 'twitter:card' not in html:
+            add += '<meta name="twitter:card" content="summary_large_image">'
+    new = html.replace("</head>", add + "</head>", 1) if add else html
+    new = enhance_images(new)
+    if new != html:
+        path.write_text(new, encoding="utf-8")
 
 
 def main():
