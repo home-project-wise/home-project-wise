@@ -284,3 +284,10 @@ main.section.article figcaption{font-size:13px;line-height:1.5;letter-spacing:.0
 .card:has(> .card-body > a:only-of-type) > .card-body > a:only-of-type::after{content:"";position:absolute;inset:0;z-index:1}
 .card:has(> .card-body > a:only-of-type) > .card-body > a:only-of-type:focus-visible{outline:none}
 .card:has(> .card-body > a:only-of-type:focus-visible){outline:3px solid #B98B45;outline-offset:3px}
+
+/* Stage 5: the header stays in front of the reader (owner suggestion). It is a full-width band even though the header itself is max-width limited; content scrolls under it. */
+body>header.nav{position:sticky;top:0;z-index:70;background:#f7f5f0;box-shadow:0 0 0 100vmax #f7f5f0;clip-path:inset(0 -100vmax)}
+html{scroll-padding-top:84px}
+.read-progress{z-index:80}
+@media(prefers-color-scheme:dark){body>header.nav{background:#182126;box-shadow:0 0 0 100vmax #182126}}
+@media print{body>header.nav{position:static}}
