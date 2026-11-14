@@ -211,6 +211,22 @@ The exact item/subtype matcher must also reject any future record whose notes/ca
 
 These exclusions are deliberate quality controls, not defects to be bypassed. ChatGPT owns the research/data resolution; Claude implements the technical deny-by-default behavior and tests.
 
+## 10.2 Electricity tariff applicability guard
+
+Electricity rows must be matched by jurisdiction **and** tariff structure. A country/state match alone is insufficient.
+
+- **Ontario:** the numeric low/high fields on the current record are the Nov 2026 Time-of-Use (TOU) rates only. Tiered and Ultra-Low Overnight (ULO) plans have different thresholds/time windows. Use this record only when TOU is selected; do not silently use its range for Tiered/ULO or an unknown plan.
+- **Quebec, British Columbia, Manitoba and Prince Edward Island:** the recorded rates include consumption blocks/thresholds and/or a separate fixed charge. A single low/high multiplied by total kWh is not an exact bill calculation. If the calculator does not collect the applicable plan, period and consumption distribution/threshold inputs, show the data only as an indicative rate reference with the tariff caveat, not as a precise bill.
+- **Alberta:** Rate of Last Resort is an energy-only regulated default benchmark in a competitive retail market; it is not an all-in provincial bill.
+- **Newfoundland and Labrador, Yukon and Northwest Territories:** respect the named utility/grid/community scope. Never widen a regional/community tariff to an entire province or territory.
+- **Nunavut:** the currently located official tariff is effective 1 Oct 2023. It is older than 12 months and must not be selected as a current default; it may appear only as a clearly dated historical reference with subsidy treatment.
+- **Great Britain:** the Ofgem Q4 2026 Direct Debit benchmark applies to England, Scotland and Wales only; 26.32p/kWh and 54.83p/day standing charge. Qualifying domestic electricity is temporarily zero-rated for VAT from 1 Oct 2026; the Ofgem figures reflect that.
+- **Northern Ireland:** keep the Power NI monthly Direct Debit/e-bill row distinct from a territory-wide average. The Consumer Council snapshot dated 14 Nov 2026 includes 5% VAT; its 32.100p/kWh unit price already reflects an eligible 6% discount capped at £60/year and subject to the supplier's usage threshold. Do not compare it directly with the GB Ofgem cap without showing these differences.
+- **United States:** EIA state/national observations are monthly average residential revenue prices per kWh, not an individual household tariff. Prefer a state row when known; use the national row only as an explicitly labelled fallback.
+- **EU:** Eurostat H1 2026 figures are harmonised half-year household prices for the 2,500–4,999 kWh/year consumption band, including taxes and levies; they are not live supplier tariffs.
+
+Where the current calculator cannot represent the tariff structure, the safe behavior is manual price/quote input or a clearly labelled indicative reference. Do not convert a multi-part tariff into a single definitive bill estimate.
+
 ## 11. Acceptance tests required before enabling references
 
 Claude should add tests for at least these cases:
@@ -234,6 +250,7 @@ Claude should add tests for at least these cases:
 17. No network call or persistence of user-entered measurements/prices is introduced.
 18. Mixed-construction and mixed-application records listed in §10.1 are never returned by automatic category selection.
 19. Paint and wallpaper remain manual-only until structured package-volume/coverage compatibility is implemented; prose notes cannot unlock them.
+20. Electricity tests prove plan-specific matching: Ontario TOU is never applied to Tiered/ULO; block tariffs are not presented as exact bills without threshold inputs; GB and NI VAT/tariff distinctions remain visible; US EIA and Eurostat benchmarks are labelled as averages, not live tariffs.
 
 ## 12. Handoff and ownership
 
