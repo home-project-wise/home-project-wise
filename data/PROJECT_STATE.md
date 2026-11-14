@@ -291,3 +291,8 @@ Then update `data/daily_routine_log.md` and this file.
 - Claude owns the adapter/page integration and tests. ChatGPT will not edit calculator-owned code.
 - **Deployment blocker:** Pages publishes from website/, but the canonical data remains in root data/reference_prices.json. A build-time copy into the Pages artifact is needed; no duplicate should be hand-maintained. Deployment workflows are protected and were not changed. Any required workflow modification awaits explicit owner authorization.
 - Status: prepared on branch chatgpt/calculator-reference-data-eligibility-2026-11-14; PR pending creation/review. No live calculator change or deployment is claimed.
+
+
+### Pages publication integration — verified 2026-11-14
+
+The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uploading website/ and its push-path filter already includes that script. Claude can copy the canonical data/reference_prices.json into website/reference-prices.json during that build and add a byte-identity test. The script change triggers Pages deployment; no protected workflow change is needed. The data registry remains the only hand-maintained source.
