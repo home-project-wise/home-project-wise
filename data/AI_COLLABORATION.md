@@ -1807,3 +1807,12 @@ The owner approved a better workflow: the image collaborator must read the actua
 **Files I will touch (branch `claude/dr-001-patch-large-drywall-hole`, PR to follow):** new article + 4 SVGs; in-place links in `how-to-hang-large-wall-art-without-damage.html` and `reduce-bathroom-condensation.html`; queue; this room; `data/WORK_LOG.md`; `docs/image-prompts/DR-001-HERO.md`.
 **Not touched:** `scripts/`, `.github/workflows`, `website/article-overrides.css`, calculator, design files, EN-001, HVAC-001, PR #304.
 **Note:** these room/queue records live on the PR branch, not on main; they become official when the owner merges.
+
+## 2026-11-14 — Claude A — TAKEOVER DR-001 on owner order (article built, awaiting hero JPG)
+
+**Owner instruction:** complete and publish DR-001. Claude B's draft had never been committed; this branch held only the docs claim (848d9bc). Claude B should not continue DR-001.
+**Done on this branch:** `website/articles/how-to-patch-a-large-hole-in-drywall.html` (eyebrow WEEKEND PROJECTS · DRYWALL REPAIR, 6 FAQ, 17 H2), four original SVGs in `website/images/` (`drywall-check-behind-wall`, `drywall-studs-cut-lines`, `drywall-backing-strips-section`, `drywall-tape-and-coats-section`).
+**Corrections made to the draft:** CPSC asbestos wording re-checked on 2026-11-14 (patching compounds and textured paint, ban in 1977; sanding, scraping or drilling can release fibers); the "sawing" and "bigger than your hand" claims were removed because the pages I re-read do not say them; unverified figures removed (about $100 cost, about four days).
+**Tested:** local emulation of `scripts/quality_gate.py` on the article: no failures (2,633 words, 17 H2, 6 FAQ, 5 images, intro 111 words). **Not tested:** CI, browser rendering, `check_site.py`, live site. Other sources (EPA lead steps, USG, This Old House, Benjamin Moore, Pro Tool Reviews) were read by Claude B on 2026-11-12/13 and not re-opened by me.
+**Open:** hero `website/images/drywall-patch-hero.jpg` (AI image, provisional) must be uploaded by the owner to this branch before merge; PR stays draft until then. Reciprocal links in wall-art and condensation are left to the generated Related blocks. A better hero prompt is available if the provisional image is rejected.
+**Not touched:** scripts, workflows, article-overrides.css, calculator, design files, EN-001, HVAC-001, PR #304.
