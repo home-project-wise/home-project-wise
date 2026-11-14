@@ -81,7 +81,10 @@ ok("user text is escaped in every rendered string", () => {
 });
 ok("source has no storage, network or eval calls", () => {
   const src = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
-  for (const bad of ["localStorage", "sessionStorage", "indexedDB", "fetch(", "XMLHttpRequest", "eval(", "document.cookie"]) assert.ok(!src.includes(bad), bad);
+  for (const bad of ["localStorage", "sessionStorage", "indexedDB", "XMLHttpRequest", "eval(", "document.cookie", "sendBeacon", "WebSocket"]) assert.ok(!src.includes(bad), bad);
+  // The only request allowed is one same-origin GET of the build-time copy of the reference registry; nothing user-entered is sent.
+  const fetches = src.match(/fetch\(/g) || [], allowed = src.match(/win\.fetch\("reference-prices\.json", \{ cache: "no-cache" \}\)/g) || [];
+  assert.equal(fetches.length, 1); assert.equal(allowed.length, 1);
 });
 
 // ---- page wiring against a minimal DOM stub ----
@@ -155,4 +158,91 @@ ok("the page loads the scripts in order and exposes the hooks", () => {
   for (const id of ["plist-root", "paint-add", "paint-add-note", "material-add", "material-add-note"]) assert.ok(html.includes("id=\"" + id + "\""), id);
   assert.ok(/id="paint-add" hidden/.test(html) && /id="material-add" hidden/.test(html));
 });
+
+// ---- flooring "typical range from sources" (contract: docs/CALCULATOR-REFERENCE-PRICE-DATA-CONTRACT-2026-11-14.md) ----
+const RP = require("../website/reference-prices.js");
+const REG = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "reference_prices.json"), "utf8"));
+const NOWD = new Date(Date.UTC(2026, 10, 14));
+function newList(records) {
+  const d = makeDoc(), w = { navigator: {}, hpwLast: {} }; d.getElementById("plist-root");
+  const c = L.init(d, E, w, records ? { records, rp: RP } : undefined); if (c && records) c.state.now = NOWD;
+  const e = new Proxy(d.els, { get: (tt, k) => d.getElementById(k) });
+  e["plist-currency"].value = "USD"; e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
+  return { c, e, w };
+}
+const FLOOR = { name: "Flooring / material packs", unit: "pack", quantity: 11, price: null, category: "flooring", coverage: 20, coverageUnit: "sq ft" };
+function addFloor(x, over) { x.w.hpwLast.material = Object.assign({}, FLOOR, over); fire(x.e["material-add"], "click"); return x.c.state.items[x.c.state.items.length - 1]; }
+function pickRef(x, it, country, subtype) {
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "reference") });
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "country" }, country) });
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "subtype" }, subtype) });
+}
+ok("the reference option exists only for flooring items and only when the registry is loaded", () => {
+  const a = newList(REG), it = addFloor(a);
+  assert.ok(a.e["plist-items"].innerHTML.includes("Typical range from sources"));
+  a.w.hpwLast.paint = { name: "Paint", unit: "tin", quantity: 8, price: null }; fire(a.e["paint-add"], "click");
+  assert.equal((a.e["plist-items"].innerHTML.match(/Typical range from sources/g) || []).length, 1);
+  const b = newList(null), it2 = addFloor(b);
+  assert.ok(!b.e["plist-items"].innerHTML.includes("Typical range from sources"));
+  assert.equal(L.setField(b.c.state, it2.id, "mode", "reference"), false);
+});
+ok("US laminate: country and type choices show the sourced range, link, date and caveat", () => {
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "US", "laminate");
+  const h = x.e["plist-items"].innerHTML, rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record;
+  assert.ok(h.includes("Typical range: " + rec.low + "–" + rec.high + " USD per sq ft"), h.slice(0, 600));
+  assert.ok(h.includes("Approximate, from") && h.includes("observed " + rec.source.observedAt) && h.includes('href="' + rec.source.url + '"'));
+  assert.ok(h.includes("Laminate") && h.includes("United States") && h.includes("Floor type"));
+});
+ok("calculating uses the pack price range, shows attribution and the required disclaimer", () => {
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "US", "laminate");
+  fire(x.e["plist-calc-form"], "submit");
+  const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, pk = RP.packRange(rec, 20, "sq ft"), h = x.e["plist-result"].innerHTML;
+  assert.equal(x.e["plist-error"].textContent, "");
+  const lo = (11 * pk.low).toFixed(2), hi = (11 * pk.high).toFixed(2), fmtc = (v) => Number(v).toLocaleString("en-US", { style: "currency", currency: "USD" });
+  assert.ok(h.includes(fmtc(lo) + "–" + fmtc(hi)), h.slice(0, 900));
+  assert.ok(h.includes("[reference: " + rec.source.name) && h.includes("Reference for Flooring / material packs") && h.includes("not a quote or a final cost"));
+  assert.ok(h.includes('href="' + rec.source.url + '"') && h.includes("retrieved " + rec.source.retrievedAt));
+});
+ok("no reference for a mismatched subtype: no substitute, the item stays unpriced", () => {
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "Netherlands", "ceramic-tile");
+  assert.ok(x.e["plist-items"].innerHTML.includes("No reference range yet; enter your own price or two quotes."));
+  fire(x.e["plist-calc-form"], "submit");
+  const h = x.e["plist-result"].innerHTML; assert.ok(h.includes("price not known yet") && h.includes("No prices yet") && !h.includes("[reference:"));
+});
+ok("reference prices in two currencies are never combined or converted", () => {
+  const x = newList(REG), a = addFloor(x); pickRef(x, a, "US", "laminate");
+  const b = addFloor(x); pickRef(x, b, "Canada", "laminate");
+  fire(x.e["plist-calc-form"], "submit");
+  assert.match(x.e["plist-error"].textContent, /different currencies/);
+});
+ok("a reference sets the list currency; a European reference reads in EUR", () => {
+  const x = newList(REG), it = addFloor(x, { coverage: 2, coverageUnit: "m²" });
+  const eu = REG.filter(RP.isAutoEligible).find((r) => r.category === "flooring" && r.currency === "EUR");
+  pickRef(x, it, eu.audience, eu.subtype); fire(x.e["plist-calc-form"], "submit");
+  assert.equal(x.c.state.currency, "EUR"); assert.equal(x.e["plist-currency"].value, "EUR");
+  assert.ok(x.e["plist-result"].innerHTML.includes("The list currency is now EUR") && x.e["plist-result"].innerHTML.includes("€"));
+});
+ok("the user's own price or two quotes override a reference and are never blended with it", () => {
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "US", "laminate");
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "range") });
+  fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "low" }, "28") });
+  fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "high" }, "34") });
+  fire(x.e["plist-calc-form"], "submit"); const h = x.e["plist-result"].innerHTML;
+  assert.ok(h.includes("$308.00–$374.00") && !h.includes("[reference:") && !h.includes("Reference for"), h.slice(0, 700));
+});
+ok("changing the country clears the floor type; older data is labelled", () => {
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "US", "laminate");
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "country" }, "UK") });
+  assert.equal(it.subtype, "");
+  const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record;
+  const old = REG.map((r) => r.id === rec.id ? Object.assign({}, r, { source: Object.assign({}, r.source, { observedAt: "2025-01-15" }) }) : r);
+  const y = newList(old), it2 = addFloor(y); pickRef(y, it2, "US", "laminate");
+  assert.ok(y.e["plist-items"].innerHTML.includes("(older data)"));
+});
+ok("the Flooring tab passes coverage and its unit to the list", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project-calculator.html"), "utf8");
+  assert.ok(html.indexOf("reference-prices.js") < html.indexOf("project-list.js") && html.indexOf("project-estimator-engine.js") < html.indexOf("reference-prices.js"));
+  assert.ok(html.includes("category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²'"));
+});
+
 console.log("\n" + passed + " project-list tests passed");
