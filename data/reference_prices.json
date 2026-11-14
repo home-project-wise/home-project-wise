@@ -3995,7 +3995,7 @@
     "item": "Interior white wall paint (selected Leroy Merlin listings)",
     "unit": "L",
     "currency": "EUR",
-    "low": 2.14,
+    "low": 2.85,
     "high": 7.69,
     "kind": "editorial-range",
     "source": {
@@ -4008,8 +4008,8 @@
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Selected white interior paint examples include €2.14/L and €2.85/L for large packs, through premium specialty paint at €7.69/L. Listing band, not market average.",
-    "caveats": "Selected listings include different formulations and performance levels. Promotions and pack sizes vary; no labour.",
+    "notes": "Selected white interior paint examples include €2.85/L for BOERO 14 L interior paint and €7.69/L for a specialty anti-mould paint. Listing band only, not market average.",
+    "caveats": "Selected listings include different formulations and performance levels. Promotions and pack sizes vary; no labour. Excludes an expired promotion that appeared in an older search snapshot.",
     "reviewStatus": "researched"
   },
   {
