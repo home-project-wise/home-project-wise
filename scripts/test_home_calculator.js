@@ -67,7 +67,7 @@ rejects('paint openings larger than walls', submit('paint-form', { ...P, 'paint-
 // 3 Material packs
 const K = { 'material-length': 5, 'material-width': 4, 'material-coverage': 2.1, 'material-waste': 10, 'material-price': 30 };
 has('material 20 m2 +10% = 22 m2 / 2.1 -> 11 packs, cost 330', submit('material-form', K), 'Required: 11 pack(s) Estimated material cost: $330');
-ok('flooring result is offered to the project list with quantity and price', window.hpwLast.material.quantity === 11 && window.hpwLast.material.unit === 'pack' && window.hpwLast.material.price === 30 && els['material-add'].hidden === false, JSON.stringify(window.hpwLast));
+ok('flooring result is offered to the project list with quantity and price', window.hpwLast.material.quantity === 11 && window.hpwLast.material.category === 'flooring' && window.hpwLast.material.coverage === 2.1 && window.hpwLast.material.coverageUnit === 'm²' && window.hpwLast.material.unit === 'pack' && window.hpwLast.material.price === 30 && els['material-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('material exact pack boundary 21 / 2.1 = 10', submit('material-form', { ...K, 'material-length': 7, 'material-width': 3, 'material-waste': 0, 'material-price': '' }), 'Required: 10 pack(s)');
 has('material zero price is a valid price', submit('material-form', { ...K, 'material-price': 0 }), 'Estimated material cost: $0');
 // 3b Material packs, imperial (feet / ft²): same arithmetic in either unit, no conversion step in the pack count

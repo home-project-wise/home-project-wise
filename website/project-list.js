@@ -9,6 +9,13 @@
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   var MAX_ITEMS = 30;
+  function rpModule() {
+    if (typeof module === "object" && module.exports && typeof require === "function") return require("./reference-prices.js");
+    return typeof window !== "undefined" ? window.HPWReferencePrices : null;
+  }
+  var COUNTRY_ORDER = ["US", "Canada", "UK", "Germany", "France", "Spain", "Italy", "Netherlands"];
+  var COUNTRY_LABEL = { US: "United States", UK: "United Kingdom" };
+  var SUBTYPE_LABEL = { "laminate": "Laminate", "lvp-spc": "Luxury vinyl plank / SPC", "sheet-vinyl": "Sheet vinyl", "broadloom-carpet": "Broadloom carpet", "carpet-tile": "Carpet tile", "engineered-hardwood": "Engineered hardwood", "solid-hardwood": "Solid hardwood", "ceramic-tile": "Ceramic tile", "porcelain-tile": "Porcelain tile" };
   function esc(s) {
     return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c];
@@ -25,7 +32,11 @@
     if (state.items.length >= MAX_ITEMS) return { ok: false, error: "The list is limited to " + MAX_ITEMS + " items." };
     var known = spec.price !== undefined && spec.price !== null && Number.isFinite(Number(spec.price)) && Number(spec.price) >= 0;
     var item = { id: "i" + state.nextId++, name: name, unit: unit, quantity: String(quantity),
-      mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "" };
+      mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "",
+      category: "", coverage: "", coverageUnit: "", country: "", subtype: "" };
+    if (spec.category === "flooring" && Number(spec.coverage) > 0 && (spec.coverageUnit === "sq ft" || spec.coverageUnit === "m²")) {
+      item.category = "flooring"; item.coverage = String(Number(spec.coverage)); item.coverageUnit = spec.coverageUnit;
+    }
     state.items.push(item);
     return { ok: true, item: item };
   }
@@ -33,17 +44,40 @@
   function findItem(state, id) { for (var i = 0; i < state.items.length; i++) if (state.items[i].id === id) return state.items[i]; return null; }
   function setField(state, id, field, value) {
     var it = findItem(state, id);
-    if (!it || ["quantity", "mode", "price", "low", "high"].indexOf(field) === -1) return false;
-    if (field === "mode" && ["known", "range", "unknown"].indexOf(value) === -1) return false;
+    if (!it || ["quantity", "mode", "price", "low", "high", "country", "subtype"].indexOf(field) === -1) return false;
+    if (field === "mode" && ["known", "range", "unknown", "reference"].indexOf(value) === -1) return false;
+    if (field === "mode" && value === "reference" && !(it.category === "flooring" && state.rp && state.records)) return false;
     it[field] = String(value);
     return true;
   }
+  function refCountries(state) {
+    var seen = {};
+    (state.records || []).forEach(function (r) { if (state.rp.isAutoEligible(r) && r.category === "flooring") seen[r.audience] = true; });
+    return COUNTRY_ORDER.filter(function (c) { return seen[c]; });
+  }
+  function refLookup(state, it) {
+    if (!state.rp || !state.records || !it.country || !it.subtype) return null;
+    return state.rp.select(state.records, { country: it.country, category: "flooring", subtype: it.subtype });
+  }
   function buildEstimateInput(state) {
     var currency = String(state.currency || "").trim().toUpperCase();
-    if (!/^[A-Z]{3}$/.test(currency)) throw new Error("Enter a 3-letter currency code, such as USD.");
     var contingency = toNumber(state.contingency);
     if (!Number.isFinite(contingency) || contingency < 0 || contingency > 100) throw new Error("Contingency must be between 0 and 100%.");
     if (!state.items.length) throw new Error("Add at least one item to the list first.");
+    state.refs = [];
+    var refPrices = {}, refCurrencies = [];
+    state.items.forEach(function (it) {
+      if (it.mode !== "reference") return;
+      var sel = refLookup(state, it), ep = null;
+      if (sel && sel.ok) ep = state.rp.toEnginePrice(sel.record, Number(it.coverage), it.coverageUnit);
+      if (ep) {
+        refPrices[it.id] = ep; state.refs.push({ itemId: it.id, record: sel.record });
+        if (refCurrencies.indexOf(ep.currency) === -1) refCurrencies.push(ep.currency);
+      }
+    });
+    if (refCurrencies.length > 1) throw new Error("Reference prices in different currencies can’t be combined. Use one country for all reference items.");
+    if (refCurrencies.length === 1) currency = refCurrencies[0];
+    if (!/^[A-Z]{3}$/.test(currency)) throw new Error("Enter a 3-letter currency code, such as USD.");
     var lineItems = state.items.map(function (it) {
       var quantity = toNumber(it.quantity);
       if (!Number.isFinite(quantity) || quantity <= 0) throw new Error("Check the quantity for \"" + it.name + "\".");
@@ -56,6 +90,8 @@
         var a = toNumber(it.low), b = toNumber(it.high);
         if (!Number.isFinite(a) || a < 0 || !Number.isFinite(b) || b < 0) throw new Error("Enter both quotes for \"" + it.name + "\", or choose \"Not sure yet\".");
         price = { kind: "user-range", currency: currency, unit: it.unit, low: Math.min(a, b), high: Math.max(a, b) };
+      } else if (it.mode === "reference") {
+        price = refPrices[it.id] || null;
       }
       return { id: it.id, name: it.name, unit: it.unit, quantity: quantity, required: true, price: price };
     });
@@ -72,13 +108,17 @@
     try { input = buildEstimateInput(state); } catch (e) { return { ok: false, error: e.message }; }
     var est;
     try { est = estimator.calculateEstimate(input); } catch (e2) { return { ok: false, error: e2.message }; }
-    var cur = est.currency, lines = [], byId = {};
+    var cur = est.currency, lines = [], byId = {}, refById = {}, now = state.now || new Date();
     est.lineItems.forEach(function (li) { byId[li.id] = li; });
+    (state.refs || []).forEach(function (r) { refById[r.itemId] = r.record; });
+    var previousCurrency = String(state.currency || "").trim().toUpperCase();
+    state.currency = cur;
     state.items.forEach(function (it) {
       var li = byId[it.id], head = it.name + ": " + qty(it.quantity) + " " + it.unit;
-      if (!li) { lines.push(head + " – price not known yet"); return; }
+      if (!li) { lines.push(head + " – price not known yet" + (it.mode === "reference" ? " (choose a country and floor type that has a reference range, or enter your own price)" : "")); return; }
       var per = li.unitPriceLow === li.unitPriceHigh ? money(li.unitPriceLow, cur) : money(li.unitPriceLow, cur) + "–" + money(li.unitPriceHigh, cur);
-      lines.push(head + " × " + per + " per " + it.unit + " = " + span(li.totalLow, li.totalHigh, cur));
+      var tag = refById[it.id] ? " [reference: " + refById[it.id].source.name + ", observed " + refById[it.id].source.observedAt + (state.rp.isOlderData(refById[it.id], now) ? ", older data" : "") + "]" : "";
+      lines.push(head + " × " + per + " per " + it.unit + " = " + span(li.totalLow, li.totalHigh, cur) + tag);
     });
     var totals = [], unknown = est.unknownRequired.length;
     if (est.pricedLineCount > 0) {
@@ -106,34 +146,68 @@
         }
       } catch (e3) { budgetLine = ""; }
     } else if (state.budget !== "") { budgetLine = "Budget must be a number greater than zero."; }
-    var text = ["HomeProjectWise project list (planning estimate, not a quote)"].concat(lines, [""], totals, budgetLine ? [budgetLine] : []).join("\n");
-    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, text: text };
-  }
-  function rowHtml(it) {
-    var id = it.id, sel = function (m) { return it.mode === m ? " selected" : ""; };
-    var h = "<fieldset class=\"wp-room\"><legend>" + esc(it.name) + "</legend><div class=\"calc-grid\">";
-    h += "<div class=\"calc-field\"><label for=\"pl-q-" + id + "\">Quantity (" + esc(it.unit) + ")</label><input id=\"pl-q-" + id + "\" type=\"number\" min=\"0\" step=\"any\" value=\"" + esc(it.quantity) + "\" data-id=\"" + id + "\" data-field=\"quantity\"></div>";
-    h += "<div class=\"calc-field\"><label for=\"pl-m-" + id + "\">How will you price this?</label><select id=\"pl-m-" + id + "\" data-id=\"" + id + "\" data-field=\"mode\"><option value=\"known\"" + sel("known") + ">I know the price</option><option value=\"range\"" + sel("range") + ">Two quotes (a range)</option><option value=\"unknown\"" + sel("unknown") + ">Not sure yet</option></select></div>";
-    if (it.mode === "known") {
-      h += "<div class=\"calc-field\"><label for=\"pl-p-" + id + "\">Price per " + esc(it.unit) + "</label><input id=\"pl-p-" + id + "\" type=\"number\" min=\"0\" step=\"any\" value=\"" + esc(it.price) + "\" data-id=\"" + id + "\" data-field=\"price\"></div>";
-    } else if (it.mode === "range") {
-      h += "<div class=\"calc-field\"><label for=\"pl-l-" + id + "\">First quote per " + esc(it.unit) + "</label><input id=\"pl-l-" + id + "\" type=\"number\" min=\"0\" step=\"any\" value=\"" + esc(it.low) + "\" data-id=\"" + id + "\" data-field=\"low\"></div>";
-      h += "<div class=\"calc-field\"><label for=\"pl-h-" + id + "\">Second quote per " + esc(it.unit) + "</label><input id=\"pl-h-" + id + "\" type=\"number\" min=\"0\" step=\"any\" value=\"" + esc(it.high) + "\" data-id=\"" + id + "\" data-field=\"high\"></div>";
-    } else {
-      h += "<div class=\"calc-field\"><small>No price yet: this item stays on the list with its quantity and is left out of the total.</small></div>";
+    var refsInfo = (state.refs || []).map(function (r) { return { name: findItem(state, r.itemId).name, d: state.rp.describe(r.record, now) }; });
+    var notes = refsInfo.map(function (x) { return "Reference for " + x.name + ": " + x.d.sourceName + " (" + x.d.publisher + "), " + x.d.geography + ", observed " + x.d.observedAt + ", retrieved " + x.d.retrievedAt + (x.d.older ? " (older data)" : "") + ". " + x.d.url + " Caveat: " + x.d.caveats; });
+    if (refsInfo.length) {
+      if (previousCurrency !== cur) notes.unshift("The list currency is now " + cur + ", the currency of the selected reference. Prices you typed yourself are read in " + cur + ".");
+      notes.push(state.rp.DISCLAIMER);
     }
-    return h + "</div><button type=\"button\" class=\"wp-btn\" data-action=\"remove\" data-id=\"" + id + "\">Remove " + esc(it.name) + "</button></fieldset>";
+    var text = ["HomeProjectWise project list (planning estimate, not a quote)"].concat(lines, [""], totals, budgetLine ? [budgetLine] : [], notes.length ? [""].concat(notes) : []).join("\n");
+    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, refsInfo: refsInfo, currencyChanged: refsInfo.length > 0 && previousCurrency !== cur, disclaimer: refsInfo.length ? state.rp.DISCLAIMER : "", text: text };
+  }
+  function link(url, label) { return /^https:\/\//.test(String(url || "")) ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label); }
+  function selectHtml(id, prefix, field, label, placeholder, options, current) {
+    return '<div class="calc-field"><label for="' + prefix + id + '">' + label + '</label><select id="' + prefix + id + '" data-id="' + id + '" data-field="' + field + '"><option value="">' + placeholder + '</option>' +
+      options.map(function (o) { return '<option value="' + esc(o.value) + '"' + (current === o.value ? " selected" : "") + '>' + esc(o.label) + '</option>'; }).join("") + '</select></div>';
+  }
+  function referenceHtml(it, state) {
+    var id = it.id;
+    var h = selectHtml(id, "pl-c-", "country", "Country", "Choose a country", refCountries(state).map(function (c) { return { value: c, label: COUNTRY_LABEL[c] || c }; }), it.country);
+    var subs = it.country ? state.rp.flooringOptions(state.records, it.country) : [];
+    h += selectHtml(id, "pl-s-", "subtype", "Floor type", "Choose a type", subs.map(function (s) { return { value: s, label: SUBTYPE_LABEL[s] || s }; }), it.subtype);
+    var sel = refLookup(state, it);
+    if (sel && sel.ok) {
+      var d = state.rp.describe(sel.record, state.now || new Date()), pk = state.rp.packRange(sel.record, Number(it.coverage), it.coverageUnit);
+      h += '<div class="calc-field"><small>Typical range: ' + esc(d.range) + (pk ? ', about ' + pk.low.toFixed(2) + '–' + pk.high.toFixed(2) + ' ' + esc(pk.currency) + ' per pack of ' + esc(it.coverage) + ' ' + esc(it.coverageUnit) : '') +
+        '. Approximate, from ' + link(d.url, d.sourceName) + ', observed ' + esc(d.observedAt) + (d.older ? ' (older data)' : '') + '. ' + esc(d.caveats) + ' Replace it with your own price or two quotes for a better estimate.</small></div>';
+    } else if (it.country && it.subtype) {
+      h += '<div class="calc-field"><small>' + esc(state.rp.NO_REFERENCE) + '</small></div>';
+    }
+    return h;
+  }
+  function rowHtml(it, state) {
+    var id = it.id, sel = function (m) { return it.mode === m ? " selected" : ""; };
+    var canRef = it.category === "flooring" && state.rp && state.records;
+    var h = '<fieldset class="wp-room"><legend>' + esc(it.name) + '</legend><div class="calc-grid">';
+    h += '<div class="calc-field"><label for="pl-q-' + id + '">Quantity (' + esc(it.unit) + ')</label><input id="pl-q-' + id + '" type="number" min="0" step="any" value="' + esc(it.quantity) + '" data-id="' + id + '" data-field="quantity"></div>';
+    h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + '>I know the price</option><option value="range"' + sel("range") + '>Two quotes (a range)</option>' +
+      (canRef ? '<option value="reference"' + sel("reference") + '>Typical range from sources</option>' : '') + '<option value="unknown"' + sel("unknown") + '>Not sure yet</option></select></div>';
+    if (it.mode === "known") {
+      h += '<div class="calc-field"><label for="pl-p-' + id + '">Price per ' + esc(it.unit) + '</label><input id="pl-p-' + id + '" type="number" min="0" step="any" value="' + esc(it.price) + '" data-id="' + id + '" data-field="price"></div>';
+    } else if (it.mode === "range") {
+      h += '<div class="calc-field"><label for="pl-l-' + id + '">First quote per ' + esc(it.unit) + '</label><input id="pl-l-' + id + '" type="number" min="0" step="any" value="' + esc(it.low) + '" data-id="' + id + '" data-field="low"></div>';
+      h += '<div class="calc-field"><label for="pl-h-' + id + '">Second quote per ' + esc(it.unit) + '</label><input id="pl-h-' + id + '" type="number" min="0" step="any" value="' + esc(it.high) + '" data-id="' + id + '" data-field="high"></div>';
+    } else if (it.mode === "reference" && canRef) {
+      h += referenceHtml(it, state);
+    } else {
+      h += '<div class="calc-field"><small>No price yet: this item stays on the list with its quantity and is left out of the total.</small></div>';
+    }
+    return h + '</div><button type="button" class="wp-btn" data-action="remove" data-id="' + id + '">Remove ' + esc(it.name) + '</button></fieldset>';
   }
   function itemsHtml(state) {
-    return state.items.length ? state.items.map(rowHtml).join("") : "<p class=\"wp-note\">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>";
+    return state.items.length ? state.items.map(function (it) { return rowHtml(it, state); }).join("") : '<p class="wp-note">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>';
   }
   function resultHtml(s) {
     var h = "<ul>" + s.lines.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul>";
     h += s.totals.map(function (t) { return /^Total/.test(t) ? "<p><strong>" + esc(t) + "</strong></p>" : "<p>" + esc(t) + "</p>"; }).join("");
     if (s.budgetLine) h += "<p>" + esc(s.budgetLine) + "</p>";
-    h += "<p class=\"wp-note\">Planning estimate from the numbers you entered; not a quote. Taxes, delivery and labour are not included unless you add them as items.</p>";
-    h += "<div class=\"calc-field\"><label for=\"plist-text\">List as text</label><textarea id=\"plist-text\" readonly rows=\"" + Math.min(14, s.lines.length + 6) + "\" style=\"width:100%\">" + esc(s.text) + "</textarea></div>";
-    return h + "<button type=\"button\" class=\"wp-btn\" data-action=\"copy\">Copy list</button> <span class=\"wp-note\" id=\"plist-copy-note\" role=\"status\"></span>";
+    s.refsInfo.forEach(function (x) {
+      h += '<p class="wp-note">Reference for ' + esc(x.name) + ': ' + link(x.d.url, x.d.sourceName) + ' (' + esc(x.d.publisher) + '), ' + esc(x.d.geography) + ', observed ' + esc(x.d.observedAt) + ', retrieved ' + esc(x.d.retrievedAt) + (x.d.older ? ' (older data)' : '') + '. Caveat: ' + esc(x.d.caveats) + '</p>';
+    });
+    if (s.currencyChanged) h += '<p class="wp-note">The list currency is now ' + esc(s.estimate.currency) + ', the currency of the selected reference. Prices you typed yourself are read in ' + esc(s.estimate.currency) + '.</p>';
+    h += '<p class="wp-note">' + esc(s.disclaimer || "Planning estimate from the numbers you entered; not a quote. Taxes, delivery and labour are not included unless you add them as items.") + '</p>';
+    h += '<div class="calc-field"><label for="plist-text">List as text</label><textarea id="plist-text" readonly rows="' + Math.min(16, s.lines.length + 8) + '" style="width:100%">' + esc(s.text) + '</textarea></div>';
+    return h + '<button type="button" class="wp-btn" data-action="copy">Copy list</button> <span class="wp-note" id="plist-copy-note" role="status"></span>';
   }
   var SKELETON =
     "<h3>Project list</h3>" +
@@ -155,10 +229,11 @@
     "<div class=\"calc-field\"><label for=\"plist-budget\">Budget (optional)</label><input id=\"plist-budget\" type=\"number\" min=\"0\" step=\"any\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-error\" role=\"alert\"></p><button class=\"calc-btn\" type=\"submit\">Calculate project list</button></form>" +
     "<div class=\"tool-result\" id=\"plist-result\" aria-live=\"polite\"></div>";
-  function init(doc, estimator, win) {
+  function init(doc, estimator, win, opts) {
     var rootEl = doc.getElementById("plist-root");
     if (!rootEl || !estimator) return null;
-    var state = createState();
+    var state = createState(), RPm = (opts && opts.rp) || rpModule();
+    if (opts && opts.records && RPm) { state.records = opts.records; state.rp = RPm; }
     rootEl.innerHTML = SKELETON;
     var itemsEl = doc.getElementById("plist-items");
     function paintItems() { itemsEl.innerHTML = itemsHtml(state); }
@@ -172,10 +247,11 @@
     itemsEl.addEventListener("change", function (e) {
       var t = e.target; if (!t || !t.getAttribute) return;
       var id = t.getAttribute("data-id"), f = t.getAttribute("data-field");
-      if (id && f === "mode" && setField(state, id, "mode", t.value)) {
-        paintItems();
-        var again = doc.getElementById("pl-m-" + id); if (again && again.focus) again.focus();
-      }
+      if (!id || ["mode", "country", "subtype"].indexOf(f) === -1) return;
+      if (!setField(state, id, f, t.value)) return;
+      if (f === "country") setField(state, id, "subtype", "");
+      clearResult(); paintItems();
+      var again = doc.getElementById({ mode: "pl-m-", country: "pl-c-", subtype: "pl-s-" }[f] + id); if (again && again.focus) again.focus();
     });
     itemsEl.addEventListener("click", function (e) {
       var t = e.target; if (!t || !t.getAttribute || t.getAttribute("data-action") !== "remove") return;
@@ -196,6 +272,7 @@
       var s = summarize(state, estimator);
       doc.getElementById("plist-error").textContent = s.ok ? "" : s.error;
       doc.getElementById("plist-result").innerHTML = s.ok ? resultHtml(s) : "";
+      if (s.ok) doc.getElementById("plist-currency").value = state.currency;
     });
     doc.getElementById("plist-result").addEventListener("click", function (e) {
       var t = e.target; if (!t || !t.getAttribute || t.getAttribute("data-action") !== "copy") return;
@@ -218,6 +295,11 @@
         if (r.ok) { paintItems(); clearResult(); }
       });
     });
+    if (!state.records && RPm && win && typeof win.fetch === "function") {
+      win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; }).then(function (recs) {
+        if (Array.isArray(recs) && recs.length) { state.records = recs; state.rp = RPm; paintItems(); }
+      }).catch(function () {});
+    }
     return { state: state };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) {
