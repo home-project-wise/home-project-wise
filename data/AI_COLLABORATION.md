@@ -2,6 +2,32 @@
 
 Purpose: This is the ONE AND ONLY shared operations room for the owner, ChatGPT and every Claude session. All cross-assistant instructions, claims, status updates, decisions, handoffs and review requests must be recorded here. Do not create or use a second operations-room document, parallel handoff page, or PR-comment thread as an alternative communication channel. Specialized files (WORK_LOG, PROJECT_STATE, SEARCH_METRICS, article queue, specs and PRs) remain evidence/source records only; they are not competing operations rooms. This file does not replace code review, tests or specialized data records.
 
+## Owner direction override — calculator reference prices (2026-11-14)
+
+This dated direction supersedes older role/task wording below wherever it conflicts, specifically the older instruction that ChatGPT should only prepare source lists and should not research or propose prices.
+
+- **ChatGPT owns the research and data lane:** source discovery and verification, price observations, product/SKU identification, country and regional applicability, tariff/tax interpretation, comparability decisions, data-quality corrections, and maintenance of `data/reference_prices.json` and its research contract.
+- **Claude owns the technical lane only for this feature:** calculator code/UI, data adapter, matching and eligibility logic, unit/pack conversions, source/provenance display, technical tests, accessibility and responsive behavior. Claude must not conduct price research, invent or alter price values, or edit `data/reference_prices.json`.
+- If Claude finds a possible data defect, report the exact record ID and evidence here; ChatGPT resolves it. If ChatGPT identifies an engineering blocker, report it here for Claude. Do not transfer research tasks to Claude.
+- The owner has delegated routine necessary merges to ChatGPT when the scope is reviewed, all required exact-head checks pass, and no unresolved material risk or owner decision remains. Do not ask for approval for every routine safe merge. Do not merge an unverified or conflicted change.
+- Canonical contract: `docs/CALCULATOR-REFERENCE-PRICE-DATA-CONTRACT-2026-11-14.md` (PR #342, merged). The reviewed catalogue `data/reference_prices.json` was added by PR #341 (merged). These are now on `main`.
+- Current catalogue: 193 records across US, UK, Canada, Germany, France, Spain, Italy and Netherlands; 72 electricity benchmarks, 64 editorial ranges and 57 retailer listings. All 57 retailer listings have non-empty `productOrSku` fields; the four initially missing non-US identifiers were independently verified against exact product pages. The four European corrections are France `89154816`, Spain `96114412`, Germany `1748887` (engineered hardwood, not solid), and Netherlands `6053234`.
+- **Important eligibility rules:** follow contract §§10.1–10.2. Mixed/non-comparable material records are denied by default. Ontario TOU must not be applied to Tiered/ULO; Canadian block tariffs and regional/community rates must retain their scope; GB 0% VAT and NI 5% VAT remain distinct; US EIA and Eurostat values are averages, not live tariffs. Flooring per-area prices convert to pack prices only with entered pack coverage. Paint and wallpaper stay on manual price/two-quote paths until package volume/coverage and sale-unit compatibility are captured safely. Never imply the whole budget is known while a required cost is missing.
+- **Claude's next task:** implement the merged contract technically, including adapter mapping of top-level `productOrSku` into the engine's source object, exact matching, deny-by-default exclusions, tariff applicability guards, provenance/staleness display and all acceptance tests. Preserve manual price/two-quote overrides, partial totals, no-network/no-persistence behavior. No price research is part of this handoff.
+- **Current evidence:** PR #342 and PR #341 both merged after their exact-head Editorial Quality Gate and Chromium visual QA checks succeeded. No calculator code was changed by ChatGPT. The feature is not yet integrated into the live calculator; Claude's implementation and its own checks are still pending.
+- **Open PR caution:** #335 changes this shared room and states it has not been visually inspected; #301 also changes this room and is currently conflicted/dirty, with its PL-001 candidate screened at 75/100 (below the 85/100 qualification threshold). Neither should be merged as-is. Reconcile/rebase them against this latest room entry before any future merge; preserve their valid non-conflicting work.
+
+## 2026-11-14 — ChatGPT — calculator reference-price data foundation — DONE / Claude technical handoff
+
+**Status: research/data foundation merged; calculator engineering handoff ready.**
+
+- **Completed by ChatGPT:** audited the reference-data structure and applicability; verified/corrected all four initially incomplete European retailer IDs; corrected the German Parador construction classification; refreshed the Northern Ireland VAT/discount snapshot; clarified Ontario TOU vs Tiered/ULO; documented mixed-subtype exclusions and jurisdiction/tariff safeguards.
+- **Merged PRs:** [#342 data contract](https://github.com/home-project-wise/home-project-wise/pull/342) and [#341 reference-price catalogue](https://github.com/home-project-wise/home-project-wise/pull/341).
+- **Data validation:** 193 records; 72 government benchmarks, 64 editorial ranges, 57 retailer listings; no duplicate IDs, no missing retailer `productOrSku`, and no invalid core required fields in the final structural audit. One historical Nunavut electricity observation (effective 2023-10-01) remains explicitly stale and is not a current default.
+- **Files changed by ChatGPT:** `data/reference_prices.json` (PR #341), `docs/CALCULATOR-REFERENCE-PRICE-DATA-CONTRACT-2026-11-14.md` and `data/WORK_LOG.md` (PR #342). No calculator code/UI/test files changed.
+- **Claude — technical work only:** implement the contract from the merged main-branch files. Do not research, change prices, fill missing source evidence, or edit the registry. Report data concerns by record ID here.
+- **Next action:** Claude claims and implements the technical adapter/matching/guard/test work. ChatGPT continues independent source/data review and owns any subsequent dataset corrections. The feature is not live until Claude's implementation is merged and verified.
+
 ## One-command start trigger (2026-10-24)
 
 The owner's trigger phrase is **"غرفة العمليات"**. It applies equally to Claude and ChatGPT.

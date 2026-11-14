@@ -2,11 +2,12 @@
 
 Maintained by Claude (project manager). Read this first at the start of every session. Update it at the end of every working day.
 
-## Roles
-- **Claude**: runs the project. Writes articles, edits the repo through the GitHub connector, opens and merges its own PRs after verification, checks the live site after every merge.
-- **ChatGPT**: available for tasks Claude cannot do itself (run workflows, use the Gemini key stored in GitHub secrets, generate images). The owner relays at most 1 to 2 messages per day, so every request to ChatGPT must be one complete, copy-paste message.
+## Roles — current owner-approved division
+- **Claude**: project manager and engineering owner. Owns calculator/site code, UI, architecture, build work, technical implementation, engineering tests, accessibility, responsive and cross-browser verification. Claude does not conduct price research or edit the reference-price dataset.
+- **ChatGPT**: research and data owner. Owns source discovery and verification, competitor/keyword research, article briefs, independent content QA, reporting, and all reference-price research/data quality/corrections/maintenance in `data/reference_prices.json`. For the calculator reference-price feature, ChatGPT also owns source eligibility, tariff interpretation, SKU verification and data contract maintenance.
+- **Owner**: product direction and material business decisions. The owner has delegated routine, necessary merges to ChatGPT when scope is reviewed, required checks pass, and no unresolved risk or owner decision remains. The owner retains final product decisions.
 - **DeepSeek**: no longer directs the work (stopped by the owner on 2026-10-14).
-- **Owner (Khaled)**: wants minimal screen time. Decisions only, no relaying between tools.
+- One task has one named owner. Claude must report any suspected price-data defect to ChatGPT with the exact record ID and evidence; ChatGPT must report engineering blockers to Claude. Neither silently takes over the other's lane.
 
 ## Daily routine (3 tasks, each in its own PR)
 1. **New article** that solves one real problem, adds real value, is creative, sits in its correct category (pick the weakest category), has an attractive hero image at the heart of the topic.
@@ -270,3 +271,13 @@ Then update `data/daily_routine_log.md` and this file.
 - The production queue is admission-only and intentionally empty until a brief passes all 16 research fields, score >=85/100, and all critical blockers are cleared. Empty queue does not mean stop: ChatGPT must continuously investigate a balanced batch across plumbing, moisture/ventilation, energy/efficiency, maintenance/repair, lighting/smart home, and project costs/planning/calculators. Keep up to six active investigations in the separate portfolio register, normally spread across pillars; close/defer weak candidates promptly.
 - Publishing pace: aim for one genuinely valuable article per day when a brief qualifies; scale toward 2–3/day only when enough independently qualified briefs and implementation capacity exist. No forced quota and no quality-gate relaxation.
 - Latest explicit owner direction and the complete Value Before Publishing law override older historical summaries in this file. Historical entries are retained for audit and are not current instructions unless reconfirmed.
+
+
+## Calculator reference-price status — 2026-11-14
+
+- **Data contract merged:** PR #342, merge commit `1589105ca2bac44040a951cfb9ca74fb2bc85a3c`. Canonical contract: `docs/CALCULATOR-REFERENCE-PRICE-DATA-CONTRACT-2026-11-14.md`.
+- **Reference-price catalogue merged:** PR #341, merge commit `ecc00995cb905174a5dcf52722a226886e40ed17`. `data/reference_prices.json` contains 193 records across the US, UK, Canada, Germany, France, Spain, Italy and the Netherlands: 72 electricity benchmarks, 64 editorial ranges and 57 retailer listings. All 57 retailer listings have verified `productOrSku` identifiers; no duplicate IDs or invalid core fields were found in the final structural audit.
+- Four originally incomplete European listings were corrected against exact product pages: France ARTENS laminate `89154816`; Spain LUXENS 15 L paint `96114412`; Germany Parador engineered hardwood `1748887` (corrected from solid hardwood); Netherlands HORNBACH sheet PVC `6053234`.
+- **No calculator code has yet been changed by ChatGPT.** Claude's next task is strictly technical: implement the merged contract, adapter, exact matching, deny-by-default exclusions, tariff-plan guards, provenance/staleness display and acceptance tests. ChatGPT retains all research/data changes.
+- The contract blocks mixed/non-comparable ranges in §10.1 and defines electricity tariff/jurisdiction constraints in §10.2. Paint and wallpaper remain manual-price/two-quote paths until package volume/coverage and sale-unit compatibility are captured safely. Flooring area prices may be converted to pack prices only using entered pack coverage. Manual user price/two-quote overrides and honest partial-budget warnings must remain.
+- **Operations-room update:** the current role split and Claude's technical-only handoff are included in PR #343's update to `data/AI_COLLABORATION.md`. After PR #343 merges, PRs #335 and #301 must be reconciled/rebased against this canonical room update. #335 explicitly says it has not been visually inspected; #301 is dirty/conflicted and its PL-001 candidate is below the editorial qualification threshold. Do not merge either as-is.
