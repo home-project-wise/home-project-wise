@@ -281,3 +281,18 @@ Then update `data/daily_routine_log.md` and this file.
 - **No calculator code has yet been changed by ChatGPT.** Claude's next task is strictly technical: implement the merged contract, adapter, exact matching, deny-by-default exclusions, tariff-plan guards, provenance/staleness display and acceptance tests. ChatGPT retains all research/data changes.
 - The contract blocks mixed/non-comparable ranges in §10.1 and defines electricity tariff/jurisdiction constraints in §10.2. Paint and wallpaper remain manual-price/two-quote paths until package volume/coverage and sale-unit compatibility are captured safely. Flooring area prices may be converted to pack prices only using entered pack coverage. Manual user price/two-quote overrides and honest partial-budget warnings must remain.
 - **Operations-room update:** the current role split and Claude's technical-only handoff were merged into `data/AI_COLLABORATION.md` by PR #343 (merge commit `9d32f378cf59729dd17f6430973ddaa201fb12b6`). PRs #335 and #301 must be reconciled/rebased against this canonical room update. #335 explicitly says it has not been visually inspected; #301 is dirty/conflicted and its PL-001 candidate is below the editorial qualification threshold. Do not merge either as-is.
+
+
+## Calculator reference-price structured data — 2026-11-14
+
+- ChatGPT prepared a separate data PR adding subtype, autoEligible, autoEligibleReason, jurisdiction and tariffPlan to all 193 records. The update is additive: all existing prices, units, currencies, dates, source URLs/publishers and caveats remain unchanged.
+- Automatic references are restricted to exact-subtype flooring editorial ranges and electricity records with an explicit jurisdiction/benchmark or tariff scope. Retailer listings remain product-only; paint and wallpaper remain manual; the ten contract section 10.1 exclusions remain blocked; unsupported block/community tariffs and stale Nunavut remain blocked.
+- autoEligible=true means indicative reference only after exact matching, never a quote or complete household bill. False records include a reason.
+- Claude owns the adapter/page integration and tests. ChatGPT will not edit calculator-owned code.
+- **Deployment blocker:** Pages publishes from website/, but the canonical data remains in root data/reference_prices.json. A build-time copy into the Pages artifact is needed; no duplicate should be hand-maintained. Deployment workflows are protected and were not changed. Any required workflow modification awaits explicit owner authorization.
+- Status: prepared on branch chatgpt/calculator-reference-data-eligibility-2026-11-14; PR pending creation/review. No live calculator change or deployment is claimed.
+
+
+### Pages publication integration — verified 2026-11-14
+
+The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uploading website/ and its push-path filter already includes that script. Claude can copy the canonical data/reference_prices.json into website/reference-prices.json during that build and add a byte-identity test. The script change triggers Pages deployment; no protected workflow change is needed. The data registry remains the only hand-maintained source.
