@@ -465,6 +465,15 @@ def add_card_srcset(html, prefix):
     return re.sub(r'(<article class="card[^"]*"[^>]*>\s*(?:<a[^>]*>\s*)?)(<img\b[^>]*>)', fix, html)
 
 
+def add_byline(html, prefix):
+    """Articles: show the byline the Editorial Policy promises ("HomeProjectWise Editorial"), linked to the policy, in front of the dates. Idempotent; nothing is invented (same name as the structured data)."""
+    m = re.search(r'<p class="article-dates">(?!\s*By )', html)
+    if not m or "HomeProjectWise Editorial" in html[m.start():m.start() + 400]:
+        return html
+    link = '<a href="' + prefix + 'editorial-policy.html">HomeProjectWise Editorial</a>'
+    return html[:m.end()] + "By " + link + " &middot; " + html[m.end():]
+
+
 def enhance_images(html):
     """Performance polish applied to every page at build (idempotent): reserve the header and footer wordmark's space through its aspect ratio, and let the browser load every image after the first two (header logo and main image) lazily."""
     def logo(m):
@@ -507,6 +516,7 @@ def ensure_head_tags(path, prefix):
     new = enhance_images(new)
     new = add_webpage_jsonld(new, path)
     new = add_card_srcset(new, prefix)
+    new = add_byline(new, prefix)
     if new != html:
         path.write_text(new, encoding="utf-8")
 
