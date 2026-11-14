@@ -4155,5 +4155,101 @@
     "notes": "GAMMA Click PVC Manera listing shows €39.98/m² standard and €19.99/m² loyalty-card promotion. This is one SKU's price conditions, not a category average.",
     "caveats": "Single product listing with a short-lived loyalty-card discount; not a broad market sample. Check promotion dates, availability and installation system.",
     "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-DE-flooring-sheet-vinyl-hornbach-2026-11-14",
+    "audience": "Germany",
+    "category": "flooring",
+    "item": "Sheet vinyl / PVC flooring (selected HORNBACH listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 7.15,
+    "high": 10.95,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-DE-HORNBACH-PVC-FLOOR-2026-11-14",
+      "name": "PVC flooring product listings",
+      "publisher": "HORNBACH Germany",
+      "url": "https://www.hornbach.de/s/boden",
+      "geography": "Germany (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected sheet PVC roll listings at €7.15–€10.95/m²; prices shown per square metre. Quantity discounts may apply.",
+    "caveats": "This is sheet vinyl sold by the metre/roll, not click SPC/LVT. Selected listings only; stock and prices vary by store. Delivery, waste and fitting excluded.",
+    "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-FR-flooring-engineered-wood-leroymerlin-2026-11-14",
+    "audience": "France",
+    "category": "flooring",
+    "item": "Engineered oak parquet (selected Leroy Merlin listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 37.56,
+    "high": 96.9,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-FR-LEROYMERLIN-PARQUET-CONTRECOLLE-2026-11-14",
+      "name": "Parquet contrecollé category listings",
+      "publisher": "Leroy Merlin France",
+      "url": "https://www.leroymerlin.fr/produits/revetement-sol-et-mur/parquet/parquet-contrecolle/",
+      "geography": "France (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected oak engineered-parquet examples include €37.56/m² (promotional offer) through €96.90/m². Retailer listing band, not a national statistical range.",
+    "caveats": "Wood species, veneer thickness, finish, plank dimensions and promotion status vary. Underlay, adhesive, delivery, waste and fitting excluded.",
+    "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-ES-flooring-vinyl-spc-leroymerlin-2026-11-14",
+    "audience": "Spain",
+    "category": "flooring",
+    "item": "SPC click vinyl flooring (selected Leroy Merlin listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 12.99,
+    "high": 23.99,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-ES-LEROYMERLIN-SPC-2026-11-14",
+      "name": "Suelo vinílico SPC category listings",
+      "publisher": "Leroy Merlin España",
+      "url": "https://www.leroymerlin.es/productos/suelos/suelos-laminados-y-suelos-vinilicos/suelo-vinilico-spc/",
+      "geography": "Spain (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected click SPC listings include €12.99/m² for a 3.5 mm product and €23.99/m² for a 5.2 mm product. Listing band only.",
+    "caveats": "SPC thickness, integrated underlay, wear layer, seller and offers vary; excludes sheet vinyl, adhesive LVT and installation labour.",
+    "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-IT-flooring-engineered-wood-leroymerlin-2026-11-14",
+    "audience": "Italy",
+    "category": "flooring",
+    "item": "Engineered multi-layer parquet (selected Leroy Merlin listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 27.99,
+    "high": 109.9,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-IT-LEROYMERLIN-PARQUET-PREFINITO-2026-11-14",
+      "name": "Parquet prefinito category listings",
+      "publisher": "Leroy Merlin Italia",
+      "url": "https://www.leroymerlin.it/prodotti/pavimenti-e-rivestimenti/parquet/parquet/parquet-prefinito/",
+      "geography": "Italy (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected multi-layer parquet listings include €27.99/m² for a basic 4S ARTENS oak product and up to €109.90/m² for a premium multi-layer walnut product. Selected catalogue band only.",
+    "caveats": "Species, veneer thickness, grade, finish, plank format and seller vary; upper end includes premium products. Not a statistical national survey; underlay, delivery and fitting excluded.",
+    "reviewStatus": "researched"
   }
 ]
