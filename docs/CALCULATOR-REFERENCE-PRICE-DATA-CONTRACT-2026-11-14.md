@@ -276,3 +276,8 @@ Claude should add tests for at least these cases:
 **Merge policy:** ChatGPT may merge routine research/documentation/data PRs when the scope is verified, required checks are green, no conflicts or unresolved owner decisions remain, and the resulting `main` state is confirmed. Do not merge an unverified price dataset or any technical change that belongs to Claude's ownership.
 
 **Status:** research/data contract; implementation is assigned to Claude only after the reviewed data is on `main`.
+
+
+## 13. Static-site publication integration
+
+The canonical registry remains at data/reference_prices.json. The GitHub Pages workflow publishes the website/ directory and runs scripts/rebuild_site_indexes.py before uploading it; the workflow already triggers when that script changes. The technical owner should copy the canonical registry to website/reference-prices.json during that build and add a test that the generated file is byte-identical to the source. Never maintain a second hand-edited JSON file. A data-only change does not trigger Pages under the current workflow path filter; the build-script integration is the deployment trigger.
