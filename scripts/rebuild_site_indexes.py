@@ -470,7 +470,26 @@ def ensure_head_tags(path, prefix):
         path.write_text(new, encoding="utf-8")
 
 
+def publish_reference_prices(root: Path = ROOT) -> Path:
+    """Copy the canonical reference-price registry into the published site, byte for byte.
+    data/reference_prices.json stays the single source of truth; website/reference-prices.json is generated, never edited."""
+    src = root / "data" / "reference_prices.json"
+    dst = root / "website" / "reference-prices.json"
+    if not src.is_file():
+        raise SystemExit("data/reference_prices.json is missing; refusing to publish without the reference registry")
+    raw = src.read_bytes()
+    try:
+        records = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, ValueError) as exc:
+        raise SystemExit("data/reference_prices.json is not valid JSON; refusing to publish: %s" % exc)
+    if not isinstance(records, list) or not records:
+        raise SystemExit("data/reference_prices.json must be a non-empty list; refusing to publish")
+    dst.write_bytes(raw)
+    return dst
+
+
 def main():
+    publish_reference_prices()
     for page in WEBSITE.glob("*.html"):
         if page.name != "404.html":
             ensure_head_tags(page, "")
