@@ -425,6 +425,46 @@ def add_webpage_jsonld(html, path):
     return html.replace("</head>", '<script type="application/ld+json">' + blob + "</script></head>", 1)
 
 
+def _jpeg_width(p):
+    try:
+        d = p.read_bytes()
+        i = 2
+        while i + 9 < len(d):
+            if d[i] != 0xFF:
+                i += 1
+                continue
+            m = d[i + 1]
+            if m in (0xC0, 0xC1, 0xC2):
+                return (d[i + 7] << 8) | d[i + 8]
+            i += 2 + ((d[i + 2] << 8) | d[i + 3])
+    except Exception:
+        pass
+    return 0
+
+
+def add_card_srcset(html, prefix):
+    """Card thumbnails: when a 640 px variant exists next to the original, let the browser choose (a phone no longer downloads a 1600 px photo to show it 330 px wide). Idempotent."""
+    def fix(m):
+        tag = m.group(2)
+        s = re.search(r'\bsrc="([^"]+)"', tag)
+        if not s or "srcset=" in tag or s.group(1).startswith("http") or not s.group(1).lower().endswith(".jpg"):
+            return m.group(0)
+        src = s.group(1)
+        variant = src[:-4] + "-640.jpg"
+        rel = src
+        while rel.startswith("../"):
+            rel = rel[3:]
+        orig = WEBSITE / rel
+        var = WEBSITE / (rel[:-4] + "-640.jpg")
+        w = _jpeg_width(orig)
+        if not var.exists() or w < 700:
+            return m.group(0)
+        extra = ' srcset="' + variant + ' 640w, ' + src + ' ' + str(w) + 'w" sizes="(max-width:600px) 92vw, 380px"'
+        new = tag.replace(s.group(0), s.group(0) + extra, 1)
+        return m.group(1) + new
+    return re.sub(r'(<article class="card[^"]*"[^>]*>\s*(?:<a[^>]*>\s*)?)(<img\b[^>]*>)', fix, html)
+
+
 def enhance_images(html):
     """Performance polish applied to every page at build (idempotent): reserve the header and footer wordmark's space through its aspect ratio, and let the browser load every image after the first two (header logo and main image) lazily."""
     def logo(m):
@@ -466,6 +506,7 @@ def ensure_head_tags(path, prefix):
     new = html.replace("</head>", add + "</head>", 1) if add else html
     new = enhance_images(new)
     new = add_webpage_jsonld(new, path)
+    new = add_card_srcset(new, prefix)
     if new != html:
         path.write_text(new, encoding="utf-8")
 
