@@ -3069,11 +3069,11 @@
       "url": "https://www.consumercouncil.org.uk/consumers/help-consumers/electricity-oil-and-gas/switching-electricity-or-gas-supplier/electricity-price-comparison-table",
       "geography": "Northern Ireland",
       "geographyResolution": "national",
-      "observedAt": "2026-10-28",
+      "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Consumer Council tariff table dated 28 Oct 2026: Power NI monthly Direct Debit with online billing at 32.100 pence/kWh (£0.3210/kWh), zero daily standing charge, based on eligible discounts. The table estimates £1,027/year at 3,200 kWh.",
-    "caveats": "This is one named supplier/payment tariff, not an NI-wide average. Discount eligibility and limits apply; other suppliers and payment methods differ. Northern Ireland is outside the Ofgem price cap.",
+    "notes": "Consumer Council tariff table snapshot dated 14 Nov 2026, including VAT at 5%: Power NI Monthly Direct Debit with online billing is 32.100 pence/kWh (£0.3210/kWh), zero daily standing charge, and an eligible 6% discount (maximum £60/year). The table estimates £1,027/year at 3,200 kWh. The displayed unit rate is already the discounted, VAT-inclusive rate.",
+    "caveats": "One named Power NI payment/billing tariff, not an NI-wide average. The 6% discount is capped at £60/year and applies only within the supplier's discount threshold (up to £250/quarter or £1,000/year); usage above the threshold is charged at the standard rate. Consumer Council table states prices include 5% VAT; Northern Ireland remains at 5% VAT while qualifying Great Britain domestic electricity is temporarily zero-rated. Other suppliers and payment methods differ.",
     "reviewStatus": "researched"
   },
   {
@@ -3360,8 +3360,8 @@
       "observedAt": "2026-11-01",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Ontario Energy Board regulated Time-of-Use energy prices effective 1 Nov 2026: off-peak 9.1¢/kWh, mid-peak 14.6¢/kWh, on-peak 18.9¢/kWh. Separate tiered prices are 11.2¢/kWh (Tier 1) and 13.2¢/kWh (Tier 2); Ultra-Low Overnight ranges 3.7–37.7¢/kWh by period.",
-    "caveats": "These are energy charges under specific OEB plan structures, not a complete all-in household bill or a province-wide average. Delivery, regulatory charges, taxes, rebates, retailer contracts and time-of-use consumption pattern affect bills.",
+    "notes": "Ontario Energy Board regulated Time-of-Use (TOU) energy prices effective 1 Nov 2026: off-peak 9.1¢/kWh, mid-peak 14.6¢/kWh, on-peak 18.9¢/kWh. Numeric low/high fields represent TOU only. Separate Tiered prices are 11.2¢/kWh (first 1,000 kWh/month in winter; 600 in summer) and 13.2¢ above; Ultra-Low Overnight rates range 3.7–37.7¢/kWh by period. Do not substitute one plan for another.",
+    "caveats": "The numeric range is the TOU rate band only and does not calculate an individual bill without the household's consumption timing. Tiered and ULO plans have separate thresholds/time windows and must not be treated as TOU. These are energy charges, not a complete all-in household bill; delivery, regulatory charges, taxes, rebates, retailer contracts and consumption pattern affect bills.",
     "reviewStatus": "researched"
   },
   {
