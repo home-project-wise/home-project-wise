@@ -4322,7 +4322,7 @@
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Single product listing for Parador Echtholz-Parkett Eiche Pinot schwarz, product reference 1748887. HORNBACH's category listing showed €79.95/m² (€292.86 per pack); the exact product page identifies a 13 mm board with 3.6 mm wear layer and spruce carrier core. This is engineered hardwood parquet, not solid hardwood; individual product observation only.",
+    "notes": "Single product listing for Parador Echtholz-Parkett Eiche Pinot schwarz, product reference 1748887. HORNBACH's category listing showed €79.95/m² (€292.86 per pack); the exact product page identifies a 13 mm board with 3.6 mm wear layer and spruce carrier core. This is engineered hardwood parquet, not solid hardwood; individual product observation only. Price was captured from HORNBACH's Parkett category listing: https://www.hornbach.de/c/bodenbelaege-fliesen/parkett/S637/.",
     "caveats": "One product listing, not a category range. The spruce carrier core and 3.6 mm real-wood wear layer mean this must not be classified as solid hardwood. Current stock/price may vary by store and the listing showed the product as not online-orderable; delivery, fitting and waste excluded.",
     "reviewStatus": "researched",
     "productOrSku": "1748887"
@@ -4635,7 +4635,7 @@
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Single made-to-measure sheet-PVC listing, HORNBACH product reference 6053234, 200 cm wide; category listing displayed €7.95/m² (€15.90 per linear metre). Product page states custom cutting in 5 cm increments, 0.5 m minimum order and a 30 m roll. Individual product observation only, not a category average.",
+    "notes": "Single made-to-measure sheet-PVC listing, HORNBACH product reference 6053234, 200 cm wide; category listing displayed €7.95/m² (€15.90 per linear metre). Product page states custom cutting in 5 cm increments, 0.5 m minimum order and a 30 m roll. Individual product observation only, not a category average. Price was captured from HORNBACH's Vloerbedekking category listing: https://www.hornbach.nl/s/Vloerbedekking.",
     "caveats": "One made-to-measure sheet-vinyl product only, not a market range. Price basis is per square metre but the retailer also sells by linear metre at the stated 200 cm width; do not confuse these units. Custom-cut goods are non-returnable; delivery and installation excluded.",
     "reviewStatus": "researched",
     "productOrSku": "6053234"
