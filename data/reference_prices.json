@@ -3627,5 +3627,29 @@
     "notes": "Published non-government residential/domestic tariff is 74.94¢/kWh. Eligible households receive a subsidy for 700 kWh per 30-day period Apr–Sep and 1,000 kWh Oct–Mar; consumption beyond the subsidy threshold is billed at the full tariff.",
     "caveats": "The utility page still identifies 1 Oct 2023 as the effective date; this is the latest published official tariff located, not confirmed as a newly revised 2026 tariff. Subsidy treatment is material and must be displayed alongside the headline tariff.",
     "reviewStatus": "researched"
+  },
+  {
+    "id": "CA-electricity-nwt-selected-communities-2026-09",
+    "audience": "Canada",
+    "category": "electricity",
+    "item": "Residential electricity energy charge — selected Northwest Territories communities, subsidized household rates",
+    "unit": "kWh",
+    "currency": "CAD",
+    "low": 0.3081,
+    "high": 0.365,
+    "kind": "government-benchmark",
+    "source": {
+      "id": "CA-NTPC-RESIDENTIAL-RATES-2026-09-01",
+      "name": "Residential electrical rates effective September 1, 2026",
+      "publisher": "Northwest Territories Power Corporation",
+      "url": "https://www.ntpc.com/customer-service/residential-service/residential-electrical-rates",
+      "geography": "Selected Northwest Territories communities, Canada",
+      "geographyResolution": "community",
+      "observedAt": "2026-09-01",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "The NTPC schedule reports a subsidized household energy charge of 36.50¢/kWh for the first 1,000 kWh in several thermal-zone communities and Norman Wells. For Fort Resolution/Fort Smith/Hay River, the published base charge, riders and GNWT subsidy imply approximately 30.81–31.16¢/kWh depending on community; range shown covers these selected consumer-paid examples.",
+    "caveats": "Not a territory-wide tariff. NTPC charges vary sharply by community, grid zone, consumption threshold and subsidy; actual generation costs can be far higher than the subsidized household price. Other communities and utilities require separate records.",
+    "reviewStatus": "researched"
   }
 ]
