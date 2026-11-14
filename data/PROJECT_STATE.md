@@ -296,3 +296,11 @@ Then update `data/daily_routine_log.md` and this file.
 ### Pages publication integration — verified 2026-11-14
 
 The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uploading website/ and its push-path filter already includes that script. Claude can copy the canonical data/reference_prices.json into website/reference-prices.json during that build and add a byte-identity test. The script change triggers Pages deployment; no protected workflow change is needed. The data registry remains the only hand-maintained source.
+
+
+### Reference-price source audit update — 2026-11-14
+
+- Post-#349 live audit quarantined one French solid-hardwood range (former/list price vs current discounted price; endpoints not safely substantiated), and corrected direct source URLs for Italy solid parquet and France roll carpet after confirming the recorded endpoints. No numeric price, unit, currency or observation date changed.
+- Eligible reference count is now 101: 35 flooring and 66 electricity. Paint, wallpaper and retailer listings remain ineligible as category defaults.
+- Official spot checks: EIA Aug 2026, Ofgem GB Q4 2026, Consumer Council NI Power NI, OEB Ontario TOU, Manitoba Hydro, Eurostat dataset metadata. Remaining provider-specific and country-value verification is still in progress.
+- Claude owns calculator UI/adapter wiring and must use the canonical `autoEligible` flags; ChatGPT owns the ongoing source audit and registry corrections.
