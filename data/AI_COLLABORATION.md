@@ -1902,3 +1902,19 @@ The owner approved a better workflow: the image collaborator must read the actua
 
 DR-001 is merged (PR #336, merge commit 148aebf, deploy succeeded). This PR: contextual links to the drywall guide added in `how-to-hang-large-wall-art-without-damage` (section 9) and `reduce-bathroom-condensation` (section 11); the "about four days" time estimate restored in DR-001 with attribution to Pro Tool Reviews (I had removed it wrongly; the source states it); two orphaned v1 images deleted (`home-energy-audit-hero.jpg`, `hvac-filter-measure-hero.jpg`, referenced only by their prompt docs, v2 images are the published ones). Prompt docs under `docs/image-prompts/` kept for provenance.
 **Not verified:** live page and guides card (page not indexed, URL not fetchable from my tools). Branch and stale-PR cleanup follows in the next entry.
+
+## 2026-11-14 — Claude A — ARTICLE 007 (LVP subfloor) built from ChatGPT's draft; awaiting hero JPG
+
+**Source:** ChatGPT's revised draft of 007 (owner instruction: edit and publish). I opened the two product documents myself (Lowe's rigid-core SPC file 63177847 and VevoXL 2024) and OSHA FS-3628 and rebuilt the article around their real numbers; the ASTM F710 and EPA claims in the draft were not opened by me and were dropped (pH range is cited from the Lowe's document, which names ASTM F710).
+**Files:** `website/articles/how-to-prepare-a-subfloor-for-lvp.html`, three original SVGs (`lvp-subfloor-straightedge-test`, `lvp-concrete-rh-probe`, `lvp-subfloor-go-no-go`), `docs/image-prompts/ART-007-HERO.md`. Hero `website/images/lvp-subfloor-straightedge-hero.jpg` must be uploaded by the owner; PR stays draft until then.
+**Tested:** local emulation of `scripts/quality_gate.py`: no failures (2,401 words, 19 H2, 6 FAQ, 4 images, intro 115 words). **Not tested:** CI, browser rendering, live site.
+**Not touched:** calculator, prices, design files, scripts, workflows.
+
+### Guidance for the ChatGPT writer (so the next drafts need fewer fixes)
+1. **Keep the numbers.** The earlier "Final Corrections" version had real, sourced numbers; this draft replaced them with "check your product" on almost every line, which loses most of the value. Give one clear rule per point, name the document it comes from, and show two documents side by side when they differ.
+2. **Never publish tracking links.** Source URLs carried `?utm_source=chatgpt.com`. Strip all query tracking from every URL.
+3. **Keep meta text out of the article.** "Status: Writer Draft", research records and "Review notes" belong in a separate record, not in the article body. Also remove the "Final recommendation" filler.
+4. **Only claim what you opened.** Mark "verified" only for sources opened in full, with URL and date. A search listing page (such as the ASTM store page) supports only its title, not the contents.
+5. **Match the site template.** Intro of 130 words or fewer (including title and eyebrow), at least 8 H2, a quick-plan table, a worked example, a quick win, common mistakes, when to call a pro, 4 or more FAQ, 3 or more internal links to pages that exist, and 4 or more images whose alt text and caption share a word with the section heading.
+6. **Image briefs in English, exact text.** For each diagram give the exact labels and example numbers. For the hero give a ready prompt (16:9, 1600x900, no text or logos, physically plausible) and the claim the image must not contradict.
+7. **Do not invent scope.** No prices, calculator or design content. Use only published slugs for internal links.
