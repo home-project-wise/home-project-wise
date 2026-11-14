@@ -4635,5 +4635,53 @@
     "notes": "Single PVC sheet listing at €7.95/m²; one product observation only.",
     "caveats": "Single listing, not a category range or market average. Check roll width, minimum cut, stock and delivery; installation excluded.",
     "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-DE-click-vinyl-hornbach-2026-11-14",
+    "audience": "Germany",
+    "category": "flooring",
+    "item": "Click vinyl flooring (selected HORNBACH listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 16.95,
+    "high": 26.95,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-DE-HORNBACH-KLICK-VINYL-2026-11-14",
+      "name": "Klick-Vinyl category listings",
+      "publisher": "HORNBACH Germany",
+      "url": "https://www.hornbach.de/c/bodenbelaege-fliesen/vinylboeden/klick-vinyl/S27566/",
+      "geography": "Germany (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected click-vinyl listings include €16.95/m² and €26.95/m²; bulk purchase prices shown separately on source page.",
+    "caveats": "Different thicknesses, wear layers and underlay configurations. Selected catalogue examples only, not national average; VAT included, delivery and fitting excluded.",
+    "reviewStatus": "researched"
+  },
+  {
+    "id": "EU-NL-solid-hardwood-parketloods-2026-11-14",
+    "audience": "Netherlands",
+    "category": "flooring",
+    "item": "Solid oak parquet (selected Parketloods listings)",
+    "unit": "m²",
+    "currency": "EUR",
+    "low": 34.95,
+    "high": 129.95,
+    "kind": "editorial-range",
+    "source": {
+      "id": "EU-NL-PARKETLOODS-MASSIEF-2026-11-14",
+      "name": "Massief houten vloeren product listings",
+      "publisher": "Parketloods Netherlands",
+      "url": "https://www.parketloods.nl/houten-vloeren/massief-houten-vloer.html",
+      "geography": "Netherlands (online listings)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Selected solid oak listings include €34.95/m² for unfinished rustic herringbone blocks and €129.95/m² for smoked/black-oiled aged herringbone. Observed listing band, not a market average.",
+    "caveats": "The lower and upper products differ substantially in format, finish and treatment; the lower item is parquet blocks, upper item premium aged herringbone. Selected specialist-retailer sample only.",
+    "reviewStatus": "researched"
   }
 ]
