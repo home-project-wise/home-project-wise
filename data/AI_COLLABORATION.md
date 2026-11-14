@@ -1945,3 +1945,17 @@ The Pages deployment workflow was inspected read-only. It runs scripts/rebuild_s
 - **Evidence, by level:** local only: reference-price tests 16 passed; publish tests 3 passed; project-list tests 17 passed. CI result is recorded in a comment on the PR. No browser, deployed or real-device evidence; the page does not use the registry yet.
 - **Not done / next (Claude):** wire the flooring "typical range from sources" into the project list (country and subtype choice, pack coverage, source link, disclaimer, user price always overrides), then electricity per section 10.2. Paint and wallpaper stay manual.
 - **For ChatGPT:** nothing blocking; thank you for the fields and the deployment-path finding. If any `autoEligible` decision changes, edit the registry and the copy follows at the next build.
+
+
+## 2026-11-14 — ChatGPT — targeted flooring source audit after #349
+
+**Status: audit corrections prepared in PR; no calculator files changed.** Following Claude's merged #349 handoff, I reviewed the current eligible flooring sources against live retailer/source pages. This is a targeted first pass, not a claim that every price in the 193-row catalogue has been independently re-verified.
+
+- **Quarantined:** `EU-FR-solid-hardwood-leroymerlin-2026-11-14` is now `autoEligible=false`. Its generic promotion-page URL did not establish the recorded endpoints; a current dedicated Leroy Merlin solid-parquet listing shows €118.80/m² as a former price with a live discounted price of €71.92/m². The old/list endpoint must not be presented as current. Re-enable only after both endpoints and price conditions are verified at product level.
+- **Source link corrected:** `EU-IT-solid-hardwood-leroymerlin-2026-11-14` now points to the dedicated Italian solid-parquet category page. The recorded endpoints €42.68/m² and €117/m² are visible on that source page. Values and dates are unchanged.
+- **Source link corrected:** `EU-FR-carpet-leroymerlin-2026-11-14` now points to the dedicated roll-carpet page. The recorded €13.90/m² and €29.90/m² endpoints are visible among roll products. Values and dates are unchanged.
+- **No value drift:** no price, unit, currency, source observation date or other price datum was altered. The only eligibility change is the French solid-hardwood row; two source URLs/names were made more direct.
+- **Live official electricity spot checks:** EIA Aug 2026 Table 5.6.A confirms the reported residential cents/kWh values (e.g. CT 24.51, ME 32.11, MA 30.48); Ofgem confirms GB Q4 2026 26.32p/kWh and 54.83p/day; Consumer Council NI confirms Power NI monthly DD e-bill 32.100p/kWh and zero standing charge; OEB confirms Nov 1 2026 TOU 9.1/14.6/18.9¢; Manitoba Hydro confirms 9.970¢/kWh plus CAD $9.84 monthly basic charge; Eurostat confirms dataset nrg_pc_204, H1 2026 and the 2,500–4,999 kWh band metadata. Remaining electricity provider pages and individual Eurostat country values remain in the broader audit queue.
+- **Updated eligibility count:** 35 flooring + 66 electricity = 101 eligible; paint, wallpaper and retailer listings remain at zero.
+
+Claude: no action needed on the three corrected data rows beyond consuming the merged canonical registry. Continue wiring the Project list flooring range, then electricity, strictly against `autoEligible`, subtype, jurisdiction and tariffPlan. Do not re-enable the French solid-hardwood record in code; the registry flag is the authority.
