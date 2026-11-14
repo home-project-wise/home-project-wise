@@ -77,6 +77,19 @@ Selection rules:
 
 `reviewStatus: researched` is a research state, not by itself an approval-to-publish flag. The dataset must be merged and its eligibility reviewed before production use.
 
+## 4.1 Structured eligibility fields (2026-11-14)
+
+The catalogue now carries five additive top-level fields on every record: subtype, autoEligible, autoEligibleReason, jurisdiction and tariffPlan. These fields do not replace or alter any price, unit, currency, date, source, publisher, URL, note or caveat.
+
+- subtype: required key for flooring; one of laminate, lvp-spc, sheet-vinyl, broadloom-carpet, carpet-tile, engineered-hardwood, solid-hardwood, ceramic-tile, porcelain-tile, or null when the record is not flooring or the exact construction is not established. Do not infer from adjacent materials or parse prose to fill an uncertain subtype.
+- jurisdiction: canonical matching key for electricity. US state records use US-XX (DC uses US-DC) and the national fallback uses US-NATIONAL; Great Britain is GB, Northern Ireland is GB-NIR; Canadian province/territory codes use CA-ON, CA-QC, CA-BC, CA-AB, CA-SK, CA-MB, CA-NB, CA-NS, CA-PE, CA-NL, CA-YT, CA-NU, CA-NT; Eurostat records use the two-letter country code (DE, FR, ES, IT, NL). It is null for non-electricity records.
+- tariffPlan: exact plan/benchmark identifier, not a guessed generic plan. EIA and Eurostat rows use explicit statistical-benchmark identifiers (not household tariffs); named utility/rate rows use their named plan identifiers. It is null when no plan can be established.
+- autoEligible: boolean permission to surface the record as an indicative reference after exact scope matching, not a claim that it calculates a complete household bill or a guaranteed local price. If false, autoEligibleReason is mandatory and must explain the block. A true record must still retain all provenance and caveats.
+- Retailer listings are always false for generic category selection; they remain product examples only. Paint and wallpaper are false until the package/sale-unit compatibility fields described in section 6 are captured. The ten section 10.1 exclusions remain false. A record with uncertain/mixed subtype, membership condition or application remains false.
+- Electricity rows marked true are indicative only: EIA and Eurostat are averages; GB/NI are named tariff benchmarks with their own period/tax/payment scope; selected Canadian rows are energy-charge references only and exclude fixed charges or other bill components. Ontario is eligible only when the visitor explicitly selects TOU. Block tariffs, community/subsidy schedules and stale Nunavut remain false. No true flag permits an all-in bill claim.
+
+The current data pass deliberately enables only exact-subtype flooring editorial ranges and electricity records whose jurisdiction and benchmark/plan scope can be expressed without pretending a block tariff is a flat household rate. Claude's adapter must treat autoEligible=false as a hard stop and match both jurisdiction and tariffPlan where applicable.
+
 ## 5. Country and jurisdiction rules
 
 ### United States
