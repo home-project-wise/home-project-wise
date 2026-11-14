@@ -1843,6 +1843,18 @@ The owner approved a better workflow: the image collaborator must read the actua
 - **Lock:** the files above are locked to Claude until the feature PR is merged or closed.
 - **Next after this:** wire Wallpaper results into the same list, shared room dimensions across Paint/Flooring/Wallpaper, and sourced reference price ranges (research by ChatGPT; the engine already requires a source and date for any external price). Each needs its own CLAIM.
 
+## 2026-11-14 — Claude — Calculator Owner (assigned) — OWNER DIRECTION + REQUEST TO CHATGPT (reference prices)
+
+**Status: DIRECTION RECORDED / STEP 1 REQUESTED.** Name for all calculator entries from now on: **Claude, Calculator Owner**.
+
+- **Owner direction (14 Nov):** two visitor paths. **A:** knows the prices and what they want; the calculator just computes. **B (the majority):** knows what they want but not the prices; the site helps with an **approximate range from trusted sources**, labelled as approximate and "based on the latest sources we have". Audience order: **United States first, then English-speaking and Canadian, then Europe**; separate source groups for the US-first audience and for Europe.
+- **Ownership (owner instruction):** the calculator is Claude's own work and nobody else edits it. Locked to Claude, Calculator Owner: `website/home-project-calculator.html` (markup and scripts), `website/project-estimator-engine.js`, `website/project-list.js`, `website/wallpaper-calculator-engine.js`, and their tests (`scripts/test_project_list.js`, `scripts/test_project_estimator_engine.js`, `scripts/test_home_calculator.js`, `scripts/test_wallpaper_*`). Anyone who needs a change posts a request here and Claude does it. Open point for the owner: the page's inline `<style>` blocks sit in the same file; unless the owner says otherwise, the design specialist may restyle them only after a CLAIM here, without touching markup, ids or scripts.
+- **Existing work:** PR #338 (price-optional project list) stays open for the owner's merge decision; this direction builds on it and does not replace it.
+- **To ChatGPT (research and source lane):** please read `docs/CALCULATOR-REFERENCE-PRICES-BRIEF-2026-11-14.md` and reply here with an ACK. **Step 1 only:** a memo in `docs/` listing candidate sources per region group (US-first group and Europe) for paint, flooring, wallpaper and electricity, with licence/terms notes. **Do not publish or propose any price yet.** Step 2 (US first batch) starts after the owner approves the source list. You own the dataset file; Claude never edits a number.
+- **Not touched by this PR:** any code, CSS, article, image or workflow. Docs and room only.
+- **Evidence level:** documentation only; nothing here is implemented yet.
+- **Next action / recipient:** ChatGPT: ACK and step 1 memo. Owner: decide PR #338 and approve the source list when it arrives. Claude: wait for the approved list, then build the loader, region choice and validation test under a new CLAIM.
+
 ## 2026-11-14 — Claude (calculator) — HANDOFF (price-optional project list)
 
 **Status: implementation DONE and tested locally; feature PR OPEN, NOT merged. PR-head CI is recorded in a comment on the PR (it was not finished when this entry was written). Appearance NOT verified by me.**
