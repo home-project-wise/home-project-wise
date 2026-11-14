@@ -3882,15 +3882,16 @@
       "id": "EU-FR-LEROYMERLIN-LAMINATE-2026-11-14",
       "name": "Sol stratifié medio ARTENS Byrne 2 product listing",
       "publisher": "Leroy Merlin France",
-      "url": "https://www.leroymerlin.fr/produits/bonnes-affaires/une-rentree-bien-rangee/voir-tous-les-produits/notre-selection-revetement-sol-et-mur/",
+      "url": "https://www.leroymerlin.fr/produits/sol-stratifie-medio-artens-byrne-2-ep-7-mm-89154816.html",
       "geography": "France (online listing)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Single visible product listing at €8.99/m²; retained as a product observation, not a category average.",
-    "caveats": "One 7 mm product only; not a market range. Wear class, thickness, underlay, delivery and fitting may change total cost.",
-    "reviewStatus": "researched"
+    "notes": "Single visible product listing for ARTENS medio Byrne 2, 7 mm; product reference 89154816. Current product page displays €8.99/m² and €22.38 per 2.49 m² pack; retained as an individual product observation, not a category average.",
+    "caveats": "One 7 mm product only; not a market range. Wear class, thickness, underlay, delivery and fitting may change total cost. The page shows a 2.49 m² pack; use this as product metadata only, not as a generic pack-coverage assumption.",
+    "reviewStatus": "researched",
+    "productOrSku": "89154816"
   },
   {
     "id": "EU-FR-flooring-ceramic-tile-leroymerlin-2026-11-14",
@@ -3930,15 +3931,16 @@
       "id": "EU-ES-LEROYMERLIN-PINTURA-PLASTICA-2026-11-14",
       "name": "Pintura de interior alta cobertura LUXENS 15 L",
       "publisher": "Leroy Merlin España",
-      "url": "https://www.leroymerlin.es/productos/pintura-y-drogueria/pintura-para-paredes-y-techos/pintura-plastica/",
+      "url": "https://www.leroymerlin.es/productos/pintura-de-interior-alta-cobertura-luxens-color-blanco-mate-15-l-para-paredes-y-techos-96114412.html",
       "geography": "Spain (online listing)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Single product listed at €46 for 15 L, equivalent to €3.07/L. Price is recorded as a product observation, not a market average.",
-    "caveats": "One product listing; paint quality, coverage, washable performance, VAT, promotions and pack size differ.",
-    "reviewStatus": "researched"
+    "notes": "Single product listing for LUXENS interior matt white paint, reference 96114412, 15 L can priced at €46; displayed unit equivalent €3.07/L. Recorded per litre as a product observation, not a market average. The product page confirms the 15 L pack volume.",
+    "caveats": "One product listing; paint quality, coverage, washable performance, VAT, promotions and pack size differ. Per-litre price must not be multiplied by can count unless the calculator knows the selected can volume.",
+    "reviewStatus": "researched",
+    "productOrSku": "96114412"
   },
   {
     "id": "EU-ES-flooring-laminate-leroymerlin-2026-11-14",
