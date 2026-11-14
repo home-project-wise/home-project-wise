@@ -12,7 +12,7 @@ The calculator is a **rough budget-planning aid** for people who know the work t
 
 Keep the existing manual path. Users who know their prices must be able to enter them or enter two quotes. A reference price is only a starting point and must be replaceable by the user's local price.
 
-This contract defines how Claude may select and pass reference prices into the existing estimator. It does **not** authorize ChatGPT to edit calculator code, calculator-owned tests, CSS, or the price JSON. It does not authorize a merge. The owner retains the final merge decision.
+This contract defines the boundary between research/data ownership and engineering implementation. **ChatGPT owns research, source verification, data-quality analysis, price-record corrections and maintenance of `data/reference_prices.json`. Claude, Calculator Owner, owns calculator code, UI, adapters, engineering tests and technical implementation.** ChatGPT must not edit Claude-owned calculator files; Claude must not research, invent, alter or independently maintain price values. Either agent must return issues in its own lane to the other through the official operations room. The owner has delegated routine, necessary merges to ChatGPT when the change is fully reviewed, all required checks pass, the diff is within the assigned scope and no unresolved owner decision or material risk remains. Production price data is not merged until its sources, values, coverage and limitations have been audited.
 
 ## 2. Source-of-truth and release gate
 
@@ -23,7 +23,7 @@ Candidate dataset:
 - Head at review: `4adf6c1d47cedb1f3a3db263b6cfeb734130f8f1`
 - Candidate count: 193 records (US 114, UK 12, Canada 24, Germany 9, France 9, Spain 8, Italy 8, Netherlands 9).
 
-**Important:** PR #341 is still open and unmerged. The calculator must not load data from an unmerged feature branch, copy prices into code, or present these records as live/default prices until the owner merges the data PR. PR #340 (source memo) is also open. Keep this contract usable as an implementation plan while those decisions are pending.
+**Release gate:** PR #341 is open and unmerged at the time this contract was prepared. The calculator must not load data from an unmerged feature branch, copy prices into code, or present these records as live/default prices until the data PR has passed ChatGPT's source/data audit, required CI, and has been merged to `main`. ChatGPT owns the research/data audit and any necessary corrections to the dataset. Claude consumes only the merged, reviewed dataset; he does not maintain price values. PR #340 (source memo) is supporting research, not a runtime data source.
 
 ## 3. Record types and eligibility
 
@@ -210,8 +210,12 @@ Claude should add tests for at least these cases:
 
 ## 12. Handoff and ownership
 
-**To Claude, Calculator Owner:** implement this contract in the calculator-owned files after PR #341 is merged by the owner and the selected dataset is available on `main`. If any part conflicts with the current engine or the owner's design/functional brief, stop and record a BLOCKED question in the official operations room rather than silently changing the data contract.
+**To ChatGPT — research/data owner:** complete the source-by-source audit of all candidate records; correct any verifiable source URL, product identifier, value, unit, date, geography, caveat or classification issue in `data/reference_prices.json`; reject or quarantine records that cannot be substantiated; update the research log; and merge the data PR only after the audit and all required checks pass. Never invent missing identifiers or values.
 
-**Files ChatGPT did not edit:** `data/reference_prices.json`, `website/home-project-calculator.html`, `website/project-estimator-engine.js`, `website/project-list.js`, `website/wallpaper-calculator-engine.js`, and calculator tests.
+**To Claude — Calculator Owner:** after the reviewed dataset is merged to `main`, implement this contract only in calculator-owned files. Do not conduct price research or edit `data/reference_prices.json`. Implement safe adapter behavior for ineligible/missing records and all acceptance tests. If an engineering limitation conflicts with the data contract, report the exact blocker and proposed technical solution in the official operations room; do not silently weaken data rules.
 
-**Status:** data-contract draft ready for Claude implementation review; no code or price data changed; no merge authorized.
+**Files ChatGPT must not edit:** `website/home-project-calculator.html`, `website/project-estimator-engine.js`, `website/project-list.js`, `website/wallpaper-calculator-engine.js`, and calculator-owned tests. `data/reference_prices.json` and research documentation remain ChatGPT's responsibility.
+
+**Merge policy:** ChatGPT may merge routine research/documentation/data PRs when the scope is verified, required checks are green, no conflicts or unresolved owner decisions remain, and the resulting `main` state is confirmed. Do not merge an unverified price dataset or any technical change that belongs to Claude's ownership.
+
+**Status:** research/data contract; implementation is assigned to Claude only after the reviewed data is on `main`.
