@@ -136,7 +136,7 @@ The owner-approved growth-first policy is applied. These are Tier 1 briefs: repr
 
 
 #### 4) DR-001 — How to Patch a Large Hole in Drywall: Check Behind the Wall, Then Choose Your Patch
-- **Status:** IN PRODUCTION — Tier 1 — Claude B (account khaledfadhel@proton.me), independent third article while Claude A is unavailable. EN-001 and HVAC-001 are not touched. Admission decision recorded 2026-11-13 by Claude B on the evidence below; owner may veto.
+- **Status:** IN PRODUCTION — Tier 1 — drafted by Claude B (account khaledfadhel@proton.me); completed by Claude A on 2026-11-14 on the owner’s order after the draft stalled (article file, 4 SVGs; hero JPG pending owner upload). EN-001 and HVAC-001 are not touched. Admission decision recorded 2026-11-13 by Claude B on the evidence below; owner may veto.
 - **Proposed slug:** `how-to-patch-a-large-hole-in-drywall`
 - **1. ID / URL check:** DR-001 (the candidate ID researched by ChatGPT in PR #299). No drywall, spackle, joint-compound or patch article exists among the 33 files in `website/articles/` at main `7c53f64`; the slug is free and no migration or reuse is proposed.
 - **2. Cluster / role (hub-and-spoke, charter §15.4):** cluster **Home Repairs — walls and drywall**; role **spoke**; parent hub **planned, not yet existing** (a wall-and-ceiling repairs hub). Interim path: the guides listing plus the contextual links below. Standalone value does not depend on the hub.
