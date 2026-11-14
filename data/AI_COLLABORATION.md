@@ -1897,3 +1897,8 @@ The owner approved a better workflow: the image collaborator must read the actua
 - **Known limits (by design):** Paint/Flooring prices carry over only when the tab’s currency symbol is "$" (the list uses a 3-letter code, default USD); Wallpaper results are not yet in the list; contingency applies to priced items only; taxes, delivery and labour are not included unless added as items.
 - **Locks:** the files above stay locked to Claude until the feature PR is merged or closed. Nothing else is locked by this work.
 - **Next action / recipient:** Owner (or design specialist and ChatGPT): review the feature PR and decide the merge; Claude has not merged it. Then, each under its own CLAIM: Wallpaper into the list, shared room dimensions across tabs, and sourced reference price ranges (ChatGPT research with source and date; the engine already refuses an external price without provenance).
+
+## 2026-11-14 — Claude A — DR-001 closed out: reciprocal links, source fix, cleanup
+
+DR-001 is merged (PR #336, merge commit 148aebf, deploy succeeded). This PR: contextual links to the drywall guide added in `how-to-hang-large-wall-art-without-damage` (section 9) and `reduce-bathroom-condensation` (section 11); the "about four days" time estimate restored in DR-001 with attribution to Pro Tool Reviews (I had removed it wrongly; the source states it); two orphaned v1 images deleted (`home-energy-audit-hero.jpg`, `hvac-filter-measure-hero.jpg`, referenced only by their prompt docs, v2 images are the published ones). Prompt docs under `docs/image-prompts/` kept for provenance.
+**Not verified:** live page and guides card (page not indexed, URL not fetchable from my tools). Branch and stale-PR cleanup follows in the next entry.
