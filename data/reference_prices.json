@@ -1916,5 +1916,30 @@
     "notes": "Lowe's listing price USD 34.99 per roll; stated coverage approximately 30.75 sq ft. Peel-and-stick vinyl wallpaper.",
     "caveats": "Single SKU observation, not a market average. Roll coverage, pattern repeat, waste, local pricing, availability and tax may vary.",
     "reviewStatus": "researched"
+  },
+  {
+    "id": "US-flooring-broadloom-carpet-homedepot-trafficmaster-gallop-2026-11-14",
+    "audience": "US",
+    "category": "flooring",
+    "item": "Residential broadloom carpet, TrafficMaster Gallop Maverick Gray, 12 ft wide, cut to length",
+    "unit": "sq ft",
+    "currency": "USD",
+    "low": 1.37,
+    "high": 1.37,
+    "kind": "retailer-listing",
+    "source": {
+      "id": "HOME-DEPOT-US-BROADLOOM-CARPET-LISTING-2026-11-14",
+      "name": "Residential indoor carpet by the foot — The Home Depot",
+      "publisher": "The Home Depot",
+      "url": "https://www.homedepot.com/b/Flooring/Residential/Carpet-by-the-Foot/Indoor/N-5yc1vZaq7rZ1z17lgmZ1z1bvu5Z1z263ts",
+      "geography": "United States (Home Depot listing; local price/availability may vary)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "productOrSku": "Model H2027-783-1200; 12 ft wide; 24 oz SD polyester; cut-to-length",
+    "notes": "Listed residential indoor broadloom carpet at USD 1.37 per sq ft. This is wall-to-wall carpet by the foot, not carpet tile.",
+    "caveats": "Single SKU observation, not a market average. Store/ZIP, carpet fiber, face weight, backing, promotions and availability vary. Carpet pad, installation, removal, tax and waste are excluded.",
+    "reviewStatus": "researched"
   }
 ]
