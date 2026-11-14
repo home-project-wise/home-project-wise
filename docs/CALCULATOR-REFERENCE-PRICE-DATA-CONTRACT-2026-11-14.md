@@ -53,7 +53,7 @@ Display the source period, geography, consumption band/plan and the energy-only 
 
 Never select an individual SKU as the automatic default for a whole material category. Never average SKU rows together with an `editorial-range` row. A listing can be shown only as a clearly identified individual product example, with its SKU/model and exact source.
 
-Initial audit found four non-US listing rows without a top-level `productOrSku`. Follow-up source verification has now identified two exact product references and direct product URLs in the candidate data branch: France ARTENS laminate `89154816` and Spain LUXENS 15 L paint `96114412`. The Germany solid-parquet and Netherlands sheet-vinyl rows still lack verified product identifiers and must remain excluded from every engine payload until their exact identifiers are verified from the retailer. Never infer an identifier from a category URL or fabricate one.
+Initial audit found four non-US listing rows without a top-level `productOrSku`. Follow-up verification has now identified all four exact product references and direct product URLs in the candidate data branch: France ARTENS laminate `89154816`; Spain LUXENS 15 L paint `96114412`; Germany Parador engineered hardwood parquet `1748887`; and Netherlands HORNBACH made-to-measure sheet PVC `6053234`. The Germany product's construction was also corrected: its spruce carrier core and 3.6 mm real-wood wear layer make it engineered hardwood, not solid hardwood. All four remain individual product observations, never category defaults. Never infer an identifier from a category URL or fabricate one.
 
 For the 53 US listing rows, `productOrSku` is at the **top level** of the JSON record, while the current engine expects it inside `price.source.productOrSku`. The loader must map it explicitly; do not change the JSON as part of calculator work.
 
@@ -184,7 +184,7 @@ Known constraints that must remain visible:
 - Canadian electricity records are tariff/provider/community scoped; Nunavut is stale-dated and excluded by default.
 - Wallpaper units and roll sizes are not yet machine-normalized.
 - Paint pack volume is not currently captured by the Paint tab.
-- Two non-US retailer listings still lack a verified product/SKU identifier required by the engine (Germany solid parquet and Netherlands sheet vinyl). France laminate and Spain paint identifiers were verified against the exact retailer product pages and added to the candidate data branch; this remains subject to PR #341 review.
+- All four non-US retailer listings originally missing product/SKU identifiers have now been verified against exact retailer product pages and corrected in the PR #341 candidate branch. Germany's record was also reclassified from solid hardwood to engineered hardwood. No `retailer-listing` row in the current candidate branch is missing `productOrSku`; all remain product examples only, not category defaults.
 
 ## 10.1 Additional data-eligibility exclusions from the 14 Nov audit
 
@@ -224,7 +224,7 @@ Claude should add tests for at least these cases:
 7. Flooring subtype mismatch (e.g. ceramic vs porcelain, broadloom vs carpet tile, sheet vinyl vs LVP) returns no reference rather than a substitute.
 8. Paint reference is not multiplied by tins unless package volume is known and compatible.
 9. Wallpaper reference is not used for sale-unit costing when roll/package coverage is unknown or incompatible.
-10. A retailer SKU never becomes a category default; the two remaining non-US SKU-less listing rows (Germany solid parquet and Netherlands sheet vinyl) are rejected by the adapter. France and Spain exact product identifiers must be preserved as individual listings. All explicit exclusions in §10.1 are denied by default.
+10. A retailer SKU never becomes a category default; all 57 retailer listings must have a verified `productOrSku`, and the four corrected non-US identifiers must be preserved as individual listings. All explicit exclusions in §10.1 are denied by default.
 11. No median is parsed from notes; no midpoint is labelled as a median.
 12. A missing country/category match prompts the user for a price or two quotes; no FX conversion or cross-country fallback occurs.
 13. User input and two user quotes override a selected reference without mixing values.
