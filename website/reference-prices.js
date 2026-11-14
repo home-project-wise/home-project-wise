@@ -41,11 +41,17 @@
     return r && Number.isFinite(r.low) && Number.isFinite(r.high) && r.low >= 0 && r.low <= r.high;
   }
   // Automatic selection needs structured fields supplied by the data owner; nothing is inferred from prose.
-  function isAutoEligible(r) {
-    return !!r && r.kind === "editorial-range" && r.category === "flooring" && BLOCKED_IDS.indexOf(r.id) === -1 &&
-      r.autoEligible === true && typeof r.subtype === "string" && r.subtype !== "" && validRange(r) &&
-      /^[A-Z]{3}$/.test(String(r.currency || "")) && areaBasis(r.unit) !== null && !!r.source && !!parseDate(r.source.observedAt);
+  function commonOk(r) {
+    return !!r && r.autoEligible === true && BLOCKED_IDS.indexOf(r.id) === -1 && validRange(r) &&
+      /^[A-Z]{3}$/.test(String(r.currency || "")) && !!r.source && !!parseDate(r.source.observedAt);
   }
+  function isAutoEligible(r) {
+    if (!commonOk(r)) return false;
+    if (r.kind === "editorial-range" && r.category === "flooring") return typeof r.subtype === "string" && r.subtype !== "" && areaBasis(r.unit) !== null;
+    if (r.kind === "government-benchmark" && r.category === "electricity") return String(r.unit).toLowerCase() === "kwh" && !!r.jurisdiction && !!r.tariffPlan;
+    return false;
+  }
+  function denyReason(r) { return (r && r.autoEligibleReason) || "Not eligible for an automatic reference."; }
   function select(records, query) {
     var hits = (records || []).filter(function (r) {
       return isAutoEligible(r) && r.audience === query.country && r.category === query.category && r.subtype === query.subtype;
@@ -54,6 +60,29 @@
     hits.sort(function (a, b) { return a.source.observedAt < b.source.observedAt ? 1 : a.source.observedAt > b.source.observedAt ? -1 : 0; });
     if (hits.length > 1 && hits[0].source.observedAt === hits[1].source.observedAt) return { ok: false, message: NO_REFERENCE };
     return { ok: true, record: hits[0] };
+  }
+  // Electricity: exact jurisdiction (and plan where there is more than one). No cross-jurisdiction fallback;
+  // "US-national" is only returned when it is asked for explicitly.
+  function selectElectricity(records, query) {
+    var hits = (records || []).filter(function (r) {
+      return isAutoEligible(r) && r.category === "electricity" && r.jurisdiction === query.jurisdiction && (!query.tariffPlan || r.tariffPlan === query.tariffPlan);
+    });
+    if (!hits.length) return { ok: false, message: NO_REFERENCE };
+    if (hits.length > 1) return { ok: false, ambiguous: true, plans: hits.map(function (r) { return r.tariffPlan; }), message: "Choose the tariff plan to see a reference rate." };
+    var r = hits[0];
+    return { ok: true, record: r, single: r.low === r.high, nationalFallback: r.jurisdiction === "US-national" };
+  }
+  function uniqueSorted(list) { return list.filter(function (v, i) { return list.indexOf(v) === i; }).sort(); }
+  function flooringOptions(records, country) {
+    return uniqueSorted((records || []).filter(function (r) { return isAutoEligible(r) && r.category === "flooring" && r.audience === country; }).map(function (r) { return r.subtype; }));
+  }
+  function electricityOptions(records) {
+    var by = {};
+    (records || []).forEach(function (r) {
+      if (!isAutoEligible(r) || r.category !== "electricity") return;
+      (by[r.jurisdiction] = by[r.jurisdiction] || { jurisdiction: r.jurisdiction, audience: r.audience, plans: [] }).plans.push(r.tariffPlan);
+    });
+    return Object.keys(by).sort().map(function (k) { return by[k]; });
   }
   // Reference price per area -> price per pack, using the coverage the visitor entered from the product label.
   function packRange(record, coverage, coverageUnit) {
@@ -100,6 +129,6 @@
     return problems;
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
-    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, select: select,
+    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions,
     packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
 }));

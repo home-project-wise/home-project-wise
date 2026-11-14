@@ -44,7 +44,11 @@ ok("retailer listings, paint, wallpaper and electricity are never automatic cate
   assert.equal(RP.isAutoEligible(rec({ kind: "retailer-listing" })), false);
   assert.equal(RP.isAutoEligible(rec({ category: "paint" })), false);
   assert.equal(RP.isAutoEligible(rec({ category: "wallpaper" })), false);
-  assert.equal(RP.isAutoEligible(rec({ category: "electricity", kind: "government-benchmark", unit: "kWh" })), false);
+  const elec = { category: "electricity", kind: "government-benchmark", unit: "kWh", subtype: null, jurisdiction: "US-CT", tariffPlan: "EIA-RESIDENTIAL-AVERAGE" };
+  assert.equal(RP.isAutoEligible(rec(Object.assign({}, elec, { jurisdiction: null }))), false);
+  assert.equal(RP.isAutoEligible(rec(Object.assign({}, elec, { tariffPlan: null }))), false);
+  assert.equal(RP.isAutoEligible(rec(Object.assign({}, elec, { autoEligible: false }))), false);
+  assert.equal(RP.isAutoEligible(rec(elec)), true);
 });
 ok("newest observation wins; an exact tie is ambiguous and returns nothing; records are never averaged", () => {
   const q = { country: "US", category: "flooring", subtype: "laminate" };
@@ -84,9 +88,35 @@ ok("the real data file meets the contract's structural rules (audit, read-only)"
   const problems = RP.validateDataset(data, NOW);
   assert.deepEqual(problems, [], problems.slice(0, 10).join("\n"));
 });
-ok("no real record is auto-selectable until the data owner adds structured subtype and autoEligible", () => {
+const pick = (id) => data.find((r) => r.id === id);
+ok("real data: only flooring ranges and electricity benchmarks can be eligible; every denial has a reason", () => {
   const eligible = data.filter(RP.isAutoEligible);
   console.log("   auto-eligible records in the data file: " + eligible.length + " of " + data.length);
-  assert.ok(eligible.every((r) => r.kind === "editorial-range" && r.category === "flooring" && RP.BLOCKED_IDS.indexOf(r.id) === -1));
+  assert.ok(eligible.length > 0);
+  assert.ok(eligible.every((r) => (r.category === "flooring" && r.kind === "editorial-range") || (r.category === "electricity" && r.kind === "government-benchmark")));
+  assert.ok(eligible.every((r) => RP.BLOCKED_IDS.indexOf(r.id) === -1));
+  assert.ok(data.filter((r) => r.kind === "retailer-listing" || r.category === "paint" || r.category === "wallpaper").every((r) => !RP.isAutoEligible(r)));
+  assert.ok(RP.BLOCKED_IDS.every((id) => !pick(id) || !RP.isAutoEligible(pick(id))));
+  assert.ok(data.filter((r) => !RP.isAutoEligible(r) && !RP.BLOCKED_IDS.includes(r.id) && r.autoEligible === false).every((r) => RP.denyReason(r).length > 10));
+});
+ok("real data flooring: exact market and subtype only, no substitute", () => {
+  const us = RP.select(data, { country: "US", category: "flooring", subtype: "laminate" });
+  assert.equal(us.ok, true); assert.equal(us.record.audience, "US"); assert.equal(us.record.currency, "USD");
+  const p = RP.packRange(us.record, 20, "sq ft"); assert.ok(Math.abs(p.low - us.record.low * 20) < 1e-3);
+  assert.equal(RP.select(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, false);
+  assert.equal(RP.select(data, { country: "UK", category: "flooring", subtype: "lvp-spc" }).ok, false);
+  assert.equal(RP.select(data, { country: "US", category: "flooring", subtype: "carpet-tile" }).ok, false);
+  RP.flooringOptions(data, "Canada").forEach((s) => assert.equal(RP.select(data, { country: "Canada", category: "flooring", subtype: s }).ok, true, s));
+  data.filter((r) => RP.isAutoEligible(r) && r.category === "flooring").forEach((r) => assert.ok(RP.packRange(r, 1, "m²"), r.id));
+});
+ok("real data electricity: GB and Northern Ireland are separate; no cross-jurisdiction fallback", () => {
+  const gb = RP.selectElectricity(data, { jurisdiction: "GB" }), ni = RP.selectElectricity(data, { jurisdiction: "GB-NIR" });
+  assert.equal(gb.ok, true); assert.equal(ni.ok, true); assert.notEqual(gb.record.id, ni.record.id); assert.notEqual(gb.record.tariffPlan, ni.record.tariffPlan);
+  const ct = RP.selectElectricity(data, { jurisdiction: "US-CT" }); assert.equal(ct.ok, true); assert.equal(ct.single, true); assert.equal(ct.record.currency, "USD");
+  assert.equal(RP.selectElectricity(data, { jurisdiction: "US-ZZ" }).ok, false);
+  assert.equal(RP.selectElectricity(data, { jurisdiction: "GB", tariffPlan: "OEB-ONTARIO-TOU" }).ok, false);
+  const on = RP.selectElectricity(data, { jurisdiction: "CA-ON", tariffPlan: "OEB-ONTARIO-TOU" }); assert.equal(on.ok, true); assert.equal(on.single, false); assert.equal(on.record.currency, "CAD");
+  RP.electricityOptions(data).forEach((o) => o.plans.forEach((pl) => assert.equal(RP.selectElectricity(data, { jurisdiction: o.jurisdiction, tariffPlan: pl }).ok, true, o.jurisdiction + " " + pl)));
+  data.filter((r) => RP.isAutoEligible(r) && r.category === "electricity").forEach((r) => assert.equal(String(r.unit).toLowerCase(), "kwh"));
 });
 console.log("\n" + n + " reference-price tests passed");
