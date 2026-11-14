@@ -60,12 +60,14 @@ rejects('measure negative depth', submit('measure-form', { ...M, 'measure-length
 // 2 Paint
 const P = { 'paint-unit': 'm', 'paint-length': 4, 'paint-width': 3, 'paint-height': 2.5, 'paint-openings': 3, 'paint-coats': 2, 'paint-waste': 10, 'paint-coverage': 10, 'paint-price': 20 };
 has('paint 32 m2, 2 coats, 10%: 7.04 -> 8 tins, cost 160', submit('paint-form', P), 'Buy at least 8 tin(s) of the entered coverage. Estimated paint cost: $160');
+ok('paint result is offered to the project list with quantity and price', window.hpwLast && window.hpwLast.paint.quantity === 8 && window.hpwLast.paint.unit === 'tin' && window.hpwLast.paint.price === 20 && els['paint-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('paint zero allowance: 6.4 -> 7 tins', submit('paint-form', { ...P, 'paint-waste': 0 }), 'Buy at least 7 tin(s)');
 has('paint exact boundary: 5 tins when 5.00 needed', submit('paint-form', { ...P, 'paint-openings': 0, 'paint-length': 5, 'paint-width': 5, 'paint-height': 2.5, 'paint-waste': 0, 'paint-coats': 1, 'paint-coverage': 10, 'paint-price': '' }), 'Buy at least 5 tin(s)');
 rejects('paint openings larger than walls', submit('paint-form', { ...P, 'paint-openings': 100 }));
 // 3 Material packs
 const K = { 'material-length': 5, 'material-width': 4, 'material-coverage': 2.1, 'material-waste': 10, 'material-price': 30 };
 has('material 20 m2 +10% = 22 m2 / 2.1 -> 11 packs, cost 330', submit('material-form', K), 'Required: 11 pack(s) Estimated material cost: $330');
+ok('flooring result is offered to the project list with quantity and price', window.hpwLast.material.quantity === 11 && window.hpwLast.material.unit === 'pack' && window.hpwLast.material.price === 30 && els['material-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('material exact pack boundary 21 / 2.1 = 10', submit('material-form', { ...K, 'material-length': 7, 'material-width': 3, 'material-waste': 0, 'material-price': '' }), 'Required: 10 pack(s)');
 has('material zero price is a valid price', submit('material-form', { ...K, 'material-price': 0 }), 'Estimated material cost: $0');
 // 3b Material packs, imperial (feet / ft²): same arithmetic in either unit, no conversion step in the pack count
