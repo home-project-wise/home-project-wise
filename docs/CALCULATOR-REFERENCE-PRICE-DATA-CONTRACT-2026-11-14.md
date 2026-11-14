@@ -281,3 +281,14 @@ Claude should add tests for at least these cases:
 ## 13. Static-site publication integration
 
 The canonical registry remains at data/reference_prices.json. The GitHub Pages workflow publishes the website/ directory and runs scripts/rebuild_site_indexes.py before uploading it; the workflow already triggers when that script changes. The technical owner should copy the canonical registry to website/reference-prices.json during that build and add a test that the generated file is byte-identical to the source. Never maintain a second hand-edited JSON file. A data-only change does not trigger Pages under the current workflow path filter; the build-script integration is the deployment trigger.
+
+
+## 14. Source audit follow-up — 14 November 2026
+
+The source owner performed a targeted live-page audit of the 36 flooring records marked auto-eligible after PR #348. The audit is incremental; it does not certify all 36 endpoints or replace the required periodic source-by-source review.
+
+- `EU-FR-solid-hardwood-leroymerlin-2026-11-14` is now `autoEligible: false`. The linked generic floor/wall promotion page did not establish the recorded endpoints, and the current Leroy Merlin solid-parquet category exposes at least one €118.80/m² figure as a former/list price with a current selling price of €71.92/m². Do not use the former price as a current material reference. Re-enable only after both endpoints and their price conditions are verified at product level.
+- `EU-IT-solid-hardwood-leroymerlin-2026-11-14` now links to the direct Leroy Merlin Italia solid-wood parquet category page, where the recorded €42.68/m² and €117/m² endpoints are visible. Original numeric values and observed date were not changed.
+- `EU-FR-carpet-leroymerlin-2026-11-14` now links to the direct roll-carpet category page; the recorded €13.90/m² and €29.90/m² endpoints are visible among roll products. The selected-sample caveat remains.
+
+This reduces flooring auto-eligible records from 36 to 35 (electricity remains 66; total eligible records 101). No prices, units, currencies or observed dates were changed. The two corrected URLs are more direct source references, not new price observations.
