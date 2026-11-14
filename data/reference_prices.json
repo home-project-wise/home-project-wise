@@ -4306,7 +4306,7 @@
     "id": "EU-DE-solid-hardwood-hornbach-2026-11-14",
     "audience": "Germany",
     "category": "flooring",
-    "item": "Solid wood parquet — single visible listing",
+    "item": "Engineered hardwood parquet — Parador Echtholz-Parkett Eiche Pinot schwarz",
     "unit": "m²",
     "currency": "EUR",
     "low": 79.95,
@@ -4316,15 +4316,16 @@
       "id": "EU-DE-HORNBACH-MASSIVPARKETT-2026-11-14",
       "name": "Solid parquet category/product listing",
       "publisher": "HORNBACH Germany",
-      "url": "https://www.hornbach.de/c/bodenbelaege-fliesen/parkett/S1050/",
+      "url": "https://www.hornbach.de/p/parador-echtholz-parkett-eiche-pinot-schwarz-1748887-landhausdiele-2200-x-185-x-13-mm/12467267/",
       "geography": "Germany (online listing)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "One solid parquet listing price captured at €79.95/m²; retained as an individual product observation only.",
-    "caveats": "One SKU/product listing only; not a category range. Wood species, grade, thickness and finish materially affect price.",
-    "reviewStatus": "researched"
+    "notes": "Single product listing for Parador Echtholz-Parkett Eiche Pinot schwarz, product reference 1748887. HORNBACH's category listing showed €79.95/m² (€292.86 per pack); the exact product page identifies a 13 mm board with 3.6 mm wear layer and spruce carrier core. This is engineered hardwood parquet, not solid hardwood; individual product observation only.",
+    "caveats": "One product listing, not a category range. The spruce carrier core and 3.6 mm real-wood wear layer mean this must not be classified as solid hardwood. Current stock/price may vary by store and the listing showed the product as not online-orderable; delivery, fitting and waste excluded.",
+    "reviewStatus": "researched",
+    "productOrSku": "1748887"
   },
   {
     "id": "EU-FR-carpet-leroymerlin-2026-11-14",
@@ -4628,15 +4629,16 @@
       "id": "EU-NL-HORNBACH-PVC-2026-11-14",
       "name": "PVC op maat Lord spikkel light grey, 200 cm wide",
       "publisher": "HORNBACH Netherlands",
-      "url": "https://www.hornbach.nl/s/vloerbedekking",
+      "url": "https://www.hornbach.nl/p/pvc-op-maat-lord-spikkel-lichtgrijs-200-cm-breed/6053234/",
       "geography": "Netherlands (online listing)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
-    "notes": "Single PVC sheet listing at €7.95/m²; one product observation only.",
-    "caveats": "Single listing, not a category range or market average. Check roll width, minimum cut, stock and delivery; installation excluded.",
-    "reviewStatus": "researched"
+    "notes": "Single made-to-measure sheet-PVC listing, HORNBACH product reference 6053234, 200 cm wide; category listing displayed €7.95/m² (€15.90 per linear metre). Product page states custom cutting in 5 cm increments, 0.5 m minimum order and a 30 m roll. Individual product observation only, not a category average.",
+    "caveats": "One made-to-measure sheet-vinyl product only, not a market range. Price basis is per square metre but the retailer also sells by linear metre at the stated 200 cm width; do not confuse these units. Custom-cut goods are non-returnable; delivery and installation excluded.",
+    "reviewStatus": "researched",
+    "productOrSku": "6053234"
   },
   {
     "id": "EU-DE-click-vinyl-hornbach-2026-11-14",
