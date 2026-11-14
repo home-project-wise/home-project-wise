@@ -4635,29 +4635,5 @@
     "notes": "Single PVC sheet listing at €7.95/m²; one product observation only.",
     "caveats": "Single listing, not a category range or market average. Check roll width, minimum cut, stock and delivery; installation excluded.",
     "reviewStatus": "researched"
-  },
-  {
-    "id": "EU-NL-solid-hardwood-hornbach-2026-11-14",
-    "audience": "Netherlands",
-    "category": "flooring",
-    "item": "Solid hardwood flooring — no verified retailer sample captured",
-    "unit": "m²",
-    "currency": "EUR",
-    "low": 0,
-    "high": 0,
-    "kind": "editorial-range",
-    "source": {
-      "id": "EU-NL-HARDWOOD-NOT-VERIFIED-2026-11-14",
-      "name": "No price record; placeholder excluded from calculator values",
-      "publisher": "Not assigned",
-      "url": "https://www.hornbach.nl/",
-      "geography": "Netherlands",
-      "geographyResolution": "national",
-      "observedAt": "2026-11-14",
-      "retrievedAt": "2026-11-14"
-    },
-    "notes": "No numeric price observation recorded; this placeholder documents an explicit research gap only.",
-    "caveats": "Do not use as a price. Replace only after verifying product listings with exact species, thickness and price.",
-    "reviewStatus": "researched"
   }
 ]
