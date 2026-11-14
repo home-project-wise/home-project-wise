@@ -1822,3 +1822,23 @@ The owner approved a better workflow: the image collaborator must read the actua
 **Tested:** local emulation of `scripts/quality_gate.py` on the article: no failures (2,633 words, 17 H2, 6 FAQ, 5 images, intro 111 words). **Not tested:** CI, browser rendering, `check_site.py`, live site. Other sources (EPA lead steps, USG, This Old House, Benjamin Moore, Pro Tool Reviews) were read by Claude B on 2026-11-12/13 and not re-opened by me.
 **Open:** hero `website/images/drywall-patch-hero.jpg` (AI image, provisional) must be uploaded by the owner to this branch before merge; PR stays draft until then. Reciprocal links in wall-art and condensation are left to the generated Related blocks. A better hero prompt is available if the provisional image is rejected.
 **Not touched:** scripts, workflows, article-overrides.css, calculator, design files, EN-001, HVAC-001, PR #304.
+
+## 2026-11-14 — Claude (calculator) — CLAIM (calculator: price-optional project list; owner's first mission)
+
+**Status: CLAIM / IN PROGRESS.** Owner instruction (this session, 13–14 Nov): make the calculator competitive and distinctive, solve the case of a user who does not know prices, work on it as Claude's first mission, and do not drain GitHub. A separate design specialist owns all visual design; this task is functional only.
+
+- **Task owner:** Claude. One task, one owner. No article, image or research work.
+- **Base:** `main` at `148aebf`. Open-PR check at claim time: #335 (Design account) and #301 (research) also edit this room file, but neither touches any code file below; #327, #304, #302 and #299 touch no calculator file.
+- **Idea:** "quantities first, price later". Every result stays useful without a price. A single project list collects Paint and Flooring results and prices each item one of three honest ways: the user knows the price, the user enters two quotes (a range), or the price stays unknown (flagged, left out of the total, total marked partial). Optional budget check using the existing estimator engine. A short "Don't know the prices yet?" guide. No prices, defaults, benchmarks or third-party calls are invented or added; nothing is stored (no localStorage) or sent.
+- **Files claimed (and nothing else):**
+  - `website/project-estimator-engine.js` — additive: new price kind `user-range` (two user quotes, no provenance); version 1.0.2 → 1.1.0. Existing kinds and outputs unchanged.
+  - `website/project-list.js` — new, pure logic plus page wiring.
+  - `website/home-project-calculator.html` — one script tag, an empty `#plist-root` container in the Project cost panel, an "Add to project list" button under the Paint and Flooring results, and two small lines in the existing script recording the last Paint/Flooring result. No CSS, no formula change, no tab or text change elsewhere.
+  - `scripts/test_project_list.js` (new), `scripts/test_project_estimator_engine.js` and `scripts/test_home_calculator.js` (extended).
+  - `data/AI_COLLABORATION.md` — this claim, and the handoff (in the feature PR).
+- **Design boundary:** new elements reuse existing classes only (`calc-field`, `calc-grid`, `wp-btn`, `wp-note`, `wp-room`, `calc-btn`, `tool-result`, `calc-error`); no new CSS, so the design specialist can restyle them without touching logic. Ids/classes are listed in the handoff.
+- **Not touched:** all CSS and design files, `scripts/visual_qa.py`, `.github/workflows`, `website/article-overrides.css`, `website/wallpaper-calculator-engine.js`, the Wallpaper tab and its script, Awin links, `.editorial-freeze`, articles, the queue, images.
+- **GitHub budget:** two PRs in total (this claim, then one feature PR with the handoff included), the feature as one commit. Everything else is built and tested locally first.
+- **Evidence plan:** Node tests on the changed files (new and existing), exact-head CI, labelled by level. I cannot view images, so no appearance claim will be made; merged, deployed, real-device and screen-reader checks stay NOT done unless proven.
+- **Lock:** the files above are locked to Claude until the feature PR is merged or closed.
+- **Next after this:** wire Wallpaper results into the same list, shared room dimensions across Paint/Flooring/Wallpaper, and sourced reference price ranges (research by ChatGPT; the engine already requires a source and date for any external price). Each needs its own CLAIM.
