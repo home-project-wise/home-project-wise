@@ -197,6 +197,7 @@ The following records are structurally valid JSON but are **not eligible as auto
 | `EU-DE-carpet-hornbach-2026-11-14` | Mixes broadloom carpet and carpet tiles | Split broadloom from carpet tile |
 | `EU-DE-flooring-porcelain-tile-hornbach-2026-11-14` | Label/source span mixes ceramic and porcelain tile | Separate ceramic and porcelain evidence |
 | `CA-flooring-ceramic-tile-homedepot-listings-2026-11-14` | Floor and wall tile are mixed; wall-only products are not a safe flooring proxy | Verify every sampled product is floor-rated or narrow the range |
+| `US-flooring-porcelain-tile-homedepot-sample-iqr-2026-11-14` | Sample description includes floor/wall porcelain products; wall-only tile is not a safe flooring proxy | Verify every sampled SKU is floor-rated or exclude wall-only products and recompute the range |
 | `EU-NL-flooring-ceramic-tile-gamma-2026-11-14` | The record is explicitly a wall tile and compares one SKU's standard and loyalty prices | Keep as an identified product example only; never use as floor-tile category reference |
 | `EU-NL-flooring-pvc-gamma-2026-11-14` | One click-PVC SKU's standard price and member promotion are represented as a range | Record one clearly dated price/condition as a product listing or exclude from category range |
 | `EU-NL-flooring-laminate-gamma-2026-11-14` | Low/high are loyalty-card and standard prices for one product, not a sampled category range | Separate membership condition and product identity; do not present as a category range |
