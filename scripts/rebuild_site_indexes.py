@@ -95,7 +95,7 @@ def rows():
 
 
 def footer():
-    return '<footer><div class="brand"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./tools.html">Tools</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
+    return '<footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="./guides.html">Guides</a><a href="./search.html">Search</a><a href="./tools.html">Tools</a><a href="./about.html">About</a><a href="./editorial-policy.html">Editorial Policy</a><a href="./privacy.html">Privacy</a><a href="./terms.html">Terms</a><a href="./contact.html">Contact</a></nav><p>Better decisions. Better projects. A better home.</p></footer>'
 
 
 def card(x, featured=False):
@@ -405,6 +405,46 @@ def write_tools_hub():
     (WEBSITE / "tools.html").write_text(page, encoding="utf-8")
 
 
+def add_webpage_jsonld(html, path):
+    """Structured data for pages that have none (library, policies, contact): a schema.org page type built only from facts already on the page (title, description, canonical URL). Idempotent."""
+    if "application/ld+json" in html:
+        return html
+    import json as _json
+    from html import unescape as _unesc
+    t = re.search(r"<title>(.*?)</title>", html, re.S)
+    d = re.search(r'<meta[^>]*name="description"[^>]*content="([^"]*)"', html) or re.search(r'<meta[^>]*content="([^"]*)"[^>]*name="description"', html)
+    c = re.search(r'<link[^>]*rel="canonical"[^>]*href="([^"]+)"', html) or re.search(r'<link[^>]*href="([^"]+)"[^>]*rel="canonical"', html)
+    if not (t and c):
+        return html
+    kind = {"guides.html": "CollectionPage", "contact.html": "ContactPage", "about.html": "AboutPage"}.get(Path(path).name, "WebPage")
+    data = {"@context": "https://schema.org", "@type": kind, "name": _unesc(t.group(1).strip()), "url": c.group(1),
+            "isPartOf": {"@type": "WebSite", "name": "HomeProjectWise", "url": BASE + "/"}}
+    if d:
+        data["description"] = _unesc(d.group(1))
+    blob = _json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return html.replace("</head>", '<script type="application/ld+json">' + blob + "</script></head>", 1)
+
+
+def enhance_images(html):
+    """Performance polish applied to every page at build (idempotent): reserve the header and footer wordmark's space through its aspect ratio, and let the browser load every image after the first two (header logo and main image) lazily."""
+    def logo(m):
+        tag = m.group(0)
+        if "brand-logo" in tag and "aspect-ratio" not in tag and "style=" not in tag:
+            tag = tag.replace("<img", '<img style="aspect-ratio:642/96"', 1)
+        return tag
+    html = re.sub(r"<img\b[^>]*>", logo, html)
+    seen = [0]
+    def lazy(m):
+        seen[0] += 1
+        tag = m.group(0)
+        if seen[0] <= 2 or re.search(r"\bloading=|\bfetchpriority=", tag):
+            return tag
+        if tag.endswith("/>"):
+            return tag[:-2].rstrip() + ' loading="lazy" decoding="async"/>'
+        return tag[:-1].rstrip() + ' loading="lazy" decoding="async">'
+    return re.sub(r"<img\b[^>]*>", lazy, html)
+
+
 def ensure_head_tags(path, prefix):
     html = path.read_text(encoding="utf-8", errors="ignore")
     if "</head>" not in html:
@@ -417,8 +457,17 @@ def ensure_head_tags(path, prefix):
     for font in ("dm-sans-latin.woff2", "playfair-display-latin.woff2"):
         if font not in html:
             add += '<link rel="preload" href="' + prefix + 'fonts/' + font + '" as="font" type="font/woff2" crossorigin>'
-    if add:
-        path.write_text(html.replace("</head>", add + "</head>", 1), encoding="utf-8")
+    if 'header.js' not in html:
+        add += '<script src="' + prefix + 'header.js" defer></script>'
+    if 'og:image' not in html:
+        add += '<meta property="og:image" content="' + BASE + '/images/og-home.jpg">'
+        if 'twitter:card' not in html:
+            add += '<meta name="twitter:card" content="summary_large_image">'
+    new = html.replace("</head>", add + "</head>", 1) if add else html
+    new = enhance_images(new)
+    new = add_webpage_jsonld(new, path)
+    if new != html:
+        path.write_text(new, encoding="utf-8")
 
 
 def main():

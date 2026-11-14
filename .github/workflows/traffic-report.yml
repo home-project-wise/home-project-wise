@@ -1,7 +1,5 @@
 name: Daily Traffic Report
 on:
-  schedule:
-    - cron: '55 23 * * *'
   workflow_dispatch:
 permissions:
   contents: write

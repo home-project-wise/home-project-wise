@@ -67,6 +67,13 @@
       var amount = toUnitPriceScaled(price.amount, field + ".amount");
       return { kind: kind, currency: currency, unit: unit, lowScaled: amount, highScaled: amount, source: null };
     }
+    if (kind === "user-range") {
+      // Two quotes the user collected themselves: a range with no external provenance.
+      var userLow = toUnitPriceScaled(price.low, field + ".low");
+      var userHigh = toUnitPriceScaled(price.high, field + ".high");
+      if (userLow > userHigh) fail(field + ".low cannot exceed " + field + ".high.");
+      return { kind: kind, currency: currency, unit: unit, lowScaled: userLow, highScaled: userHigh, source: null };
+    }
     if (EXTERNAL_KINDS.indexOf(kind) === -1) fail(field + ".kind is not a supported price type.");
     var low = toUnitPriceScaled(price.low, field + ".low");
     var high = toUnitPriceScaled(price.high, field + ".high");
@@ -205,5 +212,5 @@
       unknownOptional: (estimate.unknownOptional || []).map(function (item) { return item.name; })
     };
   }
-  return { version: "1.0.2", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
+  return { version: "1.1.0", calculateEstimate: calculateEstimate, assessBudget: assessBudget };
 }));

@@ -1,8 +1,10 @@
 name: Daily Editorial Publisher
 on:
-  schedule:
-    - cron: '10 5 * * *'
-    - cron: '10 17 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'content/queue/**'
+      - '.editorial-freeze'
   workflow_dispatch:
 permissions:
   contents: write
@@ -79,7 +81,8 @@ jobs:
               for path in queue.glob('*.json'):
                   try: data=json.loads(path.read_text(encoding='utf-8'))
                   except Exception: continue
-                  if data.get('slug')==slug and (articles/f'{slug}.html').exists(): path.unlink(); removed=True; break
+                  if data.get('slug')==slug and (articles/f'{slug}.html').exists():
+                      path.unlink(); removed=True; break
               if not removed: raise SystemExit(f'Could not finalize queue item safely: {slug}')
               scheduled=datetime.fromisoformat(item['scheduled_time'].replace('Z','+00:00')); report.append({**item,'status':'published','actual_publish_time':now.isoformat(),'delay_seconds':max(0,int((now-scheduled).total_seconds()))})
           (root/'data/publish_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8'); pending.unlink(); print(json.dumps(report,indent=2))

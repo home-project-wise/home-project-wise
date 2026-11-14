@@ -77,6 +77,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="paint-currency">Currency symbol</label><input id="paint-currency" type="text" maxlength="5" value="$"></div>
 </div><p class="calc-error" id="paint-error" role="alert"></p><button class="calc-btn" type="submit">Estimate paint needed</button>
 </form><div class="tool-result" id="paint-result" aria-live="polite"></div>
+<p><button type="button" class="wp-btn" id="paint-add" hidden>Add to project list</button> <span class="wp-note" id="paint-add-note" role="status"></span></p>
 <p class="formula">Formula: (2 × (length + width) × wall height − openings) × coats × (1 + allowance) ÷ coverage per tin. The tin count rounds up to a whole tin. Ceilings, textured walls, primer and unusual room shapes are not included.</p>
 </section>
 <section class="tool-panel" id="panel-material" role="tabpanel" aria-labelledby="tab-material">
@@ -92,6 +93,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="material-currency">Currency symbol</label><input id="material-currency" type="text" maxlength="5" value="$"></div>
 </div><p class="calc-error" id="material-error" role="alert"></p><button class="calc-btn" type="submit">Estimate packs needed</button>
 </form><div class="tool-result" id="material-result" aria-live="polite"></div>
+<p><button type="button" class="wp-btn" id="material-add" hidden>Add to project list</button> <span class="wp-note" id="material-add-note" role="status"></span></p>
 <p class="formula">Formula: surface area = length × width; required packs = round up[(area × (1 + allowance)) ÷ coverage per pack], all in the unit you select (metres or feet). Check pack coverage, pattern matching, cuts, substrate and supplier return rules before ordering.</p>
 </section>
 <section class="tool-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
@@ -120,6 +122,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </div><p class="calc-error" id="project-error" role="alert"></p><button class="calc-btn" type="submit">Estimate project total</button>
 </form><div class="tool-result" id="project-result" aria-live="polite"></div>
 <p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
+<div id="plist-root"></div>
 </section>
 <style>
 .wp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.wp-room{border:1px solid #d8ded9;border-radius:14px;padding:14px 16px;margin:12px 0;min-width:0}.wp-room legend{font-weight:600;padding:0 6px}.wp-wall{display:flex;gap:8px;align-items:center;margin:8px 0}.wp-wall input{flex:1;min-width:0}.wp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wp-btn{min-height:44px;min-width:44px;padding:10px 16px;border-radius:999px;border:1px solid #243238;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.wp-btn:disabled{opacity:.45;cursor:not-allowed}#panel-wallpaper h3{font-size:18px;margin:22px 0 4px}.wp-note{font-size:13px;color:#637075;margin:6px 0 0}#wp-budget{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}#wp-budget[hidden],.calc-field[hidden]{display:none}.tool-result ul{margin:10px 0 0;padding-left:20px}.wp-check{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:8px;cursor:pointer}.wp-check input{width:24px;height:24px;flex:none;margin:0}#wp-compare-fields[hidden]{display:none}.wp-compare-out{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}@media (prefers-color-scheme:dark){.wp-note{color:#aeb9bc}.wp-compare-out{border-top-color:#44565e}.wp-btn{border-color:#6f8189}.wp-btn:hover:not(:disabled){border-color:#eef1ee}.wp-room{border-color:#44565e}#wp-budget{border-top-color:#44565e}#panel-wallpaper .wp-btn:focus-visible,#panel-wallpaper input:focus-visible,#panel-wallpaper select:focus-visible{outline:2px solid #8db8a6;outline-offset:2px}}
@@ -177,7 +180,8 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <ul><li>Measure the actual area and split irregular rooms into simple shapes.</li><li>Use coverage and yield from the exact product label, not a generic internet average.</li><li>Enter your local electricity tariff and current supplier prices.</li><li>Keep the exact quantity separate from the extra allowance; the allowance is a planning choice, not a guarantee.</li></ul>
 <h2>Frequently Asked Questions</h2><h3>Are these results exact?</h3><p>No. They are planning estimates based on the values you enter. Measurement errors, product coverage, waste, site conditions, taxes and supplier rules can change the final amount.</p><h3>Does the calculator store my measurements or prices?</h3><p>No. Calculations run in your browser. The page does not send the values you enter to HomeProjectWise.</p><h3>Can I use it outside the United States?</h3><p>Yes. The measurement and material calculators accept metric inputs, and you can enter your own electricity tariff, prices and currency symbol.</p><h3>Can it tell me whether electrical work is safe or code-compliant?</h3><p>No. The electricity section estimates energy consumption and cost only. It does not assess wiring, circuit capacity, appliance suitability or electrical code requirements.</p><h2>Related tools and guides</h2>
 <p><a href="tools.html">Browse all HomeProjectWise tools</a> · <a href="budget-planner.html">Project Budget Planner</a> · <a href="articles/choose-paint-finish-for-each-room.html">Choose a paint finish</a> · <a href="articles/right-rug-size-painters-tape-test.html">Choose the right rug size</a></p>
-</main><footer><div class="brand"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></div><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script><script>
+</main><footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script>
+<script src="project-list.js"></script><script>
 (function(){
 'use strict';
 function byId(id){return document.getElementById(id);}
@@ -303,6 +307,7 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  var html='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)<br>Including '+coats+' coat(s) and '+fmt(allow*100,1)+'% allowance: <strong>'+fmt(litres)+' tin-equivalents</strong><br>Buy at least <strong>'+tins+' tin(s)</strong> of the entered coverage.';
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
  show('paint-result',html);
+ window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
 });
 function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
 byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
@@ -314,6 +319,7 @@ byId('material-form').addEventListener('submit',function(e){e.preventDefault();e
  var html='Surface area: <strong>'+fmt(area)+' '+au+'</strong> ('+fmt(other)+' '+ou+')<br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' '+au+'<br>Required: <strong>'+packs+' pack(s)</strong>';
  if(price!==null){if(!Number.isFinite(price)||price<0){error('material-error','Price cannot be negative.');return;}html+='<br>Estimated material cost: <strong>'+money(packs*price,byId('material-currency').value)+'</strong>';}
  show('material-result',html);
+ window.hpwLast=window.hpwLast||{};window.hpwLast.material={name:'Flooring / material packs',unit:'pack',quantity:packs,price:(price!==null&&byId('material-currency').value.trim()==='$')?price:null};byId('material-add').hidden=false;
 });
 byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');
  if(!validPositive(['energy-watts'])){error('energy-error','Enter a wattage greater than zero.');return;}

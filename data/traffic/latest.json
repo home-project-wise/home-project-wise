@@ -2,30 +2,30 @@
   "status": "OK",
   "endpoint_errors": {},
   "api_user_ok": true,
-  "generated_at": "2026-11-11T03:55:00.398179+00:00",
-  "period_start": "2026-11-10T03:00:00+00:00",
-  "period_end": "2026-11-11T03:55:00.398179+00:00",
-  "visitors": 15,
+  "generated_at": "2026-11-13T04:19:24.960555+00:00",
+  "period_start": "2026-11-12T04:00:00+00:00",
+  "period_end": "2026-11-13T04:19:24.960555+00:00",
+  "visitors": 20,
   "pageviews": {
-    "total": 15,
+    "total": 20,
     "total_events": 0,
-    "total_utc": 15,
+    "total_utc": 17,
     "stats": [
       {
-        "day": "2026-11-10",
+        "day": "2026-11-12",
         "hourly": [
           0,
           0,
           0,
           0,
           0,
-          0,
-          2,
           3,
+          9,
+          0,
+          0,
           0,
           0,
           2,
-          7,
           1,
           0,
           0,
@@ -34,17 +34,17 @@
           0,
           0,
           0,
-          0,
+          5,
           0,
           0,
           0
         ],
-        "daily": 15,
-        "weekly": 15,
-        "monthly": 15
+        "daily": 20,
+        "weekly": 20,
+        "monthly": 20
       },
       {
-        "day": "2026-11-11",
+        "day": "2026-11-13",
         "hourly": [
           0,
           0,
@@ -78,7 +78,7 @@
   "paths": {
     "hits": [
       {
-        "count": 4,
+        "count": 5,
         "path_id": 119982570,
         "path": "/home-project-wise",
         "event": false,
@@ -86,7 +86,7 @@
         "max": 2,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
               0,
               0,
@@ -95,7 +95,8 @@
               0,
               0,
               1,
-              1,
+              0,
+              0,
               0,
               0,
               2,
@@ -107,18 +108,17 @@
               0,
               0,
               0,
-              0,
-              0,
+              2,
               0,
               0,
               0
             ],
-            "daily": 4,
-            "weekly": 4,
-            "monthly": 4
+            "daily": 5,
+            "weekly": 5,
+            "monthly": 5
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -155,12 +155,11 @@
         "path": "/home-project-wise/guides.html",
         "event": false,
         "title": "Guides & Categories — HomeProjectWise",
-        "max": 2,
+        "max": 1,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
-              0,
               0,
               0,
               0,
@@ -171,7 +170,9 @@
               0,
               0,
               0,
-              2,
+              0,
+              0,
+              1,
               0,
               0,
               0,
@@ -179,8 +180,7 @@
               0,
               0,
               0,
-              0,
-              0,
+              1,
               0,
               0,
               0
@@ -190,7 +190,7 @@
             "monthly": 3
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -223,27 +223,27 @@
       },
       {
         "count": 2,
-        "path_id": 120149666,
-        "path": "/home-project-wise/budget-planner.html",
+        "path_id": 121236187,
+        "path": "/home-project-wise/home-project-wise/claude-design-preview/website/home-project-calculator.html",
         "event": false,
-        "title": "Project Budget Planner | HomeProjectWise",
-        "max": 2,
+        "title": "Home Project Calculator | HomeProjectWise",
+        "max": 1,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
               0,
               0,
               0,
               0,
               0,
+              1,
+              1,
               0,
               0,
               0,
               0,
               0,
-              0,
-              2,
               0,
               0,
               0,
@@ -262,7 +262,7 @@
             "monthly": 2
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -295,20 +295,15 @@
       },
       {
         "count": 2,
-        "path_id": 119982933,
-        "path": "/home-project-wise/articles/how-to-calculate-wallpaper-rolls-pattern-repeat.html",
+        "path_id": 121235852,
+        "path": "/home-project-wise/home-project-wise/claude-design-preview/website",
         "event": false,
-        "title": "How to Calculate Wallpaper Rolls: Pattern Repeat, Drops and Waste | HomeProjectWise",
+        "title": "HomeProjectWise — Make Home Better, One Smart Project at a Time",
         "max": 2,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
               0,
               0,
               0,
@@ -327,6 +322,11 @@
               0,
               0,
               0,
+              0,
+              0,
+              0,
+              0,
+              0,
               0
             ],
             "daily": 2,
@@ -334,7 +334,79 @@
             "monthly": 2
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 2,
+        "path_id": 121235677,
+        "path": "/home-project-wise/home-project-wise/claude-design-preview/website/index.html",
+        "event": false,
+        "title": "HomeProjectWise — Make Home Better, One Smart Project at a Time",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-12",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 2,
+            "weekly": 2,
+            "monthly": 2
+          },
+          {
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -374,19 +446,13 @@
         "max": 1,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
               0,
               0,
               0,
               0,
               0,
-              0,
-              1,
-              0,
-              0,
-              0,
-              0,
               1,
               0,
               0,
@@ -397,6 +463,12 @@
               0,
               0,
               0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
               0,
               0,
               0
@@ -406,7 +478,7 @@
             "monthly": 2
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -439,16 +511,15 @@
       },
       {
         "count": 1,
-        "path_id": 120728480,
-        "path": "/home-project-wise/articles/smart-devices-keep-going-offline.html",
+        "path_id": 121338731,
+        "path": "/home-project-wise/editorial-policy.html",
         "event": false,
-        "title": "Smart Plugs and Bulbs Keep Going Offline? A 20-Minute Fix Order | HomeProjectWise",
+        "title": "Editorial Policy | HomeProjectWise",
         "max": 1,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
-              0,
               0,
               0,
               0,
@@ -471,6 +542,7 @@
               0,
               0,
               0,
+              0,
               0
             ],
             "daily": 1,
@@ -478,7 +550,7 @@
             "monthly": 1
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -518,14 +590,8 @@
         "max": 1,
         "stats": [
           {
-            "day": "2026-11-10",
+            "day": "2026-11-12",
             "hourly": [
-              0,
-              0,
-              0,
-              0,
-              0,
-              0,
               0,
               0,
               0,
@@ -543,6 +609,12 @@
               0,
               0,
               0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
               0
             ],
             "daily": 1,
@@ -550,7 +622,151 @@
             "monthly": 1
           },
           {
-            "day": "2026-11-11",
+            "day": "2026-11-13",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 112500408,
+        "path": "/home-project-wise/articles/stop-mail-and-paper-pile.html",
+        "event": false,
+        "title": "How to Stop the Mail and Paper Pile on Your Counter | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-12",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-13",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 0
+          }
+        ]
+      },
+      {
+        "count": 1,
+        "path_id": 109303944,
+        "path": "/home-project-wise/articles/quiet-entryway-storage.html",
+        "event": false,
+        "title": "Quiet Entryway Storage | HomeProjectWise",
+        "max": 1,
+        "stats": [
+          {
+            "day": "2026-11-12",
+            "hourly": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "daily": 1,
+            "weekly": 1,
+            "monthly": 1
+          },
+          {
+            "day": "2026-11-13",
             "hourly": [
               0,
               0,
@@ -582,11 +798,23 @@
         ]
       }
     ],
-    "total": 15,
+    "total": 20,
     "more": false
   },
   "referrers": {
-    "stats": [],
+    "stats": [
+      {
+        "name": "",
+        "count": 4,
+        "ref_scheme": "o"
+      },
+      {
+        "id": "raw.githack.com/home-project-wise/home-project-wise/claude-design-preview/website/index.html",
+        "name": "raw.githack.com/home-project-wise/home-project-wise/claude-design-preview/website/index.html",
+        "count": 2,
+        "ref_scheme": "h"
+      }
+    ],
     "more": false
   },
   "locations": {
@@ -594,19 +822,19 @@
       {
         "id": "TN",
         "name": "Tunisia",
-        "count": 15
+        "count": 20
       }
     ],
     "more": false
   },
-  "previous_period_visitors": 8,
+  "previous_period_visitors": 21,
   "previous_period_pageviews": {
-    "total": 8,
+    "total": 21,
     "total_events": 0,
-    "total_utc": 8,
+    "total_utc": 30,
     "stats": [
       {
-        "day": "2026-11-09",
+        "day": "2026-11-11",
         "hourly": [
           0,
           0,
@@ -618,34 +846,34 @@
           0,
           0,
           0,
+          5,
           0,
+          1,
           0,
-          4,
-          2,
-          0,
-          0,
-          0,
-          0,
+          1,
           0,
           0,
           0,
-          2,
           0,
+          0,
+          0,
+          6,
+          5,
           0
         ],
-        "daily": 8,
-        "weekly": 8,
-        "monthly": 8
+        "daily": 18,
+        "weekly": 21,
+        "monthly": 21
       },
       {
-        "day": "2026-11-10",
+        "day": "2026-11-12",
         "hourly": [
           0,
           0,
           0,
           0,
           0,
-          0,
+          3,
           0,
           0,
           0,
@@ -665,7 +893,7 @@
           0,
           0
         ],
-        "daily": 0
+        "daily": 3
       }
     ]
   }

@@ -187,4 +187,18 @@ rejects("UTC offset minutes beyond 14:00 are rejected", withDate("2026-11-03T10:
 assert.equal(withDate("2024-02-29")().lineItems[0].source.observedAt, "2024-02-29");
 rejects("non-leap February 29 is rejected", withDate("2026-02-29"), /impossible calendar date/);
 
-
+// 7. user-range: two quotes the user collected themselves (a range with no external provenance).
+{
+  const base = { currency: "USD", contingencyPct: 0 };
+  const range = (low, high, extra) => ({ ...base, lineItems: [{ id: "p", name: "Paint", quantity: 8, unit: "tin", price: { kind: "user-range", unit: "tin", low, high, currency: "USD", ...extra } }] });
+  const ok = estimator.calculateEstimate(range(20, 25));
+  assert.equal(ok.subtotalLow, 160); assert.equal(ok.subtotalHigh, 200);
+  assert.equal(ok.lineItems[0].unitPriceLow, 20); assert.equal(ok.lineItems[0].unitPriceHigh, 25); assert.equal(ok.lineItems[0].source, null);
+  assert.equal(estimator.calculateEstimate(range(20, 20)).subtotalLow, 160);
+  assert.throws(() => estimator.calculateEstimate(range(30, 20)), /low cannot exceed/);
+  assert.throws(() => estimator.calculateEstimate(range(-1, 20)));
+  assert.throws(() => estimator.calculateEstimate(range(20, "abc")));
+  assert.throws(() => estimator.calculateEstimate({ ...base, lineItems: [{ id: "p", name: "Paint", quantity: 8, unit: "tin", price: { kind: "user-range", unit: "gallon", low: 1, high: 2, currency: "USD" } }] }));
+  assert.throws(() => estimator.calculateEstimate({ ...base, lineItems: [{ id: "p", name: "Paint", quantity: 8, unit: "tin", price: { kind: "user-range", unit: "tin", low: 1, high: 2, currency: "EUR" } }] }));
+  console.log("Project estimator engine: user-range (two quotes) tests passed.");
+}

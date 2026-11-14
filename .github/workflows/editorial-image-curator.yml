@@ -1,8 +1,9 @@
 name: Editorial Image Curator
 on:
-  schedule:
-    - cron: '15 4 * * *'
-    - cron: '15 16 * * *'
+  push:
+    branches: [main]
+    paths:
+      - 'content/staging/**'
   workflow_dispatch:
 permissions:
   contents: write
