@@ -21,7 +21,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 24.51 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-CT",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-me-2026-08",
@@ -45,7 +50,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 32.11 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-ME",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ma-2026-08",
@@ -69,7 +79,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 30.48 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nh-2026-08",
@@ -93,7 +108,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 27.64 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NH",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ri-2026-08",
@@ -117,7 +137,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 28.18 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-RI",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-vt-2026-08",
@@ -141,7 +166,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 23.84 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-VT",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nj-2026-08",
@@ -165,7 +195,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 24.61 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NJ",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ny-2026-08",
@@ -189,7 +224,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 28.65 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NY",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-pa-2026-08",
@@ -213,7 +253,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 21.77 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-PA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-il-2026-08",
@@ -237,7 +282,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 19.32 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-IL",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-in-2026-08",
@@ -261,7 +311,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 17.02 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-IN",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-mi-2026-08",
@@ -285,7 +340,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 22.99 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MI",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-oh-2026-08",
@@ -309,7 +369,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 19.38 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-OH",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-wi-2026-08",
@@ -333,7 +398,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 19.41 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-WI",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ia-2026-08",
@@ -357,7 +427,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 17.06 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-IA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ks-2026-08",
@@ -381,7 +456,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.47 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-KS",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-mn-2026-08",
@@ -405,7 +485,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 17.20 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MN",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-mo-2026-08",
@@ -429,7 +514,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 16.02 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MO",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ne-2026-08",
@@ -453,7 +543,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.54 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NE",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nd-2026-08",
@@ -477,7 +572,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.31 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-ND",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-sd-2026-08",
@@ -501,7 +601,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.15 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-SD",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-de-2026-08",
@@ -525,7 +630,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 18.70 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-DE",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-dc-2026-08",
@@ -549,7 +659,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 25.98 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-DC",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-fl-2026-08",
@@ -573,7 +688,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.99 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-FL",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ga-2026-08",
@@ -597,7 +717,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.90 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-GA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-md-2026-08",
@@ -621,7 +746,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 21.40 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MD",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nc-2026-08",
@@ -645,7 +775,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.95 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NC",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-sc-2026-08",
@@ -669,7 +804,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.76 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-SC",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-va-2026-08",
@@ -693,7 +833,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 17.64 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-VA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-wv-2026-08",
@@ -717,7 +862,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 16.31 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-WV",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-al-2026-08",
@@ -741,7 +891,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 16.33 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-AL",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ky-2026-08",
@@ -765,7 +920,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.80 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-KY",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ms-2026-08",
@@ -789,7 +949,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.43 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MS",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-tn-2026-08",
@@ -813,7 +978,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.42 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-TN",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ar-2026-08",
@@ -837,7 +1007,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.37 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-AR",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-la-2026-08",
@@ -861,7 +1036,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 12.87 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-LA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ok-2026-08",
@@ -885,7 +1065,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.82 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-OK",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-tx-2026-08",
@@ -909,7 +1094,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.91 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-TX",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-az-2026-08",
@@ -933,7 +1123,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.05 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-AZ",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-co-2026-08",
@@ -957,7 +1152,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 17.17 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-CO",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-id-2026-08",
@@ -981,7 +1181,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.37 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-ID",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-mt-2026-08",
@@ -1005,7 +1210,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.57 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-MT",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nv-2026-08",
@@ -1029,7 +1239,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 12.72 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NV",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-nm-2026-08",
@@ -1053,7 +1268,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 16.51 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NM",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ut-2026-08",
@@ -1077,7 +1297,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 13.31 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-UT",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-wy-2026-08",
@@ -1101,7 +1326,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.43 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-WY",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ca-2026-08",
@@ -1125,7 +1355,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 29.75 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-CA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-or-2026-08",
@@ -1149,7 +1384,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 15.92 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-OR",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-wa-2026-08",
@@ -1173,7 +1413,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 14.63 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-WA",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-ak-2026-08",
@@ -1197,7 +1442,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 29.41 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-AK",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-hi-2026-08",
@@ -1221,7 +1471,12 @@
     },
     "notes": "August 2026 preliminary monthly average residential retail price reported by EIA in cents/kWh; converted arithmetically to USD/kWh. Source value: 47.18 cents/kWh. Not an individual household tariff.",
     "caveats": "August 2026 values are preliminary estimates based on a cutoff-model sample. Actual household bills and tariffs vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-HI",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-electricity-national-2026-08",
@@ -1245,7 +1500,12 @@
     },
     "notes": "August 2026 preliminary US total residential average; 18.16 cents/kWh converted arithmetically to USD/kWh. Prefer state record when a state is selected.",
     "caveats": "Preliminary monthly national average, not a household-specific tariff. Actual rates vary by utility, plan, usage, fixed charges and taxes.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "US-NATIONAL",
+    "tariffPlan": "EIA-RESIDENTIAL-AVERAGE",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative statistical benchmark only: match the selected US state exactly; use the national row only when state is unavailable and label it as national. Never describe as a household tariff."
   },
   {
     "id": "US-paint-behr-ultra-1gal-175001-2026-11-14",
@@ -1270,7 +1530,12 @@
     "productOrSku": "Model 175001; Store SKU 418300",
     "notes": "1-gallon interior matte paint and primer product listing.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "US-flooring-laminate-pergo-lf001161-2026-11-14",
@@ -1295,7 +1560,12 @@
     "productOrSku": "Model LF001161; 18.6 sq ft/case",
     "notes": "12 mm waterproof laminate; $2.89/sq ft; case price $53.75.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-laminate-pergo-lf001075-2026-11-14",
@@ -1320,7 +1590,12 @@
     "productOrSku": "Model LF001075; 19.63 sq ft/case",
     "notes": "10 mm water-resistant laminate; $1.99/sq ft; case price $39.06.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-lifeproof-sterling-oak-2026-11-14",
@@ -1345,7 +1620,12 @@
     "productOrSku": "Model I966106LXX; Internet #327346474; Store SKU 1010313744; 26 sq ft/case",
     "notes": "22 mil wear layer; 26 sq ft/case; $3.69/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-home-decorators-lathem-pine-2026-11-14",
@@ -1370,7 +1650,12 @@
     "productOrSku": "Model VTRHDWILBRO7X48; 21.39 sq ft/case",
     "notes": "20 mil wear layer; waterproof click-lock LVP; $2.09/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-malibu-hollister-2026-11-14",
@@ -1395,7 +1680,12 @@
     "productOrSku": "Model HDMRCL551EF; 23.6 sq ft/case",
     "notes": "3/8 in engineered hardwood; $3.99/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-hdc-natural-red-oak-2026-11-14",
@@ -1420,7 +1710,12 @@
     "productOrSku": "Model 50300; 27.5 sq ft/case",
     "notes": "3/8 in engineered hardwood; $2.99/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-bruce-marsh-oak-2026-11-14",
@@ -1445,7 +1740,12 @@
     "productOrSku": "Model AHS5134; 23.5 sq ft/case",
     "notes": "3/4 in solid hardwood; $5.99/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-bruce-plano-espresso-2026-11-14",
@@ -1470,7 +1770,12 @@
     "productOrSku": "Model SPLH3ES; 22 sq ft/case",
     "notes": "3/4 in solid hardwood; $5.82/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-daltile-kesler-2026-11-14",
@@ -1495,7 +1800,12 @@
     "productOrSku": "Model KM20RCT2448PLHD; 15.5 sq ft/case",
     "notes": "24 x 48 in polished porcelain tile; $2.89/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-msi-cementino-2026-11-14",
@@ -1520,7 +1830,12 @@
     "productOrSku": "Model NHDCEMGRA1224; 14 sq ft/case",
     "notes": "12 x 24 in matte porcelain tile; $1.69/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-ceramic-glossy-calacatta-2026-11-14",
@@ -1545,7 +1860,12 @@
     "productOrSku": "Model 88A; 20.49 sq ft/case",
     "notes": "18 x 18 in glazed ceramic floor/wall tile; $0.98/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-ceramic-trafficmaster-portland-2026-11-14",
@@ -1570,7 +1890,12 @@
     "productOrSku": "Model PT011818HD1PV; 17.44 sq ft/case",
     "notes": "18 x 18 in glazed ceramic floor/wall tile; $1.17/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-wallpaper-nextwall-lenox-hill-2026-11-14",
@@ -1595,7 +1920,12 @@
     "productOrSku": "Model NW56902; stated coverage 30.75 sq ft/roll",
     "notes": "Vinyl peel-and-stick wallpaper; $34.99/roll; listing states $1.14/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "US-wallpaper-nextwall-distressed-brick-2026-11-14",
@@ -1620,7 +1950,12 @@
     "productOrSku": "Model NW31700; stated coverage 30.75 sq ft/roll",
     "notes": "Vinyl peel-and-stick wallpaper; $34.99/roll; listing states $1.14/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "US-wallpaper-galey-alix-coral-way-2026-11-14",
@@ -1645,7 +1980,12 @@
     "productOrSku": "Model LX10005; stated coverage 30.75 sq ft/roll",
     "notes": "Vinyl peel-and-stick wallpaper; $49.99/roll; listing states $1.63/sq ft.",
     "caveats": "Single retailer/product observation, not a representative market average or typical market range. Price and availability may vary by store, ZIP code, promotion and date; taxes/shipping may be additional.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "US-paint-interior-lowes-top-sellers-iqr-2026-11-14",
@@ -1669,7 +2009,12 @@
     },
     "notes": "Indicative interquartile range (25th–75th percentile) calculated from the 12 one-gallon interior-paint products and prices displayed in Lowe's Best Sellers listing on 2026-11-14. Sample median: USD 46.48 per gallon. Products include different brands and sheens; this is a retailer top-seller sample, not a statistically representative US market survey.",
     "caveats": "Prices and availability vary by store and ZIP code, brand, finish, paint line, promotion and date. Taxes may be additional. Use as a rough starting point and replace with a local quote.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "US-flooring-laminate-vcalc-survey-2026-07-14",
@@ -1693,7 +2038,12 @@
     },
     "notes": "Published survey of 31 laminate products listed by Home Depot. Low and high are the reported 25th and 75th percentiles; reported median is USD 2.49/sq ft. The survey's economy and premium observations were USD 0.99 and USD 3.49/sq ft respectively. Materials only; no installation.",
     "caveats": "A dated retailer-product sample, not a complete market census or a guaranteed national price. Product specifications, store/ZIP, promotions, tax, underlayment and waste affect final cost. Confirm local prices.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-flooring-carpet-broadloom-vcalc-survey-2026-07-14",
@@ -1717,7 +2067,12 @@
     },
     "notes": "Published survey of 32 wall-to-wall residential carpet products listed by Lowe's. Low and high are the reported 25th and 75th percentiles; reported median is USD 2.08/sq ft. Economy and premium observations were USD 0.65 and USD 4.18/sq ft. This is broadloom carpet, not carpet tile; carpet pad is excluded.",
     "caveats": "Retail product sample rather than a complete market census. Carpet fiber, face weight, pile, backing, store/ZIP, promotions and date affect prices. Padding, installation, removal, tax and waste are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-flooring-ceramic-tile-vcalc-survey-2026-07-14",
@@ -1741,7 +2096,12 @@
     },
     "notes": "Published survey of 15 ceramic tile products listed by Lowe's. Low and high are the reported 25th and 75th percentiles; reported median is USD 1.39/sq ft. Economy and premium observations were USD 0.54 and USD 8.01/sq ft. Ceramic only; do not apply this range to porcelain tile.",
     "caveats": "Retail product sample, not a complete market census. Tile size, finish, grade, store/ZIP, promotions, breakage allowance, mortar, grout, tax and installation affect total project cost. Materials only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-wallpaper-30-75sqft-roll-home-depot-top-listings-iqr-2026-11-14",
@@ -1765,7 +2125,12 @@
     },
     "notes": "Indicative interquartile range (25th–75th percentile) calculated from 12 listed wallpaper rolls each showing approximately 30.75 sq ft coverage. Sample median: USD 34.99 per roll. Coverage is stated because roll sizes vary; do not apply this price range to larger 45–60.75 sq ft rolls.",
     "caveats": "A retailer listing sample, not a statistically representative US market survey. Peel-and-stick and prepasted products, material, pattern, coverage, store/ZIP, promotions and date vary. Confirm coverage and local price before estimating.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "US-flooring-lvp-lowes-style-selections-dove-tail-oak-2026-11-14",
@@ -1790,7 +2155,12 @@
     "productOrSku": "Model LWD9542RCB; Item 2414463; 23.21 sq ft/carton",
     "notes": "Lowe's listing price USD 1.99 per sq ft; carton price USD 46.19 for 23.21 sq ft. 12-mil wear layer, waterproof click-lock LVP.",
     "caveats": "Single SKU observation, not a market average. Lowe's states prices and availability may vary by local store; taxes, underlayment, waste and installation are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-laminate-lowes-style-selections-florian-oak-2026-11-14",
@@ -1815,7 +2185,12 @@
     "productOrSku": "Model 360731-31568; Item 963309; 23.91 sq ft/carton",
     "notes": "Lowe's listing price USD 0.99 per sq ft; carton price USD 23.67 for 23.91 sq ft. 7 mm laminate flooring.",
     "caveats": "Single SKU observation, not a market average. Lowe's notes local pricing and availability may vary. Confirm current store price; tax, underlayment, waste and installation are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-hardwood-lowes-green-leaf-natural-oak-2026-11-14",
@@ -1840,7 +2215,12 @@
     "productOrSku": "Model 24834; Item 3730986; 24.50 sq ft/carton",
     "notes": "Lowe's listing price USD 4.38 per sq ft; carton price USD 107.07 for 24.50 sq ft. Identified by Lowe's as engineered hardwood.",
     "caveats": "Single SKU observation, not a market average. Local price and availability may vary. Tax, underlayment/adhesive, waste and installation are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-lowes-bruce-butterscotch-oak-2026-11-14",
@@ -1865,7 +2245,12 @@
     "productOrSku": "Model ABC426; Item 48113; 20 sq ft/carton",
     "notes": "Lowe's listing price USD 5.49 per sq ft; carton price USD 109.80 for 20 sq ft. 3/4-inch solid red oak flooring.",
     "caveats": "Single SKU observation, not a market average. Local price and availability may vary. Tax, finishing where required, waste and installation are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-tile-lowes-satori-statuario-matte-2026-11-14",
@@ -1890,7 +2275,12 @@
     "productOrSku": "Model 1001-0236-0; Item 1328414; 1.93 sq ft/piece",
     "notes": "Lowe's listing price USD 1.99 per sq ft; USD 3.84 per 1.93 sq ft piece. Product specifications identify porcelain tile.",
     "caveats": "Single SKU observation, not a market average. Local price and availability may vary. Breakage allowance, setting materials, tax and installation are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-wallpaper-lowes-nextwall-lemon-30-75sqft-2026-11-14",
@@ -1915,7 +2305,12 @@
     "productOrSku": "Model NW36703; Item 5381765; 30.75 sq ft/roll",
     "notes": "Lowe's listing price USD 34.99 per roll; stated coverage approximately 30.75 sq ft. Peel-and-stick vinyl wallpaper.",
     "caveats": "Single SKU observation, not a market average. Roll coverage, pattern repeat, waste, local pricing, availability and tax may vary.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "US-flooring-broadloom-carpet-homedepot-trafficmaster-gallop-2026-11-14",
@@ -1940,7 +2335,12 @@
     "productOrSku": "Model H2027-783-1200; 12 ft wide; 24 oz SD polyester; cut-to-length",
     "notes": "Listed residential indoor broadloom carpet at USD 1.37 per sq ft. This is wall-to-wall carpet by the foot, not carpet tile.",
     "caveats": "Single SKU observation, not a market average. Store/ZIP, carpet fiber, face weight, backing, promotions and availability vary. Carpet pad, installation, removal, tax and waste are excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-hd-aa-surfaces-hoffman-gray-2026-11-14",
@@ -1965,7 +2365,12 @@
     "productOrSku": "Model HD-LVR5012-0136; 22.44 sq ft/case",
     "notes": "Single-product material listing at USD 3.53 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-hd-home-decorators-alabaster-2026-11-14",
@@ -1990,7 +2395,12 @@
     "productOrSku": "Model S480146; 19.8 sq ft/case",
     "notes": "Single-product material listing at USD 2.79 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-lowes-villa-barcelona-quintana-2026-11-14",
@@ -2015,7 +2425,12 @@
     "productOrSku": "Model LOWMVCL943SC; 23.88 sq ft/carton",
     "notes": "Single-product material listing at USD 3.04 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-lowes-element-flooring-verona-2026-11-14",
@@ -2040,7 +2455,12 @@
     "productOrSku": "Model E20072; 22.12 sq ft/carton",
     "notes": "Single-product material listing at USD 4.43 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-hdc-sutton-post-hickory-2026-11-14",
@@ -2065,7 +2485,12 @@
     "productOrSku": "Model HDWTR01; 19.7 sq ft/case",
     "notes": "Single-product material listing at USD 3.29 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-lifeproof-shenandoah-oak-2026-11-14",
@@ -2090,7 +2515,12 @@
     "productOrSku": "Model VTWHDSHEO6.5X48; 21.67 sq ft/case",
     "notes": "Single-product material listing at USD 3.49 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-shaw-bradford-natural-red-oak-2026-11-14",
@@ -2115,7 +2545,12 @@
     "productOrSku": "Model DH85800135; 23.76 sq ft/case",
     "notes": "Single-product material listing at USD 3.79 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-engineered-shaw-bradford-cinnamon-red-oak-2026-11-14",
@@ -2140,7 +2575,12 @@
     "productOrSku": "Model DH85800874; 23.76 sq ft/case",
     "notes": "Single-product material listing at USD 3.89 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-c134-2026-11-14",
@@ -2165,7 +2605,12 @@
     "productOrSku": "Model C134; 20 sq ft/case",
     "notes": "Single-product material listing at USD 4.79 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-shd2210-2026-11-14",
@@ -2190,7 +2635,12 @@
     "productOrSku": "Model SHD2210; 20 sq ft/case",
     "notes": "Single-product material listing at USD 4.99 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-c111-2026-11-14",
@@ -2215,7 +2665,12 @@
     "productOrSku": "Model C111; 20 sq ft/case",
     "notes": "Single-product material listing at USD 4.79 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-c1134-2026-11-14",
@@ -2240,7 +2695,12 @@
     "productOrSku": "Model C1134; 22 sq ft/case",
     "notes": "Single-product material listing at USD 4.49 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-ahs626-2026-11-14",
@@ -2265,7 +2725,12 @@
     "productOrSku": "Model AHS626; 20 sq ft/case",
     "notes": "Single-product material listing at USD 6.38 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-20557-2026-11-14",
@@ -2290,7 +2755,12 @@
     "productOrSku": "Model 20557; 16 sq ft/case",
     "notes": "Single-product material listing at USD 5.99 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-20374-2026-11-14",
@@ -2315,7 +2785,12 @@
     "productOrSku": "Model 20374; 20 sq ft/case",
     "notes": "Single-product material listing at USD 4.89 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-hdmcss846sf-2026-11-14",
@@ -2340,7 +2815,12 @@
     "productOrSku": "Model HDMCSS846SF; 22.6 sq ft/case",
     "notes": "Single-product material listing at USD 7.59 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-23050-2026-11-14",
@@ -2365,7 +2845,12 @@
     "productOrSku": "Model 23050; 16 sq ft/case",
     "notes": "Single-product material listing at USD 4.49 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-solid-hardwood-hd-shpl59m10s-2026-11-14",
@@ -2390,7 +2875,12 @@
     "productOrSku": "Model SHPL59M10S; 23.5 sq ft/case",
     "notes": "Single-product material listing at USD 5.59 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-sg15plk848mthd-2026-11-14",
@@ -2415,7 +2905,12 @@
     "productOrSku": "Model SG15PLK848MTHD; 13.09 sq ft/case",
     "notes": "Single-product material listing at USD 2.57 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-km20rct1224plhd-2026-11-14",
@@ -2440,7 +2935,12 @@
     "productOrSku": "Model KM20RCT1224PLHD; 15.5 sq ft/case",
     "notes": "Single-product material listing at USD 2.17 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-mc29rct1224plhd-2026-11-14",
@@ -2465,7 +2965,12 @@
     "productOrSku": "Model MC29RCT1224PLHD; 15.5 sq ft/case",
     "notes": "Single-product material listing at USD 2.00 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-sv50rct1224plhd-2026-11-14",
@@ -2490,7 +2995,12 @@
     "productOrSku": "Model SV50RCT1224PLHD; 15.5 sq ft/case",
     "notes": "Single-product material listing at USD 2.47 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-tr80rct1224plhd-2026-11-14",
@@ -2515,7 +3025,12 @@
     "productOrSku": "Model TR80RCT1224PLHD; 15.5 sq ft/case",
     "notes": "Single-product material listing at USD 2.47 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-nhdsupiecr1632c-2026-11-14",
@@ -2540,7 +3055,12 @@
     "productOrSku": "Model NHDSUPIECR1632C; 14.2 sq ft/case",
     "notes": "Single-product material listing at USD 2.57 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-cc41rct2448mthd-2026-11-14",
@@ -2565,7 +3085,12 @@
     "productOrSku": "Model CC41RCT2448MTHD; 15.26 sq ft/case",
     "notes": "Single-product material listing at USD 3.07 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-ls22squ1212mthd-2026-11-14",
@@ -2590,7 +3115,12 @@
     "productOrSku": "Model LS22SQU1212MTHD; 15.06 sq ft/case",
     "notes": "Single-product material listing at USD 2.99 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-100010724-2026-11-14",
@@ -2615,7 +3145,12 @@
     "productOrSku": "Model 100010724; 16 sq ft/case",
     "notes": "Single-product material listing at USD 3.99 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-mt192424xtmthd-2026-11-14",
@@ -2640,7 +3175,12 @@
     "productOrSku": "Model MT192424XTMTHD; 15.21 sq ft/case",
     "notes": "Single-product material listing at USD 2.79 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-tv60rct2448plhd-2026-11-14",
@@ -2665,7 +3205,12 @@
     "productOrSku": "Model TV60RCT2448PLHD; 15.5 sq ft/case",
     "notes": "Single-product material listing at USD 3.07 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-porcelain-hd-nplamap10x60-c-2026-11-14",
@@ -2690,7 +3235,12 @@
     "productOrSku": "Model NPLAMAP10X60-C; 12.11 sq ft/case",
     "notes": "Single-product material listing at USD 4.56 per sq ft. Product model and package coverage are recorded for identification.",
     "caveats": "Single SKU observation, not a market average. Local store/ZIP, product specification, promotions and availability may vary. Tax, waste, underlayment or setting materials and installation are excluded unless explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "US-flooring-lvp-retailer-sample-iqr-2026-11-14",
@@ -2714,7 +3264,12 @@
     },
     "notes": "Interquartile range (25th–75th percentile) from 7 dated retail LVP SKU observations across Home Depot (4) and Lowe's (3). Sample median: USD 3.04/sq ft. This is a convenience sample of listed products, not a representative national market survey.",
     "caveats": "Prices vary by wear layer, thickness, brand, attached underlayment, retailer, store/ZIP and promotion. Materials only; excludes underlayment where not included, waste, tax and installation. Use as a rough planning reference and confirm local prices.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-flooring-engineered-hardwood-retailer-sample-iqr-2026-11-14",
@@ -2738,7 +3293,12 @@
     },
     "notes": "Interquartile range (25th–75th percentile) from 7 dated engineered-hardwood SKU observations: 6 Home Depot listings and 1 Lowe's listing. Sample median: USD 3.79/sq ft. Convenience sample, not a representative national market survey.",
     "caveats": "The sample is weighted toward Home Depot and does not cover every veneer thickness, wood species, finish or construction. Materials only; excludes adhesive/underlayment where required, waste, tax and installation. Confirm local prices.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-flooring-solid-hardwood-homedepot-sample-iqr-2026-11-14",
@@ -2762,7 +3322,12 @@
     },
     "notes": "Interquartile range (25th–75th percentile) from 12 solid-hardwood products listed by Home Depot. Sample median: USD 5.29/sq ft. The sample includes several Bruce/Blue Ridge/Malibu products and is a retailer listing sample, not a representative US market survey.",
     "caveats": "Product width, species, grade, finish, brand, store/ZIP and promotions affect price. Materials only; excludes installation, finishing if needed, waste and tax. Confirm local price.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "US-flooring-porcelain-tile-homedepot-sample-iqr-2026-11-14",
@@ -2786,7 +3351,12 @@
     },
     "notes": "Interquartile range (25th–75th percentile) from 12 porcelain floor/wall tile products listed by Home Depot. Sample median: USD 2.68/sq ft. This is a convenience sample of listed products, not a representative national market survey.",
     "caveats": "Tile format, size, finish, brand, grade, store/ZIP and promotions affect price. Setting materials, breakage/waste allowance, tax and installation are excluded. Confirm local prices.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
   },
   {
     "id": "UK-interior-paint-wickes-listings-2026-11-14",
@@ -2810,7 +3380,12 @@
     },
     "notes": "Observed price band from selected current listings: Wickes own-brand matt emulsion 2.5 L at £10 (£4.00/L) through Dulux Easycare washable matt 2.5 L at £21 (£8.40/L). The page lists 617 products; this is a selected listing band, not a statistical market median.",
     "caveats": "Product type, brand, washable formulation, pack size and temporary promotions materially affect price. Material only; delivery and decorating labour excluded. Recheck the product page before use.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "UK-flooring-laminate-retailer-sample-2026-11-14",
@@ -2834,7 +3409,12 @@
     },
     "notes": "Observed material-only listing range checked 31 Oct 2026 across three retailer websites: £9.59–£35.19/m². Direct Wood Flooring and Flooring Superstore appear to be the same retail group with identical listings, so the evidence represents two independent retailer groups, not three.",
     "caveats": "Most low/high values are promotional offers. Sample is a checked listing range, not a representative UK survey. Underlay, delivery, waste and fitting excluded; VAT treatment is not explicitly stated by the source.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-flooring-lvt-spc-retailer-sample-2026-11-14",
@@ -2858,7 +3438,12 @@
     },
     "notes": "Observed material-only listing range checked 31 Oct 2026: £14.95–£44.99/m². The source identifies a standard-price SPC item at the low end and several LVT offers; LVT and SPC are grouped as adjacent resilient plank products.",
     "caveats": "Listings are concentrated at one retailer group and include promotions; not a representative UK survey. Product construction and wear layer vary. Underlay where required, delivery, waste and fitting excluded; VAT treatment not explicit.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "UK-flooring-carpet-retailer-sample-2026-11-14",
@@ -2882,7 +3467,12 @@
     },
     "notes": "Observed material-only price band on the first page of Carpetright/Tapi listings checked 31 Oct 2026: £25.99–£36.99/m². The source shows corresponding previous prices of £51.99–£73.99/m².",
     "caveats": "Single retailer and first-page sample; offer prices dominate and are not a national market survey. Carpet underlay, gripper, delivery, waste and fitting are excluded; VAT treatment not explicitly stated.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-flooring-engineered-oak-retailer-sample-2026-11-14",
@@ -2906,7 +3496,12 @@
     },
     "notes": "Observed material-only range on the first page of Direct Wood Flooring listings checked 31 Oct 2026: £29.99–£140.79/m². The source reports these as offer prices.",
     "caveats": "Single retailer group and first-page sample; not representative of the full UK market. Species, veneer thickness, construction and finish vary. Underlay/adhesive, delivery, waste and fitting excluded; VAT treatment not explicit.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-flooring-solid-oak-retailer-sample-2026-11-14",
@@ -2930,7 +3525,12 @@
     },
     "notes": "Observed material-only range checked 31 Oct 2026: £31.99–£95.99/m². The low end is unfinished oak parquet block; finished planks are reported at £57.59–£95.99/m².",
     "caveats": "Single retailer group and product mix includes unfinished parquet at the low end; finished plank range should be considered separately. Not a representative market survey. Finishing, delivery, waste and fitting excluded; VAT treatment not explicit.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "UK-flooring-sheet-vinyl-retailer-sample-2026-11-14",
@@ -2954,7 +3554,12 @@
     },
     "notes": "Observed material-only listing range checked 31 Oct 2026 at Carpetright/Tapi: £21.99–£32.99/m²; source did not flag these as sale prices.",
     "caveats": "Single retailer sample, not a representative UK market survey. Thickness, wear layer and pattern affect price. Adhesive, subfloor preparation, waste and fitting excluded; VAT treatment not explicit.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "sheet-vinyl",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-flooring-ceramic-tile-catalogue-sample-2026-11-14",
@@ -2978,7 +3583,12 @@
     },
     "notes": "Catalogue snapshot dated 13 Nov 2026: 40 ceramic tile deals; reported low £12.56/m², median £29.88/m² and high £155.44/m². Values are sale prices in the catalogue, not a survey of all UK shops.",
     "caveats": "Wide range includes premium and clearance products; the median is more useful as a central catalogue reference than either extreme. Verify whether the retailer price is per m² and VAT-inclusive; adhesive, grout, delivery, breakage/waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-flooring-porcelain-tile-catalogue-sample-2026-11-14",
@@ -3002,7 +3612,12 @@
     },
     "notes": "Catalogue snapshot dated 13 Nov 2026: 156 porcelain tile deals; reported low £10.20/m², median £29.84/m² and high £154.76/m². These are catalogue sale prices, not a full-market survey.",
     "caveats": "Wide range includes premium and clearance products; median £29.84/m² is the more useful central catalogue reference. Verify unit and VAT treatment on retailer page; adhesive, grout, delivery, breakage/waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "UK-wallpaper-bq-listings-2026-11-14",
@@ -3026,7 +3641,12 @@
     },
     "notes": "Observed listing prices normalized to stated coverage: examples range from £1.40/m² for a 10 m self-adhesive PVC roll to £7.08/m² for a 10.05 m × 53 cm vinyl wallpaper roll. Selected listings on the category page; not a statistical sample.",
     "caveats": "Roll dimensions, pattern repeat, material, paste type and promotional pricing vary. Self-adhesive and traditional wallpaper are not directly equivalent. Paste, tools, delivery, waste and labour excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "UK-electricity-gb-ofgem-direct-debit-q4-2026",
@@ -3050,7 +3670,12 @@
     },
     "notes": "Ofgem average Direct Debit electricity unit rate for 1 Oct–31 Dec 2026: 26.32 pence/kWh (£0.2632/kWh). Average daily electricity standing charge is 54.83 pence/day. Electricity VAT is 0% for 1 Oct 2026–31 Mar 2027 according to Ofgem.",
     "caveats": "This is a regulated price-cap benchmark for Great Britain, not a universal household tariff. Actual unit and standing charges vary by region, payment method, meter and tariff; excludes Northern Ireland.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "GB",
+    "tariffPlan": "OFGEM-PRICE-CAP-DIRECT-DEBIT-Q4-2026",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative unit-rate benchmark for England, Scotland and Wales only; show Q4 2026 period, Direct Debit basis, 0% VAT scope and separate standing charge. Never apply to Northern Ireland."
   },
   {
     "id": "UK-electricity-ni-power-ni-monthly-dd-ebill-2026-10-28",
@@ -3074,7 +3699,12 @@
     },
     "notes": "Consumer Council tariff table snapshot dated 14 Nov 2026, including VAT at 5%: Power NI Monthly Direct Debit with online billing is 32.100 pence/kWh (£0.3210/kWh), zero daily standing charge, and an eligible 6% discount (maximum £60/year). The table estimates £1,027/year at 3,200 kWh. The displayed unit rate is already the discounted, VAT-inclusive rate.",
     "caveats": "One named Power NI payment/billing tariff, not an NI-wide average. The 6% discount is capped at £60/year and applies only within the supplier's discount threshold (up to £250/quarter or £1,000/year); usage above the threshold is charged at the standard rate. Consumer Council table states prices include 5% VAT; Northern Ireland remains at 5% VAT while qualifying Great Britain domestic electricity is temporarily zero-rated. Other suppliers and payment methods differ.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "GB-NIR",
+    "tariffPlan": "POWER-NI-MONTHLY-DIRECT-DEBIT-ONLINE-BILLING",
+    "autoEligible": true,
+    "autoEligibleReason": "One named Northern Ireland Power NI monthly Direct Debit/online-billing tariff only; show 5% VAT, discount cap/eligibility and zero standing charge. Never describe as an NI-wide average or substitute for GB."
   },
   {
     "id": "CA-paint-interior-homedepot-listings-2026-11-14",
@@ -3098,7 +3728,12 @@
     },
     "notes": "Selected 3.79 L interior paint listings: BEHR PRO i100 at CAD $31.47 and BEHR PREMIUM PLUS examples at CAD $51.47 per can. This is a selected product listing band, not a statistical market range.",
     "caveats": "Sheen, formulation, base/colour, brand and promotion affect price. Per 3.79 L can, not per litre; taxes, delivery and labour may be additional. Check local store pricing and stock.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "CA-flooring-laminate-rona-listings-2026-11-14",
@@ -3122,7 +3757,12 @@
     },
     "notes": "Visible product listings range from CAD $1.49 to $3.97/sq ft across Mono Serra and Quickstyle products; selected examples, not a market survey.",
     "caveats": "Different thickness, wear rating, water resistance and promotions; availability varies by store. Underlay, trims, delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-lvt-spc-rona-listings-2026-11-14",
@@ -3146,7 +3786,12 @@
     },
     "notes": "Visible residential vinyl plank/SPC listings range from CAD $1.50 to $3.79/sq ft. Examples include Mono Serra, Primo, AHF and TileStyles products.",
     "caveats": "Mixed constructions include SPC, glue-down and peel-and-stick products; not fully comparable. Subfloor preparation, underlay where required, trims, delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "CA-flooring-engineered-hardwood-rona-listings-2026-11-14",
@@ -3170,7 +3815,12 @@
     },
     "notes": "Visible engineered flooring listings range from CAD $4.18 to $11.08/sq ft across selected Goodfellow, Monarch and Home Inspired Floors products.",
     "caveats": "Species, veneer thickness, core construction, finish and promotions vary. Listing band is not a national market survey. Underlay/adhesive, delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-solid-hardwood-rona-listings-2026-11-14",
@@ -3194,7 +3844,12 @@
     },
     "notes": "Visible prefinished solid hardwood examples range from CAD $4.32 to $8.84/sq ft, including Canadian maple, birch and maple products.",
     "caveats": "Selected visible product prices; wood species, grade, plank width and finish differ. Bamboo and engineered products excluded from this reference. Delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-ceramic-tile-homedepot-listings-2026-11-14",
@@ -3218,7 +3873,12 @@
     },
     "notes": "Selected visible ceramic tile product listings span approximately CAD $2.37–$23.16/sq ft, from basic Mono Serra/MSI products to decorative Merola designs.",
     "caveats": "Wide product mix, including decorative feature tiles; not a representative market survey. Some items may be special order or unavailable locally. Adhesive, grout, delivery, breakage/waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
   },
   {
     "id": "CA-flooring-porcelain-tile-homedepot-listings-2026-11-14",
@@ -3242,7 +3902,12 @@
     },
     "notes": "Selected visible porcelain listings include examples around CAD $2.28/sq ft and premium/decorative products up to CAD $28.56/sq ft.",
     "caveats": "Catalogue range is broad and includes product variants with different availability; not a national survey. Verify exact SKU, store availability and price. Adhesive, grout, delivery, breakage/waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-broadloom-carpet-homedepot-listings-2026-11-14",
@@ -3266,7 +3931,12 @@
     },
     "notes": "Selected indoor broadloom listings range from CAD $2.51 to $7.50/sq ft, including TrafficMaster, Beaulieu Canada and Lifeproof examples.",
     "caveats": "Selected listings, many special-order; fibre, pile, weight and backing vary. Underpad, gripper, delivery, waste and installation excluded. Not a representative national survey.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-carpet-tile-homedepot-listings-2026-11-14",
@@ -3290,7 +3960,12 @@
     },
     "notes": "Selected carpet tile product listings range from CAD $2.48 to $7.48/sq ft, including TrafficMaster and Foss Floors examples.",
     "caveats": "Commercial and residential styles, case sizes and backing vary; not interchangeable with broadloom carpet. Adhesive, delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "carpet-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-flooring-sheet-vinyl-homedepot-listings-2026-11-14",
@@ -3314,7 +3989,12 @@
     },
     "notes": "Selected Tarkett residential sheet-vinyl listings show approximately CAD $1.19–$1.98/sq ft.",
     "caveats": "Prices are for selected product listings; some products have limited delivery/store availability. Subfloor preparation, adhesive, delivery, waste and installation excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "sheet-vinyl",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "CA-wallpaper-homedepot-listings-2026-11-14",
@@ -3338,7 +4018,12 @@
     },
     "notes": "Selected listings normalized to stated coverage: traditional rolls at CAD $49.98–$57.20 for 56 sq ft (about $0.89–$1.02/sq ft); peel-and-stick example at CAD $2.44/sq ft.",
     "caveats": "Traditional and peel-and-stick products are different product classes; roll coverage and pattern repeat matter. Paste, tools, waste, delivery and labour excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "CA-electricity-ontario-oeb-residential-2026-11",
@@ -3362,7 +4047,12 @@
     },
     "notes": "Ontario Energy Board regulated Time-of-Use (TOU) energy prices effective 1 Nov 2026: off-peak 9.1¢/kWh, mid-peak 14.6¢/kWh, on-peak 18.9¢/kWh. Numeric low/high fields represent TOU only. Separate Tiered prices are 11.2¢/kWh (first 1,000 kWh/month in winter; 600 in summer) and 13.2¢ above; Ultra-Low Overnight rates range 3.7–37.7¢/kWh by period. Do not substitute one plan for another.",
     "caveats": "The numeric range is the TOU rate band only and does not calculate an individual bill without the household's consumption timing. Tiered and ULO plans have separate thresholds/time windows and must not be treated as TOU. These are energy charges, not a complete all-in household bill; delivery, regulatory charges, taxes, rebates, retailer contracts and consumption pattern affect bills.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-ON",
+    "tariffPlan": "OEB-ONTARIO-TOU",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative TOU-only rate band; select only when the visitor explicitly chooses Ontario TOU. It is not an exact bill because consumption timing and other charges are not modelled."
   },
   {
     "id": "CA-electricity-quebec-hydro-rate-d-2026-04",
@@ -3386,7 +4076,12 @@
     },
     "notes": "Rate D energy prices effective 1 Apr 2026: 7.065¢/kWh for the first 40 kWh per day and 11.142¢/kWh above that threshold. Fixed system access charge is 46.154¢ per day.",
     "caveats": "Regulated Rate D residential tariff; not a national rate. Bill depends on consumption threshold, billing period, fixed daily charge, applicable taxes and optional rate plans.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-QC",
+    "tariffPlan": "HYDRO-QUEBEC-RATE-D",
+    "autoEligible": false,
+    "autoEligibleReason": "Not eligible for a single-rate automatic calculation: the tariff depends on blocks, community/utility scope, subsidies or consumption thresholds that the calculator does not model. Manual input or clearly contextual reference only."
   },
   {
     "id": "CA-electricity-bc-hydro-tiered-2026-04",
@@ -3410,7 +4105,12 @@
     },
     "notes": "BC Hydro residential tiered rate effective 1 Apr 2026: 11.87¢/kWh for first 675 kWh per monthly billing period and 14.08¢/kWh above; basic charge 23.44¢ per day.",
     "caveats": "Applies to BC Hydro residential service under the tiered plan, not all utilities in British Columbia. FortisBC and remote/non-integrated systems may differ; fixed basic charge applies.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-BC",
+    "tariffPlan": "BC-HYDRO-TIERED",
+    "autoEligible": false,
+    "autoEligibleReason": "Not eligible for a single-rate automatic calculation: the tariff depends on blocks, community/utility scope, subsidies or consumption thresholds that the calculator does not model. Manual input or clearly contextual reference only."
   },
   {
     "id": "CA-electricity-alberta-rolr-2026-11",
@@ -3434,7 +4134,12 @@
     },
     "notes": "Rate of Last Resort energy charges through 31 Dec 2026: 12.01¢/kWh (EPCOR, ENMAX), 12.06¢/kWh (Direct Energy Regulated Services), and 12.02¢/kWh (ATCO Electric).",
     "caveats": "Alberta is a competitive retail market. This is the regulated default energy-only benchmark, not a province-wide all-in price; delivery, billing, administration, retailer contracts and variable/fixed offers differ.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-AB",
+    "tariffPlan": "ALBERTA-RATE-OF-LAST-RESORT",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative energy-only Rate of Last Resort benchmark across named providers; delivery and other bill components are excluded."
   },
   {
     "id": "CA-electricity-saskatchewan-saskpower-2026-02",
@@ -3458,7 +4163,12 @@
     },
     "notes": "Standard individually metered residential rate: 15.476¢/kWh, plus a basic monthly charge of CAD $31.16.",
     "caveats": "Published net rate excludes taxes and surcharges. Rate is SaskPower standard service; local utility/co-operative arrangements and final bills may differ.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-SK",
+    "tariffPlan": "SASKPOWER-STANDARD-RESIDENTIAL",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative SaskPower standard residential energy rate only; keep the basic monthly charge, taxes and utility-scope caveat visible."
   },
   {
     "id": "CA-electricity-manitoba-hydro-standard-2026-01",
@@ -3482,7 +4192,12 @@
     },
     "notes": "Standard residential energy charge is 9.970¢/kWh from 1 Jan 2026; basic monthly charge is CAD $9.84 for service not exceeding 200 A. Diesel-zone residential rates are separately listed.",
     "caveats": "Standard grid-connected residential tariff only; diesel communities have a separate rate. Basic charge, taxes and other applicable adjustments affect the bill.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-MB",
+    "tariffPlan": "MANITOBA-HYDRO-STANDARD-GRID-RESIDENTIAL",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative Manitoba Hydro standard grid-connected residential rate only; diesel-zone tariffs and the basic monthly charge are separate."
   },
   {
     "id": "CA-electricity-new-brunswick-nbpower-2026-04",
@@ -3506,7 +4221,12 @@
     },
     "notes": "Residential energy charge totals 15.84¢/kWh (15.39¢ base plus 0.45¢ variance account charge); service charge is CAD $30.82 urban or $33.82 rural/seasonal per billing period.",
     "caveats": "Named NB Power residential tariff; service charge differs by customer class and other local supply arrangements may apply.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-NB",
+    "tariffPlan": "NB-POWER-RESIDENTIAL",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative NB Power residential energy charge only; service charges and customer-class differences are excluded."
   },
   {
     "id": "CA-electricity-nova-scotia-nspower-2026-05",
@@ -3530,7 +4250,12 @@
     },
     "notes": "Standard residential energy charge is CAD $0.19128/kWh, plus a fixed base charge of CAD $20.08 per month.",
     "caveats": "Standard domestic tariff; excludes other bill components and any alternative rate options or approved future adjustments.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-NS",
+    "tariffPlan": "NOVA-SCOTIA-POWER-STANDARD-DOMESTIC",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative Nova Scotia Power standard domestic energy charge only; fixed base charge and other bill components are excluded."
   },
   {
     "id": "CA-electricity-pei-maritime-electric-2026-08",
@@ -3554,7 +4279,12 @@
     },
     "notes": "Residential urban/rural energy charge: 17.84¢/kWh for first 2,000 kWh per billing period and 14.23¢/kWh for additional consumption. Service charge CAD $24.57 urban or $26.92 rural per billing period.",
     "caveats": "Maritime Electric tariff; customer class and billing-period usage determine applicable block. PEI customers outside its service area may have a different provider.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-PE",
+    "tariffPlan": "MARITIME-ELECTRIC-RESIDENTIAL-BLOCK",
+    "autoEligible": false,
+    "autoEligibleReason": "Not eligible for a single-rate automatic calculation: the tariff depends on blocks, community/utility scope, subsidies or consumption thresholds that the calculator does not model. Manual input or clearly contextual reference only."
   },
   {
     "id": "CA-electricity-newfoundland-power-2026-07",
@@ -3578,7 +4308,12 @@
     },
     "notes": "Standard domestic energy charge is 15.587¢/kWh; basic customer charge CAD $17.36/month for service not exceeding 200 A or $22.36/month above 200 A.",
     "caveats": "Applies to Newfoundland Power domestic customers, covering most customers on the island portion; rural/remote customers served directly by Newfoundland and Labrador Hydro may have different tariffs. HST excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-NL",
+    "tariffPlan": "NEWFOUNDLAND-POWER-DOMESTIC",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative Newfoundland Power domestic energy charge only for its island service territory; customer charge and other utility territories are excluded."
   },
   {
     "id": "CA-electricity-yukon-hydro-grid-2026-10",
@@ -3602,7 +4337,12 @@
     },
     "notes": "Hydro-grid residential non-government energy blocks including Riders R and J are 25.17¢, 26.58¢ and 29.01¢/kWh; add Rider F of 1.00¢/kWh effective 1 Oct 2026, giving 26.17–30.01¢/kWh before rebates. Separate customer charge applies.",
     "caveats": "Hydro-grid benchmark only, not small/large diesel communities or Old Crow. Rider F is fuel-adjusted and government affordability rebates may reduce the amount paid by eligible households; verify current rebate eligibility and community tariff.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-YT",
+    "tariffPlan": "YUKON-HYDRO-GRID-NON-GOVERNMENT",
+    "autoEligible": false,
+    "autoEligibleReason": "Not eligible for a single-rate automatic calculation: the tariff depends on blocks, community/utility scope, subsidies or consumption thresholds that the calculator does not model. Manual input or clearly contextual reference only."
   },
   {
     "id": "CA-electricity-nunavut-qec-domestic-2023",
@@ -3626,7 +4366,12 @@
     },
     "notes": "Published non-government residential/domestic tariff is 74.94¢/kWh. Eligible households receive a subsidy for 700 kWh per 30-day period Apr–Sep and 1,000 kWh Oct–Mar; consumption beyond the subsidy threshold is billed at the full tariff.",
     "caveats": "The utility page still identifies 1 Oct 2023 as the effective date; this is the latest published official tariff located, not confirmed as a newly revised 2026 tariff. Subsidy treatment is material and must be displayed alongside the headline tariff.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-NU",
+    "tariffPlan": "QEC-DOMESTIC-LAST-PUBLISHED-2023",
+    "autoEligible": false,
+    "autoEligibleReason": "Excluded from current defaults: the official page still states an effective date of 1 Oct 2023; historical last-published tariff only with explicit location and subsidy treatment."
   },
   {
     "id": "CA-electricity-nwt-selected-communities-2026-09",
@@ -3650,7 +4395,12 @@
     },
     "notes": "The NTPC schedule reports a subsidized household energy charge of 36.50¢/kWh for the first 1,000 kWh in several thermal-zone communities and Norman Wells. For Fort Resolution/Fort Smith/Hay River, the published base charge, riders and GNWT subsidy imply approximately 30.81–31.16¢/kWh depending on community; range shown covers these selected consumer-paid examples.",
     "caveats": "Not a territory-wide tariff. NTPC charges vary sharply by community, grid zone, consumption threshold and subsidy; actual generation costs can be far higher than the subsidized household price. Other communities and utilities require separate records.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "CA-NT",
+    "tariffPlan": "NTPC-SELECTED-COMMUNITIES-SUBSIDIZED",
+    "autoEligible": false,
+    "autoEligibleReason": "Not eligible for a single-rate automatic calculation: the tariff depends on blocks, community/utility scope, subsidies or consumption thresholds that the calculator does not model. Manual input or clearly contextual reference only."
   },
   {
     "id": "EU-DE-electricity-eurostat-2026-H1",
@@ -3674,7 +4424,12 @@
     },
     "notes": "Eurostat harmonised household price for annual consumption band 2,500–4,999 kWh: €0.3618/kWh, including taxes and levies. This is the comparable cross-country benchmark for H1 2026.",
     "caveats": "Half-year national average for a defined consumption band, not a live supplier offer or individual household tariff. Contract type, consumption band, taxes and levies affect actual bills; compare like-for-like only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "DE",
+    "tariffPlan": "EUROSTAT-H1-2026-HOUSEHOLD-BAND-2500-4999-KWH-YR",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative harmonised Eurostat national benchmark for the H1 2026 2,500–4,999 kWh/year household band, including taxes and levies; not a live supplier tariff."
   },
   {
     "id": "EU-FR-electricity-eurostat-2026-H1",
@@ -3698,7 +4453,12 @@
     },
     "notes": "Eurostat harmonised household price for annual consumption band 2,500–4,999 kWh: €0.2485/kWh, including taxes and levies. This is the comparable cross-country benchmark for H1 2026.",
     "caveats": "Half-year national average for a defined consumption band, not a live supplier offer or individual household tariff. Contract type, consumption band, taxes and levies affect actual bills; compare like-for-like only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "FR",
+    "tariffPlan": "EUROSTAT-H1-2026-HOUSEHOLD-BAND-2500-4999-KWH-YR",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative harmonised Eurostat national benchmark for the H1 2026 2,500–4,999 kWh/year household band, including taxes and levies; not a live supplier tariff."
   },
   {
     "id": "EU-ES-electricity-eurostat-2026-H1",
@@ -3722,7 +4482,12 @@
     },
     "notes": "Eurostat harmonised household price for annual consumption band 2,500–4,999 kWh: €0.2509/kWh, including taxes and levies. This is the comparable cross-country benchmark for H1 2026.",
     "caveats": "Half-year national average for a defined consumption band, not a live supplier offer or individual household tariff. Contract type, consumption band, taxes and levies affect actual bills; compare like-for-like only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "ES",
+    "tariffPlan": "EUROSTAT-H1-2026-HOUSEHOLD-BAND-2500-4999-KWH-YR",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative harmonised Eurostat national benchmark for the H1 2026 2,500–4,999 kWh/year household band, including taxes and levies; not a live supplier tariff."
   },
   {
     "id": "EU-IT-electricity-eurostat-2026-H1",
@@ -3746,7 +4511,12 @@
     },
     "notes": "Eurostat harmonised household price for annual consumption band 2,500–4,999 kWh: €0.3142/kWh, including taxes and levies. This is the comparable cross-country benchmark for H1 2026.",
     "caveats": "Half-year national average for a defined consumption band, not a live supplier offer or individual household tariff. Contract type, consumption band, taxes and levies affect actual bills; compare like-for-like only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "IT",
+    "tariffPlan": "EUROSTAT-H1-2026-HOUSEHOLD-BAND-2500-4999-KWH-YR",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative harmonised Eurostat national benchmark for the H1 2026 2,500–4,999 kWh/year household band, including taxes and levies; not a live supplier tariff."
   },
   {
     "id": "EU-NL-electricity-eurostat-2026-H1",
@@ -3770,7 +4540,12 @@
     },
     "notes": "Eurostat harmonised household price for annual consumption band 2,500–4,999 kWh: €0.2440/kWh, including taxes and levies. This is the comparable cross-country benchmark for H1 2026.",
     "caveats": "Half-year national average for a defined consumption band, not a live supplier offer or individual household tariff. Contract type, consumption band, taxes and levies affect actual bills; compare like-for-like only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": "NL",
+    "tariffPlan": "EUROSTAT-H1-2026-HOUSEHOLD-BAND-2500-4999-KWH-YR",
+    "autoEligible": true,
+    "autoEligibleReason": "Indicative harmonised Eurostat national benchmark for the H1 2026 2,500–4,999 kWh/year household band, including taxes and levies; not a live supplier tariff."
   },
   {
     "id": "EU-DE-paint-hornbach-listings-2026-11-14",
@@ -3794,7 +4569,12 @@
     },
     "notes": "Selected large-pack listings include basic white wall paint at €1.30/L, Hornbach 10 L interior white at €2.00/L, and premium Alpina 10 L at €5.50/L. Observed listing band, not statistical market estimate.",
     "caveats": "Selected retailer catalogue examples; formulations, coverage, washable performance, brands and offers differ. Small packs excluded. Material only, no labour.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "EU-DE-flooring-laminate-hornbach-2026-11-14",
@@ -3818,7 +4598,12 @@
     },
     "notes": "Selected visible products span €6.45/m² for basic laminate to €23.95/m² for premium/decorative styles. Retailer listing band, not a statistical percentile.",
     "caveats": "Product thickness, AC wear class, water resistance, pack size and promotions vary. Underlay, delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-DE-flooring-porcelain-tile-hornbach-2026-11-14",
@@ -3842,7 +4627,12 @@
     },
     "notes": "Selected first-page examples range from basic porcelain tile at €9.95/m² to premium large-format tile at €59.95/m². Catalogue sample, not market average.",
     "caveats": "Includes differing sizes, finishes, technical grades and premium products. Not a representative market survey; adhesive, grout, delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "EU-FR-paint-leroymerlin-listings-2026-11-14",
@@ -3866,7 +4656,12 @@
     },
     "notes": "Selected 10 L white interior wall paint examples: LUXENS Classique €2.79/L and RIPOLIN Illico €3.99/L. Selected listing examples only.",
     "caveats": "Not a statistical range; selected brands and paint specifications differ. Smaller specialist tins and premium washable paints excluded. Material only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "EU-FR-flooring-laminate-leroymerlin-2026-11-14",
@@ -3891,7 +4686,12 @@
     "notes": "Single visible product listing for ARTENS medio Byrne 2, 7 mm; product reference 89154816. Current product page displays €8.99/m² and €22.38 per 2.49 m² pack; retained as an individual product observation, not a category average.",
     "caveats": "One 7 mm product only; not a market range. Wear class, thickness, underlay, delivery and fitting may change total cost. The page shows a 2.49 m² pack; use this as product metadata only, not as a generic pack-coverage assumption.",
     "reviewStatus": "researched",
-    "productOrSku": "89154816"
+    "productOrSku": "89154816",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "EU-FR-flooring-ceramic-tile-leroymerlin-2026-11-14",
@@ -3915,7 +4715,12 @@
     },
     "notes": "Selected examples include interior tile products at €15.90/m² and €29.90/m². Observed catalogue band, not statistical survey.",
     "caveats": "Selected products from a retailer category page; material, finish, dimensions and suitability vary. Not a representative national market range.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-ES-paint-leroymerlin-listings-2026-11-14",
@@ -3940,7 +4745,12 @@
     "notes": "Single product listing for LUXENS interior matt white paint, reference 96114412, 15 L can priced at €46; displayed unit equivalent €3.07/L. Recorded per litre as a product observation, not a market average. The product page confirms the 15 L pack volume.",
     "caveats": "One product listing; paint quality, coverage, washable performance, VAT, promotions and pack size differ. Per-litre price must not be multiplied by can count unless the calculator knows the selected can volume.",
     "reviewStatus": "researched",
-    "productOrSku": "96114412"
+    "productOrSku": "96114412",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "EU-ES-flooring-laminate-leroymerlin-2026-11-14",
@@ -3964,7 +4774,12 @@
     },
     "notes": "Selected products range from basic 6 mm AC3 at €6.99/m² to premium AC6 water-resistant laminate at €24.99/m². Selected listing band only.",
     "caveats": "Different AC wear classes, thicknesses, waterproofing and seller status; not a national market survey. Offers, underlay and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-ES-flooring-porcelain-tile-leroymerlin-2026-11-14",
@@ -3988,7 +4803,12 @@
     },
     "notes": "Selected examples span basic porcelain tile at €9.99/m² to a premium Grespania product at €39.99/m². Retail catalogue sample, not national average.",
     "caveats": "Range includes different manufacturers, sizes, finishes and grades. Premium product at upper end; adhesive, grout, delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-IT-paint-leroymerlin-listings-2026-11-14",
@@ -4012,7 +4832,12 @@
     },
     "notes": "Selected white interior paint examples include €2.85/L for BOERO 14 L interior paint and €7.69/L for a specialty anti-mould paint. Listing band only, not market average.",
     "caveats": "Selected listings include different formulations and performance levels. Promotions and pack sizes vary; no labour. Excludes an expired promotion that appeared in an older search snapshot.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "EU-IT-flooring-laminate-leroymerlin-2026-11-14",
@@ -4036,7 +4861,12 @@
     },
     "notes": "Selected listings include low-end laminate at €7.19/m² and AC5/10–12 mm premium examples up to €22.09/m². Selected catalogue range only.",
     "caveats": "Different AC classes, thicknesses, water resistance and temporary offers. Not a representative national survey.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-IT-flooring-porcelain-tile-leroymerlin-2026-11-14",
@@ -4060,7 +4890,12 @@
     },
     "notes": "Selected products include €14.99/m² and €21.99/m² examples. Observed catalogue band, not market average.",
     "caveats": "Selected listings only; dimensions, finish, wear rating and promotion status vary. Adhesive, grout, delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "porcelain-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-NL-paint-gamma-listings-2026-11-14",
@@ -4084,7 +4919,12 @@
     },
     "notes": "Selected 10 L white latex examples include OK own-brand at €1.50/L, GAMMA basic at €2.80/L and colour-mix paint at €10.50/L before member discount. Observed product band only.",
     "caveats": "Colour mixing, coverage and scrub resistance vary. Member discounts and short-lived promotions affect displayed prices; not a statistical market survey.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
   },
   {
     "id": "EU-NL-flooring-laminate-gamma-2026-11-14",
@@ -4108,7 +4948,12 @@
     },
     "notes": "Selected product examples include Village laminate at €10.49/m² with loyalty card and €14.99/m² standard listed price. Listing band only.",
     "caveats": "The low price requires GAMMA Voordeelpas; without membership the standard example is €14.99/m². Underlay, delivery and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "laminate",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
   },
   {
     "id": "EU-NL-flooring-ceramic-tile-gamma-2026-11-14",
@@ -4132,7 +4977,12 @@
     },
     "notes": "Single product's standard price is €16.19/m² and loyalty-card price €11.33/m². Stored as observed promotion/standard-price band, not market average.",
     "caveats": "Same SKU at two price conditions, not a broad category sample. Membership discount applies; product is wall tile, not general floor tile.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "ceramic-tile",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
   },
   {
     "id": "EU-NL-flooring-pvc-gamma-2026-11-14",
@@ -4156,7 +5006,12 @@
     },
     "notes": "GAMMA Click PVC Manera listing shows €39.98/m² standard and €19.99/m² loyalty-card promotion. This is one SKU's price conditions, not a category average.",
     "caveats": "Single product listing with a short-lived loyalty-card discount; not a broad market sample. Check promotion dates, availability and installation system.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "EU-DE-flooring-sheet-vinyl-hornbach-2026-11-14",
@@ -4180,7 +5035,12 @@
     },
     "notes": "Selected sheet PVC roll listings at €7.15–€10.95/m²; prices shown per square metre. Quantity discounts may apply.",
     "caveats": "This is sheet vinyl sold by the metre/roll, not click SPC/LVT. Selected listings only; stock and prices vary by store. Delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "sheet-vinyl",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-FR-flooring-engineered-wood-leroymerlin-2026-11-14",
@@ -4204,7 +5064,12 @@
     },
     "notes": "Selected oak engineered-parquet examples include €37.56/m² (promotional offer) through €96.90/m². Retailer listing band, not a national statistical range.",
     "caveats": "Wood species, veneer thickness, finish, plank dimensions and promotion status vary. Underlay, adhesive, delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-ES-flooring-vinyl-spc-leroymerlin-2026-11-14",
@@ -4228,7 +5093,12 @@
     },
     "notes": "Selected click SPC listings include €12.99/m² for a 3.5 mm product and €23.99/m² for a 5.2 mm product. Listing band only.",
     "caveats": "SPC thickness, integrated underlay, wear layer, seller and offers vary; excludes sheet vinyl, adhesive LVT and installation labour.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "lvp-spc",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-IT-flooring-engineered-wood-leroymerlin-2026-11-14",
@@ -4252,7 +5122,12 @@
     },
     "notes": "Selected multi-layer parquet listings include €27.99/m² for a basic 4S ARTENS oak product and up to €109.90/m² for a premium multi-layer walnut product. Selected catalogue band only.",
     "caveats": "Species, veneer thickness, grade, finish, plank format and seller vary; upper end includes premium products. Not a statistical national survey; underlay, delivery and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-DE-carpet-hornbach-2026-11-14",
@@ -4276,7 +5151,12 @@
     },
     "notes": "Selected visible products include broadloom carpet at €2.75/m², €7.40/m² and €8.95/m², plus a carpet tile at €9.31/m² and premium broadloom at €20.95/m². Observed catalogue span only.",
     "caveats": "Includes distinct product constructions and broadloom/carpet tile formats; not a statistically representative range. VAT included; delivery and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "EU-DE-wallpaper-hornbach-2026-11-14",
@@ -4300,7 +5180,12 @@
     },
     "notes": "Selected rolls shown at €7.95–€19.95 per roll, with coverage-normalised examples around €1.49–€3.75/m². Standard non-woven wallpaper listings.",
     "caveats": "Roll dimensions and coverage vary; not a national average. Paste, primer and installation excluded; VAT included in displayed retail prices.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "EU-DE-solid-hardwood-hornbach-2026-11-14",
@@ -4325,7 +5210,12 @@
     "notes": "Single product listing for Parador Echtholz-Parkett Eiche Pinot schwarz, product reference 1748887. HORNBACH's category listing showed €79.95/m² (€292.86 per pack); the exact product page identifies a 13 mm board with 3.6 mm wear layer and spruce carrier core. This is engineered hardwood parquet, not solid hardwood; individual product observation only. Price was captured from HORNBACH's Parkett category listing: https://www.hornbach.de/c/bodenbelaege-fliesen/parkett/S637/.",
     "caveats": "One product listing, not a category range. The spruce carrier core and 3.6 mm real-wood wear layer mean this must not be classified as solid hardwood. Current stock/price may vary by store and the listing showed the product as not online-orderable; delivery, fitting and waste excluded.",
     "reviewStatus": "researched",
-    "productOrSku": "1748887"
+    "productOrSku": "1748887",
+    "subtype": "engineered-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "EU-FR-carpet-leroymerlin-2026-11-14",
@@ -4349,7 +5239,12 @@
     },
     "notes": "Selected roll carpet products include tufted carpet at €13.90/m², €24.90/m² and €29.90/m². Catalogue sample only.",
     "caveats": "Selected products differ in fibre, pile and quality; marketplace page may include limited local availability. VAT included; underlay and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-FR-wallpaper-leroymerlin-2026-11-14",
@@ -4373,7 +5268,12 @@
     },
     "notes": "Selected wallpaper examples include €11.90 per roll and €18.90–€29.90 per roll. Standard 53 cm-wide roll coverage is around 5.3 m², subject to pattern repeat.",
     "caveats": "Selected listings only, not a representative market survey. Roll length, width, pattern repeat and material vary; glue and labour excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "EU-FR-vinyl-spc-leroymerlin-2026-11-14",
@@ -4397,7 +5297,12 @@
     },
     "notes": "Selected click PVC examples at €20.99/m² and €32.99/m²; includes different thickness/specification products.",
     "caveats": "Click PVC/LVT product listings, not sheet vinyl; underlay may be integrated in some products. Not a broad statistical sample.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "EU-FR-solid-hardwood-leroymerlin-2026-11-14",
@@ -4421,7 +5326,12 @@
     },
     "notes": "Selected solid hardwood listings include wenge at €118.80/m² and oak at €139/m². Premium examples only, not a market-wide range.",
     "caveats": "Only two premium listings; not representative of all solid parquet. Species, grade, finish and plank dimensions differ.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-ES-carpet-leroymerlin-2026-11-14",
@@ -4445,7 +5355,12 @@
     },
     "notes": "Selected listings include budget needle-punch carpet at €3.58–€4.20/m² and higher-pile/polyamide products at €15.29–€25.99/m². Catalogue span only.",
     "caveats": "Wide band reflects different fibre, pile height and intended use. Some listings are sold by marketplace vendors; not a national average. Fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-ES-wallpaper-leroymerlin-2026-11-14",
@@ -4469,7 +5384,12 @@
     },
     "notes": "Selected 10 m × 0.53 m rolls include a promotional non-woven product at €12.99 and washable vinyl wallpaper at €36.99. Observed roll prices only.",
     "caveats": "Roll dimensions and material differ; selected examples not a market average. Some displayed prices are time-limited promotions; adhesive and labour excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "EU-ES-sheet-vinyl-leroymerlin-2026-11-14",
@@ -4493,7 +5413,12 @@
     },
     "notes": "Selected sheet vinyl examples include €6.99/m², €9.99/m², €12.99/m², €15.99/m² and €19.88/m².",
     "caveats": "Roll widths and minimum cut quantities vary; selected listings only, not a statistical market survey. Delivery, waste and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "sheet-vinyl",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-IT-carpet-leroymerlin-2026-11-14",
@@ -4517,7 +5442,12 @@
     },
     "notes": "Selected broadloom examples include needle-punched carpet at €5.99/m² and tufted polypropylene carpet at €11.99/m².",
     "caveats": "Selected retailer listings; fibre, pile, width and intended use differ. Some items priced per linear metre are excluded from this m² range. Fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-IT-wallpaper-leroymerlin-2026-11-14",
@@ -4541,7 +5471,12 @@
     },
     "notes": "Selected 53 cm × 10.05 m wallpaper rolls include €21.98–€32.99 per roll, with other designs in the same catalogue at different prices.",
     "caveats": "Selected examples; roll coverage about 5.33 m² before pattern matching/waste. Seller and promotion status vary; not a market average.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "EU-IT-solid-hardwood-leroymerlin-2026-11-14",
@@ -4565,7 +5500,12 @@
     },
     "notes": "Selected solid-wood listings include oak at €42.68/m² and brushed oak at €117/m²; a pine solid-wood example also appears at €46.15/m².",
     "caveats": "Selected product observations span different species, thickness and sellers; not a statistical market survey. Check stock and seller conditions.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-NL-carpet-hornbach-2026-11-14",
@@ -4589,7 +5529,12 @@
     },
     "notes": "Selected broadloom listings include rib carpet at €3.59/m² and velour carpet at €14.95/m².",
     "caveats": "Selected products differ in pile, fibre and quality; not a national market average. VAT included, delivery and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "broadloom-carpet",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": true,
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
   },
   {
     "id": "EU-NL-wallpaper-praxis-2026-11-14",
@@ -4613,7 +5558,12 @@
     },
     "notes": "Selected 10.05 m × 0.52–0.53 m rolls have Praxis Plus prices normalised to €2.64–€5.12/m²; member promotion prices shown on the retailer page.",
     "caveats": "Discounted prices require Praxis Plus membership and are promotional, not standard shelf prices. Product dimensions and designs vary; not a national average.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
   },
   {
     "id": "EU-NL-sheet-vinyl-hornbach-2026-11-14",
@@ -4638,7 +5588,12 @@
     "notes": "Single made-to-measure sheet-PVC listing, HORNBACH product reference 6053234, 200 cm wide; category listing displayed €7.95/m² (€15.90 per linear metre). Product page states custom cutting in 5 cm increments, 0.5 m minimum order and a 30 m roll. Individual product observation only, not a category average. Price was captured from HORNBACH's Vloerbedekking category listing: https://www.hornbach.nl/s/Vloerbedekking.",
     "caveats": "One made-to-measure sheet-vinyl product only, not a market range. Price basis is per square metre but the retailer also sells by linear metre at the stated 200 cm width; do not confuse these units. Custom-cut goods are non-returnable; delivery and installation excluded.",
     "reviewStatus": "researched",
-    "productOrSku": "6053234"
+    "productOrSku": "6053234",
+    "subtype": "sheet-vinyl",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Individual retailer/SKU observation only; never use as a generic category default. Consider only after an explicit matching product is selected."
   },
   {
     "id": "EU-DE-click-vinyl-hornbach-2026-11-14",
@@ -4662,7 +5617,12 @@
     },
     "notes": "Selected click-vinyl listings include €16.95/m² and €26.95/m²; bulk purchase prices shown separately on source page.",
     "caveats": "Different thicknesses, wear layers and underlay configurations. Selected catalogue examples only, not national average; VAT included, delivery and fitting excluded.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Exact flooring subtype is not safely identifiable from the structured item label; deny by default rather than infer from prose or adjacent constructions."
   },
   {
     "id": "EU-NL-solid-hardwood-parketloods-2026-11-14",
@@ -4686,6 +5646,11 @@
     },
     "notes": "Selected solid oak listings include €34.95/m² for unfinished rustic herringbone blocks and €129.95/m² for smoked/black-oiled aged herringbone. Observed listing band, not a market average.",
     "caveats": "The lower and upper products differ substantially in format, finish and treatment; the lower item is parquet blocks, upper item premium aged herringbone. Selected specialist-retailer sample only.",
-    "reviewStatus": "researched"
+    "reviewStatus": "researched",
+    "subtype": "solid-hardwood",
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
   }
 ]
