@@ -297,3 +297,14 @@ body>header.nav{transition:transform .25s ease;will-change:transform}
 body>header.nav.nav-hidden{transform:translateY(-110%)}
 html{scroll-padding-top:calc(var(--hdr-h,84px) + 16px)}
 @media(prefers-reduced-motion:reduce){body>header.nav{transition:none}}
+
+/* Stage 7: consent banner. Accept and Decline get the same visual weight (equal prominence is expected by European regulators and is fairer), and on phones the bar is slimmer so it covers less of the first screen. Wording and the rule that the Awin tag loads only after Accept are unchanged (script.js). */
+.consent-banner .consent-accept,.consent-banner .consent-decline{background:transparent;border:1.5px solid #fff;color:#fff;min-height:44px}
+.consent-banner .consent-accept:hover,.consent-banner .consent-decline:hover{background:rgba(255,255,255,.14)}
+.consent-banner button:focus-visible{outline:3px solid #D9B77A;outline-offset:2px}
+@media(max-width:600px){
+  .consent-banner{left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));padding:12px 14px;gap:10px;border-radius:12px}
+  .consent-banner p{font-size:13px;line-height:1.45;flex:1 1 100%}
+  .consent-actions{flex:1 1 100%}
+  .consent-actions button{flex:1}
+}
