@@ -186,6 +186,30 @@ Known constraints that must remain visible:
 - Paint pack volume is not currently captured by the Paint tab.
 - Two non-US retailer listings still lack a verified product/SKU identifier required by the engine (Germany solid parquet and Netherlands sheet vinyl). France laminate and Spain paint identifiers were verified against the exact retailer product pages and added to the candidate data branch; this remains subject to PR #341 review.
 
+## 10.1 Additional data-eligibility exclusions from the 14 Nov audit
+
+The following records are structurally valid JSON but are **not eligible as automatic category references** until the research owner resolves the comparability issue. Their presence in the catalogue does not mean they may be selected by a broad `category` match.
+
+| Record ID | Why automatic selection is blocked | Required research/data resolution |
+|---|---|---|
+| `UK-flooring-lvt-spc-retailer-sample-2026-11-14` | LVT and SPC are grouped together; they are adjacent products, not a single exact subtype | Split into subtype-specific ranges or keep out of automatic matching |
+| `CA-flooring-lvt-spc-rona-listings-2026-11-14` | Mixes SPC, glue-down and peel-and-stick vinyl constructions | Separate construction-specific records or exclude |
+| `EU-DE-carpet-hornbach-2026-11-14` | Mixes broadloom carpet and carpet tiles | Split broadloom from carpet tile |
+| `EU-DE-flooring-porcelain-tile-hornbach-2026-11-14` | Label/source span mixes ceramic and porcelain tile | Separate ceramic and porcelain evidence |
+| `CA-flooring-ceramic-tile-homedepot-listings-2026-11-14` | Floor and wall tile are mixed; wall-only products are not a safe flooring proxy | Verify every sampled product is floor-rated or narrow the range |
+| `EU-NL-flooring-ceramic-tile-gamma-2026-11-14` | The record is explicitly a wall tile and compares one SKU's standard and loyalty prices | Keep as an identified product example only; never use as floor-tile category reference |
+| `EU-NL-flooring-pvc-gamma-2026-11-14` | One click-PVC SKU's standard price and member promotion are represented as a range | Record one clearly dated price/condition as a product listing or exclude from category range |
+| `EU-NL-flooring-laminate-gamma-2026-11-14` | Low/high are loyalty-card and standard prices for one product, not a sampled category range | Separate membership condition and product identity; do not present as a category range |
+| `UK-flooring-solid-oak-retailer-sample-2026-11-14` | Low endpoint is unfinished parquet while higher endpoints are finished planks | Split unfinished parquet from finished plank evidence or exclude the mixed range |
+
+The exact item/subtype matcher must also reject any future record whose notes/caveats reveal a materially mixed construction, finish, eligibility, membership condition or application that is not represented in structured fields. Do not try to repair these cases in the calculator by parsing prose.
+
+**Wallpaper is globally blocked from automatic sale-unit costing in this dataset version.** Records use incompatible bases (per roll, per m² covered or per sq ft covered); roll/package coverage, width, length, pattern repeat and sale-unit type are not consistently structured. This applies even when a note mentions approximate roll coverage. Keep wallpaper on user-entered price/two-quote flow; any displayed reference is context-only with its exact basis until the research owner creates a normalized, validated package schema.
+
+**Paint is globally blocked from automatic can/tin costing in this dataset version.** Even where a retailer listing names a 15 L or 3.79 L pack, package volume is not a normalized field and the Paint tab does not capture the visitor's can volume. A per-litre or per-gallon reference must not be multiplied by a tin count. Keep manual price/two-quote flow until a structured pack-volume match exists.
+
+These exclusions are deliberate quality controls, not defects to be bypassed. ChatGPT owns the research/data resolution; Claude implements the technical deny-by-default behavior and tests.
+
 ## 11. Acceptance tests required before enabling references
 
 Claude should add tests for at least these cases:
@@ -199,7 +223,7 @@ Claude should add tests for at least these cases:
 7. Flooring subtype mismatch (e.g. ceramic vs porcelain, broadloom vs carpet tile, sheet vinyl vs LVP) returns no reference rather than a substitute.
 8. Paint reference is not multiplied by tins unless package volume is known and compatible.
 9. Wallpaper reference is not used for sale-unit costing when roll/package coverage is unknown or incompatible.
-10. A retailer SKU never becomes a category default; the two remaining non-US SKU-less listing rows (Germany solid parquet and Netherlands sheet vinyl) are rejected by the adapter. France and Spain exact product identifiers must be preserved as individual listings.
+10. A retailer SKU never becomes a category default; the two remaining non-US SKU-less listing rows (Germany solid parquet and Netherlands sheet vinyl) are rejected by the adapter. France and Spain exact product identifiers must be preserved as individual listings. All explicit exclusions in §10.1 are denied by default.
 11. No median is parsed from notes; no midpoint is labelled as a median.
 12. A missing country/category match prompts the user for a price or two quotes; no FX conversion or cross-country fallback occurs.
 13. User input and two user quotes override a selected reference without mixing values.
@@ -207,6 +231,8 @@ Claude should add tests for at least these cases:
 15. The source name, publisher, URL, observed date, retrieval date and caveat remain visible/clickable.
 16. Records older than 12 months (measured from `observedAt`, not merely `retrievedAt`) are labelled “older data”; do not treat a recent retrieval date as a recent price observation.
 17. No network call or persistence of user-entered measurements/prices is introduced.
+18. Mixed-construction and mixed-application records listed in §10.1 are never returned by automatic category selection.
+19. Paint and wallpaper remain manual-only until structured package-volume/coverage compatibility is implemented; prose notes cannot unlock them.
 
 ## 12. Handoff and ownership
 
