@@ -53,7 +53,7 @@ Display the source period, geography, consumption band/plan and the energy-only 
 
 Never select an individual SKU as the automatic default for a whole material category. Never average SKU rows together with an `editorial-range` row. A listing can be shown only as a clearly identified individual product example, with its SKU/model and exact source.
 
-There are four non-US listing rows in this snapshot without a top-level `productOrSku` value (France laminate, Spain paint, Germany solid hardwood, Netherlands sheet vinyl). They do not satisfy the current engine's retailer-listing validation and must be excluded from any engine payload until the data owner supplies the missing identifier. Do not invent one.
+Initial audit found four non-US listing rows without a top-level `productOrSku`. Follow-up source verification has now identified two exact product references and direct product URLs in the candidate data branch: France ARTENS laminate `89154816` and Spain LUXENS 15 L paint `96114412`. The Germany solid-parquet and Netherlands sheet-vinyl rows still lack verified product identifiers and must remain excluded from every engine payload until their exact identifiers are verified from the retailer. Never infer an identifier from a category URL or fabricate one.
 
 For the 53 US listing rows, `productOrSku` is at the **top level** of the JSON record, while the current engine expects it inside `price.source.productOrSku`. The loader must map it explicitly; do not change the JSON as part of calculator work.
 
@@ -184,7 +184,7 @@ Known constraints that must remain visible:
 - Canadian electricity records are tariff/provider/community scoped; Nunavut is stale-dated and excluded by default.
 - Wallpaper units and roll sizes are not yet machine-normalized.
 - Paint pack volume is not currently captured by the Paint tab.
-- Four non-US retailer listings lack a product/SKU identifier required by the engine.
+- Two non-US retailer listings still lack a verified product/SKU identifier required by the engine (Germany solid parquet and Netherlands sheet vinyl). France laminate and Spain paint identifiers were verified against the exact retailer product pages and added to the candidate data branch; this remains subject to PR #341 review.
 
 ## 11. Acceptance tests required before enabling references
 
@@ -199,7 +199,7 @@ Claude should add tests for at least these cases:
 7. Flooring subtype mismatch (e.g. ceramic vs porcelain, broadloom vs carpet tile, sheet vinyl vs LVP) returns no reference rather than a substitute.
 8. Paint reference is not multiplied by tins unless package volume is known and compatible.
 9. Wallpaper reference is not used for sale-unit costing when roll/package coverage is unknown or incompatible.
-10. A retailer SKU never becomes a category default; four non-US SKU-less listing rows are rejected by the adapter.
+10. A retailer SKU never becomes a category default; the two remaining non-US SKU-less listing rows (Germany solid parquet and Netherlands sheet vinyl) are rejected by the adapter. France and Spain exact product identifiers must be preserved as individual listings.
 11. No median is parsed from notes; no midpoint is labelled as a median.
 12. A missing country/category match prompts the user for a price or two quotes; no FX conversion or cross-country fallback occurs.
 13. User input and two user quotes override a selected reference without mixing values.
