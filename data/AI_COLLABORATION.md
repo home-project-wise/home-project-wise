@@ -1804,3 +1804,21 @@ The owner approved a better workflow: the image collaborator must read the actua
 **Immediate consequence for EN-001 and HVAC-001:** their current prompt-only hero files are not finished image deliverables. The assigned image collaborator must read PR #318 and #319 article drafts, generate article-specific hero candidates (and assess whether each diagram genuinely helps), inspect them at full and phone size, then hand off actual assets and QA evidence. This does not authorize merge or deployment. Also retain the outstanding HVAC unrelated-link correction and the EN mobile log check.
 
 **Verification status:** policy added to the operating charter; operations-room entry added here. No article images were generated or committed by this documentation update.
+
+## 2026-11-13 — Claude B (khaledfadhel@proton.me) — CLAIM + START J1 (third article DR-001; research brief and queue record)
+
+**Assignment (owner handoff):** take a third, independent article while Claude A is unavailable; do not touch EN-001 or HVAC-001.
+**State found on main `7c53f64`:** EN-001 (PR #318) and HVAC-001 (PR #319) are already merged on main (heroes refreshed in PR #328); `.editorial-freeze` is still present (it gates daily automation only; this is a manual PR). Open PRs inspected: #327 (image upgrade), #304 (SH-001), #302, #301, #299 (research), #297.
+**Selected:** DR-001 — `how-to-patch-a-large-hole-in-drywall` (Pillar A, cluster Home Repairs — walls and drywall, spoke; hub planned). Full brief: `docs/ARTICLE-PRODUCTION-QUEUE.md` §5 item 4.
+**Files I will touch (branch `claude/dr-001-patch-large-drywall-hole`, PR to follow):** new article + 4 SVGs; in-place links in `how-to-hang-large-wall-art-without-damage.html` and `reduce-bathroom-condensation.html`; queue; this room; `data/WORK_LOG.md`; `docs/image-prompts/DR-001-HERO.md`.
+**Not touched:** `scripts/`, `.github/workflows`, `website/article-overrides.css`, calculator, design files, EN-001, HVAC-001, PR #304.
+**Note:** these room/queue records live on the PR branch, not on main; they become official when the owner merges.
+
+## 2026-11-14 — Claude A — TAKEOVER DR-001 on owner order (article built, awaiting hero JPG)
+
+**Owner instruction:** complete and publish DR-001. Claude B's draft had never been committed; this branch held only the docs claim (848d9bc). Claude B should not continue DR-001.
+**Done on this branch:** `website/articles/how-to-patch-a-large-hole-in-drywall.html` (eyebrow WEEKEND PROJECTS · DRYWALL REPAIR, 6 FAQ, 17 H2), four original SVGs in `website/images/` (`drywall-check-behind-wall`, `drywall-studs-cut-lines`, `drywall-backing-strips-section`, `drywall-tape-and-coats-section`).
+**Corrections made to the draft:** CPSC asbestos wording re-checked on 2026-11-14 (patching compounds and textured paint, ban in 1977; sanding, scraping or drilling can release fibers); the "sawing" and "bigger than your hand" claims were removed because the pages I re-read do not say them; unverified figures removed (about $100 cost, about four days).
+**Tested:** local emulation of `scripts/quality_gate.py` on the article: no failures (2,633 words, 17 H2, 6 FAQ, 5 images, intro 111 words). **Not tested:** CI, browser rendering, `check_site.py`, live site. Other sources (EPA lead steps, USG, This Old House, Benjamin Moore, Pro Tool Reviews) were read by Claude B on 2026-11-12/13 and not re-opened by me.
+**Open:** hero `website/images/drywall-patch-hero.jpg` (AI image, provisional) must be uploaded by the owner to this branch before merge; PR stays draft until then. Reciprocal links in wall-art and condensation are left to the generated Related blocks. A better hero prompt is available if the provisional image is rejected.
+**Not touched:** scripts, workflows, article-overrides.css, calculator, design files, EN-001, HVAC-001, PR #304.
