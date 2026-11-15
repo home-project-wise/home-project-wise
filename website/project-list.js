@@ -36,6 +36,8 @@
       category: "", coverage: "", coverageUnit: "", country: "", subtype: "" };
     if (spec.category === "flooring" && Number(spec.coverage) > 0 && (spec.coverageUnit === "sq ft" || spec.coverageUnit === "m²")) {
       item.category = "flooring"; item.coverage = String(Number(spec.coverage)); item.coverageUnit = spec.coverageUnit;
+    } else if (spec.category === "flooring-area" && (unit === "sq ft" || unit === "m²")) {
+      item.category = "flooring-area";
     }
     state.items.push(item);
     return { ok: true, item: item };
@@ -46,7 +48,7 @@
     var it = findItem(state, id);
     if (!it || ["quantity", "mode", "price", "low", "high", "country", "subtype"].indexOf(field) === -1) return false;
     if (field === "mode" && ["known", "range", "unknown", "reference"].indexOf(value) === -1) return false;
-    if (field === "mode" && value === "reference" && !(it.category === "flooring" && state.rp && state.records)) return false;
+    if (field === "mode" && value === "reference" && !((it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records)) return false;
     it[field] = String(value);
     return true;
   }
@@ -70,7 +72,7 @@
     state.items.forEach(function (it) {
       if (it.mode !== "reference") return;
       var sel = refLookup(state, it), ep = null;
-      if (sel && sel.ok) ep = state.rp.toEnginePrice(sel.record, Number(it.coverage), it.coverageUnit);
+      if (sel && sel.ok) ep = it.category === "flooring-area" ? state.rp.toEngineAreaPrice(sel.record, it.unit) : state.rp.toEnginePrice(sel.record, Number(it.coverage), it.coverageUnit);
       if (ep) {
         refPrices[it.id] = ep; state.refs.push({ itemId: it.id, record: sel.record });
         if (refCurrencies.indexOf(ep.currency) === -1) refCurrencies.push(ep.currency);
@@ -170,8 +172,8 @@
     h += selectHtml(id, "pl-s-", "subtype", "Floor type", "Choose a type", subs.map(function (s) { return { value: s, label: SUBTYPE_LABEL[s] || s }; }), it.subtype);
     var sel = refLookup(state, it);
     if (sel && sel.ok) {
-      var d = state.rp.describe(sel.record, state.now || new Date()), pk = state.rp.packRange(sel.record, Number(it.coverage), it.coverageUnit);
-      h += '<div class="calc-field"><small>Typical range: ' + esc(d.range) + (pk ? ', about ' + pk.low.toFixed(2) + '–' + pk.high.toFixed(2) + ' ' + esc(pk.currency) + ' per pack of ' + esc(it.coverage) + ' ' + esc(it.coverageUnit) : '') +
+      var d = state.rp.describe(sel.record, state.now || new Date()), area = it.category === "flooring-area", pk = area ? null : state.rp.packRange(sel.record, Number(it.coverage), it.coverageUnit), ac = area ? state.rp.areaCost(sel.record, Number(it.quantity), it.unit) : null;
+      h += '<div class="calc-field"><small>Typical range: ' + esc(d.range) + (pk ? ', about ' + pk.low.toFixed(2) + '–' + pk.high.toFixed(2) + ' ' + esc(pk.currency) + ' per pack of ' + esc(it.coverage) + ' ' + esc(it.coverageUnit) : '') + (ac ? ', about ' + ac.low.toFixed(2) + '–' + ac.high.toFixed(2) + ' ' + esc(ac.currency) + ' for ' + esc(it.quantity) + ' ' + esc(it.unit) : '') +
         '. Approximate, from ' + link(d.url, d.sourceName) + ', observed ' + esc(d.observedAt) + (d.older ? ' (older data)' : '') + '. ' + esc(d.caveats) + ' Replace it with your own price or two quotes for a better estimate.</small></div>';
     } else if (it.country && it.subtype) {
       h += '<div class="calc-field"><small>' + esc(state.rp.NO_REFERENCE) + '</small></div>';
@@ -180,7 +182,7 @@
   }
   function rowHtml(it, state) {
     var id = it.id, sel = function (m) { return it.mode === m ? " selected" : ""; };
-    var canRef = it.category === "flooring" && state.rp && state.records;
+    var canRef = (it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records;
     var h = '<fieldset class="wp-room"><legend>' + esc(it.name) + '</legend><div class="calc-grid">';
     h += '<div class="calc-field"><label for="pl-q-' + id + '">Quantity (' + esc(it.unit) + ')</label><input id="pl-q-' + id + '" type="number" min="0" step="any" value="' + esc(it.quantity) + '" data-id="' + id + '" data-field="quantity"></div>';
     h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + '>I know the price</option><option value="range"' + sel("range") + '>Two quotes (a range)</option>' +
