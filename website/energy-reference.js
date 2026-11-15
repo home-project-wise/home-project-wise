@@ -17,7 +17,7 @@
     var host = doc.getElementById("energy-ref-root");
     var RP = (opts && opts.rp) || (typeof module === "object" && module.exports && typeof require === "function" ? require("./reference-prices.js") : (win && win.HPWReferencePrices));
     if (!host || !RP) return null;
-    var state = { records: null, choices: [], chosen: "", now: (opts && opts.now) || null };
+    var state = { records: null, all: [], choices: [], chosen: "", now: (opts && opts.now) || null };
     function current() {
       var c = state.choices.filter(function (x) { return x.id === state.chosen; })[0];
       return c ? RP.selectElectricity(state.records, { jurisdiction: c.jurisdiction, tariffPlan: c.tariffPlan }) : null;
@@ -35,7 +35,13 @@
         ' This depends on when you use electricity, so it is not filled in: enter the rate that applies to you.</p>';
     }
     function render() {
-      if (!state.choices.length) { host.innerHTML = ""; return; }
+      var g = (win && win.hpwRegion) || "";
+      state.choices = g ? state.all.filter(function (c) { return c.audience === g; }) : state.all;
+      if (state.chosen && !state.choices.some(function (c) { return c.id === state.chosen; })) state.chosen = "";
+      if (!state.choices.length) {
+        host.innerHTML = g && state.all.length ? '<p class="wp-note">No typical electricity rate for ' + esc(RP.COUNTRY_LABEL[g] || g) + ' yet. Enter your own rate.</p>' : "";
+        return;
+      }
       var h = '<details' + (state.chosen ? ' open' : '') + '><summary>Don’t know your rate? See a typical reference rate</summary>' +
         '<div class="calc-field"><label for="energy-ref-choice">Where do you pay for electricity?</label><select id="energy-ref-choice"><option value="">Choose a place</option>' +
         state.choices.map(function (c) { return '<option value="' + esc(c.id) + '"' + (c.id === state.chosen ? " selected" : "") + '>' + esc(c.label) + '</option>'; }).join("") + '</select></div>' +
@@ -44,8 +50,9 @@
     }
     function load(records) {
       if (!Array.isArray(records) || !records.length) return;
-      state.records = records; state.choices = RP.electricityChoices(records); render();
+      state.records = records; state.all = RP.electricityChoices(records); render();
     }
+    if (win && win.addEventListener) win.addEventListener("hpw-region", function () { state.chosen = ""; render(); });
     host.addEventListener("change", function (e) {
       var t = e.target; if (!t || t.id !== "energy-ref-choice") return;
       state.chosen = t.value; render();

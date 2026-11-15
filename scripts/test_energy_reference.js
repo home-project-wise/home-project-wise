@@ -78,4 +78,14 @@ ok("the page loads the scripts in order and has the host element", () => {
   assert.ok(html.indexOf("reference-prices.js") < html.indexOf("energy-reference.js") && html.includes('id="energy-ref-root"'));
   assert.ok(html.indexOf('id="energy-ref-root"') < html.indexOf('id="energy-form"'));
 });
+ok("a page-wide country limits the places to that country and says so when it has none", () => {
+  const d = makeDoc(), handlers = [], win = { navigator: {}, hpwRegion: "Canada", addEventListener(t, f) { if (t === "hpw-region") handlers.push(f); } }; d.getElementById("energy-ref-root");
+  ER.init(d, win, { records: REG, rp: RP, now: NOW }); const html = () => d.els["energy-ref-root"].innerHTML;
+  const ca = RP.electricityChoices(REG).filter((c) => c.audience === "Canada"); assert.ok(ca.length > 0);
+  ca.forEach((c) => assert.ok(html().includes('value="' + c.id + '"'))); RP.electricityChoices(REG).filter((c) => c.audience !== "Canada").forEach((c) => assert.ok(!html().includes('value="' + c.id + '"')));
+  win.hpwRegion = "US"; handlers.forEach((f) => f()); assert.ok(RP.electricityChoices(REG).filter((c) => c.audience === "US").every((c) => html().includes('value="' + c.id + '"')) && !html().includes("Ontario"));
+  const none = REG.filter((r) => !(r.audience === "Italy" && r.category === "electricity")); const d2 = makeDoc(); d2.getElementById("energy-ref-root");
+  ER.init(d2, { navigator: {}, hpwRegion: "Italy" }, { records: none, rp: RP, now: NOW }); assert.ok(d2.els["energy-ref-root"].innerHTML.includes("No typical electricity rate for Italy yet"));
+  win.hpwRegion = ""; handlers.forEach((f) => f()); assert.ok(RP.electricityChoices(REG).every((c) => html().includes('value="' + c.id + '"')));
+});
 console.log("\n" + n + " energy-reference tests passed");

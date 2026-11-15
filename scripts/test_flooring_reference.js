@@ -69,4 +69,25 @@ ok("the page: area-first, allowance not pre-filled, pack size under Advanced set
   assert.ok(panel.indexOf('id="material-country"') < panel.indexOf('id="material-advanced"'));
   assert.ok(html.indexOf("reference-prices.js") < html.indexOf("flooring-reference.js") && html.indexOf("flooring-reference.js") < html.lastIndexOf("<script>"));
 });
+function setupG(records, country) {
+  const d = makeDoc(), handlers = [], win = { hpwRegion: country, addEventListener(t, f) { if (t === "hpw-region") handlers.push(f); } };
+  ["material-country", "material-subtype", "material-country-field", "material-subtype-field", "material-region-note"].forEach((id) => d.getElementById(id));
+  d.els["material-region-note"].hidden = true; d.els["material-region-note"].textContent = "";
+  const c = FR.init(d, win, { records, rp: RP, now: NOW }); return { d, win, c, e: d.els, set(cn) { win.hpwRegion = cn; handlers.forEach((f) => f()); } };
+}
+ok("a page-wide country hides the local country choice and drives the floor types and the cost range", () => {
+  const x = setupG(REG, "US");
+  assert.equal(x.e["material-country-field"].hidden, true); assert.equal(x.e["material-subtype-field"].hidden, false); assert.equal(x.e["material-region-note"].hidden, true);
+  assert.equal(x.e["material-country"].value, "US"); RP.flooringOptions(REG, "US").forEach((t) => assert.ok(x.e["material-subtype"].innerHTML.includes('value="' + t + '"')));
+  x.e["material-subtype"].value = "laminate"; const h = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" });
+  assert.ok(h.includes("Typical material cost for this area") && h.includes("United States") === false);
+});
+ok("changing the page-wide country updates the choices and the note; with no country the local choice comes back", () => {
+  const x = setupG(REG, "US"); x.e["material-subtype"].value = "laminate";
+  x.set("Canada"); assert.equal(x.e["material-country"].value, "Canada"); assert.equal(x.e["material-subtype"].value, "");
+  assert.equal(x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), "");
+  const none = REG.filter((r) => !(r.audience === "Italy" && r.category === "flooring")); const y = setupG(none, "Italy");
+  assert.equal(y.e["material-subtype-field"].hidden, true); assert.equal(y.e["material-region-note"].hidden, false); assert.ok(y.e["material-region-note"].textContent.includes("No typical flooring prices for Italy"));
+  x.set(""); assert.equal(x.e["material-country-field"].hidden, false); assert.equal(x.e["material-subtype-field"].hidden, false);
+});
 console.log("\n" + n + " flooring-reference tests passed");
