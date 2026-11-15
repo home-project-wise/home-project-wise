@@ -54,4 +54,25 @@ ok("the page hosts the room above the tabs and loads the script; the tab ids it 
   assert.ok(html.indexOf('id="room-root"') < html.indexOf('class="calc-tabs"') && html.includes('<script src="shared-room.js"></script>'));
   for (const id of ["tab-material", "tab-paint", "material-unit", "material-length", "material-width", "paint-unit", "paint-length", "paint-width", "paint-height", "paint-openings"]) assert.ok(html.includes('id="' + id + '"'), id);
 });
+ok("Use for Wallpaper shows the net wall area in both units, assumes nothing, gives no roll count, and opens the Wallpaper tab", () => {
+  const x = setup({ "room-unit": "ft", "room-length": "12", "room-width": "10", "room-height": "8", "room-openings": "20" }); click(x, "wallpaper");
+  const t = x.e["wallpaper-room-area"].textContent, net = 2 * (12 + 10) * 8 - 20;
+  assert.ok(t.startsWith("Wall area from your room: 332 ft² (" + Number(net * 0.09290304).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " m²)"), t);
+  assert.ok(t.includes("before any pattern waste") && t.includes("number of rolls depends on the roll size and pattern") && !/\brolls?:?\s*\d/.test(t.replace("number of rolls depends", "")));
+  assert.equal(x.e["wallpaper-room-area"].hidden, false); assert.equal(x.e["tab-wallpaper"].clicked, 1); assert.equal(x.e["room-error"].textContent, "");
+  assert.equal(x.e["wp-width"].value, ""); assert.equal(x.e["paint-length"].value, ""); assert.equal(x.e["material-length"].value, "");
+  const y = setup({ "room-unit": "m", "room-length": "5", "room-width": "4", "room-height": "2.4" }); click(y, "wallpaper");
+  assert.ok(y.e["wallpaper-room-area"].textContent.startsWith("Wall area from your room: 43.2 m² (" + Number(43.2 / 0.09290304).toLocaleString("en-US", { maximumFractionDigits: 2 }) + " ft²)"));
+});
+ok("Wallpaper needs the height and openings smaller than the walls; otherwise an error and nothing shown", () => {
+  const a = setup({ "room-length": "5", "room-width": "4" }); click(a, "wallpaper");
+  assert.match(a.e["room-error"].textContent, /needs the wall height/); assert.notEqual(a.e["wallpaper-room-area"].hidden, false); assert.equal(a.e["tab-wallpaper"].clicked, 0);
+  const b = setup({ "room-length": "5", "room-width": "4", "room-height": "2.4", "room-openings": "50" }); click(b, "wallpaper");
+  assert.match(b.e["room-error"].textContent, /smaller than the total wall area/); assert.equal(b.e["tab-wallpaper"].clicked, 0);
+});
+ok("the page has the Wallpaper wall-area note (hidden until used) above the product form, and the button", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project-calculator.html"), "utf8");
+  assert.ok(/id="wallpaper-room-area" hidden/.test(html) && html.indexOf('id="wallpaper-room-area"') < html.indexOf('id="wp-form"') && html.indexOf('id="wallpaper-room-area"') > html.indexOf('id="panel-wallpaper"'));
+  assert.ok(html.includes('id="tab-wallpaper"')); assert.ok(fs.readFileSync(path.join(__dirname, "..", "website", "shared-room.js"), "utf8").includes('data-target="wallpaper"'));
+});
 console.log("\n" + n + " shared-room tests passed");
