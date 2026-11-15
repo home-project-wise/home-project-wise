@@ -2163,3 +2163,10 @@ The first complete eight-market evidence sweep now supports candidate two-coat q
 - Proposed values now reflect CA 0.0904–0.1021 L/m²/coat and CAD 1.17–2.15/m²/coat; GB £0.471–£0.615/m²/coat using list price; FR €0.299–€0.549/m²/coat.
 - Paired price basis is now explicitly retailer-displayed price; tax status is not normalized unless the exact source says VAT/IVA/TTC included. Visitor wording must not claim tax-exclusive cost where not verified.
 - All 16 records remain proposed/autoEligible=false. No runtime integration or production deployment.
+
+
+## 2026-11-15 — Dulux Valentine Simple Mat same-SKU yield recheck
+
+- A second page-level check found that the Dulux Valentine brand calculator displays a generic 10 m²/L estimate, but the exact Leroy Merlin SKU specification for Simple Mat 10 L states 8 m²/L. The generic calculator value is not the product's own TDS/spec and must not be substituted.
+- Corrected FR paired cost upper bound back to €0.686/m²/coat (two-coat €1.372/m²). The earlier temporary €0.549 value is superseded. Use same-SKU product specification 8 m²/L.
+- This reinforces the paired-SKU rule: exact SKU-specific coverage takes precedence over a brand calculator's generic default.

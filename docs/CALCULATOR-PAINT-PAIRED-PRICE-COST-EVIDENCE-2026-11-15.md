@@ -69,10 +69,10 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
 | Ripolin Illico Mat, Bricomarché | €39.90 / 10 L | €3.99 | 10 m²/L | approx. €0.80 | https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811 — exact 10 L SKU, matt, 10 m²/L |
-| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 10 m²/L | approx. €1.10 | https://www.duluxvalentine.com/fr/produits/le-blanc-simple-mat — official product page states 100 m² per 10 L; price from the matching 10 L Leroy Merlin SKU: https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html |
+| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 8 m²/L | approx. €1.37 | https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html — same-SKU specification states 8 m²/L; the Dulux Valentine site's 10 m²/L calculator figure is generic, not this product's specific yield |
 | Ripolin Illico Mat, E.Leclerc | Price not exposed in the result | — | 10 m²/L | — | https://www.e.leclerc/fp/ripolin-murs-et-plafonds-illico-mat-blanc-10l-3174264784536 — useful second seller check for the same product, but no usable price in retrieved page |
 
-**FR observation:** The initial Ripolin and Dulux matched pairs give approximately €0.80–€1.10/m² for two coats after the Dulux yield correction. The BATIR matched pair was added later, bringing the three-pair sample to approximately €0.60–€1.10/m².
+**FR observation:** The initial Ripolin and Dulux matched pairs give approximately €0.80–€1.37/m² for two coats using the same-SKU product specifications. The BATIR matched pair was added later, bringing the three-pair sample to approximately €0.60–€1.37/m².
 
 ### Spain (EUR)
 
@@ -137,9 +137,9 @@ These additions expand the paired sample and introduce additional retailers. The
 |---|---:|---:|---:|---:|---|
 | BATIR 580 interior matt, Tecnomat | €29.90 TTC / 10 L | €2.99 | 10 m²/L | approx. €0.60 | https://www.tecnomat.fr/produits/peinture-interieure-mur-et-plafond-blanc-mat-10-l-batir-580-25096813.html — exact SKU, TTC price and yield 10 m²/L on the same product page; product is a French-made acrylic matt interior paint |
 | Ripolin Illico Mat, Bricomarché | €39.90 / 10 L | €3.99 | 10 m²/L | approx. €0.80 | https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811 — exact product price and yield |
-| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 10 m²/L | approx. €1.10 | https://www.duluxvalentine.com/fr/produits/le-blanc-simple-mat — official product page states 100 m² per 10 L; price from matching Leroy Merlin 10 L SKU |
+| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 8 m²/L | approx. €1.37 | https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html — same-SKU product specification states 8 m²/L; do not substitute the brand calculator's generic 10 m²/L |
 
-**FR revised observation:** Paired sample now spans approximately €0.60–€1.10/m² for two coats. BATIR, Ripolin and Dulux product pages/TDS support 10 m²/L for the exact products. The earlier Brico Dépôt €10.90 SKU is price-only: its page does not state coverage, so it is excluded from paired cost calculations.
+**FR revised observation:** Paired sample now spans approximately €0.60–€1.37/m² for two coats. BATIR and Ripolin state 10 m²/L; Dulux Valentine Simple Mat's same-SKU product specification states 8 m²/L. The brand calculator's generic 10 m²/L is not used for this exact SKU. The earlier Brico Dépôt €10.90 SKU is price-only: its page does not state coverage, so it is excluded from paired cost calculations.
 
 ### Spain (EUR) — additional independent retailers and SKUs
 
