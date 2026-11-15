@@ -26,7 +26,7 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
-| Glidden Fundamentals Enjoy Flat, Walmart | $20.97 / US gal | $5.54 | Up to 400 sq ft/gal = 37.16 m²/can = 9.82 m²/L | approx. $1.13 | https://www.walmart.com/ip/3281187606 — page lists flat finish, 1 gal, price and up to 400 sq ft; retailer price may vary |
+| Glidden Fundamentals Enjoy Flat, Walmart | $20.97 / US gal | $5.54 | Up to 400 sq ft/gal = 37.16 m²/can = 9.82 m²/L | approx. $1.13 | https://business.walmart.com/ip/Glidden-Fundamentals-Interior-Paint-Focus-Off-White-Flat-1-Gallon/3969068052 — page lists flat finish, 1 gal, price and up to 400 sq ft; retailer price may vary |
 | BEHR ULTRA Interior Matte, Home Depot | $39.98 / US gal | $10.56 | Up to 400 sq ft/gal = 9.82 m²/L | approx. $2.15 | https://www.homedepot.com/p/203202071 — exact matte SKU and price; coverage depends on application/colour/surface porosity |
 | Benjamin Moore ben® Matte, official US page | $60.99 / US gal | $16.11 | 400–450 sq ft/gal = 9.82–11.05 m²/L | approx. $2.91–$3.28 | https://www.benjaminmoore.com/en-us/product/ben-interior-paint-matte-1-gallon/N624?variant=ZWB100000002004939 — manufacturer price; use its own theoretical coverage basis from sell sheet, not practical yield |
 
@@ -36,7 +36,7 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
-| BEHR PREMIUM PLUS Interior Flat, Home Depot Canada | CAD $47.47 / 3.79 L | $12.52 | 400 sq ft = 37.16 m²/can = 9.80 m²/L | approx. CAD $2.56 | https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-frittata-m290-2-3-79l/1001983340 — page gives exact SKU price, flat finish, 3.79 L and 400 sq ft |
+| BEHR PREMIUM PLUS Interior Flat, Home Depot Canada | CAD $47.47 / 3.79 L | $12.52 | 400 sq ft = 37.16 m²/can = 9.80 m²/L | approx. CAD $2.56 | https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-ancient-root-ppu4-20-3-79l/1001985608 — page gives exact SKU price, flat finish, 3.79 L and 400 sq ft |
 | Benjamin Moore ben® Matte, Canada | CAD $79.99 / 3.78 L | $21.16 | 37.2–41.8 m²/can = 9.84–11.06 m²/L | approx. CAD $3.83–$4.30 | https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-white-01/F624/ZWB100000002311032 — official current product price; technical coverage range is from the matched ben® Canada product information |
 | SICO Expert Zero VOC Flat, RONA | CAD $43.49 / 3.78 L | $11.51 | 400 sq ft = 37.16 m²/can = 9.83 m²/L | approx. CAD $1.17 | https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190 — RONA same-SKU page states $43.49, 3.78 L, max 400 sq ft, 2 coats; 9 units at nearby Etobicoke, unavailable for immediate purchase at selected store |
 | BEHR MARQUEE Interior Matte, Home Depot Canada | CAD $79.97 / 3.79 L | $21.10 | Up to 37 m²/can = 9.76 m²/L | approx. CAD $4.32 | https://www.homedepot.ca/en/home/categories/decor/paint/interior-paints/f/matte/a0j-nqo — product listing; exact variant availability varies |
@@ -57,7 +57,7 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
-| CMI Wandfarbe Weiß matt, OBI | €11.99 / 10 L | €1.20 | Up to 55 m²/can = 5.5 m²/L | approx. €0.44 | https://www.obi.de/p/9060864/cmi-wandfarbe-weiss-matt-10-l — seller OBI, VAT included; shipping extra; coverage for one coat |
+| CMI Wandfarbe Weiß matt, OBI | €12.59 / 10 L | €1.26 | Up to 55 m²/can = 5.5 m²/L | approx. €0.46 | https://www.obi.de/p/9060864/cmi-wandfarbe-weiss-matt-10-l — seller OBI, VAT included; shipping extra; coverage for one coat |
 | OBI Easyweiss matt, OBI | €31.99 / 10 L | €3.20 | Up to 70 m²/can = 7 m²/L | approx. €0.91 | https://www.obi.de/p/5273016/obi-innen-wandfarbe-easyweiss-matt-10-l — VAT included; page says coverage at one coat |
 | Alpina DIN-EN Weiß matt, OBI | €44.99 / 10 L | €4.50 | Approx. 60 m²/can = 6 m²/L | approx. €1.50 | https://www.obi.de/p/2175784/alpina-wandfarbe-din-en-weiss-matt-10-l — VAT included; 60 m² pack coverage |
 | Alpinaweiß Das Original matt, OBI | €54.99 / 10 L | €5.50 | Approx. 85 m²/can = 8.5 m²/L | approx. €1.29 | https://www.obi.de/p/9402033/alpinaweiss-wandfarbe-das-original-weiss-matt-10-l — VAT included; page states 10 L for about 85 m² |
