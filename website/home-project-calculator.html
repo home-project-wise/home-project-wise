@@ -337,7 +337,7 @@ byId('material-form').addEventListener('submit',function(e){e.preventDefault();e
  if(window.hpwFlooring)html+=window.hpwFlooring({needed:needed,areaUnit:ft?'sq ft':'m²'});
  show('material-result',html);
  window.hpwLast=window.hpwLast||{};
- window.hpwLast.material=hasCov?{name:'Flooring / material packs',unit:'pack',quantity:packs,category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²',price:(price!==null&&byId('material-currency').value.trim()==='$')?price:null}:{name:'Flooring (area to buy)',unit:ft?'sq ft':'m²',quantity:Math.ceil(needed*100)/100,price:null};
+ window.hpwLast.material=hasCov?{name:'Flooring / material packs',unit:'pack',quantity:packs,category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²',price:(price!==null&&byId('material-currency').value.trim()==='$')?price:null}:{name:'Flooring (area to buy)',unit:ft?'sq ft':'m²',quantity:Math.ceil(needed*100)/100,category:'flooring-area',price:null};
  byId('material-add').hidden=false;
 });
 byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');

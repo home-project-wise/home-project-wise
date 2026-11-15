@@ -262,4 +262,28 @@ ok("the page markup pre-fills no allowance or contingency", () => {
   const src = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
   assert.ok(!/id=\\"plist-contingency\\"[^>]*value=/.test(src));
 });
+const AREA = { name: "Flooring (area to buy)", unit: "sq ft", quantity: 120, price: null, category: "flooring-area" };
+function addArea(x, over) { x.w.hpwLast.material = Object.assign({}, AREA, over); fire(x.e["material-add"], "click"); return x.c.state.items[x.c.state.items.length - 1]; }
+ok("an area item (sq ft or m2) can use the sourced price per area, with no pack size", () => {
+  const x = newList(REG), it = addArea(x); assert.equal(it.category, "flooring-area"); assert.equal(it.unit, "sq ft");
+  assert.ok(x.e["plist-items"].innerHTML.includes("Typical range from sources"));
+  pickRef(x, it, "US", "laminate"); const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, ac = RP.areaCost(rec, 120, "sq ft");
+  const h0 = x.e["plist-items"].innerHTML; assert.ok(h0.includes("for 120 sq ft") && h0.includes(ac.low.toFixed(2) + "–" + ac.high.toFixed(2)), h0.slice(0, 700));
+  fire(x.e["plist-calc-form"], "submit"); const h = x.e["plist-result"].innerHTML, fmtc = (v) => Number(v).toLocaleString("en-US", { style: "currency", currency: "USD" });
+  assert.ok(h.includes(fmtc(ac.low) + "–" + fmtc(ac.high)) && h.includes("[reference: " + rec.source.name) && h.includes("not a quote or a final cost"), h.slice(0, 800));
+});
+ok("a metre-based area item converts the area only, never the currency", () => {
+  const x = newList(REG), it = addArea(x, { unit: "m²", quantity: 11.15 }); pickRef(x, it, "US", "laminate"); fire(x.e["plist-calc-form"], "submit");
+  const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, ac = RP.areaCost(rec, 11.15, "m²");
+  assert.equal(x.e["plist-error"].textContent, ""); assert.ok(x.e["plist-result"].innerHTML.includes(Number(ac.low).toLocaleString("en-US", { style: "currency", currency: "USD" })));
+});
+ok("area items need a matching reference, honour the user's own price, and never accept a non-area unit", () => {
+  const x = newList(REG), it = addArea(x); pickRef(x, it, "Netherlands", "ceramic-tile"); fire(x.e["plist-calc-form"], "submit");
+  assert.ok(x.e["plist-result"].innerHTML.includes("price not known yet") && !x.e["plist-result"].innerHTML.includes("[reference:"));
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "known") });
+  fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "price" }, "3") }); fire(x.e["plist-calc-form"], "submit");
+  assert.ok(x.e["plist-result"].innerHTML.includes("$360.00") && !x.e["plist-result"].innerHTML.includes("Reference for"));
+  const y = newList(null), it2 = addArea(y); assert.equal(L.setField(y.c.state, it2.id, "mode", "reference"), false);
+  const s = L.createState(); assert.equal(L.addItem(s, { name: "Paint", unit: "tin", quantity: 1, category: "flooring-area" }).item.category, "");
+});
 console.log("\n" + passed + " project-list tests passed");

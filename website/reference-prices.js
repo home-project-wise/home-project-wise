@@ -91,6 +91,14 @@
     var qty = au === base ? area : (base === "sqft" ? area * SQFT_PER_M2 : area * M2_PER_SQFT);
     return { low: Number((qty * record.low).toFixed(2)), high: Number((qty * record.high).toFixed(2)), currency: record.currency, quantity: Number(qty.toFixed(4)), quantityUnit: record.unit };
   }
+  // Engine price for an item counted in sq ft or m2: the sourced price per area, converted only between those two units (never currency).
+  function toEngineAreaPrice(record, itemUnit) {
+    var base = areaBasis(record && record.unit), iu = areaBasis(itemUnit);
+    if (!base || !iu || !validRange(record) || !record.source) return null;
+    var f = iu === base ? 1 : (iu === "sqft" ? M2_PER_SQFT : SQFT_PER_M2), s = record.source;
+    return { kind: "editorial-range", currency: record.currency, unit: itemUnit, low: Number((record.low * f).toFixed(4)), high: Number((record.high * f).toFixed(4)),
+      source: { id: s.id, name: s.name, geography: s.geography, geographyResolution: s.geographyResolution, observedAt: s.observedAt } };
+  }
   function electricityChoices(records) {
     var rows = (records || []).filter(function (r) { return isAutoEligible(r) && r.category === "electricity"; });
     var perJurisdiction = {};
@@ -158,6 +166,6 @@
     return problems;
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
-    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, COUNTRY_LABEL: COUNTRY_LABEL, SUBTYPE_LABEL: SUBTYPE_LABEL,
+    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, toEngineAreaPrice: toEngineAreaPrice, COUNTRY_LABEL: COUNTRY_LABEL, SUBTYPE_LABEL: SUBTYPE_LABEL,
     packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
 }));

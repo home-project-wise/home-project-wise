@@ -130,4 +130,13 @@ ok("flooringCountries lists only countries with an eligible flooring range", () 
   const cs = RP.flooringCountries(data); assert.ok(cs.includes("US") && cs.every((c) => data.some((r) => RP.isAutoEligible(r) && r.category === "flooring" && r.audience === c)));
   assert.deepEqual(RP.flooringCountries([rec({ autoEligible: false })]), []);
 });
+ok("toEngineAreaPrice: price per area in the item's unit, no currency conversion; the engine agrees with areaCost", () => {
+  const r = rec({ unit: "sq ft", low: 2, high: 3 });
+  const same = RP.toEngineAreaPrice(r, "sq ft"); assert.deepEqual([same.kind, same.unit, same.low, same.high, same.currency], ["editorial-range", "sq ft", 2, 3, "USD"]);
+  const m2 = RP.toEngineAreaPrice(r, "m²"); assert.ok(Math.abs(m2.low - 2 * RP.SQFT_PER_M2) < 1e-3 && m2.unit === "m²");
+  const est = E.calculateEstimate({ currency: "USD", contingencyPct: 0, lineItems: [{ id: "f", name: "Floor", quantity: 10, unit: "m²", required: true, price: m2 }] });
+  const ac = RP.areaCost(r, 10, "m²"); assert.ok(Math.abs(est.subtotalLow - ac.low) < 0.01 && Math.abs(est.subtotalHigh - ac.high) < 0.01);
+  const eur = RP.toEngineAreaPrice(rec({ unit: "m²", currency: "EUR", low: 20, high: 30 }), "sq ft"); assert.ok(Math.abs(eur.low - 20 * RP.M2_PER_SQFT) < 1e-3 && eur.currency === "EUR");
+  assert.equal(RP.toEngineAreaPrice(r, "gallon"), null); assert.equal(RP.toEngineAreaPrice(rec({ unit: "gallon" }), "sq ft"), null); assert.equal(RP.toEngineAreaPrice(rec({ low: 5, high: 1 }), "sq ft"), null);
+});
 console.log("\n" + n + " reference-price tests passed");
