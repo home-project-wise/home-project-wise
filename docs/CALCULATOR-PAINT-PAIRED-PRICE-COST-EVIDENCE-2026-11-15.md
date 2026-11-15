@@ -222,3 +222,27 @@ A sample count is not a release approval. Before creating a market cost range, c
 | NL | 5 | 3 | 4+ | Sample count complete; clearance/member price conditions must be preserved |
 
 Even where counts are met, the rows do not automatically create a national average. The first release may only use a labelled SKU-sample cost envelope if the owner approves the broad range and the user-facing result makes clear that the exact paint grade and seller change the cost.
+
+
+### Italy (EUR) — third retailer confirmation
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| BoeroBianco Plus, MyPaint.it | €49.90 / 14 L | €3.56 | 10–11 m²/L per coat | approx. €0.65–€0.71 | https://mypaint.it/idropitture/24-48-boerobianco-plus.html — exact 14 L product, price including VAT, TDS link and stated 10–11 m²/L per coat; seller availability shown |
+
+This provides a third Italian retailer alongside Leroy Merlin and OBI. It is a second Boero product, so it does not add an additional independent manufacturer; the Italian paired sample now has Boero, San Marco/ABC and MaxMeyer across three retailers.
+
+### Final paired-sample count after Italy addition
+
+| Market | Exact paired SKU count | Retailer count | Independent product brands/manufacturers | Status |
+|---|---:|---:|---:|---|
+| US | 3 | 3 | 3 | Initial sample count met |
+| CA | 4 | 3 | 4 | Initial sample count met; SICO price conditional |
+| GB | 3 | 3 | 3 | Initial sample count met |
+| DE | 7 | 4 | 5+ | Initial sample count met |
+| FR | 3 | 3 | 3 | Initial sample count met |
+| ES | 6 | 3 | 6 | Initial sample count met |
+| IT | 4 | 3 | 3 | Initial sample count met; one Boero promotion excluded |
+| NL | 5 | 3 | 4+ | Initial sample count met; clearance/member prices separate |
+
+**Important:** Reaching the sample count is only a minimum research gate. The values still span product grades, coverage bases, promotions and tax treatments. These are paired-SKU material-cost envelopes, not national averages or guaranteed costs.
