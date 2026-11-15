@@ -234,3 +234,60 @@ A country/scenario default may be proposed only when all of these are true:
 ## Ownership and safety
 
 ChatGPT owns source research and assumption approval. Claude owns calculator code, calculations, tests and accessibility. No code, CSS, price registry, assumptions registry, workflow, deployment or live-site claim was changed by this research.
+
+
+## Additional source verification — North American matched flat/matte evidence
+
+### United States — PPG Speedhide Interior Latex Paint Flat
+
+- Current product page lists flat and low-sheen variants and links to product data sheets: https://www.pittsburghpaints.com/ppg-products/speedhide-interior-latex
+- Flat TDS (6-70 series): https://buyat.ppg.com/rep_pafpainttools_files/Pghpaints/TDB/6-70.PDF
+- TDS states approximately 400 sq ft per US gallon (37 m² / 3.78 L) on smooth, nonporous surfaces; wet film 4 mil, dry film 1.3 mil. It excludes losses from surface irregularities, porosity, application method and mixing; a second coat may be needed where necessary.
+- TDS footer identifies 6-70 and 10/2024. This is a more useful flat/matte comparison than the Speedhide low-sheen eggshell sheet, which should remain excluded from a strict flat/matte sample.
+- This provides a third independent manufacturer alongside BEHR and Benjamin Moore for a US flat/matte sample, but the surface basis still differs (BEHR gives 250–400 depending on substrate; PPG gives 400 on smooth nonporous; Benjamin Moore gives theoretical 400–450 at recommended film thickness).
+
+### Canada — additional independent product data
+
+1. **Dulux Canada — Flat interior wall/ceiling paint**
+   - Manufacturer TDS: https://buyat.ppg.com/REP_PafPaintTools_files/Dulux/GN_945000_CAEN.pdf
+   - Flat finish; practical coverage approx. 37 m² / 400 sq ft per 3.78 L on primed, smooth, nonporous surfaces. Excludes application loss; some colours, drastic colour changes and porous surfaces may need additional coats.
+   - The document is hosted in the PPG technical-document repository; brand ownership/market context must be retained as Dulux Canada, not counted as independent from PPG without confirming the manufacturer's corporate relationship for this product.
+2. **Cloverdale Paint PremiumClassic Interior Acrylic Latex Flat (GL1), product 03123**
+   - TDS: https://superiorcoatings.ca/wp-content/uploads/2019/05/cloverdale-tds-03123-flat.pdf
+   - Theoretical coverage per coat: 350–450 sq ft per gallon (8–11 m²/L); film thickness per coat is stated; printed 2015-08-25 / version 2015. It is too old for an unqualified current default without a current replacement TDS.
+3. **Cloverdale estimating guide**
+   - https://cloverdalepaint.developmentwebsite.ca/professionals/resources/estimating-guide
+   - Manufacturer guidance says 375–400 sq ft per 3.70 L can; one coat may cover when repainting a similar colour, while two coats may be needed for major colour changes or damaged/old surfaces. This is guidance, not a current technical sheet; the gallon volume is not the same as a US 3.78 L gallon.
+4. **BEHR MARQUEE Canada TDS**
+   - https://images.homedepot.ca/pdf/BEHR%20MARQUEE%20INTERIOR%20MATTE%20PAINT_TDS_Canada-pdf.pdf
+   - Up to 37 m² per 3.78 L depending on application method and substrate porosity; wet/dry film thickness and roller nap are specified. This is a strong Canadian-market TDS.
+5. **Benjamin Moore ben® Canada**
+   - https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-galaxy-2117-20/F624/ZWB100000002077560
+   - 37.2–41.8 m² per 3.78 L, recommended 1 or 2 coats, multiple interior substrates.
+
+**Assessment:** Canada now has several independent-brand candidates, but Dulux/PPG ownership and Cloverdale TDS age need careful treatment. Do not count Dulux as an independent manufacturer until corporate ownership is verified. Exclude the old Cloverdale TDS from the current comparable sample unless the current manufacturer sheet is found.
+
+## Strict sample status by market
+
+| Market | Independent manufacturer candidates located | Main comparability issue | Current release status |
+|---|---|---|---|
+| US | BEHR, Benjamin Moore, PPG | Practical substrate-dependent vs theoretical film-thickness basis; some products one/two coats | Candidate sample, needs strict same-surface normalization |
+| CA | BEHR, Benjamin Moore, Cloverdale, Valspar/SICO, Dulux | Old Cloverdale TDS; Dulux/PPG relationship; product quality and film basis | Candidate sample, needs corporate/product and current TDS verification |
+| GB | Crown, HMG, Dulux Trade | “Up to” trade yield vs standard retail matt; verify current TDS basis and roller application | Candidate sample, needs full TDS comparison |
+| DE | Sto, Brillux, Alpina, Caparol | EN 13300 hiding class differs; rates tied to different H10 classes and surfaces | Strongest standards-linked sample, but must match H10 class |
+| FR | Sto, Colorine, Seigneurie | H10 class and smooth vs painting-canvas substrates differ | Candidate sample, needs full Colorine TDS substrate basis |
+| ES | Valpaint, Grupo Puma, Caparol, Isaval, Juno | Theoretical vs per-coat; product class and substrate differ | Candidate sample, needs strict basis normalization |
+| IT | Caparol, Boero, San Marco | Per-coat vs total two-coat system; primer systems differ | Candidate sample, needs current Caparol TDS and common substrate case |
+| NL | Wijzonol, Stiho, Sikkens | Practical vs theoretical; Sikkens product page lacks yield basis | Candidate sample, needs Sikkens current TDS and product basis |
+
+## Important limitation in the proposed three-manufacturer gate
+
+Three manufacturers per country are necessary but not sufficient. A country should not pass merely because three numbers exist. The values must be normalized to:
+- ordinary interior wall/ceiling matt/flat finish;
+- brush/roller application, with roller preferred;
+- smooth, sound, primed or previously painted substrate as one explicit scenario;
+- per-coat spread rate at stated film thickness, or an explicit two-coat system rate;
+- product class and hiding/contrast performance recorded;
+- current technical sheet and revision date.
+
+If only two products meet the strict match, the third is not comparable, or the sample is all from one parent manufacturer, keep that market blocked. A separate “new/porous/unsealed surface” scenario requires its own primer and finish-system evidence; do not apply a generic multiplier to the smooth-wall rate.
