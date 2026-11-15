@@ -163,6 +163,21 @@ The observed manufacturer statements are not directly interchangeable:
 - Sanderson's own quantity guidance calculates drops from wall width and roll width, then lengths from wall height plus pattern repeat; it adds a 5% trimming allowance in its worked example and warns that the calculator is approximate.
 - This is strong evidence for Sanderson products and a clear example of why one total room area is not enough to calculate exact roll counts.
 
+**Brewster Home Fashions — manufacturer wallpaper specifications**
+- https://www.brewsterwallcovering.com/wallpaper-properties
+- Explains that the common 20.5 in / 21 in format is typically 33 ft per bolt (double roll), while 27 in wallpaper is typically 27 ft per bolt; 36 in products have another length convention.
+- Explains that design repeat can increase waste because matching may lose up to a repeat length on each strip.
+- This is a manufacturer explanation of its product-family conventions, not a guarantee that every North American brand uses the same format.
+
+**York Wallcoverings — named product examples**
+- 27 in × 27 ft, double roll, about 60.8 sq ft, with a 24 in straight match: https://yorkwallcoverings.com/products/large-lattice-wallpaper
+- 20.5 in × 20 ft, double roll, about 34.2 sq ft, with a 20.5 in straight match: https://yorkwallcoverings.com/products/synchronized-wallpaper
+- These official product pages demonstrate that even within one manufacturer, width, length, coverage and pattern repeat differ by product family.
+
+**Canadian retailer cross-check — Brewster product**
+- https://kent.ca/en/20-1-2-x-33-paintable-white-tile-double-roll-wallpaper-1010354
+- A Canadian retail product page lists a Brewster double roll at 20.5 in × 33 ft and 56 sq ft, with a 6.3 in straight pattern repeat. The page marks the item clearance / no longer available for delivery, so it is product-format evidence only, not a current price or market sample.
+
 **Scandinavian Wallpaper FAQ**
 - https://www.scandinavianwallpaper.com/pages/faq
 - Explains North American single-roll/double-roll terminology and that one double roll is a sale unit containing two physical rolls; exact product dimensions and pattern repeat vary.
