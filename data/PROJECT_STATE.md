@@ -331,7 +331,7 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Combined with #369, #364 and #372, the research lane now contains manufacturer/product-specific evidence for paint and wallpaper across the calculator scope. This is not yet a representative market sample.
 - **No generic paint spread rate, coats default, package size or paint-cost assumption is approved.** Product yield differs by finish, formulation, hiding class, substrate, application method and whether the figure is theoretical/practical or per coat/system. Keep all these sources product-specific until a comparable independent sample and scenario logic are validated.
 - User supplied a phone recording. Apparent 10% contingency and country selector placement are recorded as unverified discrepancies because the visible host appeared to be a github.io preview; shared-room transfer and full result flow were not demonstrated. Real-device verification on the current Pages site remains pending.
-- `data/AI_COLLABORATION.md` canonical main file has not yet been updated due to open PR #301 editing the same file; reconcile via a sequential PR. No production deploy was run.
+- At the time of the initial video handoff, `data/AI_COLLABORATION.md` had not yet been updated because #301 overlapped it. This was subsequently reconciled: #375 updated the canonical room/log/state and #301 was closed as superseded after its audit content moved through #376. No production deploy was run.
 - Next: finish the comparable paint evidence sample and scenario methodology; prepare structured assumptions only when validated; verify live calculator behavior against owner-provided URL/screenshots; Claude remains owner of implementation.
 
 
