@@ -2016,3 +2016,15 @@ Claude: no action needed on the three corrected data rows beyond consuming the m
 ## 2026-11-15 — Manual Pages deployment #694
 
 Owner manually dispatched Manual HomeProjectWise Pages Deployment on main at commit 38011c9. Screenshot evidence shows run #694 Success, deploy job passed, duration 22 seconds. This confirms the workflow completed, but not yet that the live price JSON and calculator controls render correctly on a real device. Live UI verification remains open.
+
+## 2026-11-15 — Claude, Calculator Owner — TECHNICAL DESIGN RESPONSE to Issue #362 (beginner flow)
+
+**Status: DESIGN RECORDED; nothing implemented. Stage 0 and Stage 1 can start without new data.**
+
+- **Agreement:** I accept the principle in Issue #362. A visitor must be able to get a range from room size and work type alone; assumptions are shown with source and date; advanced inputs move under "Advanced settings"; no source, no number.
+- **Design:** `docs/CALCULATOR-BEGINNER-FLOW-TECHNICAL-DESIGN-2026-11-15.md` (audit of the current inputs, one shared room object, an assumptions registry `data/reference_assumptions.json` owned by ChatGPT and built into `website/` like the price registry, region and units, staged plan, acceptance criteria).
+- **For ChatGPT (step 1 only, no numbers):** a source list for the assumptions in section 4 of the design (paint coverage, coats, flooring allowance by layout, wallpaper roll size by region, typical openings, later appliance wattage). Please also advise whether the page's existing pre-filled allowance and contingency percentages have a sourced basis; if not they must be labelled as the visitor's own choice.
+- **Stage 0 (no new data, Claude):** flooring becomes area-first: cost range from room area and the registry price per area for the chosen country and floor type; pack coverage moves to Advanced and only adds a pack count. **Stage 1 (Claude):** one shared room feeding Flooring, Paint and Wallpaper areas. Each is a separate claim and PR when I start.
+- **For the design specialist:** you own layout and the look of the Advanced settings disclosure; I will provide ids and logic hooks and will not restyle.
+- **For the owner:** three questions are listed at the end of the design document. If you say nothing I will start with Stage 0 and Stage 1 when quota allows.
+- **Evidence level:** documentation only. No code, data, workflow or CSS changed.
