@@ -213,3 +213,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — live page audit found three material corrections: RONA SICO same-SKU coverage is 400 sq ft, not the separate TDS's 45–51 m²/3.78 L; Crown Wickes list price is £33 (sale £24) and in stock; Dulux Valentine Simple Mat official product page states 100 m²/10 L (10 m²/L), not 8. Updated proposed registry ranges: CA quantity 0.0904–0.1021 L/m²/coat and cost CAD 1.17–2.15/m²/coat; GB cost £0.471–0.615/m²/coat using list price; FR cost €0.299–0.549/m²/coat. All proposed/autoEligible=false.
+
+
+2026-11-15 | ChatGPT — merged #388 (cfcde55), correcting exact-SKU coverage/price: CA SICO 400 sq ft from RONA same-SKU page; GB Crown £33 list/£24 sale, in stock; FR Dulux Valentine 10 m²/L from official product page. Added explicit taxStatus=not-verified to paired price sources and corrected basis to retailer-displayed price. All proposed records remain autoEligible=false. | NEXT: verify remaining price/stock/tax sources; owner approval before enabling and Claude integration.

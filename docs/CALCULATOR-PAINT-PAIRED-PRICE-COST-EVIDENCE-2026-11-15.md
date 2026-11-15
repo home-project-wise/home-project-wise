@@ -246,3 +246,17 @@ This provides a third Italian retailer alongside Leroy Merlin and OBI. It is a s
 | NL | 5 | 3 | 4+ | Initial sample count met; clearance/member prices separate |
 
 **Important:** Reaching the sample count is only a minimum research gate. The values still span product grades, coverage bases, promotions and tax treatments. These are paired-SKU material-cost envelopes, not national averages or guaranteed costs.
+
+
+## 2026-11-15 — Tax and price-basis handling for paired paint samples
+
+The paired-SKU cost ranges use the **retailer-displayed price**, not a normalized tax-exclusive price. Tax inclusion varies by retailer and market:
+- US/CA: sales tax is generally calculated by location at checkout; source pages do not consistently expose a final tax-inclusive total.
+- GB: the Crown/Wickes, Dulux direct and HMG pages used here did not all explicitly state VAT treatment in the retrieved product details; retain as not verified.
+- DE: OBI/BAUHAUS pages explicitly show VAT included on selected rows; other retailer pages may differ.
+- FR: Tecnomat explicitly labels the BATIR price TTC; Bricomarché and Leroy Merlin rows do not all expose a clear tax statement in the retrieved product detail.
+- ES: BAUHAUS explicitly includes IVA; Brico Dépôt/Leroy Merlin page excerpts do not consistently expose the tax statement.
+- IT: OBI/MyPaint pages show IVA included; Leroy Merlin's displayed-price tax wording was not captured.
+- NL: source pages do not consistently expose BTW treatment in the retrieved details.
+
+The registry therefore records taxStatus=not-verified for paired retail cost sources unless an exact source statement is available. The visitor-facing result must say “retailer-displayed material-price sample; tax treatment may vary” rather than claiming taxes are excluded. A later verified tax-normalization pass may split tax-inclusive and tax-exclusive values, but must not estimate tax rates or silently adjust prices.
