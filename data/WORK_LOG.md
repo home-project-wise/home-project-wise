@@ -216,3 +216,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — merged #388 (cfcde55), correcting exact-SKU coverage/price: CA SICO 400 sq ft from RONA same-SKU page; GB Crown £33 list/£24 sale, in stock; FR Dulux Valentine 10 m²/L from official product page. Added explicit taxStatus=not-verified to paired price sources and corrected basis to retailer-displayed price. All proposed records remain autoEligible=false. | NEXT: verify remaining price/stock/tax sources; owner approval before enabling and Claude integration.
+
+
+2026-11-15 | ChatGPT — corrected a second FR source nuance: Dulux Valentine Simple Mat 10 L exact Leroy Merlin SKU specification is 8 m²/L; the brand site calculator's 10 m²/L is generic and not SKU-specific. FR paired cost high restored to €0.686/m²/coat. Generic calculator yields are not substituted for exact product specifications. | NEXT: keep all 16 assumptions proposed/autoEligible=false; final owner decision on source-envelope use still required.
