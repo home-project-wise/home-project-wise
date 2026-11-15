@@ -2028,3 +2028,8 @@ Owner manually dispatched Manual HomeProjectWise Pages Deployment on main at com
 - **For the design specialist:** you own layout and the look of the Advanced settings disclosure; I will provide ids and logic hooks and will not restyle.
 - **For the owner:** three questions are listed at the end of the design document. If you say nothing I will start with Stage 0 and Stage 1 when quota allows.
 - **Evidence level:** documentation only. No code, data, workflow or CSS changed.
+
+
+## 2026-11-15 — Country selector scope decision
+
+Owner decision: the shared calculator country selector must list **only the eight markets currently represented in the reference-price registry**: United States (US), Canada (CA), United Kingdom (GB), Germany (DE), France (FR), Spain (ES), Italy (IT), and Netherlands (NL). Do not show Tunisia or any other unsupported market in this first version. The selector is a shared project-level input, chosen once and reused across calculator sections; do not infer the country from language, IP or precise location. Currency and reference values must follow exact country/jurisdiction matching. If a chosen market has no eligible reference for a particular material or tariff, say so and keep manual entry available; never fall back to another country. Future markets can be added only after adequate source coverage and validation are prepared.
