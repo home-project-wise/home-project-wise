@@ -81,6 +81,12 @@ rejects('material imperial allowance above 50% rejected', submit('material-form'
 const KM = { 'material-unit': 'm', 'material-length': 3.6576, 'material-width': 3.048, 'material-coverage': 1.8580608, 'material-waste': 5, 'material-price': '' };
 has('material metric parity with the 12x10 ft case: 7 packs', submit('material-form', KM), 'Surface area: 11.15 m² (120 ft²) With 5% allowance: 11.71 m² Required: 7 pack(s)');
 has('material metric parity at the exact boundary (10x10 ft, 0%): 5 packs', submit('material-form', { ...KM, 'material-length': 3.048, 'material-width': 3.048, 'material-waste': 0 }), 'Required: 5 pack(s)');
+const KA = { 'material-unit': 'ft', 'material-length': 12, 'material-width': 10, 'material-coverage': '', 'material-waste': '', 'material-price': '' };
+has('flooring area-first: no pack size needed, blank allowance adds none and says so', submit('material-form', KA), 'Surface area: 120 ft² (11.15 m²) With 0% allowance: 120 ft² No extra allowance added');
+ok('area-only result has no pack line and goes to the list as an area item', !String(els['material-result'].innerHTML).includes('Required:') && window.hpwLast.material.category === undefined && window.hpwLast.material.unit === 'sq ft' && window.hpwLast.material.quantity === 120, JSON.stringify(window.hpwLast.material));
+has('flooring area-first: your own allowance still applies', submit('material-form', { ...KA, 'material-waste': 5 }), 'With 5% allowance: 126 ft²');
+has('flooring: a price per pack without a pack size is explained, not guessed', submit('material-form', { ...KA, 'material-price': 45 }), 'Enter the pack coverage under Advanced settings');
+rejects('flooring: a negative pack size is rejected', submit('material-form', { ...KA, 'material-coverage': -1 }));
 els['material-unit'].value = 'm';
 // 4 Electricity
 const E = { 'energy-watts': 1000, 'energy-hours': 2, 'energy-days': 30, 'energy-rate': 0.2 };

@@ -76,6 +76,21 @@
   function flooringOptions(records, country) {
     return uniqueSorted((records || []).filter(function (r) { return isAutoEligible(r) && r.category === "flooring" && r.audience === country; }).map(function (r) { return r.subtype; }));
   }
+  var COUNTRY_ORDER = ["US", "Canada", "UK", "Germany", "France", "Spain", "Italy", "Netherlands"];
+  var COUNTRY_LABEL = { US: "United States", UK: "United Kingdom" };
+  var SUBTYPE_LABEL = { "laminate": "Laminate", "lvp-spc": "Luxury vinyl plank / SPC", "sheet-vinyl": "Sheet vinyl", "broadloom-carpet": "Broadloom carpet", "carpet-tile": "Carpet tile", "engineered-hardwood": "Engineered hardwood", "solid-hardwood": "Solid hardwood", "ceramic-tile": "Ceramic tile", "porcelain-tile": "Porcelain tile" };
+  function flooringCountries(records) {
+    var seen = {};
+    (records || []).forEach(function (r) { if (isAutoEligible(r) && r.category === "flooring") seen[r.audience] = true; });
+    return COUNTRY_ORDER.filter(function (c) { return seen[c]; });
+  }
+  // Material cost range for an area: the sourced price per area times the area, converted only between sq ft and m2 (never currency).
+  function areaCost(record, area, areaUnit) {
+    var base = areaBasis(record && record.unit), au = areaBasis(areaUnit);
+    if (!base || !au || !Number.isFinite(area) || area <= 0 || !validRange(record)) return null;
+    var qty = au === base ? area : (base === "sqft" ? area * SQFT_PER_M2 : area * M2_PER_SQFT);
+    return { low: Number((qty * record.low).toFixed(2)), high: Number((qty * record.high).toFixed(2)), currency: record.currency, quantity: Number(qty.toFixed(4)), quantityUnit: record.unit };
+  }
   function electricityChoices(records) {
     var rows = (records || []).filter(function (r) { return isAutoEligible(r) && r.category === "electricity"; });
     var perJurisdiction = {};
@@ -143,6 +158,6 @@
     return problems;
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
-    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices,
+    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, COUNTRY_LABEL: COUNTRY_LABEL, SUBTYPE_LABEL: SUBTYPE_LABEL,
     packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
 }));
