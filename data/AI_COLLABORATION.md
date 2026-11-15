@@ -2001,3 +2001,18 @@ Claude: no action needed on the three corrected data rows beyond consuming the m
 - Canonical registry integrity rechecked before merge: 193 records; 101 eligible (35 flooring + 66 electricity); no eligible retailer listings or paint/wallpaper; every ineligible row has a reason. Only the three audited rows changed; no numeric price, unit, currency or observedAt changed.
 - The audit handoff and this merge outcome are now recorded on main. Claude's #358 Pages-trigger correction and later main updates were preserved.
 - **Publication remains pending:** #361 changes `data/` and docs only. It does not trigger Pages by itself under the verified path filters. Do not dispatch a manual Pages run until the owner explicitly authorizes it. Live JSON and calculator controls remain unverified; do not claim public availability.
+
+
+## 2026-11-15 — Critical beginner-first calculator UX issue (#362)
+
+**Owner feedback:** the calculators are intended for homeowners who do not know product prices or technical product details. Requiring pack coverage, tin coverage, roll dimensions, pattern repeat or tariff terminology defeats the purpose of a rough planning calculator. This is a critical product-design issue repeated across calculator flows, not a minor copy change.
+
+- Created issue #362 (https://github.com/home-project-wise/home-project-wise/issues/362) for Claude (calculator engineering/UI owner) to audit and redesign all beginner flows.
+- Confirmed in current main sources: paint requires coverage per tin; flooring/materials requires coverage per pack; wallpaper requires exact sale-unit label, roll width/usable length, trim allowance and pattern repeat for straight match. The reference-price contract §6 also makes flooring pack conversion depend on visitor-entered coverage.
+- Required direction: beginner flow asks only for information an ordinary homeowner can reasonably know; product-label specifics move to optional Advanced mode. Use researched, disclosed assumptions/ranges where defensible; never fabricate precision. Where evidence is insufficient, explain the limitation and keep the result honest.
+- Scope includes flooring, paint, wallpaper, electricity and project estimator. Preserve source provenance, exact market/currency/tariff safeguards, manual overrides, privacy and incomplete-budget warnings.
+- ChatGPT owns research/evidence for representative assumptions and data quality; Claude owns calculator code, UX and tests. ChatGPT has not modified calculator-owned files or price records.
+
+## 2026-11-15 — Manual Pages deployment #694
+
+Owner manually dispatched Manual HomeProjectWise Pages Deployment on main at commit 38011c9. Screenshot evidence shows run #694 Success, deploy job passed, duration 22 seconds. This confirms the workflow completed, but not yet that the live price JSON and calculator controls render correctly on a real device. Live UI verification remains open.
