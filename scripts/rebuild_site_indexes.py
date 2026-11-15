@@ -538,8 +538,26 @@ def publish_reference_prices(root: Path = ROOT) -> Path:
     return dst
 
 
+def publish_reference_assumptions(root: Path = ROOT) -> Path:
+    """Copy the owner-approved assumptions registry into the published site, byte for byte (generated, never edited)."""
+    src = root / "data" / "reference_assumptions.json"
+    dst = root / "website" / "reference-assumptions.json"
+    if not src.is_file():
+        raise SystemExit("data/reference_assumptions.json is missing; refusing to publish without the assumptions registry")
+    raw = src.read_bytes()
+    try:
+        data = json.loads(raw.decode("utf-8"))
+    except (UnicodeDecodeError, ValueError) as exc:
+        raise SystemExit("data/reference_assumptions.json is not valid JSON; refusing to publish: %s" % exc)
+    if not isinstance(data, dict) or not isinstance(data.get("records"), list) or not data["records"] or not isinstance(data.get("approval"), dict):
+        raise SystemExit("data/reference_assumptions.json needs a non-empty records list and an approval block; refusing to publish")
+    dst.write_bytes(raw)
+    return dst
+
+
 def main():
     publish_reference_prices()
+    publish_reference_assumptions()
     for page in WEBSITE.glob("*.html"):
         if page.name != "404.html":
             ensure_head_tags(page, "")

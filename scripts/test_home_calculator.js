@@ -59,6 +59,12 @@ has('measure depth 0 gives zero volume (not an error)', submit('measure-form', {
 rejects('measure negative depth', submit('measure-form', { ...M, 'measure-length': 4, 'measure-width': 3, 'measure-depth': -1 }));
 // 2 Paint
 const P = { 'paint-unit': 'm', 'paint-length': 4, 'paint-width': 3, 'paint-height': 2.5, 'paint-openings': 3, 'paint-coats': 2, 'paint-waste': 10, 'paint-coverage': 10, 'paint-price': 20 };
+window.hpwPaint = (i) => '<br>STUB ' + i.coats + ' coats ' + Math.round(i.netM2) + ' m2 allow ' + i.allowPct;
+has('paint without a tin coverage: beginner estimate with the wall area, coats and your allowance passed on', submit('paint-form', { ...P, 'paint-coverage': '' }), 'Paintable wall area: 32 m² (344.45 ft²) STUB 2 coats 32 m2 allow 10');
+ok('paint beginner result has no tin line and the list button is hidden', !String(els['paint-result'].innerHTML).includes('tin(s)') && els['paint-add'].hidden === true && !(window.hpwLast && window.hpwLast.paint));
+rejects('paint: a negative coverage is rejected', submit('paint-form', { ...P, 'paint-coverage': -3 }));
+delete window.hpwPaint;
+has('paint without coverage and no estimator loaded still shows the wall area', submit('paint-form', { ...P, 'paint-coverage': '' }), 'Paintable wall area: 32 m²');
 has('paint 32 m2, 2 coats, 10%: 7.04 -> 8 tins, cost 160', submit('paint-form', P), 'Buy at least 8 tin(s) of the entered coverage. Estimated paint cost: $160');
 ok('paint result is offered to the project list with quantity and price', window.hpwLast && window.hpwLast.paint.quantity === 8 && window.hpwLast.paint.unit === 'tin' && window.hpwLast.paint.price === 20 && els['paint-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('paint zero allowance: 6.4 -> 7 tins', submit('paint-form', { ...P, 'paint-waste': 0 }), 'Buy at least 7 tin(s)');
