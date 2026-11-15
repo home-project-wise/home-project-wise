@@ -1743,7 +1743,9 @@ Task: fix FINDING 1 and 2 from I1. Branch: `claude/sh-001-thread-border-router` 
 - **S45 done — #335 (squash `8d5220e`) merged after `quality` and `chromium-visual-qa` passed (no `health` run appeared).** Live (HTTP, cache-busted): 32 card images on the guide library and 4 on the homepage carry `srcset` with the 640 px variant; sample variant files return [('mail-paper-tray-hero-640.jpg', 200, 26), ('home-reset-hero-640.jpg', 200, 34), ('cable-clutter-hero-640.jpg', 200, 33), ('home-hero-arch-640.jpg', 200, 73), ('home-hero-arch-640.jpg', 200, 73), ('hvac-filter-measure-hero-v2-640.jpg', 200, 27)] (file, status, KB); the library still has 34 cards; style.css carries the Stage 7 consent rules: True; homepage intact (quick-start band, latest section, new hero): True. No re-dispatch was needed. Evidence: tested = CI plus the function test (S44); merged = yes; live = yes by content; visually inspected = NO (the card images look the same, only lighter; the banner change is visible only on a first visit). Ask the owner: re-run PageSpeed on the homepage (mobile) and compare with S42; view the banner after clearing site data. Rollback: revert `8d5220e`.
 - **S46 done — owner re-ran PageSpeed on the homepage (mobile, 2026-11-14 20:11, after #331, #333 and #335): Performance 98 (was 97), Accessibility 100, Best Practices 100, SEO 100, Agentic navigation 2/2; FCP 0.9 s, LCP 0.9 s, TBT 0, CLS 0 (all green); Speed Index 4.2 s (was 4.5 s, still the only orange).** Insights now: render-blocking requests about 430 ms (was about 300 ms; likely measurement variance on a slow-4G simulation, the CSS files did not grow materially), a NEW red "forced reflow" item and one long main-thread task, network tree, caching 247 KiB (GitHub Pages `max-age=600`, not controllable), "improve image display" 109 KiB UNCHANGED, DOM size (informational). **Reading:** the card `srcset` (#335) did not change the 109 KiB figure, so the flagged bytes are probably not the card thumbnails; Lighthouse 13 groups several image findings (size, format, compression) under that insight and the details were collapsed in the screenshot, so no further image change is made blind. PageSpeed API is still at HTTP 429 for the shared key. **Done in this batch (branch `claude-design/2026-11-14-reflow-byline`):** (1) `header.js` no longer reads layout during load or on scroll: the header height is measured by a `ResizeObserver` and cached (fallback: one read inside `requestAnimationFrame` after load), the common cause of a forced-reflow flag; the hide/show behaviour the owner approved is unchanged (24 px down, 12 px up). (2) **Byline.** The Editorial Policy says "Guides appear under the byline HomeProjectWise Editorial" and says that guides are drafted with AI tools and not reviewed one by one by licensed tradespeople, but articles showed no byline at all (only the structured data named "HomeProjectWise Editorial Team"). `add_byline()` in the build script now shows "By HomeProjectWise Editorial" (linked to the Editorial Policy) in front of the dates on every article: {chg} of {len(arts)} articles change, idempotent, paragraph count unchanged. Nothing is invented (same name as the policy), and no expertise is claimed: this closes a gap between the site's own policy and its pages and supports the trust goals of the playbook (S37). **Owner help wanted (optional, one screenshot each, tap to expand):** "Améliorer l'affichage des images", "Ajustement forcé de la mise en page" and "Requêtes de blocage du rendu" on the PageSpeed report; they show the exact files and lines. **Status:** PR opened in this commit; CI, merge and live result recorded in S47. Evidence: PageSpeed = owner's measurement; this batch tested = byline function over the live HTML of all articles, header.js syntax {"checked with node" if node else "reviewed by eye"}; merged = no; live = no; visually inspected = no.
 - **S47 done — #354 (squash `1dc5d91`) merged after `quality` and `chromium-visual-qa` passed.** The live site had NOT changed within about 115 seconds of the merge (a re-dispatch of `pages.yml` was sent); live verification is the first action of the next batch. A re-dispatch of the Pages workflow was needed. Evidence: tested = CI plus the byline function test and `node --check` (S46); merged = yes; live = NOT confirmed; visually inspected = NO (the byline is one short line of text before the dates). Whether PageSpeed's forced-reflow item disappears is unknown until the owner re-runs the report. Rollback: revert `1dc5d91`.
-**RESUME HERE (design account):** (1) RE-VERIFY #354 live first (S47 says not confirmed); (2) ask the owner to re-run PageSpeed and, if possible, expand the three insights named in S46; (3) tool pages: check for a real 'Last updated' pattern like the one on About and Editorial Policy; worked example and related calculators with the calculator owner; WebP only after the PageSpeed details are known; (4) logo stays (S31); delete `claude-design-preview` later; (5) full authorisation for design/interface work (S44). Batch rule (S29): one commit per batch, few API calls, one long wait; if live files do not change after a merge, re-dispatch `pages.yml`.
+- **S48 done — the #354 byline was NOT live although both deployments succeeded; cause found, fixed and tested end to end (branch `claude-design/2026-11-14-byline-order`).** Facts: PR #354 merged (`1dc5d91`); Pages runs 690 (push) and 691 (dispatch) both succeeded; live `header.js` is the new ResizeObserver version; but the live article still showed `Published ... · Print this guide` without the byline. **Cause:** in `main()` of `scripts/rebuild_site_indexes.py`, `ensure_head_tags()` runs on every article BEFORE `enhance_articles()`, and the dates paragraph (`<p class="article-dates">`) is created by `enhance_articles()` at build time (the committed article sources do not contain it); `add_byline()` therefore found nothing to change. My function test (S46) ran on the already-built live HTML, which hid the ordering problem. **Fix:** `add_byline()` now has its own pass right after `enhance_articles(r)` and is no longer called from `ensure_head_tags()`. **Tested properly this time:** the real build script was run on a fresh clone of `main` with the patch; exit code 0; of 36 article files, 35 have the dates paragraph and all 35 of them contain exactly one "By HomeProjectWise Editorial" link; 1 file(s) without a dates paragraph (stop-kitchen-counter-clutter.html) are not parsed as articles by the build and are untouched (editorial to check whether that file is a draft); the guide library still carries the JSON-LD, the card `srcset` and `header.js`. **Process rule added (design account):** a build-time transform is not verified until the real build has been run on a clone and the output inspected; testing on live HTML is only a first check. Status: PR opened in this commit; CI, merge and live result recorded in S49. Evidence: tested = real build on a clone plus CI after the PR; merged = no; live = no; visually inspected = no.
+- **S49 done — #365 (squash `1a3391e`) merged after `quality` and `chromium-visual-qa` passed.** Live (HTTP, cache-busted): 35 of 35 sitemap articles show exactly one 'By HomeProjectWise Editorial' link (others: []); the guide library keeps JSON-LD and card srcset: True; homepage intact: True. No re-dispatch was needed. Evidence: tested = real build on a fresh clone (S48) plus CI; merged = yes; live = yes by content; visually inspected = NO (one short line before the dates). The fix of PageSpeed's forced-reflow item (#354) is live since run 690/691; whether it disappears is for the owner's next PageSpeed run. Rollback: revert `1a3391e`.
+**RESUME HERE (design account):** (1) S49 recorded the byline live. S47 stays accurate (byline part was not live, header.js part was); (2) ask the owner to re-run PageSpeed and, if possible, expand the three insights named in S46; (3) tool pages: check for a real 'Last updated' pattern like the one on About and Editorial Policy; worked example and related calculators with the calculator owner; WebP only after the PageSpeed details are known; (4) logo stays (S31); delete `claude-design-preview` later; (5) full authorisation for design/interface work (S44). Batch rule (S29): one commit per batch, few API calls, one long wait; if live files do not change after a merge, re-dispatch `pages.yml`.
 
 
 ## 2026-11-12 — ChatGPT A — Owner-approved hub-and-spoke editorial strategy
@@ -1981,16 +1983,251 @@ The Pages deployment workflow was inspected read-only. It runs scripts/rebuild_s
 - **What is still true:** changes under `data/` alone (for example ChatGPT's data audit PR #357) do not match the trigger paths, so they need either a `website/**` or script change to ride along, or one manual dispatch after merge. The published registry copy is rebuilt from `data/reference_prices.json` at each deployment, so the copy that went live with #356 contains whatever the registry held at that moment (the structured fields from #348 are in it; the #357 audit changes are not until the next deployment).
 - **Closing criterion, agreed with ChatGPT:** do not announce flooring or electricity reference prices as public until the live `reference-prices.json` and the live Energy and Project list controls are checked. Order after #357 merges: dispatch the Pages deployment once if no successful run covers the new registry, then check the live JSON (record count and a changed record) and the two controls in a real browser or on a phone.
 - **No code or data changed in this PR.** `pages.yml` was not touched and I did not dispatch a deployment.
+## 2026-11-14 — ChatGPT — targeted flooring source audit after #349
 
-## 2026-11-15 — Claude A — ARTICLES 007 and 008 (records)
+**Status: audit corrections prepared in PR; no calculator files changed.** Following Claude's merged #349 handoff, I reviewed the current eligible flooring sources against live retailer/source pages. This is a targeted first pass, not a claim that every price in the 193-row catalogue has been independently re-verified.
 
-**007 (LVP subfloor):** merged as PR #346 (merge commit 50cff86). Built from ChatGPT's draft after opening the Lowe's rigid-core SPC document (file 63177847), the VevoXL 2024 instructions and OSHA FS-3628; ASTM F710 and EPA claims in the draft were not opened by me and were dropped. Gate emulation clean; CI green on 82ac756. My earlier room and work-log entries for 007 were dropped from that PR to avoid a conflict and are recorded here instead.
-**008 (transition strips):** built from the Mannington Commercial transition guide (06/25), a clip-track T-molding guide (8 mm height rule, hosted by The Home Depot), Bruce/AHF hardwood trim guide, plus the Lowe's and VevoXL documents for room-size and doorway rules. All opened in full. Three original SVGs, hero prompt in `docs/image-prompts/ART-008-HERO.md`. Hero `website/images/lvp-transition-strip-hero.jpg` must be uploaded by the owner; PR stays draft until then.
-**Tested (008):** local emulation of `scripts/quality_gate.py`: no failures (1,889 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
-**Writer notes (owner relays them to ChatGPT):** keep sourced numbers instead of "check your product"; strip `utm_source` from URLs; keep status and research records out of the article body; mark "verified" only for sources opened in full.
-**Not touched:** calculator, prices, design files, scripts, workflows.
+- **Quarantined:** `EU-FR-solid-hardwood-leroymerlin-2026-11-14` is now `autoEligible=false`. Its generic promotion-page URL did not establish the recorded endpoints; a current dedicated Leroy Merlin solid-parquet listing shows €118.80/m² as a former price with a live discounted price of €71.92/m². The old/list endpoint must not be presented as current. Re-enable only after both endpoints and price conditions are verified at product level.
+- **Source link corrected:** `EU-IT-solid-hardwood-leroymerlin-2026-11-14` now points to the dedicated Italian solid-parquet category page. The recorded endpoints €42.68/m² and €117/m² are visible on that source page. Values and dates are unchanged.
+- **Source link corrected:** `EU-FR-carpet-leroymerlin-2026-11-14` now points to the dedicated roll-carpet page. The recorded €13.90/m² and €29.90/m² endpoints are visible among roll products. Values and dates are unchanged.
+- **No value drift:** no price, unit, currency, source observation date or other price datum was altered. The only eligibility change is the French solid-hardwood row; two source URLs/names were made more direct.
+- **Live official electricity spot checks:** EIA Aug 2026 Table 5.6.A confirms the reported residential cents/kWh values (e.g. CT 24.51, ME 32.11, MA 30.48); Ofgem confirms GB Q4 2026 26.32p/kWh and 54.83p/day; Consumer Council NI confirms Power NI monthly DD e-bill 32.100p/kWh and zero standing charge; OEB confirms Nov 1 2026 TOU 9.1/14.6/18.9¢; Manitoba Hydro confirms 9.970¢/kWh plus CAD $9.84 monthly basic charge; Eurostat confirms dataset nrg_pc_204, H1 2026 and the 2,500–4,999 kWh band metadata. Remaining electricity provider pages and individual Eurostat country values remain in the broader audit queue.
+- **Updated eligibility count:** 35 flooring + 66 electricity = 101 eligible; paint, wallpaper and retailer listings remain at zero.
 
-## 2026-11-15 — Claude A — ARTICLE 009 (squeaky wood floor), record kept here to avoid conflicts
+Claude: no action needed on the three corrected data rows beyond consuming the merged canonical registry. Continue wiring the Project list flooring range, then electricity, strictly against `autoEligible`, subtype, jurisdiction and tariffPlan. Do not re-enable the French solid-hardwood record in code; the registry flag is the authority.
 
-Built from This Old House "How To Repair Squeaky Wood Floors" (updated 2026-05-29) and AHF Floor Expert "10 Causes of Floor Squeaks" (updated 2022-10-26), both opened in full, plus the APA Technical Note C468 listing page (topics only; the six-page PDF was NOT opened, so APA is cited only for its list of 12 causes). No source gives a universal screw length or spacing, so the article states that and tells readers to use the kit's own instructions. The hidden-utilities and warning-sign advice is labelled as our own precaution. Powder lubricant was dropped (no opened source recommends it). Branch `claude/art-009-squeaky-wood-floor`, draft PR; hero `website/images/squeaky-wood-floor-hero.jpg` pending owner upload.
-**Tested:** local emulation of `scripts/quality_gate.py`: no failures (1,676 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
+## 2026-11-15 — ChatGPT — flooring source audit merged on current main (#361)
+
+- PR #361 merged successfully by squash as `a4d7ac0` after both required checks passed on exact head `c65d54c` (`Editorial Quality Gate` #1741 and `Always-on visual QA` #352). The visual job completed all steps successfully, including responsive/link QA and screenshot/report upload.
+- PR #361 was recreated on latest main (0 commits behind) after #357/#359 became stale. The old #357 and #359 were closed as superseded, not merged; #361 is the authoritative merged change.
+- Canonical registry integrity rechecked before merge: 193 records; 101 eligible (35 flooring + 66 electricity); no eligible retailer listings or paint/wallpaper; every ineligible row has a reason. Only the three audited rows changed; no numeric price, unit, currency or observedAt changed.
+- The audit handoff and this merge outcome are now recorded on main. Claude's #358 Pages-trigger correction and later main updates were preserved.
+- **Publication remains pending:** #361 changes `data/` and docs only. It does not trigger Pages by itself under the verified path filters. Do not dispatch a manual Pages run until the owner explicitly authorizes it. Live JSON and calculator controls remain unverified; do not claim public availability.
+
+
+## 2026-11-15 — Critical beginner-first calculator UX issue (#362)
+
+**Owner feedback:** the calculators are intended for homeowners who do not know product prices or technical product details. Requiring pack coverage, tin coverage, roll dimensions, pattern repeat or tariff terminology defeats the purpose of a rough planning calculator. This is a critical product-design issue repeated across calculator flows, not a minor copy change.
+
+- Created issue #362 (https://github.com/home-project-wise/home-project-wise/issues/362) for Claude (calculator engineering/UI owner) to audit and redesign all beginner flows.
+- Confirmed in current main sources: paint requires coverage per tin; flooring/materials requires coverage per pack; wallpaper requires exact sale-unit label, roll width/usable length, trim allowance and pattern repeat for straight match. The reference-price contract §6 also makes flooring pack conversion depend on visitor-entered coverage.
+- Required direction: beginner flow asks only for information an ordinary homeowner can reasonably know; product-label specifics move to optional Advanced mode. Use researched, disclosed assumptions/ranges where defensible; never fabricate precision. Where evidence is insufficient, explain the limitation and keep the result honest.
+- Scope includes flooring, paint, wallpaper, electricity and project estimator. Preserve source provenance, exact market/currency/tariff safeguards, manual overrides, privacy and incomplete-budget warnings.
+- ChatGPT owns research/evidence for representative assumptions and data quality; Claude owns calculator code, UX and tests. ChatGPT has not modified calculator-owned files or price records.
+
+## 2026-11-15 — Manual Pages deployment #694
+
+Owner manually dispatched Manual HomeProjectWise Pages Deployment on main at commit 38011c9. Screenshot evidence shows run #694 Success, deploy job passed, duration 22 seconds. This confirms the workflow completed, but not yet that the live price JSON and calculator controls render correctly on a real device. Live UI verification remains open.
+
+## 2026-11-15 — Claude, Calculator Owner — TECHNICAL DESIGN RESPONSE to Issue #362 (beginner flow)
+
+**Status: DESIGN RECORDED; nothing implemented. Stage 0 and Stage 1 can start without new data.**
+
+- **Agreement:** I accept the principle in Issue #362. A visitor must be able to get a range from room size and work type alone; assumptions are shown with source and date; advanced inputs move under "Advanced settings"; no source, no number.
+- **Design:** `docs/CALCULATOR-BEGINNER-FLOW-TECHNICAL-DESIGN-2026-11-15.md` (audit of the current inputs, one shared room object, an assumptions registry `data/reference_assumptions.json` owned by ChatGPT and built into `website/` like the price registry, region and units, staged plan, acceptance criteria).
+- **For ChatGPT (step 1 only, no numbers):** a source list for the assumptions in section 4 of the design (paint coverage, coats, flooring allowance by layout, wallpaper roll size by region, typical openings, later appliance wattage). Please also advise whether the page's existing pre-filled allowance and contingency percentages have a sourced basis; if not they must be labelled as the visitor's own choice.
+- **Stage 0 (no new data, Claude):** flooring becomes area-first: cost range from room area and the registry price per area for the chosen country and floor type; pack coverage moves to Advanced and only adds a pack count. **Stage 1 (Claude):** one shared room feeding Flooring, Paint and Wallpaper areas. Each is a separate claim and PR when I start.
+- **For the design specialist:** you own layout and the look of the Advanced settings disclosure; I will provide ids and logic hooks and will not restyle.
+- **For the owner:** three questions are listed at the end of the design document. If you say nothing I will start with Stage 0 and Stage 1 when quota allows.
+- **Evidence level:** documentation only. No code, data, workflow or CSS changed.
+
+
+## 2026-11-15 — Country selector scope decision
+
+Owner decision: the shared calculator country selector must list **only the eight markets currently represented in the reference-price registry**: United States (US), Canada (CA), United Kingdom (GB), Germany (DE), France (FR), Spain (ES), Italy (IT), and Netherlands (NL). Do not show Tunisia or any other unsupported market in this first version. The selector is a shared project-level input, chosen once and reused across calculator sections; do not infer the country from language, IP or precise location. Currency and reference values must follow exact country/jurisdiction matching. If a chosen market has no eligible reference for a particular material or tariff, say so and keep manual entry available; never fall back to another country. Future markets can be added only after adequate source coverage and validation are prepared.
+
+## 2026-11-15 — Claude, Calculator Owner — CLAIM + HANDOFF (Stage 0: area-first flooring)
+
+**Status: DONE locally, PR open (merged by me when checks are green). Stage 1 (shared room) is the next PR. Appearance NOT verified.** Approved by the owner through ChatGPT's review of #363 (Stages 0 and 1 may start without the assumptions registry). Files are Claude-owned and already locked to me, so claim and handoff are recorded together.
+
+- **What changed for the visitor (Flooring tab):** the beginner view asks only for the size of the area. Choosing a country and a floor type (only those with an eligible registry range) adds a **typical material cost range from the area alone**: sourced price per area × area, converting only between sq ft and m², never currency, with source link, observed date, "older data" label, the record's caveat and the contract disclaimer. If nothing matches it says "No reference range yet; enter your own price or two quotes." and shows no number. **Pack coverage, price per pack and currency symbol moved under "Advanced settings"** and are optional; pack coverage still gives the pack count and the cost from your own price, as before. A price per pack without a pack size is explained, not guessed.
+- **Allowance is no longer a hidden default (ChatGPT's reservation):** the field was pre-filled with 10; it is now empty, labelled "Extra material for cuts and waste (%), your choice", and blank means none, which the result says ("No extra allowance added; add one if your layout needs cuts."). No percentage is suggested because none is sourced yet.
+- **Gap I am flagging against our own principle:** the **Project list contingency is still pre-filled with 10** (my PR #338). It must become an empty, explicit choice; I will do it in the Stage 1 PR unless told otherwise.
+- **Known limit:** an area-only result added to the Project list is a plain item (quantity in your unit, price from you); "Typical range from sources" in the list still needs a pack size. Area-based reference pricing inside the list is a later step.
+- **Files:** `website/flooring-reference.js` (new), `website/reference-prices.js` (adds `areaCost`, `flooringCountries`, labels), `website/home-project-calculator.html` (Flooring panel markup, handler, one script tag), `scripts/test_flooring_reference.js` (new, 8 tests), `scripts/test_reference_prices.js` (18), `scripts/test_home_calculator.js` (5 new checks). No CSS, existing classes only; for the design specialist: `details#material-advanced`, `select#material-country`, `select#material-subtype`.
+- **Evidence, by level:** local Node: flooring-reference 8, reference-prices 18, home-calculator All checks passed, project-list 26, energy-reference 8. CI result is in a comment on the PR. **Not verified:** browser, phone, screen reader, screenshots, the live site. Completion of Stage 0 is not claimed until the behaviour is checked on the live page.
+- **Next (Claude):** Stage 1: one shared room (length, width, height, optional openings) feeding Flooring, Paint and Wallpaper area fields, and the contingency choice above. Paint and wallpaper quantity ranges still wait for ChatGPT's sourced assumptions.
+
+## 2026-11-15 — Claude, Calculator Owner — CLAIM + HANDOFF (Stage 1: shared room; explicit allowance and contingency choices)
+
+**Status: DONE locally, PR open (merged by me when checks are green). Appearance NOT verified.** Stage 1 approved by the owner through ChatGPT's review of #363. Files are Claude-owned and already locked to me, so claim and handoff are recorded together.
+
+- **Shared room:** a collapsed "Enter your room once (optional)" block above the tabs: measurement unit, length, width, wall height, and the total area of doors and windows (optional). "Use for Flooring" fills the Flooring unit, length and width; "Use for Paint" fills the Paint unit, length, width, height and openings, and asks for the height if it is missing. It then opens that tab and says what it did; the visitor still presses Calculate and can change every value. Nothing is stored or sent, nothing is assumed (height and openings stay blank unless entered), no network request. **Wallpaper is not wired yet**: it uses a per-wall form and needs its own claim.
+- **No hidden percentages, per ChatGPT's reservation:** the Project list **contingency** (my #338) and the Paint **extra allowance** were both pre-filled with 10; both are now empty, labelled "your choice", and blank means none, which the result says ("No contingency added; adding one is your choice." / "No extra allowance added."). With a contingency entered the wording is as before. I did **not** touch the Paint "Number of coats" field or any coverage default; those wait for the sourced assumptions (ChatGPT's #364 source map).
+- **Files:** `website/shared-room.js` (new), `website/project-list.js`, `website/home-project-calculator.html` (a `#room-root` host above the tab strip, one script tag, Paint allowance field, one result note), `scripts/test_shared_room.js` (new, 6 tests), `scripts/test_project_list.js` (28: contingency tests added; existing tests now set the contingency explicitly). No CSS; for the design specialist: the block is a `<details>` with a `calc-grid` form, ids `room-unit`, `room-length`, `room-width`, `room-height`, `room-openings`, `room-error`, `room-note`.
+- **Evidence, by level:** local Node: shared-room 6, project-list 28, flooring-reference 8, reference-prices 18, energy-reference 8, home-calculator All checks passed. CI result is in a comment on the PR. **Not verified:** browser, phone, screen reader, screenshots, the live site, and whether the tab switch behaves in a real browser. Stage 1 is not claimed complete until the live page is checked.
+- **Next (Claude):** wire Wallpaper into the shared room; area-based reference pricing inside the Project list; Stage 2 (paint and wallpaper quantity ranges) only after ChatGPT delivers the sourced assumptions registry and the owner approves the source list.
+
+## 2026-11-15 — Claude, Calculator Owner — CLAIM + HANDOFF (area-based reference pricing in the Project list)
+
+**Status: DONE locally, PR open (merged by me when checks are green). Appearance NOT verified.** Next item from ChatGPT's recommended order after #368. Files are Claude-owned and already locked to me, so claim and handoff are recorded together.
+
+- **What changed:** an area-only Flooring result added to the Project list (an item counted in sq ft or m²) can now be priced "Typical range from sources" with a country and a floor type, without any pack size. The price per area from the registry is applied to the area in the item's own unit, converting only between sq ft and m², never currency. The list shows the sourced range, the equivalent for the item's quantity, source link, date, "older data" label, the caveat, and the contract disclaimer, exactly as pack items do. The visitor's own price or two quotes still override and are never blended; if nothing matches the item stays unpriced and the total partial; a non-area item can never take this mode.
+- **Files:** `website/reference-prices.js` (adds `toEngineAreaPrice`), `website/project-list.js` (a `flooring-area` item category, reference option, preview and pricing), `website/home-project-calculator.html` (the Flooring area result now carries `category:'flooring-area'`), `scripts/test_reference_prices.js` (19), `scripts/test_project_list.js` (31, three new), `scripts/test_home_calculator.js` (one check updated). No CSS and no data change.
+- **Evidence, by level:** local Node: project-list 31, reference-prices 19, home-calculator All checks passed, flooring-reference 8, shared-room 6, energy-reference 8. CI result is in a comment on the PR. **Not verified:** browser, phone, screen reader, screenshots, the live site.
+- **ChatGPT's #364 and #369:** noted; #364 is merged on `main`. I have not read the five research documents in detail and have not used anything from them in code; nothing numeric from them is wired. My code still waits for `data/reference_assumptions.json` and the owner's approval of the source list before Stage 2 (paint and wallpaper quantities). I agree the calculator should not wait: the area-first flooring and electricity paths are already in.
+- **Next (Claude):** wire Wallpaper into the shared room, showing wall area only and no roll count (per ChatGPT's recommendation), then Stage 2 once the assumptions registry exists. The open point about PRs #301 and #360 touching this room file is theirs to settle; I append only at the end and merge quickly to avoid conflicts.
+
+
+## 2026-11-15 — ChatGPT research and calculator evidence handoff (reconciled)
+
+**Status: research documents merged; generic paint assumptions NOT yet approved; phone verification remains owner-side.**
+
+### Completed and merged
+- **#373** paint manufacturer evidence refresh (Canada, UK, Germany) merged as `a5d6993bc29d54a635b55b8c7dd7461e1e56bb25`. Editorial Quality Gate and Chromium visual QA both succeeded on exact head `5e54b01cd7f184fad90c5eacf743c3028bc56e79`.
+- **#374** paint manufacturer evidence refresh (France, Italy, Spain, Netherlands) merged as `db298e972e6d10334bca82d03ee10bdef43ad726`. Editorial Quality Gate and Chromium visual QA both succeeded on exact head `7aa0f0372ea3ca9d2f6dac0342586f742e00c1a5`.
+- **#369** paint evidence follow-up remains merged as `f88833c0544e4bf60ff0a6a47f66c83b9948ce64`.
+- **#372** wallpaper evidence follow-up remains merged as `a754f87abece912486aff2fbc7e3a049474e75bc`.
+- **#364** initial calculator source map, evidence addendum, price-quality matrix and flooring evidence follow-up are merged.
+
+### Paint research decision
+- The research now includes product-specific technical evidence in all eight supported calculator markets: US, CA, GB, DE, FR, ES, IT, NL.
+- Manufacturer TDS/product evidence is useful for exact products, but values differ by formulation, finish, substrate, hiding class, application method and coat basis. Product-specific yields must not be pooled into an unqualified national average or LOW–HIGH range.
+- No generic country-level litres-per-m² or default coat count is approved yet. Do not create generic `data/reference_assumptions.json` values from unlike products.
+- **Next research work:** build a comparable sample of ordinary interior wall matt/emulsion products in each market. Record exact product class/finish, substrate scope, practical vs theoretical yield, per-coat vs system coverage, hiding/contrast class, application method, dilution, package size, revision date and source. Seek at least two independent manufacturers per market, and more where the product classes do not match. Separate repainting sound existing paint from new/porous/unsealed surfaces; these are different estimation cases. Evaluate a transparent interval or scenario-based estimate rather than one universal rate. Validate coat-count logic independently from spread-rate evidence.
+- Useful additional opened evidence from this session: StoColor In FR TDS reports 6.5 m²/L and EN 13300 H10 class 1; Colorine ColorTex Mat FR reports 6–8 m²/L; Valpaint L-3000 ES TDS revision Dec 2024 reports 9–10 m²/L per coat at 100 μm wet film; Grupo Puma Pumacril Interior ES reports 7–9 m²/L theoretical; HMG Vinyl Matt UK reports 15 m²/L and 1–2 coats; BEHR Marquee US reports 250–400 sq ft/gal depending on substrate; Benjamin Moore Ben Canada reports 400–450 sq ft/gal and 1–2 coats; Wijzonol NL TDS reports practical 7–9 m²/L per coat; Stiho NL reports theoretical 8–9 m²/L at 40 μm dry; Caparol DE catalogue lists 6 m²/L and notes substrate-dependent indicative consumption. These remain product-specific, not a market sample. Exact source URLs and caveats are in the merged research docs and linked citations/PR records.
+- EN 13300 hiding-power class is not itself a universal coverage rate: Brillux explains class 1 as at least 99.5% contrast ratio and gives the class in relation to a stated m²/L test rate. Do not confuse hiding class with number of coats or real-world substrate coverage.
+
+### Mobile video — owner-supplied observation, not yet independently reproduced
+- The supplied phone recording showed a contingency field apparently prefilled at 10%, while the later #368 handoff says the contingency field was emptied and made an explicit visitor choice. The recording also appeared to show country selection within Flooring rather than a shared project-level selector.
+- The browser address visible in the recording appeared to be a `github.io` preview, not the current `home-project-wise.pages.dev` deployment. Therefore these are **verification flags**, not confirmed current-main defects.
+- The shared-room block remained collapsed in the recording; its actual field-to-tab transfer was not demonstrated. No complete calculation/result flow was shown.
+- Owner is testing on a real Android phone. After receiving exact steps/screenshots and the tested URL, compare against current main and deployed artifact. Do not change Claude-owned code/CSS or protected Pages workflow.
+
+### Current unresolved coordination and verification
+- `data/AI_COLLABORATION.md` was not updated directly on main while PR #301 is open and changes this file. This handoff is being reconciled through a sequential documentation PR; do not claim the canonical room updated until that PR merges.
+- The live website, actual country selector placement, area-based reference pricing, shared-room transfer, and full calculation results have not been independently verified by ChatGPT on a real browser/device.
+- No production deployment was triggered. CI visual QA is not a substitute for live-device testing.
+- Next engineering handoff for Claude: connect Wallpaper to the shared room as gross wall area only (optional user-entered openings only); no roll count/package/cost until exact product format, sale unit, repeat and usable coverage are supported. Keep Stage 2 paint/wallpaper quantities blocked until ChatGPT supplies approved structured assumptions and owner approval.
+
+### Ownership reminder
+ChatGPT owns research, evidence quality, source/assumption approval and canonical reference data. Claude owns calculator implementation, technical matching, tests and responsive/accessibility work. Design specialist owns visual design. Do not cross these lanes.
+
+
+## 2026-11-15 — Reconciliation status after PRs #375/#376/#377
+
+- PR #375 merged as e3e40f7fd6e482b08db9ac2bdc58a03d4974aea9; the calculator research handoff, paint evidence merges, phone-video flags and remaining verification gaps are now present in this canonical operations room, WORK_LOG and PROJECT_STATE.
+- PR #376 merged as 4a0363f0a5ed480368a16ea5f65f2f1815fa0f78; historical PL-001/EN-001/HVAC-001 audit additions were reconciled onto current main while preserving the later owner correction.
+- Original PR #301 is closed as superseded, not merged. Its audit content is in #376 and its current operations handoff is in #375; no research content was discarded.
+- PR #377 merged as 04e625dad0da730013195bfe0775402494eeff79; it records the ISO 6504-3/EN 13300 methodology and expanded paint TDS evidence. Derived market source envelopes are research proposals, not enabled defaults.
+- Open coordination blocker: PR #360 remains open on a stale branch based at 50cff86, reports mergeable=false, and edits the operations room and WORK_LOG as part of article 008 records. Do not merge it as-is or overwrite its article handoff. Claude should rebase/recreate the article-record changes on current main and preserve this calculator handoff; until then, any further canonical log edit must be sequential and checked against #360.
+- The phone recording remains an unverified preview observation. Current Pages deployment, country selector location, shared-room transfers and full result flows still require real-device verification. No production deploy has been run by ChatGPT.
+
+## 2026-11-15 — Paint research decision checkpoint
+
+The first complete eight-market evidence sweep now supports candidate two-coat quantity envelopes, but not a single normalized practical coverage default. The sample spans different product classes and includes theoretical, practical, maximum and product-system figures. Keep the envelopes in the research document only. Next task is row-level normalization and source classification; do not create reference_assumptions.json or tell Claude to wire the values until the comparable sample passes the data release gate.
+
+
+## 2026-11-15 — Paint TDS normalization and recommendation for Issue #362
+
+- PR #379 merged as 1df2f98d175d81c70f5f0710291e25df90f945fa. It adds a row-level normalization table for manufacturer paint TDS evidence in all eight supported markets (US, CA, GB, DE, FR, ES, IT, NL).
+- The source table preserves raw units, normalized m²/L, per-coat vs two-coat-system basis, theoretical/practical/maximum distinction, substrate, application method, film thickness, EN 13300 hiding class and revision date where available.
+- The standards review in #377 establishes that ISO 6504-3:2019 distinguishes practical and theoretical spreading rates from hiding power; EN 13300 H10 class must be tied to its stated spreading rate. Do not merge these into a single unqualified coverage statistic.
+- ChatGPT recommends the source-envelope path for the first beginner quantity estimate: a broad, clearly labelled two-finish-coat quantity range on a sound, prepared interior wall, with per-source provenance and limitations displayed. This is not a statistical national average or guaranteed practical yield. A strict practical-roller-only path leaves most markets without enough independent comparable sources.
+- Keep bare/new/porous surfaces and primer as a separate case; no hidden waste percentage. Let visitor select 1 or 2 finish coats; if the visitor does not know, use a disclosed 2-coat planning scenario only after owner approval.
+- **Paint cost remains unapproved and unavailable from this evidence.** No paint category range exists in the canonical price registry; do not invent cost or multiply by tins without package-volume compatibility. Next research task: retail price sampling by country/product class, kept separate from coverage assumptions.
+- Detailed results and recommendation were posted to Issue #362. No code, CSS, reference-price data, assumption registry or deployment changed.
+
+
+## 2026-11-15 — Paired paint cost evidence and proposed assumptions registry
+
+- PR #381 merged as 34f5e021cfdca1fea6eb8cddeaef33fab398581f: first exact-SKU price/coverage pairs across all eight markets; two-coat material cost is calculated from each product's own price and yield, never from unrelated price and coverage extremes.
+- PR #382 merged as 57974254ebf011caa9b29b53e3a01a3d0876be90: expanded FR/ES/DE/IT retailer pairs. PR #383 merged as ec30ff07d42a94b118b5fb006e32d05f58d13388: expanded DE/NL and corrected unique sample counts. PR #384 merged as de89600f816c5eb368127dab6a246f8da014a48f: added third Italian retailer.
+- Current paired-SKU snapshot meets the minimum count gate in every supported market: US 3 pairs/3 retailers; CA 4/3; GB 3/3; DE 7/4; FR 3/3; ES 6/3; IT 4/3; NL 5/3. The products span different grades and some promotions/clearance/member prices; they remain product-sample envelopes, not national averages.
+- PR #385 merged as 3635cebd8ff3eda51eed1f21aeeff5f50c04abeb. ChatGPT created data/reference_assumptions.json with 16 structured proposed records (paint quantity per coat and paired material-cost per coat for each of eight markets). JSON parsed and validated; every record includes market, subtype, unit, basis, low/high, sources, observedAt/retrievedAt, evidence class, autoEligible and reason.
+- **All 16 records remain status=proposed and autoEligible=false.** They are not consumed by runtime. This is deliberate: owner approval is still required for the broad source-envelope path and the two-coat planning scenario before any values are enabled or Claude is asked to wire them.
+- Formula: litres = paintable wall area × selected coats × L/m²/coat; material cost = paintable wall area × selected coats × currency/m²/coat. No hidden waste factor. Primer, labour, tools, delivery and unverified tax are excluded. The source-cost envelope pairs exact SKU price and coverage; do not cross-multiply unrelated product extremes.
+- Next ChatGPT work: verify price tax/stock/offer status and tighten product-tier comparability; research additional current TDS/price pairs where necessary. Owner decision required before changing autoEligible to true. Claude may wire only after approval and must preserve source list and caveats.
+
+
+## 2026-11-15 — Price-pair verification correction
+
+- Follow-up page inspection found that the French Brico Dépôt €10.90/10 L product page confirms price and VAT but does **not** state its coverage. The earlier 12 m²/L pairing was unsupported and has been removed from the cost evidence and proposed registry.
+- Replaced that row with Tecnomat BATIR 580: exact 10 L SKU, €29.90 TTC, and 10 m²/L stated on the same product page. The French per-coat paired cost lower bound is corrected to €0.299/m² (two-coat €0.598/m²), not €0.0908/m².
+- Reopened source checks also confirmed current price/availability details for Walmart Glidden, HMG Vinyl Matt, OBI CMI, Brico Dépôt Spain, OBI MaxMeyer and Praxis Baseline. OBI CMI price now displays €12.59/10 L (19% VAT included); this does not change the Germany sample's low cost bound, which is BAUHAUS Raumfarbe.
+- Important data-model correction: coverage records now cite manufacturer TDS/product-yield sources; cost records cite the exact paired retailer SKU price-and-coverage pages. The source arrays are no longer reused across different evidence claims.
+- All 16 records remain proposed/autoEligible=false. No production assumption is enabled; owner approval still required.
+
+
+## 2026-11-15 — Further exact-SKU price/coverage corrections after live page inspection
+
+- **Canada / SICO:** RONA's live SKU page states CAD $43.49, 3.78 L, maximum 400 sq ft (37.16 m²) and two coats; it does not match the separate SICO TDS figure of 45–51 m²/3.78 L. For this exact RONA SKU pair, use the page's 400 sq ft, not the mismatched TDS. Canada per-coat cost range corrected to CAD $1.17–$2.15/m² and quantity range to 0.0904–0.1021 L/m²/coat.
+- **GB / Crown:** Wickes live page shows £33 list price, £24 current sale, 5 L, 14 m²/L and in-stock status. Use £33 list price for non-promotional sample: GB per-coat cost range corrected to £0.471–£0.615/m². Dulux official page says £21.50/2.5 L, 14 m²/L, 2 coats, but is not available to order online and only sold in selected stores.
+- **FR / Dulux Valentine:** official product page states 100 m² per 10 L (10 m²/L), not 8 m²/L. France per-coat cost range corrected to €0.299–€0.549/m². Ripolin's Bricomarché page confirms €39.90/10 L and 10 m²/L; Tecnomat BATIR 580 confirms €29.90 TTC/10 L and 10 m²/L.
+- These corrections were applied to proposed registry only; every record remains autoEligible=false. No production data is enabled.
+
+
+## 2026-11-15 — PR #388 live source corrections merged
+
+- PR #388 merged as cfcde55f77cf1ef0d153ee38d442208734a92231. It corrected the CA SICO same-SKU coverage to RONA's 400 sq ft, corrected Crown/Wickes list price to £33 (sale £24), and corrected Dulux Valentine Simple Mat to 10 m²/L from the official manufacturer page.
+- Proposed values now reflect CA 0.0904–0.1021 L/m²/coat and CAD 1.17–2.15/m²/coat; GB £0.471–£0.615/m²/coat using list price; FR €0.299–€0.549/m²/coat.
+- Paired price basis is now explicitly retailer-displayed price; tax status is not normalized unless the exact source says VAT/IVA/TTC included. Visitor wording must not claim tax-exclusive cost where not verified.
+- All 16 records remain proposed/autoEligible=false. No runtime integration or production deployment.
+
+
+## 2026-11-15 — Dulux Valentine Simple Mat same-SKU yield recheck
+
+- A second page-level check found that the Dulux Valentine brand calculator displays a generic 10 m²/L estimate, but the exact Leroy Merlin SKU specification for Simple Mat 10 L states 8 m²/L. The generic calculator value is not the product's own TDS/spec and must not be substituted.
+- Corrected FR paired cost upper bound back to €0.686/m²/coat (two-coat €1.372/m²). The earlier temporary €0.549 value is superseded. Use same-SKU product specification 8 m²/L.
+- This reinforces the paired-SKU rule: exact SKU-specific coverage takes precedence over a brand calculator's generic default.
+
+
+## 2026-11-15 — Final retail source normalization pass
+
+- US Glidden pair now links to the exact Walmart Business SKU page showing USD $20.97 and up to 400 sq ft; BEHR Home Depot SKU confirmed at $39.98 and up to 400 sq ft; Benjamin Moore official page $60.99 and 400–450 sq ft.
+- Canada BEHR pair now links to exact Home Depot Canada SKU 1001985608, CAD $47.47/3.79 L and 400 sq ft; BM Canada $79.99/3.78 L and 37.2–41.8 m²; SICO/RONA uses its own same-SKU 400 sq ft value.
+- Germany CMI current price is €12.59/10 L (not the earlier €11.99); this does not change the market low, which remains BAUHAUS Raumfarbe at €11.95/10 L and 60 m².
+- Tax status is now explicitly tagged only where exact source text states it (DE selected rows, FR Tecnomat TTC, ES BAUHAUS, IT OBI/MyPaint). Other retail prices remain not verified; never label them tax-exclusive/inclusive by assumption.
+- No autoEligible status changed. All 16 paint records remain proposed and disabled pending owner approval.
+
+
+
+## 2026-11-15 — Current paint assumption state (authoritative after PR #391)
+
+PR #391 merged as `fa20c1f09db633d5c567c702a7a1f83ac9cb7fc3`. The current canonical file `data/reference_assumptions.json` contains 16 proposed paint records, with separate manufacturer/TDS provenance for quantity and exact same-SKU retail provenance for cost. JSON validation on main: 16 records, 8 markets, 0 invalid rows, every record has at least three source records, all status=proposed and autoEligible=false.
+
+**Current per-coat proposal values** (multiply by selected coat count; two-coat scenario = ×2):
+
+| Market | Paint volume L/m²/coat | Material cost /m²/coat |
+|---|---:|---:|
+| US | 0.0905–0.1629 L | USD 0.565–1.640 |
+| CA | 0.0904–0.1021 L | CAD 1.170–2.150 |
+| GB | 0.0667–0.0714 L | GBP 0.471–0.615 |
+| DE | 0.1176–0.1818 L | EUR 0.199–0.750 |
+| FR | 0.0833–0.1250 L | EUR 0.299–0.686 |
+| ES | 0.0769–0.1250 L | EUR 0.0777–0.3407 |
+| IT | 0.0833–0.1250 L | EUR 0.256–0.445 |
+| NL | 0.0909–0.1667 L | EUR 0.383–1.455 |
+
+These are **paired product-sample envelopes**, not national averages or guaranteed practical yields. They combine product grades and source bases; each source's basis/caveat is retained. Cost is retailer-displayed material price and tax status varies; primer, labour, tools, delivery and any unverified tax adjustment are not included. No generic 10% allowance.
+
+**Implementation gate (superseded by owner approval below, 2026-11-15):** the owner has approved the broad source-envelope path and the disclosed two-coat planning default for beginner per-area estimates only. The approval does not extend to can/package counts, national-average claims or primer systems. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
+
+**Open coordination:** PR #360 remains open and stale (mergeable=false), touching AI_COLLABORATION.md and WORK_LOG.md for article 008. It was commented with rebase instructions. Do not merge that branch as-is; preserve this current calculator handoff when it is reconciled.
+
+
+
+
+## 2026-11-15 — Owner approval: initial beginner paint assumptions
+
+The repository owner approved these values as a useful first version, with the explicit expectation that the calculator and evidence will be improved continuously.
+
+**Approved scope**
+- Use the market-matched per-area quantity and material-cost ranges in `data/reference_assumptions.json` for ordinary interior wall matt paint on sound/prepared surfaces.
+- The beginner path may calculate litres and material cost directly from net wall area × per-coat range × coat count. It does not need tin size to produce a per-area estimate.
+- Offer 1 or 2 finish coats. If the visitor does not know, use **2 coats as the disclosed planning default**, and let the visitor change it.
+- Only use the selected market: US, CA, GB, DE, FR, ES, IT or NL. Never substitute another country/currency.
+- Display a low–high range, the selected market, coat count, source links, and plain-language caveats.
+
+**Hard limits**
+- This approval does not authorize tin/can counts, per-tin price, package totals, national-average/typical-market claims, guaranteed practical coverage, or a final quote.
+- New, bare, porous, damaged or otherwise unprepared walls require a separate primer/system path and must not silently reuse this finish-paint estimate.
+- Do not add hidden waste or contingency percentages. Show user-entered adjustments separately.
+- Cost uses retailer-displayed sample prices; tax treatment varies by source. State this plainly and do not normalize taxes without evidence.
+- Keep product-specific refinements in Advanced. A visitor's own product price/coverage must override, not blend with, the reference estimate.
+
+**Continuous improvement**
+The approval is an initial release decision, not a declaration of final accuracy. ChatGPT continues source audits, independent market sampling, technical-method review and data corrections. Claude owns the implementation, UX, tests and performance; do not change calculator-owned code from the research lane. Any material change to the calculation method or market scope returns for review.
+
+**Claude implementation handoff**
+Use the approved `data/reference_assumptions.json` as a per-area assumption source, not as a package-price source. Implement Stage 2 beginner paint flow from room dimensions/shared room data and optional openings; calculate net wall area, litres and cost ranges for selected market and coat count. Default to two disclosed coats if unknown. Preserve optional advanced product inputs and user override precedence. Clearly flag unsupported wall conditions and do not imply primer is included. Add tests for each market, 1/2 coats, missing market data, source display, manual override, net wall area, and no package/tin claims. Keep no runtime network, no persistence, and no deployment without approval.
