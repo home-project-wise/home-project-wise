@@ -85,6 +85,42 @@ This remains the source of several existing US records, with a dated 14 July 202
 - Direct Wood Flooring and Flooring Superstore appear to be one group according to the 1 November 2026 source audit; keep them as one independent source group.
 - Wickes is an additional independent retailer for laminate in this pass. No comparable new independent sample was verified here for UK carpet, engineered wood, solid wood, tile or sheet vinyl.
 
+
+### Germany — OBI independent laminate spot check (15 November 2026)
+
+**OBI Germany laminate category**
+- https://www.obi.de/search/laminat/
+- Live examples included Kaindl 6 mm laminate at €7.49/m², Kaindl 7 mm waterproof laminate at €11.99/m² regular / €10.00/m² with heyOBI advantage, and Kaindl 7 mm Sea Pine at €7.99/m².
+- OBI shows both €/m² and sale-unit price. The member price is conditional and must not be treated as the general price.
+- **Use:** independent retailer cross-check beyond HORNBACH for German laminate.
+- **Do not use:** as a generic German range; this is a small live category-page sample and contains member pricing.
+
+### France — Castorama independent laminate spot check (15 November 2026)
+
+**Castorama France laminate category**
+- https://www.castorama.fr/carrelage-sol/parquet-sol-stratifie-et-plancher/sol-stratifie/cat_id_3241.cat
+- The category page showed 136 products. Current visible examples included 8 mm AC5 Krono Original at €11.99/m² and 8 mm AC4 GoodHome Gladstone at a promotional €9.99/m² (stated offer through 1 December 2026; regular price €13.99/m²).
+- The page distinguishes AC3, AC4, AC5 and AC6 use classes, and some offers have stock or loyalty conditions.
+- **Use:** independent retailer cross-check beyond Leroy Merlin for French laminate.
+- **Do not use:** as a broad French market range or combine promo and regular prices without separate fields.
+
+### Spain — OBRAMAT independent laminate spot check (15 November 2026)
+
+**OBRAMAT Spain laminate category**
+- https://www.obramat.es/suelos-y-revestimientos-de-madera/suelos-laminados/todos-los-suelos-laminados/
+- The category page showed 22 products. Examples included FINSA AC5 7 mm Roble Malta at €7.11/m² including IVA and KRONOSPAN AC5 8 mm Roble Khaki at €9.30/m² including IVA. The page also surfaced separate Canary Islands IGIC prices for some products.
+- **Use:** independent retailer cross-check beyond Leroy Merlin for Spain; retain the tax-region distinction (IVA vs IGIC).
+- **Do not use:** as a national range without normalizing the tax basis and geographic availability.
+
+### Netherlands — Praxis independent laminate spot check (15 November 2026)
+
+**Praxis Netherlands laminate category / offers**
+- https://www.praxis.nl/tegels-vloeren/laminaat/fl06/
+- The category showed current per-m² examples including Baseline 6 mm at €6.39/m² (fixed low price), several 7–8 mm products around €7.49–€9.99/m² on promotion, and Quick-Step 8 mm at €34.99/m². Pack coverage was shown per listing.
+- The offers page includes large discounts and Praxis Plus member prices, so promotional and member prices must be kept distinct from standard shelf prices.
+- **Use:** independent retailer cross-check beyond HORNBACH for Dutch laminate.
+- **Do not use:** as a market range; the category mixes brands, thickness, quality classes, member pricing and large promotions.
+
 ## 2. Record-level implications — no edits yet
 
 | Market / material | Existing registry status | New evidence | Decision |
