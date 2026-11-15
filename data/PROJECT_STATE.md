@@ -333,3 +333,11 @@ The owner decided that the shared beginner-first calculator country selector mus
 - User supplied a phone recording. Apparent 10% contingency and country selector placement are recorded as unverified discrepancies because the visible host appeared to be a github.io preview; shared-room transfer and full result flow were not demonstrated. Real-device verification on the current Pages site remains pending.
 - `data/AI_COLLABORATION.md` canonical main file has not yet been updated due to open PR #301 editing the same file; reconcile via a sequential PR. No production deploy was run.
 - Next: finish the comparable paint evidence sample and scenario methodology; prepare structured assumptions only when validated; verify live calculator behavior against owner-provided URL/screenshots; Claude remains owner of implementation.
+
+
+### 2026-11-15 — Canonical handoff reconciled; paint quantity sample envelopes under review
+- Canonical operations room and logs were updated through #375 (e3e40f7); historical editorial research from #301 was carried to current main through #376 (4a0363f), and #301 closed as superseded, not merged.
+- Paint standards and cross-market TDS evidence were merged through #377 (04e625d). ISO 6504-3:2019 and EN 13300 clarify that practical/theoretical spreading rate and hiding power are distinct measures.
+- Candidate two-coat source envelopes exist for all eight markets, but they combine different product classes and yield bases. They are not enabled defaults pending row-level normalization and comparability review.
+- PR #360 remains open and stale (mergeable=false) while editing operations/work-log records for article 008. Do not merge as-is; Claude needs to rebase/reconcile it without losing this handoff.
+- No reference_assumptions.json or paint data values have been created; no calculator code, CSS, workflow, or production deployment was changed.
