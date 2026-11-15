@@ -511,7 +511,7 @@
           "url": "https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€54.90 / 10 L; official Dulux Valentine product page states 100 m² per 10 L (10 m²/L), not 8 m²/L; exact product price/coverage pair. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€54.90 / 10 L; Leroy Merlin same-SKU technical specification states 8 m²/L. The Dulux Valentine site calculator's 10 m²/L is a generic calculator value, not this product's specific yield; do not use it for the SKU pair.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "not-verified",
           "priceType": "retailer-displayed-price"
@@ -522,7 +522,7 @@
       "unit": "EUR/m2/coat",
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.299,
-      "high": 0.549,
+      "high": 0.686,
       "currency": "EUR"
     },
     {
