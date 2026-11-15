@@ -132,8 +132,8 @@
           "url": "https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "RONA product page states 3.78 L, maximum coverage 400 sq ft (37.16 m²) and two coats recommended; this same-SKU retail-page coverage replaces a mismatched 45–51 m² TDS figure.",
-          "caveats": "Local store availability varies; exact TDS figure did not match RONA page's coverage field, so the RONA SKU page is used for this paired SKU."
+          "notes": "RONA product page states 3.78 L, maximum coverage 400 sq ft (37.16 m²) and two coats recommended; use same-SKU page rather than mismatched separate TDS.",
+          "caveats": "Not immediately purchasable at selected store; 9 units shown at nearby RONA Etobicoke. The separate SICO TDS figure of 45–51 m²/3.78 L does not match the RONA SKU page, so it is not used for this pair."
         }
       ],
       "id": "paint-coverage-ca-two-coat-proposal",
@@ -179,17 +179,8 @@
           "url": "https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 43.49 list / 3.78 L; 45–51 m²; page had expired promotion and local stock caveat.",
-          "caveats": "Exact SKU/product source; retain its own yield and price basis."
-        },
-        {
-          "publisher": "RONA / SICO",
-          "title": "SICO Expert Zero VOC Flat 3.78 L SKU",
-          "url": "https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "CAD 43.49 / 3.78 L; RONA page states maximum coverage 400 sq ft (37.16 m²) and two coats recommended; exact paired same-SKU cost is about CAD 1.17/m² per coat.",
-          "caveats": "Not immediately purchasable at selected store, but 9 units shown at nearby RONA Etobicoke; local stock varies."
+          "notes": "CAD 43.49 / 3.78 L; RONA page states maximum coverage 400 sq ft (37.16 m²) and two coats recommended; same-SKU cost about CAD 1.17/m² per coat.",
+          "caveats": "Not immediately purchasable at selected store; 9 units shown at nearby RONA Etobicoke. The separate SICO TDS figure of 45–51 m²/3.78 L does not match the RONA SKU page, so it is not used for this pair."
         }
       ],
       "id": "paint-cost-ca-per-coat-proposal",
