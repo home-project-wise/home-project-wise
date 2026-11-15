@@ -225,3 +225,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — merged PR #391 (`fa20c1f`) completing the current retail source URL/tax-status normalization. Validated main data/reference_assumptions.json: 16 proposed records, 8 markets, 0 invalid records, every record with 3+ sources, all autoEligible=false. Recorded authoritative per-coat quantity/cost ranges and owner approval gate in AI_COLLABORATION.md and PROJECT_STATE.md. PR #360 remains open/stale and must be rebased before any merge.
+
+
+2026-11-15 | Owner approval recorded — initial paint source-envelope assumptions approved for beginner per-area planning in eight markets. Two finish coats are the disclosed default when unknown; 1/2 coats selectable. Registry status changed to approved-initial/autoEligible=true only within beginner-area-estimate-only scope; packagePricingEligible=false. Claude handoff: implement Stage 2 per-area litres and cost, not can count or per-can price. ChatGPT retains research/data maintenance; Claude owns code/tests/UX. No deployment.
