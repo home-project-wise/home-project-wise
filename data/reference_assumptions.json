@@ -369,7 +369,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "Price observed €12.59 / 10 L; up to 55 m² one coat; 19% VAT included; shipping extra.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
@@ -378,7 +378,7 @@
           "url": "https://www.obi.de/p/2175784/alpina-wandfarbe-din-en-weiss-matt-10-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€44.99 / 10 L; about 60 m²; 19% VAT included; shipping extra. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€44.99 / 10 L; about 60 m²; 19% VAT included; shipping extra.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
@@ -389,7 +389,7 @@
           "url": "https://www.bauhaus.info/dispersionsfarben-weiss/wandfarbe-raumfarbe/p/15110191",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€11.95 / 10 L; about 60 m²; VAT included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€11.95 / 10 L; about 60 m²; VAT included.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
@@ -411,7 +411,7 @@
           "url": "https://www.hagebau.de/p/schoener-wohnen-farbe-innenfarbe-polarweiss-10-liter-weiss-matt-anV1078774/",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€52.99 / 10 L; up to 80 m² for up to two coats; VAT included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€52.99 / 10 L; up to 80 m² for up to two coats; VAT included.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
@@ -611,7 +611,7 @@
           "url": "https://www.bauhaus.es/pinturas-plasticas-blancas/monto-bricolovers-pintura-para-paredes-y-techos-excellence/p/24612539",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€49.49 / 15 L; theoretical 11–13 m²/L; primed surface. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€49.49 / 15 L; theoretical 11–13 m²/L; primed surface.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
@@ -700,7 +700,7 @@
           "url": "https://www.obi-italia.it/p/1609007/idropittura-lavabile-maxmeyer-bianco-opaco-14-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "List €55.99 / 14 L, current promo €49.99; 10–12 m²/L per coat; 22% IVA included, shipping extra. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "List €55.99 / 14 L, current promo €49.99; 10–12 m²/L per coat; 22% IVA included, shipping extra.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
@@ -711,7 +711,7 @@
           "url": "https://mypaint.it/idropitture/24-48-boerobianco-plus.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€49.90 / 14 L; 10–11 m²/L per coat; IVA included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€49.90 / 14 L; 10–11 m²/L per coat; IVA included.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "included",
           "priceType": "retailer-displayed-price"
