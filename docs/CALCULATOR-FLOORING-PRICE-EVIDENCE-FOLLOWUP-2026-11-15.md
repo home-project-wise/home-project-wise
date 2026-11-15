@@ -151,6 +151,12 @@ This remains the source of several existing US records, with a dated 14 July 202
 | US laminate | Eligible; vCalc observation 2026-07-14 | Current Home Depot examples overlap but include clearance and offers | Refresh with dated multi-retailer SKU sample |
 | US LVP/SPC | Eligible; November sample from Home Depot + Lowe's | Home Depot examples include low-priced products with differing wear layers | Recheck specification comparability and promo status; do not change endpoints from this spot check |
 | US engineered / solid hardwood, carpet, ceramic tile | Eligible | No complete comparable new sample in this pass | Retain provisional status; refresh from multiple sources before high-confidence label |
+| UK laminate | Eligible; earlier DWF/Flooring Superstore + Carpetright sample | Wickes adds a third retailer banner, but the category mixes thicknesses, formats and offers | Use as cross-check only; build a dated SKU-level sample before changing endpoints |
+| Germany laminate | Eligible; earlier HORNBACH sample | OBI adds independent-group live SKU examples; member pricing is conditional | Broader source breadth, but not a reproducible multi-SKU sample; no endpoint change |
+| France laminate | Eligible; earlier Leroy Merlin sample | Castorama adds independent Kingfisher-group listings, with promo/regular distinction | Broader source breadth; keep AC/use class and promotions separate; no endpoint change |
+| Spain laminate | Eligible; earlier Leroy Merlin sample | Brico Depôt (Kingfisher) adds independent-group listings; OBRAMAT is ADEO like Leroy Merlin | Broader source breadth; retain IVA/IGIC and stock caveats; no endpoint change |
+| Italy laminate | Eligible; earlier Leroy Merlin sample | OBI adds independent-group listings; Bricocenter is ADEO like Leroy Merlin | Broader source breadth; do not count Bricocenter as independent; no endpoint change |
+| Netherlands laminate | Eligible; earlier HORNBACH sample | Praxis adds independent-group category examples with large promotions and member prices | Broader source breadth; separate regular, promotional and member prices; no endpoint change |
 
 ## 3. Method decisions reaffirmed
 
@@ -169,7 +175,7 @@ This remains the source of several existing US records, with a dated 14 July 202
 1. **US:** refresh the July vCalc records with a transparent, dated SKU sample from at least two independent retailers; filter clearance and promo products separately; record wear layer, thickness, construction and coverage where relevant.
 2. **Canada:** expand beyond RONA and Home Depot Canada using independently operated flooring retailers and province-specific samples; keep Ontario findings labelled Ontario.
 3. **UK:** re-sample laminate, carpet, sheet vinyl, LVT/SPC, engineered wood and solid wood with a standard-vs-offer distinction; do not infer tile ranges where none is sourced.
-4. **DE/FR/ES/IT/NL:** improve single-retailer categories with a second independent retailer before upgrading confidence.
+4. **DE/FR/ES/IT/NL:** convert the new independent-group laminate spot checks into reproducible, dated SKU samples. For Spain and Italy, do not count OBRAMAT/Bricocenter as independent of Leroy Merlin (all ADEO); use Brico Depôt (Kingfisher) in Spain and OBI in Italy as the independent-group comparisons. For France, Germany and the Netherlands, use Castorama, OBI and Praxis respectively as independent retailer-group comparisons.
 5. Only after these evidence steps should a record-level proposal be made for `data/reference_prices.json`.
 
 **No new generic price range is approved by this document.** The priority remains reliable, explainable estimates rather than filling every market/category cell.
