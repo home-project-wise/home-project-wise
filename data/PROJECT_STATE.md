@@ -383,3 +383,9 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Exact Leroy Merlin product specification for Dulux Valentine Simple Mat 10 L states 8 m²/L; the brand site's 10 m²/L calculator value is generic and not product-specific. The paired cost upper bound for FR is therefore €0.686/m²/coat, not €0.549.
 - This exact-SKU rule is mandatory for paired cost: never replace a product specification with a brand-wide calculator default.
 - Proposed assumptions remain disabled pending owner approval.
+
+
+### 2026-11-15 — Retail source links and tax status normalized
+- Corrected US Glidden and Canada BEHR price/coverage source URLs to exact product SKUs; DE CMI price now €12.59/10 L, with BAUHAUS still the lowest paired cost observation.
+- Tax status is only marked included when the source explicitly states VAT/IVA/TTC; otherwise not verified. Do not assume tax-exclusive or tax-inclusive totals.
+- Proposed paint assumptions remain disabled pending owner approval.
