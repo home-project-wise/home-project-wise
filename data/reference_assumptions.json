@@ -63,11 +63,11 @@
       "sources": [
         {
           "publisher": "Walmart / Glidden",
-          "title": "Glidden Fundamentals Flat 1 US gal SKU",
-          "url": "https://www.walmart.com/ip/3281187606",
+          "title": "Glidden Fundamentals Focus Flat Interior Paint 1 Gallon Walmart",
+          "url": "https://business.walmart.com/ip/Glidden-Fundamentals-Interior-Paint-Focus-Off-White-Flat-1-Gallon/3969068052",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "USD 20.97 / gal; up to 400 sq ft; price/coverage same SKU. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "USD 20.97 / US gal; up to 400 sq ft; exact same SKU price and coverage. Sold/shipped by Walmart; prices may vary online/in-store.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "not-verified",
           "priceType": "retailer-displayed-price"
@@ -163,11 +163,11 @@
       "sources": [
         {
           "publisher": "Home Depot Canada / BEHR",
-          "title": "BEHR Premium Plus Flat 3.79 L SKU",
-          "url": "https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-frittata-m290-2-3-79l/1001983340",
+          "title": "BEHR Premium Plus Interior Flat 3.79 L Home Depot Canada",
+          "url": "https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-ancient-root-ppu4-20-3-79l/1001985608",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 47.47 / 3.79 L; 400 sq ft; page availability and tax at checkout should be checked. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "CAD 47.47 / 3.79 L; 400 sq ft / up to 37 m²; exact same SKU price and coverage; page provides linked Canadian TDS.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "not-verified",
           "priceType": "retailer-displayed-price"
@@ -367,7 +367,7 @@
           "url": "https://www.obi.de/p/9060864/cmi-wandfarbe-weiss-matt-10-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "Price observed €12.59 / 10 L (current page); up to 55 m² one coat; 19% VAT included; shipping extra. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "Price observed €12.59 / 10 L; up to 55 m² one coat; 19% VAT included; shipping extra.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
           "taxStatus": "not-verified",
           "priceType": "retailer-displayed-price"
@@ -380,7 +380,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "€44.99 / 10 L; about 60 m²; 19% VAT included; shipping extra. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
@@ -391,7 +391,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "€11.95 / 10 L; about 60 m²; VAT included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
@@ -413,7 +413,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "€52.99 / 10 L; up to 80 m² for up to two coats; VAT included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         }
       ],
@@ -489,9 +489,9 @@
           "url": "https://www.tecnomat.fr/produits/peinture-interieure-mur-et-plafond-blanc-mat-10-l-batir-580-25096813.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€29.90 TTC / 10 L; 10 m²/L; exact product price and yield on same page. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
+          "notes": "€29.90 TTC / 10 L; 10 m²/L; exact product price and yield on same page; TTC explicitly includes tax.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
@@ -613,7 +613,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "€49.49 / 15 L; theoretical 11–13 m²/L; primed surface. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         }
       ],
@@ -702,7 +702,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "List €55.99 / 14 L, current promo €49.99; 10–12 m²/L per coat; 22% IVA included, shipping extra. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
@@ -713,7 +713,7 @@
           "retrievedAt": "2026-11-15",
           "notes": "€49.90 / 14 L; 10–11 m²/L per coat; IVA included. Tax inclusion was not confirmed for this listing; use displayed price as observed and do not claim tax-exclusive or tax-inclusive.",
           "caveats": "Exact SKU/product source; retain its own yield and price basis.",
-          "taxStatus": "not-verified",
+          "taxStatus": "included",
           "priceType": "retailer-displayed-price"
         },
         {
