@@ -112,6 +112,21 @@ This remains the source of several existing US records, with a dated 14 July 202
 - **Use:** independent retailer cross-check beyond Leroy Merlin for Spain; retain the tax-region distinction (IVA vs IGIC).
 - **Do not use:** as a national range without normalizing the tax basis and geographic availability.
 
+
+### Italy — OBI and Bricocenter independent laminate spot checks (15 November 2026)
+
+**OBI Italia laminate category**
+- https://www.obi-italia.it/search/pavimenti%20laminati/
+- Current examples included 7 mm Standard rovere ghiaccio at €7.80/m² promotional (regular €12.00/m²), 8 mm Kaindl Smart Deal Rovere Ferrara at €12.57/m², 8 mm Smooth Oak at €12.00/m² and 8 mm Noce Newport at €13.49/m². Package coverage and package totals were shown for several listings.
+- **Use:** additional independent retailer evidence beyond Leroy Merlin; preserve regular and promotional price separately.
+
+**Bricocenter Italia laminate category**
+- https://www.bricocenter.it/prodotti/default/legno-porte-e-pavimenti/pavimenti-laminati.html
+- Visible listings included 7 mm Bela at €7.90/m² promotional, 8 mm Wayne at €11.06/m² promotional, and several 8–10 mm product lines between €11.17 and €22.08/m², with package totals and offer dates shown.
+- Offers displayed explicit date windows (e.g. 11 November–8 December 2026) and varied by product/class.
+- **Use:** independent retailer cross-check beyond Leroy Merlin and a second source family beyond OBI.
+- **Do not use:** as a national Italy LOW–HIGH range; the category mixes thickness, use class, brands and time-limited offers.
+
 ### Netherlands — Praxis independent laminate spot check (15 November 2026)
 
 **Praxis Netherlands laminate category / offers**
