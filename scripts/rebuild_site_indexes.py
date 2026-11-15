@@ -516,7 +516,6 @@ def ensure_head_tags(path, prefix):
     new = enhance_images(new)
     new = add_webpage_jsonld(new, path)
     new = add_card_srcset(new, prefix)
-    new = add_byline(new, prefix)
     if new != html:
         path.write_text(new, encoding="utf-8")
 
@@ -556,6 +555,12 @@ def main():
     if not r:
         raise SystemExit("No articles could be parsed from website/articles - refusing to publish an empty library")
     enhance_articles(r)
+    # The dates paragraph of every article is created by enhance_articles(), so the byline is added after it.
+    for page in ARTICLES.glob("*.html"):
+        t = page.read_text(encoding="utf-8", errors="ignore")
+        t2 = add_byline(t, "../")
+        if t2 != t:
+            page.write_text(t2, encoding="utf-8")
     hub_urls = write_hubs(r) + [BASE + "/" + t["slug"] + ".html" for t in TOOLS] + [BASE + "/tools.html"]
     write_tools_hub()
     write_search(r)
