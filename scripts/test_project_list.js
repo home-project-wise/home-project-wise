@@ -286,4 +286,25 @@ ok("area items need a matching reference, honour the user's own price, and never
   const y = newList(null), it2 = addArea(y); assert.equal(L.setField(y.c.state, it2.id, "mode", "reference"), false);
   const s = L.createState(); assert.equal(L.addItem(s, { name: "Paint", unit: "tin", quantity: 1, category: "flooring-area" }).item.category, "");
 });
+function newListG(records, country) {
+  const d = makeDoc(), handlers = [], w = { navigator: {}, hpwLast: {}, hpwRegion: country, addEventListener(t, f) { if (t === "hpw-region") handlers.push(f); } }; d.getElementById("plist-root");
+  const c = L.init(d, E, w, records ? { records, rp: RP } : undefined); if (c && records) c.state.now = NOWD;
+  const e = new Proxy(d.els, { get: (tt, k2) => d.getElementById(k2) }); e["plist-currency"].value = "USD"; e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
+  return { c, e, w, set(cn) { w.hpwRegion = cn; handlers.forEach((f) => f()); } };
+}
+ok("with a page-wide country the list asks only for the floor type and prices from that country", () => {
+  const x = newListG(REG, "US"), it = addFloor(x); fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "reference") });
+  assert.ok(!x.e["plist-items"].innerHTML.includes("pl-c-") && x.e["plist-items"].innerHTML.includes("Floor type"));
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "subtype" }, "laminate") }); fire(x.e["plist-calc-form"], "submit");
+  const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record;
+  assert.equal(x.e["plist-error"].textContent, ""); assert.ok(x.e["plist-result"].innerHTML.includes("[reference: " + rec.source.name));
+});
+ok("changing the page-wide country clears the floor types and the result; a country with no range says so", () => {
+  const x = newListG(REG, "US"), it = addFloor(x); fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "reference") });
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "subtype" }, "laminate") }); fire(x.e["plist-calc-form"], "submit");
+  x.set("Canada"); assert.equal(it.subtype, ""); assert.equal(x.e["plist-result"].innerHTML, "");
+  const none = REG.filter((r) => !(r.audience === "Italy" && r.category === "flooring")); const y = newListG(none, "Italy"), it2 = addFloor(y);
+  fire(y.e["plist-items"], "change", { target: target({ "data-id": it2.id, "data-field": "mode" }, "reference") });
+  assert.ok(y.e["plist-items"].innerHTML.includes("No typical flooring prices for Italy yet"));
+});
 console.log("\n" + passed + " project-list tests passed");

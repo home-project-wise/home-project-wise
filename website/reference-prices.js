@@ -166,6 +166,6 @@
     return problems;
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
-    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, toEngineAreaPrice: toEngineAreaPrice, COUNTRY_LABEL: COUNTRY_LABEL, SUBTYPE_LABEL: SUBTYPE_LABEL,
+    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, toEngineAreaPrice: toEngineAreaPrice, COUNTRY_LABEL: COUNTRY_LABEL, COUNTRY_ORDER: COUNTRY_ORDER, SUBTYPE_LABEL: SUBTYPE_LABEL,
     packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
 }));

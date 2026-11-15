@@ -27,8 +27,20 @@
       typeEl.innerHTML = options("Choose a type", subs.map(function (s) { return { value: s, label: RP.SUBTYPE_LABEL[s] || s }; }));
       typeEl.value = "";
     }
-    function show(on) {
-      ["material-country-field", "material-subtype-field"].forEach(function (id) { var f = doc.getElementById(id); if (f) f.hidden = !on; });
+    function setHidden(id, v) { var f = doc.getElementById(id); if (f) f.hidden = v; }
+    // The country comes from the page-wide choice when there is one; the local choice is only a fallback.
+    function sync() {
+      if (!state.records) return;
+      var g = (win && win.hpwRegion) || "", note = doc.getElementById("material-region-note");
+      if (g) {
+        var has = RP.flooringCountries(state.records).indexOf(g) !== -1;
+        countryEl.value = has ? g : ""; fillTypes();
+        setHidden("material-country-field", true); setHidden("material-subtype-field", !has);
+        if (note) { note.hidden = has; note.textContent = has ? "" : "No typical flooring prices for " + (RP.COUNTRY_LABEL[g] || g) + " yet. Enter your own price in Advanced settings."; }
+      } else {
+        setHidden("material-country-field", false); setHidden("material-subtype-field", false);
+        if (note) { note.hidden = true; note.textContent = ""; }
+      }
     }
     function load(records) {
       if (!Array.isArray(records) || !records.length) return;
@@ -36,9 +48,10 @@
       if (!countries.length) return;
       state.records = records;
       countryEl.innerHTML = options("Choose a country", countries.map(function (c) { return { value: c, label: RP.COUNTRY_LABEL[c] || c }; }));
-      fillTypes(); show(true);
+      fillTypes(); sync();
     }
     countryEl.addEventListener("change", fillTypes);
+    if (win && win.addEventListener) win.addEventListener("hpw-region", sync);
     // Returns an HTML fragment for the Flooring result, or "" when the visitor did not ask for a reference.
     function fragment(info) {
       if (!state.records || !countryEl.value || !typeEl.value || !info) return "";

@@ -58,8 +58,9 @@
     return COUNTRY_ORDER.filter(function (c) { return seen[c]; });
   }
   function refLookup(state, it) {
-    if (!state.rp || !state.records || !it.country || !it.subtype) return null;
-    return state.rp.select(state.records, { country: it.country, category: "flooring", subtype: it.subtype });
+    var country = (state.getRegion && state.getRegion()) || it.country;
+    if (!state.rp || !state.records || !country || !it.subtype) return null;
+    return state.rp.select(state.records, { country: country, category: "flooring", subtype: it.subtype });
   }
   function buildEstimateInput(state) {
     var currency = String(state.currency || "").trim().toUpperCase();
@@ -167,15 +168,17 @@
   }
   function referenceHtml(it, state) {
     var id = it.id;
-    var h = selectHtml(id, "pl-c-", "country", "Country", "Choose a country", refCountries(state).map(function (c) { return { value: c, label: COUNTRY_LABEL[c] || c }; }), it.country);
-    var subs = it.country ? state.rp.flooringOptions(state.records, it.country) : [];
+    var g = state.getRegion && state.getRegion(), country = g || it.country;
+    var h = g ? "" : selectHtml(id, "pl-c-", "country", "Country", "Choose a country", refCountries(state).map(function (c) { return { value: c, label: COUNTRY_LABEL[c] || c }; }), it.country);
+    var subs = country ? state.rp.flooringOptions(state.records, country) : [];
+    if (g && !subs.length) return '<div class="calc-field"><small>No typical flooring prices for ' + esc(COUNTRY_LABEL[g] || g) + ' yet. Enter your own price or two quotes.</small></div>';
     h += selectHtml(id, "pl-s-", "subtype", "Floor type", "Choose a type", subs.map(function (s) { return { value: s, label: SUBTYPE_LABEL[s] || s }; }), it.subtype);
     var sel = refLookup(state, it);
     if (sel && sel.ok) {
       var d = state.rp.describe(sel.record, state.now || new Date()), area = it.category === "flooring-area", pk = area ? null : state.rp.packRange(sel.record, Number(it.coverage), it.coverageUnit), ac = area ? state.rp.areaCost(sel.record, Number(it.quantity), it.unit) : null;
       h += '<div class="calc-field"><small>Typical range: ' + esc(d.range) + (pk ? ', about ' + pk.low.toFixed(2) + '–' + pk.high.toFixed(2) + ' ' + esc(pk.currency) + ' per pack of ' + esc(it.coverage) + ' ' + esc(it.coverageUnit) : '') + (ac ? ', about ' + ac.low.toFixed(2) + '–' + ac.high.toFixed(2) + ' ' + esc(ac.currency) + ' for ' + esc(it.quantity) + ' ' + esc(it.unit) : '') +
         '. Approximate, from ' + link(d.url, d.sourceName) + ', observed ' + esc(d.observedAt) + (d.older ? ' (older data)' : '') + '. ' + esc(d.caveats) + ' Replace it with your own price or two quotes for a better estimate.</small></div>';
-    } else if (it.country && it.subtype) {
+    } else if (country && it.subtype) {
       h += '<div class="calc-field"><small>' + esc(state.rp.NO_REFERENCE) + '</small></div>';
     }
     return h;
@@ -238,6 +241,7 @@
     var rootEl = doc.getElementById("plist-root");
     if (!rootEl || !estimator) return null;
     var state = createState(), RPm = (opts && opts.rp) || rpModule();
+    state.getRegion = function () { return (win && win.hpwRegion) || ""; };
     if (opts && opts.records && RPm) { state.records = opts.records; state.rp = RPm; }
     rootEl.innerHTML = SKELETON;
     var itemsEl = doc.getElementById("plist-items");
@@ -300,6 +304,7 @@
         if (r.ok) { paintItems(); clearResult(); }
       });
     });
+    if (win && win.addEventListener) win.addEventListener("hpw-region", function () { state.items.forEach(function (it) { it.subtype = ""; }); clearResult(); paintItems(); });
     if (!state.records && RPm && win && typeof win.fetch === "function") {
       win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; }).then(function (recs) {
         if (Array.isArray(recs) && recs.length) { state.records = recs; state.rp = RPm; paintItems(); }

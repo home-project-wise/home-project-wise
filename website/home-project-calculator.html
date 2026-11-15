@@ -41,7 +41,8 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 @media(max-width:600px){.tool-panel .calc-btn{width:100%;min-width:0}}
 @media(prefers-reduced-motion:no-preference){.calc-tabs button,.tool-panel .calc-btn{transition:background-color .15s,border-color .15s,opacity .15s}}
 @media(forced-colors:active){.calc-tabs button[aria-selected="true"]{outline:3px solid Highlight}}
-</style><div id="room-root"></div>
+</style><div id="region-root"></div>
+<div id="room-root"></div>
 <div class="calc-tabs" role="tablist" aria-label="Calculator type">
 <button type="button" role="tab" aria-selected="true" aria-controls="panel-measure" id="tab-measure" data-panel="measure">Area & volume</button>
 <button type="button" role="tab" aria-selected="false" aria-controls="panel-paint" id="tab-paint" data-panel="paint">Paint</button>
@@ -91,6 +92,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="material-waste">Extra material for cuts and waste (%), your choice</label><input id="material-waste" type="number" min="0" max="50" step="any" placeholder="e.g. 10"><small>Leave blank to add none. Rooms with many cuts or patterns need extra.</small></div>
 <div class="calc-field" id="material-country-field" hidden><label for="material-country">Country (for a typical cost range)</label><select id="material-country"><option value="">Choose a country</option></select></div>
 <div class="calc-field" id="material-subtype-field" hidden><label for="material-subtype">Floor type</label><select id="material-subtype"><option value="">Choose a type</option></select></div>
+<p class="wp-note" id="material-region-note" hidden></p>
 </div><details id="material-advanced"><summary>Advanced settings: pack size and your own price</summary><div class="calc-grid">
 <div class="calc-field"><label for="material-coverage">Coverage per pack (<span class="material-area-unit">m²</span>)</label><input id="material-coverage" type="number" min="0" step="any" placeholder="From product label, optional"></div>
 
@@ -188,6 +190,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <p><a href="tools.html">Browse all HomeProjectWise tools</a> · <a href="budget-planner.html">Project Budget Planner</a> · <a href="articles/choose-paint-finish-for-each-room.html">Choose a paint finish</a> · <a href="articles/right-rug-size-painters-tape-test.html">Choose the right rug size</a></p>
 </main><footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script>
 <script src="reference-prices.js"></script>
+<script src="region.js"></script>
 <script src="project-list.js"></script>
 <script src="energy-reference.js"></script>
 <script src="flooring-reference.js"></script>
