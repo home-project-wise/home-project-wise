@@ -2067,3 +2067,38 @@ Owner decision: the shared calculator country selector must list **only the eigh
 - **Evidence, by level:** local Node: project-list 31, reference-prices 19, home-calculator All checks passed, flooring-reference 8, shared-room 6, energy-reference 8. CI result is in a comment on the PR. **Not verified:** browser, phone, screen reader, screenshots, the live site.
 - **ChatGPT's #364 and #369:** noted; #364 is merged on `main`. I have not read the five research documents in detail and have not used anything from them in code; nothing numeric from them is wired. My code still waits for `data/reference_assumptions.json` and the owner's approval of the source list before Stage 2 (paint and wallpaper quantities). I agree the calculator should not wait: the area-first flooring and electricity paths are already in.
 - **Next (Claude):** wire Wallpaper into the shared room, showing wall area only and no roll count (per ChatGPT's recommendation), then Stage 2 once the assumptions registry exists. The open point about PRs #301 and #360 touching this room file is theirs to settle; I append only at the end and merge quickly to avoid conflicts.
+
+
+## 2026-11-15 — ChatGPT research and calculator evidence handoff (reconciled)
+
+**Status: research documents merged; generic paint assumptions NOT yet approved; phone verification remains owner-side.**
+
+### Completed and merged
+- **#373** paint manufacturer evidence refresh (Canada, UK, Germany) merged as `a5d6993bc29d54a635b55b8c7dd7461e1e56bb25`. Editorial Quality Gate and Chromium visual QA both succeeded on exact head `5e54b01cd7f184fad90c5eacf743c3028bc56e79`.
+- **#374** paint manufacturer evidence refresh (France, Italy, Spain, Netherlands) merged as `db298e972e6d10334bca82d03ee10bdef43ad726`. Editorial Quality Gate and Chromium visual QA both succeeded on exact head `7aa0f0372ea3ca9d2f6dac0342586f742e00c1a5`.
+- **#369** paint evidence follow-up remains merged as `f88833c0544e4bf60ff0a6a47f66c83b9948ce64`.
+- **#372** wallpaper evidence follow-up remains merged as `a754f87abece912486aff2fbc7e3a049474e75bc`.
+- **#364** initial calculator source map, evidence addendum, price-quality matrix and flooring evidence follow-up are merged.
+
+### Paint research decision
+- The research now includes product-specific technical evidence in all eight supported calculator markets: US, CA, GB, DE, FR, ES, IT, NL.
+- Manufacturer TDS/product evidence is useful for exact products, but values differ by formulation, finish, substrate, hiding class, application method and coat basis. Product-specific yields must not be pooled into an unqualified national average or LOW–HIGH range.
+- No generic country-level litres-per-m² or default coat count is approved yet. Do not create generic `data/reference_assumptions.json` values from unlike products.
+- **Next research work:** build a comparable sample of ordinary interior wall matt/emulsion products in each market. Record exact product class/finish, substrate scope, practical vs theoretical yield, per-coat vs system coverage, hiding/contrast class, application method, dilution, package size, revision date and source. Seek at least two independent manufacturers per market, and more where the product classes do not match. Separate repainting sound existing paint from new/porous/unsealed surfaces; these are different estimation cases. Evaluate a transparent interval or scenario-based estimate rather than one universal rate. Validate coat-count logic independently from spread-rate evidence.
+- Useful additional opened evidence from this session: StoColor In FR TDS reports 6.5 m²/L and EN 13300 H10 class 1; Colorine ColorTex Mat FR reports 6–8 m²/L; Valpaint L-3000 ES TDS revision Dec 2024 reports 9–10 m²/L per coat at 100 μm wet film; Grupo Puma Pumacril Interior ES reports 7–9 m²/L theoretical; HMG Vinyl Matt UK reports 15 m²/L and 1–2 coats; BEHR Marquee US reports 250–400 sq ft/gal depending on substrate; Benjamin Moore Ben Canada reports 400–450 sq ft/gal and 1–2 coats; Wijzonol NL TDS reports practical 7–9 m²/L per coat; Stiho NL reports theoretical 8–9 m²/L at 40 μm dry; Caparol DE catalogue lists 6 m²/L and notes substrate-dependent indicative consumption. These remain product-specific, not a market sample. Exact source URLs and caveats are in the merged research docs and linked citations/PR records.
+- EN 13300 hiding-power class is not itself a universal coverage rate: Brillux explains class 1 as at least 99.5% contrast ratio and gives the class in relation to a stated m²/L test rate. Do not confuse hiding class with number of coats or real-world substrate coverage.
+
+### Mobile video — owner-supplied observation, not yet independently reproduced
+- The supplied phone recording showed a contingency field apparently prefilled at 10%, while the later #368 handoff says the contingency field was emptied and made an explicit visitor choice. The recording also appeared to show country selection within Flooring rather than a shared project-level selector.
+- The browser address visible in the recording appeared to be a `github.io` preview, not the current `home-project-wise.pages.dev` deployment. Therefore these are **verification flags**, not confirmed current-main defects.
+- The shared-room block remained collapsed in the recording; its actual field-to-tab transfer was not demonstrated. No complete calculation/result flow was shown.
+- Owner is testing on a real Android phone. After receiving exact steps/screenshots and the tested URL, compare against current main and deployed artifact. Do not change Claude-owned code/CSS or protected Pages workflow.
+
+### Current unresolved coordination and verification
+- `data/AI_COLLABORATION.md` was not updated directly on main while PR #301 is open and changes this file. This handoff is being reconciled through a sequential documentation PR; do not claim the canonical room updated until that PR merges.
+- The live website, actual country selector placement, area-based reference pricing, shared-room transfer, and full calculation results have not been independently verified by ChatGPT on a real browser/device.
+- No production deployment was triggered. CI visual QA is not a substitute for live-device testing.
+- Next engineering handoff for Claude: connect Wallpaper to the shared room as gross wall area only (optional user-entered openings only); no roll count/package/cost until exact product format, sale unit, repeat and usable coverage are supported. Keep Stage 2 paint/wallpaper quantities blocked until ChatGPT supplies approved structured assumptions and owner approval.
+
+### Ownership reminder
+ChatGPT owns research, evidence quality, source/assumption approval and canonical reference data. Claude owns calculator implementation, technical matching, tests and responsive/accessibility work. Design specialist owns visual design. Do not cross these lanes.
