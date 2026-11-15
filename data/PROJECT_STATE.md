@@ -324,3 +324,12 @@ The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uplo
 ### 2026-11-15 — Initial country selector scope confirmed
 
 The owner decided that the shared beginner-first calculator country selector must contain only markets currently covered by the reference-price registry: US, CA, GB, DE, FR, ES, IT and NL. Unsupported markets (including Tunisia) are excluded from the initial selector. Country is selected once and reused across calculator sections; do not infer it from language, IP or precise location. Exact market/jurisdiction matching is mandatory, with no cross-country fallback; where no eligible reference exists, disclose that and retain manual price entry. Expansion to additional markets requires researched, validated source coverage first.
+
+
+### 2026-11-15 — Paint evidence expanded across all eight calculator markets; mobile verification pending
+- Merged #373 (CA/GB/DE) as `a5d6993bc29d54a635b55b8c7dd7461e1e56bb25` and #374 (FR/IT/ES/NL) as `db298e972e6d10334bca82d03ee10bdef43ad726`. Editorial Quality Gate and Chromium visual QA passed on each exact PR head.
+- Combined with #369, #364 and #372, the research lane now contains manufacturer/product-specific evidence for paint and wallpaper across the calculator scope. This is not yet a representative market sample.
+- **No generic paint spread rate, coats default, package size or paint-cost assumption is approved.** Product yield differs by finish, formulation, hiding class, substrate, application method and whether the figure is theoretical/practical or per coat/system. Keep all these sources product-specific until a comparable independent sample and scenario logic are validated.
+- User supplied a phone recording. Apparent 10% contingency and country selector placement are recorded as unverified discrepancies because the visible host appeared to be a github.io preview; shared-room transfer and full result flow were not demonstrated. Real-device verification on the current Pages site remains pending.
+- `data/AI_COLLABORATION.md` canonical main file has not yet been updated due to open PR #301 editing the same file; reconcile via a sequential PR. No production deploy was run.
+- Next: finish the comparable paint evidence sample and scenario methodology; prepare structured assumptions only when validated; verify live calculator behavior against owner-provided URL/screenshots; Claude remains owner of implementation.
