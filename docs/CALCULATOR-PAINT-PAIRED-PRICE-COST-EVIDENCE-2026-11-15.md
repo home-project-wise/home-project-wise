@@ -38,20 +38,20 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 |---|---:|---:|---:|---:|---|
 | BEHR PREMIUM PLUS Interior Flat, Home Depot Canada | CAD $47.47 / 3.79 L | $12.52 | 400 sq ft = 37.16 m²/can = 9.80 m²/L | approx. CAD $2.56 | https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-frittata-m290-2-3-79l/1001983340 — page gives exact SKU price, flat finish, 3.79 L and 400 sq ft |
 | Benjamin Moore ben® Matte, Canada | CAD $79.99 / 3.78 L | $21.16 | 37.2–41.8 m²/can = 9.84–11.06 m²/L | approx. CAD $3.83–$4.30 | https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-white-01/F624/ZWB100000002311032 — official current product price; technical coverage range is from the matched ben® Canada product information |
-| SICO Expert Zero VOC Flat, RONA | CAD $43.49 / 3.78 L | $11.51 | 45–51 m²/can = 11.90–13.49 m²/L | approx. CAD $1.71–$1.93 | https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190 — listed regular price $43.49; displayed promotion ended 30 Sep 2026 and page says not immediately available for purchase at the selected store; do not treat as a current live offer |
+| SICO Expert Zero VOC Flat, RONA | CAD $43.49 / 3.78 L | $11.51 | 400 sq ft = 37.16 m²/can = 9.83 m²/L | approx. CAD $1.17 | https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190 — RONA same-SKU page states $43.49, 3.78 L, max 400 sq ft, 2 coats; 9 units at nearby Etobicoke, unavailable for immediate purchase at selected store |
 | BEHR MARQUEE Interior Matte, Home Depot Canada | CAD $79.97 / 3.79 L | $21.10 | Up to 37 m²/can = 9.76 m²/L | approx. CAD $4.32 | https://www.homedepot.ca/en/home/categories/decor/paint/interior-paints/f/matte/a0j-nqo — product listing; exact variant availability varies |
 
-**CA observation:** The paired sample spans roughly CAD $1.71–$4.32/m². SICO's observed price is a regular/list price on a page with an expired promotion and local availability caveat; keep it historical/conditional until stock and current price are rechecked. Do not treat all four products as one quality tier.
+**CA observation:** The paired sample now spans roughly CAD $2.34–$4.32/m² for two coats. RONA's own page reports 400 sq ft maximum coverage for the same SICO SKU, not the 45–51 m² figure in a separate TDS; use the same-SKU page's 400 sq ft for the paired cost and retain the TDS mismatch as a caveat. RONA shows nearby stock but not immediate availability at the selected store.
 
 ### United Kingdom (GBP)
 
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
-| Crown Matt Emulsion, Wickes | £24 / 5 L | £4.80 | 14 m²/L | approx. £0.69 | https://www2.wickes.co.uk/Crown-Matt-Emulsion-Paint---Cloud-Burst---5L/p/266905 — page gives price, 5 L, matt finish, 14 m²/L; recoat instructions shown |
+| Crown Matt Emulsion, Wickes | £33 list / 5 L (current sale £24) | £6.60 list (£4.80 sale) | 14 m²/L | approx. £0.94 list (£0.69 sale) | https://www2.wickes.co.uk/Crown-Matt-Emulsion-Paint---Cloud-Burst---5L/p/266905 — page shows £24 sale, £33 crossed-out list, in stock, 14 m²/L, matt, 5 L |
 | Dulux Matt, official UK page | £21.50 / 2.5 L | £8.60 | Up to 14 m²/L; 2 coats | approx. £1.23 | https://www.dulux.co.uk/en/products/dulux-matt.html/page — official price, matt, 2 coats and up-to coverage; price shown for 2.5 L |
 | HMG Vinyl Matt Emulsion, manufacturer shop | £37.99 / 5 L | £7.60 | 15 m²/L; 1–2 coats | approx. £1.01 | https://shop.hmgpaint.com/products/vinyl-matt-emulsion/ — exact product/size/price/coverage; manufacturer information sheet says 1–2 coats |
 
-**GB observation:** The paired sample spans roughly £0.69–£1.23/m² for a two-coat scenario. Dulux/HMG coverage is an “up to” or product-stated rate; actual substrate may reduce it.
+**GB observation:** Using list prices rather than Crown's current sale, the paired sample spans roughly £0.94–£1.23/m² for a two-coat scenario. Crown is in stock at Wickes; Dulux's official page says it is not available to order online and can only be purchased at selected stores. HMG coverage is a product-stated rate; actual substrate may reduce it.
 
 ### Germany (EUR)
 
@@ -69,10 +69,10 @@ If the manufacturer gives a complete two-coat system yield S m²/L, cost per m²
 | Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat paint cost per m² | Source and caveat |
 |---|---:|---:|---:|---:|---|
 | Ripolin Illico Mat, Bricomarché | €39.90 / 10 L | €3.99 | 10 m²/L | approx. €0.80 | https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811 — exact 10 L SKU, matt, 10 m²/L |
-| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 8 m²/L | approx. €1.37 | https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html — exact SKU and yield 8 m²/L; page calculator states prepared/primed substrate; two-coat recommendation appears on associated product flow |
+| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 10 m²/L | approx. €1.10 | https://www.duluxvalentine.com/fr/produits/le-blanc-simple-mat — official product page states 100 m² per 10 L; price from the matching 10 L Leroy Merlin SKU: https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html |
 | Ripolin Illico Mat, E.Leclerc | Price not exposed in the result | — | 10 m²/L | — | https://www.e.leclerc/fp/ripolin-murs-et-plafonds-illico-mat-blanc-10l-3174264784536 — useful second seller check for the same product, but no usable price in retrieved page |
 
-**FR observation:** Two paired products from different retailers give an initial two-coat sample of approximately €0.80–€1.37/m². It is not yet broad enough for a reliable country-level range; add more independent matched SKUs/retailers before release.
+**FR observation:** The initial Ripolin and Dulux matched pairs give approximately €0.80–€1.10/m² for two coats after the Dulux yield correction. The BATIR matched pair was added later, bringing the three-pair sample to approximately €0.60–€1.10/m².
 
 ### Spain (EUR)
 
@@ -137,9 +137,9 @@ These additions expand the paired sample and introduce additional retailers. The
 |---|---:|---:|---:|---:|---|
 | BATIR 580 interior matt, Tecnomat | €29.90 TTC / 10 L | €2.99 | 10 m²/L | approx. €0.60 | https://www.tecnomat.fr/produits/peinture-interieure-mur-et-plafond-blanc-mat-10-l-batir-580-25096813.html — exact SKU, TTC price and yield 10 m²/L on the same product page; product is a French-made acrylic matt interior paint |
 | Ripolin Illico Mat, Bricomarché | €39.90 / 10 L | €3.99 | 10 m²/L | approx. €0.80 | https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811 — exact product price and yield |
-| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 8 m²/L | approx. €1.37 | https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html — product page says prepared/primed substrate; exact yield 8 m²/L |
+| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 10 m²/L | approx. €1.10 | https://www.duluxvalentine.com/fr/produits/le-blanc-simple-mat — official product page states 100 m² per 10 L; price from matching Leroy Merlin 10 L SKU |
 
-**FR revised observation:** Paired sample now spans approximately €0.60–€1.37/m² for two coats. The BATIR, Ripolin and Dulux products differ in price/quality tier. This remains a product-sample envelope, not a French market average. The earlier Brico Dépôt €10.90 SKU is price-only: its page does not state coverage, so it is excluded from paired cost calculations.
+**FR revised observation:** Paired sample now spans approximately €0.60–€1.10/m² for two coats. BATIR, Ripolin and Dulux product pages/TDS support 10 m²/L for the exact products. The earlier Brico Dépôt €10.90 SKU is price-only: its page does not state coverage, so it is excluded from paired cost calculations.
 
 ### Spain (EUR) — additional independent retailers and SKUs
 

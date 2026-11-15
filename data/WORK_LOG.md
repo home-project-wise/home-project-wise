@@ -210,3 +210,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — re-opened retail pages and corrected one unsupported pair: French Brico Dépôt page showed price/VAT but no coverage, so removed its false 12 m²/L match and replaced with Tecnomat BATIR 580 (€29.90 TTC/10 L; 10 m²/L), correcting FR per-coat cost low to €0.299/m². Split registry provenance arrays: TDS/product sources for quantity records, exact paired SKU sources for cost records. Verified current page prices/availability for several sample SKUs; all 16 records remain proposed and autoEligible=false. | NEXT: continue page-by-page tax/stock/offer checks; owner approval before enabling; no code integration yet.
+
+
+2026-11-15 | ChatGPT — live page audit found three material corrections: RONA SICO same-SKU coverage is 400 sq ft, not the separate TDS's 45–51 m²/3.78 L; Crown Wickes list price is £33 (sale £24) and in stock; Dulux Valentine Simple Mat official product page states 100 m²/10 L (10 m²/L), not 8. Updated proposed registry ranges: CA quantity 0.0904–0.1021 L/m²/coat and cost CAD 1.17–2.15/m²/coat; GB cost £0.471–0.615/m²/coat using list price; FR cost €0.299–0.549/m²/coat. All proposed/autoEligible=false.

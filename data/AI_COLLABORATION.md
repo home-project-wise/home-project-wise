@@ -2147,3 +2147,11 @@ The first complete eight-market evidence sweep now supports candidate two-coat q
 - Reopened source checks also confirmed current price/availability details for Walmart Glidden, HMG Vinyl Matt, OBI CMI, Brico Dépôt Spain, OBI MaxMeyer and Praxis Baseline. OBI CMI price now displays €12.59/10 L (19% VAT included); this does not change the Germany sample's low cost bound, which is BAUHAUS Raumfarbe.
 - Important data-model correction: coverage records now cite manufacturer TDS/product-yield sources; cost records cite the exact paired retailer SKU price-and-coverage pages. The source arrays are no longer reused across different evidence claims.
 - All 16 records remain proposed/autoEligible=false. No production assumption is enabled; owner approval still required.
+
+
+## 2026-11-15 — Further exact-SKU price/coverage corrections after live page inspection
+
+- **Canada / SICO:** RONA's live SKU page states CAD $43.49, 3.78 L, maximum 400 sq ft (37.16 m²) and two coats; it does not match the separate SICO TDS figure of 45–51 m²/3.78 L. For this exact RONA SKU pair, use the page's 400 sq ft, not the mismatched TDS. Canada per-coat cost range corrected to CAD $1.17–$2.15/m² and quantity range to 0.0904–0.1021 L/m²/coat.
+- **GB / Crown:** Wickes live page shows £33 list price, £24 current sale, 5 L, 14 m²/L and in-stock status. Use £33 list price for non-promotional sample: GB per-coat cost range corrected to £0.471–£0.615/m². Dulux official page says £21.50/2.5 L, 14 m²/L, 2 coats, but is not available to order online and only sold in selected stores.
+- **FR / Dulux Valentine:** official product page states 100 m² per 10 L (10 m²/L), not 8 m²/L. France per-coat cost range corrected to €0.299–€0.549/m². Ripolin's Bricomarché page confirms €39.90/10 L and 10 m²/L; Tecnomat BATIR 580 confirms €29.90 TTC/10 L and 10 m²/L.
+- These corrections were applied to proposed registry only; every record remains autoEligible=false. No production data is enabled.

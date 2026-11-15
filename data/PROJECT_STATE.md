@@ -364,3 +364,10 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Rechecked live retailer pages. French Brico Dépôt €10.90 SKU did not state coverage, so its earlier 12 m²/L pair was invalid and has been removed. Replaced it with Tecnomat BATIR 580, where the exact product page states €29.90 TTC/10 L and 10 m²/L. FR cost low is now €0.299/m²/coat.
 - The assumptions registry now separates manufacturer/TDS coverage sources from exact retailer price/coverage pairs. OBI CMI current price is €12.59/10 L including 19% VAT; MaxMeyer OBI current promo is €49.99 vs €55.99 list; Praxis Baseline price and 6 m²/L yield are confirmed.
 - All records remain proposed/autoEligible=false pending owner approval. No runtime or code change.
+
+
+### 2026-11-15 — Exact-SKU paint coverage and price corrections
+- RONA SICO same-SKU page reports 400 sq ft maximum coverage and 2 coats; the separate TDS rate of 45–51 m²/3.78 L does not match that page, so the paired SKU uses 400 sq ft. Canada proposed ranges corrected.
+- Wickes Crown page confirms £33 list / £24 sale, 14 m²/L and in stock; GB proposed cost range now uses list price.
+- Dulux Valentine Simple Mat official page confirms 100 m²/10 L (10 m²/L), correcting the earlier 8 m²/L. FR proposed cost range corrected.
+- All proposed records remain autoEligible=false; no runtime use or code integration.
