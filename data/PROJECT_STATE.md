@@ -303,3 +303,10 @@ The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uplo
 - Eligible reference count is now 101: 35 flooring and 66 electricity. Paint, wallpaper and retailer listings remain ineligible as category defaults.
 - Official spot checks: EIA Aug 2026, Ofgem GB Q4 2026, Consumer Council NI Power NI, OEB Ontario TOU, Manitoba Hydro, Eurostat dataset metadata. Remaining provider-specific and country-value verification is still in progress.
 - Claude owns calculator UI/adapter wiring and must use the canonical `autoEligible` flags; ChatGPT owns the ongoing source audit and registry corrections.
+
+### 2026-11-15 — Flooring source audit merged; publication pending
+
+- PR #361 is merged to main as `a4d7ac0`; both required checks passed on the exact PR head: Editorial Quality Gate #1741 and Always-on visual QA #352.
+- Stale PRs #357 and #359 were closed as superseded and were not merged.
+- Canonical registry: 193 records; 101 eligible (35 flooring + 66 electricity). Exactly three intended audit rows changed; numeric prices, units, currencies and observation dates were preserved. No retailer listings, paint or wallpaper are auto-eligible; all ineligible records have reasons.
+- **Not yet published/verified live:** data-only changes do not trigger Pages under the verified workflow paths. A manual Pages dispatch requires explicit owner authorization. After deployment, check the live JSON and both calculator reference controls in a real browser/phone. Until then, do not announce the reference prices as publicly available.
