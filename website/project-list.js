@@ -21,7 +21,7 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c];
     });
   }
-  function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "10", budget: "" }; }
+  function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "", budget: "" }; }
   function toNumber(v) { return (v === "" || v === null || v === undefined) ? NaN : Number(v); }
   function addItem(state, spec) {
     var name = String(spec.name || "").trim(), unit = String(spec.unit || "").trim();
@@ -61,7 +61,8 @@
   }
   function buildEstimateInput(state) {
     var currency = String(state.currency || "").trim().toUpperCase();
-    var contingency = toNumber(state.contingency);
+    var cRaw = String(state.contingency === undefined || state.contingency === null ? "" : state.contingency).trim();
+    var contingency = cRaw === "" ? 0 : toNumber(cRaw);
     if (!Number.isFinite(contingency) || contingency < 0 || contingency > 100) throw new Error("Contingency must be between 0 and 100%.");
     if (!state.items.length) throw new Error("Add at least one item to the list first.");
     state.refs = [];
@@ -123,8 +124,10 @@
     var totals = [], unknown = est.unknownRequired.length;
     if (est.pricedLineCount > 0) {
       totals.push("Priced items: " + span(est.subtotalLow, est.subtotalHigh, cur));
-      totals.push("Contingency (" + est.contingencyPct + "% of priced items): " + span(est.contingencyLow, est.contingencyHigh, cur));
-      totals.push("Total with contingency: " + span(est.totalLow, est.totalHigh, cur));
+      var noCont = String(state.contingency === undefined || state.contingency === null ? "" : state.contingency).trim() === "";
+      if (!noCont) totals.push("Contingency (" + est.contingencyPct + "% of priced items): " + span(est.contingencyLow, est.contingencyHigh, cur));
+      totals.push((noCont ? "Total: " : "Total with contingency: ") + span(est.totalLow, est.totalHigh, cur));
+      if (noCont) totals.push("No contingency added; adding one is your choice.");
       if (unknown) totals.push("This total is partial: " + unknown + " item(s) have no price and are not included.");
     } else {
       totals.push("No prices yet, so this list shows quantities only. Add a price or two quotes per item to get a cost range.");
@@ -225,7 +228,7 @@
     "<p class=\"calc-error\" id=\"plist-add-error\" role=\"alert\"></p><button class=\"wp-btn\" type=\"submit\">Add item</button></form>" +
     "<form class=\"calc\" id=\"plist-calc-form\" novalidate><div class=\"calc-grid\">" +
     "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code</label><input id=\"plist-currency\" type=\"text\" maxlength=\"3\" value=\"USD\"><small>Three letters, such as USD.</small></div>" +
-    "<div class=\"calc-field\"><label for=\"plist-contingency\">Contingency allowance (%)</label><input id=\"plist-contingency\" type=\"number\" min=\"0\" max=\"100\" step=\"any\" value=\"10\"></div>" +
+    "<div class=\"calc-field\"><label for=\"plist-contingency\">Contingency allowance (%), your choice</label><input id=\"plist-contingency\" type=\"number\" min=\"0\" max=\"100\" step=\"any\" placeholder=\"e.g. 10\"><small>Leave blank to add none.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-budget\">Budget (optional)</label><input id=\"plist-budget\" type=\"number\" min=\"0\" step=\"any\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-error\" role=\"alert\"></p><button class=\"calc-btn\" type=\"submit\">Calculate project list</button></form>" +
     "<div class=\"tool-result\" id=\"plist-result\" aria-live=\"polite\"></div>";
