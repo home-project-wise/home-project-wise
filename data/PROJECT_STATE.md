@@ -411,7 +411,7 @@ PR #391 merged as `fa20c1f09db633d5c567c702a7a1f83ac9cb7fc3`. The current canoni
 
 These are **paired product-sample envelopes**, not national averages or guaranteed practical yields. They combine product grades and source bases; each source's basis/caveat is retained. Cost is retailer-displayed material price and tax status varies; primer, labour, tools, delivery and any unverified tax adjustment are not included. No generic 10% allowance.
 
-**Implementation gate:** owner approval is required for the broad source-envelope path and the two-coat planning scenario before setting any record autoEligible=true or asking Claude to wire Stage 2. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
+**Implementation gate (superseded by owner approval below, 2026-11-15):** the owner has approved the broad source-envelope path and the disclosed two-coat planning default for beginner per-area estimates only. The approval does not extend to can/package counts, national-average claims or primer systems. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
 
 **Open coordination:** PR #360 remains open and stale (mergeable=false), touching AI_COLLABORATION.md and WORK_LOG.md for article 008. It was commented with rebase instructions. Do not merge that branch as-is; preserve this current calculator handoff when it is reconciled.
 
