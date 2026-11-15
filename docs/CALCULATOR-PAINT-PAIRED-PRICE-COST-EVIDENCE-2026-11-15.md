@@ -186,3 +186,39 @@ These additions expand the paired sample and introduce additional retailers. The
 | NL | 3 | 2 | 3 | Sample complete; clearance and member-only price distinctions remain |
 
 A sample count is not a release approval. Before creating a market cost range, check that the same SKU's coverage is sourced and the product class matches the intended beginner estimator. Keep tax/discount/stock uncertainty visible. No market should be enabled merely because it reaches a count threshold.
+
+
+## Additional Germany and Netherlands retail pairs
+
+### Germany (EUR) — third and fourth retailer checks
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| toom Standardweiß matt, 10 L | €24.99 / 10 L | €2.50 | 60 m²/can = 6 m²/L | approx. €0.83 | https://toom.de/p/standardweiss-matt-10-l/8101221 — toom listing/category price €24.99; product page gives 10 L, 60 m² one coat, recommends two coats; exact local availability should be checked |
+| hagebau Polarweiss matt, 10 L | €52.99 / 10 L | €5.30 | up to 80 m² per 10 L, up to two coats | approx. €0.66 | https://www.hagebau.de/p/schoener-wohnen-farbe-innenfarbe-polarweiss-10-liter-weiss-matt-anV1078774/ — page states 10 L covers up to 80 m² with up to two coats; this is a system yield, not per-coat yield |
+
+**DE revised observation:** Price evidence now includes OBI, BAUHAUS, toom and hagebau. The source sample is broad but includes budget and premium product tiers; retain the direct two-coat system yield separately from one-coat coverage.
+
+### Netherlands (EUR) — third retailer check
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| KARWEI muurverf mat, 10 L | €48.99 / 10 L clearance | €4.90 | 80 m²/can = 8 m²/L | approx. €1.22 | https://www.karwei.nl/assortiment/karwei-muurverf-mat-10-liter/p/B103300 — page marks OP=OP/clearance and 50% reduction from €97.99; availability and remaining stock vary |
+| Sigma muurverf interieur mat white, 10 L | €159.99 / 10 L list; €79.99 member price | €16.00 list; €8.00 member | 110 m²/can = 11 m²/L | approx. €2.91 list; €1.45 member | https://www.karwei.nl/assortiment/sigma-muurverf-interieur-mat-wit-10-liter/p/B224922 — exact 10 L, yield and two price conditions; member price requires Club Karwei card |
+
+**NL revised observation:** The paired sample now covers GAMMA, Praxis and KARWEI. Keep clearance and membership pricing separate from the non-member list price; never display the member price as universally available.
+
+## Updated paired-sample completeness checkpoint
+
+| Market | Exact paired SKU count | Retailer count | Independent product brands/manufacturers | Status |
+|---|---:|---:|---:|---|
+| US | 3 | 3 | 3 | Initial sample complete; tax/price basis and product tiers need final check |
+| CA | 4 | 3 | 4 | SICO offer/availability conditional; tax treatment to verify |
+| GB | 3 | 3 | 3 | Sample complete; tax inclusion and price date to verify |
+| DE | 7 | 4 | 5+ | Sample count complete; budget/premium and one-coat/two-coat bases remain separate |
+| FR | 6 | 3 | 4 | Sample count complete; stock and tax need verification |
+| ES | 10 | 4 | 8+ | Sample count complete; theoretical/practical and budget/premium tiers remain separate |
+| IT | 6+ | 3 | 4+ | Sample count complete; expired Boero promotion excluded; verify product/TDS matches |
+| NL | 5 | 3 | 4+ | Sample count complete; clearance/member price conditions must be preserved |
+
+Even where counts are met, the rows do not automatically create a national average. The first release may only use a labelled SKU-sample cost envelope if the owner approves the broad range and the user-facing result makes clear that the exact paint grade and seller change the cost.
