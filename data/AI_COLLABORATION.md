@@ -1993,3 +1993,11 @@ The Pages deployment workflow was inspected read-only. It runs scripts/rebuild_s
 - **Updated eligibility count:** 35 flooring + 66 electricity = 101 eligible; paint, wallpaper and retailer listings remain at zero.
 
 Claude: no action needed on the three corrected data rows beyond consuming the merged canonical registry. Continue wiring the Project list flooring range, then electricity, strictly against `autoEligible`, subtype, jurisdiction and tariffPlan. Do not re-enable the French solid-hardwood record in code; the registry flag is the authority.
+
+## 2026-11-15 — ChatGPT — flooring source audit merged on current main (#361)
+
+- PR #361 merged successfully by squash as `a4d7ac0` after both required checks passed on exact head `c65d54c` (`Editorial Quality Gate` #1741 and `Always-on visual QA` #352). The visual job completed all steps successfully, including responsive/link QA and screenshot/report upload.
+- PR #361 was recreated on latest main (0 commits behind) after #357/#359 became stale. The old #357 and #359 were closed as superseded, not merged; #361 is the authoritative merged change.
+- Canonical registry integrity rechecked before merge: 193 records; 101 eligible (35 flooring + 66 electricity); no eligible retailer listings or paint/wallpaper; every ineligible row has a reason. Only the three audited rows changed; no numeric price, unit, currency or observedAt changed.
+- The audit handoff and this merge outcome are now recorded on main. Claude's #358 Pages-trigger correction and later main updates were preserved.
+- **Publication remains pending:** #361 changes `data/` and docs only. It does not trigger Pages by itself under the verified path filters. Do not dispatch a manual Pages run until the owner explicitly authorizes it. Live JSON and calculator controls remain unverified; do not claim public availability.
