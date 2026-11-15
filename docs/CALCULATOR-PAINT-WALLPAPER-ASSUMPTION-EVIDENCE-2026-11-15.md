@@ -7,7 +7,7 @@
 
 ## 1. Executive result
 
-The eight supported markets now have opened manufacturer or product technical sources for interior-wall paint coverage. US, Canada, UK, Germany, Spain, Italy and the Netherlands each have at least two product/manufacturer references in this evidence pass; France currently has two product lines from one manufacturer, so independent corroboration remains missing there. However, the evidence is not sufficiently comparable to approve a single market-wide beginner default: paint class, hiding/opacity class, substrate, application method, coverage basis and coat recommendation differ materially.
+The eight supported markets now have opened manufacturer or product technical sources for interior-wall paint coverage. US, Canada, UK, Germany, Spain, Italy and the Netherlands each have at least two product/manufacturer references in this evidence pass; France now has product-specific evidence from Seigneurie and Tollens/Zolpan, separate manufacturer groups; the products and coverage bases still differ, so this does not approve a generic French default. However, the evidence is not sufficiently comparable to approve a single market-wide beginner default: paint class, hiding/opacity class, substrate, application method, coverage basis and coat recommendation differ materially.
 
 **Decision:**
 - Do not populate a generic country-level paint coverage or coat-count default in `data/reference_assumptions.json` yet.
@@ -96,6 +96,14 @@ The eight supported markets now have opened manufacturer or product technical so
 - These are two product lines from the same manufacturer, not independent market evidence.
 - Permitted use: product-specific French coverage and substrate sensitivity.
 - Not permitted: claim of a representative French market range; seek an independent French-market manufacturer before any generic default.
+
+**Tollens / Zolpan NATEC Mat — manufacturer technical sheet (France)**
+- https://pro.tollens.com/download/fiche_technique/NAT_A02DH/1/Natec%2Bmat-fiche_technique.pdf
+- Interior acrylic matte wall/ceiling paint for prepared usual building substrates.
+- Yield: 8–10 m²/L per coat, depending on substrate nature and condition; technical sheet No. N-41, dated 10/2025.
+- The sheet's environmental functional-unit note is based on two coats, but the technical yield itself is explicitly per coat. Pack size listed: 15 L.
+- Permitted use: second manufacturer-group product-specific French example alongside Seigneurie; preserve per-coat yield and two-coat functional-unit distinction.
+- Not permitted: a generic French market default or combining this with unrelated paint classes without a common comparison basis.
 
 ### Spain (ES)
 
