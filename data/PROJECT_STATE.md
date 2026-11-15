@@ -350,3 +350,11 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Primer/new/porous walls remain a separate scenario. No hidden waste percentage is proposed.
 - Paint cost is still not solved: no paint category price range has been approved in the canonical registry. Retail price sampling by market/product class is next; no cost should be invented from coverage evidence.
 - Issue #362 has been updated with the methodology and recommendation. No code, CSS, price registry, assumptions registry, workflow or production deploy changed.
+
+
+### 2026-11-15 — Paired paint cost samples and proposed assumptions registry
+- Merged #381–#384; all eight markets now have at least three exact SKU price/coverage pairs from at least three retailers. Samples remain product-tier envelopes, not national averages; promotions, clearance, member-only pricing and tax treatment remain explicit.
+- Merged #385, creating data/reference_assumptions.json with 16 proposed records: paint litres per m² per coat and material cost per m² per coat for US, CA, GB, DE, FR, ES, IT and NL. JSON validation passed.
+- All records are marked proposed and autoEligible=false. Runtime is not consuming them. Owner approval is required before enabling or technical integration.
+- Formula is area × coats × per-coat quantity/cost range. Primer, labour, tools, delivery, tax where unverified and any extra allowance are excluded. No hidden 10% waste.
+- Next: verify price tax/stock/promotion status, improve tier comparability and request owner decision on the broad source-envelope path and two-coat planning scenario. Claude implementation remains blocked until approval.
