@@ -7,7 +7,7 @@
 
 ## 1. Executive result
 
-The eight supported markets now have at least one opened manufacturer or retailer technical source that reports interior-wall paint coverage. Several markets have two independent product families or manufacturers. However, the evidence is not yet sufficiently comparable to approve a single market-wide beginner default: paint class, hiding/opacity class, substrate, application method, coverage basis and coat recommendation differ materially.
+The eight supported markets now have opened manufacturer or product technical sources for interior-wall paint coverage. US, Canada, UK, Germany, Spain, Italy and the Netherlands each have at least two product/manufacturer references in this evidence pass; France currently has two product lines from one manufacturer, so independent corroboration remains missing there. However, the evidence is not sufficiently comparable to approve a single market-wide beginner default: paint class, hiding/opacity class, substrate, application method, coverage basis and coat recommendation differ materially.
 
 **Decision:**
 - Do not populate a generic country-level paint coverage or coat-count default in `data/reference_assumptions.json` yet.
@@ -31,6 +31,13 @@ The eight supported markets now have at least one opened manufacturer or retaile
 
 ### Canada (CA)
 
+**Glidden SPEEDWALL Interior Latex 8150 — PPG/Dulux Canada technical sheet**
+- https://buyat.ppg.com/REP_PafPaintTools_files/Glidden%20Canada/GN_8150_CAEN.pdf
+- Practical coverage: 35–39 m² per 3.78 L (9–10 m²/L); excludes losses from surface irregularity/porosity and application/mixing.
+- Flat interior latex finish coat for walls and ceilings; sheet dated 11/2017 and notes that some colours or drastic colour changes may require additional coats.
+- Permitted use: second independent Canadian manufacturer/product example with a clearly disclosed older sheet date.
+- Not permitted: a current national default; refresh the technical sheet before production use.
+
 **Benjamin Moore REGAL Select Waterborne Interior — manufacturer Canada product page / sell sheet**
 - Product page: https://www.benjaminmoore.com/en-ca/product/regal-select-waterborne-interior-paint-flat-3-78-l/F547
 - Canadian sell sheet: https://media.benjaminmoore.com/WebServices/prod/FinalProductAssets/production/SellSheets/RegalSelect_Int_Brochure_CAN.pdf
@@ -39,6 +46,15 @@ The eight supported markets now have at least one opened manufacturer or retaile
 - The sell sheet is dated 12/20; the current product page was retrieved 2026-11-15.
 - Permitted use: product-specific Canadian interior-paint coverage, package size and conditional coat guidance.
 - Not permitted: market-wide Canadian paint default or an assumption that one coat is sufficient on every substrate.
+
+### United States — second independent product family
+
+**Benjamin Moore AURA Waterborne Interior — manufacturer US product page / sell sheet**
+- Product page: https://www.benjaminmoore.com/en-us/product/aura-interior-paint-matte-1-gallon-porcelain-2113-60/N522/ZWB100000001867419
+- US sell sheet: https://media.benjaminmoore.com/WebServices/prod/FinalProductAssets/production/SellSheets/Aura_Interior_Brochure_US.pdf
+- Reported coverage: 350–400 sq ft per US gallon for named interior wall finishes; the product page lists 1 or 2 recommended coats.
+- Permitted use: a second independent US manufacturer example, product-specific.
+- Not permitted: assume every paint covers 350–400 sq ft/gal or that one coat is sufficient.
 
 ### United Kingdom (GB)
 
