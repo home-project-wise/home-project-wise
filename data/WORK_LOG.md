@@ -222,3 +222,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — final retail source normalization: corrected US Glidden and CA BEHR exact SKU URLs; updated DE CMI current price to €12.59/10 L (BAUHAUS remains lower); tagged VAT/IVA/TTC included only for exact pages that state it, leaving other tax statuses unverified. No range eligibility changed; all 16 records remain proposed/autoEligible=false.
+
+
+2026-11-15 | ChatGPT — merged PR #391 (`fa20c1f`) completing the current retail source URL/tax-status normalization. Validated main data/reference_assumptions.json: 16 proposed records, 8 markets, 0 invalid records, every record with 3+ sources, all autoEligible=false. Recorded authoritative per-coat quantity/cost ranges and owner approval gate in AI_COLLABORATION.md and PROJECT_STATE.md. PR #360 remains open/stale and must be rebased before any merge.
