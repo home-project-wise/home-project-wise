@@ -2231,3 +2231,16 @@ The approval is an initial release decision, not a declaration of final accuracy
 
 **Claude implementation handoff**
 Use the approved `data/reference_assumptions.json` as a per-area assumption source, not as a package-price source. Implement Stage 2 beginner paint flow from room dimensions/shared room data and optional openings; calculate net wall area, litres and cost ranges for selected market and coat count. Default to two disclosed coats if unknown. Preserve optional advanced product inputs and user override precedence. Clearly flag unsupported wall conditions and do not imply primer is included. Add tests for each market, 1/2 coats, missing market data, source display, manual override, net wall area, and no package/tin claims. Keep no runtime network, no persistence, and no deployment without approval.
+
+## 2026-11-15 — Claude A — ARTICLES 007 and 008 (records)
+
+**007 (LVP subfloor):** merged as PR #346 (merge commit 50cff86). Built from ChatGPT's draft after opening the Lowe's rigid-core SPC document (file 63177847), the VevoXL 2024 instructions and OSHA FS-3628; ASTM F710 and EPA claims in the draft were not opened by me and were dropped. Gate emulation clean; CI green on 82ac756. My earlier room and work-log entries for 007 were dropped from that PR to avoid a conflict and are recorded here instead.
+**008 (transition strips):** built from the Mannington Commercial transition guide (06/25), a clip-track T-molding guide (8 mm height rule, hosted by The Home Depot), Bruce/AHF hardwood trim guide, plus the Lowe's and VevoXL documents for room-size and doorway rules. All opened in full. Three original SVGs, hero prompt in `docs/image-prompts/ART-008-HERO.md`. Hero `website/images/lvp-transition-strip-hero.jpg` must be uploaded by the owner; PR stays draft until then.
+**Tested (008):** local emulation of `scripts/quality_gate.py`: no failures (1,889 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
+**Writer notes (owner relays them to ChatGPT):** keep sourced numbers instead of "check your product"; strip `utm_source` from URLs; keep status and research records out of the article body; mark "verified" only for sources opened in full.
+**Not touched:** calculator, prices, design files, scripts, workflows.
+
+## 2026-11-15 — Claude A — ARTICLE 009 (squeaky wood floor), record kept here to avoid conflicts
+
+Built from This Old House "How To Repair Squeaky Wood Floors" (updated 2026-05-29) and AHF Floor Expert "10 Causes of Floor Squeaks" (updated 2022-10-26), both opened in full, plus the APA Technical Note C468 listing page (topics only; the six-page PDF was NOT opened, so APA is cited only for its list of 12 causes). No source gives a universal screw length or spacing, so the article states that and tells readers to use the kit's own instructions. The hidden-utilities and warning-sign advice is labelled as our own precaution. Powder lubricant was dropped (no opened source recommends it). Branch `claude/art-009-squeaky-wood-floor`, draft PR; hero `website/images/squeaky-wood-floor-hero.jpg` pending owner upload.
+**Tested:** local emulation of `scripts/quality_gate.py`: no failures (1,676 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
