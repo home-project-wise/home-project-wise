@@ -76,6 +76,20 @@
   function flooringOptions(records, country) {
     return uniqueSorted((records || []).filter(function (r) { return isAutoEligible(r) && r.category === "flooring" && r.audience === country; }).map(function (r) { return r.subtype; }));
   }
+  function electricityChoices(records) {
+    var rows = (records || []).filter(function (r) { return isAutoEligible(r) && r.category === "electricity"; });
+    var perJurisdiction = {};
+    rows.forEach(function (r) { perJurisdiction[r.jurisdiction] = (perJurisdiction[r.jurisdiction] || 0) + 1; });
+    var order = ["US", "Canada", "UK", "Germany", "France", "Spain", "Italy", "Netherlands"];
+    return rows.map(function (r) {
+      return { id: r.id, jurisdiction: r.jurisdiction, tariffPlan: r.tariffPlan, audience: r.audience,
+        label: r.source.geography + (perJurisdiction[r.jurisdiction] > 1 ? " – " + r.tariffPlan : "") };
+    }).sort(function (x, y) {
+      var ax = order.indexOf(x.audience), ay = order.indexOf(y.audience);
+      ax = ax === -1 ? 99 : ax; ay = ay === -1 ? 99 : ay;
+      return ax - ay || (x.label < y.label ? -1 : x.label > y.label ? 1 : 0);
+    });
+  }
   function electricityOptions(records) {
     var by = {};
     (records || []).forEach(function (r) {
@@ -129,6 +143,6 @@
     return problems;
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
-    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions,
+    parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices,
     packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
 }));
