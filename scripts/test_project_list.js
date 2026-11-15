@@ -8,10 +8,11 @@ const path = require("path");
 const L = require("../website/project-list.js");
 const E = require("../website/project-estimator-engine.js");
 let passed = 0;
+function newState() { const s = L.createState(); s.contingency = "10"; return s; }
 function ok(name, fn) { fn(); passed++; console.log("PASS " + name); }
 
 ok("addItem validates name, unit and quantity", () => {
-  const s = L.createState();
+  const s = newState();
   assert.equal(L.addItem(s, { name: "", unit: "tin", quantity: 1 }).ok, false);
   assert.equal(L.addItem(s, { name: "Paint", unit: "", quantity: 1 }).ok, false);
   assert.equal(L.addItem(s, { name: "Paint", unit: "tin", quantity: 0 }).ok, false);
@@ -21,18 +22,18 @@ ok("addItem validates name, unit and quantity", () => {
   assert.equal(r.ok, true); assert.equal(s.items[0].name, "Paint"); assert.equal(s.items[0].mode, "unknown");
 });
 ok("a passed-in price makes the item 'known'; no price stays unknown", () => {
-  const s = L.createState();
+  const s = newState();
   L.addItem(s, { name: "Paint", unit: "tin", quantity: 8, price: 20 });
   L.addItem(s, { name: "Packs", unit: "pack", quantity: 11, price: null });
   assert.equal(s.items[0].mode, "known"); assert.equal(s.items[0].price, "20"); assert.equal(s.items[1].mode, "unknown");
 });
 ok("list is capped at 30 items", () => {
-  const s = L.createState();
+  const s = newState();
   for (let i = 0; i < 30; i++) assert.equal(L.addItem(s, { name: "I" + i, unit: "u", quantity: 1 }).ok, true);
   assert.equal(L.addItem(s, { name: "extra", unit: "u", quantity: 1 }).ok, false);
 });
 function sample() {
-  const s = L.createState();
+  const s = newState();
   L.addItem(s, { name: "Paint", unit: "tin", quantity: 8, price: 20 });
   L.addItem(s, { name: "Flooring / material packs", unit: "pack", quantity: 11 });
   return s;
@@ -54,7 +55,7 @@ ok("two quotes give a range, order does not matter, contingency applies", () => 
   assert.ok(!r.totals.some(t => t.includes("partial")));
 });
 ok("nothing priced: quantities only, never an invented number", () => {
-  const s = L.createState(); L.addItem(s, { name: "Paint", unit: "tin", quantity: 8 });
+  const s = newState(); L.addItem(s, { name: "Paint", unit: "tin", quantity: 8 });
   const r = L.summarize(s, E);
   assert.ok(r.totals[0].startsWith("No prices yet"));
   assert.ok(!/\$\d/.test(r.text.replace("HomeProjectWise", "")), r.text);
@@ -73,7 +74,7 @@ ok("input errors are explained, not thrown", () => {
   s.currency = "USD"; s.contingency = "150"; assert.match(L.summarize(s, E).error, /between 0 and 100/);
   s.contingency = "10"; s.items[0].price = ""; assert.match(L.summarize(s, E).error, /Enter a price for "Paint"/);
   s.items[0].price = "20"; s.items[1].mode = "range"; s.items[1].low = "5"; assert.match(L.summarize(s, E).error, /Enter both quotes/);
-  assert.match(L.summarize(L.createState(), E).error, /Add at least one item/);
+  assert.match(L.summarize(newState(), E).error, /Add at least one item/);
   const q = sample(); q.items[0].quantity = "0"; assert.match(L.summarize(q, E).error, /Check the quantity/);
 });
 ok("user text is escaped in every rendered string", () => {
@@ -245,4 +246,20 @@ ok("the Flooring tab passes coverage and its unit to the list", () => {
   assert.ok(html.includes("category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²'"));
 });
 
+ok("contingency is an explicit choice: the default is empty, blank means none and the result says so", () => {
+  const s = L.createState(); assert.equal(s.contingency, "");
+  L.addItem(s, { name: "Paint", unit: "tin", quantity: 8, price: 20 });
+  const r = L.summarize(s, E);
+  assert.ok(r.totals.includes("Total: $160.00") && r.totals.includes("No contingency added; adding one is your choice."), JSON.stringify(r.totals));
+  assert.ok(!r.totals.some((t) => t.startsWith("Contingency (")) && !r.totals.some((t) => t.startsWith("Total with contingency")));
+  s.contingency = "10"; const r2 = L.summarize(s, E);
+  assert.ok(r2.totals.includes("Total with contingency: $176.00") && !r2.totals.includes("No contingency added; adding one is your choice."));
+  s.contingency = "150"; assert.match(L.summarize(s, E).error, /between 0 and 100/);
+});
+ok("the page markup pre-fills no allowance or contingency", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project-calculator.html"), "utf8");
+  assert.ok(!/id="paint-waste"[^>]*value=/.test(html) && !/id="material-waste"[^>]*value=/.test(html));
+  const src = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
+  assert.ok(!/id=\\"plist-contingency\\"[^>]*value=/.test(src));
+});
 console.log("\n" + passed + " project-list tests passed");
