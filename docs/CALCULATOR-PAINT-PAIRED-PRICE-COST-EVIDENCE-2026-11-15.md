@@ -216,9 +216,9 @@ A sample count is not a release approval. Before creating a market cost range, c
 | CA | 4 | 3 | 4 | SICO offer/availability conditional; tax treatment to verify |
 | GB | 3 | 3 | 3 | Sample complete; tax inclusion and price date to verify |
 | DE | 7 | 4 | 5+ | Sample count complete; budget/premium and one-coat/two-coat bases remain separate |
-| FR | 6 | 3 | 4 | Sample count complete; stock and tax need verification |
-| ES | 10 | 4 | 8+ | Sample count complete; theoretical/practical and budget/premium tiers remain separate |
-| IT | 6+ | 3 | 4+ | Sample count complete; expired Boero promotion excluded; verify product/TDS matches |
+| FR | 3 | 3 | 3 | Initial sample count complete; stock and tax need verification |
+| ES | 6 | 3 | 6 | Initial sample count complete; theoretical/practical and budget/premium tiers remain separate |
+| IT | 3 | 3 | 3 | Initial sample count complete; expired Boero promotion excluded; verify product/TDS matches |
 | NL | 5 | 3 | 4+ | Sample count complete; clearance/member price conditions must be preserved |
 
 Even where counts are met, the rows do not automatically create a national average. The first release may only use a labelled SKU-sample cost envelope if the owner approves the broad range and the user-facing result makes clear that the exact paint grade and seller change the cost.
