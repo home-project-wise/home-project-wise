@@ -377,3 +377,9 @@ The owner decided that the shared beginner-first calculator country selector mus
 - PR #388 merged as cfcde55f77cf1ef0d153ee38d442208734a92231. Corrected same-SKU coverage and list-price values for Canada, GB and France.
 - Retail cost assumptions use retailer-displayed prices. Tax inclusion is not normalized unless the exact source explicitly states VAT/IVA/TTC; paired source entries now mark taxStatus=not-verified, and visitor copy must avoid saying tax is excluded where not verified.
 - All 16 paint records remain proposed/autoEligible=false; no runtime use or code integration.
+
+
+### 2026-11-15 — Dulux Valentine same-SKU yield correction
+- Exact Leroy Merlin product specification for Dulux Valentine Simple Mat 10 L states 8 m²/L; the brand site's 10 m²/L calculator value is generic and not product-specific. The paired cost upper bound for FR is therefore €0.686/m²/coat, not €0.549.
+- This exact-SKU rule is mandatory for paired cost: never replace a product specification with a brand-wide calculator default.
+- Proposed assumptions remain disabled pending owner approval.
