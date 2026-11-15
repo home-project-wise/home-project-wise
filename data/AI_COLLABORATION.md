@@ -2155,3 +2155,11 @@ The first complete eight-market evidence sweep now supports candidate two-coat q
 - **GB / Crown:** Wickes live page shows £33 list price, £24 current sale, 5 L, 14 m²/L and in-stock status. Use £33 list price for non-promotional sample: GB per-coat cost range corrected to £0.471–£0.615/m². Dulux official page says £21.50/2.5 L, 14 m²/L, 2 coats, but is not available to order online and only sold in selected stores.
 - **FR / Dulux Valentine:** official product page states 100 m² per 10 L (10 m²/L), not 8 m²/L. France per-coat cost range corrected to €0.299–€0.549/m². Ripolin's Bricomarché page confirms €39.90/10 L and 10 m²/L; Tecnomat BATIR 580 confirms €29.90 TTC/10 L and 10 m²/L.
 - These corrections were applied to proposed registry only; every record remains autoEligible=false. No production data is enabled.
+
+
+## 2026-11-15 — PR #388 live source corrections merged
+
+- PR #388 merged as cfcde55f77cf1ef0d153ee38d442208734a92231. It corrected the CA SICO same-SKU coverage to RONA's 400 sq ft, corrected Crown/Wickes list price to £33 (sale £24), and corrected Dulux Valentine Simple Mat to 10 m²/L from the official manufacturer page.
+- Proposed values now reflect CA 0.0904–0.1021 L/m²/coat and CAD 1.17–2.15/m²/coat; GB £0.471–£0.615/m²/coat using list price; FR €0.299–€0.549/m²/coat.
+- Paired price basis is now explicitly retailer-displayed price; tax status is not normalized unless the exact source says VAT/IVA/TTC included. Visitor wording must not claim tax-exclusive cost where not verified.
+- All 16 records remain proposed/autoEligible=false. No runtime integration or production deployment.
