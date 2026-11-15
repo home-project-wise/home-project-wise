@@ -1989,3 +1989,8 @@ The Pages deployment workflow was inspected read-only. It runs scripts/rebuild_s
 **Tested (008):** local emulation of `scripts/quality_gate.py`: no failures (1,889 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
 **Writer notes (owner relays them to ChatGPT):** keep sourced numbers instead of "check your product"; strip `utm_source` from URLs; keep status and research records out of the article body; mark "verified" only for sources opened in full.
 **Not touched:** calculator, prices, design files, scripts, workflows.
+
+## 2026-11-15 — Claude A — ARTICLE 009 (squeaky wood floor), record kept here to avoid conflicts
+
+Built from This Old House "How To Repair Squeaky Wood Floors" (updated 2026-05-29) and AHF Floor Expert "10 Causes of Floor Squeaks" (updated 2022-10-26), both opened in full, plus the APA Technical Note C468 listing page (topics only; the six-page PDF was NOT opened, so APA is cited only for its list of 12 causes). No source gives a universal screw length or spacing, so the article states that and tells readers to use the kit's own instructions. The hidden-utilities and warning-sign advice is labelled as our own precaution. Powder lubricant was dropped (no opened source recommends it). Branch `claude/art-009-squeaky-wood-floor`, draft PR; hero `website/images/squeaky-wood-floor-hero.jpg` pending owner upload.
+**Tested:** local emulation of `scripts/quality_gate.py`: no failures (1,676 words, 15 H2, 6 FAQ, 4 images). **Not tested:** CI, browser rendering, live site.
