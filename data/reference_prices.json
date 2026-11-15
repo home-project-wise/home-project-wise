@@ -5229,16 +5229,16 @@
     "kind": "editorial-range",
     "source": {
       "id": "EU-FR-LEROYMERLIN-MOQUETTE-2026-11-14",
-      "name": "Moquette category listings",
+      "name": "Moquette de sol en rouleau category listings",
       "publisher": "Leroy Merlin France",
-      "url": "https://www.leroymerlin.fr/produits/bonnes-affaires/celebrons-maison/voir-tous-les-produits/notre-selection-revetement-sol-et-mur/",
+      "url": "https://www.leroymerlin.fr/produits/revetement-sol-et-mur/moquette/moquette-de-sol-en-rouleau/",
       "geography": "France (online listings)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
     "notes": "Selected roll carpet products include tufted carpet at €13.90/m², €24.90/m² and €29.90/m². Catalogue sample only.",
-    "caveats": "Selected products differ in fibre, pile and quality; marketplace page may include limited local availability. VAT included; underlay and fitting excluded.",
+    "caveats": "Selected products differ in fibre, pile and quality; marketplace page may include limited local availability. VAT included; underlay and fitting excluded. Source URL updated 14 Nov 2026 to the direct roll-carpet category page; the observed €13.90/m² and €29.90/m² endpoints are visible among roll products. This remains a selected retailer sample, not a national survey.",
     "reviewStatus": "researched",
     "subtype": "broadloom-carpet",
     "jurisdiction": null,
@@ -5325,13 +5325,13 @@
       "retrievedAt": "2026-11-14"
     },
     "notes": "Selected solid hardwood listings include wenge at €118.80/m² and oak at €139/m². Premium examples only, not a market-wide range.",
-    "caveats": "Only two premium listings; not representative of all solid parquet. Species, grade, finish and plank dimensions differ.",
+    "caveats": "Only two premium listings; not representative of all solid parquet. Species, grade, finish and plank dimensions differ. Source audit 14 Nov 2026: current category evidence shows at least one recorded endpoint (€118.80/m²) as a crossed-out former price with a lower live sale price (€71.92/m²); current range is not safely established. Excluded from automatic selection pending endpoint/SKU verification.",
     "reviewStatus": "researched",
     "subtype": "solid-hardwood",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Quarantined pending a current, SKU-verifiable sample: the linked generic floor/wall promotion page does not establish the recorded range, and a current Leroy Merlin solid-parquet listing exposes €118.80/m² as a former price discounted to €71.92/m². Do not use the former price as a current reference; re-verify both endpoints and price conditions."
   },
   {
     "id": "EU-ES-carpet-leroymerlin-2026-11-14",
@@ -5492,14 +5492,14 @@
       "id": "EU-IT-LEROYMERLIN-PARQUET-MASSICCIO-2026-11-14",
       "name": "Parquet massello product listings",
       "publisher": "Leroy Merlin Italia",
-      "url": "https://www.leroymerlin.it/prodotti/pavimenti-e-rivestimenti/pavimenti-laminati/pavimenti-laminati/pavimenti-in-legno-per-interni-p.html",
+      "url": "https://www.leroymerlin.it/prodotti/pavimenti-e-rivestimenti/parquet/parquet/parquet-prefinito/parquet-massello-p.html?p=1",
       "geography": "Italy (online listings)",
       "geographyResolution": "national",
       "observedAt": "2026-11-14",
       "retrievedAt": "2026-11-14"
     },
     "notes": "Selected solid-wood listings include oak at €42.68/m² and brushed oak at €117/m²; a pine solid-wood example also appears at €46.15/m².",
-    "caveats": "Selected product observations span different species, thickness and sellers; not a statistical market survey. Check stock and seller conditions.",
+    "caveats": "Selected product observations span different species, thickness and sellers; not a statistical market survey. Check stock and seller conditions. Source URL updated 14 Nov 2026 to the direct solid-wood parquet category page; sampled low/high endpoints (€42.68/m² and €117/m²) are visible there. Individual seller, species and promotion terms still vary.",
     "reviewStatus": "researched",
     "subtype": "solid-hardwood",
     "jurisdiction": null,
