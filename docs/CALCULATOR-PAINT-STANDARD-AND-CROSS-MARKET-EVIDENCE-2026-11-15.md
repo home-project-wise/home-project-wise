@@ -291,3 +291,31 @@ Three manufacturers per country are necessary but not sufficient. A country shou
 - current technical sheet and revision date.
 
 If only two products meet the strict match, the third is not comparable, or the sample is all from one parent manufacturer, keep that market blocked. A separate “new/porous/unsealed surface” scenario requires its own primer and finish-system evidence; do not apply a generic multiplier to the smooth-wall rate.
+
+
+## Derived manufacturer-source envelopes — two-finish-coat planning scenario (research proposal, not yet enabled)
+
+The following are sample envelopes, not statistically representative national market ranges and not a guarantee of practical yield. They are calculated from the manufacturer sources above. The raw source basis must remain visible. The sample combines theoretical, stated, and practical manufacturer figures where the source basis differs; it is not ready to be labelled one normalized practical rate.
+
+| Market | Candidate per-coat source envelope (m²/L) | Equivalent area per litre for a two-coat finish system (m²/L) | Main caveat |
+|---|---:|---:|---|
+| US | 6.1–11.1 | 3.1–5.5 | BEHR 250–400 sq ft/gal depends on substrate/application; PPG 400 on smooth nonporous; BM 400–450 theoretical |
+| CA | 9.8–13.5 | 4.9–6.7 | BEHR/BM/Valspar/SICO/Dulux differ in product class and film basis; SICO high yield needs exact finish TDS confirmation |
+| GB | 14–18 | 7–9 | Crown 14 with two coats; HMG 15 with 1–2; Dulux Trade “up to 18” is an upper limit |
+| DE | 6.0–7.7 | 3.0–3.9 | EN 13300 H10 class varies; Sto/Brillux/Alpina/Caparol do not all share the same hiding class |
+| FR | 6–12 | 3–6 | Sto H10 class 1; Colorine 6–8; Seigneurie smooth-surface figures 9–12 are different formulations |
+| ES | 7–12 | 3.5–6 | Grupo Puma theoretical 7–9; Valpaint 9–10 per coat at 100 μm wet; other products 8–12 |
+| IT | 8–12 per coat; 3–5 for San Marco two-coat system | 3–6 | Boero practical 10–12; Caparol 8–11; San Marco states total two-coat yield directly |
+| NL | 7–11 | 3.5–5.5 | Wijzonol practical roller 7–9; Stiho theoretical 8–9 at 40 μm dry; Sikkens 11 with basis not stated on product page |
+
+**Calculation rule for the two-coat scenario:** where a TDS gives per-coat spread rate R m²/L, litres required are paintable area × 2 ÷ R. Where a manufacturer directly gives a two-coat system yield, use that system yield without multiplying again. These are arithmetic conversions only; they do not create a new manufacturer claim.
+
+### Why these bands are not yet a production default
+- A broad source envelope is useful as a feasibility result, but it is too heterogeneous to be represented as one country-level coveragePerCoat field without recording its mixed evidence basis.
+- Several sources state “up to” or theoretical coverage; others state practical yield or a total two-coat system. These cannot be collapsed into one undifferentiated statistic.
+- Some products are high-opacity/trade, some are consumer matt, and EN 13300 hiding classes differ. H10 class 2 at 6.5 m²/L is not automatically comparable to H10 class 1 at 7 m²/L.
+- A safe first release could show a broad two-coat finish-paint quantity range with a plain-language caveat and explicit source list, but only after row-level normalization and human review confirms the selected products fit the ordinary homeowner paint class.
+- Bare/new/porous walls require a separate primer/system decision. Do not use this envelope to claim primer is included or add an unsupported extra percentage.
+
+### Next decision gate
+Before putting any band into data/reference_assumptions.json, complete a row-level normalization table for each market with exact product, manufacturer, product class, source revision date, application method, substrate, stated film thickness, hiding class, yield type (practical/theoretical/maximum), per-coat/system basis, and currentness. Exclude any product that cannot be classified. If fewer than three independent comparable sources remain in a market, keep that market's paint quantity estimate unavailable rather than borrowing another country's data.
