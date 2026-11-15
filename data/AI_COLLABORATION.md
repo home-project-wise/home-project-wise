@@ -2102,3 +2102,17 @@ Owner decision: the shared calculator country selector must list **only the eigh
 
 ### Ownership reminder
 ChatGPT owns research, evidence quality, source/assumption approval and canonical reference data. Claude owns calculator implementation, technical matching, tests and responsive/accessibility work. Design specialist owns visual design. Do not cross these lanes.
+
+
+## 2026-11-15 — Reconciliation status after PRs #375/#376/#377
+
+- PR #375 merged as e3e40f7fd6e482b08db9ac2bdc58a03d4974aea9; the calculator research handoff, paint evidence merges, phone-video flags and remaining verification gaps are now present in this canonical operations room, WORK_LOG and PROJECT_STATE.
+- PR #376 merged as 4a0363f0a5ed480368a16ea5f65f2f1815fa0f78; historical PL-001/EN-001/HVAC-001 audit additions were reconciled onto current main while preserving the later owner correction.
+- Original PR #301 is closed as superseded, not merged. Its audit content is in #376 and its current operations handoff is in #375; no research content was discarded.
+- PR #377 merged as 04e625dad0da730013195bfe0775402494eeff79; it records the ISO 6504-3/EN 13300 methodology and expanded paint TDS evidence. Derived market source envelopes are research proposals, not enabled defaults.
+- Open coordination blocker: PR #360 remains open on a stale branch based at 50cff86, reports mergeable=false, and edits the operations room and WORK_LOG as part of article 008 records. Do not merge it as-is or overwrite its article handoff. Claude should rebase/recreate the article-record changes on current main and preserve this calculator handoff; until then, any further canonical log edit must be sequential and checked against #360.
+- The phone recording remains an unverified preview observation. Current Pages deployment, country selector location, shared-room transfers and full result flows still require real-device verification. No production deploy has been run by ChatGPT.
+
+## 2026-11-15 — Paint research decision checkpoint
+
+The first complete eight-market evidence sweep now supports candidate two-coat quantity envelopes, but not a single normalized practical coverage default. The sample spans different product classes and includes theoretical, practical, maximum and product-system figures. Keep the envelopes in the research document only. Next task is row-level normalization and source classification; do not create reference_assumptions.json or tell Claude to wire the values until the comparable sample passes the data release gate.
