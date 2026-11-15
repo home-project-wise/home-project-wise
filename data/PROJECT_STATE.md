@@ -319,3 +319,8 @@ The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uplo
 - The review scope covers flooring/materials, paint, wallpaper, electricity and project estimator. Preserve all existing source, currency, jurisdiction, privacy and budget-integrity safeguards.
 - Manual GitHub Pages workflow run #694 was dispatched by the owner on main commit 38011c9 and succeeded (deploy job passed; 22 seconds total). This confirms deployment workflow success, not yet live UI/data correctness.
 - **Current verification status:** deployed successfully; still needs live JSON and real-device inspection of calculator controls. The beginner-first UX defect remains open under #362; no calculator code was changed by ChatGPT.
+
+
+### 2026-11-15 — Initial country selector scope confirmed
+
+The owner decided that the shared beginner-first calculator country selector must contain only markets currently covered by the reference-price registry: US, CA, GB, DE, FR, ES, IT and NL. Unsupported markets (including Tunisia) are excluded from the initial selector. Country is selected once and reused across calculator sections; do not infer it from language, IP or precise location. Exact market/jurisdiction matching is mandatory, with no cross-country fallback; where no eligible reference exists, disclose that and retain manual price entry. Expansion to additional markets requires researched, validated source coverage first.
