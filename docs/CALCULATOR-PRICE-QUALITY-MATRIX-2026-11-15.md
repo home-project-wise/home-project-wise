@@ -58,6 +58,8 @@ All 35 eligible flooring rows are `editorial-range`; none is a government benchm
 - **Italy (5):** laminate, porcelain tile, engineered hardwood, broadloom carpet and solid hardwood, all Leroy Merlin only.
 - **Netherlands (1):** broadloom carpet only, HORNBACH only.
 
+**Update from the 2026-11-15 retailer spot-check follow-up:** new laminate category checks were opened for Wickes (UK), OBI (Germany), Castorama (France), Brico Depôt (Spain), OBI (Italy) and Praxis (Netherlands). These improve discovery breadth for laminate only. They are live category/SKU spot checks, not structured multi-retailer samples and therefore do not change the current registry endpoints or confidence grades. Ownership was checked: OBRAMAT (Spain) and Bricocenter (Italy) are ADEO banners like Leroy Merlin, so they are not counted as independent retailer groups; Brico Depôt Spain (Kingfisher) and OBI Italy are the independent-group comparisons. Details and product-level caveats are in the flooring evidence follow-up document.
+
 ### Important price-comparability gaps
 
 1. **Retailer breadth:** except selected US and UK samples, most market/category ranges rely on one retailer. This is insufficient to claim a representative market range.
@@ -96,8 +98,8 @@ These sources are useful as corroboration, not automatic replacements for the ca
 ### P1 — improve flooring representativeness
 1. Refresh the three US July 2026 ranges against current retailer samples and record the exact sampling method, SKU count, geography and promotion status.
 2. For Canada, add at least two additional independent retailers and identify the province/region for observed listings; separately validate Ontario and other provinces where possible.
-3. For UK, split standard and promotional prices; add independent suppliers for carpet, engineered wood, tile and vinyl rather than relying on one category retailer.
-4. For DE, FR, ES, IT and NL, add at least one genuinely independent retailer per currently eligible subtype before promoting any range to high confidence. Where that cannot be done, keep the result clearly labelled as a limited retailer sample.
+3. For UK, split standard and promotional prices; Wickes now provides a laminate spot-check, but add independent suppliers for carpet, engineered wood, tile and vinyl rather than relying on one category retailer.
+4. For DE, FR, ES, IT and NL, laminate now has an independent-group spot check in addition to the original retailer source; convert those checks into reproducible, dated SKU samples. For other eligible subtypes, add at least one genuinely independent retailer per subtype before promoting any range to high confidence. Where that cannot be done, keep the result clearly labelled as a limited retailer sample.
 5. Capture product grade/specification boundaries (thickness, wear layer, construction, finish, format) before combining endpoints.
 
 ### P2 — strengthen electricity interpretation
