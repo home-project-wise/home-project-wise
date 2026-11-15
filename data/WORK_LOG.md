@@ -219,3 +219,6 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | ChatGPT — corrected a second FR source nuance: Dulux Valentine Simple Mat 10 L exact Leroy Merlin SKU specification is 8 m²/L; the brand site calculator's 10 m²/L is generic and not SKU-specific. FR paired cost high restored to €0.686/m²/coat. Generic calculator yields are not substituted for exact product specifications. | NEXT: keep all 16 assumptions proposed/autoEligible=false; final owner decision on source-envelope use still required.
+
+
+2026-11-15 | ChatGPT — final retail source normalization: corrected US Glidden and CA BEHR exact SKU URLs; updated DE CMI current price to €12.59/10 L (BAUHAUS remains lower); tagged VAT/IVA/TTC included only for exact pages that state it, leaving other tax statuses unverified. No range eligibility changed; all 16 records remain proposed/autoEligible=false.
