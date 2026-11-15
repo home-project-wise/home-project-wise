@@ -389,3 +389,28 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Corrected US Glidden and Canada BEHR price/coverage source URLs to exact product SKUs; DE CMI price now €12.59/10 L, with BAUHAUS still the lowest paired cost observation.
 - Tax status is only marked included when the source explicitly states VAT/IVA/TTC; otherwise not verified. Do not assume tax-exclusive or tax-inclusive totals.
 - Proposed paint assumptions remain disabled pending owner approval.
+
+
+
+## 2026-11-15 — Current paint assumption state (authoritative after PR #391)
+
+PR #391 merged as `fa20c1f09db633d5c567c702a7a1f83ac9cb7fc3`. The current canonical file `data/reference_assumptions.json` contains 16 proposed paint records, with separate manufacturer/TDS provenance for quantity and exact same-SKU retail provenance for cost. JSON validation on main: 16 records, 8 markets, 0 invalid rows, every record has at least three source records, all status=proposed and autoEligible=false.
+
+**Current per-coat proposal values** (multiply by selected coat count; two-coat scenario = ×2):
+
+| Market | Paint volume L/m²/coat | Material cost /m²/coat |
+|---|---:|---:|
+| US | 0.0905–0.1629 L | USD 0.565–1.640 |
+| CA | 0.0904–0.1021 L | CAD 1.170–2.150 |
+| GB | 0.0667–0.0714 L | GBP 0.471–0.615 |
+| DE | 0.1176–0.1818 L | EUR 0.199–0.750 |
+| FR | 0.0833–0.1250 L | EUR 0.299–0.686 |
+| ES | 0.0769–0.1250 L | EUR 0.0777–0.3407 |
+| IT | 0.0833–0.1250 L | EUR 0.256–0.445 |
+| NL | 0.0909–0.1667 L | EUR 0.383–1.455 |
+
+These are **paired product-sample envelopes**, not national averages or guaranteed practical yields. They combine product grades and source bases; each source's basis/caveat is retained. Cost is retailer-displayed material price and tax status varies; primer, labour, tools, delivery and any unverified tax adjustment are not included. No generic 10% allowance.
+
+**Implementation gate:** owner approval is required for the broad source-envelope path and the two-coat planning scenario before setting any record autoEligible=true or asking Claude to wire Stage 2. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
+
+**Open coordination:** PR #360 remains open and stale (mergeable=false), touching AI_COLLABORATION.md and WORK_LOG.md for article 008. It was commented with rebase instructions. Do not merge that branch as-is; preserve this current calculator handoff when it is reconciled.
