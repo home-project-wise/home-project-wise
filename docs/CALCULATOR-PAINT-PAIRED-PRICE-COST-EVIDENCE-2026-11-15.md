@@ -260,3 +260,28 @@ The paired-SKU cost ranges use the **retailer-displayed price**, not a normalize
 - NL: source pages do not consistently expose BTW treatment in the retrieved details.
 
 The registry therefore records taxStatus=not-verified for paired retail cost sources unless an exact source statement is available. The visitor-facing result must say “retailer-displayed material-price sample; tax treatment may vary” rather than claiming taxes are excluded. A later verified tax-normalization pass may split tax-inclusive and tax-exclusive values, but must not estimate tax rates or silently adjust prices.
+
+
+## 2026-11-15 — Owner approval: initial beginner paint assumptions
+
+The repository owner approved these values as a useful first version, with the explicit expectation that the calculator and evidence will be improved continuously.
+
+**Approved scope**
+- Use the market-matched per-area quantity and material-cost ranges in `data/reference_assumptions.json` for ordinary interior wall matt paint on sound/prepared surfaces.
+- The beginner path may calculate litres and material cost directly from net wall area × per-coat range × coat count. It does not need tin size to produce a per-area estimate.
+- Offer 1 or 2 finish coats. If the visitor does not know, use **2 coats as the disclosed planning default**, and let the visitor change it.
+- Only use the selected market: US, CA, GB, DE, FR, ES, IT or NL. Never substitute another country/currency.
+- Display a low–high range, the selected market, coat count, source links, and plain-language caveats.
+
+**Hard limits**
+- This approval does not authorize tin/can counts, per-tin price, package totals, national-average/typical-market claims, guaranteed practical coverage, or a final quote.
+- New, bare, porous, damaged or otherwise unprepared walls require a separate primer/system path and must not silently reuse this finish-paint estimate.
+- Do not add hidden waste or contingency percentages. Show user-entered adjustments separately.
+- Cost uses retailer-displayed sample prices; tax treatment varies by source. State this plainly and do not normalize taxes without evidence.
+- Keep product-specific refinements in Advanced. A visitor's own product price/coverage must override, not blend with, the reference estimate.
+
+**Continuous improvement**
+The approval is an initial release decision, not a declaration of final accuracy. ChatGPT continues source audits, independent market sampling, technical-method review and data corrections. Claude owns the implementation, UX, tests and performance; do not change calculator-owned code from the research lane. Any material change to the calculation method or market scope returns for review.
+
+**Claude implementation handoff**
+Use the approved `data/reference_assumptions.json` as a per-area assumption source, not as a package-price source. Implement Stage 2 beginner paint flow from room dimensions/shared room data and optional openings; calculate net wall area, litres and cost ranges for selected market and coat count. Default to two disclosed coats if unknown. Preserve optional advanced product inputs and user override precedence. Clearly flag unsupported wall conditions and do not imply primer is included. Add tests for each market, 1/2 coats, missing market data, source display, manual override, net wall area, and no package/tin claims. Keep no runtime network, no persistence, and no deployment without approval.
