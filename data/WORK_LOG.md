@@ -228,3 +228,5 @@ Format: date | what was done | what is next.
 
 
 2026-11-15 | Owner approval recorded — initial paint source-envelope assumptions approved for beginner per-area planning in eight markets. Two finish coats are the disclosed default when unknown; 1/2 coats selectable. Registry status changed to approved-initial/autoEligible=true only within beginner-area-estimate-only scope; packagePricingEligible=false. Claude handoff: implement Stage 2 per-area litres and cost, not can count or per-can price. ChatGPT retains research/data maintenance; Claude owns code/tests/UX. No deployment.
+- 2026-11-15: Article 007 merged (#346, 50cff86). Article 008 (transition strips) built with 3 SVGs from five opened maker documents; gate emulation clean; hero JPG pending owner upload; draft PR. Scope reminder from the owner: articles only, no calculator, prices or design; propose technical changes first.
+- 2026-11-15: Article 009 (squeaky wood floor) built with 3 SVGs from This Old House and AHF (opened in full) and the APA C468 listing; gate emulation clean; hero JPG pending owner upload; draft PR.
