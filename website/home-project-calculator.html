@@ -64,7 +64,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <p class="formula">Formulas: area = length × width; perimeter = 2 × (length + width); volume = area × depth. Unit conversions use 1 ft = 0.3048 m exactly.</p>
 </section>
 <section class="tool-panel" id="panel-paint" role="tabpanel" aria-labelledby="tab-paint">
-<h2>Paint quantity and cost</h2><p>Estimate paint from the room dimensions, number of coats, the coverage printed on your paint tin and the price you enter. Walls only: ceilings, trim and primer are not included.</p>
+<h2>Paint quantity and cost</h2><p>Enter the room size and the number of finish coats. Choose your country at the top for a typical amount of paint and material cost range, or open Advanced settings to use the coverage and price from your own tin. Walls only: ceilings, trim and primer are not included.</p>
 <form class="calc" id="paint-form" novalidate>
 <div class="calc-grid">
 <div class="calc-field"><label for="paint-unit">Room measurements</label><select id="paint-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
@@ -72,12 +72,16 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="paint-width">Room width</label><input id="paint-width" type="number" min="0" step="any" required></div>
 <div class="calc-field"><label for="paint-height">Wall height</label><input id="paint-height" type="number" min="0" step="any" required></div>
 <div class="calc-field"><label for="paint-openings">Total doors/windows area (<span class="paint-area-unit">m²</span>)</label><input id="paint-openings" type="number" min="0" step="any" value="0"><small>Add the combined area you will not paint.</small></div>
-<div class="calc-field"><label for="paint-coats">Number of coats</label><input id="paint-coats" type="number" min="1" max="10" step="1" value="2"></div>
-<div class="calc-field"><label for="paint-coverage">Coverage per tin (<span class="paint-area-unit">m²</span>)</label><input id="paint-coverage" type="number" min="0" step="any" required placeholder="From product label"></div>
+<div class="calc-field"><label for="paint-coats">Number of finish coats (2 if you are not sure)</label><input id="paint-coats" type="number" min="1" max="10" step="1" value="2"><small>Typical ranges are available for 1 or 2 coats.</small></div>
+
 <div class="calc-field"><label for="paint-waste">Extra paint for waste (%), your choice</label><input id="paint-waste" type="number" min="0" max="50" step="any" placeholder="e.g. 10"><small>Leave blank to add none.</small></div>
+
+
+</div><details id="paint-advanced"><summary>Advanced settings: coverage and price from your tin</summary><div class="calc-grid">
+<div class="calc-field"><label for="paint-coverage">Coverage per tin (<span class="paint-area-unit">m²</span>)</label><input id="paint-coverage" type="number" min="0" step="any" placeholder="From product label, optional"></div>
 <div class="calc-field"><label for="paint-price">Price per tin (optional)</label><input id="paint-price" type="number" min="0" step="any" placeholder="Your local price"></div>
 <div class="calc-field"><label for="paint-currency">Currency symbol</label><input id="paint-currency" type="text" maxlength="5" value="$"></div>
-</div><p class="calc-error" id="paint-error" role="alert"></p><button class="calc-btn" type="submit">Estimate paint needed</button>
+</div></details><p class="calc-error" id="paint-error" role="alert"></p><button class="calc-btn" type="submit">Estimate paint needed</button>
 </form><div class="tool-result" id="paint-result" aria-live="polite"></div>
 <p><button type="button" class="wp-btn" id="paint-add" hidden>Add to project list</button> <span class="wp-note" id="paint-add-note" role="status"></span></p>
 <p class="formula">Formula: (2 × (length + width) × wall height − openings) × coats × (1 + allowance) ÷ coverage per tin. The tin count rounds up to a whole tin. Ceilings, textured walls, primer and unusual room shapes are not included.</p>
@@ -191,6 +195,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </main><footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script>
 <script src="reference-prices.js"></script>
 <script src="region.js"></script>
+<script src="paint-reference.js"></script>
 <script src="project-list.js"></script>
 <script src="energy-reference.js"></script>
 <script src="flooring-reference.js"></script>
@@ -311,11 +316,14 @@ byId('measure-form').addEventListener('submit',function(e){e.preventDefault();er
 function updatePaintUnits(){var s=byId('paint-unit').value==='ft'?'ft²':'m²';document.querySelectorAll('.paint-area-unit').forEach(function(el){el.textContent=s;});}
 byId('paint-unit').addEventListener('change',updatePaintUnits);
 byId('paint-form').addEventListener('submit',function(e){e.preventDefault();error('paint-error','');show('paint-result','');
- if(!validPositive(['paint-length','paint-width','paint-height','paint-coverage'])){error('paint-error','Enter positive room dimensions and product coverage from the label.');return;}
+ if(!validPositive(['paint-length','paint-width','paint-height'])){error('paint-error','Enter positive room dimensions.');return;}
+ var hasCov=byId('paint-coverage').value!=='';
+ if(hasCov&&!validPositive(['paint-coverage'])){error('paint-error','Coverage per tin must be greater than zero, or leave it blank.');return;}
  if(!validNonNegative(['paint-openings','paint-price','paint-waste'])||!Number.isInteger(value('paint-coats'))||value('paint-coats')<1||value('paint-coats')>10||value('paint-waste')>50){error('paint-error','Check openings, coats, allowance and price. Coats must be 1–10 and allowance 0–50%.');return;}
  var f=byId('paint-unit').value==='ft'?0.3048:1,L=value('paint-length')*f,W=value('paint-width')*f,H=value('paint-height')*f,open=value('paint-openings')*f*f;
  var gross=2*(L+W)*H,net=gross-open;
  if(net<=0){error('paint-error','The openings area must be smaller than the total wall area.');return;}
+ if(!hasCov){var h0='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)';if(window.hpwPaint)h0+=window.hpwPaint({netM2:net,coats:value('paint-coats'),allowPct:value('paint-waste')});if(byId('paint-waste').value==='')h0+='<br><span class="wp-note">No extra allowance added.</span>';show('paint-result',h0);if(window.hpwLast)delete window.hpwLast.paint;byId('paint-add').hidden=true;return;}
  var coats=value('paint-coats'),allow=value('paint-waste')/100,coverage=value('paint-coverage')*f*f,litres=net*coats*(1+allow)/coverage,tins=Math.ceil(litres-1e-10),price=byId('paint-price').value===''?null:value('paint-price');
  var html='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)<br>Including '+coats+' coat(s) and '+fmt(allow*100,1)+'% allowance: <strong>'+fmt(litres)+' tin-equivalents</strong><br>Buy at least <strong>'+tins+' tin(s)</strong> of the entered coverage.';
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}

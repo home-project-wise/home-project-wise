@@ -42,4 +42,22 @@ print("PASS missing, invalid and empty registries are refused")
 src = (HERE / "rebuild_site_indexes.py").read_text(encoding="utf-8")
 assert "def main():\n    publish_reference_prices()" in src
 print("PASS main() publishes the registry before anything else")
+# 4. the assumptions registry is published the same way: byte-identical, and refused when missing, invalid or without an approval block
+real_a = HERE.parent / "data" / "reference_assumptions.json"
+root_a = sandbox(); shutil.copyfile(real_a, root_a / "data" / "reference_assumptions.json")
+out_a = mod.publish_reference_assumptions(root_a)
+assert out_a == root_a / "website" / "reference-assumptions.json" and out_a.read_bytes() == real_a.read_bytes()
+def expect_exit_a(root, text):
+    try:
+        mod.publish_reference_assumptions(root)
+    except SystemExit as exc:
+        assert text in str(exc), str(exc)
+        assert not (root / "website" / "reference-assumptions.json").exists()
+        return
+    raise AssertionError("expected SystemExit: " + text)
+expect_exit_a(sandbox(), "missing")
+bad_a = sandbox(); (bad_a / "data" / "reference_assumptions.json").write_text("{not json", encoding="utf-8"); expect_exit_a(bad_a, "not valid JSON")
+noapp = sandbox(); (noapp / "data" / "reference_assumptions.json").write_text(json.dumps({"records": [{"id": "x"}]}), encoding="utf-8"); expect_exit_a(noapp, "approval block")
+assert "publish_reference_prices()\n    publish_reference_assumptions()" in src
+print("PASS assumptions registry is published byte-for-byte and refused when missing, invalid or unapproved")
 print("3 publish tests passed")
