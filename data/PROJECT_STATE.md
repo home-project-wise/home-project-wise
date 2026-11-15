@@ -341,3 +341,12 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Candidate two-coat source envelopes exist for all eight markets, but they combine different product classes and yield bases. They are not enabled defaults pending row-level normalization and comparability review.
 - PR #360 remains open and stale (mergeable=false) while editing operations/work-log records for article 008. Do not merge as-is; Claude needs to rebase/reconcile it without losing this handoff.
 - No reference_assumptions.json or paint data values have been created; no calculator code, CSS, workflow, or production deployment was changed.
+
+
+### 2026-11-15 — Paint evidence normalized; quantity approach recommended; price research pending
+- PR #379 merged as 1df2f98d175d81c70f5f0710291e25df90f945fa; row-level manufacturer TDS normalization is documented for all eight supported markets.
+- ISO 6504-3:2019 and EN 13300 H10 comparisons are documented in #377. Practical rate, theoretical rate, hiding power and “up to” values remain separate; no blended rate is approved as guaranteed practical coverage.
+- ChatGPT recommended a broad, source-labelled two-finish-coat quantity range for sound prepared walls as the useful beginner path; owner approval is still required before enabling values. Strict practical-only evidence would leave most markets unavailable.
+- Primer/new/porous walls remain a separate scenario. No hidden waste percentage is proposed.
+- Paint cost is still not solved: no paint category price range has been approved in the canonical registry. Retail price sampling by market/product class is next; no cost should be invented from coverage evidence.
+- Issue #362 has been updated with the methodology and recommendation. No code, CSS, price registry, assumptions registry, workflow or production deploy changed.

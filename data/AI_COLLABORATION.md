@@ -2116,3 +2116,14 @@ ChatGPT owns research, evidence quality, source/assumption approval and canonica
 ## 2026-11-15 — Paint research decision checkpoint
 
 The first complete eight-market evidence sweep now supports candidate two-coat quantity envelopes, but not a single normalized practical coverage default. The sample spans different product classes and includes theoretical, practical, maximum and product-system figures. Keep the envelopes in the research document only. Next task is row-level normalization and source classification; do not create reference_assumptions.json or tell Claude to wire the values until the comparable sample passes the data release gate.
+
+
+## 2026-11-15 — Paint TDS normalization and recommendation for Issue #362
+
+- PR #379 merged as 1df2f98d175d81c70f5f0710291e25df90f945fa. It adds a row-level normalization table for manufacturer paint TDS evidence in all eight supported markets (US, CA, GB, DE, FR, ES, IT, NL).
+- The source table preserves raw units, normalized m²/L, per-coat vs two-coat-system basis, theoretical/practical/maximum distinction, substrate, application method, film thickness, EN 13300 hiding class and revision date where available.
+- The standards review in #377 establishes that ISO 6504-3:2019 distinguishes practical and theoretical spreading rates from hiding power; EN 13300 H10 class must be tied to its stated spreading rate. Do not merge these into a single unqualified coverage statistic.
+- ChatGPT recommends the source-envelope path for the first beginner quantity estimate: a broad, clearly labelled two-finish-coat quantity range on a sound, prepared interior wall, with per-source provenance and limitations displayed. This is not a statistical national average or guaranteed practical yield. A strict practical-roller-only path leaves most markets without enough independent comparable sources.
+- Keep bare/new/porous surfaces and primer as a separate case; no hidden waste percentage. Let visitor select 1 or 2 finish coats; if the visitor does not know, use a disclosed 2-coat planning scenario only after owner approval.
+- **Paint cost remains unapproved and unavailable from this evidence.** No paint category range exists in the canonical price registry; do not invent cost or multiply by tins without package-volume compatibility. Next research task: retail price sampling by country/product class, kept separate from coverage assumptions.
+- Detailed results and recommendation were posted to Issue #362. No code, CSS, reference-price data, assumption registry or deployment changed.
