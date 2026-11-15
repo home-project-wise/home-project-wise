@@ -119,4 +119,15 @@ ok("real data electricity: GB and Northern Ireland are separate; no cross-jurisd
   RP.electricityOptions(data).forEach((o) => o.plans.forEach((pl) => assert.equal(RP.selectElectricity(data, { jurisdiction: o.jurisdiction, tariffPlan: pl }).ok, true, o.jurisdiction + " " + pl)));
   data.filter((r) => RP.isAutoEligible(r) && r.category === "electricity").forEach((r) => assert.equal(String(r.unit).toLowerCase(), "kwh"));
 });
+ok("areaCost: price range per area times the area, converting only sq ft and m2, never currency", () => {
+  const r = rec({ unit: "sq ft", low: 2, high: 3 });
+  const a = RP.areaCost(r, 100, "sq ft"); assert.deepEqual([a.low, a.high, a.currency], [200, 300, "USD"]);
+  const b = RP.areaCost(r, 10, "m²"); assert.ok(Math.abs(b.low - 10 * RP.SQFT_PER_M2 * 2) < 0.01 && Math.abs(b.high - 10 * RP.SQFT_PER_M2 * 3) < 0.01);
+  const c = RP.areaCost(rec({ unit: "m²", currency: "EUR", low: 20, high: 30 }), 1000, "sq ft"); assert.ok(Math.abs(c.low - 20 * 92.90304) < 0.01 && Math.abs(c.high - 30 * 92.90304) < 0.01 && c.currency === "EUR");
+  assert.equal(RP.areaCost(r, 0, "sq ft"), null); assert.equal(RP.areaCost(r, 10, "gallon"), null); assert.equal(RP.areaCost(rec({ unit: "gallon" }), 10, "sq ft"), null); assert.equal(RP.areaCost(rec({ low: 5, high: 1 }), 10, "sq ft"), null);
+});
+ok("flooringCountries lists only countries with an eligible flooring range", () => {
+  const cs = RP.flooringCountries(data); assert.ok(cs.includes("US") && cs.every((c) => data.some((r) => RP.isAutoEligible(r) && r.category === "flooring" && r.audience === c)));
+  assert.deepEqual(RP.flooringCountries([rec({ autoEligible: false })]), []);
+});
 console.log("\n" + n + " reference-price tests passed");
