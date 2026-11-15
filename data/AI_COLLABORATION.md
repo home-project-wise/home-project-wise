@@ -2138,3 +2138,12 @@ The first complete eight-market evidence sweep now supports candidate two-coat q
 - **All 16 records remain status=proposed and autoEligible=false.** They are not consumed by runtime. This is deliberate: owner approval is still required for the broad source-envelope path and the two-coat planning scenario before any values are enabled or Claude is asked to wire them.
 - Formula: litres = paintable wall area × selected coats × L/m²/coat; material cost = paintable wall area × selected coats × currency/m²/coat. No hidden waste factor. Primer, labour, tools, delivery and unverified tax are excluded. The source-cost envelope pairs exact SKU price and coverage; do not cross-multiply unrelated product extremes.
 - Next ChatGPT work: verify price tax/stock/offer status and tighten product-tier comparability; research additional current TDS/price pairs where necessary. Owner decision required before changing autoEligible to true. Claude may wire only after approval and must preserve source list and caveats.
+
+
+## 2026-11-15 — Price-pair verification correction
+
+- Follow-up page inspection found that the French Brico Dépôt €10.90/10 L product page confirms price and VAT but does **not** state its coverage. The earlier 12 m²/L pairing was unsupported and has been removed from the cost evidence and proposed registry.
+- Replaced that row with Tecnomat BATIR 580: exact 10 L SKU, €29.90 TTC, and 10 m²/L stated on the same product page. The French per-coat paired cost lower bound is corrected to €0.299/m² (two-coat €0.598/m²), not €0.0908/m².
+- Reopened source checks also confirmed current price/availability details for Walmart Glidden, HMG Vinyl Matt, OBI CMI, Brico Dépôt Spain, OBI MaxMeyer and Praxis Baseline. OBI CMI price now displays €12.59/10 L (19% VAT included); this does not change the Germany sample's low cost bound, which is BAUHAUS Raumfarbe.
+- Important data-model correction: coverage records now cite manufacturer TDS/product-yield sources; cost records cite the exact paired retailer SKU price-and-coverage pages. The source arrays are no longer reused across different evidence claims.
+- All 16 records remain proposed/autoEligible=false. No production assumption is enabled; owner approval still required.
