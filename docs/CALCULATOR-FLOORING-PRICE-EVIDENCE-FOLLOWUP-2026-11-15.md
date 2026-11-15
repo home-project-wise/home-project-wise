@@ -70,6 +70,21 @@ URL: https://www.vcalc.com/wiki/flooring-price-information
 
 This remains the source of several existing US records, with a dated 14 July 2026 sample and product counts per category. The page explicitly says it samples one big-box retailer per category, is not necessarily the retailer's complete product line, gives no accuracy guarantee and recommends checking local prices. This is a transparent convenience sample, not an independent national market survey. The three July observations should be refreshed before being described as current.
 
+
+### UK — Wickes independent laminate spot check (15 November 2026)
+
+**Wickes laminate category page**
+- https://www.wickes.co.uk/Products/Flooring/Laminate-Flooring/c/1000887
+- The live category page displayed 40 products. Visible examples were priced from about £9/m² to £22/m², with many 8–12 mm planks and stated pack coverages commonly around 1.48–2.74 m². Some listings were explicitly discounted; others were not.
+- Examples included Wickes own-brand 8 mm and 12 mm laminate, herringbone formats with smaller pack coverage, and Quick-Step branded laminate. The page is a live catalogue snapshot, not a fixed, downloadable sample.
+- **Use:** a new retailer-level cross-check independent of Direct Wood Flooring / Flooring Superstore and Carpetright/Tapi. It confirms that the UK laminate category has current offerings outside the earlier three-site study.
+- **Do not use:** as a replacement market range or as a direct LOW–HIGH endpoint. The category mixes thickness, herringbone vs plank format, own-brand vs branded products, discounted and non-discounted prices, and pack sizes. Record exact SKU observations only if each listing is opened and its price, stock, coverage and promotion status are captured.
+
+**UK ownership / independence caution**
+- Carpetright is now part of Tapi, so Tapi and Carpetright should not be counted as two independent retailers for the same sample.
+- Direct Wood Flooring and Flooring Superstore appear to be one group according to the 1 November 2026 source audit; keep them as one independent source group.
+- Wickes is an additional independent retailer for laminate in this pass. No comparable new independent sample was verified here for UK carpet, engineered wood, solid wood, tile or sheet vinyl.
+
 ## 2. Record-level implications — no edits yet
 
 | Market / material | Existing registry status | New evidence | Decision |
