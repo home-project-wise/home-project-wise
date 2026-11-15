@@ -770,7 +770,7 @@
       "unit": "EUR/m2/coat",
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools, delivery or unverified taxes",
       "low": 0.383,
-      "high": 1.6,
+      "high": 1.455,
       "currency": "EUR"
     }
   ]
