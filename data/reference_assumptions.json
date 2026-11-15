@@ -16,12 +16,12 @@
       "sources": [
         {
           "publisher": "BEHR",
-          "title": "BEHR MARQUEE Interior Matte TDS",
+          "title": "MARQUEE Interior Matte technical/product source",
           "url": "https://www.behr.com/pro/products/interior-products/interior-paints-and-coatings/paints-and-coatings/behr-marquee-interior/behr-marquee-matte",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "250–400 sq ft/US gal; 6.14–9.82 m²/L; substrate/application dependent.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "250–400 sq ft/US gal; substrate/application dependent.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "PPG",
@@ -29,8 +29,8 @@
           "url": "https://buyat.ppg.com/rep_pafpainttools_files/Pghpaints/TDB/6-70.PDF",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "400 sq ft/US gal; 9.82 m²/L on smooth nonporous surface; TDS 10/2024.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "400 sq ft/US gal on smooth nonporous; 4 mil wet / 1.3 mil dry; TDS 10/2024.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Benjamin Moore",
@@ -38,8 +38,8 @@
           "url": "https://media.benjaminmoore.com/WebServices/prod/assets/production/sellsheets/ben_Interior_SellSheet_US.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "400–450 sq ft/US gal; theoretical; 9.82–11.05 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "400–450 sq ft/US gal; theoretical gallon coverage.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-us-two-coat-proposal",
@@ -62,31 +62,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "BEHR",
-          "title": "BEHR MARQUEE Interior Matte TDS",
-          "url": "https://www.behr.com/pro/products/interior-products/interior-paints-and-coatings/paints-and-coatings/behr-marquee-interior/behr-marquee-matte",
+          "publisher": "Walmart / Glidden",
+          "title": "Glidden Fundamentals Flat 1 US gal SKU",
+          "url": "https://www.walmart.com/ip/3281187606",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "250–400 sq ft/US gal; 6.14–9.82 m²/L; substrate/application dependent.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "USD 20.97 / gal; up to 400 sq ft; price/coverage same SKU.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "PPG",
-          "title": "SPEEDHIDE Interior Latex Flat 6-70 TDS",
-          "url": "https://buyat.ppg.com/rep_pafpainttools_files/Pghpaints/TDB/6-70.PDF",
+          "publisher": "Home Depot / BEHR",
+          "title": "BEHR ULTRA Interior Matte 1 gal SKU",
+          "url": "https://www.homedepot.com/p/203202071",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "400 sq ft/US gal; 9.82 m²/L on smooth nonporous surface; TDS 10/2024.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "USD 39.98 / gal; up to 400 sq ft; price/coverage same SKU.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Benjamin Moore",
-          "title": "ben Interior Matte US sell sheet",
-          "url": "https://media.benjaminmoore.com/WebServices/prod/assets/production/sellsheets/ben_Interior_SellSheet_US.pdf",
+          "title": "ben Interior Matte US 1 gal product",
+          "url": "https://www.benjaminmoore.com/en-us/product/ben-interior-paint-matte-1-gallon/N624/ZWB100000002004939",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "400–450 sq ft/US gal; theoretical; 9.82–11.05 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "USD 60.99 / gal; 400–450 sq ft theoretical; price/coverage same SKU.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-us-per-coat-proposal",
@@ -110,30 +110,30 @@
       "sources": [
         {
           "publisher": "BEHR",
-          "title": "BEHR PREMIUM PLUS Interior Flat Home Depot Canada SKU",
-          "url": "https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-frittata-m290-2-3-79l/1001983340",
+          "title": "MARQUEE Interior Matte Canada TDS",
+          "url": "https://images.homedepot.ca/pdf/BEHR%20MARQUEE%20INTERIOR%20MATTE%20PAINT_TDS_Canada-pdf.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 47.47 / 3.79 L; 400 sq ft per can; approx. 9.8 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Up to 37 m²/3.78 L; wet/dry film and substrate caveats.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Benjamin Moore",
           "title": "ben Interior Matte Canada product",
-          "url": "https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-white-01/F624/ZWB100000002311032",
+          "url": "https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-galaxy-2117-20/F624/ZWB100000002077560",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 79.99 / 3.78 L; 37.2–41.8 m²/can; approx. 9.84–11.06 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "37.2–41.8 m²/3.78 L; 1–2 coats.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "PPG / SICO",
-          "title": "SICO Expert Zero VOC Flat TDS and RONA SKU",
+          "title": "SICO Expert TDS",
           "url": "https://buyat.ppg.com/REP_PafPaintTools_files/Sico/SC_8746XX_CAEN.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 43.49 / 3.78 L list price; 45–51 m²/can; approx. 11.9–13.49 m²/L; local availability and expired promotion caveat.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "45–51 m²/3.78 L per coat; exact product/finish.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-ca-two-coat-proposal",
@@ -156,31 +156,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "BEHR",
-          "title": "BEHR PREMIUM PLUS Interior Flat Home Depot Canada SKU",
+          "publisher": "Home Depot Canada / BEHR",
+          "title": "BEHR Premium Plus Flat 3.79 L SKU",
           "url": "https://www.homedepot.ca/product/behr-premium-plus-interior-low-odour-flat-paint-primer-in-frittata-m290-2-3-79l/1001983340",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 47.47 / 3.79 L; 400 sq ft per can; approx. 9.8 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "CAD 47.47 / 3.79 L; 400 sq ft; page availability and tax at checkout should be checked.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Benjamin Moore",
-          "title": "ben Interior Matte Canada product",
+          "title": "ben Interior Matte Canada 3.78 L product",
           "url": "https://www.benjaminmoore.com/en-ca/product/ben-interior-paint-matte-3-78-l-white-01/F624/ZWB100000002311032",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 79.99 / 3.78 L; 37.2–41.8 m²/can; approx. 9.84–11.06 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "CAD 79.99 / 3.78 L; 37.2–41.8 m²; exact same product coverage.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "PPG / SICO",
-          "title": "SICO Expert Zero VOC Flat TDS and RONA SKU",
-          "url": "https://buyat.ppg.com/REP_PafPaintTools_files/Sico/SC_8746XX_CAEN.pdf",
+          "publisher": "RONA / SICO",
+          "title": "SICO Expert Zero VOC Flat 3.78 L SKU",
+          "url": "https://www.rona.ca/en/product/sico-expert-zero-voc-flat-finish-white-interior-tintable-professional-acrylic-paint-378-l-50317190",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "CAD 43.49 / 3.78 L list price; 45–51 m²/can; approx. 11.9–13.49 m²/L; local availability and expired promotion caveat.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "CAD 43.49 list / 3.78 L; 45–51 m²; page had expired promotion and local stock caveat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-ca-per-coat-proposal",
@@ -204,30 +204,30 @@
       "sources": [
         {
           "publisher": "Crown",
-          "title": "Crown Matt Emulsion Wickes SKU",
-          "url": "https://www2.wickes.co.uk/Crown-Matt-Emulsion-Paint---Cloud-Burst---5L/p/266905",
+          "title": "Standard Emulsion Matt product page",
+          "url": "https://cd01.crownpaints.co.uk/products/standard-emulsion/matt/beige-white/136",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "5 L price £24 sale / £35 list; coverage 14 m²/L; two-coat product guidance.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
-        },
-        {
-          "publisher": "Dulux",
-          "title": "Dulux Matt official UK product",
-          "url": "https://www.dulux.co.uk/en/products/dulux-matt.html/page",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "£21.50 / 2.5 L; up to 14 m²/L; explicitly 2 coats.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "14 m²/L; 2 coats; porous plaster may need mist coat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "HMG",
-          "title": "HMG Vinyl Matt Emulsion product",
-          "url": "https://shop.hmgpaint.com/products/vinyl-matt-emulsion/",
+          "title": "Vinyl Matt Emulsion TDS",
+          "url": "https://shop.hmgpaint.com/wp-content/uploads/2024/10/HMG-Vinyl-Matt-Emulsion-120924.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "£37.99 / 5 L; 15 m²/L; 1–2 coats.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "15 m²/L; 1–2 coats; TDS version 1 dated 8 Oct 2024.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
+          "publisher": "Dulux",
+          "title": "Trade Supermatt product page",
+          "url": "https://www.duluxtradepaintexpert.co.uk/en/products/dulux-trade-supermatt/cccId_410174",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "Up to 18 m²/L; high-opacity trade matt; keep separate from standard consumer matt.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-gb-two-coat-proposal",
@@ -250,31 +250,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Crown",
-          "title": "Crown Matt Emulsion Wickes SKU",
+          "publisher": "Wickes / Crown",
+          "title": "Crown Matt Emulsion 5 L SKU",
           "url": "https://www2.wickes.co.uk/Crown-Matt-Emulsion-Paint---Cloud-Burst---5L/p/266905",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "5 L price £24 sale / £35 list; coverage 14 m²/L; two-coat product guidance.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "£35 list / 5 L (current sale £24); 14 m²/L; two coats.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Dulux",
-          "title": "Dulux Matt official UK product",
+          "title": "Dulux Matt UK 2.5 L product",
           "url": "https://www.dulux.co.uk/en/products/dulux-matt.html/page",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "£21.50 / 2.5 L; up to 14 m²/L; explicitly 2 coats.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "£21.50 / 2.5 L; up to 14 m²/L; two coats.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "HMG",
-          "title": "HMG Vinyl Matt Emulsion product",
+          "title": "Vinyl Matt Emulsion 5 L SKU",
           "url": "https://shop.hmgpaint.com/products/vinyl-matt-emulsion/",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "£37.99 / 5 L; 15 m²/L; 1–2 coats.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "£37.99 / 5 L; 15 m²/L; 1–2 coats; availability says standard delivery 2–3 working days.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-gb-per-coat-proposal",
@@ -297,40 +297,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "OBI / CMI",
-          "title": "CMI Wandfarbe Weiß matt OBI SKU",
-          "url": "https://www.obi.de/p/9060864/cmi-wandfarbe-weiss-matt-10-l",
+          "publisher": "Sto",
+          "title": "StoColor Select DIN TDS",
+          "url": "https://www.sto.de/webdocs/productdocuments/TechnicalDataSheet_StoColor_Select_DIN_0101_DE_01_00.PDF",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€11.99 / 10 L; 55 m² one coat; 5.5 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "6.5 m²/L H10 class 2; consumption 0.12–0.14 L/m² per coat; revision 27 Feb 2025.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "OBI / Alpina",
-          "title": "Alpina Wandfarbe DIN-EN OBI SKU",
-          "url": "https://www.obi.de/p/2175784/alpina-wandfarbe-din-en-weiss-matt-10-l",
+          "publisher": "Brillux",
+          "title": "Raulan 953 product data",
+          "url": "https://www.brillux.de/produkte/638384_raulan-953",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€44.99 / 10 L; 60 m² one coat; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "130–150 ml/m² per coat; H10 class 1 at 7–8 m²/L depending base colour.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "toom",
-          "title": "Standardweiß matt toom SKU",
-          "url": "https://toom.de/p/standardweiss-matt-10-l/8101221",
+          "publisher": "Alpina",
+          "title": "Innenraum-Weiß technical information",
+          "url": "https://alpina-farben.de/fileadmin/InterfaceAssets/assets/pdf/TI_2136_Alpina_Innenraum-Weiss_KH.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€24.99 / 10 L; 60 m² one coat; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
-        },
-        {
-          "publisher": "BAUHAUS",
-          "title": "Wandfarbe Raumfarbe BAUHAUS SKU",
-          "url": "https://www.bauhaus.info/dispersionsfarben-weiss/wandfarbe-raumfarbe/p/15110191",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "€11.95 / 10 L; about 60 m²; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "H10 class 2 at 6 m²/L; product-specific.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-de-two-coat-proposal",
@@ -354,39 +345,48 @@
       "sources": [
         {
           "publisher": "OBI / CMI",
-          "title": "CMI Wandfarbe Weiß matt OBI SKU",
+          "title": "CMI Wandfarbe Weiß matt 10 L SKU",
           "url": "https://www.obi.de/p/9060864/cmi-wandfarbe-weiss-matt-10-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€11.99 / 10 L; 55 m² one coat; 5.5 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Price observed €12.59 / 10 L (current page); up to 55 m² one coat; 19% VAT included; shipping extra.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "OBI / Alpina",
-          "title": "Alpina Wandfarbe DIN-EN OBI SKU",
+          "title": "Alpina DIN-EN Weiß matt 10 L SKU",
           "url": "https://www.obi.de/p/2175784/alpina-wandfarbe-din-en-weiss-matt-10-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€44.99 / 10 L; 60 m² one coat; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
-        },
-        {
-          "publisher": "toom",
-          "title": "Standardweiß matt toom SKU",
-          "url": "https://toom.de/p/standardweiss-matt-10-l/8101221",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "€24.99 / 10 L; 60 m² one coat; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€44.99 / 10 L; about 60 m²; 19% VAT included; shipping extra.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "BAUHAUS",
-          "title": "Wandfarbe Raumfarbe BAUHAUS SKU",
+          "title": "Raumfarbe matt 10 L SKU",
           "url": "https://www.bauhaus.info/dispersionsfarben-weiss/wandfarbe-raumfarbe/p/15110191",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€11.95 / 10 L; about 60 m²; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€11.95 / 10 L; about 60 m²; VAT included.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
+          "publisher": "toom",
+          "title": "Standardweiß matt 10 L SKU",
+          "url": "https://toom.de/p/standardweiss-matt-10-l/8101221",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "€24.99 / 10 L; 60 m²; exact price/product page.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
+          "publisher": "hagebau",
+          "title": "Polarweiss matt 10 L SKU",
+          "url": "https://www.hagebau.de/p/schoener-wohnen-farbe-innenfarbe-polarweiss-10-liter-weiss-matt-anV1078774/",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "€52.99 / 10 L; up to 80 m² for up to two coats; VAT included.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-de-per-coat-proposal",
@@ -409,31 +409,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Brico Dépôt",
-          "title": "White matt wall/ceiling paint 10 L",
-          "url": "https://www.bricodepot.fr/p/5059340271682/peinture-blanche-murs-et-plafonds-mat-10-l",
+          "publisher": "Sto",
+          "title": "StoColor In TDS",
+          "url": "https://www.sto.fr/webdocs/productdocuments/TechnicalDataSheet_StoColor_In_0207_FR_01_02.PDF",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€10.90 / 10 L; 12 m²/L; private-label; depot availability.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "6.5 m²/L; H10 class 1; revision 21 Apr 2026.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Ripolin",
-          "title": "Illico Mat 10 L Bricomarché SKU",
-          "url": "https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811",
+          "publisher": "Colorine",
+          "title": "ColorTex Mat TDS",
+          "url": "https://www.colorine.fr/img/cms/M5/fiches-techniques/ColorTexMat.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€39.90 / 10 L; 10 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "6–8 m²/L; matt acrylic interior; TDS May 2024.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Dulux Valentine",
-          "title": "Simple Mat 10 L Leroy Merlin SKU",
-          "url": "https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html",
+          "publisher": "Seigneurie",
+          "title": "Evolutex 2en1 Mat product page",
+          "url": "https://www.seigneuriegauthier.com/peintures/peintures-interieures/peintures-murs-plafonds/evolutex-2en1-mat",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€54.90 / 10 L; 8 m²/L; prepared/primed substrate.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "9–11 m²/L smooth substrates; 7–9 m²/L painting canvas; primer may be needed on bare walls.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-fr-two-coat-proposal",
@@ -456,38 +456,38 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Brico Dépôt",
-          "title": "White matt wall/ceiling paint 10 L",
-          "url": "https://www.bricodepot.fr/p/5059340271682/peinture-blanche-murs-et-plafonds-mat-10-l",
+          "publisher": "Tecnomat / BATIR",
+          "title": "BATIR 580 interior matt 10 L SKU",
+          "url": "https://www.tecnomat.fr/produits/peinture-interieure-mur-et-plafond-blanc-mat-10-l-batir-580-25096813.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€10.90 / 10 L; 12 m²/L; private-label; depot availability.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€29.90 TTC / 10 L; 10 m²/L; exact product price and yield on same page.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Ripolin",
-          "title": "Illico Mat 10 L Bricomarché SKU",
+          "publisher": "Bricomarché / Ripolin",
+          "title": "Ripolin Illico Mat 10 L SKU",
           "url": "https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€39.90 / 10 L; 10 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€39.90 / 10 L; 10 m²/L; same SKU.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Dulux Valentine",
-          "title": "Simple Mat 10 L Leroy Merlin SKU",
+          "publisher": "Leroy Merlin / Dulux Valentine",
+          "title": "Simple Mat 10 L SKU",
           "url": "https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€54.90 / 10 L; 8 m²/L; prepared/primed substrate.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€54.90 / 10 L; 8 m²/L; same SKU.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-fr-per-coat-proposal",
       "kind": "material-cost-range",
       "unit": "EUR/m2/coat",
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools, delivery or unverified taxes",
-      "low": 0.0908,
+      "low": 0.299,
       "high": 0.686,
       "currency": "EUR"
     },
@@ -503,31 +503,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Brico Dépôt",
-          "title": "Pintura plástica interior blanca mate 15 L",
-          "url": "https://www.bricodepot.es/pintura-plastica-interior-blanca-mate-15l-8422466549350",
+          "publisher": "Valpaint",
+          "title": "L-3000 TDS",
+          "url": "https://media.adeo.com/media/4819910/media.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€15.95 / 15 L; 8–10 m²/L; limited stock.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "9–10 m²/L per coat at 100 μm wet film; revision Dec 2024.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Leroy Merlin / CPP",
-          "title": "CPP Interior Blanco Mate 15 L",
-          "url": "https://www.leroymerlin.es/productos/pintura-de-interior-color-blanco-mate-15-l-para-paredes-y-techos-96143325.html",
+          "publisher": "Grupo Puma",
+          "title": "Pumacril Interior product page",
+          "url": "https://www.grupopuma.com/es-ES/productos/ver/pumacril-interior-es-es",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€10.49 / 15 L; 9 m²/L in product comparison table.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Theoretical yield 7–9 m²/L; dilution/substrate conditions.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "BAUHAUS / Montó",
-          "title": "Montó Bricolovers Excellence 15 L",
-          "url": "https://www.bauhaus.es/pinturas-plasticas-blancas/monto-bricolovers-pintura-para-paredes-y-techos-excellence/p/24612539",
+          "publisher": "Caparol",
+          "title": "CapaColor product page",
+          "url": "https://www.caparol.es/productos/productos-por-categorias/pinturas-de-interior-y-exterior/pinturas-de-interior/pinturas-esenciales/capacolor",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€49.49 / 15 L; theoretical 11–13 m²/L; primed surface.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "10–12 m²/L per coat; substrate absorption/colour caveats.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-es-two-coat-proposal",
@@ -551,30 +551,30 @@
       "sources": [
         {
           "publisher": "Brico Dépôt",
-          "title": "Pintura plástica interior blanca mate 15 L",
+          "title": "Interior white matt 15 L SKU",
           "url": "https://www.bricodepot.es/pintura-plastica-interior-blanca-mate-15l-8422466549350",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€15.95 / 15 L; 8–10 m²/L; limited stock.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€15.95 / 15 L; 8–10 m²/L; last units and stock caveat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "Leroy Merlin / CPP",
-          "title": "CPP Interior Blanco Mate 15 L",
+          "title": "CPP Interior Blanco Mate 15 L SKU",
           "url": "https://www.leroymerlin.es/productos/pintura-de-interior-color-blanco-mate-15-l-para-paredes-y-techos-96143325.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€10.49 / 15 L; 9 m²/L in product comparison table.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€10.49 / 15 L; 9 m²/L in same product comparison table.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "BAUHAUS / Montó",
-          "title": "Montó Bricolovers Excellence 15 L",
+          "title": "Montó Bricolovers Excellence 15 L SKU",
           "url": "https://www.bauhaus.es/pinturas-plasticas-blancas/monto-bricolovers-pintura-para-paredes-y-techos-excellence/p/24612539",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
           "notes": "€49.49 / 15 L; theoretical 11–13 m²/L; primed surface.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-es-per-coat-proposal",
@@ -597,31 +597,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
+          "publisher": "Caparol",
+          "title": "InnenColor technical cycles",
+          "url": "https://www.caparol.it/fileadmin/data_it/Materiali_Informativi_PDF/CICLI_TECNICI_Pitture_per_Interni.pdf",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "8–11 m²/L per coat; second coat after 4 hours; source flyer dated 2021.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
           "publisher": "Boero",
-          "title": "Boero Magnum Muri Opaco TDS and retailer SKU",
+          "title": "Magnum Muri Opaco TDS",
           "url": "https://www.boero.it/wp-content/uploads/2025/04/scheda-tecnica-magnum-muri-opaco-cod-139-smalto-murale-opaco-all-acqua-boero.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€42.99 / 14 L list price; practical 10–12 m²/L per coat; expired €29.90 promotion excluded.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Practical 10–12 m²/L per coat; TDS Apr 2025.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "San Marco Group",
-          "title": "ABC Aria 300 14 L Leroy Merlin SKU",
-          "url": "https://www.leroymerlin.it/prodotti/pittura-per-interni-a-base-acqua-per-parete-e-soffitto-traspirante-abc-aria-300-san-marco-group-bianco-opaco-14-l-83024961.html",
+          "publisher": "San Marco",
+          "title": "Pittura per Interni TDS",
+          "url": "https://static.san-marco.com/new/SMG/Allegati/Novacolor/Pittura%20per%20Interni/Scheda%20tecnica%20html/IT_N150_pittura-per-interni.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€49.90 / 14 L; 8–10 m²/L per coat.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
-        },
-        {
-          "publisher": "MaxMeyer",
-          "title": "MaxMeyer L2010 OBI Italia SKU",
-          "url": "https://www.obi-italia.it/p/1609007/idropittura-lavabile-maxmeyer-bianco-opaco-14-l",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "€55.99 / 14 L; 10–12 m²/L per coat; VAT included.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "3–5 m²/L over two coats; retain as system rate, not per-coat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-it-two-coat-proposal",
@@ -644,31 +644,40 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Boero",
-          "title": "Boero Magnum Muri Opaco TDS and retailer SKU",
-          "url": "https://www.boero.it/wp-content/uploads/2025/04/scheda-tecnica-magnum-muri-opaco-cod-139-smalto-murale-opaco-all-acqua-boero.pdf",
-          "observedAt": "2026-11-15",
-          "retrievedAt": "2026-11-15",
-          "notes": "€42.99 / 14 L list price; practical 10–12 m²/L per coat; expired €29.90 promotion excluded.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
-        },
-        {
-          "publisher": "San Marco Group",
-          "title": "ABC Aria 300 14 L Leroy Merlin SKU",
+          "publisher": "Leroy Merlin / San Marco",
+          "title": "ABC Aria 300 14 L SKU",
           "url": "https://www.leroymerlin.it/prodotti/pittura-per-interni-a-base-acqua-per-parete-e-soffitto-traspirante-abc-aria-300-san-marco-group-bianco-opaco-14-l-83024961.html",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
           "notes": "€49.90 / 14 L; 8–10 m²/L per coat.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "MaxMeyer",
-          "title": "MaxMeyer L2010 OBI Italia SKU",
+          "publisher": "OBI Italia / MaxMeyer",
+          "title": "MaxMeyer L2010 14 L SKU",
           "url": "https://www.obi-italia.it/p/1609007/idropittura-lavabile-maxmeyer-bianco-opaco-14-l",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€55.99 / 14 L; 10–12 m²/L per coat; VAT included.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "List €55.99 / 14 L, current promo €49.99; 10–12 m²/L per coat; 22% IVA included, shipping extra.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
+          "publisher": "MyPaint / Boero",
+          "title": "BoeroBianco Plus 14 L SKU",
+          "url": "https://mypaint.it/idropitture/24-48-boerobianco-plus.html",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "€49.90 / 14 L; 10–11 m²/L per coat; IVA included.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
+        },
+        {
+          "publisher": "Leroy Merlin / Boero",
+          "title": "Boero matte interior 14 L SKU",
+          "url": "https://www.leroymerlin.it/prodotti/pittura-per-interni-a-base-acqua-traspirante-boero-bianco-opaco-14-l-34384770.html",
+          "observedAt": "2026-11-15",
+          "retrievedAt": "2026-11-15",
+          "notes": "€42.99 list / 14 L; TDS yield 10–12 m²/L; prior €29.90 offer ended 9 Nov 2026.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-it-per-coat-proposal",
@@ -691,31 +700,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Baseline / Praxis",
-          "title": "Baseline Muur & Plafond Matt 10 L",
-          "url": "https://www.praxis.nl/verf-behang-wandbekleding/verf/binnenverf/muurverf/baseline-muur-plafond-muurverf-mat-wit-10l/5654075",
+          "publisher": "Wijzonol",
+          "title": "Muurverf Mat PIB",
+          "url": "https://www.wijzonol.nl/wp-content/uploads/wpallimport/files/documents/10093_nl_PIB_Wijzonol_Bouwverven_B.V._Wijzonol%20Muurverf%20Mat_1_1_1762319041007.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€22.99 / 10 L; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Practical roller yield 7–9 m²/L per coat; substrate porosity/structure caveat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "GAMMA",
-          "title": "GAMMA Muurverf Mat 10 L",
-          "url": "https://www.gamma.nl/assortiment/gamma-muurverf-mat-10-liter/p/B103143",
+          "publisher": "Stiho",
+          "title": "Muurverf product information sheet",
+          "url": "https://www.stiho.nl/INTERSHOP/web/WFS/stihoGroep-Stiho-Site/nl_NL/-/EUR/ViewProductAttachment-OpenFile?DirectoryPath=&FileName=Stiho+Muurverf+20102021+v2.pdf&LocaleId=nl_NL&UnitName=stihoGroep-Stiho",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€97.99 list / 10 L; 8 m²/L; €48.99 clearance excluded from regular-price band.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Theoretical 8–9 m²/L at 40 μm dry; H10 class 1 at 8 m²/L.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Sigma / Karwei",
-          "title": "Sigma Interieur Muurverf Mat 10 L",
-          "url": "https://www.karwei.nl/assortiment/sigma-muurverf-interieur-mat-wit-10-liter/p/B224922",
+          "publisher": "Sikkens",
+          "title": "Binnenmuurverf Mat TDS",
+          "url": "https://msp.images.akzonobel.com/prd/dh/enlexp/documents/65/b3/c0/5f/sikkens_binnenmuurverf.pdf",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€159.99 list / 10 L; 11 m²/L; €79.99 member-only promotion excluded from regular-price band.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "Approx. 11 m²/L; brush/roller; substrate-dependent; TDS dated 27 Feb 2025.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-coverage-nl-two-coat-proposal",
@@ -738,31 +747,31 @@
       "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
       "sources": [
         {
-          "publisher": "Baseline / Praxis",
-          "title": "Baseline Muur & Plafond Matt 10 L",
+          "publisher": "Praxis / Baseline",
+          "title": "Baseline Muur & Plafond Matt 10 L SKU",
           "url": "https://www.praxis.nl/verf-behang-wandbekleding/verf/binnenverf/muurverf/baseline-muur-plafond-muurverf-mat-wit-10l/5654075",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€22.99 / 10 L; 6 m²/L.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€22.99 / 10 L; 6 m²/L per coat.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
           "publisher": "GAMMA",
-          "title": "GAMMA Muurverf Mat 10 L",
+          "title": "GAMMA Muurverf Mat 10 L SKU",
           "url": "https://www.gamma.nl/assortiment/gamma-muurverf-mat-10-liter/p/B103143",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€97.99 list / 10 L; 8 m²/L; €48.99 clearance excluded from regular-price band.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€97.99 list / 10 L; 8 m²/L; €48.99 clearance price excluded.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         },
         {
-          "publisher": "Sigma / Karwei",
-          "title": "Sigma Interieur Muurverf Mat 10 L",
+          "publisher": "KARWEI / Sigma",
+          "title": "Sigma Interieur Muurverf Mat 10 L SKU",
           "url": "https://www.karwei.nl/assortiment/sigma-muurverf-interieur-mat-wit-10-liter/p/B224922",
           "observedAt": "2026-11-15",
           "retrievedAt": "2026-11-15",
-          "notes": "€159.99 list / 10 L; 11 m²/L; €79.99 member-only promotion excluded from regular-price band.",
-          "caveats": "Exact product/SKU only; price, coverage basis, product tier, tax and availability may differ. See paired paint cost evidence document."
+          "notes": "€159.99 list / 10 L; 11 m²/L; €79.99 member price requires Club Karwei.",
+          "caveats": "Exact SKU/product source; retain its own yield and price basis."
         }
       ],
       "id": "paint-cost-nl-per-coat-proposal",
