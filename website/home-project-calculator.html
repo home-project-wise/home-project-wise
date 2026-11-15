@@ -98,6 +98,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </section>
 <section class="tool-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
 <h2>Electricity running cost</h2><p>Estimate the energy use and running cost of one appliance from its rated wattage, daily use and your electricity tariff.</p>
+<div id="energy-ref-root"></div>
 <form class="calc" id="energy-form" novalidate>
 <div class="calc-grid">
 <div class="calc-field"><label for="energy-watts">Appliance power (watts)</label><input id="energy-watts" type="number" min="0" step="any" required placeholder="e.g. 800"></div>
@@ -182,7 +183,8 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <p><a href="tools.html">Browse all HomeProjectWise tools</a> · <a href="budget-planner.html">Project Budget Planner</a> · <a href="articles/choose-paint-finish-for-each-room.html">Choose a paint finish</a> · <a href="articles/right-rug-size-painters-tape-test.html">Choose the right rug size</a></p>
 </main><footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script>
 <script src="reference-prices.js"></script>
-<script src="project-list.js"></script><script>
+<script src="project-list.js"></script>
+<script src="energy-reference.js"></script><script>
 (function(){
 'use strict';
 function byId(id){return document.getElementById(id);}
