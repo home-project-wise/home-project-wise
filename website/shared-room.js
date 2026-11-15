@@ -33,11 +33,23 @@
       setValue(doc, win, "paint-height", room.height); setValue(doc, win, "paint-openings", room.openings > 0 ? room.openings : "");
       return { ok: true, tab: "tab-paint" };
     }
+    if (target === "wallpaper") {
+      if (!room.height) return { ok: false, error: "Wallpaper needs the wall height. Enter it above, then try again." };
+      var net = 2 * (room.length + room.width) * room.height - room.openings;
+      if (!(net > 0)) return { ok: false, error: "The area of doors and windows must be smaller than the total wall area." };
+      var ft = room.unit === "ft", fmt = function (x) { return Number(x).toLocaleString("en-US", { maximumFractionDigits: 2 }); };
+      var other = ft ? net * 0.09290304 : net / 0.09290304, el = doc.getElementById("wallpaper-room-area");
+      if (el) {
+        el.textContent = "Wall area from your room: " + fmt(net) + " " + (ft ? "ft²" : "m²") + " (" + fmt(other) + " " + (ft ? "m²" : "ft²") + "), before any pattern waste. This is only the surface to cover; the number of rolls depends on the roll size and pattern, so enter those under Product label below to count rolls.";
+        el.hidden = false;
+      }
+      return { ok: true, tab: "tab-wallpaper" };
+    }
     return { ok: false, error: "Unknown calculator." };
   }
   var MARKUP =
     '<details><summary>Enter your room once (optional)</summary>' +
-    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator. Nothing is stored or sent.</p>' +
+    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, or see the wall area for Wallpaper. Nothing is stored or sent.</p>' +
     '<form class="calc" id="room-form" novalidate><div class="calc-grid">' +
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
@@ -45,7 +57,7 @@
     '<div class="calc-field"><label for="room-height">Wall height (for paint)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
-    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
+    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
   function init(doc, win) {
     var host = doc.getElementById("room-root"); if (!host) return null;
     host.innerHTML = MARKUP;
@@ -58,7 +70,7 @@
       if (!r.ok) { err.textContent = r.error; return; }
       var a = apply(target, r.room, doc, win);
       if (!a.ok) { err.textContent = a.error; return; }
-      note.textContent = "Sent to " + (target === "paint" ? "Paint" : "Flooring") + ". Check the values there and calculate.";
+      note.textContent = target === "wallpaper" ? "Wall area shown in Wallpaper. Rolls need the roll size and pattern from the product label." : "Sent to " + (target === "paint" ? "Paint" : "Flooring") + ". Check the values there and calculate.";
       var tab = doc.getElementById(a.tab); if (tab && tab.click) tab.click();
     }
     form.addEventListener("click", function (e) {
