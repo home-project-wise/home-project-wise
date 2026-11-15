@@ -2170,3 +2170,12 @@ The first complete eight-market evidence sweep now supports candidate two-coat q
 - A second page-level check found that the Dulux Valentine brand calculator displays a generic 10 m²/L estimate, but the exact Leroy Merlin SKU specification for Simple Mat 10 L states 8 m²/L. The generic calculator value is not the product's own TDS/spec and must not be substituted.
 - Corrected FR paired cost upper bound back to €0.686/m²/coat (two-coat €1.372/m²). The earlier temporary €0.549 value is superseded. Use same-SKU product specification 8 m²/L.
 - This reinforces the paired-SKU rule: exact SKU-specific coverage takes precedence over a brand calculator's generic default.
+
+
+## 2026-11-15 — Final retail source normalization pass
+
+- US Glidden pair now links to the exact Walmart Business SKU page showing USD $20.97 and up to 400 sq ft; BEHR Home Depot SKU confirmed at $39.98 and up to 400 sq ft; Benjamin Moore official page $60.99 and 400–450 sq ft.
+- Canada BEHR pair now links to exact Home Depot Canada SKU 1001985608, CAD $47.47/3.79 L and 400 sq ft; BM Canada $79.99/3.78 L and 37.2–41.8 m²; SICO/RONA uses its own same-SKU 400 sq ft value.
+- Germany CMI current price is €12.59/10 L (not the earlier €11.99); this does not change the market low, which remains BAUHAUS Raumfarbe at €11.95/10 L and 60 m².
+- Tax status is now explicitly tagged only where exact source text states it (DE selected rows, FR Tecnomat TTC, ES BAUHAUS, IT OBI/MyPaint). Other retail prices remain not verified; never label them tax-exclusive/inclusive by assumption.
+- No autoEligible status changed. All 16 paint records remain proposed and disabled pending owner approval.
