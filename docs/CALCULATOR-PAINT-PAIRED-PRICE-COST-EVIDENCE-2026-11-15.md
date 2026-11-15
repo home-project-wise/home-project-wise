@@ -125,3 +125,64 @@ The paired-SKU method is the right calculation method for paint cost. It is more
 6. Keep primer, labour, tools, delivery, tax and additional coats outside the material-only total unless separately sourced.
 
 No price registry or assumptions registry is changed by this document.
+
+
+## Additional paired SKUs verified after the first snapshot
+
+These additions expand the paired sample and introduce additional retailers. They remain point-in-time product observations; availability, local store price, shipping and promotions can change.
+
+### France (EUR) — additional independent retail pair
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| Brico Dépôt white matt interior wall/ceiling paint, 10 L | €10.90 / 10 L | €1.09 | 12 m²/L | approx. €0.18 | https://www.bricodepot.fr/p/5059340271682/peinture-blanche-murs-et-plafonds-mat-10-l — private-label/NoName, 12 m²/L, exact price and pack; confirm local depot stock |
+| Ripolin Illico Mat, Bricomarché | €39.90 / 10 L | €3.99 | 10 m²/L | approx. €0.80 | https://www.bricomarche.com/p/peinture-murs-et-plafonds-blanc-mat-10l/3174269079811 — exact product price and yield |
+| Dulux Valentine Simple Mat, Leroy Merlin | €54.90 / 10 L | €5.49 | 8 m²/L | approx. €1.37 | https://www.leroymerlin.fr/produits/peinture-mur-plafond-blanc-mat-dulux-valentine-simple-10l-83054658.html — product page says prepared/primed substrate; exact yield 8 m²/L |
+
+**FR revised observation:** Paired sample now spans approximately €0.18–€1.37/m² for two coats. The low-cost Brico Dépôt SKU is a private-label product and the upper Dulux product is a different performance tier. This remains a product-sample envelope, not a French market average.
+
+### Spain (EUR) — additional independent retailers and SKUs
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| Brico Dépôt Pintura plástica interior blanca mate | €15.95 / 15 L | €1.06 | 8–10 m²/L | approx. €0.21–€0.27 | https://www.bricodepot.es/pintura-plastica-interior-blanca-mate-15l-8422466549350 — exact SKU; last-units/availability warning |
+| Brico Dépôt Pintura interior blanca Valentine | €18.95 / 15 L | €1.26 | 10 m²/L | approx. €0.25 | https://www.bricodepot.es/pintura-interior-blanca-valentine-15l-8413303055059 — exact SKU, matte, interior |
+| Montó Bricolovers Excellence, BAUHAUS | €49.49 / 15 L | €3.30 | theoretical 11–13 m²/L | approx. €0.51–€0.60 | https://www.bauhaus.es/pinturas-plasticas-blancas/monto-bricolovers-pintura-para-paredes-y-techos-excellence/p/24612539 — theoretical rate; surface must be primed |
+| swingcolor Plus Matt, BAUHAUS | €45.99 / 15 L | €3.07 | theoretical 9–12 m²/L | approx. €0.51–€0.68 | https://www.bauhaus.es/pinturas-plasticas-blancas/swingcolor-pintura-para-paredes-y-techos-plus-mate/p/31640798 — VAT included; theoretical rate; product may be indoor/outdoor |
+
+**ES revised observation:** Multiple retailers now supply exact SKU price/yield pairs. The envelope still combines entry-level and premium products, practical and theoretical yields, and some last-units stock. Keep the tiers distinct.
+
+### Germany (EUR) — additional BAUHAUS and Hornbach checks
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| BAUHAUS Wandfarbe Raumfarbe, matt, 10 L | €11.95 / 10 L | €1.20 | approx. 60 m²/can = 6 m²/L | approx. €0.40 | https://www.bauhaus.info/dispersionsfarben-weiss/wandfarbe-raumfarbe/p/15110191 — VAT included; page states 10 L for about 60 m² |
+| Hornbach Wandfarbe weiß, matt, 10 L | Price not exposed in the retrieved result | — | approx. 6 m²/L per coat | — | https://www.hornbach.de/p/wandfarbe-weiss-10-l/7547110/ — product yield/pack confirmed, but no usable price captured; do not calculate a cost |
+| Hornbach Alpina Wand- und Deckenfarbe weiß, 10 L | Price not exposed in the retrieved result | — | approx. 6 m²/L per coat | — | https://www.hornbach.de/p/alpina-wand-und-deckenfarbe-weiss-10l/7760271/ — source says two coats; price not available in extracted page |
+
+**DE revised observation:** The paired price sample now includes OBI and BAUHAUS; Hornbach contributes useful coverage confirmation but not a price. OBI and BAUHAUS are still only two retailers; maintain the product-sample label.
+
+### Italy (EUR) — additional OBI price/yield pairs
+
+| Product / retailer | Package price | Price per L | Same-SKU coverage | Two-coat material cost per m² | Caveat |
+|---|---:|---:|---:|---:|---|
+| MaxMeyer L2010 washable matt, OBI Italia | €55.99 / 14 L | €4.00 | 10–12 m²/L per coat | approx. €0.67–€0.80 | https://www.obi-italia.it/p/1609007/idropittura-lavabile-maxmeyer-bianco-opaco-14-l — VAT included, shipping extra |
+| Renov'Mur washable matt, OBI Italia | €49.99 / 14 L | €3.57 | Coverage basis not exposed in retrieved page | — | https://www.obi-italia.it/p/5633045/idropittura-speciale-lavabile-renov-mur-bianco-opaco-14-l — price/pack only; do not pair with another product's yield |
+| ABC Aria 300, San Marco Group, Leroy Merlin | €49.90 / 14 L | €3.56 | 8–10 m²/L per coat | approx. €0.71–€0.89 | https://www.leroymerlin.it/prodotti/pittura-per-interni-a-base-acqua-per-parete-e-soffitto-traspirante-abc-aria-300-san-marco-group-bianco-opaco-14-l-83024961.html |
+
+**IT revised observation:** OBI MaxMeyer and Leroy Merlin ABC Aria now add a second retailer and an independent manufacturer pair. Boero's list price remains conditional because the page prominently displays a promotion that expired on 9 Nov 2026; never use the expired promotional price as current.
+
+## Updated sample completeness checkpoint
+
+| Market | Exact paired SKU count | Retailer count | Independent product brands/manufacturers | Status |
+|---|---:|---:|---:|---|
+| US | 3 | 3 | 3 | Initial sample complete; tax/price basis and product tiers need final check |
+| CA | 4 | 3 | 4 | SICO offer/availability conditional; tax treatment to verify |
+| GB | 3 | 3 | 3 | Sample complete; tax inclusion and price date to verify |
+| DE | 5 | 2 | 4 | Need a third retailer with price and same-SKU yield |
+| FR | 3 | 3 | 3 | Initial three-pair sample; check stock and tax |
+| ES | 6 | 3 | 6 | Sample complete; separate theoretical/practical and budget/premium tiers |
+| IT | 3+ | 2 | 3+ | Sample complete; one Boero price is list price after expired offer; verify SKU/TDS match |
+| NL | 3 | 2 | 3 | Sample complete; clearance and member-only price distinctions remain |
+
+A sample count is not a release approval. Before creating a market cost range, check that the same SKU's coverage is sourced and the product class matches the intended beginner estimator. Keep tax/discount/stock uncertainty visible. No market should be enabled merely because it reaches a count threshold.
