@@ -104,16 +104,18 @@ This remains the source of several existing US records, with a dated 14 July 202
 - **Use:** independent retailer cross-check beyond Leroy Merlin for French laminate.
 - **Do not use:** as a broad French market range or combine promo and regular prices without separate fields.
 
-### Spain — OBRAMAT independent laminate spot check (15 November 2026)
+### Spain — OBRAMAT (ADEO) and Brico Depôt (Kingfisher) laminate checks (15 November 2026)
 
 **OBRAMAT Spain laminate category**
 - https://www.obramat.es/suelos-y-revestimientos-de-madera/suelos-laminados/todos-los-suelos-laminados/
 - The category page showed 22 products. Examples included FINSA AC5 7 mm Roble Malta at €7.11/m² including IVA and KRONOSPAN AC5 8 mm Roble Khaki at €9.30/m² including IVA. The page also surfaced separate Canary Islands IGIC prices for some products.
-- **Use:** independent retailer cross-check beyond Leroy Merlin for Spain; retain the tax-region distinction (IVA vs IGIC).
-- **Do not use:** as a national range without normalizing the tax basis and geographic availability.
+- **Ownership correction:** OBRAMAT is an ADEO brand, the same corporate group as Leroy Merlin. Its listings are a useful second banner/product sample, but **not an independent retailer-group cross-check**. ADEO's own brand portfolio identifies OBRAMAT as its professional-format banner: https://www.adeo.com/wp-content/uploads/2025/05/EN-2025-ADEO-PRESENTATION.pdf
+- **Independent group cross-check — Brico Depôt Spain (Kingfisher):** official category https://www.bricodepot.es/catalogo/revestimientos. Current visible laminate examples included AC5 7 mm Albisola at €7.95/m² and AC5 7 mm Santa Fé at €8.95/m², with pack areas 2.669 m²; individual product listings include AC4 8 mm at €11.95/m². Brico Depôt states it is part of Kingfisher: https://www.bricodepot.es/informacioncorporativa
+- **Use:** OBRAMAT and Brico Depôt are two distinct corporate groups for a Spain laminate cross-check; retain the tax-region distinction (IVA vs IGIC), sale status and pack coverage.
+- **Do not use:** as a national range without a defined SKU sample and normalized tax/availability basis.
 
 
-### Italy — OBI and Bricocenter independent laminate spot checks (15 November 2026)
+### Italy — OBI and Bricocenter laminate spot checks (15 November 2026)
 
 **OBI Italia laminate category**
 - https://www.obi-italia.it/search/pavimenti%20laminati/
@@ -124,8 +126,9 @@ This remains the source of several existing US records, with a dated 14 July 202
 - https://www.bricocenter.it/prodotti/default/legno-porte-e-pavimenti/pavimenti-laminati.html
 - Visible listings included 7 mm Bela at €7.90/m² promotional, 8 mm Wayne at €11.06/m² promotional, and several 8–10 mm product lines between €11.17 and €22.08/m², with package totals and offer dates shown.
 - Offers displayed explicit date windows (e.g. 11 November–8 December 2026) and varied by product/class.
-- **Use:** independent retailer cross-check beyond Leroy Merlin and a second source family beyond OBI.
-- **Do not use:** as a national Italy LOW–HIGH range; the category mixes thickness, use class, brands and time-limited offers.
+- **Ownership correction:** Bricocenter is part of ADEO, the same corporate group as Leroy Merlin. Its listings are an additional product/banner check, not an independent retailer-group sample. Bricocenter's own corporate information confirms ADEO membership: https://www.bricocenter.it/wp-content/uploads/2023/07/BCI_Modello-231_2023-07-14.pdf
+- **Use:** OBI is the independent corporate-group cross-check beyond Leroy Merlin; Bricocenter remains a same-group product-level comparison. The category mixes thickness, use class, brands and time-limited offers.
+- **Do not use:** as a national Italy LOW–HIGH range or count Bricocenter and Leroy Merlin as independent observations.
 
 ### Netherlands — Praxis independent laminate spot check (15 November 2026)
 
