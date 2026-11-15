@@ -371,3 +371,9 @@ The owner decided that the shared beginner-first calculator country selector mus
 - Wickes Crown page confirms £33 list / £24 sale, 14 m²/L and in stock; GB proposed cost range now uses list price.
 - Dulux Valentine Simple Mat official page confirms 100 m²/10 L (10 m²/L), correcting the earlier 8 m²/L. FR proposed cost range corrected.
 - All proposed records remain autoEligible=false; no runtime use or code integration.
+
+
+### 2026-11-15 — Price tax basis and PR #388 corrections
+- PR #388 merged as cfcde55f77cf1ef0d153ee38d442208734a92231. Corrected same-SKU coverage and list-price values for Canada, GB and France.
+- Retail cost assumptions use retailer-displayed prices. Tax inclusion is not normalized unless the exact source explicitly states VAT/IVA/TTC; paired source entries now mark taxStatus=not-verified, and visitor copy must avoid saying tax is excluded where not verified.
+- All 16 paint records remain proposed/autoEligible=false; no runtime use or code integration.
