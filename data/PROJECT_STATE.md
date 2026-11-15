@@ -304,9 +304,18 @@ The existing pages.yml workflow runs scripts/rebuild_site_indexes.py before uplo
 - Official spot checks: EIA Aug 2026, Ofgem GB Q4 2026, Consumer Council NI Power NI, OEB Ontario TOU, Manitoba Hydro, Eurostat dataset metadata. Remaining provider-specific and country-value verification is still in progress.
 - Claude owns calculator UI/adapter wiring and must use the canonical `autoEligible` flags; ChatGPT owns the ongoing source audit and registry corrections.
 
-### 2026-11-15 — Flooring source audit merged; publication pending
+### 2026-11-15 — Flooring source audit merged; Pages deployment succeeded; live verification pending
 
 - PR #361 is merged to main as `a4d7ac0`; both required checks passed on the exact PR head: Editorial Quality Gate #1741 and Always-on visual QA #352.
 - Stale PRs #357 and #359 were closed as superseded and were not merged.
 - Canonical registry: 193 records; 101 eligible (35 flooring + 66 electricity). Exactly three intended audit rows changed; numeric prices, units, currencies and observation dates were preserved. No retailer listings, paint or wallpaper are auto-eligible; all ineligible records have reasons.
-- **Not yet published/verified live:** data-only changes do not trigger Pages under the verified workflow paths. A manual Pages dispatch requires explicit owner authorization. After deployment, check the live JSON and both calculator reference controls in a real browser/phone. Until then, do not announce the reference prices as publicly available.
+- **Pages deployment:** owner manually dispatched workflow run #694 on main commit 38011c9; screenshot confirms the deploy job succeeded. Live JSON and both calculator reference controls still need real-browser/phone verification. Do not equate workflow success with verified UI/data correctness.
+
+
+### 2026-11-15 — Critical calculator UX redesign and Pages run #694
+
+- Owner identified a critical beginner-usability flaw: the rough estimator repeatedly requires users to know product-label details such as pack coverage, tin coverage, wallpaper roll dimensions and pattern repeat. This conflicts with the product's purpose for people who do not know prices or technical product specifications.
+- Created engineering handoff issue #362 (https://github.com/home-project-wise/home-project-wise/issues/362). Claude owns calculator UI/code/tests; ChatGPT owns research and validation of representative assumptions. Beginner flows should work from ordinary room/project inputs, with transparent researched defaults/ranges; product-specific details belong only in optional Advanced mode. No unsupported assumptions or fabricated precision.
+- The review scope covers flooring/materials, paint, wallpaper, electricity and project estimator. Preserve all existing source, currency, jurisdiction, privacy and budget-integrity safeguards.
+- Manual GitHub Pages workflow run #694 was dispatched by the owner on main commit 38011c9 and succeeded (deploy job passed; 22 seconds total). This confirms deployment workflow success, not yet live UI/data correctness.
+- **Current verification status:** deployed successfully; still needs live JSON and real-device inspection of calculator controls. The beginner-first UX defect remains open under #362; no calculator code was changed by ChatGPT.
