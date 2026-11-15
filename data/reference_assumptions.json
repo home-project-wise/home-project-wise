@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-11-15",
-  "purpose": "Proposed paint assumptions for owner review; not runtime-enabled.",
+  "purpose": "Owner-approved initial per-area paint planning assumptions for beginner estimate only; not national averages, guaranteed practical yields, tin/package prices, or a final quote.",
   "records": [
     {
       "market": "US",
@@ -10,9 +10,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "BEHR",
@@ -48,7 +48,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0905,
       "high": 0.1629,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "US",
@@ -57,9 +60,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Walmart / Glidden",
@@ -101,7 +104,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.565,
       "high": 1.64,
-      "currency": "USD"
+      "currency": "USD",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "CA",
@@ -110,9 +116,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "BEHR",
@@ -148,7 +154,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0904,
       "high": 0.1021,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "CA",
@@ -157,9 +166,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Home Depot Canada / BEHR",
@@ -201,7 +210,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 1.17,
       "high": 2.15,
-      "currency": "CAD"
+      "currency": "CAD",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "GB",
@@ -210,9 +222,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Crown",
@@ -248,7 +260,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0667,
       "high": 0.0714,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "GB",
@@ -257,9 +272,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Wickes / Crown",
@@ -301,7 +316,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.471,
       "high": 0.615,
-      "currency": "GBP"
+      "currency": "GBP",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "DE",
@@ -310,9 +328,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Sto",
@@ -348,7 +366,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.1176,
       "high": 0.1818,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "DE",
@@ -357,9 +378,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "OBI / CMI",
@@ -423,7 +444,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.199,
       "high": 0.75,
-      "currency": "EUR"
+      "currency": "EUR",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "FR",
@@ -432,9 +456,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Sto",
@@ -470,7 +494,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0833,
       "high": 0.125,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "FR",
@@ -479,9 +506,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Tecnomat / BATIR",
@@ -523,7 +550,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.299,
       "high": 0.686,
-      "currency": "EUR"
+      "currency": "EUR",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "ES",
@@ -532,9 +562,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Valpaint",
@@ -570,7 +600,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0769,
       "high": 0.125,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "ES",
@@ -579,9 +612,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Brico Dépôt",
@@ -623,7 +656,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.0777,
       "high": 0.3407,
-      "currency": "EUR"
+      "currency": "EUR",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "IT",
@@ -632,9 +668,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Caparol",
@@ -670,7 +706,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0833,
       "high": 0.125,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "IT",
@@ -679,9 +718,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Leroy Merlin / San Marco",
@@ -734,7 +773,10 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.256,
       "high": 0.445,
-      "currency": "EUR"
+      "currency": "EUR",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "NL",
@@ -743,9 +785,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Wijzonol",
@@ -781,7 +823,10 @@
       "basis": "per-coat litres per square metre, derived as inverse of the market's exact-SKU manufacturer/retailer coverage sample; two coats are calculated by multiplying by visitor-selected coats",
       "low": 0.0909,
       "high": 0.1667,
-      "currency": null
+      "currency": null,
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     },
     {
       "market": "NL",
@@ -790,9 +835,9 @@
       "evidenceClass": "retailer-and-manufacturer-product-sample",
       "observedAt": "2026-11-15",
       "retrievedAt": "2026-11-15",
-      "status": "proposed",
-      "autoEligible": false,
-      "autoEligibleReason": "Proposed source-sample envelope; requires owner approval and explicit UI caveat before runtime use. It is not a national average or guaranteed practical yield.",
+      "status": "approved-initial",
+      "autoEligible": true,
+      "autoEligibleReason": "Owner approved initial source-envelope use for beginner per-area planning only. Directly estimate L/m²/coat or material cost/m²/coat for the selected market and multiply by coat count. Do not infer tin volume, package count, national averages or guaranteed practical yield.",
       "sources": [
         {
           "publisher": "Praxis / Baseline",
@@ -834,7 +879,44 @@
       "basis": "paired exact-SKU retail price and same-SKU coverage; per-coat material-only cost; two-coat result multiplies by 2; no primer, labour, tools or delivery. Tax treatment is preserved per source and may be included or unknown; do not add/remove tax without an explicit source statement.",
       "low": 0.383,
       "high": 1.455,
-      "currency": "EUR"
+      "currency": "EUR",
+      "eligibilityScope": "beginner-area-estimate-only",
+      "packagePricingEligible": false,
+      "nationalAverage": false
     }
-  ]
+  ],
+  "approval": {
+    "approvedAt": "2026-11-15",
+    "approvedBy": "repository owner via ChatGPT conversation",
+    "approvalScope": "Initial source-envelope estimates for sound/prepared interior wall matt paint, using market-specific product samples. The beginner calculator may estimate litres and material cost directly per m² without asking for tin size.",
+    "defaultCoats": 2,
+    "allowedCoatChoices": [
+      1,
+      2
+    ],
+    "defaultCoatRule": "If the visitor does not know the required number of finish coats, use 2 and disclose this assumption beside the result; allow the visitor to change to 1.",
+    "eligibleMarkets": [
+      "US",
+      "CA",
+      "GB",
+      "DE",
+      "FR",
+      "ES",
+      "IT",
+      "NL"
+    ],
+    "ineligibleUses": [
+      "national-average claims",
+      "guaranteed practical yield",
+      "fixed quotation",
+      "per-tin or per-can price",
+      "package count",
+      "new/bare/porous wall primer systems",
+      "exterior paint",
+      "ceilings unless separately validated",
+      "specialty coatings"
+    ],
+    "priceBasis": "Retailer-displayed same-SKU material price; tax status varies and must be disclosed as source-dependent.",
+    "caveat": "Paired product-sample envelopes across different product grades and technical coverage bases; not a statistical market survey. Improve continuously as more independent and comparable evidence is collected."
+  }
 }

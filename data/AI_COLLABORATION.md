@@ -2201,6 +2201,33 @@ PR #391 merged as `fa20c1f09db633d5c567c702a7a1f83ac9cb7fc3`. The current canoni
 
 These are **paired product-sample envelopes**, not national averages or guaranteed practical yields. They combine product grades and source bases; each source's basis/caveat is retained. Cost is retailer-displayed material price and tax status varies; primer, labour, tools, delivery and any unverified tax adjustment are not included. No generic 10% allowance.
 
-**Implementation gate:** owner approval is required for the broad source-envelope path and the two-coat planning scenario before setting any record autoEligible=true or asking Claude to wire Stage 2. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
+**Implementation gate (superseded by owner approval below, 2026-11-15):** the owner has approved the broad source-envelope path and the disclosed two-coat planning default for beginner per-area estimates only. The approval does not extend to can/package counts, national-average claims or primer systems. Claude must show the range, market, coat count, source list, surface/primer caveat and tax wording; never silently present it as a fixed quote. New/bare/porous walls remain a separate primer/system case.
 
 **Open coordination:** PR #360 remains open and stale (mergeable=false), touching AI_COLLABORATION.md and WORK_LOG.md for article 008. It was commented with rebase instructions. Do not merge that branch as-is; preserve this current calculator handoff when it is reconciled.
+
+
+
+
+## 2026-11-15 — Owner approval: initial beginner paint assumptions
+
+The repository owner approved these values as a useful first version, with the explicit expectation that the calculator and evidence will be improved continuously.
+
+**Approved scope**
+- Use the market-matched per-area quantity and material-cost ranges in `data/reference_assumptions.json` for ordinary interior wall matt paint on sound/prepared surfaces.
+- The beginner path may calculate litres and material cost directly from net wall area × per-coat range × coat count. It does not need tin size to produce a per-area estimate.
+- Offer 1 or 2 finish coats. If the visitor does not know, use **2 coats as the disclosed planning default**, and let the visitor change it.
+- Only use the selected market: US, CA, GB, DE, FR, ES, IT or NL. Never substitute another country/currency.
+- Display a low–high range, the selected market, coat count, source links, and plain-language caveats.
+
+**Hard limits**
+- This approval does not authorize tin/can counts, per-tin price, package totals, national-average/typical-market claims, guaranteed practical coverage, or a final quote.
+- New, bare, porous, damaged or otherwise unprepared walls require a separate primer/system path and must not silently reuse this finish-paint estimate.
+- Do not add hidden waste or contingency percentages. Show user-entered adjustments separately.
+- Cost uses retailer-displayed sample prices; tax treatment varies by source. State this plainly and do not normalize taxes without evidence.
+- Keep product-specific refinements in Advanced. A visitor's own product price/coverage must override, not blend with, the reference estimate.
+
+**Continuous improvement**
+The approval is an initial release decision, not a declaration of final accuracy. ChatGPT continues source audits, independent market sampling, technical-method review and data corrections. Claude owns the implementation, UX, tests and performance; do not change calculator-owned code from the research lane. Any material change to the calculation method or market scope returns for review.
+
+**Claude implementation handoff**
+Use the approved `data/reference_assumptions.json` as a per-area assumption source, not as a package-price source. Implement Stage 2 beginner paint flow from room dimensions/shared room data and optional openings; calculate net wall area, litres and cost ranges for selected market and coat count. Default to two disclosed coats if unknown. Preserve optional advanced product inputs and user override precedence. Clearly flag unsupported wall conditions and do not imply primer is included. Add tests for each market, 1/2 coats, missing market data, source display, manual override, net wall area, and no package/tin claims. Keep no runtime network, no persistence, and no deployment without approval.
