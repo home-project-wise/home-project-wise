@@ -335,3 +335,16 @@ main:has(.calc-tabs) .formula{border-left:3px solid var(--cp-line);border-radius
   main:has(.calc-tabs) .tool-panel.active{animation:cp-in .28s ease both}
   main:has(.calc-tabs) .calc-tabs button{transition:transform .15s,background-color .15s,border-color .15s}
 }
+
+/* Stage 10 (from the owner's phone screenshots): (1) in the dark scheme the selected tab text was dark on my evergreen fill (unreadable): the selected tab text is now always white; (2) tabs are compact on phones, three per row, so the whole set takes about 140 px instead of about 280 px and the inputs start higher; (3) the header on generated pages is compact on phones: the wordmark is 28 px high so the "All guides" button sits beside it instead of on a second row. */
+main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]{color:#fff}
+@media(max-width:520px){
+  main:has(.calc-tabs) .calc-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:16px 0 18px}
+  main:has(.calc-tabs) .calc-tabs button{min-height:66px;padding:10px 4px 8px;gap:6px;font-size:12.5px;border-radius:12px}
+  main:has(.calc-tabs) .calc-tabs button::before{width:22px;height:22px}
+  main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]::after{top:5px;right:5px;width:13px;height:13px}
+}
+@media(max-width:600px){
+  body>header.nav{padding-top:8px;padding-bottom:8px}
+  body>header.nav .brand-logo{height:28px;width:auto}
+}
