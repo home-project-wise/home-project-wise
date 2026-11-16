@@ -149,3 +149,11 @@ main .section.tasks{margin-top:clamp(56px,7vw,88px);padding-top:0}
   .js .hpw-header{min-height:56px;padding:6px 16px}
   .hpw-header .brand-logo{height:28px;width:auto}
 }
+
+/* Stage 10: the calculator band becomes one promise and one button (owner: the calculator should be a button, not a list laid out in the page). The six tiles stay only on wide screens, where there is room; phones and tablets get the sentence, the button and a one-line summary. */
+.qs-cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 32px;margin:6px 0 0;border-radius:999px;background:var(--hp-brass-light);color:var(--hp-evergreen);font-weight:700;font-size:17px;text-decoration:none;box-shadow:0 14px 28px -14px rgba(0,0,0,.6);transition:background-color .15s}
+.qs-cta:hover{background:#E6C792}
+.qs-cta:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.qs-copy .qs-covers{margin:14px 0 0;font-size:13px;line-height:1.5;color:#c9d3d6}
+@media(max-width:999px){.qs-grid{display:none}.qs-inner{gap:0}}
+@media(max-width:600px){.qs-cta{width:100%;box-sizing:border-box}}
