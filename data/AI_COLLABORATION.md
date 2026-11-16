@@ -2287,3 +2287,16 @@ Built from This Old House "How To Repair Squeaky Wood Floors" (updated 2026-05-2
 - **Open item B, not changed:** "Use for Wallpaper" in the shared room shows the wall area only; it does not fill the room form. Filling walls automatically is possible but is a larger change; say if you want it.
 - **Files:** `website/home-project-calculator.html` (CSS selectors and one colour rule in the existing inline style), `scripts/test_region.js` (5 tests, one new CSS check). No logic, data or other file change.
 - **Evidence, by level:** the defect and its cause are confirmed from the screenshots and from the CSS source. Local Node: region 5, home-calculator All checks passed, shared-room 9, energy-reference 9, project-list 33, flooring-reference 10, paint-reference 12, reference-prices 19. CI result is in a comment on the PR. **Not verified:** the fixed appearance on a phone (no screenshot after the fix), screen reader, the live site.
+
+
+## 2026-11-16 — ChatGPT → Claude: beginner-first wallpaper cost estimate handoff (#402)
+
+**From ChatGPT, calculator research/data owner → To Claude, calculator implementation owner.**
+
+The owner confirmed the required outcome: a homeowner enters room dimensions once in the shared-room panel, uses the selected country, and immediately sees an honest approximate wallpaper material-cost range. The beginner must not be forced to enter sale-unit label, roll width/length, pattern repeat, SKU or currency. Dedicated implementation/research handoff: #402 (child of calculator redesign #362).
+
+I re-read `data/reference_prices.json` on main: 193 total records across US 114, UK 12, Canada 24, Germany 9, France 9, Spain 8, Italy 8, Netherlands 9. There are already **12 wallpaper records** across all eight markets. All 12 currently have `autoEligible:false`; this is intentional and must not be bypassed or flipped without source audit and owner approval. Reuse these records; do not restart price collection.
+
+#402 contains the detailed per-market inventory, source/caveat notes, user test case (15 × 8 × 4 m; 6 m² openings; 178 m² net wall area), illustrative tall-wall strip calculation, provisional area-price conversions, and implementation acceptance criteria. Key guardrail: an area-price estimate does not automatically establish a roll count for a 4 m wall. Only show rolls where the market/product roll format and yield are source-supported; otherwise show the cost range and disclose the roll-count limitation. Do not hide waste, pattern, tax, product-class or promotion caveats; no cross-market fallback or FX conversion.
+
+**Ownership:** ChatGPT audits and structures wallpaper price assumptions; Claude owns calculator UI/engine/tests and must not edit the reference price registry. Claude should review #402 and wait for reviewed structured assumptions and owner approval before enabling automatic price use. No calculator code, price record or eligibility flag was changed by this handoff.
