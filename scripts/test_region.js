@@ -37,4 +37,13 @@ ok("the page puts the country choice first and loads region.js before the calcul
   for (const f of ["project-list.js", "energy-reference.js", "flooring-reference.js"]) assert.ok(html.indexOf("region.js") < html.indexOf(f), f);
   assert.ok(html.includes('id="material-region-note"'));
 });
+ok("result lists inherit the result card colour (the site-wide list colour made them unreadable on the dark card) and the country, room and electricity controls get the field style", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project-calculator.html"), "utf8");
+  const css = (html.match(/<style>[\s\S]*?<\/style>/g) || []).join("\n");
+  assert.ok(/main\.article \.tool-result ul,main\.article \.tool-result ol\{[^}]*color:inherit/.test(css));
+  const rule = css.match(/[^{}]*#energy-ref-root select\{[^}]*\}/)[0];
+  assert.ok(rule.includes("min-height:48px") && rule.includes("border-radius:12px"));
+  for (const sel of ["#region-root select", "#room-root select", "#room-root input:not([type=checkbox]):not([type=radio])", "#energy-ref-root select"]) assert.ok(rule.includes(sel), sel);
+  assert.ok(/#region-root select:focus-visible/.test(css) && /#room-root select:focus,/.test(css));
+});
 console.log("\n" + n + " region tests passed");
