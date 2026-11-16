@@ -441,3 +441,15 @@ The approval is an initial release decision, not a declaration of final accuracy
 
 **Claude implementation handoff**
 Use the approved `data/reference_assumptions.json` as a per-area assumption source, not as a package-price source. Implement Stage 2 beginner paint flow from room dimensions/shared room data and optional openings; calculate net wall area, litres and cost ranges for selected market and coat count. Default to two disclosed coats if unknown. Preserve optional advanced product inputs and user override precedence. Clearly flag unsupported wall conditions and do not imply primer is included. Add tests for each market, 1/2 coats, missing market data, source display, manual override, net wall area, and no package/tin claims. Keep no runtime network, no persistence, and no deployment without approval.
+
+
+## 2026-11-16 — Wallpaper calculator beginner estimate handoff (#402)
+
+Owner-approved product direction: shared-room dimensions + selected market should produce an immediate, clearly labelled approximate wallpaper material-cost range. Product-label knowledge (sale unit, roll width/length, pattern repeat, SKU and currency code) must not be required in the beginner path. Exact product inputs remain optional Advanced refinements.
+
+- Existing registry: `data/reference_prices.json` has 193 records, including 12 wallpaper records across US, UK, Canada, Germany, France, Spain, Italy and Netherlands.
+- All 12 wallpaper records currently have `autoEligible:false`. Preserve this gate. Do not silently unlock them or claim they are national averages.
+- Detailed research/implementation handoff: #402; parent calculator redesign: #362.
+- ChatGPT owns source audit and structured wallpaper assumption proposal. Claude owns calculator code, UX and tests; do not edit calculator-owned files from the research lane.
+- A 4 m wall requires strip-yield logic if roll counts are shown. Net wall area alone (178 m² in the 15 × 8 × 4 m room with 6 m² openings) supports an area-based budget, but does not justify subtracting arbitrary strips or promising exact roll count without opening positions/dimensions and product format.
+- Provisional conversions in #402 are research calculations only, not approved runtime defaults. Automatic use requires source validation, structured evidence, preserved caveats and owner approval. No code, registry values or eligibility flags changed in this handoff.
