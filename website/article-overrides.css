@@ -308,3 +308,30 @@ html{scroll-padding-top:calc(var(--hdr-h,84px) + 16px)}
   .consent-actions{flex:1 1 100%}
   .consent-actions button{flex:1}
 }
+
+/* Stage 9: calculator cosmetic polish (owner: "the calculator still needs cosmetic work"). CSS only, scoped to the calculator page. Written from the real markup and tokens (--cp-*), so it follows the light and dark schemes. */
+main:has(.calc-tabs) .calc-field label{font-size:14px;font-weight:600;letter-spacing:0;text-transform:none;line-height:1.35;color:var(--cp-ink)}
+main:has(.calc-tabs) .tool-panel{padding:clamp(20px,4vw,40px)}
+main:has(.calc-tabs) .tool-panel>h2+p{padding-bottom:20px;margin-bottom:0;border-bottom:1px solid var(--cp-line);font-size:15px;line-height:1.6}
+main:has(.calc-tabs) .tool-panel .calc{margin-top:24px}
+main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]):hover,main:has(.calc-tabs) .tool-panel .calc select:hover{border-color:var(--cp-accent)}
+main:has(.calc-tabs) .calc-tabs{gap:8px}
+main:has(.calc-tabs) .calc-tabs button{min-height:78px;border-radius:14px}
+main:has(.calc-tabs) .calc-tabs button:not([aria-selected="true"]):hover{transform:translateY(-1px)}
+main:has(.calc-tabs) .tool-panel details{margin-top:20px}
+main:has(.calc-tabs) .tool-panel details>summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:48px;padding:10px 14px;border:1.5px dashed var(--cp-line);border-radius:12px;cursor:pointer;font-weight:600;font-size:15px;color:var(--cp-ink)}
+main:has(.calc-tabs) .tool-panel details>summary::-webkit-details-marker{display:none}
+main:has(.calc-tabs) .tool-panel details>summary::before{content:"+";flex:none;width:24px;height:24px;display:grid;place-items:center;border-radius:50%;background:var(--cp-notebg);color:var(--cp-accent);font-size:18px;line-height:1}
+main:has(.calc-tabs) .tool-panel details[open]>summary::before{content:"\2212"}
+main:has(.calc-tabs) .tool-panel details>summary:hover{border-color:var(--cp-accent)}
+main:has(.calc-tabs) .tool-panel details>summary:focus-visible{outline:3px solid var(--cp-focus);outline-offset:2px}
+main:has(.calc-tabs) .tool-panel details[open]{padding:0 0 4px}
+main:has(.calc-tabs) .tool-panel details[open]>summary{margin-bottom:18px}
+main:has(.calc-tabs) .tool-result:not(:empty)::before{content:"Your estimate";display:block;margin-bottom:10px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#D9B77A}
+main:has(.calc-tabs) .tool-result{font-variant-numeric:tabular-nums}
+main:has(.calc-tabs) .formula{border-left:3px solid var(--cp-line);border-radius:0 12px 12px 0;background:transparent;padding:6px 0 6px 14px}
+@media(prefers-reduced-motion:no-preference){
+  @keyframes cp-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  main:has(.calc-tabs) .tool-panel.active{animation:cp-in .28s ease both}
+  main:has(.calc-tabs) .calc-tabs button{transition:transform .15s,background-color .15s,border-color .15s}
+}
