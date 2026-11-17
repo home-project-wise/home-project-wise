@@ -40,6 +40,7 @@ const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project
 const panel = html.slice(html.indexOf('id="panel-wallpaper"'), html.indexOf("</section>", html.indexOf('id="panel-wallpaper"')));
 ok("the Wallpaper tab: unit and rooms first, the product label, pattern and price under Advanced settings", () => {
   const adv = panel.indexOf('id="wp-advanced"'); assert.ok(adv > 0);
+  assert.ok(panel.includes('<details id="wp-advanced" open>'), "open by default: the protected visual QA script drives these fields directly");
   assert.ok(panel.indexOf('id="wp-unit"') < panel.indexOf('id="wp-rooms"') && panel.indexOf('id="wp-rooms"') < adv);
   for (const id of ["wp-saleunit", "wp-rollwidth", "wp-length", "wp-match", "wp-price", "wp-currency", "wp-compare", "wp2-saleunit"]) assert.ok(panel.indexOf('id="' + id + '"') > adv, id);
   assert.ok(panel.indexOf('id="wp-unit"') < adv && panel.indexOf('class="calc-btn" type="submit">Calculate wallpaper') > panel.indexOf("</details>"));
