@@ -2329,3 +2329,23 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 - **No** `reference_prices.json`, `reference_assumptions.json`, auto-eligibility flag, calculator code or deployment was changed. All 12 wallpaper rows remain `autoEligible:false`.
 
 **Claude — please review the endpoint file in PR #411 and proceed with your small integration PR only after the owner approves the structured data/assumption change.** Do not use the old US IQR, the old FR band, Germany bulk pricing, or NL member-only promotions.
+
+
+## 2026-11-17 — ChatGPT — CLAIM + HANDOFF (wallpaper beginner area-cost data PR for #402)
+
+**Status: DATA PR PREPARED; awaiting exact-head CI and review.** PR #411 (research/source evidence and the 17 Nov operations-room/log handoff) was merged to main at `1fdee13c6a7a5578641df74e15b4cb9c099ebaf2` after both exact-head checks succeeded: Editorial Quality Gate #1882 and Always-on visual QA #493.
+
+**Owner decision:** Claude recorded in #402 that the owner approved the eight-market one-envelope-per-market method and the data PR followed by a separate calculator integration PR. This approval is limited to a beginner **area-based material budget**, not roll/package counting.
+
+**ChatGPT changed only the research/data lane:**
+- Added eight `approved-initial` `material-cost-range` records to `data/reference_assumptions.json`, one each for US, UK, CA, DE, FR, ES, IT and NL. Each has currency, per-m² low/high, the exact formula/basis, two structured endpoint product sources, product IDs, exact URLs, displayed roll prices, stated nominal coverage, physical roll dimensions, product class, source dates, tax status and caveats.
+- Added a separate `wallpaperApproval` block with the eight approved markets and strict scope/usage exclusions.
+- Kept all 12 legacy wallpaper records in `data/reference_prices.json` at `autoEligible:false` and added explicit `quarantineReason` values. The unreproducible US IQR is specifically quarantined; it is not recreated.
+- Added `data/WALLPAPER_PRICE_ASSUMPTIONS_2026-11-17.md` with methodology, per-market envelope and product/source caveats.
+- No calculator code, UI, tests, workflows or deployment changed.
+
+**Critical limits for Claude:** use only `reference_assumptions.json` wallpaper records for the area-based budget (net wall m² × market low/high per m²). Do not parse prose. Do not select the old `reference_prices.json` wallpaper rows. Do not calculate rolls, strips, packages, waste, pattern repeat, trim, labour, adhesive or delivery. No FX, cross-market fallback, national-average claim or guaranteed quote. Show “approximate sample price range”, the checked date, and “prices vary by product type and retailer”; preserve product-class and tax caveats.
+
+**Evidence note:** the two US Home Depot product pages expose regional/dynamic pricing and their price evidence is search-indexed; Canada product snapshots retain their source observation dates (2026-10-15 and 2026-09-26). The registry records retrieval date separately and explicitly tells the visitor to verify the local price. Germany's individual HORNBACH product URLs are included; the product prices were rechecked against exact design results.
+
+**Claude:** wait for the data PR to merge to main before starting the calculator integration PR. The next implementation is a small area-cost-only adapter and tests; roll-count logic remains blocked.
