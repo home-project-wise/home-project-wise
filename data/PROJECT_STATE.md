@@ -453,3 +453,11 @@ Owner-approved product direction: shared-room dimensions + selected market shoul
 - ChatGPT owns source audit and structured wallpaper assumption proposal. Claude owns calculator code, UX and tests; do not edit calculator-owned files from the research lane.
 - A 4 m wall requires strip-yield logic if roll counts are shown. Net wall area alone (178 m² in the 15 × 8 × 4 m room with 6 m² openings) supports an area-based budget, but does not justify subtracting arbitrary strips or promising exact roll count without opening positions/dimensions and product format.
 - Provisional conversions in #402 are research calculations only, not approved runtime defaults. Automatic use requires source validation, structured evidence, preserved caveats and owner approval. No code, registry values or eligibility flags changed in this handoff.
+
+
+### 2026-11-17 — Wallpaper beginner area-cost data prepared (#402)
+- PR #411 (source audit, endpoint report and canonical operations-room handoff) merged to main at 1fdee13c6a7a5578641df74e15b4cb9c099ebaf2 after Editorial Quality Gate #1882 and Always-on visual QA #493 passed on its exact head.
+- ChatGPT prepared a separate data-only PR branch with eight structured wallpaper `material-cost-range` records in `data/reference_assumptions.json`, one per supported market, using the owner-approved broad sample-envelope approach and two exact product endpoints per market.
+- All 12 legacy wallpaper records in `data/reference_prices.json` remain `autoEligible:false` and are explicitly quarantined. Historical US IQR remains unreproducible and excluded.
+- Eligibility scope is only `beginner-area-estimate-only`: selected-market net wall area × low/high price per m². No roll/strip/package count, waste, pattern-repeat, trim, labour, adhesive or delivery assumptions. No code, UI, tests, workflow or deployment changed.
+- Next: exact-head data validation and CI, then merge the data PR if clean. Claude waits for that merge before the separate calculator adapter/UX/test PR.
