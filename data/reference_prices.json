@@ -1925,7 +1925,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "US-wallpaper-nextwall-distressed-brick-2026-11-14",
@@ -1955,7 +1956,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "US-wallpaper-galey-alix-coral-way-2026-11-14",
@@ -1985,7 +1987,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "US-paint-interior-lowes-top-sellers-iqr-2026-11-14",
@@ -2130,7 +2133,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Historical IQR quarantined: underlying 12 product SKUs, individual observations and calculation worksheet are not retained; not reproducible and must never be used as an automatic estimate."
   },
   {
     "id": "US-flooring-lvp-lowes-style-selections-dove-tail-oak-2026-11-14",
@@ -2310,7 +2314,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "US-flooring-broadloom-carpet-homedepot-trafficmaster-gallop-2026-11-14",
@@ -3646,7 +3651,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "UK-electricity-gb-ofgem-direct-debit-q4-2026",
@@ -4023,7 +4029,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "CA-electricity-ontario-oeb-residential-2026-11",
@@ -5185,7 +5192,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "EU-DE-solid-hardwood-hornbach-2026-11-14",
@@ -5273,7 +5281,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "EU-FR-vinyl-spc-leroymerlin-2026-11-14",
@@ -5389,7 +5398,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "EU-ES-sheet-vinyl-leroymerlin-2026-11-14",
@@ -5476,7 +5486,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "EU-IT-solid-hardwood-leroymerlin-2026-11-14",
@@ -5563,7 +5574,8 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured."
+    "autoEligibleReason": "Manual price/two-quote only: sale-unit, usable dimensions, coverage and pattern compatibility are not fully structured.",
+    "quarantineReason": "Legacy wallpaper source record retained for audit/history only. Beginner area-cost estimate now uses the separately approved structured per-m² envelope in data/reference_assumptions.json; this record remains ineligible and must not be selected as a second market match."
   },
   {
     "id": "EU-NL-sheet-vinyl-hornbach-2026-11-14",
