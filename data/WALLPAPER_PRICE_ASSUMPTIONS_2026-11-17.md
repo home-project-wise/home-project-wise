@@ -11,11 +11,7 @@ The new records in `data/reference_assumptions.json` support only a beginner **a
 
 `selected market net wall area (m²) × market low/high price (currency/m²)`
 
-Each endpoint is calculated from one exact product page:
-
-`retailer-displayed price per roll ÷ (roll width in metres × roll length in metres)`
-
-For stated square-foot coverage, convert with `1 sq ft = 0.09290304 m²`. Values in the registry are rounded to four decimal places. The price is a nominal-area normalization, not a practical-yield rate.
+Each endpoint is calculated from one exact product page: retailer-displayed price per roll ÷ stated nominal roll coverage. If the retailer does not state a separate coverage figure, nominal coverage is roll width × roll length. For stated square-foot coverage, convert with `1 sq ft = 0.09290304 m²`. Values in the registry are rounded to four decimal places. The price is a nominal-area normalization, not a practical-yield rate.
 
 ## Approved market envelope
 
