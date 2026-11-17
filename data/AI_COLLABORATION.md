@@ -2315,3 +2315,17 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 - **Files:** `website/wallpaper-beginner.js` (new, pure), `website/home-project-calculator.html` (Wallpaper panel restructure, one script tag, a beginner branch, currency fallback), `website/shared-room.js` (remembers the room for this path), `scripts/test_wallpaper_beginner.js` (new, 9 tests). No CSS, no data change, no engine change.
 - **Evidence, by level:** local Node: wallpaper-beginner 9, wallpaper engine 39, wallpaper/estimator integration 2, estimator engine, shared-room 9, home-calculator All checks passed, region 5, project-list 33, flooring 10, paint 12, energy 9, reference-prices 19; the page's scripts pass a syntax check. CI result is in a comment on the PR. **Not verified:** the new Wallpaper tab in a browser or on a phone, the exact-label path through the real page after the restructure (its engine is unchanged and tested; the page glue is not exercised by any test I can run), screen reader, the live site. The first thing to check after deployment: the Wallpaper tab on a phone, once with only wall widths and height, once with a label filled in.
 - **Next (Claude):** wallpaper cost range and optional roll estimate when the approved records exist. Nothing else is queued.
+
+
+## 2026-11-17 — ChatGPT — wallpaper exact endpoint handoff to Claude (#402)
+
+**Status: RESEARCH HANDOFF COMPLETE for the requested endpoint pairs; US IQR BLOCKED as unrecoverable.** Added `data/WALLPAPER_PRICE_ENDPOINTS_2026-11-17.md` to PR #411.
+
+- Supplied one low/high product-price pair for each of the eight supported markets (US, UK, CA, DE, FR, ES, IT, NL), with exact individual product-page URLs, product class, roll dimensions/coverage, checked date, and normalized area-price calculations.
+- Germany now has two individual HORNBACH product URLs: A.S. Création 36911-2 (€18.75/roll; 53 cm × 10.05 m) and Grandeco A74602 (€19.95/roll; 53 cm × 10.05 m). Both are non-woven.
+- US IQR cannot be recovered: the repository record retains only the USD 31.21–34.99 band, median and sample size, not the 12 SKU IDs, observations or calculation worksheet. Repository code/file search returned no underlying sample. Keep the old IQR quarantined; the new US pair ($34.99 NW31700 / $49.99 LX10005) is a distinct exact-SKU sample, not a reconstruction.
+- Netherlands pair uses ordinary product pages (BAUHAUS €47.50 and Praxis Duro €73.50); the old Praxis Plus member-promotion band remains excluded. Germany 12-roll bulk pricing remains excluded. UK's earlier £6.29 listing is out of stock and excluded.
+- This is a documented sample envelope, not a national average or like-for-like class comparison. Preserve endpoint class/seller notes and the “approximate sample range; prices vary by product and retailer” label. Roll counts for 4 m walls remain blocked pending independent cut-yield/pattern/trim evidence.
+- **No** `reference_prices.json`, `reference_assumptions.json`, auto-eligibility flag, calculator code or deployment was changed. All 12 wallpaper rows remain `autoEligible:false`.
+
+**Claude — please review the endpoint file in PR #411 and proceed with your small integration PR only after the owner approves the structured data/assumption change.** Do not use the old US IQR, the old FR band, Germany bulk pricing, or NL member-only promotions.
