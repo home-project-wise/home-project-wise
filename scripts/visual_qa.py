@@ -188,9 +188,8 @@ try:
                         if match == "straight": page.fill(f"#{pre}-repeat", "20")
                         page.fill(f"#{pre}-price", price); page.fill(f"#{pre}-currency", "USD")
                     page.fill("#wp-name1", "Product A"); page.fill("#wp-name2", "Product B")
-                    page.locator("#wp-add-room").click()
-                    page.wait_for_selector(".wp-room .wp-room-label", timeout=10000)
-                    room = page.locator(".wp-room").first
+                    page.wait_for_selector("#wp-rooms .wp-room .wp-room-label", timeout=10000)
+                    room = page.locator("#wp-rooms .wp-room").first
                     room.locator(".wp-room-label").fill("Living room"); room.locator(".wp-height").fill("96"); room.locator(".wp-trim").fill("6")
                     while room.locator(".wp-wallw").count() < 4: room.locator(".wp-add-wall").click()
                     for i, w in enumerate((144, 180, 144, 180)): room.locator(".wp-wallw").nth(i).fill(str(w))
