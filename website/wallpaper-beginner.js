@@ -1,6 +1,6 @@
 /* HomeProjectWise beginner wallpaper wall area (Issue #402, under #362). From the wall widths and heights the visitor entered, or from the room
  * entered once, it gives the wall area to cover. It never asks for roll or pattern details, never counts rolls or packages, never applies a hidden
- * waste percentage, and never contains a price. Cost ranges are added only when approved, structured reference data exists (not yet).
+ * waste percentage, and never contains a price. The approximate cost range, from approved structured reference data, is in wallpaper-reference.js.
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
@@ -32,16 +32,15 @@
     return { ok: false, error: "Add at least one wall width and the wall height, or use “Enter your room once” above." };
   }
   function num(n) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: 1 }); }
-  function lines(res) {
+  function lines(res, costHandled) {
     var from = res.source === "shared" ? "your room entered once" : res.rooms + " room" + (res.rooms === 1 ? "" : "s");
-    return {
-      headline: "Wall area to cover: " + num(res.m2) + " m² (" + num(res.ft2) + " ft²) from " + from,
-      notes: [
-        res.source === "shared" ? (res.deductsOpenings ? "The doors and windows area you entered is deducted." : "No doors or windows are deducted.") : "Doors and windows are not deducted from the walls you enter.",
-        "This is the wall surface only, before any pattern waste or trim. The number of rolls depends on the roll size and the pattern, which come from the product label: open Advanced settings to count rolls and, with your own price, the cost.",
-        "A typical wallpaper cost range is not available yet."
-      ]
-    };
+    var notes = [
+      res.source === "shared" ? (res.deductsOpenings ? "The doors and windows area you entered is deducted." : "No doors or windows are deducted.") : "Doors and windows are not deducted from the walls you enter.",
+      "This is the wall surface only, before any pattern waste or trim. The number of rolls depends on the roll size and the pattern, which come from the product label: open Advanced settings to count rolls and, with your own price, the cost."
+    ];
+    // costHandled: the page shows the approximate cost range (or says why there is none) itself, so this text must not claim there is none.
+    if (!costHandled) notes.push("A typical wallpaper cost range is not available yet.");
+    return { headline: "Wall area to cover: " + num(res.m2) + " m² (" + num(res.ft2) + " ft²) from " + from, notes: notes };
   }
   return { area: area, lines: lines, LIN: LIN };
 }));

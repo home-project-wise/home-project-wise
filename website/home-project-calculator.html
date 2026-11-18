@@ -201,6 +201,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <script src="region.js"></script>
 <script src="paint-reference.js"></script>
 <script src="wallpaper-beginner.js"></script>
+<script src="wallpaper-reference.js"></script>
 <script src="project-list.js"></script>
 <script src="energy-reference.js"></script>
 <script src="flooring-reference.js"></script>
@@ -258,8 +259,14 @@ function wpRooms(){return Array.prototype.map.call(byId('wp-rooms').children,fun
 function wpRegionCurrency(){return {US:'USD',Canada:'CAD',UK:'GBP',Germany:'EUR',France:'EUR',Spain:'EUR',Italy:'EUR',Netherlands:'EUR'}[window.hpwRegion||'']||'';}
 function wpBeginner(){var B=window.HPWWallpaperBeginner;if(!B){error('wp-error','The wall-area helper did not load. Reload the page.');return;}
  var res=B.area(wpRooms(),wpUnit(),window.hpwRoom);if(!res.ok){error('wp-error',res.error);return;}
- var L=B.lines(res),out=byId('wp-result'),p=wpEl('p');out.textContent='';p.appendChild(wpEl('strong','',L.headline));out.appendChild(p);
- L.notes.forEach(function(t){out.appendChild(wpEl('p','wp-note',t));});}
+ var cost=window.hpwWallpaperCost?window.hpwWallpaperCost({netM2:res.m2}):null,L=B.lines(res,!!cost),out=byId('wp-result'),p=wpEl('p');out.textContent='';p.appendChild(wpEl('strong','',L.headline));out.appendChild(p);
+ L.notes.forEach(function(t){out.appendChild(wpEl('p','wp-note',t));});
+ if(cost)wpRenderCost(out,cost);}
+function wpRenderCost(out,c){if(!c.ok){out.appendChild(wpEl('p','wp-note',c.message));return;}
+ var p=wpEl('p');p.appendChild(wpEl('strong','',c.headline));out.appendChild(p);c.notes.forEach(function(t){out.appendChild(wpEl('p','wp-note',t));});
+ var d=document.createElement('details'),s=document.createElement('summary'),ul=document.createElement('ul');s.textContent='Sources ('+c.sources.length+')';d.appendChild(s);
+ c.sources.forEach(function(x){var li=document.createElement('li');if(/^https:\/\//.test(String(x.url||''))){var a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener';a.textContent=x.label;li.appendChild(a);}else li.appendChild(document.createTextNode(x.label));li.appendChild(document.createTextNode(x.detail||''));ul.appendChild(li);});
+ d.appendChild(ul);out.appendChild(d);}
 function wpRenderCompare(c){var out=byId('wp-result'),box=wpEl('div','wp-compare-out');box.appendChild(wpEl('h3','','Product comparison'));
  c.products.forEach(function(p){var e=p.estimate,q=wpEl('p');q.appendChild(wpEl('strong','',p.productLabel+': '+fmt(e.totalSaleUnits,0)+' × '+e.saleUnitLabel));q.appendChild(document.createElement('br'));
   q.appendChild(document.createTextNode(e.materialCost!==null?'Estimated material cost: '+e.currency+' '+fmt(e.materialCost,2):'Cost: not entered (no price given, so no cost is shown).'));box.appendChild(q);});
