@@ -56,7 +56,7 @@
       var market = region();
       var choices = state.flooring && market ? RP.flooringOptions(state.flooring, market) : [];
       floorType.innerHTML = '<option value="">Choose a type</option>' + choices.map(function (s) {
-        return '<option value="' + String(s).replace(/[&<>"']/g, "") + '">' + (RP.SUBTYPE_LABEL[s] || s) + '</option>';
+        return '<option value="' + escHtml(s) + '">' + escHtml(RP.SUBTYPE_LABEL[s] || s) + '</option>';
       }).join("");
       if (doc.getElementById("plan-flooring").checked && !choices.length) {
         floorType.disabled = true;
