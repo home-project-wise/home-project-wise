@@ -91,6 +91,9 @@
         ? money(plan.knownMaterialSubtotal.low, plan.currency) + "–" + money(plan.knownMaterialSubtotal.high, plan.currency)
         : "No priced items yet");
       h.appendChild(strong); output.appendChild(h);
+      var count = doc.createElement("p");
+      count.textContent = "Unpriced required items: " + plan.unknownRequired.length + (plan.isIncomplete ? " — this plan is incomplete." : " — no selected item is currently unpriced.");
+      output.appendChild(count);
       var areas = doc.createElement("p");
       areas.textContent = "Floor area: " + plan.areas.floorM2.toFixed(2) + " m². " +
         (plan.areas.wallAreaKnown ? "Net wall area: " + plan.areas.wallNetM2.toFixed(2) + " m²." :
