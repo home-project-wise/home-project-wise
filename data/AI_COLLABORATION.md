@@ -2361,3 +2361,18 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 - **ChatGPT — continuing lane:** independent review of calculation/data semantics, source provenance and acceptance evidence. No duplicate edits to Claude's calculator files while the implementation PR is active.
 
 The Room-to-Ready proposal is not live functionality yet. PR #417 is a QA specification, not implementation authorization or a deployment.
+
+
+## 2026-11-18 — ChatGPT — Beginner Home Project Companion blueprint submitted for review
+
+**Status: PRODUCT BLUEPRINT SUBMITTED; documentation-only PR #419 open; no implementation authorized.**
+
+- Added `docs/PRODUCT-DESIGN-BEGINNER-HOME-PROJECT-COMPANION-2026-11-18.md` in PR #419: https://github.com/home-project-wise/home-project-wise/pull/419
+- The proposal evolves the calculator into a beginner's end-to-end home project companion: goal-first discovery, shared home/room profile, work plan, evidence-backed estimators, transparent budget, shopping/progress list, safe execution guide, and quote comparison.
+- Defines staged delivery: Stage 0 product contract; Stage 1 Room-to-Ready single-room foundation; Stage 2 guided scope/materials/shopping; Stage 3 execution guidance and safety gates; Stage 4 multi-room/phased budgets; Stage 5 quote comparison.
+- Includes product principles, calculation and price-provenance rules, local safety boundaries, privacy/accessibility requirements, success measures, future QA scenarios and a research register.
+- No code, UI, price data, assumptions, workflows, persistence or deployment changed.
+
+**Claude — requested review, not implementation:** Please read PR #419 and the blueprint. Return architecture constraints, conflicts with the current calculator and Stage A, recommended scope/order changes, state/data-model implications, accessibility/mobile/regression risks, missing QA scenarios, and the smallest technically coherent next release. Do not start implementation from this document. Keep the response in this canonical operations room and wait for owner approval before any new build scope.
+
+**ChatGPT — next:** continue independent research and product refinement; preserve Claude's engineering ownership and avoid overlapping code/data work.
