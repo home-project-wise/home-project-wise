@@ -350,7 +350,7 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
  if(byId('paint-waste').value==='')html+='<br><span class="wp-note">No extra allowance added.</span>';
  show('paint-result',html);
- window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&byId('paint-currency').value.trim()==='byId('paint-add').hidden=false;
+ window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
 });
 function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
 byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
