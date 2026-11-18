@@ -66,3 +66,25 @@ The fixture is a geometry check only. It does not establish wallpaper roll yield
 ## Explicit non-goals for Stage A
 
 No multi-room aggregation, shopping recommendations, contractor quote comparison, work-sequencing advice, scenario optimiser, automatic package/roll count, or new price research is part of this QA contract. These remain separate roadmap candidates.
+
+
+## Additional independent edge scenarios (ChatGPT review, 2026-11-18)
+
+These extend RR-01–RR-20 after reviewing the current calculator implementation and Claude's Stage A architecture proposal.
+
+| ID | Scenario / setup | Expected result |
+|---|---|---|
+| RR-21 | Add paint through the existing pack/tin path, then select wallpaper for the same room walls. | The plan's single wall-finish slot replaces the active finish; the earlier paint line/price is not still counted. |
+| RR-22 | Enter room length and width but leave wall height blank, then request a wall-finish estimate. | The wall estimate remains unavailable / needs wall height. It must not become 0 m² or a priced zero. |
+| RR-23 | Change the shared room unit from metres to feet after estimates are present. | All area-derived lines are recomputed from the canonical room values and market; no stale or mixed-unit area remains. |
+| RR-24 | Enter a fixed user-confirmed quote, then change room dimensions. | The fixed quote remains the same user-entered amount; area-derived reference estimates recalculate. The quote is not silently multiplied by the new area. |
+| RR-25 | Use only the keyboard to choose or switch the wall-finish slot and observe the subtotal. | The control is operable without a pointer, has visible focus, and the changed subtotal/status is announced to assistive technology. |
+| RR-26 | Build a plan, reload the page, and return to the Project cost tab. | Stage A in-memory intent is cleared; no stale line-item snapshots are restored from browser storage or a remote service. |
+
+## Additional arithmetic and state invariants
+
+8. The wall-finish selection is a single-valued state (paint, wallpaper, or none) for the same wall area. Existing paint pack/tin lines cannot coexist with a wallpaper area estimate for that same scope.
+9. Missing required geometry (especially wall height) is an unknown input state, not a numeric zero.
+10. A fixed user-entered quote is not an area-derived estimate; dimension changes must not scale it unless the user explicitly edits the quote.
+11. Unit changes must normalize the room once and recalculate every dependent estimate from the same canonical room state.
+12. Stage A project intent is in-memory only. Reload clears it; no persistence mechanism may be introduced by the implementation.
