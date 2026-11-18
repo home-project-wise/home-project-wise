@@ -137,6 +137,9 @@
       var energy = doc.createElement("p"); energy.className = "wp-note";
       energy.textContent = "Electricity running cost is separate and is not included in this one-time materials subtotal. See the Electricity tab for usage cost.";
       output.appendChild(energy);
+      var basket = doc.createElement("p"); basket.className = "wp-note";
+      basket.textContent = "This room plan is now included in the Project List below. Calculate the combined list there to include any extra items, your contingency choice and optional budget.";
+      output.appendChild(basket);
     }
     form.addEventListener("change", function (event) {
       if (event.target && event.target.id === "plan-wall-finish") {
