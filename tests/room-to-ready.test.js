@@ -4,6 +4,11 @@ const assert = require("node:assert/strict");
 const model = require("../website/room-to-ready.js");
 const engine = require("../website/project-estimator-engine.js");
 const projectList = require("../website/project-list.js");
+const referencePrices = require("../website/reference-prices.js");
+const paintReference = require("../website/paint-reference.js");
+const wallpaperReference = require("../website/wallpaper-reference.js");
+const flooringData = require("../data/reference_prices.json");
+const assumptions = require("../data/reference_assumptions.json");
 
 const room = { unit: "m", length: 15, width: 8, height: 4, openings: 6 };
 function ref(low, high, unit, id) {
@@ -127,4 +132,21 @@ test("unknown Room-to-Ready work stays unknown in the combined Project List", ()
   assert.equal(result.estimate.unknownRequired.length, 1);
   assert.match(result.lines.join(" "), /price not known yet/);
   assert.match(result.totals.join(" "), /No prices yet/);
+});
+
+test("approved paint and wallpaper references match the selected currency in all eight markets", () => {
+  Object.keys(model.MARKET_CURRENCY).forEach((market) => {
+    const expected = model.MARKET_CURRENCY[market];
+    const paint = paintReference.pick(assumptions, market);
+    const wallpaper = wallpaperReference.pick(assumptions, market);
+    assert.ok(paint, "paint reference missing for " + market);
+    assert.ok(wallpaper, "wallpaper reference missing for " + market);
+    assert.equal(paint.cost.currency, expected);
+    assert.equal(wallpaper.record.currency, expected);
+    const subtypes = referencePrices.flooringOptions(flooringData, market);
+    assert.ok(subtypes.length > 0, "flooring reference missing for " + market);
+    const selected = referencePrices.select(flooringData, { country: market, category: "flooring", subtype: subtypes[0] });
+    assert.equal(selected.ok, true);
+    assert.equal(referencePrices.toEngineAreaPrice(selected.record, "m²").currency, expected);
+  });
 });
