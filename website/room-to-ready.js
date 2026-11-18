@@ -78,6 +78,7 @@
     if (["none", "paint", "wallpaper"].indexOf(finish) === -1) fail("Choose paint OR wallpaper for the shared wall area, not both.");
     var lineItems = [];
     var sourceDetails = [];
+    var wallFinishNote = finish === "none" ? "" : "Paint and wallpaper lines are area-based sample ranges. They do not include waste, pattern matching or trim and are not a tin or roll count.";
     function keepSources(itemName, price) {
       if (!price || !price.source) return;
       var s = price.source;
@@ -125,6 +126,7 @@
       estimate: estimate,
       engineLineItems: lineItems,
       sources: sourceDetails,
+      wallFinishNote: wallFinishNote,
       knownMaterialSubtotal: { low: estimate.subtotalLow, high: estimate.subtotalHigh, currency: currency },
       unknownRequired: estimate.unknownRequired.map(function (x) { return { id: x.id, name: x.name }; }),
       isIncomplete: estimate.unknownRequired.length > 0,

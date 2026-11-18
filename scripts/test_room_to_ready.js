@@ -177,3 +177,35 @@ test("budget cannot be assessed while a required room-plan price is unknown", ()
   const result = projectList.summarize(state, engine);
   assert.match(result.budgetLine, /Can’t compare/);
 });
+
+test("paint-tab items retain their category and cannot double-count a Room-to-Ready wall finish", () => {
+  const plan = model.buildPlan({ market: "Germany", room, wallFinish: "wallpaper",
+    wallpaperPrice: ref(3, 4, "m²", "wallpaper") }, engine);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  const added = projectList.addItem(state, { name: "Paint", unit: "tin", quantity: 12, price: 40, category: "paint" });
+  assert.equal(added.ok, true);
+  assert.equal(added.item.category, "paint");
+  const result = projectList.summarize(state, engine);
+  assert.equal(result.ok, false);
+  assert.match(result.error, /cannot be combined.*double-counting/);
+});
+
+test("paint-tab items remain allowed when the Room-to-Ready plan has no wall finish", () => {
+  const plan = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") }, wallFinish: "none" }, engine);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  state.currency = "EUR";
+  projectList.addItem(state, { name: "Paint", unit: "tin", quantity: 1, price: 40, category: "paint" });
+  assert.equal(projectList.summarize(state, engine).ok, true);
+});
+
+test("area-based wall-finish caveat is carried into the combined Project List text", () => {
+  const plan = model.buildPlan({ market: "Germany", room, wallFinish: "wallpaper" }, engine);
+  assert.match(plan.wallFinishNote, /do not include waste, pattern matching or trim and are not a tin or roll count/);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  const result = projectList.summarize(state, engine);
+  assert.match(result.text, /do not include waste, pattern matching or trim and are not a tin or roll count/);
+  assert.match(result.disclaimer, /do not include waste, pattern matching or trim and are not a tin or roll count/);
+});

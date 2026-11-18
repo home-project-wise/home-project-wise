@@ -26,7 +26,7 @@
       '<div class="calc-field"><label for="plan-wall-finish">Wall finish</label><select id="plan-wall-finish"><option value="none">No wall finish selected</option><option value="paint">Paint</option><option value="wallpaper">Wallpaper</option></select></div>' +
       '<div class="calc-field" id="plan-wall-price-field" hidden><label id="plan-wall-price-label" for="plan-wall-price">Your price (optional)</label><input id="plan-wall-price" type="number" min="0" step="any" placeholder="Enter a price you confirmed"></div>' +
       '<div class="calc-field" id="plan-coats-field" hidden><label for="plan-paint-coats">Paint coats</label><select id="plan-paint-coats"><option value="1">1 coat</option><option value="2" selected>2 coats</option></select></div>' +
-      '<p class="calc-error" id="room-plan-error" role="alert"></p><button class="calc-btn" type="submit">Build room plan</button>' +
+      '<p class="calc-error" id="room-plan-error" role="alert"></p><button class="calc-btn" id="room-plan-submit" type="submit">Build room plan</button>' +
       '</form><div class="tool-result" id="room-plan-result" aria-live="polite"></div>' +
       '</section>';
     var form = doc.getElementById("room-plan-form");
@@ -64,7 +64,9 @@
     }
     function sourceFor(record, label, market) {
       var sources = Array.isArray(record.sources) ? record.sources : (record.source ? [record.source] : []);
-      return { id: record.id, name: label, geography: market, geographyResolution: "national", observedAt: record.observedAt,
+      var sourceDates = sources.map(function (s) { return s && s.observedAt; }).filter(function (d) { return typeof d === "string" && Number.isFinite(Date.parse(d)); }).sort();
+      var observedAt = sourceDates.length ? sourceDates[0] : record.observedAt;
+      return { id: record.id, name: label, geography: market, geographyResolution: record.nationalAverage === false ? "sample" : "national", observedAt: observedAt,
         urls: sources.map(function (s) { return s.url; }).filter(function (url) { return /^https:\/\//.test(String(url || "")); }) };
     }
     function manualPrice(id, unit, market) {
@@ -135,6 +137,7 @@
       });
       if (list.children.length) output.appendChild(list);
       var note = doc.createElement("p"); note.className = "wp-note"; note.textContent = plan.disclaimer; output.appendChild(note);
+      if (plan.wallFinishNote) { var caveat = doc.createElement("p"); caveat.className = "wp-note"; caveat.textContent = plan.wallFinishNote; output.appendChild(caveat); }
       var energy = doc.createElement("p"); energy.className = "wp-note";
       energy.textContent = "Electricity running cost is separate and is not included in this one-time materials subtotal. See the Electricity tab for usage cost.";
       output.appendChild(energy);
@@ -174,6 +177,7 @@
       try { render(Model.buildPlan(input, Engine)); }
       catch (e) { error.textContent = e && e.message ? e.message : "The room plan could not be calculated."; }
     });
+    if (win && win.addEventListener) win.addEventListener("hpw-room", clearOutput);
     if (win && win.addEventListener) win.addEventListener("hpw-region", function () {
       // A manually entered number belongs to the old currency; never silently reinterpret it.
       doc.getElementById("plan-floor-price").value = "";

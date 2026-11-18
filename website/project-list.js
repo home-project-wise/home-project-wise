@@ -38,7 +38,9 @@
     var item = { id: "i" + state.nextId++, name: name, unit: unit, quantity: String(quantity),
       mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "",
       category: "", coverage: "", coverageUnit: "", country: "", subtype: "" };
-    if (spec.category === "flooring" && Number(spec.coverage) > 0 && (spec.coverageUnit === "sq ft" || spec.coverageUnit === "m²")) {
+    if (spec.category === "paint") {
+      item.category = "paint";
+    } else if (spec.category === "flooring" && Number(spec.coverage) > 0 && (spec.coverageUnit === "sq ft" || spec.coverageUnit === "m²")) {
       item.category = "flooring"; item.coverage = String(Number(spec.coverage)); item.coverageUnit = spec.coverageUnit;
     } else if (spec.category === "flooring-area" && (unit === "sq ft" || unit === "m²")) {
       item.category = "flooring-area";
@@ -72,6 +74,9 @@
     var contingency = cRaw === "" ? 0 : toNumber(cRaw);
     if (!Number.isFinite(contingency) || contingency < 0 || contingency > 100) throw new Error("Contingency must be between 0 and 100%.");
     if (!state.items.length && !state.roomPlan) throw new Error("Add an item or build a Room-to-Ready plan first.");
+    if (state.roomPlan && state.roomPlan.wallFinish !== "none" && state.items.some(function (it) { return it.category === "paint"; })) {
+      throw new Error("A Paint-tab item cannot be combined with the Room-to-Ready wall finish. Choose one wall finish or remove the Paint-tab item to avoid double-counting.");
+    }
     state.refs = [];
     var refPrices = {}, refCurrencies = [];
     state.items.forEach(function (it) {
@@ -174,12 +179,15 @@
     var notes = refsInfo.map(function (x) { return "Reference for " + x.name + ": " + x.d.sourceName + " (" + x.d.publisher + "), " + x.d.geography + ", observed " + x.d.observedAt + ", retrieved " + x.d.retrievedAt + (x.d.older ? " (older data)" : "") + ". " + x.d.url + " Caveat: " + x.d.caveats; });
     var roomPlanSources = state.roomPlan && Array.isArray(state.roomPlan.sources) ? state.roomPlan.sources : [];
     roomPlanSources.forEach(function (s) { notes.push("Room plan source for " + s.item + ": " + s.name + ", " + s.geography + ", observed " + s.observedAt + ". " + (s.urls || []).join(" ; ")); });
+    if (state.roomPlan && state.roomPlan.wallFinishNote) notes.push(state.roomPlan.wallFinishNote);
     if (refsInfo.length || roomPlanSources.length) {
       if (previousCurrency !== cur) notes.unshift("The list currency is now " + cur + ". Visitor-entered prices are interpreted in " + cur + ".");
       if (state.rp && state.rp.DISCLAIMER) notes.push(state.rp.DISCLAIMER);
     }
     var text = ["HomeProjectWise project list (planning estimate, not a quote)"].concat(lines, [""], totals, budgetLine ? [budgetLine] : [], notes.length ? [""].concat(notes) : []).join("\n");
-    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, refsInfo: refsInfo, roomPlanSources: roomPlanSources, currencyChanged: (refsInfo.length > 0 || !!state.roomPlan) && previousCurrency !== cur, disclaimer: refsInfo.length && state.rp ? state.rp.DISCLAIMER : (state.roomPlan ? state.roomPlan.disclaimer : ""), text: text };
+    var disclaimer = refsInfo.length && state.rp ? state.rp.DISCLAIMER : (state.roomPlan ? state.roomPlan.disclaimer : "");
+    if (state.roomPlan && state.roomPlan.wallFinishNote) disclaimer = (disclaimer ? disclaimer + " " : "") + state.roomPlan.wallFinishNote;
+    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, refsInfo: refsInfo, roomPlanSources: roomPlanSources, currencyChanged: (refsInfo.length > 0 || !!state.roomPlan) && previousCurrency !== cur, disclaimer: disclaimer, text: text };
   }
   function link(url, label) { return /^https:\/\//.test(String(url || "")) ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label); }
   function selectHtml(id, prefix, field, label, placeholder, options, current) {

@@ -68,7 +68,10 @@
       var err = doc.getElementById("room-error"), note = doc.getElementById("room-note");
       err.textContent = ""; note.textContent = "";
       if (!r.ok) { err.textContent = r.error; return; }
-      if (win) win.hpwRoom = r.room;
+      if (win) {
+        win.hpwRoom = r.room;
+        if (win.dispatchEvent && win.Event) win.dispatchEvent(new win.Event("hpw-room"));
+      }
       var a = apply(target, r.room, doc, win);
       if (!a.ok) { err.textContent = a.error; return; }
       note.textContent = target === "wallpaper" ? "Wall area shown in Wallpaper. Rolls need the roll size and pattern from the product label." : "Sent to " + (target === "paint" ? "Paint" : "Flooring") + ". Check the values there and calculate.";

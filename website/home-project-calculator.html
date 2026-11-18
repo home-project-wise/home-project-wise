@@ -350,7 +350,43 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
  if(byId('paint-waste').value==='')html+='<br><span class="wp-note">No extra allowance added.</span>';
  show('paint-result',html);
- window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
+ window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&byId('paint-currency').value.trim()==='byId('paint-add').hidden=false;
+});
+function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
+byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
+byId('material-form').addEventListener('submit',function(e){e.preventDefault();error('material-error','');show('material-result','');
+ if(!validPositive(['material-length','material-width'])){error('material-error','Enter the length and width of the area, greater than zero.');return;}
+ var hasCov=byId('material-coverage').value!=='';
+ if(hasCov&&!validPositive(['material-coverage'])){error('material-error','Pack coverage must be greater than zero, or leave it blank.');return;}
+ if(!validNonNegative(['material-waste','material-price'])||value('material-waste')>50){error('material-error','Allowance must be 0–50%, and price cannot be negative.');return;}
+ var area=value('material-length')*value('material-width'),allow=value('material-waste')/100,needed=area*(1+allow),packs=hasCov?Math.ceil(needed/value('material-coverage')-1e-10):null,price=byId('material-price').value===''?null:value('material-price');
+ var ft=byId('material-unit').value==='ft',au=ft?'ft²':'m²',ou=ft?'m²':'ft²',other=ft?area*0.09290304:area/0.09290304;
+ var html='Surface area: <strong>'+fmt(area)+' '+au+'</strong> ('+fmt(other)+' '+ou+')<br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' '+au;
+ if(byId('material-waste').value==='')html+='<br><span class="wp-note">No extra allowance added; add one if your layout needs cuts.</span>';
+ if(hasCov){html+='<br>Required: <strong>'+packs+' pack(s)</strong>';
+  if(price!==null){html+='<br>Estimated material cost: <strong>'+money(packs*price,byId('material-currency').value)+'</strong>';}}
+ else if(price!==null){html+='<br><span class="wp-note">Enter the pack coverage under Advanced settings to use a price per pack.</span>';}
+ if(window.hpwFlooring)html+=window.hpwFlooring({needed:needed,areaUnit:ft?'sq ft':'m²'});
+ show('material-result',html);
+ window.hpwLast=window.hpwLast||{};
+ window.hpwLast.material=hasCov?{name:'Flooring / material packs',unit:'pack',quantity:packs,category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²',price:(price!==null&&byId('material-currency').value.trim()==='$')?price:null}:{name:'Flooring (area to buy)',unit:ft?'sq ft':'m²',quantity:Math.ceil(needed*100)/100,category:'flooring-area',price:null};
+ byId('material-add').hidden=false;
+});
+byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');
+ if(!validPositive(['energy-watts'])){error('energy-error','Enter a wattage greater than zero.');return;}
+ if(['energy-hours','energy-days','energy-rate'].some(function(id){return byId(id).value==='';})){error('energy-error','Fill in hours per day, days per month and your electricity price per kWh (0 is allowed).');return;}
+ if(!validNonNegative(['energy-hours','energy-days','energy-rate'])||value('energy-hours')>24||value('energy-days')>31){error('energy-error','Hours must be 0–24, days 0–31, and the electricity price cannot be negative.');return;}
+ var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate'),c=byId('energy-currency').value;
+ show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
+});
+byId('project-form').addEventListener('submit',function(e){e.preventDefault();error('project-error','');show('project-result','');
+ if(['project-quantity','project-unit-price','project-extra','project-contingency'].some(function(id){return byId(id).value==='';})){error('project-error','Fill in quantity, price per unit, other costs and contingency (0 is allowed for the last three). Tax may stay empty.');return;}
+ if(!validNonNegative(['project-quantity','project-unit-price','project-extra','project-contingency','project-tax'])||value('project-quantity')<=0||value('project-contingency')>100||value('project-tax')>100){error('project-error','Enter a positive quantity. Prices and extras must be non-negative; percentages must be 0–100.');return;}
+ var base=value('project-quantity')*value('project-unit-price')+value('project-extra'),reserve=base*value('project-contingency')/100,tax=(base+reserve)*value('project-tax')/100,total=base+reserve+tax,c=byId('project-currency').value;
+ show('project-result','Materials and extras: <strong>'+money(base,c)+'</strong><br>Contingency: '+money(reserve,c)+'<br>Estimated tax: '+money(tax,c)+'<br>Estimated project total: <strong>'+money(total,c)+'</strong>');
+});
+})();
+</script></body></html>)?price:null};byId('paint-add').hidden=false;
 });
 function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
 byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
