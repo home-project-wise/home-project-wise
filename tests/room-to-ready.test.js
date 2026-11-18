@@ -150,3 +150,30 @@ test("approved paint and wallpaper references match the selected currency in all
     assert.equal(referencePrices.toEngineAreaPrice(selected.record, "m²").currency, expected);
   });
 });
+
+test("combined basket includes visitor items, chosen contingency and budget comparison", () => {
+  const plan = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") },
+    wallFinish: "paint", paintCoats: 2, paintPrice: ref(1, 2, "m²/coat", "paint") }, engine);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  state.currency = "EUR";
+  state.contingency = "10";
+  state.budget = "2000";
+  projectList.addItem(state, { name: "Brushes", unit: "set", quantity: 2, price: 5 });
+  const result = projectList.summarize(state, engine);
+  assert.equal(result.estimate.subtotalLow, 1566);
+  assert.equal(result.estimate.subtotalHigh, 2162);
+  assert.equal(result.estimate.totalLow, 1722.6);
+  assert.equal(result.estimate.totalHigh, 2378.2);
+  assert.equal(result.budgetLine.includes("falls inside this estimate range"), true);
+  assert.match(result.lines.join(" "), /Brushes/);
+});
+
+test("budget cannot be assessed while a required room-plan price is unknown", () => {
+  const plan = model.buildPlan({ market: "Germany", room, wallFinish: "wallpaper" }, engine);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  state.budget = "1000";
+  const result = projectList.summarize(state, engine);
+  assert.match(result.budgetLine, /Can’t compare/);
+});
