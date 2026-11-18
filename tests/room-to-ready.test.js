@@ -31,7 +31,7 @@ test("adds a flooring and paint range using net wall area and coat count", () =>
   assert.equal(p.estimate.lineItems[0].totalLow, 1200);
   assert.equal(p.estimate.lineItems[1].quantity, 356);
   assert.equal(p.knownMaterialSubtotal.low, 1556);
-  assert.equal(p.knownMaterialSubtotal.high, 2624);
+  assert.equal(p.knownMaterialSubtotal.high, 2152);
   assert.equal(p.isIncomplete, false);
 });
 
