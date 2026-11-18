@@ -45,7 +45,7 @@
       try { return new Intl.NumberFormat("en-US", { style: "currency", currency: cur }).format(n); }
       catch (e) { return cur + " " + Number(n).toFixed(2); }
     }
-    function clearOutput() { output.textContent = ""; error.textContent = ""; if (win) win.hpwRoomToReadyPlan = null; }
+    function clearOutput() { output.textContent = ""; error.textContent = ""; if (win) { win.hpwRoomToReadyPlan = null; if (win.dispatchEvent && win.Event) win.dispatchEvent(new win.Event("hpw-room-plan")); } }
     function updatePriceLabels() {
       floorPriceLabel.textContent = "Your price per m² (" + currencyFor(region()) + ", optional)";
       var finish = wallFinish.value;
@@ -91,7 +91,7 @@
     }
     function render(plan) {
       output.textContent = "";
-      if (win) win.hpwRoomToReadyPlan = plan;
+      if (win) { win.hpwRoomToReadyPlan = plan; if (win.dispatchEvent && win.Event) win.dispatchEvent(new win.Event("hpw-room-plan")); }
       var h = doc.createElement("p");
       var strong = doc.createElement("strong");
       strong.textContent = "Known material subtotal: " + (plan.estimate.pricedLineCount
