@@ -108,7 +108,11 @@ try:
                           loadedImages: [...document.images].filter(i => i.complete && i.naturalWidth > 0).length,
                           brokenImages: [...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src).slice(0,20),
                           missingAlt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
-                          emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length
+                          emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length,
+                          overflowers: [...document.querySelectorAll('body *')].map(el => {
+                            const r = el.getBoundingClientRect();
+                            return { tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), text: (el.innerText || '').trim().slice(0, 80) };
+                          }).filter(x => x.width > 0 && (x.left < -1 || x.right > innerWidth + 1)).sort((a,b) => b.right-a.right).slice(0, 12)
                         })""")
                         check(f"{page_name}/{mode}/{vp_name}: all images loaded", image_state["loaded"] == image_state["total"] and not image_state["failed"] and not image_state["pending"], image_state)
                         check(f"{page_name}/{mode}/{vp_name}: no horizontal overflow", metrics["width"] <= width + 1, metrics)
@@ -184,6 +188,8 @@ try:
                         if match == "straight": page.fill(f"#{pre}-repeat", "20")
                         page.fill(f"#{pre}-price", price); page.fill(f"#{pre}-currency", "USD")
                     page.fill("#wp-name1", "Product A"); page.fill("#wp-name2", "Product B")
+                    page.locator("#wp-add-room").click()
+                    page.wait_for_selector(".wp-room .wp-room-label", timeout=10000)
                     room = page.locator(".wp-room").first
                     room.locator(".wp-room-label").fill("Living room"); room.locator(".wp-height").fill("96"); room.locator(".wp-trim").fill("6")
                     while room.locator(".wp-wallw").count() < 4: room.locator(".wp-add-wall").click()
