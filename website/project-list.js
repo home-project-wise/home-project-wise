@@ -223,7 +223,7 @@
     return h + '</div><button type="button" class="wp-btn" data-action="remove" data-id="' + id + '">Remove ' + esc(it.name) + '</button></fieldset>';
   }
   function itemsHtml(state) {
-    return state.items.length ? state.items.map(function (it) { return rowHtml(it, state); }).join("") : '<p class="wp-note">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>';
+    return state.items.length ? state.items.map(function (it) { return rowHtml(it, state); }).join("") : (state.roomPlan ? '<p class="wp-note">Your Room-to-Ready plan is ready. Add any extra items below, then calculate the combined list.</p>' : '<p class="wp-note">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>');
   }
   function resultHtml(s) {
     var h = "<ul>" + s.lines.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul>";
