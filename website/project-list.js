@@ -242,7 +242,8 @@
   }
   var SKELETON =
     "<h3>Project list</h3>" +
-    "<p class=\"wp-note\">Build one shopping list from your Paint and Flooring results, or add your own items. Nothing is stored or sent; the list clears when you leave the page.</p>" +
+    "<p class=\"wp-note\">Build one shopping list from your Paint and Flooring results, include your Room-to-Ready plan, or add your own items. Nothing is stored or sent; the list clears when you leave the page.</p>" +
+    "<p class=\"wp-note\" id=\"plist-room-plan-note\" role=\"status\">No Room-to-Ready plan added yet.</p>" +
     "<details><summary>Don’t know the prices yet?</summary><ol>" +
     "<li>Check the unit the product is sold in (a tin or gallon, a box, a roll). Enter the price for one of that unit, the way the product page shows it.</li>" +
     "<li>Look at two stores or websites. Choose “Two quotes” and enter both prices. You get a cost range instead of a guess.</li>" +
