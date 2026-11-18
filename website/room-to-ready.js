@@ -83,7 +83,7 @@
       if (!price || !price.source) return;
       var s = price.source;
       var urls = Array.isArray(s.urls) ? s.urls.slice() : (s.url ? [s.url] : []);
-      sourceDetails.push({ item: itemName, name: s.name, observedAt: s.observedAt, geography: s.geography, urls: urls });
+      sourceDetails.push({ item: itemName, name: s.name, observedAt: s.observedAt, geography: s.geography, geographyResolution: s.geographyResolution, urls: urls });
     }
     function addLine(id, name, quantity, unit, price) {
       lineItems.push({ id: id, name: name, quantity: quantity, unit: unit, required: true,
