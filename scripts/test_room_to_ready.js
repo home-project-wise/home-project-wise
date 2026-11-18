@@ -209,3 +209,30 @@ test("area-based wall-finish caveat is carried into the combined Project List te
   assert.match(result.text, /do not include waste, pattern matching or trim and are not a tin or roll count/);
   assert.match(result.disclaimer, /do not include waste, pattern matching or trim and are not a tin or roll count/);
 });
+
+
+const fs = require("node:fs");
+const { spawnSync } = require("node:child_process");
+const path = require("node:path");
+
+test("calculator executable inline scripts pass node --check", () => {
+  const pagePath = path.join(__dirname, "../website/home-project-calculator.html");
+  const html = fs.readFileSync(pagePath, "utf8");
+  const inlineScripts = Array.from(html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi))
+    .filter((match) => {
+      const attrs = match[1] || "";
+      const source = match[2] || "";
+      return !/\bsrc\s*=/i.test(attrs) &&
+        !/\btype\s*=\s*["']application\/(?:ld\+)?json["']/i.test(attrs) &&
+        source.trim().length > 0;
+    });
+  assert.ok(inlineScripts.length > 0, "calculator page should contain executable inline scripts");
+  inlineScripts.forEach((match, index) => {
+    const checked = spawnSync(process.execPath, ["--check"], {
+      input: match[2],
+      encoding: "utf8"
+    });
+    assert.equal(checked.status, 0,
+      "calculator inline script " + (index + 1) + " failed node --check: " + (checked.stderr || checked.stdout || "unknown syntax error"));
+  });
+});
