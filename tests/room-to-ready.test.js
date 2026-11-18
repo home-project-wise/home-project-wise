@@ -7,7 +7,7 @@ const engine = require("../website/project-estimator-engine.js");
 const room = { unit: "m", length: 15, width: 8, height: 4, openings: 6 };
 function ref(low, high, unit, id) {
   return { kind: "editorial-range", currency: "EUR", unit, low, high,
-    source: { id: id || "sample", name: "Reviewed source sample", geography: "Germany", geographyResolution: "national", observedAt: "2026-11-15" } };
+    source: { id: id || "sample", name: "Reviewed source sample", geography: "Germany", geographyResolution: "national", observedAt: "2026-11-15", url: "https://example.com/source" } };
 }
 
 test("calculates floor and net wall area from one shared room", () => {
@@ -79,4 +79,17 @@ test("rejects an attempt to select paint and wallpaper as one wall finish", () =
 
 test("does not invent wall area when the opening area exceeds the gross wall area", () => {
   assert.throws(() => model.roomAreas({ unit: "m", length: 2, width: 2, height: 2, openings: 40 }), /smaller than the total wall area/);
+});
+
+test("visitor-confirmed prices are identified separately from references", () => {
+  const p = model.buildPlan({ market: "Germany", room, flooring: { price: { kind: "user-input", currency: "EUR", unit: "m²", amount: 2 } } }, engine);
+  assert.equal(p.estimate.lineItems[0].priceKind, "user-input");
+  assert.equal(p.knownMaterialSubtotal.low, 240);
+  assert.equal(p.sources.length, 0);
+});
+
+test("reference provenance links survive into the plan", () => {
+  const p = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") } }, engine);
+  assert.equal(p.sources.length, 1);
+  assert.equal(p.sources[0].urls[0], "https://example.com/source");
 });
