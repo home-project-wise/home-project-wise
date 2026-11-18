@@ -44,7 +44,7 @@
       try { return new Intl.NumberFormat("en-US", { style: "currency", currency: cur }).format(n); }
       catch (e) { return cur + " " + Number(n).toFixed(2); }
     }
-    function clearOutput() { output.textContent = ""; error.textContent = ""; }
+    function clearOutput() { output.textContent = ""; error.textContent = ""; if (win) win.hpwRoomToReadyPlan = null; }
     function fillFloorTypes() {
       var market = region();
       var choices = state.flooring && market ? RP.flooringOptions(state.flooring, market) : [];
@@ -85,6 +85,7 @@
     }
     function render(plan) {
       output.textContent = "";
+      if (win) win.hpwRoomToReadyPlan = plan;
       var h = doc.createElement("p");
       var strong = doc.createElement("strong");
       strong.textContent = "Known material subtotal: " + (plan.estimate.pricedLineCount
