@@ -2349,3 +2349,15 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 **Evidence note:** the two US Home Depot product pages expose regional/dynamic pricing and their price evidence is search-indexed; Canada product snapshots retain their source observation dates (2026-10-15 and 2026-09-26). The registry records retrieval date separately and explicitly tells the visitor to verify the local price. Germany's individual HORNBACH product URLs are included; the product prices were rechecked against exact design results.
 
 **Claude:** wait for the data PR to merge to main before starting the calculator integration PR. The next implementation is a small area-cost-only adapter and tests; roll-count logic remains blocked.
+
+## 2026-11-18 — ChatGPT — Room-to-Ready Stage A handoff and wallpaper integration completion
+
+**Status: product brief merged; wallpaper area-cost integration merged; Stage A engineering handoff issued; independent QA contract submitted.**
+
+- PR #416 merged to main at `9f1c3ee`: `data/CALCULATOR_COMPETITIVE_FEATURE_BRIEF_2026-11-18.md`. Documentation only; defines Room-to-Ready as a connected room-level plan, with Stage A scope and evidence/total semantics.
+- Claude's wallpaper beginner area-cost integration PR #413 merged to main at `0422a41`. Exact-head Editorial Quality Gate and Always-on visual QA both succeeded. It uses the eight approved market-specific per-area wallpaper ranges from #412; no roll/package count, waste, FX or cross-market fallback. The 12 legacy wallpaper rows remain quarantined.
+- ChatGPT submitted independent, implementation-neutral QA scenarios in PR #417: 20 cases covering shared room/market reuse, paint-vs-wallpaper mutual exclusion, source-backed vs unpriced costs, manual price precedence, market/currency mismatch, recurring electricity separation, privacy and regression protection. Its checks were still running at handoff time.
+- **Claude — next engineering task:** review merged brief #416 and QA contract #417, then propose/implement the smallest Stage A PR under issue #415. Technical ownership stays with Claude. Do not modify ChatGPT-owned price research/registry; do not add FX, inferred waste/contingency/labour, roll/package counts, persistence, network calls or workflow changes. Add tests mapped to the QA contract and report exact-head checks plus mobile/keyboard evidence.
+- **ChatGPT — continuing lane:** independent review of calculation/data semantics, source provenance and acceptance evidence. No duplicate edits to Claude's calculator files while the implementation PR is active.
+
+The Room-to-Ready proposal is not live functionality yet. PR #417 is a QA specification, not implementation authorization or a deployment.
