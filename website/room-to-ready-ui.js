@@ -40,6 +40,7 @@
     var error = doc.getElementById("room-plan-error");
     var output = doc.getElementById("room-plan-result");
     function region() { return win.hpwRegion || ""; }
+    function escHtml(value) { return String(value === undefined || value === null ? "" : value).replace(/[&<>"\']/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "\'": "&#39;" }[ch]; }); }
     function currencyFor(market) { return Model.MARKET_CURRENCY[market] || ""; }
     function money(n, cur) {
       try { return new Intl.NumberFormat("en-US", { style: "currency", currency: cur }).format(n); }
