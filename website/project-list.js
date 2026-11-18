@@ -21,7 +21,11 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c];
     });
   }
-  function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "", budget: "" }; }
+  function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "", budget: "", roomPlan: null }; }
+  function setRoomPlan(state, plan) {
+    if (plan !== null && (!plan || !Array.isArray(plan.engineLineItems) || !/^[A-Z]{3}$/.test(String(plan.currency || "")))) return false;
+    state.roomPlan = plan; return true;
+  }
   function toNumber(v) { return (v === "" || v === null || v === undefined) ? NaN : Number(v); }
   function addItem(state, spec) {
     var name = String(spec.name || "").trim(), unit = String(spec.unit || "").trim();
@@ -67,7 +71,7 @@
     var cRaw = String(state.contingency === undefined || state.contingency === null ? "" : state.contingency).trim();
     var contingency = cRaw === "" ? 0 : toNumber(cRaw);
     if (!Number.isFinite(contingency) || contingency < 0 || contingency > 100) throw new Error("Contingency must be between 0 and 100%.");
-    if (!state.items.length) throw new Error("Add at least one item to the list first.");
+    if (!state.items.length && !state.roomPlan) throw new Error("Add an item or build a Room-to-Ready plan first.");
     state.refs = [];
     var refPrices = {}, refCurrencies = [];
     state.items.forEach(function (it) {
@@ -81,6 +85,10 @@
     });
     if (refCurrencies.length > 1) throw new Error("Reference prices in different currencies can’t be combined. Use one country for all reference items.");
     if (refCurrencies.length === 1) currency = refCurrencies[0];
+    if (state.roomPlan) {
+      if (!state.items.length && refCurrencies.length === 0) currency = state.roomPlan.currency;
+      else if (currency !== state.roomPlan.currency) throw new Error("Your Room-to-Ready plan uses " + state.roomPlan.currency + ". Set the Project List currency to " + state.roomPlan.currency + " before combining items; currencies are never converted.");
+    }
     if (!/^[A-Z]{3}$/.test(currency)) throw new Error("Enter a 3-letter currency code, such as USD.");
     var lineItems = state.items.map(function (it) {
       var quantity = toNumber(it.quantity);
@@ -98,6 +106,9 @@
         price = refPrices[it.id] || null;
       }
       return { id: it.id, name: it.name, unit: it.unit, quantity: quantity, required: true, price: price };
+    });
+    if (state.roomPlan) state.roomPlan.engineLineItems.forEach(function (item) {
+      lineItems.push({ id: "roomplan-" + item.id, name: item.name, unit: item.unit, quantity: item.quantity, required: item.required !== false, price: item.price || null });
     });
     return { currency: currency, contingencyPct: contingency, lineItems: lineItems };
   }
@@ -122,6 +133,13 @@
       if (!li) { lines.push(head + " – price not known yet" + (it.mode === "reference" ? " (choose a country and floor type that has a reference range, or enter your own price)" : "")); return; }
       var per = li.unitPriceLow === li.unitPriceHigh ? money(li.unitPriceLow, cur) : money(li.unitPriceLow, cur) + "–" + money(li.unitPriceHigh, cur);
       var tag = refById[it.id] ? " [reference: " + refById[it.id].source.name + ", observed " + refById[it.id].source.observedAt + (state.rp.isOlderData(refById[it.id], now) ? ", older data" : "") + "]" : "";
+      lines.push(head + " × " + per + " per " + it.unit + " = " + span(li.totalLow, li.totalHigh, cur) + tag);
+    });
+    (state.roomPlan ? state.roomPlan.engineLineItems : []).forEach(function (it) {
+      var li = byId["roomplan-" + it.id], head = it.name + ": " + qty(it.quantity) + " " + it.unit;
+      if (!li) { lines.push(head + " – price not known yet"); return; }
+      var per = li.unitPriceLow === li.unitPriceHigh ? money(li.unitPriceLow, cur) : money(li.unitPriceLow, cur) + "–" + money(li.unitPriceHigh, cur);
+      var tag = li.source ? " [reference: " + li.source.name + ", observed " + li.source.observedAt + "]" : (li.priceKind === "user-input" ? " [visitor-confirmed price]" : "");
       lines.push(head + " × " + per + " per " + it.unit + " = " + span(li.totalLow, li.totalHigh, cur) + tag);
     });
     var totals = [], unknown = est.unknownRequired.length;
@@ -154,12 +172,14 @@
     } else if (state.budget !== "") { budgetLine = "Budget must be a number greater than zero."; }
     var refsInfo = (state.refs || []).map(function (r) { return { name: findItem(state, r.itemId).name, d: state.rp.describe(r.record, now) }; });
     var notes = refsInfo.map(function (x) { return "Reference for " + x.name + ": " + x.d.sourceName + " (" + x.d.publisher + "), " + x.d.geography + ", observed " + x.d.observedAt + ", retrieved " + x.d.retrievedAt + (x.d.older ? " (older data)" : "") + ". " + x.d.url + " Caveat: " + x.d.caveats; });
-    if (refsInfo.length) {
-      if (previousCurrency !== cur) notes.unshift("The list currency is now " + cur + ", the currency of the selected reference. Prices you typed yourself are read in " + cur + ".");
-      notes.push(state.rp.DISCLAIMER);
+    var roomPlanSources = state.roomPlan && Array.isArray(state.roomPlan.sources) ? state.roomPlan.sources : [];
+    roomPlanSources.forEach(function (s) { notes.push("Room plan source for " + s.item + ": " + s.name + ", " + s.geography + ", observed " + s.observedAt + ". " + (s.urls || []).join(" ; ")); });
+    if (refsInfo.length || roomPlanSources.length) {
+      if (previousCurrency !== cur) notes.unshift("The list currency is now " + cur + ". Visitor-entered prices are interpreted in " + cur + ".");
+      if (state.rp && state.rp.DISCLAIMER) notes.push(state.rp.DISCLAIMER);
     }
     var text = ["HomeProjectWise project list (planning estimate, not a quote)"].concat(lines, [""], totals, budgetLine ? [budgetLine] : [], notes.length ? [""].concat(notes) : []).join("\n");
-    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, refsInfo: refsInfo, currencyChanged: refsInfo.length > 0 && previousCurrency !== cur, disclaimer: refsInfo.length ? state.rp.DISCLAIMER : "", text: text };
+    return { ok: true, estimate: est, lines: lines, totals: totals, budgetLine: budgetLine, refsInfo: refsInfo, roomPlanSources: roomPlanSources, currencyChanged: (refsInfo.length > 0 || !!state.roomPlan) && previousCurrency !== cur, disclaimer: refsInfo.length && state.rp ? state.rp.DISCLAIMER : (state.roomPlan ? state.roomPlan.disclaimer : ""), text: text };
   }
   function link(url, label) { return /^https:\/\//.test(String(url || "")) ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label); }
   function selectHtml(id, prefix, field, label, placeholder, options, current) {
@@ -203,7 +223,7 @@
     return h + '</div><button type="button" class="wp-btn" data-action="remove" data-id="' + id + '">Remove ' + esc(it.name) + '</button></fieldset>';
   }
   function itemsHtml(state) {
-    return state.items.length ? state.items.map(function (it) { return rowHtml(it, state); }).join("") : '<p class="wp-note">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>';
+    return state.items.length ? state.items.map(function (it) { return rowHtml(it, state); }).join("") : (state.roomPlan ? '<p class="wp-note">Your Room-to-Ready plan is ready. Add any extra items below, then calculate the combined list.</p>' : '<p class="wp-note">Your list is empty. Add a result from the Paint or Flooring tab, or add an item below.</p>');
   }
   function resultHtml(s) {
     var h = "<ul>" + s.lines.map(function (l) { return "<li>" + esc(l) + "</li>"; }).join("") + "</ul>";
@@ -212,6 +232,9 @@
     s.refsInfo.forEach(function (x) {
       h += '<p class="wp-note">Reference for ' + esc(x.name) + ': ' + link(x.d.url, x.d.sourceName) + ' (' + esc(x.d.publisher) + '), ' + esc(x.d.geography) + ', observed ' + esc(x.d.observedAt) + ', retrieved ' + esc(x.d.retrievedAt) + (x.d.older ? ' (older data)' : '') + '. Caveat: ' + esc(x.d.caveats) + '</p>';
     });
+    (s.roomPlanSources || []).forEach(function (source) {
+      h += '<p class="wp-note">Room plan source for ' + esc(source.item) + ': ' + esc(source.name) + ', observed ' + esc(source.observedAt) + '. ' + (source.urls || []).map(function (url, i) { return link(url, "source " + (i + 1)); }).join(" · ") + '</p>';
+    });
     if (s.currencyChanged) h += '<p class="wp-note">The list currency is now ' + esc(s.estimate.currency) + ', the currency of the selected reference. Prices you typed yourself are read in ' + esc(s.estimate.currency) + '.</p>';
     h += '<p class="wp-note">' + esc(s.disclaimer || "Planning estimate from the numbers you entered; not a quote. Taxes, delivery and labour are not included unless you add them as items.") + '</p>';
     h += '<div class="calc-field"><label for="plist-text">List as text</label><textarea id="plist-text" readonly rows="' + Math.min(16, s.lines.length + 8) + '" style="width:100%">' + esc(s.text) + '</textarea></div>';
@@ -219,7 +242,8 @@
   }
   var SKELETON =
     "<h3>Project list</h3>" +
-    "<p class=\"wp-note\">Build one shopping list from your Paint and Flooring results, or add your own items. Nothing is stored or sent; the list clears when you leave the page.</p>" +
+    "<p class=\"wp-note\">Build one shopping list from your Paint and Flooring results, include your Room-to-Ready plan, or add your own items. Nothing is stored or sent; the list clears when you leave the page.</p>" +
+    "<p class=\"wp-note\" id=\"plist-room-plan-note\" role=\"status\">No Room-to-Ready plan added yet.</p>" +
     "<details><summary>Don’t know the prices yet?</summary><ol>" +
     "<li>Check the unit the product is sold in (a tin or gallon, a box, a roll). Enter the price for one of that unit, the way the product page shows it.</li>" +
     "<li>Look at two stores or websites. Choose “Two quotes” and enter both prices. You get a cost range instead of a guess.</li>" +
@@ -241,13 +265,28 @@
     var rootEl = doc.getElementById("plist-root");
     if (!rootEl || !estimator) return null;
     var state = createState(), RPm = (opts && opts.rp) || rpModule();
+    if (win) win.hpwProjectListState = state;
     state.getRegion = function () { return (win && win.hpwRegion) || ""; };
     if (opts && opts.records && RPm) { state.records = opts.records; state.rp = RPm; }
     rootEl.innerHTML = SKELETON;
     var itemsEl = doc.getElementById("plist-items");
     function paintItems() { itemsEl.innerHTML = itemsHtml(state); }
     function clearResult() { doc.getElementById("plist-result").innerHTML = ""; }
+    function syncRoomPlan() {
+      setRoomPlan(state, win && win.hpwRoomToReadyPlan ? win.hpwRoomToReadyPlan : null);
+      var note = doc.getElementById("plist-room-plan-note");
+      if (note) {
+        if (state.roomPlan) {
+          note.textContent = "Room-to-Ready plan included: " + state.roomPlan.engineLineItems.length + " selected item(s), " + state.roomPlan.currency + ". Calculate below to combine it with this list.";
+          if (!state.items.length) { state.currency = state.roomPlan.currency; doc.getElementById("plist-currency").value = state.roomPlan.currency; }
+        } else note.textContent = "No Room-to-Ready plan added yet.";
+      }
+      paintItems();
+      clearResult();
+    }
     paintItems();
+    if (win && win.addEventListener) win.addEventListener("hpw-room-plan", syncRoomPlan);
+    syncRoomPlan();
     itemsEl.addEventListener("input", function (e) {
       var t = e.target; if (!t || !t.getAttribute) return;
       var id = t.getAttribute("data-id"), f = t.getAttribute("data-field");
@@ -315,5 +354,5 @@
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) {
     init(document, window.HPWProjectEstimator, window);
   }
-  return { createState: createState, addItem: addItem, removeItem: removeItem, setField: setField, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
+  return { createState: createState, addItem: addItem, removeItem: removeItem, setField: setField, setRoomPlan: setRoomPlan, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
 }));
