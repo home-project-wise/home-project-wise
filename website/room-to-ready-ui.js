@@ -21,8 +21,10 @@
       '<p class="wp-note">Use the room you entered above. Choose the work you plan to do; this combines only selected materials and keeps unknown costs visible.</p>' +
       '<form class="calc" id="room-plan-form" novalidate>' +
       '<label class="wp-check"><input id="plan-flooring" type="checkbox"> Include flooring</label>' +
-      '<div class="calc-field"><label for="plan-floor-type">Floor type</label><select id="plan-floor-type"><option value="">Choose a type</option></select></div>' +
+      '<div class="calc-field"><label for="plan-floor-type">Floor type (for a reference range)</label><select id="plan-floor-type"><option value="">Choose a type</option></select></div>' +
+      '<div class="calc-field" id="plan-floor-price-field" hidden><label for="plan-floor-price">Your price per m² (optional)</label><input id="plan-floor-price" type="number" min="0" step="any" placeholder="Enter a price you confirmed"></div>' +
       '<div class="calc-field"><label for="plan-wall-finish">Wall finish</label><select id="plan-wall-finish"><option value="none">No wall finish selected</option><option value="paint">Paint</option><option value="wallpaper">Wallpaper</option></select></div>' +
+      '<div class="calc-field" id="plan-wall-price-field" hidden><label id="plan-wall-price-label" for="plan-wall-price">Your price (optional)</label><input id="plan-wall-price" type="number" min="0" step="any" placeholder="Enter a price you confirmed"></div>' +
       '<div class="calc-field" id="plan-coats-field" hidden><label for="plan-paint-coats">Paint coats</label><select id="plan-paint-coats"><option value="1">1 coat</option><option value="2" selected>2 coats</option></select></div>' +
       '<p class="calc-error" id="room-plan-error" role="alert"></p><button class="calc-btn" type="submit">Build room plan</button>' +
       '</form><div class="tool-result" id="room-plan-result" aria-live="polite"></div>' +
@@ -31,6 +33,9 @@
     var floorType = doc.getElementById("plan-floor-type");
     var wallFinish = doc.getElementById("plan-wall-finish");
     var coatsField = doc.getElementById("plan-coats-field");
+    var floorPriceField = doc.getElementById("plan-floor-price-field");
+    var wallPriceField = doc.getElementById("plan-wall-price-field");
+    var wallPriceLabel = doc.getElementById("plan-wall-price-label");
     var error = doc.getElementById("room-plan-error");
     var output = doc.getElementById("room-plan-result");
     function region() { return win.hpwRegion || ""; }
@@ -51,7 +56,16 @@
       } else floorType.disabled = false;
     }
     function sourceFor(record, label, market) {
-      return { id: record.id, name: label, geography: market, geographyResolution: "national", observedAt: record.observedAt };
+      var sources = Array.isArray(record.sources) ? record.sources : (record.source ? [record.source] : []);
+      return { id: record.id, name: label, geography: market, geographyResolution: "national", observedAt: record.observedAt,
+        urls: sources.map(function (s) { return s.url; }).filter(function (url) { return /^https:\/\//.test(String(url || "")); }) };
+    }
+    function manualPrice(id, unit, market) {
+      var raw = doc.getElementById(id).value;
+      if (raw === "") return null;
+      var amount = Number(raw);
+      if (!Number.isFinite(amount) || amount < 0) throw new Error("Your entered price must be a finite amount of zero or more.");
+      return { kind: "user-input", currency: currencyFor(market), unit: unit, amount: amount };
     }
     function paintPrice(market) {
       if (!state.assumptions) return null;
@@ -90,6 +104,20 @@
         if (item.source) li.textContent += " — " + item.source.name + " (observed " + item.source.observedAt + ")";
         list.appendChild(li);
       });
+      plan.estimate.lineItems.forEach(function (item) {
+        if (item.priceKind === "user-input") {
+          var li = doc.createElement("li"); li.textContent = item.name + ": visitor-confirmed price."; list.appendChild(li);
+        }
+      });
+      plan.sources.forEach(function (source) {
+        var li = doc.createElement("li");
+        li.appendChild(doc.createTextNode("Source for " + source.item + ": " + source.name + " (observed " + source.observedAt + ") "));
+        source.urls.forEach(function (url, index) {
+          if (index) li.appendChild(doc.createTextNode("; "));
+          var a = doc.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; a.textContent = "source " + (index + 1); li.appendChild(a);
+        });
+        list.appendChild(li);
+      });
       plan.unknownRequired.forEach(function (item) {
         var li = doc.createElement("li"); li.textContent = item.name + ": price or measurement needed; not included as zero.";
         list.appendChild(li);
@@ -101,8 +129,12 @@
       output.appendChild(energy);
     }
     form.addEventListener("change", function (event) {
-      if (event.target && event.target.id === "plan-wall-finish") coatsField.hidden = event.target.value !== "paint";
-      if (event.target && event.target.id === "plan-flooring") fillFloorTypes();
+      if (event.target && event.target.id === "plan-wall-finish") {
+        coatsField.hidden = event.target.value !== "paint";
+        wallPriceField.hidden = event.target.value === "none";
+        wallPriceLabel.textContent = "Your price per " + (event.target.value === "paint" ? "m² per coat" : "m²") + " (" + currencyFor(region()) + ", optional)";
+      }
+      if (event.target && event.target.id === "plan-flooring") { floorPriceField.hidden = !event.target.checked; fillFloorTypes(); }
       clearOutput();
     });
     form.addEventListener("submit", function (event) {
@@ -114,15 +146,17 @@
       var flooring = null;
       if (doc.getElementById("plan-flooring").checked) {
         var subtype = floorType.value;
-        if (!subtype) { error.textContent = "Choose a floor type, or untick Include flooring."; return; }
-        var selected = state.flooring ? RP.select(state.flooring, { country: market, category: "flooring", subtype: subtype }) : null;
-        var price = selected && selected.ok ? RP.toEngineAreaPrice(selected.record, "m²") : null;
+        var manual = manualPrice("plan-floor-price", "m²", market);
+        if (!subtype && !manual) { error.textContent = "Choose a floor type for a reference range, or enter your own price per m²."; return; }
+        var selected = state.flooring && subtype ? RP.select(state.flooring, { country: market, category: "flooring", subtype: subtype }) : null;
+        var price = manual || (selected && selected.ok ? RP.toEngineAreaPrice(selected.record, "m²") : null);
+        if (!manual && selected && selected.ok && price && price.source) { price.source.url = selected.record.source.url; price.source.urls = [selected.record.source.url]; }
         flooring = { price: price };
       }
       var finish = wallFinish.value;
       var input = { market: market, room: room, flooring: flooring, wallFinish: finish };
-      if (finish === "paint") { input.paintCoats = Number(doc.getElementById("plan-paint-coats").value); input.paintPrice = paintPrice(market); }
-      if (finish === "wallpaper") input.wallpaperPrice = wallpaperPrice(market);
+      if (finish === "paint") { input.paintCoats = Number(doc.getElementById("plan-paint-coats").value); input.paintPrice = manualPrice("plan-wall-price", "m²/coat", market) || paintPrice(market); }
+      if (finish === "wallpaper") input.wallpaperPrice = manualPrice("plan-wall-price", "m²", market) || wallpaperPrice(market);
       try { render(Model.buildPlan(input, Engine)); }
       catch (e) { error.textContent = e && e.message ? e.message : "The room plan could not be calculated."; }
     });
