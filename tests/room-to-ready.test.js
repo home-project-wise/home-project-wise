@@ -3,6 +3,7 @@ const test = require("node:test");
 const assert = require("node:assert/strict");
 const model = require("../website/room-to-ready.js");
 const engine = require("../website/project-estimator-engine.js");
+const projectList = require("../website/project-list.js");
 
 const room = { unit: "m", length: 15, width: 8, height: 4, openings: 6 };
 function ref(low, high, unit, id) {
@@ -92,4 +93,38 @@ test("reference provenance links survive into the plan", () => {
   const p = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") } }, engine);
   assert.equal(p.sources.length, 1);
   assert.equal(p.sources[0].urls[0], "https://example.com/source");
+});
+
+test("Room-to-Ready items join the Project List basket and keep provenance", () => {
+  const plan = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") },
+    wallFinish: "paint", paintCoats: 2, paintPrice: ref(1, 2, "m²/coat", "paint") }, engine);
+  const state = projectList.createState();
+  assert.equal(projectList.setRoomPlan(state, plan), true);
+  const result = projectList.summarize(state, engine);
+  assert.equal(result.ok, true);
+  assert.equal(result.estimate.currency, "EUR");
+  assert.equal(result.estimate.lineItems.length, 2);
+  assert.equal(result.estimate.subtotalLow, 1556);
+  assert.equal(result.roomPlanSources.length, 2);
+  assert.match(result.lines.join(" "), /Flooring/);
+  assert.match(result.lines.join(" "), /Wall paint/);
+});
+
+test("Project List refuses to combine a room plan with a different currency", () => {
+  const plan = model.buildPlan({ market: "Germany", room, wallFinish: "wallpaper",
+    wallpaperPrice: ref(3, 4, "m²", "wallpaper") }, engine);
+  const state = projectList.createState();
+  projectList.addItem(state, { name: "Brushes", unit: "set", quantity: 1, price: 5 });
+  projectList.setRoomPlan(state, plan);
+  assert.match(projectList.summarize(state, engine).error, /currencies are never converted/);
+});
+
+test("unknown Room-to-Ready work stays unknown in the combined Project List", () => {
+  const plan = model.buildPlan({ market: "Germany", room, wallFinish: "wallpaper" }, engine);
+  const state = projectList.createState();
+  projectList.setRoomPlan(state, plan);
+  const result = projectList.summarize(state, engine);
+  assert.equal(result.estimate.unknownRequired.length, 1);
+  assert.match(result.lines.join(" "), /price not known yet/);
+  assert.match(result.totals.join(" "), /No prices yet/);
 });
