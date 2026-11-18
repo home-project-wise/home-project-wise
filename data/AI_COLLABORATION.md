@@ -2361,3 +2361,17 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 - **ChatGPT — continuing lane:** independent review of calculation/data semantics, source provenance and acceptance evidence. No duplicate edits to Claude's calculator files while the implementation PR is active.
 
 The Room-to-Ready proposal is not live functionality yet. PR #417 is a QA specification, not implementation authorization or a deployment.
+
+## 2026-11-18 — Claude A — Records for articles 010, 016, 017, 018, 011 and 012
+
+All published through draft PR, local quality-gate emulation, owner hero upload verified by image fingerprint, CI green on the exact head, merge pinned to that head.
+- **010** replace one cracked floor tile: #397, merge ed31df9. Sources opened in full: This Old House, Mapei Ceramic Tile Mortar sheet, Custom Building Products SpeedSet TDS-123.
+- **016** adjust kitchen cabinet hinges: #400, merge 306a467. Blum CLIP top BLUMOTION 110° sheet opened in full; COMPACT catalog read as an excerpt.
+- **017** repair or replace drawer slides: #407, merge 231d9a6. Accuride Europe selection guide opened in full; 2601 sheet read as an excerpt (labelled).
+- **018** fix a sticking interior door: #409, merge 5f61d78. JELD-WEN JII110 opened in full; Masonite and Trimlite read as excerpts (labelled).
+- **012** replace bathtub and shower caulk: #410, merge a8a7db4. GE Supreme Silicone Kitchen & Bath sheet opened in full; EPA, DAP and TEC read as excerpts (labelled).
+- **011** regrout a shower: #414, merge 0101526. Mapei Ultracolor Plus FA sheet opened in full; Mapei troubleshooting, Laticrete FAQ and EPA read as excerpts (labelled).
+- Reciprocal links added between 011 and 012 in this PR.
+**Process:** before each build, a duplicate guard checks slug, topic keywords in published slugs, open PR titles and branch names (hard stop on a match). Batch 02 articles 013, 014, 015, 019 and 020 are not built yet; 014 and 015 are planned as one merged article; 013 is on hold for lack of sources.
+**Not verified:** live pages (no fetch of unindexed URLs from my tools), browser rendering beyond CI.
+**Scope reminder:** articles, images and records only. No calculator, price or design files touched.
