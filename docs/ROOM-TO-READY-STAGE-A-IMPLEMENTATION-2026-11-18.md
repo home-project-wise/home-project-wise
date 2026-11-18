@@ -5,7 +5,7 @@ Date: 18 November 2026
 ## What this slice adds
 
 - `website/room-to-ready.js` is a pure domain adapter that turns one shared room and selected work into a single known-material estimate using the existing `HPWProjectEstimator`.
-- `website/room-to-ready-ui.js` adds a small Room-to-Ready section inside the Project cost tab.
+- `website/room-to-ready-ui.js` adds a Room-to-Ready section inside the Project cost tab and synchronizes the current plan into the Project List below.
 - `website/home-project-calculator.html` loads the two modules and provides their mount point.
 - `tests/room-to-ready.test.js` covers the core area, currency, unknown-cost, finish-exclusivity and electricity-separation rules.
 
@@ -17,6 +17,7 @@ Date: 18 November 2026
 - Paint and wallpaper ranges are selected through the existing approved reference modules and `reference-assumptions.json`.
 - No price, coverage rate, package count, labour rate, waste factor or currency conversion is introduced by this feature.
 - A visitor-entered unit price takes precedence over the reference range for that selected line and is labelled as visitor-confirmed. If neither a usable reference nor a visitor price exists, the line remains unpriced.
+- The Project List now combines Room-to-Ready items with visitor-added items in one estimate. It applies the visitor-selected contingency and optional budget to the combined basket. If currencies differ, it refuses the combination rather than converting or reinterpreting prices.
 - Reference source links and observation dates are preserved in the plan output.
 
 ## Calculation rules
@@ -31,7 +32,7 @@ Date: 18 November 2026
 
 ## Current boundary / not claimed complete
 
-This is the first integrated Room-to-Ready slice, not the complete future Home Project Companion. It does not yet merge the legacy Project List's independently entered labour, service or extra items into this room plan. It also does not add persistence, accounts, server storage, tax, labour, installation, delivery, contingency, roll/package counts, waste or pattern allowances. The legacy calculators remain available and unchanged.
+This is the first integrated Room-to-Ready slice, not the complete future Home Project Companion. The legacy Project List can add separate visitor-priced labour, service and extra items to the same basket; this feature does not invent those prices or rates. It does not add persistence, accounts, server storage, tax assumptions, labour rates, installation rates, delivery rates, roll/package counts, waste or pattern allowances. Contingency and budget comparison remain visitor-controlled in the existing Project List. The legacy calculators remain available.
 
 ## Verification
 
