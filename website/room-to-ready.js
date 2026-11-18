@@ -77,12 +77,20 @@
     var finish = input.wallFinish || "none";
     if (["none", "paint", "wallpaper"].indexOf(finish) === -1) fail("Choose paint OR wallpaper for the shared wall area, not both.");
     var lineItems = [];
+    var sourceDetails = [];
+    function keepSources(itemName, price) {
+      if (!price || !price.source) return;
+      var s = price.source;
+      var urls = Array.isArray(s.urls) ? s.urls.slice() : (s.url ? [s.url] : []);
+      sourceDetails.push({ item: itemName, name: s.name, observedAt: s.observedAt, geography: s.geography, urls: urls });
+    }
     function addLine(id, name, quantity, unit, price) {
       lineItems.push({ id: id, name: name, quantity: quantity, unit: unit, required: true,
         price: priceForLine(price, currency, unit, name) });
     }
     if (input.flooring) {
       addLine("room-flooring", "Flooring", areas.floorM2, "m²", input.flooring.price || null);
+      keepSources("Flooring", input.flooring.price);
     }
     if (finish !== "none") {
       if (!areas.wallAreaKnown) {
@@ -94,8 +102,10 @@
         if (coats !== 1 && coats !== 2) fail("Paint coats must be 1 or 2.");
         addLine("room-wall-finish", "Wall paint (" + coats + " coat" + (coats === 1 ? "" : "s") + ")",
           areas.wallNetM2 * coats, "m²/coat", input.paintPrice || null);
+        keepSources("Wall paint", input.paintPrice);
       } else {
         addLine("room-wall-finish", "Wallpaper", areas.wallNetM2, "m²", input.wallpaperPrice || null);
+        keepSources("Wallpaper", input.wallpaperPrice);
       }
     }
     if (!lineItems.length) fail("Choose at least one project item to add to the room plan.");
@@ -113,6 +123,7 @@
     return {
       market: market, currency: currency, areas: areas, wallFinish: finish,
       estimate: estimate,
+      sources: sourceDetails,
       knownMaterialSubtotal: { low: estimate.subtotalLow, high: estimate.subtotalHigh, currency: currency },
       unknownRequired: estimate.unknownRequired.map(function (x) { return { id: x.id, name: x.name }; }),
       isIncomplete: estimate.unknownRequired.length > 0,
