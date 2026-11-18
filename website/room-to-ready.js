@@ -123,6 +123,7 @@
     return {
       market: market, currency: currency, areas: areas, wallFinish: finish,
       estimate: estimate,
+      engineLineItems: lineItems,
       sources: sourceDetails,
       knownMaterialSubtotal: { low: estimate.subtotalLow, high: estimate.subtotalHigh, currency: currency },
       unknownRequired: estimate.unknownRequired.map(function (x) { return { id: x.id, name: x.name }; }),
