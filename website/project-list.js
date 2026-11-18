@@ -281,6 +281,7 @@
           if (!state.items.length) { state.currency = state.roomPlan.currency; doc.getElementById("plist-currency").value = state.roomPlan.currency; }
         } else note.textContent = "No Room-to-Ready plan added yet.";
       }
+      paintItems();
       clearResult();
     }
     paintItems();
