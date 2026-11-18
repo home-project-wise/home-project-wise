@@ -36,6 +36,7 @@
     var floorPriceField = doc.getElementById("plan-floor-price-field");
     var wallPriceField = doc.getElementById("plan-wall-price-field");
     var wallPriceLabel = doc.getElementById("plan-wall-price-label");
+    var floorPriceLabel = floorPriceField.querySelector("label");
     var error = doc.getElementById("room-plan-error");
     var output = doc.getElementById("room-plan-result");
     function region() { return win.hpwRegion || ""; }
@@ -45,6 +46,11 @@
       catch (e) { return cur + " " + Number(n).toFixed(2); }
     }
     function clearOutput() { output.textContent = ""; error.textContent = ""; if (win) win.hpwRoomToReadyPlan = null; }
+    function updatePriceLabels() {
+      floorPriceLabel.textContent = "Your price per m² (" + currencyFor(region()) + ", optional)";
+      var finish = wallFinish.value;
+      wallPriceLabel.textContent = "Your price per " + (finish === "paint" ? "m² per coat" : "m²") + " (" + currencyFor(region()) + ", optional)";
+    }
     function fillFloorTypes() {
       var market = region();
       var choices = state.flooring && market ? RP.flooringOptions(state.flooring, market) : [];
@@ -136,7 +142,7 @@
       if (event.target && event.target.id === "plan-wall-finish") {
         coatsField.hidden = event.target.value !== "paint";
         wallPriceField.hidden = event.target.value === "none";
-        wallPriceLabel.textContent = "Your price per " + (event.target.value === "paint" ? "m² per coat" : "m²") + " (" + currencyFor(region()) + ", optional)";
+        updatePriceLabels();
       }
       if (event.target && event.target.id === "plan-flooring") { floorPriceField.hidden = !event.target.checked; fillFloorTypes(); }
       clearOutput();
@@ -164,7 +170,12 @@
       try { render(Model.buildPlan(input, Engine)); }
       catch (e) { error.textContent = e && e.message ? e.message : "The room plan could not be calculated."; }
     });
-    if (win && win.addEventListener) win.addEventListener("hpw-region", function () { fillFloorTypes(); clearOutput(); });
+    if (win && win.addEventListener) win.addEventListener("hpw-region", function () {
+      // A manually entered number belongs to the old currency; never silently reinterpret it.
+      doc.getElementById("plan-floor-price").value = "";
+      doc.getElementById("plan-wall-price").value = "";
+      fillFloorTypes(); updatePriceLabels(); clearOutput();
+    });
     if (win && typeof win.fetch === "function") {
       win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
         .then(function (records) { if (Array.isArray(records)) { state.flooring = records; fillFloorTypes(); } }).catch(function () {});
@@ -172,6 +183,7 @@
         .then(function (file) { if (file && Array.isArray(file.records)) state.assumptions = file; }).catch(function () {});
     }
     fillFloorTypes();
+    updatePriceLabels();
     return { state: state, build: function () { form.dispatchEvent(new win.Event("submit", { bubbles: true, cancelable: true })); } };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined") init(document, window);
