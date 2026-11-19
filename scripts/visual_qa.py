@@ -411,8 +411,8 @@ try:
             try:
                 page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
                 page.wait_for_selector("#tile-form", state="attached", timeout=15000)
-                page.click("#tab-flooring")
-                check(f"{label}: tile calculator is inside Flooring & materials", page.locator("#panel-flooring #tile-root").count() == 1)
+                page.click("#tab-material")
+                check(f"{label}: tile calculator is inside Flooring & materials", page.locator("#panel-material #tile-root").count() == 1)
                 check(f"{label}: quantity-only explanation is visible", "No prices" in page.locator("#tile-root").inner_text())
                 page.fill("#tile-length-1", "5"); page.fill("#tile-width-1", "4")
                 page.fill("#tile-openings", "2"); page.fill("#tile-waste", "")
