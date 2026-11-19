@@ -44,7 +44,7 @@
     return result;
   }
   function formatVolume(result, preferredUnit) {
-    var fmt = function (n, digits) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: digits || 3 }); };
+    var fmt = function (n, digits) { var value = Number(n); var rendered = value.toLocaleString("en-US", { maximumFractionDigits: digits || 3 }); return value > 0 && Number(rendered.replace(/,/g, "")) === 0 ? value.toExponential(3) : rendered; };
     var metric = result.volumeM3 < 0.01
       ? fmt(result.volumeM3 * L_PER_M3, 2) + " L (" + fmt(result.volumeM3, 6) + " m³)"
       : fmt(result.volumeM3, 3) + " m³";
