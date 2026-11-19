@@ -4,7 +4,7 @@ const assert = require("node:assert/strict");
 const Tile = require("../website/tile.js");
 
 test("calculates net metric floor area, visitor tile dimensions and label box coverage", () => {
-  const r = Tile.calculate({lengthUnit:"m",sections:[{length:5,width:4}],openings:[2],waste:"",tileLength:0.6,tileWidth:0.6,joint:3,jointUnit:"mm",boxCoverage:1.44,coverageUnit:"m2"});
+  const r = Tile.calculate({lengthUnit:"m",sections:[{length:5,width:4}],openings:[2],waste:"",tileLength:60,tileWidth:60,tileUnit:"cm",joint:3,jointUnit:"mm",boxCoverage:1.44,coverageUnit:"m2"});
   assert.equal(r.grossAreaM2,20);
   assert.equal(r.openingAreaM2,2);
   assert.equal(r.netAreaM2,18);
@@ -37,16 +37,25 @@ test("rejects invalid geometry, openings larger than floor and invalid coverage"
 });
 
 test("requires paired tile dimensions and a unit for any positive joint", () => {
-  const base={lengthUnit:"m",sections:[{length:2,width:2}],openings:[],waste:"",tileLength:0.3,tileWidth:"",joint:"",jointUnit:"mm",boxCoverage:"",coverageUnit:"m2"};
+  const base={lengthUnit:"m",sections:[{length:2,width:2}],openings:[],waste:"",tileLength:30,tileWidth:"",tileUnit:"cm",joint:"",jointUnit:"mm",boxCoverage:"",coverageUnit:"m2"};
   assert.throws(()=>Tile.calculate(base),/both tile dimensions/);
   assert.throws(()=>Tile.calculate({...base,tileWidth:0.3,joint:2,jointUnit:""}),/Choose millimetres or inches/);
 });
 
 test("rounds tile and box counts up without adding a default allowance", () => {
-  const r=Tile.calculate({lengthUnit:"m",sections:[{length:1,width:1}],openings:[],waste:"",tileLength:0.3,tileWidth:0.3,joint:0,jointUnit:"mm",boxCoverage:0.5,coverageUnit:"m2"});
+  const r=Tile.calculate({lengthUnit:"m",sections:[{length:1,width:1}],openings:[],waste:"",tileLength:30,tileWidth:30,tileUnit:"cm",joint:0,jointUnit:"mm",boxCoverage:0.5,coverageUnit:"m2"});
   assert.equal(r.tileCount,12);
   assert.equal(r.boxes,2);
   assert.equal(r.adjustedAreaM2,1);
+});
+
+test("tile dimensions convert independently from floor units and require a unit", () => {
+  const cm=Tile.calculate({lengthUnit:"m",sections:[{length:5,width:4}],openings:[],waste:"",tileLength:60,tileWidth:60,tileUnit:"cm",joint:0,jointUnit:"mm",boxCoverage:"",coverageUnit:"m2"});
+  const metres=Tile.calculate({lengthUnit:"m",sections:[{length:5,width:4}],openings:[],waste:"",tileLength:0.6,tileWidth:0.6,tileUnit:"m",joint:0,jointUnit:"mm",boxCoverage:"",coverageUnit:"m2"});
+  assert.equal(cm.tileCount,metres.tileCount);
+  const inches=Tile.calculate({lengthUnit:"ft",sections:[{length:10,width:10}],openings:[],waste:"",tileLength:12,tileWidth:12,tileUnit:"in",joint:0,jointUnit:"mm",boxCoverage:"",coverageUnit:"ft2"});
+  assert.equal(inches.tileCount,100);
+  assert.throws(()=>Tile.calculate({lengthUnit:"m",sections:[{length:2,width:2}],openings:[],waste:"",tileLength:60,tileWidth:60,tileUnit:"",joint:0,jointUnit:"mm",boxCoverage:"",coverageUnit:"m2"}),/Choose the unit used/);
 });
 
 test("unit conversion round trip preserves equivalent floor area", () => {
