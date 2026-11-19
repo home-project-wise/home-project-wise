@@ -123,6 +123,7 @@
     }
     if (!Currency.validCode(currency)) {
       if (state.roomPlan || refCurrencies.length || hasManualPrices) throw new Error("Choose a supported country before calculating prices.");
+      if (String(state.budget || "").trim() !== "") throw new Error("Choose your country before entering a budget so it has an explicit currency.");
       currency = "USD"; // Engine-only placeholder for a quantities-only list; never shown as the visitor currency.
     }
     var lineItems = state.items.map(function (it) {
@@ -320,7 +321,7 @@
       var currencyField = doc.getElementById("plist-currency");
       if (currencyField) currencyField.value = state.currency;
       var currencyNote = doc.getElementById("plist-currency-note");
-      if (currencyNote && !state.currency) currencyNote.textContent = "Choose a supported country above before entering prices; quantities can still be listed.";
+      if (currencyNote) currencyNote.textContent = state.currency ? "Manual prices use " + state.currency + ". Changing country clears entered prices and quotes." : "Choose a supported country above before entering prices; quantities can still be listed.";
       paintItems();
       clearResult();
     }
