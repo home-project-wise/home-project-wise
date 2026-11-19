@@ -160,7 +160,7 @@
     est.lineItems.forEach(function (li) { byId[li.id] = li; });
     (state.refs || []).forEach(function (r) { refById[r.itemId] = r.record; });
     var previousCurrency = String(state.currency || "").trim().toUpperCase();
-    if (Currency.validCode(state.currency) || state.roomPlan) state.currency = cur;
+    if (Currency.validCode(state.currency) || state.roomPlan || (state.refs && state.refs.length)) state.currency = cur;
     state.items.forEach(function (it) {
       var li = byId[it.id], head = it.name + ": " + qty(it.quantity) + " " + it.unit;
       if (!li) { lines.push(head + " – price not known yet" + (it.mode === "reference" ? " (choose a country and floor type that has a reference range, or enter your own price)" : "")); return; }
