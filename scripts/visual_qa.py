@@ -373,7 +373,7 @@ try:
             page.route("**/*", handle_request)
             try:
                 page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
-                page.wait_for_selector("#plist-root", timeout=15000)
+                page.wait_for_selector("#plist-root", state="attached", timeout=15000)
                 check(f"{label}: country hint contains quantity guidance", "Quantity calculations remain available" in page.inner_text("#region-country-hint"))
                 check(f"{label}: no duplicate global country note", page.locator("#currency-market-note").count() == 0)
                 page.click("#tab-project")
