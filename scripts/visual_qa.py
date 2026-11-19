@@ -316,6 +316,7 @@ try:
                     if field == "room-unit": page.select_option("#" + field, value)
                     else: page.fill("#" + field, value)
                 page.click('#room-form button[data-target="flooring"]')
+                page.click("#tab-measure")
                 page.click("#soil-use-room")
                 check(f"{label}: shared room dimensions reused", page.input_value(".soil-length") == "15" and page.input_value(".soil-width") == "8")
                 page.fill("#soil-depth", "5")
