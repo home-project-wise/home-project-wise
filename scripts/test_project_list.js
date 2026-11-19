@@ -48,7 +48,7 @@ ok("no-price item stays on the list, is marked, and the total is flagged partial
   assert.ok(r.totals.some(t => t.includes("partial: 1 item(s) have no price")));
 });
 ok("two quotes give a range, order does not matter, contingency applies", () => {
-  const s = sample(); s.items[1].mode = "range"; s.items[1].low = "34"; s.items[1].high = "28";
+  const s = sample(); s.items[1].mode = "range"; s.items[1].currency = s.currency; s.items[1].low = "34"; s.items[1].high = "28";
   const r = L.summarize(s, E);
   assert.ok(r.lines[1].includes("11 pack × USD 28.00–USD 34.00 per pack = USD 308.00–USD 374.00"), r.lines[1]);
   assert.ok(r.totals.includes("Priced items: USD 468.00–USD 534.00"), JSON.stringify(r.totals));
@@ -62,7 +62,7 @@ ok("nothing priced: quantities only, never an invented number", () => {
   assert.ok(!/(?:USD|CAD|GBP|EUR) \d/.test(r.text.replace("HomeProjectWise", "")), r.text);
 });
 ok("budget: within, overlap, over, and cannot-assess when a price is unknown", () => {
-  const s = sample(); s.items[1].mode = "range"; s.items[1].low = "28"; s.items[1].high = "34";
+  const s = sample(); s.items[1].mode = "range"; s.items[1].currency = s.currency; s.items[1].low = "28"; s.items[1].high = "34";
   s.budget = "600"; assert.ok(L.summarize(s, E).budgetLine.startsWith("Likely within your USD 600.00 budget. Remaining: USD 12.60–USD 85.20."), L.summarize(s, E).budgetLine);
   s.budget = "550"; assert.ok(L.summarize(s, E).budgetLine.includes("falls inside this estimate range"));
   s.budget = "500"; assert.ok(L.summarize(s, E).budgetLine.startsWith("Likely over your USD 500.00 budget"));
@@ -74,7 +74,7 @@ ok("input errors are explained, not thrown", () => {
   const s = sample(); s.currency = "US"; assert.match(L.summarize(s, E).error, /3-letter currency code/);
   s.currency = "USD"; s.contingency = "150"; assert.match(L.summarize(s, E).error, /between 0 and 100/);
   s.contingency = "10"; s.items[0].price = ""; assert.match(L.summarize(s, E).error, /Enter a price for "Paint"/);
-  s.items[0].price = "20"; s.items[1].mode = "range"; s.items[1].low = "5"; assert.match(L.summarize(s, E).error, /Enter both quotes/);
+  s.items[0].price = "20"; s.items[1].mode = "range"; s.items[1].currency = s.currency; s.items[1].low = "5"; assert.match(L.summarize(s, E).error, /Enter both quotes/);
   assert.match(L.summarize(newState(), E).error, /Add at least one item/);
   const q = sample(); q.items[0].quantity = "0"; assert.match(L.summarize(q, E).error, /Check the quantity/);
 });
