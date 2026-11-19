@@ -273,14 +273,27 @@ try:
                     page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.wallFinish === 'wallpaper'", timeout=10000)
                     page.click("#tab-paint")
                     page.locator("#paint-advanced summary").click()
-                    for field, value in (("paint-length", "4"), ("paint-width", "3"), ("paint-height", "2.5"), ("paint-openings", "0"), ("paint-coats", "2"), ("paint-waste", "0"), ("paint-coverage", "10"), ("paint-price", "40"), ("paint-currency", "$")):
+                    currency_codes = {field: page.input_value("#" + field) for field in ("paint-currency", "material-currency", "energy-currency", "project-currency")}
+                    check(f"{label}: Canada market supplies CAD ISO codes to manual-price paths", all(code == "CAD" for code in currency_codes.values()), currency_codes)
+                    check(f"{label}: manual currency code is read-only", page.locator("#paint-currency").get_attribute("readonly") is not None)
+                    for field, value in (("paint-length", "4"), ("paint-width", "3"), ("paint-height", "2.5"), ("paint-openings", "0"), ("paint-coats", "2"), ("paint-waste", "0"), ("paint-coverage", "10"), ("paint-price", "40")):
                         page.fill("#" + field, value)
                     page.click("#paint-form button[type=submit]")
+                    paint_result = page.inner_text("#paint-result")
+                    check(f"{label}: manual Paint amount is labelled CAD", "CAD 280.00" in paint_result, paint_result)
                     page.click("#paint-add")
                     page.click("#tab-project")
+                    check(f"{label}: Project List inherits CAD", page.input_value("#plist-currency") == "CAD")
                     page.click("#plist-calc-form button[type=submit]")
                     conflict = page.inner_text("#plist-error")
                     check(f"{label}: Paint-tab + wallpaper double count is blocked", "cannot be combined" in conflict and "double-counting" in conflict, conflict)
+                    # Changing to another country clears the typed Paint price and the Project List's manual price.
+                    page.select_option("#region-country", "Germany")
+                    check(f"{label}: country change refreshes all codes to EUR", all(page.input_value("#" + field) == "EUR" for field in ("paint-currency", "material-currency", "energy-currency", "project-currency", "plist-currency")))
+                    check(f"{label}: country change clears manual Paint amount and result", page.input_value("#paint-price") == "" and page.inner_text("#paint-result") == "")
+                    page.click("#tab-project")
+                    modes = page.locator('#plist-items select[data-field="mode"]')
+                    check(f"{label}: Project List manual price is reset after country change", modes.count() > 0 and modes.last.input_value() == "unknown")
                     check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
             except Exception as e:
                 check(f"{label}: Room-to-Ready browser scenario", False, repr(e))

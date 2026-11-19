@@ -16,7 +16,7 @@
     win.hpwRegion = "";
     host.innerHTML = '<div class="calc-field"><label for="region-country">Your country</label><select id="region-country"><option value="">Choose your country</option>' +
       RP.COUNTRY_ORDER.map(function (c) { return '<option value="' + esc(c) + '">' + esc(RP.COUNTRY_LABEL[c] || c) + '</option>'; }).join("") +
-      '</select><small>Used for typical prices and electricity rates in every calculator below. Nothing is stored or sent.</small></div>';
+      '</select><small>Used for typical prices, electricity rates and the currency code on manual prices below. Nothing is stored or sent.</small></div>';
     var sel = doc.getElementById("region-country");
     sel.addEventListener("change", function () {
       win.hpwRegion = RP.COUNTRY_ORDER.indexOf(sel.value) === -1 ? "" : sel.value;

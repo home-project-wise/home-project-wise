@@ -5,9 +5,10 @@
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.HPWPaintReference = factory();
-}(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  else root.HPWPaintReference = factory(root);
+}(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
+  var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
   var MARKET = { US: "US", Canada: "CA", UK: "GB", Germany: "DE", France: "FR", Spain: "ES", Italy: "IT", Netherlands: "NL" };
   var LABEL = { US: "the United States", Canada: "Canada", UK: "the United Kingdom", Germany: "Germany", France: "France", Spain: "Spain", Italy: "Italy", Netherlands: "the Netherlands" };
   var GAL_PER_L = 0.264172052;
@@ -15,7 +16,7 @@
     return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; });
   }
   function link(url, label) { return /^https:\/\//.test(String(url || "")) ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label); }
-  function money(n, cur) { try { return new Intl.NumberFormat("en-US", { style: "currency", currency: cur }).format(n); } catch (e) { return cur + " " + Number(n).toFixed(2); } }
+  function money(n, cur) { return Currency.format(n, cur); }
   function num(n, d) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: d === undefined ? 1 : d }); }
   function okRange(r) { return !!r && Number.isFinite(r.low) && Number.isFinite(r.high) && r.low >= 0 && r.low <= r.high; }
   function eligible(r, file) {
