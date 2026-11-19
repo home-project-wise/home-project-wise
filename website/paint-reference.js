@@ -5,7 +5,7 @@
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.HPWPaintReference = factory();
+  else root.HPWPaintReference = factory(root);
 }(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
   var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
