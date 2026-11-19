@@ -12,30 +12,6 @@ let passed = 0;
 function newState() { const s = L.createState(); s.contingency = "10"; return s; }
 function ok(name, fn) { fn(); passed++; console.log("PASS " + name); }
 
-ok("manual Project List prices carry ISO currency identity and cannot be reinterpreted after a market change", () => {
-  const x = newListG(REG, "Germany");
-  const added = L.addItem(x.c.state, { name: "Paint", unit: "tin", quantity: 2, price: 7, currency: "EUR" });
-  assert.equal(added.ok, true); assert.equal(added.item.currency, "EUR");
-  assert.equal(L.addItem(x.c.state, { name: "Wrong currency", unit: "box", quantity: 1, price: 3, currency: "USD" }).ok, false);
-  x.set("UK");
-  assert.equal(x.c.state.currency, "GBP"); assert.equal(added.item.quantity, "2");
-  assert.equal(added.item.mode, "unknown"); assert.equal(added.item.price, "");
-  assert.equal(x.e["plist-currency"].value, "GBP");
-  assert.match(x.e["plist-currency-note"].textContent, /Manual prices and quote ranges were cleared/);
-  fire(x.e["plist-items"], "change", { target: target({ "data-id": added.item.id, "data-field": "mode" }, "known") });
-  fire(x.e["plist-items"], "input", { target: target({ "data-id": added.item.id, "data-field": "price" }, "9") });
-  fire(x.e["plist-calc-form"], "submit");
-  assert.equal(x.e["plist-error"].textContent, "");
-  assert.ok(x.e["plist-result"].innerHTML.includes("GBP 9.00 per tin = GBP 18.00"), x.e["plist-result"].innerHTML);
-});
-ok("without a selected market the Project List keeps quantities but blocks manual prices and budgets", () => {
-  const x = newListG(REG, "");
-  const item = L.addItem(x.c.state, { name: "Paint", unit: "tin", quantity: 2 });
-  assert.equal(item.ok, true);
-  assert.equal(L.setField(x.c.state, item.item.id, "mode", "known"), false);
-  x.e["plist-budget"].value = "100"; fire(x.e["plist-calc-form"], "submit");
-  assert.match(x.e["plist-error"].textContent, /Choose your country before entering a budget/);
-});
 ok("addItem validates name, unit and quantity", () => {
   const s = newState();
   assert.equal(L.addItem(s, { name: "", unit: "tin", quantity: 1 }).ok, false);
@@ -317,6 +293,30 @@ function newListG(records, country) {
   const e = new Proxy(d.els, { get: (tt, k2) => d.getElementById(k2) }); e["plist-currency"].value = Currency.codeForMarket(country); e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
   return { c, e, w, set(cn) { w.hpwRegion = cn; handlers.forEach((f) => f()); } };
 }
+ok("manual Project List prices carry ISO currency identity and cannot be reinterpreted after a market change", () => {
+  const x = newListG(REG, "Germany");
+  const added = L.addItem(x.c.state, { name: "Paint", unit: "tin", quantity: 2, price: 7, currency: "EUR" });
+  assert.equal(added.ok, true); assert.equal(added.item.currency, "EUR");
+  assert.equal(L.addItem(x.c.state, { name: "Wrong currency", unit: "box", quantity: 1, price: 3, currency: "USD" }).ok, false);
+  x.set("UK");
+  assert.equal(x.c.state.currency, "GBP"); assert.equal(added.item.quantity, "2");
+  assert.equal(added.item.mode, "unknown"); assert.equal(added.item.price, "");
+  assert.equal(x.e["plist-currency"].value, "GBP");
+  assert.match(x.e["plist-currency-note"].textContent, /Manual prices and quote ranges were cleared/);
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": added.item.id, "data-field": "mode" }, "known") });
+  fire(x.e["plist-items"], "input", { target: target({ "data-id": added.item.id, "data-field": "price" }, "9") });
+  fire(x.e["plist-calc-form"], "submit");
+  assert.equal(x.e["plist-error"].textContent, "");
+  assert.ok(x.e["plist-result"].innerHTML.includes("GBP 9.00 per tin = GBP 18.00"), x.e["plist-result"].innerHTML);
+});
+ok("without a selected market the Project List keeps quantities but blocks manual prices and budgets", () => {
+  const x = newListG(REG, "");
+  const item = L.addItem(x.c.state, { name: "Paint", unit: "tin", quantity: 2 });
+  assert.equal(item.ok, true);
+  assert.equal(L.setField(x.c.state, item.item.id, "mode", "known"), false);
+  x.e["plist-budget"].value = "100"; fire(x.e["plist-calc-form"], "submit");
+  assert.match(x.e["plist-error"].textContent, /Choose your country before entering a budget/);
+});
 ok("with a page-wide country the list asks only for the floor type and prices from that country", () => {
   const x = newListG(REG, "US"), it = addFloor(x); fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "reference") });
   assert.ok(!x.e["plist-items"].innerHTML.includes("pl-c-") && x.e["plist-items"].innerHTML.includes("Floor type"));
