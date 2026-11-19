@@ -293,7 +293,7 @@
     "<div class=\"calc-field\"><label for=\"plist-unit\">Sold by (unit)</label><input id=\"plist-unit\" type=\"text\" maxlength=\"20\" placeholder=\"e.g. gallon, box, roll\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-add-error\" role=\"alert\"></p><button class=\"wp-btn\" type=\"submit\">Add item</button></form>" +
     "<form class=\"calc\" id=\"plist-calc-form\" novalidate><div class=\"calc-grid\">" +
-    "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code (from selected country)</label><input id=\"plist-currency\" type=\"text\" maxlength=\"3\" value=\"\" readonly><small id=\"plist-currency-note\">Choose a supported country above before entering prices.</small></div>" +
+    "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code (from selected country)</label><input id=\"plist-currency\" class=\"currency-display\" type=\"text\" maxlength=\"3\" value=\"\" placeholder=\"Choose your country above\" readonly aria-describedby=\"plist-currency-note\"><small id=\"plist-currency-note\">Choose your country above to set the currency. Quantities can still be listed.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-contingency\">Contingency allowance (%), your choice</label><input id=\"plist-contingency\" type=\"number\" min=\"0\" max=\"100\" step=\"any\" placeholder=\"e.g. 10\"><small>Leave blank to add none.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-budget\">Budget (optional)</label><input id=\"plist-budget\" type=\"number\" min=\"0\" step=\"any\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-error\" role=\"alert\"></p><button class=\"calc-btn\" type=\"submit\">Calculate project list</button></form>" +

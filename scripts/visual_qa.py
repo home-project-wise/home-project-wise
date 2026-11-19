@@ -362,6 +362,43 @@ try:
                 check(f"{label}: soil/mulch browser scenario", False, repr(e))
             finally:
                 context.close()
+        # Project cost beginner flow: no duplicate country note, currency guidance, and Room-to-Ready first.
+        for vp_name, width, height in (("mobile", 390, 844), ("desktop", 1280, 900)):
+            label = f"project-cost-guidance/{vp_name}"
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page_errors, app_console = [], []
+            page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+            page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+            page.route("**/*", handle_request)
+            try:
+                page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.wait_for_selector("#plist-root", state="attached", timeout=15000)
+                check(f"{label}: country hint contains quantity guidance", "Quantity calculations remain available" in page.inner_text("#region-country-hint"))
+                check(f"{label}: no duplicate global country note", page.locator("#currency-market-note").count() == 0)
+                page.click("#tab-project")
+                check(f"{label}: Room-to-Ready appears before Project list", page.locator("#panel-project").inner_text().index("Room-to-Ready plan") < page.locator("#panel-project").inner_text().index("Project list"))
+                quick = page.locator("details.quick-estimate")
+                check(f"{label}: single-item estimate is collapsed by default", quick.count() == 1 and not quick.evaluate("(el) => el.open"))
+                currency = page.locator("#project-currency")
+                check(f"{label}: empty currency field explains how to set it", currency.get_attribute("readonly") is not None and currency.get_attribute("placeholder") == "Choose your country above" and "currency-display" in (currency.get_attribute("class") or ""))
+                prompt = page.locator("#room-plan-room-prompt")
+                check(f"{label}: missing room is explained inline", prompt.is_visible() and "Enter your room once" in prompt.inner_text())
+                page.click("#room-plan-open-room")
+                check(f"{label}: prompt opens the collapsed shared-room section", page.locator("#room-root details").evaluate("(el) => el.open"))
+                page.fill("#room-length", "5"); page.fill("#room-width", "4")
+                page.click('#room-form button[data-target="flooring"]')
+                page.click("#tab-project")
+                check(f"{label}: room prompt hides after room is entered", page.locator("#room-plan-room-prompt").is_hidden())
+                page.select_option("#region-country", "Canada")
+                check(f"{label}: selected country populates read-only currency", page.input_value("#project-currency") == "CAD" and page.input_value("#energy-currency") == "CAD" and page.input_value("#plist-currency") == "CAD")
+                check(f"{label}: currency hint updates after country selection", "CAD" in page.inner_text("#plist-currency-note"))
+                check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
+                check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+            except Exception as e:
+                check(f"{label}: project cost guidance scenario", False, repr(e))
+            finally:
+                context.close()
         browser.close()
 finally:
     server.shutdown()

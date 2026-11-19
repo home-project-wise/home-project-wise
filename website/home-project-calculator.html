@@ -42,7 +42,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 @media(prefers-reduced-motion:no-preference){.calc-tabs button,.tool-panel .calc-btn{transition:background-color .15s,border-color .15s,opacity .15s}}
 @media(forced-colors:active){.calc-tabs button[aria-selected="true"]{outline:3px solid Highlight}}
 </style><div id="region-root"></div>
-<p class="wp-note" id="currency-market-note" role="status">Choose a supported country above before entering prices. Quantity calculations remain available.</p>
+
 <div id="room-root"></div>
 <div class="calc-tabs" role="tablist" aria-label="Calculator type">
 <button type="button" role="tab" aria-selected="true" aria-controls="panel-measure" id="tab-measure" data-panel="measure">Area & volume</button>
@@ -118,13 +118,17 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="energy-hours">Hours used per day</label><input id="energy-hours" type="number" min="0" max="24" step="any" required placeholder="e.g. 3"></div>
 <div class="calc-field"><label for="energy-days">Days used per month</label><input id="energy-days" type="number" min="0" max="31" step="any" value="30"></div>
 <div class="calc-field"><label for="energy-rate">Your electricity price per kWh</label><input id="energy-rate" type="number" min="0" step="any" required placeholder="Enter your tariff"></div>
-<div class="calc-field"><label for="energy-currency">Currency code (from selected country)</label><input id="energy-currency" type="text" maxlength="3" value="" readonly></div>
+<div class="calc-field"><label for="energy-currency">Currency code (from selected country)</label><input id="energy-currency" class="currency-display" type="text" maxlength="3" value="" placeholder="Choose your country above" readonly aria-describedby="region-country-hint"></div>
 </div><p class="calc-error" id="energy-error" role="alert"></p><button class="calc-btn" type="submit">Calculate running cost</button>
 </form><div class="tool-result" id="energy-result" aria-live="polite"></div>
 <p class="formula">Formula: energy (kWh) = watts ÷ 1,000 × hours per day × days. Cost = kWh × your entered price per kWh. Actual use varies with cycling, settings, standby draw and your tariff structure; this is not an electrical safety check.</p>
 </section>
 <section class="tool-panel" id="panel-project" role="tabpanel" aria-labelledby="tab-project">
-<h2>Project cost estimate</h2><p>Add the materials and services you expect to pay for. Enter prices from your own suppliers and include extras you know apply.</p>
+<h2>Project cost estimate</h2><p>Build a room plan and shopping list first. If you only need a quick one-off estimate, open the optional calculator below.</p>
+<div id="room-plan-root"></div>
+<div id="plist-root"></div>
+<details class="quick-estimate"><summary>Quick single-item estimate</summary>
+<p>Add one material or service using a supplier price you have confirmed, plus any known extras.</p>
 <form class="calc" id="project-form" novalidate>
 <div class="calc-grid">
 <div class="calc-field"><label for="project-quantity">Quantity</label><input id="project-quantity" type="number" min="0" step="any" required value="1"></div>
@@ -132,15 +136,19 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="project-extra">Labour / delivery / other costs</label><input id="project-extra" type="number" min="0" step="any" value="0"></div>
 <div class="calc-field"><label for="project-contingency">Contingency allowance (%)</label><input id="project-contingency" type="number" min="0" max="100" step="any" value="10"></div>
 <div class="calc-field"><label for="project-tax">Tax (%) (optional)</label><input id="project-tax" type="number" min="0" max="100" step="any" value="0"></div>
-<div class="calc-field"><label for="project-currency">Currency code (from selected country)</label><input id="project-currency" type="text" maxlength="3" value="" readonly></div>
+<div class="calc-field"><label for="project-currency">Currency code (from selected country)</label><input id="project-currency" class="currency-display" type="text" maxlength="3" value="" placeholder="Choose your country above" readonly aria-describedby="region-country-hint"></div>
 </div><p class="calc-error" id="project-error" role="alert"></p><button class="calc-btn" type="submit">Estimate project total</button>
 </form><div class="tool-result" id="project-result" aria-live="polite"></div>
 <p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
-<div id="room-plan-root"></div>
-<div id="plist-root"></div>
+</details>
 </section>
 <style>
-.wp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.wp-room{border:1px solid #d8ded9;border-radius:14px;padding:14px 16px;margin:12px 0;min-width:0}.wp-room legend{font-weight:600;padding:0 6px}.wp-wall{display:flex;gap:8px;align-items:center;margin:8px 0}.wp-wall input{flex:1;min-width:0}.wp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wp-btn{min-height:44px;min-width:44px;padding:10px 16px;border-radius:999px;border:1px solid #243238;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.wp-btn:disabled{opacity:.45;cursor:not-allowed}#panel-wallpaper h3{font-size:18px;margin:22px 0 4px}.wp-note{font-size:13px;color:#637075;margin:6px 0 0}#wp-budget{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}#wp-budget[hidden],.calc-field[hidden]{display:none}main.article .tool-result ul,main.article .tool-result ol{margin:10px 0 0;padding-left:20px;color:inherit}.wp-check{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:8px;cursor:pointer}.wp-check input{width:24px;height:24px;flex:none;margin:0}#wp-compare-fields[hidden]{display:none}.wp-compare-out{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}@media (prefers-color-scheme:dark){.wp-note{color:#aeb9bc}.wp-compare-out{border-top-color:#44565e}.wp-btn{border-color:#6f8189}.wp-btn:hover:not(:disabled){border-color:#eef1ee}.wp-room{border-color:#44565e}#wp-budget{border-top-color:#44565e}#panel-wallpaper .wp-btn:focus-visible,#panel-wallpaper input:focus-visible,#panel-wallpaper select:focus-visible{outline:2px solid #8db8a6;outline-offset:2px}}
+.wp-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.wp-room{border:1px solid #d8ded9;border-radius:14px;padding:14px 16px;margin:12px 0;min-width:0}.wp-room legend{font-weight:600;padding:0 6px}.wp-wall{display:flex;gap:8px;align-items:center;margin:8px 0}.wp-wall input{flex:1;min-width:0}.wp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.wp-btn{min-height:44px;min-width:44px;padding:10px 16px;border-radius:999px;border:1px solid #243238;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.wp-btn:disabled{opacity:.45;cursor:not-allowed}#panel-wallpaper h3{font-size:18px;margin:22px 0 4px}.wp-note{font-size:13px;color:#637075;margin:6px 0 0}
+.currency-display[readonly]{background:var(--cp-notebg);border:1px dashed var(--cp-line);color:var(--cp-muted);cursor:default}
+.currency-display[readonly]:focus{outline:2px solid var(--cp-resline);outline-offset:2px}
+.quick-estimate{margin-top:18px;padding:12px 14px;border:1px solid var(--cp-line);border-radius:12px;background:var(--cp-notebg)}
+.quick-estimate summary{cursor:pointer;font-weight:650;min-height:36px;display:flex;align-items:center}
+.quick-estimate[open] summary{margin-bottom:10px}#wp-budget{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}#wp-budget[hidden],.calc-field[hidden]{display:none}main.article .tool-result ul,main.article .tool-result ol{margin:10px 0 0;padding-left:20px;color:inherit}.wp-check{display:flex;align-items:center;gap:10px;min-height:44px;margin-top:8px;cursor:pointer}.wp-check input{width:24px;height:24px;flex:none;margin:0}#wp-compare-fields[hidden]{display:none}.wp-compare-out{margin-top:18px;padding-top:6px;border-top:1px solid #e4e1da}@media (prefers-color-scheme:dark){.wp-note{color:#aeb9bc}.wp-compare-out{border-top-color:#44565e}.wp-btn{border-color:#6f8189}.wp-btn:hover:not(:disabled){border-color:#eef1ee}.wp-room{border-color:#44565e}#wp-budget{border-top-color:#44565e}#panel-wallpaper .wp-btn:focus-visible,#panel-wallpaper input:focus-visible,#panel-wallpaper select:focus-visible{outline:2px solid #8db8a6;outline-offset:2px}}
 </style>
 <section class="tool-panel" id="panel-wallpaper" role="tabpanel" aria-labelledby="tab-wallpaper">
 <h2>Wallpaper rolls</h2><p>Add each room and the width of each wall to see the wall area, or use “Enter your room once” above. To count rolls, open Advanced settings and take every figure from the label of the exact product you will buy.</p>

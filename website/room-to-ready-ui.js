@@ -18,7 +18,8 @@
     host.innerHTML =
       '<section class="wp-room" aria-labelledby="room-plan-title">' +
       '<h3 id="room-plan-title">Room-to-Ready plan</h3>' +
-      '<p class="wp-note">Use the room you entered above. Choose the work you plan to do; this combines only selected materials and keeps unknown costs visible.</p>' +
+      '<p class="wp-note" id="room-plan-room-prompt" role="status">Enter your room first in <a href="#room-root" id="room-plan-open-room">Enter your room once</a> above; the section is collapsed until you open it. Then choose the work you plan to do.</p>' +
+      '<p class="wp-note">This combines only selected materials and keeps unknown costs visible.</p>' +
       '<form class="calc" id="room-plan-form" novalidate>' +
       '<label class="wp-check"><input id="plan-flooring" type="checkbox"> Include flooring</label>' +
       '<div class="calc-field"><label for="plan-floor-type">Floor type (for a reference range)</label><select id="plan-floor-type"><option value="">Choose a type</option></select></div>' +
@@ -39,6 +40,27 @@
     var floorPriceLabel = floorPriceField.querySelector("label");
     var error = doc.getElementById("room-plan-error");
     var output = doc.getElementById("room-plan-result");
+    var roomPrompt = doc.getElementById("room-plan-room-prompt");
+    function updateRoomPrompt() {
+      var hasRoom = !!(win && win.hpwRoom);
+      roomPrompt.hidden = hasRoom;
+      roomPrompt.textContent = "";
+      if (!hasRoom) {
+        roomPrompt.appendChild(doc.createTextNode("Enter your room first in "));
+        var link = doc.createElement("a");
+        link.href = "#room-root"; link.id = "room-plan-open-room"; link.textContent = "Enter your room once";
+        roomPrompt.appendChild(link);
+        roomPrompt.appendChild(doc.createTextNode(" above; the section is collapsed until you open it."));
+      }
+    }
+    roomPrompt.addEventListener("click", function (event) {
+      var link = event.target;
+      if (link && link.id === "room-plan-open-room") {
+        var details = doc.querySelector("#room-root details");
+        if (details) details.open = true;
+      }
+    });
+    updateRoomPrompt();
     function region() { return win.hpwRegion || ""; }
     function escHtml(value) { return String(value === undefined || value === null ? "" : value).replace(/[&<>"\']/g, function (ch) { if (ch === "&") return "&amp;"; if (ch === "<") return "&lt;"; if (ch === ">") return "&gt;"; if (ch === "\"") return "&quot;"; return "&#39;"; }); }
     function currencyFor(market) { return Model.MARKET_CURRENCY[market] || ""; }
@@ -177,7 +199,7 @@
       try { render(Model.buildPlan(input, Engine)); }
       catch (e) { error.textContent = e && e.message ? e.message : "The room plan could not be calculated."; }
     });
-    if (win && win.addEventListener) win.addEventListener("hpw-room", clearOutput);
+    if (win && win.addEventListener) win.addEventListener("hpw-room", function () { updateRoomPrompt(); clearOutput(); });
     if (win && win.addEventListener) win.addEventListener("hpw-region", function () {
       // A manually entered number belongs to the old currency; never silently reinterpret it.
       doc.getElementById("plan-floor-price").value = "";
