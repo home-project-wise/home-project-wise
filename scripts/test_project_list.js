@@ -59,7 +59,7 @@ ok("nothing priced: quantities only, never an invented number", () => {
   const s = newState(); L.addItem(s, { name: "Paint", unit: "tin", quantity: 8 });
   const r = L.summarize(s, E);
   assert.ok(r.totals[0].startsWith("No prices yet"));
-  assert.ok(!/\USD \d/.test(r.text.replace("HomeProjectWise", "")), r.text);
+  assert.ok(!/(?:USD|CAD|GBP|EUR) \d/.test(r.text.replace("HomeProjectWise", "")), r.text);
 });
 ok("budget: within, overlap, over, and cannot-assess when a price is unknown", () => {
   const s = sample(); s.items[1].mode = "range"; s.items[1].low = "28"; s.items[1].high = "34";
