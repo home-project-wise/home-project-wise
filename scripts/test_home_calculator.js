@@ -117,14 +117,12 @@ rejects('project blank other costs is an error', submit('project-form', { ...J, 
 rejects('project blank contingency is an error', submit('project-form', { ...J, 'project-contingency': '' }));
 has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: USD 0.00 Estimated project total: USD 330.00');
 has('project explicit 0 unit price stays valid after the blank check', submit('project-form', { ...J, 'project-unit-price': 0 }), 'Materials and extras: USD 50.00');
-ok('changing the selected market updates ISO codes and clears all previous manual amounts', () => {
-  window.hpwRegion = 'Germany';
-  ['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => { els[id].value = '7'; });
-  window.dispatchEvent({ type: 'hpw-region', detail: { country: 'Germany' } });
-  ['paint-currency','material-currency','energy-currency','project-currency'].forEach(id => ok(id + ' is EUR', els[id].value === 'EUR', els[id].value));
-  ['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => ok(id + ' cleared', els[id].value === '', els[id].value));
-  ok('old paint result and add action cleared', els['paint-result'].innerHTML === '' && els['paint-add'].hidden === true);
-});
+window.hpwRegion = 'Germany';
+['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => { els[id].value = '7'; });
+window.dispatchEvent({ type: 'hpw-region', detail: { country: 'Germany' } });
+['paint-currency','material-currency','energy-currency','project-currency'].forEach(id => ok(id + ' is EUR', els[id].value === 'EUR', els[id].value));
+['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => ok(id + ' cleared', els[id].value === '', els[id].value));
+ok('old paint result and add action cleared', els['paint-result'].innerHTML === '' && els['paint-add'].hidden === true);
 has('Germany manual paint price is shown as EUR and carried with EUR identity', submit('paint-form', { ...P, 'paint-price': 20 }), 'Estimated paint cost: EUR 160.00');
 ok('paint list item carries the ISO currency code', window.hpwLast.paint.currency === 'EUR' && window.hpwLast.paint.price === 20);
 ok('country change clears old paint data before the next market price is entered', els['paint-currency'].value === 'EUR');
