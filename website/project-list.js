@@ -248,10 +248,10 @@
     h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + (Currency.validCode(state.currency) ? "" : " disabled") + '>I know the price</option><option value="range"' + sel("range") + (Currency.validCode(state.currency) ? "" : " disabled") + '>Two quotes (a range)</option>' +
       (canRef ? '<option value="reference"' + sel("reference") + '>Typical range from sources</option>' : '') + '<option value="unknown"' + sel("unknown") + '>Not sure yet</option></select></div>';
     if (it.mode === "known") {
-      h += '<div class="calc-field"><label for="pl-p-' + id + '">Price per ' + esc(it.unit) + '</label><input id="pl-p-' + id + '" type="number" min="0" step="any" value="' + esc(it.price) + '" data-id="' + id + '" data-field="price"></div>';
+      h += '<div class="calc-field"><label for="pl-p-' + id + '">Price per ' + esc(it.unit) + ' (' + esc(state.currency) + ')</label><input id="pl-p-' + id + '" type="number" min="0" step="any" value="' + esc(it.price) + '" data-id="' + id + '" data-field="price"></div>';
     } else if (it.mode === "range") {
-      h += '<div class="calc-field"><label for="pl-l-' + id + '">First quote per ' + esc(it.unit) + '</label><input id="pl-l-' + id + '" type="number" min="0" step="any" value="' + esc(it.low) + '" data-id="' + id + '" data-field="low"></div>';
-      h += '<div class="calc-field"><label for="pl-h-' + id + '">Second quote per ' + esc(it.unit) + '</label><input id="pl-h-' + id + '" type="number" min="0" step="any" value="' + esc(it.high) + '" data-id="' + id + '" data-field="high"></div>';
+      h += '<div class="calc-field"><label for="pl-l-' + id + '">First quote per ' + esc(it.unit) + ' (' + esc(state.currency) + ')</label><input id="pl-l-' + id + '" type="number" min="0" step="any" value="' + esc(it.low) + '" data-id="' + id + '" data-field="low"></div>';
+      h += '<div class="calc-field"><label for="pl-h-' + id + '">Second quote per ' + esc(it.unit) + ' (' + esc(state.currency) + ')</label><input id="pl-h-' + id + '" type="number" min="0" step="any" value="' + esc(it.high) + '" data-id="' + id + '" data-field="high"></div>';
     } else if (it.mode === "reference" && canRef) {
       h += referenceHtml(it, state);
     } else {
@@ -272,7 +272,7 @@
     (s.roomPlanSources || []).forEach(function (source) {
       h += '<p class="wp-note">Room plan source for ' + esc(source.item) + ': ' + esc(source.name) + ', observed ' + esc(source.observedAt) + '. ' + (source.urls || []).map(function (url, i) { return link(url, "source " + (i + 1)); }).join(" · ") + '</p>';
     });
-    if (s.currencyChanged) h += '<p class="wp-note">The list currency is now ' + esc(s.estimate.currency) + ', the currency of the selected reference. Prices you typed yourself are read in ' + esc(s.estimate.currency) + '.</p>';
+    if (s.currencyChanged) h += '<p class="wp-note">The list currency is now ' + esc(s.estimate.currency) + ', the currency of the selected reference. Any manual price must also use ' + esc(s.estimate.currency) + '.</p>';
     h += '<p class="wp-note">' + esc(s.disclaimer || "Planning estimate from the numbers you entered; not a quote. Taxes, delivery and labour are not included unless you add them as items.") + '</p>';
     h += '<div class="calc-field"><label for="plist-text">List as text</label><textarea id="plist-text" readonly rows="' + Math.min(16, s.lines.length + 8) + '" style="width:100%">' + esc(s.text) + '</textarea></div>';
     return h + '<button type="button" class="wp-btn" data-action="copy">Copy list</button> <span class="wp-note" id="plist-copy-note" role="status"></span>';
