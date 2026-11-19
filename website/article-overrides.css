@@ -348,3 +348,11 @@ main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]{color:#fff}
   body>header.nav{padding-top:8px;padding-bottom:8px}
   body>header.nav .brand-logo{height:28px;width:auto}
 }
+
+/* Stage 11 (from the owner's screen recording of 2026-11-17): in the dark scheme the calculator inputs were forced to a white background by my Stage 1c v2 rule while their text colour is light, so typed values, "Metres" and several placeholders were almost invisible. In the dark scheme inputs and selects now use a dark surface, light text, a placeholder with at least 4.5:1 contrast and a border with at least 3:1 against the panel. */
+@media(prefers-color-scheme:dark){
+  main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]),main:has(.calc-tabs) .tool-panel .calc select,main:has(.calc-tabs) .tool-panel .calc textarea{background-color:#182126;color:#eef1ee;border-color:#6d8189}
+  main:has(.calc-tabs) .tool-panel .calc input::placeholder,main:has(.calc-tabs) .tool-panel .calc textarea::placeholder{color:#8fa0a6;opacity:1}
+  main:has(.calc-tabs) .tool-panel .calc select option{background-color:#182126;color:#eef1ee}
+  main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]):focus,main:has(.calc-tabs) .tool-panel .calc select:focus{border-color:#D9B77A}
+}
