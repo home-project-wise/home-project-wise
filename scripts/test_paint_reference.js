@@ -71,7 +71,7 @@ ok("text from the data file is escaped", () => {
 ok("init exposes hpwPaint, follows the page-wide country, and a null window is refused", () => {
   const win = { hpwRegion: "" }; const c = PR.init(win, { file: FILE });
   assert.ok(win.hpwPaint({ netM2: 40, coats: 2 }).includes("Choose your country")); win.hpwRegion = "Germany";
-  const h = win.hpwPaint({ netM2: 40, coats: 2 }); assert.ok(h.includes("Germany") && h.includes("€") && c.state.file === FILE);
+  const h = win.hpwPaint({ netM2: 40, coats: 2 }); assert.ok(h.includes("Germany") && h.includes("EUR ") && c.state.file === FILE);
   win.hpwRegion = "France"; assert.ok(win.hpwPaint({ netM2: 40, coats: 2 }).includes("France")); assert.equal(PR.init(null), null);
 });
 ok("source: one same-origin GET of the build copy, no storage, no other network", () => {
