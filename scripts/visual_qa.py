@@ -399,6 +399,71 @@ try:
                 check(f"{label}: project cost guidance scenario", False, repr(e))
             finally:
                 context.close()
+        # Tile quantity flow is an extension of Flooring & materials, not a new top-level tab.
+        for vp_name, width, height in (("mobile", 390, 844), ("desktop", 1280, 900)):
+            label = f"tile-quantity/{vp_name}"
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page_errors, app_console = [], []
+            page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+            page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+            page.route("**/*", handle_request)
+            try:
+                page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.wait_for_selector("#tile-form", state="attached", timeout=15000)
+                page.click("#tab-material")
+                check(f"{label}: tile calculator is inside Flooring & materials", page.locator("#panel-material #tile-root").count() == 1)
+                check(f"{label}: quantity-only explanation is visible", "No prices" in page.locator("#tile-root").inner_text())
+                page.fill("#tile-length-1", "5"); page.fill("#tile-width-1", "4")
+                page.fill("#tile-openings", "2"); page.fill("#tile-waste", "")
+                page.fill("#tile-length", "0.6"); page.fill("#tile-width", "0.6"); page.select_option("#tile-size-unit", "m")
+                page.fill("#tile-joint", "3"); page.select_option("#tile-joint-unit", "mm")
+                page.fill("#tile-box-coverage", "1.44"); page.select_option("#tile-coverage-unit", "m2")
+                page.click("#tile-form button[type=submit]")
+                result = page.inner_text("#tile-result")
+                check(f"{label}: subtracts openings and calculates tile and label box counts", "18 m²" in result and "50" in result and "13" in result, result)
+                check(f"{label}: does not add an unrequested allowance or prices", "no extra allowance added" in result.lower() and "price" not in result.lower(), result)
+                # Exercise explicit shared-room reuse and its empty-state path.
+                page.locator("#room-root summary").click()
+                for field, value in (("room-unit", "ft"), ("room-length", "12"), ("room-width", "10")):
+                    if field == "room-unit": page.select_option("#" + field, value)
+                    else: page.fill("#" + field, value)
+                page.click('#room-form button[data-target="flooring"]')
+                page.click("#tile-add-section")
+                page.fill("#tile-sections .tile-section:nth-child(2) .tile-length", "2")
+                page.fill("#tile-sections .tile-section:nth-child(2) .tile-width", "2")
+                page.click("#tile-use-room")
+                check(f"{label}: shared room fills first tile area", page.input_value("#tile-length-1") == "12" and page.input_value("#tile-width-1") == "10")
+                check(f"{label}: shared room removes extra areas", page.locator("#tile-sections .tile-section").count() == 1)
+                check(f"{label}: shared room synchronises floor unit", page.input_value("#tile-unit") == "ft")
+                empty = context.new_page()
+                empty.route("**/*", handle_request)
+                empty.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                empty.wait_for_selector("#tile-use-room", state="attached", timeout=15000)
+                empty.click("#tab-material")
+                empty.click("#tile-use-room")
+                check(f"{label}: no-room path explains sharing action", "press one of its" in empty.inner_text("#tile-error").lower())
+                empty.close()
+                page.fill("#tile-length-1", "5"); page.fill("#tile-width-1", "4")
+                page.select_option("#tile-unit", "m")
+                page.click("#tile-add-section")
+                page.fill("#tile-sections .tile-section:nth-child(2) .tile-length", "2")
+                page.fill("#tile-sections .tile-section:nth-child(2) .tile-width", "2")
+                page.click("#tile-form button[type=submit]")
+                multi = page.inner_text("#tile-result")
+                check(f"{label}: multiple rectangular areas are included", "24 m²" in multi and "boxes" in multi.lower(), multi)
+                check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
+                if vp_name == "desktop":
+                    page.locator("#tile-unit").focus(); page.keyboard.press("Tab")
+                    check(f"{label}: keyboard reaches first area length", page.evaluate("document.activeElement.id === 'tile-length-1'"))
+                check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+                shot = OUT / f"tile-quantity-{width}x{height}.png"
+                page.screenshot(path=str(shot), full_page=True, animations="disabled")
+                report["screenshots"].append(str(shot.relative_to(ROOT)))
+            except Exception as e:
+                check(f"{label}: tile browser scenario", False, repr(e))
+            finally:
+                context.close()
         browser.close()
 finally:
     server.shutdown()

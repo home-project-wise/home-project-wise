@@ -107,6 +107,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </div></details><p class="calc-error" id="material-error" role="alert"></p><button class="calc-btn" type="submit">Estimate flooring</button>
 </form><div class="tool-result" id="material-result" aria-live="polite"></div>
 <p><button type="button" class="wp-btn" id="material-add" hidden>Add to project list</button> <span class="wp-note" id="material-add-note" role="status"></span></p>
+<div id="tile-root"></div>
 <p class="formula">Formula: surface area = length × width; required packs = round up[(area × (1 + allowance)) ÷ coverage per pack], all in the unit you select (metres or feet). Check pack coverage, pattern matching, cuts, substrate and supplier return rules before ordering.</p>
 </section>
 <section class="tool-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
@@ -219,7 +220,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <script src="flooring-reference.js"></script>
 <script src="shared-room.js"></script>
 <script src="room-to-ready.js"></script>
-<script src="room-to-ready-ui.js"></script><script src="soil-mulch.js"></script><script>
+<script src="room-to-ready-ui.js"></script><script src="soil-mulch.js"></script><script src="tile.js"></script><script>
 (function(){
 'use strict';
 function byId(id){return document.getElementById(id);}
