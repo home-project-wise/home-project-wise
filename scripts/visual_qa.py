@@ -439,7 +439,7 @@ try:
                 empty = context.new_page()
                 empty.route("**/*", handle_request)
                 empty.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
-                empty.wait_for_selector("#tile-use-room", timeout=15000)
+                empty.wait_for_selector("#tile-use-room", state="attached", timeout=15000)
                 empty.click("#tab-material")
                 empty.click("#tile-use-room")
                 check(f"{label}: no-room path explains sharing action", "press one of its" in empty.inner_text("#tile-error").lower())
