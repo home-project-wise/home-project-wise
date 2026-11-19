@@ -42,6 +42,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 @media(prefers-reduced-motion:no-preference){.calc-tabs button,.tool-panel .calc-btn{transition:background-color .15s,border-color .15s,opacity .15s}}
 @media(forced-colors:active){.calc-tabs button[aria-selected="true"]{outline:3px solid Highlight}}
 </style><div id="region-root"></div>
+<p class="wp-note" id="currency-market-note" role="status">Choose a supported country above before entering prices. Quantity calculations remain available.</p>
 <div id="room-root"></div>
 <div class="calc-tabs" role="tablist" aria-label="Calculator type">
 <button type="button" role="tab" aria-selected="true" aria-controls="panel-measure" id="tab-measure" data-panel="measure">Area & volume</button>
@@ -80,7 +81,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </div><details id="paint-advanced"><summary>Advanced settings: coverage and price from your tin</summary><div class="calc-grid">
 <div class="calc-field"><label for="paint-coverage">Coverage per tin (<span class="paint-area-unit">m²</span>)</label><input id="paint-coverage" type="number" min="0" step="any" placeholder="From product label, optional"></div>
 <div class="calc-field"><label for="paint-price">Price per tin (optional)</label><input id="paint-price" type="number" min="0" step="any" placeholder="Your local price"></div>
-<div class="calc-field"><label for="paint-currency">Currency symbol</label><input id="paint-currency" type="text" maxlength="5" value="$"></div>
+<div class="calc-field"><label for="paint-currency">Currency code (from selected country)</label><input id="paint-currency" type="text" maxlength="3" value="" readonly></div>
 </div></details><p class="calc-error" id="paint-error" role="alert"></p><button class="calc-btn" type="submit">Estimate paint needed</button>
 </form><div class="tool-result" id="paint-result" aria-live="polite"></div>
 <p><button type="button" class="wp-btn" id="paint-add" hidden>Add to project list</button> <span class="wp-note" id="paint-add-note" role="status"></span></p>
@@ -101,7 +102,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="material-coverage">Coverage per pack (<span class="material-area-unit">m²</span>)</label><input id="material-coverage" type="number" min="0" step="any" placeholder="From product label, optional"></div>
 
 <div class="calc-field"><label for="material-price">Price per pack (optional)</label><input id="material-price" type="number" min="0" step="any" placeholder="Your local price"></div>
-<div class="calc-field"><label for="material-currency">Currency symbol</label><input id="material-currency" type="text" maxlength="5" value="$"></div>
+<div class="calc-field"><label for="material-currency">Currency code (from selected country)</label><input id="material-currency" type="text" maxlength="3" value="" readonly></div>
 </div></details><p class="calc-error" id="material-error" role="alert"></p><button class="calc-btn" type="submit">Estimate flooring</button>
 </form><div class="tool-result" id="material-result" aria-live="polite"></div>
 <p><button type="button" class="wp-btn" id="material-add" hidden>Add to project list</button> <span class="wp-note" id="material-add-note" role="status"></span></p>
@@ -116,7 +117,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="energy-hours">Hours used per day</label><input id="energy-hours" type="number" min="0" max="24" step="any" required placeholder="e.g. 3"></div>
 <div class="calc-field"><label for="energy-days">Days used per month</label><input id="energy-days" type="number" min="0" max="31" step="any" value="30"></div>
 <div class="calc-field"><label for="energy-rate">Your electricity price per kWh</label><input id="energy-rate" type="number" min="0" step="any" required placeholder="Enter your tariff"></div>
-<div class="calc-field"><label for="energy-currency">Currency symbol</label><input id="energy-currency" type="text" maxlength="5" value="$"></div>
+<div class="calc-field"><label for="energy-currency">Currency code (from selected country)</label><input id="energy-currency" type="text" maxlength="3" value="" readonly></div>
 </div><p class="calc-error" id="energy-error" role="alert"></p><button class="calc-btn" type="submit">Calculate running cost</button>
 </form><div class="tool-result" id="energy-result" aria-live="polite"></div>
 <p class="formula">Formula: energy (kWh) = watts ÷ 1,000 × hours per day × days. Cost = kWh × your entered price per kWh. Actual use varies with cycling, settings, standby draw and your tariff structure; this is not an electrical safety check.</p>
@@ -130,7 +131,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <div class="calc-field"><label for="project-extra">Labour / delivery / other costs</label><input id="project-extra" type="number" min="0" step="any" value="0"></div>
 <div class="calc-field"><label for="project-contingency">Contingency allowance (%)</label><input id="project-contingency" type="number" min="0" max="100" step="any" value="10"></div>
 <div class="calc-field"><label for="project-tax">Tax (%) (optional)</label><input id="project-tax" type="number" min="0" max="100" step="any" value="0"></div>
-<div class="calc-field"><label for="project-currency">Currency symbol</label><input id="project-currency" type="text" maxlength="5" value="$"></div>
+<div class="calc-field"><label for="project-currency">Currency code (from selected country)</label><input id="project-currency" type="text" maxlength="3" value="" readonly></div>
 </div><p class="calc-error" id="project-error" role="alert"></p><button class="calc-btn" type="submit">Estimate project total</button>
 </form><div class="tool-result" id="project-result" aria-live="polite"></div>
 <p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
@@ -200,6 +201,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </main><footer><a class="brand" href="./" aria-label="HomeProjectWise home"><img class="brand-logo-footer" src="images/logo.svg" alt="HomeProjectWise"></a><nav><a href="./">Home</a><a href="guides.html">Categories</a><a href="about.html">About</a><a href="editorial-policy.html">Editorial Policy</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></nav></footer><script src="wallpaper-calculator-engine.js"></script><script src="project-estimator-engine.js"></script>
 <script src="reference-prices.js"></script>
 <script src="region.js"></script>
+<script src="currency.js"></script>
 <script src="paint-reference.js"></script>
 <script src="wallpaper-beginner.js"></script>
 <script src="wallpaper-reference.js"></script>
@@ -311,7 +313,7 @@ function validPositive(ids){return ids.every(function(id){return Number.isFinite
 function validNonNegative(ids){return ids.every(function(id){return Number.isFinite(value(id))&&value(id)>=0;});}
 function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
 function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
-function money(n,c){return safe(c)+fmt(n);}
+function money(n,c){return window.HPWCurrency.format(n,c);}
 function show(id,html){byId(id).innerHTML=html;}
 function error(id,msg){byId(id).textContent=msg;}
 var tabs=Array.prototype.slice.call(document.querySelectorAll('.calc-tabs button'));
@@ -347,10 +349,11 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  if(!hasCov){var h0='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)';if(window.hpwPaint)h0+=window.hpwPaint({netM2:net,coats:value('paint-coats'),allowPct:value('paint-waste')});if(byId('paint-waste').value==='')h0+='<br><span class="wp-note">No extra allowance added.</span>';show('paint-result',h0);if(window.hpwLast)delete window.hpwLast.paint;byId('paint-add').hidden=true;return;}
  var coats=value('paint-coats'),allow=value('paint-waste')/100,coverage=value('paint-coverage')*f*f,litres=net*coats*(1+allow)/coverage,tins=Math.ceil(litres-1e-10),price=byId('paint-price').value===''?null:value('paint-price');
  var html='Paintable wall area: <strong>'+fmt(net)+' m²</strong> ('+fmt(net/0.09290304)+' ft²)<br>Including '+coats+' coat(s) and '+fmt(allow*100,1)+'% allowance: <strong>'+fmt(litres)+' tin-equivalents</strong><br>Buy at least <strong>'+tins+' tin(s)</strong> of the entered coverage.';
- if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
+ var cur=byId('paint-currency').value.trim();
+ if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}if(!cur){html+='<br><span class="wp-note">Choose your country above to show a price in its currency. The quantity estimate is still available.</span>';}else{html+='<br>Estimated paint cost: <strong>'+money(tins*price,cur)+'</strong>';}}
  if(byId('paint-waste').value==='')html+='<br><span class="wp-note">No extra allowance added.</span>';
  show('paint-result',html);
- window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
+ window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&cur)?price:null,currency:cur};byId('paint-add').hidden=false;
 });
 function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
 byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
@@ -364,25 +367,27 @@ byId('material-form').addEventListener('submit',function(e){e.preventDefault();e
  var html='Surface area: <strong>'+fmt(area)+' '+au+'</strong> ('+fmt(other)+' '+ou+')<br>With '+fmt(allow*100,1)+'% allowance: '+fmt(needed)+' '+au;
  if(byId('material-waste').value==='')html+='<br><span class="wp-note">No extra allowance added; add one if your layout needs cuts.</span>';
  if(hasCov){html+='<br>Required: <strong>'+packs+' pack(s)</strong>';
-  if(price!==null){html+='<br>Estimated material cost: <strong>'+money(packs*price,byId('material-currency').value)+'</strong>';}}
+  if(price!==null){var cur=byId('material-currency').value.trim();if(!cur){html+='<br><span class="wp-note">Choose your country above to show a price in its currency. The quantity estimate is still available.</span>';}else{html+='<br>Estimated material cost: <strong>'+money(packs*price,cur)+'</strong>';}}}
  else if(price!==null){html+='<br><span class="wp-note">Enter the pack coverage under Advanced settings to use a price per pack.</span>';}
  if(window.hpwFlooring)html+=window.hpwFlooring({needed:needed,areaUnit:ft?'sq ft':'m²'});
  show('material-result',html);
  window.hpwLast=window.hpwLast||{};
- window.hpwLast.material=hasCov?{name:'Flooring / material packs',unit:'pack',quantity:packs,category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²',price:(price!==null&&byId('material-currency').value.trim()==='$')?price:null}:{name:'Flooring (area to buy)',unit:ft?'sq ft':'m²',quantity:Math.ceil(needed*100)/100,category:'flooring-area',price:null};
+ window.hpwLast.material=hasCov?{name:'Flooring / material packs',unit:'pack',quantity:packs,category:'flooring',coverage:value('material-coverage'),coverageUnit:ft?'sq ft':'m²',price:(price!==null&&byId('material-currency').value.trim())?price:null,currency:byId('material-currency').value.trim()}:{name:'Flooring (area to buy)',unit:ft?'sq ft':'m²',quantity:Math.ceil(needed*100)/100,category:'flooring-area',price:null};
  byId('material-add').hidden=false;
 });
 byId('energy-form').addEventListener('submit',function(e){e.preventDefault();error('energy-error','');show('energy-result','');
  if(!validPositive(['energy-watts'])){error('energy-error','Enter a wattage greater than zero.');return;}
  if(['energy-hours','energy-days','energy-rate'].some(function(id){return byId(id).value==='';})){error('energy-error','Fill in hours per day, days per month and your electricity price per kWh (0 is allowed).');return;}
  if(!validNonNegative(['energy-hours','energy-days','energy-rate'])||value('energy-hours')>24||value('energy-days')>31){error('energy-error','Hours must be 0–24, days 0–31, and the electricity price cannot be negative.');return;}
- var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate'),c=byId('energy-currency').value;
+ var c=byId('energy-currency').value.trim();if(!c){error('energy-error','Choose your country at the top so the electricity price is labelled with the correct currency.');return;}
+ var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate');
  show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
 });
 byId('project-form').addEventListener('submit',function(e){e.preventDefault();error('project-error','');show('project-result','');
  if(['project-quantity','project-unit-price','project-extra','project-contingency'].some(function(id){return byId(id).value==='';})){error('project-error','Fill in quantity, price per unit, other costs and contingency (0 is allowed for the last three). Tax may stay empty.');return;}
  if(!validNonNegative(['project-quantity','project-unit-price','project-extra','project-contingency','project-tax'])||value('project-quantity')<=0||value('project-contingency')>100||value('project-tax')>100){error('project-error','Enter a positive quantity. Prices and extras must be non-negative; percentages must be 0–100.');return;}
- var base=value('project-quantity')*value('project-unit-price')+value('project-extra'),reserve=base*value('project-contingency')/100,tax=(base+reserve)*value('project-tax')/100,total=base+reserve+tax,c=byId('project-currency').value;
+ var c=byId('project-currency').value.trim();if(!c){error('project-error','Choose your country at the top so the project prices use the correct currency.');return;}
+ var base=value('project-quantity')*value('project-unit-price')+value('project-extra'),reserve=base*value('project-contingency')/100,tax=(base+reserve)*value('project-tax')/100,total=base+reserve+tax;
  show('project-result','Materials and extras: <strong>'+money(base,c)+'</strong><br>Contingency: '+money(reserve,c)+'<br>Estimated tax: '+money(tax,c)+'<br>Estimated project total: <strong>'+money(total,c)+'</strong>');
 });
 })();
