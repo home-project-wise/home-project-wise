@@ -299,6 +299,52 @@ try:
                 check(f"{label}: Room-to-Ready browser scenario", False, repr(e))
             finally:
                 context.close()
+        # Mulch/soil quantity estimator: shared-room reuse, multi-section volume, label-only bag count and keyboard path.
+        for vp_name, width, height in (("mobile", 390, 844), ("mobile-small", 320, 740), ("desktop", 1280, 900)):
+            label = f"soil-mulch/{vp_name}"
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page_errors, app_console = [], []
+            page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+            page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+            page.route("**/*", handle_request)
+            try:
+                page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.wait_for_selector("#soil-mulch-form", timeout=15000)
+                page.locator("#room-root summary").click()
+                for field, value in (("room-unit", "m"), ("room-length", "15"), ("room-width", "8")):
+                    if field == "room-unit": page.select_option("#" + field, value)
+                    else: page.fill("#" + field, value)
+                page.click('#room-form button[data-target="flooring"]')
+                page.click("#tab-measure")
+                page.click("#soil-use-room")
+                check(f"{label}: shared room dimensions reused", page.input_value(".soil-length") == "15" and page.input_value(".soil-width") == "8")
+                page.fill("#soil-depth", "5")
+                page.select_option("#soil-depth-unit", "cm")
+                page.fill("#soil-bag-volume", "50")
+                page.select_option("#soil-bag-unit", "L")
+                page.click("#soil-add-section")
+                page.fill("#soil-sections .soil-section:nth-child(2) .soil-length", "2")
+                page.fill("#soil-sections .soil-section:nth-child(2) .soil-width", "2")
+                page.click("#soil-mulch-form button[type=submit]")
+                result = page.inner_text("#soil-mulch-result")
+                check(f"{label}: multiple bed sections calculate volume and label-based bags", "6.2 m³" in result and "124 bag(s)" in result, result)
+                check(f"{label}: metric and imperial volumes both shown", "ft³" in result and "yd³" in result, result)
+                check(f"{label}: no prices or hidden allowance", "price" not in result.lower() and "allowance" not in result.lower(), result)
+                check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
+                if vp_name == "desktop":
+                    page.locator("#soil-material").focus()
+                    page.keyboard.press("Tab")
+                    page.keyboard.press("Tab")
+                    check(f"{label}: keyboard reaches first bed length", page.evaluate("document.activeElement.classList.contains('soil-length')"))
+                    check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+                shot = OUT / f"soil-mulch-{width}x{height}.png"
+                page.screenshot(path=str(shot), full_page=True, animations="disabled")
+                report["screenshots"].append(str(shot.relative_to(ROOT)))
+            except Exception as e:
+                check(f"{label}: soil/mulch browser scenario", False, repr(e))
+            finally:
+                context.close()
         browser.close()
 finally:
     server.shutdown()
