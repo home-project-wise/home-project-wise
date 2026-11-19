@@ -2361,3 +2361,28 @@ I re-read `data/reference_prices.json` on main: 193 total records across US 114,
 - **ChatGPT — continuing lane:** independent review of calculation/data semantics, source provenance and acceptance evidence. No duplicate edits to Claude's calculator files while the implementation PR is active.
 
 The Room-to-Ready proposal is not live functionality yet. PR #417 is a QA specification, not implementation authorization or a deployment.
+
+## 2026-11-19 — Claude — START / DONE — independent QA audit of the published site and of PR #424 head (read-only)
+
+**Status: DONE as an audit. Evidence level: local Chromium emulation (Playwright) against the published site and a local build of the PR #424 head. NOT a real device, NOT Safari/Firefox, and rendered pixels were NOT inspected by eye (DOM/layout metrics only).** Owner direction (19 Nov): Claude acts as quality monitor; competitor monitoring stays with ChatGPT; nothing on the site was changed. No site, data, calculator or workflow file was edited; no lock is held. This entry is the only change in this PR.
+
+**1. Blocking defect in PR #424 (exact head `f8cc046`): stray script tail after `</html>`.**
+- `website/home-project-calculator.html` on the PR branch contains a second `</html>`: 5,077 characters of duplicated inline-script text follow the first `</html>` (main has none). Browsers render that text as visible page content at the bottom of the calculator, and the page becomes 604 px wide on a 390 px phone.
+- This is the cause of the failing exact-head check `chromium-visual-qa` (470/479): calculator light/dark at mobile and mobile-small, wallpaper-tab light/dark at mobile and mobile-small, and room-to-ready/mobile all report "no horizontal overflow" = FAIL (width 604). `quality` passed. Blocking the two new scripts does not remove the overflow, so the cause is the HTML, not the Room-to-Ready code.
+- Verified fix (local only, not pushed): cut the file immediately after the first `</html>`. After the cut, the rebuilt page is 390 px wide with no visible code, `scripts/test_home_calculator.js` passes, `scripts/test_room_to_ready.js` passes, and visual QA is 471/473; the 2 remaining failures are screenshot-protocol errors for the guides page in my sandbox, not seen in CI. Not run: the full CI on the fixed head.
+- Not applied by me: the branch belongs to another lane and #424 is active (room rule: no concurrent edits). **Do not merge #424 until this is fixed and the exact-head visual QA is green.** Also note the PR text cites `tests/room-to-ready.test.js`; the file in the PR is `scripts/test_room_to_ready.js`.
+
+**2. Published site (main `60905a6`) — checked 11 pages at 390 and 1366 px.** No console errors, no failed requests, no horizontal overflow, labels and alt text present, tab keys work in the calculator. Paint and flooring arithmetic checked by hand for one case (4 × 3 × 2.5 m, 2 openings → 33 m²; UK carpet 12 m² → £311.88–£443.88 from the registry per-m² range): correct. Findings, in priority order:
+- **Currency symbol defaults to "$" in every market (Paint, Flooring, Electricity, Project cost).** Reproduced: Germany + manual rate 0.35 shows "$7". **Do not fix by pre-filling the symbol:** the calculator carries a typed price into the Project List only when the symbol is exactly "$" (the list is USD-coded), and `energy-reference.js` already sets the Electricity symbol when a reference rate is chosen. A quick symbol swap would silently stop price carry-over. Proper fix = move the manual-price path to an ISO currency code tied to the selected market, designed together with the Project List after #424 merges. Owner/ChatGPT: confirm before anyone changes it.
+- **Header is three different patterns:** home 56 px (menu button), most pages 64 px ("All guides" link), guides.html 102 px on phones (brand row plus a scrolling row of category jump links). The guides row is probably deliberate; this is a design decision for the owner, not a bug to patch.
+- **Small targets:** the repo's accessibility QA already guards the inputs and their 44 px label rows, so the 24 × 24 px radios I measured are not a defect. What remains are footer and standalone text links 17–22 px high ("Privacy", "See all tools →", footer lists). Needs a design decision and a visual check before touching.
+- **Discovery gap:** `tools.html` lists the Crawl Space Dehumidifier and Bathroom Exhaust Fan calculators; the home page links to neither.
+- **Article hero images** are 1600 px wide with no `srcset` (shown at about 350 px on phones; seen on the bathroom-condensation guide).
+- **Calculator on phones:** Room → Paint needs the explicit "Use for Paint" button; the Paint result card is about 1,000 px tall because the caveats sit inside it, so the figures and the caveats compete on a small screen.
+- Data note for ChatGPT (not changed): UK broadloom carpet shows "single retailer and first-page sample". Honest label, but a weak evidence class to show to visitors.
+
+**Not measured:** real-device behaviour, Safari/Firefox, screen readers, and field performance (my lab timings were not representative and are not reported).
+
+**Lane note:** competitor research and gap-finding stay with ChatGPT per the owner. Claude stays on engineering and independent technical QA.
+
+**RESUME HERE (Claude):** (1) when the owner or the #424 owner agrees, push the one-cut fix to the #424 branch, or review the fixed head; (2) after #424 merges, design the ISO-currency change with ChatGPT's data lane; (3) bring the header and small-link items to the owner as design decisions before any code.
