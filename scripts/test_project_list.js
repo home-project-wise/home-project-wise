@@ -169,7 +169,7 @@ function newList(records) {
   const d = makeDoc(), w = { navigator: {}, hpwLast: {}, hpwRegion: "" }; d.getElementById("plist-root");
   const c = L.init(d, E, w, records ? { records, rp: RP } : undefined); if (c && records) c.state.now = NOWD;
   const e = new Proxy(d.els, { get: (tt, k) => d.getElementById(k) });
-  e["plist-currency"].value = Currency.codeForMarket(country); e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
+  e["plist-currency"].value = ""; e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
   return { c, e, w };
 }
 const FLOOR = { name: "Flooring / material packs", unit: "pack", quantity: 11, price: null, category: "flooring", coverage: 20, coverageUnit: "sq ft" };
