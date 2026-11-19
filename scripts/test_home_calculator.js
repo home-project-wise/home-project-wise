@@ -138,7 +138,7 @@ if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
 ok('loading the page does not rewrite the URL hash', hashWritesAtLoad === 0, String(hashWritesAtLoad));
 tabEls[2].handlers.click(); ok('clicking a tab writes #<panel id>', hashWrites[hashWrites.length - 1] === '#' + tabEls[2].attrs['aria-controls'], JSON.stringify(hashWrites));
 key(tabEls[2], 'ArrowRight'); ok('keyboard tab move writes the new tab hash', hashWrites[hashWrites.length - 1] === '#' + tabEls[3].attrs['aria-controls'], JSON.stringify(hashWrites));
-ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+USD /.test(u)), JSON.stringify(hashWrites));
+ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+$/.test(u)), JSON.stringify(hashWrites));
 ok('Paint intro states walls only (ceilings, trim and primer not included)', /Walls only: ceilings, trim and primer are not included\./.test(html), 'paint scope line missing');
 console.log(fail ? '\n' + fail + ' check(s) failed' : '\nAll checks passed');
 process.exit(fail ? 1 : 0);
