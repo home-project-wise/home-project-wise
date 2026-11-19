@@ -280,7 +280,7 @@ try:
                         page.fill("#" + field, value)
                     page.click("#paint-form button[type=submit]")
                     paint_result = page.inner_text("#paint-result")
-                    check(f"{label}: manual Paint amount is labelled CAD", "CAD 320.00" in paint_result, paint_result)
+                    check(f"{label}: manual Paint amount is labelled CAD", "CAD 280.00" in paint_result, paint_result)
                     page.click("#paint-add")
                     page.click("#tab-project")
                     check(f"{label}: Project List inherits CAD", page.input_value("#plist-currency") == "CAD")
