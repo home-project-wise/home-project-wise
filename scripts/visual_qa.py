@@ -109,6 +109,14 @@ try:
                           brokenImages: [...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src).slice(0,20),
                           missingAlt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
                           emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length,
+                          rootMetrics: [document.documentElement, document.body, ...document.body.children].filter(Boolean).map(el => {
+                            const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+                            return { tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), clientWidth: el.clientWidth, scrollWidth: el.scrollWidth, minWidth: cs.minWidth, widthStyle: cs.width, display: cs.display, position: cs.position, overflowX: cs.overflowX };
+                          }),
+                          overflowContainers: [...document.querySelectorAll('body *')].filter(el => el.scrollWidth > el.clientWidth + 1).map(el => {
+                            const r = el.getBoundingClientRect(), cs = getComputedStyle(el);
+                            return { tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', clientWidth: el.clientWidth, scrollWidth: el.scrollWidth, rectWidth: Math.round(r.width), overflowX: cs.overflowX, minWidth: cs.minWidth };
+                          }).slice(0, 20),
                           overflowers: [...document.querySelectorAll('body *')].map(el => {
                             const r = el.getBoundingClientRect();
                             return { tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), text: (el.innerText || '').trim().slice(0, 80) };
