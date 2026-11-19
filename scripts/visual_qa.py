@@ -124,22 +124,6 @@ try:
                         shot = OUT / f"{page_name}-{mode}-{width}x{height}.png"
                         page.screenshot(path=str(shot), full_page=True, animations="disabled")
                         report["screenshots"].append(str(shot.relative_to(ROOT)))
-                # Verify preferred imperial display order without changing the saved screenshot.
-                page.select_option("#soil-length-unit", "ft")
-                page.click("#soil-mulch-form button[type=submit]")
-                imperial_result = page.inner_text("#soil-mulch-result")
-                imperial_headline = imperial_result.splitlines()[0] if imperial_result.splitlines() else ""
-                check(f"{label}: feet selection leads with cubic yards then cubic feet", "yd³" in imperial_headline and imperial_headline.index("yd³") < imperial_headline.index("ft³"), imperial_headline)
-                # Tiny positive metric volume must be presented in litres, not rounded to 0 m³.
-                page.select_option("#soil-length-unit", "m")
-                page.locator("#soil-sections .soil-section:nth-child(2) .soil-remove").click()
-                page.fill("#soil-sections .soil-section:first-child .soil-length", "0.1")
-                page.fill("#soil-sections .soil-section:first-child .soil-width", "0.1")
-                page.fill("#soil-depth", "1")
-                page.fill("#soil-bag-volume", "")
-                page.click("#soil-mulch-form button[type=submit]")
-                small_result = page.inner_text("#soil-mulch-result")
-                check(f"{label}: small positive metric volume displays litres", "0.1 L" in small_result and "0 m³" not in small_result, small_result)
                         report["pages"].append({"page": page_name, "path": path, "mode": mode, "viewport": [width,height], "metrics": metrics})
                         # Internal navigation targets should resolve on the same origin.
                         links = page.locator("a[href]").evaluate_all("""els => [...new Set(els.map(a => a.href).filter(u => u.startsWith(location.origin)))].slice(0,100)""")
@@ -358,6 +342,22 @@ try:
                 shot = OUT / f"soil-mulch-{width}x{height}.png"
                 page.screenshot(path=str(shot), full_page=True, animations="disabled")
                 report["screenshots"].append(str(shot.relative_to(ROOT)))
+                # Verify preferred imperial display order without changing the saved screenshot.
+                page.select_option("#soil-length-unit", "ft")
+                page.click("#soil-mulch-form button[type=submit]")
+                imperial_result = page.inner_text("#soil-mulch-result")
+                imperial_headline = imperial_result.splitlines()[0] if imperial_result.splitlines() else ""
+                check(f"{label}: feet selection leads with cubic yards then cubic feet", "yd³" in imperial_headline and imperial_headline.index("yd³") < imperial_headline.index("ft³"), imperial_headline)
+                # Tiny positive metric volume must be presented in litres, not rounded to 0 m³.
+                page.select_option("#soil-length-unit", "m")
+                page.locator("#soil-sections .soil-section:nth-child(2) .soil-remove").click()
+                page.fill("#soil-sections .soil-section:first-child .soil-length", "0.1")
+                page.fill("#soil-sections .soil-section:first-child .soil-width", "0.1")
+                page.fill("#soil-depth", "1")
+                page.fill("#soil-bag-volume", "")
+                page.click("#soil-mulch-form button[type=submit]")
+                small_result = page.inner_text("#soil-mulch-result")
+                check(f"{label}: small positive metric volume displays litres", "0.1 L" in small_result and "0 m³" not in small_result, small_result)
             except Exception as e:
                 check(f"{label}: soil/mulch browser scenario", False, repr(e))
             finally:
