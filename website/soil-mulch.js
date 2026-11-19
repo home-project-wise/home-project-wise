@@ -28,7 +28,7 @@
     if (!Number.isFinite(volumeM3) || volumeM3 <= 0) throw new Error("The calculated volume is outside the supported range.");
     var result = {
       material: ["mulch", "topsoil", "raised-bed-mix", "compost"].indexOf(input.material) >= 0 ? input.material : null,
-      areaM2: areaM2, areaFt2: areaM2 * FT3_PER_M3 / 10.7639104167,
+      areaM2: areaM2, areaFt2: areaM2 * 10.7639104167,
       depthM: depthM, volumeM3: volumeM3, volumeFt3: volumeM3 * FT3_PER_M3,
       volumeYd3: volumeM3 * YD3_PER_M3, bags: null
     };
