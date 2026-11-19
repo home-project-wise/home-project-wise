@@ -15,3 +15,4 @@ jobs:
           python -m py_compile scripts/quality_gate.py scripts/queue_audit.py scripts/content_similarity.py
           python scripts/quality_gate.py
           python scripts/content_similarity.py
+          node scripts/test_room_to_ready.js

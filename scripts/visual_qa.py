@@ -108,7 +108,11 @@ try:
                           loadedImages: [...document.images].filter(i => i.complete && i.naturalWidth > 0).length,
                           brokenImages: [...document.images].filter(i => i.complete && i.naturalWidth === 0).map(i => i.currentSrc || i.src).slice(0,20),
                           missingAlt: [...document.images].filter(i => !i.hasAttribute('alt')).length,
-                          emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length
+                          emptyLinks: [...document.querySelectorAll('a')].filter(a => !a.textContent.trim() && !a.querySelector('img[alt]')).length,
+                          overflowers: [...document.querySelectorAll('body *')].map(el => {
+                            const r = el.getBoundingClientRect();
+                            return { tag: el.tagName, id: el.id, className: typeof el.className === 'string' ? el.className : '', left: Math.round(r.left), right: Math.round(r.right), width: Math.round(r.width), text: (el.innerText || '').trim().slice(0, 80) };
+                          }).filter(x => x.width > 0 && (x.left < -1 || x.right > innerWidth + 1)).sort((a,b) => b.right-a.right).slice(0, 12)
                         })""")
                         check(f"{page_name}/{mode}/{vp_name}: all images loaded", image_state["loaded"] == image_state["total"] and not image_state["failed"] and not image_state["pending"], image_state)
                         check(f"{page_name}/{mode}/{vp_name}: no horizontal overflow", metrics["width"] <= width + 1, metrics)
@@ -173,7 +177,8 @@ try:
                     page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
                     page.wait_for_selector("#tab-wallpaper", timeout=15000)
                     page.evaluate("() => document.fonts.ready")
-                    page.click("#tab-wallpaper")
+                    page.locator("#tab-wallpaper").dispatch_event("click")
+                    page.wait_for_function("document.querySelector('#panel-wallpaper').classList.contains('active')", timeout=10000)
                     check(f"{label}: Wallpaper panel visible", page.is_visible("#panel-wallpaper"))
                     page.select_option("#wp-unit", "in")
                     page.check("#wp-compare")
@@ -183,7 +188,8 @@ try:
                         if match == "straight": page.fill(f"#{pre}-repeat", "20")
                         page.fill(f"#{pre}-price", price); page.fill(f"#{pre}-currency", "USD")
                     page.fill("#wp-name1", "Product A"); page.fill("#wp-name2", "Product B")
-                    room = page.locator(".wp-room").first
+                    page.wait_for_selector("#wp-rooms .wp-room .wp-room-label", timeout=10000)
+                    room = page.locator("#wp-rooms .wp-room").first
                     room.locator(".wp-room-label").fill("Living room"); room.locator(".wp-height").fill("96"); room.locator(".wp-trim").fill("6")
                     while room.locator(".wp-wallw").count() < 4: room.locator(".wp-add-wall").click()
                     for i, w in enumerate((144, 180, 144, 180)): room.locator(".wp-wallw").nth(i).fill(str(w))
@@ -200,6 +206,86 @@ try:
                     check(f"{label}: capture", False, repr(e))
                 finally:
                     context.close()
+
+        # Room-to-Ready: current-room invalidation, one-wall-finish guard, keyboard use and screenshots.
+        for vp_name, width, height in (("mobile", 390, 844), ("desktop", 1280, 900)):
+            label = f"room-to-ready/{vp_name}"
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page_errors, app_console = [], []
+            page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+            page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+            page.route("**/*", handle_request)
+            try:
+                page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.select_option("#region-country", "Canada")
+                page.locator("#room-root summary").click()
+                for field, value in (("room-unit", "m"), ("room-length", "15"), ("room-width", "8"), ("room-height", "4"), ("room-openings", "6")):
+                    if field == "room-unit":
+                        page.select_option("#" + field, value)
+                    else:
+                        page.fill("#" + field, value)
+                page.click('#room-form button[data-target="flooring"]')
+                page.click("#tab-project")
+                page.wait_for_selector("#room-plan-form", timeout=15000)
+                page.select_option("#plan-wall-finish", "wallpaper")
+                page.click("#room-plan-submit")
+                page.wait_for_function("window.hpwRoomToReadyPlan && Math.abs(window.hpwRoomToReadyPlan.areas.wallNetM2 - 178) < 0.001", timeout=10000)
+                result = page.inner_text("#room-plan-result")
+                check(f"{label}: canonical 15x8x4 room gives 178 m² net wall", "Net wall area: 178.00 m²" in result, result[:250])
+                source_meta = page.evaluate("""() => {
+                  const s = (window.hpwRoomToReadyPlan.sources || []).find(x => x.item === "Wallpaper");
+                  return s ? { observedAt: s.observedAt, geographyResolution: s.geographyResolution } : null;
+                }""")
+                check(f"{label}: source uses earliest observation and sample scope", bool(source_meta and source_meta["observedAt"] == "2026-09-26" and source_meta["geographyResolution"] == "sample"), source_meta)
+                check(f"{label}: wall-finish caveat visible", "area-based sample ranges" in result and "not a tin or roll count" in result, result[-300:])
+                check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
+                shot = OUT / f"room-to-ready-{vp_name}-{width}x{height}.png"
+                page.screenshot(path=str(shot), full_page=True, animations="disabled")
+                report["screenshots"].append(str(shot.relative_to(ROOT)))
+
+                if vp_name == "desktop":
+                    # Keyboard-only path through the Room-to-Ready controls: Tab, select with End, Tab, Enter.
+                    page.select_option("#plan-wall-finish", "none")
+                    page.locator("#plan-flooring").focus()
+                    page.keyboard.press("Tab")
+                    page.keyboard.press("Tab")
+                    check(f"{label}: Tab reaches wall-finish selector", page.evaluate("document.activeElement.id") == "plan-wall-finish", page.evaluate("document.activeElement.id"))
+                    page.keyboard.press("End")
+                    page.keyboard.press("Tab")
+                    page.keyboard.press("Tab")
+                    check(f"{label}: Tab reaches Build room plan button", page.evaluate("document.activeElement.id") == "room-plan-submit", page.evaluate("document.activeElement.id"))
+                    page.keyboard.press("Enter")
+                    page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.wallFinish === 'wallpaper'", timeout=10000)
+                    check(f"{label}: keyboard Enter builds wallpaper plan", "Net wall area: 178.00 m²" in page.inner_text("#room-plan-result"))
+
+                    # Changing the shared room must invalidate the prior plan and clear the Project List note.
+                    for field, value in (("room-length", "10"), ("room-width", "5"), ("room-height", "3"), ("room-openings", "4")):
+                        page.fill("#" + field, value)
+                    page.click('#room-form button[data-target="flooring"]')
+                    check(f"{label}: changed shared room clears old plan", page.evaluate("window.hpwRoomToReadyPlan === null") and page.inner_text("#room-plan-result") == "")
+                    check(f"{label}: Project List reports no Room-to-Ready plan", "No Room-to-Ready plan added yet." in page.inner_text("#plist-room-plan-note"), page.inner_text("#plist-room-plan-note"))
+
+                    # Rebuild wallpaper plan, add a Paint-tab item, and prove the combined total is blocked.
+                    page.click("#tab-project")
+                    page.select_option("#plan-wall-finish", "wallpaper")
+                    page.click("#room-plan-submit")
+                    page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.wallFinish === 'wallpaper'", timeout=10000)
+                    page.click("#tab-paint")
+                    page.locator("#paint-advanced summary").click()
+                    for field, value in (("paint-length", "4"), ("paint-width", "3"), ("paint-height", "2.5"), ("paint-openings", "0"), ("paint-coats", "2"), ("paint-waste", "0"), ("paint-coverage", "10"), ("paint-price", "40"), ("paint-currency", "$")):
+                        page.fill("#" + field, value)
+                    page.click("#paint-form button[type=submit]")
+                    page.click("#paint-add")
+                    page.click("#tab-project")
+                    page.click("#plist-calc-form button[type=submit]")
+                    conflict = page.inner_text("#plist-error")
+                    check(f"{label}: Paint-tab + wallpaper double count is blocked", "cannot be combined" in conflict and "double-counting" in conflict, conflict)
+                    check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+            except Exception as e:
+                check(f"{label}: Room-to-Ready browser scenario", False, repr(e))
+            finally:
+                context.close()
         browser.close()
 finally:
     server.shutdown()

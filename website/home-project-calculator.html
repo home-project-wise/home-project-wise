@@ -134,6 +134,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 </div><p class="calc-error" id="project-error" role="alert"></p><button class="calc-btn" type="submit">Estimate project total</button>
 </form><div class="tool-result" id="project-result" aria-live="polite"></div>
 <p class="formula">Formula: materials subtotal = quantity × unit price; contingency = (materials + extras) × allowance; tax is applied to the subtotal plus contingency. Edit the inputs to match the way tax and fees are charged in your location.</p>
+<div id="room-plan-root"></div>
 <div id="plist-root"></div>
 </section>
 <style>
@@ -205,7 +206,9 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 <script src="project-list.js"></script>
 <script src="energy-reference.js"></script>
 <script src="flooring-reference.js"></script>
-<script src="shared-room.js"></script><script>
+<script src="shared-room.js"></script>
+<script src="room-to-ready.js"></script>
+<script src="room-to-ready-ui.js"></script><script>
 (function(){
 'use strict';
 function byId(id){return document.getElementById(id);}
@@ -347,7 +350,7 @@ byId('paint-form').addEventListener('submit',function(e){e.preventDefault();erro
  if(price!==null){if(!Number.isFinite(price)||price<0){error('paint-error','Price must be zero or greater.');return;}html+='<br>Estimated paint cost: <strong>'+money(tins*price,byId('paint-currency').value)+'</strong>';}
  if(byId('paint-waste').value==='')html+='<br><span class="wp-note">No extra allowance added.</span>';
  show('paint-result',html);
- window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
+ window.hpwLast=window.hpwLast||{};window.hpwLast.paint={name:'Paint',unit:'tin',quantity:tins,category:'paint',price:(price!==null&&byId('paint-currency').value.trim()==='$')?price:null};byId('paint-add').hidden=false;
 });
 function updateMaterialUnits(){var ft=byId('material-unit').value==='ft';document.querySelectorAll('.material-len-unit').forEach(function(el){el.textContent=ft?'ft':'m';});document.querySelectorAll('.material-area-unit').forEach(function(el){el.textContent=ft?'ft²':'m²';});}
 byId('material-unit').addEventListener('change',updateMaterialUnits);updateMaterialUnits();
