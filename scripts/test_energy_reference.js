@@ -34,7 +34,7 @@ ok("a single published rate is shown with source, date and caveat, and fills the
   assert.ok(h.includes("not a quote or a final cost") && h.includes("Check your bill"));
   assert.equal(x.e["energy-rate"].value, "");
   fire(x.e["energy-ref-root"], "click", { target: { getAttribute: (k) => (k === "data-action" ? "use" : null) } });
-  assert.equal(x.e["energy-rate"].value, String(rec.low)); assert.equal(x.e["energy-currency"].value, "$");
+  assert.equal(x.e["energy-rate"].value, String(rec.low)); assert.equal(x.e["energy-currency"].value, "USD");
   assert.ok(x.e["energy-ref-note"].textContent.includes("Change it"));
 });
 ok("a time-of-use range is shown but never averaged or filled in", () => {
@@ -46,16 +46,16 @@ ok("a time-of-use range is shown but never averaged or filled in", () => {
   fire(x.e["energy-ref-root"], "click", { target: { getAttribute: () => "use" } });
   assert.equal(x.e["energy-rate"].value, "0.2");
 });
-ok("currency symbols for GBP, EUR and CAD; other codes are used as the symbol; no conversion", () => {
+ok("ISO currency codes for GBP, EUR and CAD; no symbol inference or conversion", () => {
   const x = setup(REG);
-  for (const [j, sym, cur] of [["GB", "£", "GBP"], ["CA-ON", "C$", "CAD"]]) {
+  for (const [j, cur] of [["GB", "GBP"], ["CA-ON", "CAD"]]) {
     const ch = RP.electricityChoices(REG).find((c) => c.jurisdiction === j); const rec = REG.find((r) => r.id === ch.id);
     if (rec.low !== rec.high) continue;
     choose(x, ch.id); fire(x.e["energy-ref-root"], "click", { target: { getAttribute: () => "use" } });
-    assert.equal(x.e["energy-currency"].value, sym); assert.equal(rec.currency, cur);
+    assert.equal(x.e["energy-currency"].value, cur); assert.equal(rec.currency, cur);
   }
   const eur = RP.electricityChoices(REG).map((c) => REG.find((r) => r.id === c.id)).find((r) => r.currency === "EUR" && r.low === r.high);
-  if (eur) { choose(x, eur.id); fire(x.e["energy-ref-root"], "click", { target: { getAttribute: () => "use" } }); assert.equal(x.e["energy-currency"].value, "€"); assert.equal(x.e["energy-rate"].value, String(eur.low)); }
+  if (eur) { choose(x, eur.id); fire(x.e["energy-ref-root"], "click", { target: { getAttribute: () => "use" } }); assert.equal(x.e["energy-currency"].value, "EUR"); assert.equal(x.e["energy-rate"].value, String(eur.low)); }
 });
 ok("a record that is not eligible never appears, and with no registry nothing is shown", () => {
   const blocked = REG.map((r) => (r.id === idFor("US-CT") ? Object.assign({}, r, { autoEligible: false }) : r));
