@@ -130,7 +130,7 @@ ok("calculating shows lines, partial total, and a copyable text version", () => 
 ok("switching an item to 'Two quotes' re-renders its fields; typing updates state", () => {
   const id = ctl.state.items[1].id;
   fire(els["plist-items"], "change", { target: target({ "data-id": id, "data-field": "mode" }, "range") });
-  assert.ok(els["plist-items"].innerHTML.includes("First quote per pack") && els["plist-items"].innerHTML.includes("Second quote per pack"));
+  assert.ok(els["plist-items"].innerHTML.includes("First quote per pack (USD)") && els["plist-items"].innerHTML.includes("Second quote per pack (USD)"));
   assert.equal(els["pl-m-" + id].focused, true);
   fire(els["plist-items"], "input", { target: target({ "data-id": id, "data-field": "low" }, "28") });
   fire(els["plist-items"], "input", { target: target({ "data-id": id, "data-field": "high" }, "34") });
