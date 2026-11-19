@@ -3,6 +3,7 @@
 const assert = require("node:assert/strict");
 const fs = require("fs"), path = require("path");
 const RP = require("../website/reference-prices.js");
+const Currency = require("../website/currency.js");
 const FR = require("../website/flooring-reference.js");
 const REG = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "reference_prices.json"), "utf8"));
 const NOW = new Date(Date.UTC(2026, 10, 14));
@@ -34,14 +35,14 @@ ok("a country and floor type give a material cost range from the area alone, wit
   const x = setup(REG); pick(x, "US", "laminate");
   const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record;
   const html = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), c = RP.areaCost(rec, 120, "sq ft");
-  const fmt = (v) => Number(v).toLocaleString("en-US", { style: "currency", currency: "USD" });
+  const fmt = (v) => Currency.format(Number(v), "USD");
   assert.ok(html.includes("Typical material cost for this area: <strong>" + fmt(c.low) + "–" + fmt(c.high) + "</strong> (approximate)"), html);
   assert.ok(html.includes('href="' + rec.source.url + '"') && html.includes("observed " + rec.source.observedAt) && html.includes("not a quote or a final cost"));
 });
 ok("metric area on a per-sq-ft record is converted by area only", () => {
   const x = setup(REG); pick(x, "US", "laminate");
   const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, c = RP.areaCost(rec, 11.1484, "m²");
-  assert.ok(x.win.hpwFlooring({ needed: 11.1484, areaUnit: "m²" }).includes(Number(c.low).toLocaleString("en-US", { style: "currency", currency: "USD" })));
+  assert.ok(x.win.hpwFlooring({ needed: 11.1484, areaUnit: "m²" }).includes(Currency.format(Number(c.low), "USD")));
 });
 ok("nothing chosen shows nothing; no range for a mismatch is said plainly, with no substitute", () => {
   const x = setup(REG); assert.equal(x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), "");
