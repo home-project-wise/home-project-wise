@@ -200,7 +200,7 @@ ok("calculating uses the pack price range, shows attribution and the required di
   fire(x.e["plist-calc-form"], "submit");
   const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, pk = RP.packRange(rec, 20, "sq ft"), h = x.e["plist-result"].innerHTML;
   assert.equal(x.e["plist-error"].textContent, "");
-  const lo = (11 * pk.low).toFixed(2), hi = (11 * pk.high).toFixed(2), fmtc = (v) => Number(v).toLocaleString("en-US", { style: "currency", currency: "USD" });
+  const lo = (11 * pk.low).toFixed(2), hi = (11 * pk.high).toFixed(2), fmtc = (v) => Currency.format(Number(v), "USD");
   assert.ok(h.includes(fmtc(lo) + "–" + fmtc(hi)), h.slice(0, 900));
   assert.ok(h.includes("[reference: " + rec.source.name) && h.includes("Reference for Flooring / material packs") && h.includes("not a quote or a final cost"));
   assert.ok(h.includes('href="' + rec.source.url + '"') && h.includes("retrieved " + rec.source.retrievedAt));
@@ -276,7 +276,7 @@ ok("an area item (sq ft or m2) can use the sourced price per area, with no pack 
 ok("a metre-based area item converts the area only, never the currency", () => {
   const x = newList(REG), it = addArea(x, { unit: "m²", quantity: 11.15 }); pickRef(x, it, "US", "laminate"); fire(x.e["plist-calc-form"], "submit");
   const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record, ac = RP.areaCost(rec, 11.15, "m²");
-  assert.equal(x.e["plist-error"].textContent, ""); assert.ok(x.e["plist-result"].innerHTML.includes(Number(ac.low).toLocaleString("en-US", { style: "currency", currency: "USD" })));
+  assert.equal(x.e["plist-error"].textContent, ""); assert.ok(x.e["plist-result"].innerHTML.includes(Currency.format(Number(ac.low), "USD")));
 });
 ok("area items need a matching reference, honour the user's own price, and never accept a non-area unit", () => {
   const x = newList(REG), it = addArea(x); pickRef(x, it, "Netherlands", "ceramic-tile"); fire(x.e["plist-calc-form"], "submit");
@@ -290,7 +290,7 @@ ok("area items need a matching reference, honour the user's own price, and never
 function newListG(records, country) {
   const d = makeDoc(), handlers = [], w = { navigator: {}, hpwLast: {}, hpwRegion: country, addEventListener(t, f) { if (t === "hpw-region") handlers.push(f); } }; d.getElementById("plist-root");
   const c = L.init(d, E, w, records ? { records, rp: RP } : undefined); if (c && records) c.state.now = NOWD;
-  const e = new Proxy(d.els, { get: (tt, k2) => d.getElementById(k2) }); e["plist-currency"].value = "USD"; e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
+  const e = new Proxy(d.els, { get: (tt, k2) => d.getElementById(k2) }); e["plist-currency"].value = Currency.codeForMarket(country); e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
   return { c, e, w, set(cn) { w.hpwRegion = cn; handlers.forEach((f) => f()); } };
 }
 ok("with a page-wide country the list asks only for the floor type and prices from that country", () => {
