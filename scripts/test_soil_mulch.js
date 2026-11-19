@@ -73,3 +73,13 @@ test("warns that using shared room dimensions replaces additional bed sections",
   const src = require("node:fs").readFileSync(require("node:path").join(__dirname,"..","website","soil-mulch.js"),"utf8");
   assert.match(src, /replaces extra sections/);
 });
+
+test("never rounds an extremely small positive volume to zero in either unit system", () => {
+  const r = Soil.calculate({ material:"mulch", lengthUnit:"ft", sections:[{length:0.01,width:0.01}], depth:0.01, depthUnit:"in" });
+  const metric = Soil.formatVolume(r, "m");
+  const imperial = Soil.formatVolume(r, "ft");
+  assert.doesNotMatch(metric.primary, /^0(?:\.0+)? L/);
+  assert.doesNotMatch(imperial.primary, /^0(?:\.0+)? yd³/);
+  assert.match(metric.primary, /L/);
+  assert.match(imperial.primary, /ft³/);
+});
