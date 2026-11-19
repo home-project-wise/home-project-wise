@@ -43,6 +43,21 @@
     }
     return result;
   }
+  function formatVolume(result, preferredUnit) {
+    var fmt = function (n, digits) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: digits || 3 }); };
+    var metric = result.volumeM3 < 0.01
+      ? fmt(result.volumeM3 * L_PER_M3, 2) + " L (" + fmt(result.volumeM3, 6) + " m³)"
+      : fmt(result.volumeM3, 3) + " m³";
+    var imperial = fmt(result.volumeYd3, 3) + " yd³ (" + fmt(result.volumeFt3, 3) + " ft³)";
+    return {
+      primary: preferredUnit === "ft" ? imperial : metric,
+      metric: metric,
+      imperial: imperial
+    };
+  }
+  function materialLabel(value) {
+    return ({ mulch: "Mulch", topsoil: "Topsoil", "raised-bed-mix": "Raised bed mix", compost: "Compost" })[value] || value;
+  }
   function init(doc, win) {
     var host = doc.getElementById("soil-mulch-root");
     if (!host) return null;
@@ -53,7 +68,7 @@
       '<div class="calc-grid"><div class="calc-field"><label for="soil-material">Material</label><select id="soil-material"><option value="mulch">Mulch</option><option value="topsoil">Topsoil</option><option value="raised-bed-mix">Raised-bed mix</option><option value="compost">Compost</option></select></div>' +
       '<div class="calc-field"><label for="soil-length-unit">Bed dimensions</label><select id="soil-length-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div></div>' +
       '<div id="soil-sections"><div class="calc-grid soil-section"><div class="calc-field"><label for="soil-length-1">Bed section 1 length</label><input id="soil-length-1" class="soil-length" type="number" min="0" step="any" required></div><div class="calc-field"><label for="soil-width-1">Bed section 1 width</label><input id="soil-width-1" class="soil-width" type="number" min="0" step="any" required></div></div></div>' +
-      '<p><button type="button" class="wp-btn" id="soil-add-section">Add another rectangular section</button> <button type="button" class="wp-btn" id="soil-use-room">Use shared room length and width</button></p>' +
+      '<p><button type="button" class="wp-btn" id="soil-add-section">Add another rectangular section</button> <button type="button" class="wp-btn" id="soil-use-room">Use shared room length and width (replaces extra sections)</button></p>' +
       '<div class="calc-grid"><div class="calc-field"><label for="soil-depth">Application depth</label><input id="soil-depth" type="number" min="0" step="any" required placeholder="Enter your chosen depth"></div>' +
       '<div class="calc-field"><label for="soil-depth-unit">Depth unit</label><select id="soil-depth-unit"><option value="cm">Centimetres</option><option value="in">Inches</option></select></div>' +
       '<div class="calc-field"><label for="soil-bag-volume">Bag volume (optional, from product label)</label><input id="soil-bag-volume" type="number" min="0" step="any" placeholder="Enter label volume"></div>' +
@@ -111,12 +126,18 @@
           sections: data, depth: doc.getElementById("soil-depth").value, depthUnit: doc.getElementById("soil-depth-unit").value,
           bagVolume: doc.getElementById("soil-bag-volume").value, bagUnit: doc.getElementById("soil-bag-unit").value });
         var fmt = function (n) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: 3 }); };
+        var display = formatVolume(result, doc.getElementById("soil-length-unit").value);
         var title = doc.createElement("p"), strong = doc.createElement("strong");
-        strong.textContent = result.material.replace(/-/g, " ") + ": " + fmt(result.volumeM3) + " m³";
+        strong.textContent = materialLabel(result.material) + ": " + display.primary;
         title.appendChild(strong); output.appendChild(title);
         var detail = doc.createElement("p");
-        detail.textContent = "Bed area: " + fmt(result.areaM2) + " m² (" + fmt(result.areaFt2) + " ft²). Volume: " + fmt(result.volumeFt3) + " ft³ (" + fmt(result.volumeYd3) + " yd³).";
+        detail.textContent = "Bed area: " + fmt(result.areaM2) + " m² (" + fmt(result.areaFt2) + " ft²).";
         output.appendChild(detail);
+        var volumeDetail = doc.createElement("p");
+        volumeDetail.textContent = doc.getElementById("soil-length-unit").value === "ft"
+          ? "Volume: " + display.imperial + ". Metric equivalent: " + display.metric + "."
+          : "Volume: " + display.metric + ". Imperial equivalent: " + display.imperial + ".";
+        output.appendChild(volumeDetail);
         var bag = doc.createElement("p");
         bag.textContent = result.bags === null ? "Bag count not calculated: enter the volume printed on your bag label if you need a bag estimate." :
           "Estimated quantity: " + result.bags + " bag(s), using the entered label volume only.";
@@ -126,5 +147,5 @@
     return { calculate: calculate };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) init(document, window);
-  return { calculate: calculate, init: init };
+  return { calculate: calculate, formatVolume: formatVolume, materialLabel: materialLabel, init: init };
 }));
