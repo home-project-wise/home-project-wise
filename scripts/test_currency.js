@@ -37,6 +37,14 @@ assert.throws(() => ProjectList.buildEstimateInput(state), /different currency/)
 ProjectList.setMarket(state, "");
 assert.equal(state.currency, "");
 assert.equal(ProjectList.setField(state, added.item.id, "mode", "known"), false);
+const euroState = ProjectList.createState();
+euroState.market = "Germany"; euroState.currency = "EUR";
+const euroItem = ProjectList.addItem(euroState, { name: "Tiles", unit: "box", quantity: 4, price: 12, currency: "EUR" });
+assert.equal(euroItem.ok, true);
+assert.equal(ProjectList.setMarket(euroState, "France"), "EUR");
+assert.equal(euroItem.item.mode, "unknown");
+assert.equal(euroItem.item.quantity, "4");
+console.log("PASS changing between EUR markets also clears market-specific manual prices");
 console.log("PASS Project List carries ISO identity, clears old prices on market change and rejects mismatches");
 
 const ids = ["paint-currency", "material-currency", "energy-currency", "project-currency", "plist-currency",
@@ -68,5 +76,7 @@ const html = fs.readFileSync(path.join(__dirname, "..", "website", "home-project
   assert.ok(field && /readonly/.test(field[0]), id + " must be read-only and market-derived");
 });
 assert.ok(html.includes('<script src="currency.js"></script>'));
+const projectListSource = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
+assert.ok(/id=\\\"plist-currency\\\"[^>]*readonly/.test(projectListSource), "Project List currency code must be read-only");
 console.log("PASS calculator currency fields are read-only and the shared contract loads before calculator modules");
 console.log("\\nISO currency tests passed");
