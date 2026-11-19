@@ -65,7 +65,7 @@
     function addSection(length, width) {
       count += 1;
       var row = doc.createElement("div"); row.className = "calc-grid soil-section";
-      row.innerHTML = '<div class="calc-field"><label>Bed section ' + count + ' length</label><input class="soil-length" type="number" min="0" step="any" required></div><div class="calc-field"><label>Bed section ' + count + ' width</label><input class="soil-width" type="number" min="0" step="any" required></div><div class="calc-field"><button type="button" class="wp-btn soil-remove">Remove section</button></div>';
+      row.innerHTML = '<div class="calc-field"><label for="soil-length-' + count + '">Bed section ' + count + ' length</label><input id="soil-length-' + count + '" class="soil-length" type="number" min="0" step="any" required></div><div class="calc-field"><label for="soil-width-' + count + '">Bed section ' + count + ' width</label><input id="soil-width-' + count + '" class="soil-width" type="number" min="0" step="any" required></div><div class="calc-field"><button type="button" class="wp-btn soil-remove">Remove section</button></div>';
       if (length !== undefined) row.querySelector(".soil-length").value = length;
       if (width !== undefined) row.querySelector(".soil-width").value = width;
       sections.appendChild(row);
@@ -93,6 +93,10 @@
       Array.prototype.forEach.call(sections.querySelectorAll(".soil-section"), function (r, i) {
         r.querySelectorAll("label")[0].textContent = "Bed section " + (i + 1) + " length";
         r.querySelectorAll("label")[1].textContent = "Bed section " + (i + 1) + " width";
+        r.querySelectorAll("label")[0].htmlFor = "soil-length-" + (i + 1);
+        r.querySelectorAll("label")[1].htmlFor = "soil-width-" + (i + 1);
+        r.querySelector(".soil-length").id = "soil-length-" + (i + 1);
+        r.querySelector(".soil-width").id = "soil-width-" + (i + 1);
       });
       count = sections.querySelectorAll(".soil-section").length;
     });
