@@ -330,6 +330,7 @@ try:
                 result = page.inner_text("#soil-mulch-result")
                 check(f"{label}: multiple bed sections calculate volume and label-based bags", "6.2 m³" in result and "124 bag(s)" in result, result)
                 check(f"{label}: metric and imperial volumes both shown", "ft³" in result and "yd³" in result, result)
+                check(f"{label}: shared-room replacement warning is visible", "replaces extra sections" in page.locator("#soil-use-room").inner_text())
                 check(f"{label}: no prices or hidden allowance", "price" not in result.lower() and "allowance" not in result.lower(), result)
                 check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
                 if vp_name == "desktop":
@@ -341,6 +342,22 @@ try:
                 shot = OUT / f"soil-mulch-{width}x{height}.png"
                 page.screenshot(path=str(shot), full_page=True, animations="disabled")
                 report["screenshots"].append(str(shot.relative_to(ROOT)))
+                # Verify preferred imperial display order without changing the saved screenshot.
+                page.select_option("#soil-length-unit", "ft")
+                page.click("#soil-mulch-form button[type=submit]")
+                imperial_result = page.inner_text("#soil-mulch-result")
+                imperial_headline = imperial_result.splitlines()[0] if imperial_result.splitlines() else ""
+                check(f"{label}: feet selection leads with cubic yards then cubic feet", "yd³" in imperial_headline and imperial_headline.index("yd³") < imperial_headline.index("ft³"), imperial_headline)
+                # Tiny positive metric volume must be presented in litres, not rounded to 0 m³.
+                page.select_option("#soil-length-unit", "m")
+                page.locator("#soil-sections .soil-section:nth-child(2) .soil-remove").click()
+                page.fill("#soil-sections .soil-section:first-child .soil-length", "0.1")
+                page.fill("#soil-sections .soil-section:first-child .soil-width", "0.1")
+                page.fill("#soil-depth", "1")
+                page.fill("#soil-bag-volume", "")
+                page.click("#soil-mulch-form button[type=submit]")
+                small_result = page.inner_text("#soil-mulch-result")
+                check(f"{label}: small positive metric volume displays litres", "0.1 L" in small_result and "0 m³" not in small_result, small_result)
             except Exception as e:
                 check(f"{label}: soil/mulch browser scenario", False, repr(e))
             finally:
