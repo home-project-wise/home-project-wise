@@ -236,3 +236,14 @@ test("calculator executable inline scripts pass node --check", () => {
       "calculator inline script " + (index + 1) + " failed node --check: " + (checked.stderr || checked.stdout || "unknown syntax error"));
   });
 });
+
+
+test("calculator HTML has one closing html tag and no content after it", () => {
+  const pagePath = path.join(__dirname, "../website/home-project-calculator.html");
+  const html = fs.readFileSync(pagePath, "utf8");
+  const closingTags = Array.from(html.matchAll(/<\\/html\\s*>/gi));
+  assert.equal(closingTags.length, 1, "calculator page must contain exactly one closing </html> tag");
+  const closing = closingTags[0];
+  const afterDocument = html.slice(closing.index + closing[0].length);
+  assert.equal(afterDocument.trim(), "", "calculator page must not contain text or markup after </html>");
+});
