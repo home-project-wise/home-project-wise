@@ -7,6 +7,7 @@ test("calculates cubic metres and both imperial volume units from metric bed sec
   const r = Soil.calculate({ material:"mulch", lengthUnit:"m", sections:[{length:3,width:2},{length:2,width:1}],
     depth:5, depthUnit:"cm", bagVolume:"50", bagUnit:"L" });
   assert.equal(r.areaM2, 8);
+  assert.ok(Math.abs(r.areaFt2 - 86.1112833336) < 1e-8);
   assert.equal(r.volumeM3, 0.4);
   assert.ok(Math.abs(r.volumeFt3 - 14.1258666886) < 1e-9);
   assert.equal(r.bags, 8);
