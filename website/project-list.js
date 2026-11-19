@@ -116,6 +116,7 @@
     });
     if (refCurrencies.length > 1) throw new Error("Reference prices in different currencies can’t be combined. Use one country for all reference items.");
     if (refCurrencies.length === 1) currency = refCurrencies[0];
+    if (hasManualPrices && currency !== String(state.currency || "").trim().toUpperCase()) throw new Error("Manual prices and reference prices use different currencies. Re-enter manual prices for the selected country; currencies are never converted.");
     if (state.roomPlan) {
       if (!state.items.length && refCurrencies.length === 0) currency = state.roomPlan.currency;
       else if (currency !== state.roomPlan.currency) throw new Error("Your Room-to-Ready plan uses " + state.roomPlan.currency + ". Set the Project List currency to " + state.roomPlan.currency + " before combining items; currencies are never converted.");
