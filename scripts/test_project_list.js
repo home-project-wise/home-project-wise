@@ -71,7 +71,7 @@ ok("budget: within, overlap, over, and cannot-assess when a price is unknown", (
   s.budget = "-5"; assert.equal(L.summarize(s, E).budgetLine, "Budget must be a number greater than zero.");
 });
 ok("input errors are explained, not thrown", () => {
-  const s = sample(); s.currency = "US"; assert.match(L.summarize(s, E).error, /3-letter currency code/);
+  const s = sample(); s.currency = "US"; assert.match(L.summarize(s, E).error, /Choose your country before entering or calculating manual prices/);
   s.currency = "USD"; s.contingency = "150"; assert.match(L.summarize(s, E).error, /between 0 and 100/);
   s.contingency = "10"; s.items[0].price = ""; assert.match(L.summarize(s, E).error, /Enter a price for "Paint"/);
   s.items[0].price = "20"; s.items[1].mode = "range"; s.items[1].currency = s.currency; s.items[1].low = "5"; assert.match(L.summarize(s, E).error, /Enter both quotes/);
