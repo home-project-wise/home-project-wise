@@ -5,15 +5,14 @@
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
   else root.HPWFlooringReference = factory();
-}(typeof globalThis !== "undefined" ? globalThis : this, function () {
+}(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
+  var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
   function esc(s) {
     return String(s === undefined || s === null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c]; });
   }
   function link(url, label) { return /^https:\/\//.test(String(url || "")) ? '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(label) + '</a>' : esc(label); }
-  function money(n, currency) {
-    try { return new Intl.NumberFormat("en-US", { style: "currency", currency: currency }).format(n); } catch (e) { return currency + " " + Number(n).toFixed(2); }
-  }
+  function money(n, currency) { return Currency.format(n, currency); }
   function init(doc, win, opts) {
     var countryEl = doc.getElementById("material-country"), typeEl = doc.getElementById("material-subtype");
     var RP = (opts && opts.rp) || (typeof module === "object" && module.exports && typeof require === "function" ? require("./reference-prices.js") : (win && win.HPWReferencePrices));
