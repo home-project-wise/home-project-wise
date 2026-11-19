@@ -5,10 +5,11 @@
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.HPWProjectList = factory();
-}(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  else root.HPWProjectList = factory(root);
+}(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
   var MAX_ITEMS = 30;
+  var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
   function rpModule() {
     if (typeof module === "object" && module.exports && typeof require === "function") return require("./reference-prices.js");
     return typeof window !== "undefined" ? window.HPWReferencePrices : null;
@@ -22,6 +23,15 @@
     });
   }
   function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "", budget: "", roomPlan: null }; }
+  function setMarket(state, market) {
+    var next = Currency.codeForMarket(market);
+    if (state.currency !== next) state.items.forEach(function (it) {
+      if (it.mode === "known" || it.mode === "range") { it.mode = "unknown"; it.price = ""; it.low = ""; it.high = ""; it.currency = ""; }
+      if (it.mode === "reference") it.subtype = "";
+    });
+    state.currency = next;
+    return next;
+  }
   function setRoomPlan(state, plan) {
     if (plan !== null && (!plan || !Array.isArray(plan.engineLineItems) || !/^[A-Z]{3}$/.test(String(plan.currency || "")))) return false;
     state.roomPlan = plan; return true;
@@ -34,9 +44,12 @@
     if (!unit || unit.length > 20) return { ok: false, error: "Enter the unit it is sold in, such as tin, box or roll." };
     if (!Number.isFinite(quantity) || quantity <= 0) return { ok: false, error: "Enter a quantity greater than zero." };
     if (state.items.length >= MAX_ITEMS) return { ok: false, error: "The list is limited to " + MAX_ITEMS + " items." };
-    var known = spec.price !== undefined && spec.price !== null && Number.isFinite(Number(spec.price)) && Number(spec.price) >= 0;
+    var hasPrice = spec.price !== undefined && spec.price !== null && Number.isFinite(Number(spec.price)) && Number(spec.price) >= 0;
+    var priceCurrency = String(spec.currency || state.currency || "").trim().toUpperCase();
+    if (hasPrice && (!Currency.validCode(priceCurrency) || priceCurrency !== String(state.currency || "").trim().toUpperCase())) return { ok: false, error: "Choose your country first and use a price in its selected currency." };
+    var known = hasPrice;
     var item = { id: "i" + state.nextId++, name: name, unit: unit, quantity: String(quantity),
-      mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "",
+      mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "", currency: known ? priceCurrency : "",
       category: "", coverage: "", coverageUnit: "", country: "", subtype: "" };
     if (spec.category === "paint") {
       item.category = "paint";
@@ -54,7 +67,15 @@
     var it = findItem(state, id);
     if (!it || ["quantity", "mode", "price", "low", "high", "country", "subtype"].indexOf(field) === -1) return false;
     if (field === "mode" && ["known", "range", "unknown", "reference"].indexOf(value) === -1) return false;
+    if (field === "mode" && (value === "known" || value === "range") && !Currency.validCode(state.currency)) return false;
     if (field === "mode" && value === "reference" && !((it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records)) return false;
+    if (["price", "low", "high"].indexOf(field) !== -1 && (!Currency.validCode(state.currency) || it.currency !== state.currency)) return false;
+    if (field === "mode") {
+      it.mode = String(value);
+      it.currency = value === "known" || value === "range" ? state.currency : "";
+      if (value === "unknown" || value === "reference") { it.price = ""; it.low = ""; it.high = ""; }
+      return true;
+    }
     it[field] = String(value);
     return true;
   }
@@ -70,6 +91,11 @@
   }
   function buildEstimateInput(state) {
     var currency = String(state.currency || "").trim().toUpperCase();
+    var hasManualPrices = state.items.some(function (it) { return it.mode === "known" || it.mode === "range"; });
+    if (hasManualPrices && !Currency.validCode(currency)) throw new Error("Choose your country before entering or calculating manual prices.");
+    state.items.forEach(function (it) {
+      if ((it.mode === "known" || it.mode === "range") && it.currency !== currency) throw new Error("The price for " + it.name + " belongs to a different currency. Re-enter it for the selected country.");
+    });
     var cRaw = String(state.contingency === undefined || state.contingency === null ? "" : state.contingency).trim();
     var contingency = cRaw === "" ? 0 : toNumber(cRaw);
     if (!Number.isFinite(contingency) || contingency < 0 || contingency > 100) throw new Error("Contingency must be between 0 and 100%.");
@@ -94,7 +120,10 @@
       if (!state.items.length && refCurrencies.length === 0) currency = state.roomPlan.currency;
       else if (currency !== state.roomPlan.currency) throw new Error("Your Room-to-Ready plan uses " + state.roomPlan.currency + ". Set the Project List currency to " + state.roomPlan.currency + " before combining items; currencies are never converted.");
     }
-    if (!/^[A-Z]{3}$/.test(currency)) throw new Error("Enter a 3-letter currency code, such as USD.");
+    if (!Currency.validCode(currency)) {
+      if (state.roomPlan || refCurrencies.length || hasManualPrices) throw new Error("Choose a supported country before calculating prices.");
+      currency = "USD"; // Engine-only placeholder for a quantities-only list; never shown as the visitor currency.
+    }
     var lineItems = state.items.map(function (it) {
       var quantity = toNumber(it.quantity);
       if (!Number.isFinite(quantity) || quantity <= 0) throw new Error("Check the quantity for \"" + it.name + "\".");
@@ -117,10 +146,7 @@
     });
     return { currency: currency, contingencyPct: contingency, lineItems: lineItems };
   }
-  function money(n, currency) {
-    try { return new Intl.NumberFormat("en-US", { style: "currency", currency: currency }).format(n); }
-    catch (e) { return currency + " " + Number(n).toFixed(2); }
-  }
+  function money(n, currency) { return Currency.format(n, currency); }
   function span(lo, hi, currency) { return lo === hi ? money(lo, currency) : money(lo, currency) + "–" + money(hi, currency); }
   function qty(n) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: 4 }); }
   function summarize(state, estimator) {
@@ -132,7 +158,7 @@
     est.lineItems.forEach(function (li) { byId[li.id] = li; });
     (state.refs || []).forEach(function (r) { refById[r.itemId] = r.record; });
     var previousCurrency = String(state.currency || "").trim().toUpperCase();
-    state.currency = cur;
+    if (Currency.validCode(state.currency) || state.roomPlan) state.currency = cur;
     state.items.forEach(function (it) {
       var li = byId[it.id], head = it.name + ": " + qty(it.quantity) + " " + it.unit;
       if (!li) { lines.push(head + " – price not known yet" + (it.mode === "reference" ? " (choose a country and floor type that has a reference range, or enter your own price)" : "")); return; }
@@ -216,7 +242,7 @@
     var canRef = (it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records;
     var h = '<fieldset class="wp-room"><legend>' + esc(it.name) + '</legend><div class="calc-grid">';
     h += '<div class="calc-field"><label for="pl-q-' + id + '">Quantity (' + esc(it.unit) + ')</label><input id="pl-q-' + id + '" type="number" min="0" step="any" value="' + esc(it.quantity) + '" data-id="' + id + '" data-field="quantity"></div>';
-    h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + '>I know the price</option><option value="range"' + sel("range") + '>Two quotes (a range)</option>' +
+    h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + (Currency.validCode(state.currency) ? "" : " disabled") + '>I know the price</option><option value="range"' + sel("range") + (Currency.validCode(state.currency) ? "" : " disabled") + '>Two quotes (a range)</option>' +
       (canRef ? '<option value="reference"' + sel("reference") + '>Typical range from sources</option>' : '') + '<option value="unknown"' + sel("unknown") + '>Not sure yet</option></select></div>';
     if (it.mode === "known") {
       h += '<div class="calc-field"><label for="pl-p-' + id + '">Price per ' + esc(it.unit) + '</label><input id="pl-p-' + id + '" type="number" min="0" step="any" value="' + esc(it.price) + '" data-id="' + id + '" data-field="price"></div>';
@@ -264,7 +290,7 @@
     "<div class=\"calc-field\"><label for=\"plist-unit\">Sold by (unit)</label><input id=\"plist-unit\" type=\"text\" maxlength=\"20\" placeholder=\"e.g. gallon, box, roll\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-add-error\" role=\"alert\"></p><button class=\"wp-btn\" type=\"submit\">Add item</button></form>" +
     "<form class=\"calc\" id=\"plist-calc-form\" novalidate><div class=\"calc-grid\">" +
-    "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code</label><input id=\"plist-currency\" type=\"text\" maxlength=\"3\" value=\"USD\"><small>Three letters, such as USD.</small></div>" +
+    "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code (from selected country)</label><input id=\"plist-currency\" type=\"text\" maxlength=\"3\" value=\"\" readonly><small id=\"plist-currency-note\">Choose a supported country above before entering prices.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-contingency\">Contingency allowance (%), your choice</label><input id=\"plist-contingency\" type=\"number\" min=\"0\" max=\"100\" step=\"any\" placeholder=\"e.g. 10\"><small>Leave blank to add none.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-budget\">Budget (optional)</label><input id=\"plist-budget\" type=\"number\" min=\"0\" step=\"any\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-error\" role=\"alert\"></p><button class=\"calc-btn\" type=\"submit\">Calculate project list</button></form>" +
@@ -273,6 +299,7 @@
     var rootEl = doc.getElementById("plist-root");
     if (!rootEl || !estimator) return null;
     var state = createState(), RPm = (opts && opts.rp) || rpModule();
+    state.currency = Currency.codeForMarket(win && win.hpwRegion);
     if (win) win.hpwProjectListState = state;
     state.getRegion = function () { return (win && win.hpwRegion) || ""; };
     if (opts && opts.records && RPm) { state.records = opts.records; state.rp = RPm; }
@@ -289,6 +316,10 @@
           if (!state.items.length) { state.currency = state.roomPlan.currency; doc.getElementById("plist-currency").value = state.roomPlan.currency; }
         } else note.textContent = "No Room-to-Ready plan added yet.";
       }
+      var currencyField = doc.getElementById("plist-currency");
+      if (currencyField) currencyField.value = state.currency;
+      var currencyNote = doc.getElementById("plist-currency-note");
+      if (currencyNote && !state.currency) currencyNote.textContent = "Choose a supported country above before entering prices; quantities can still be listed.";
       paintItems();
       clearResult();
     }
@@ -322,7 +353,7 @@
     });
     doc.getElementById("plist-calc-form").addEventListener("submit", function (e) {
       e.preventDefault();
-      state.currency = doc.getElementById("plist-currency").value;
+      state.currency = Currency.codeForMarket(win && win.hpwRegion) || (state.roomPlan && state.roomPlan.currency) || "";
       state.contingency = doc.getElementById("plist-contingency").value;
       state.budget = doc.getElementById("plist-budget").value;
       var s = summarize(state, estimator);
@@ -351,7 +382,13 @@
         if (r.ok) { paintItems(); clearResult(); }
       });
     });
-    if (win && win.addEventListener) win.addEventListener("hpw-region", function () { state.items.forEach(function (it) { it.subtype = ""; }); clearResult(); paintItems(); });
+    if (win && win.addEventListener) win.addEventListener("hpw-region", function () {
+      setMarket(state, win.hpwRegion);
+      var currencyField = doc.getElementById("plist-currency"); if (currencyField) currencyField.value = state.currency;
+      var currencyNote = doc.getElementById("plist-currency-note");
+      if (currencyNote) currencyNote.textContent = "Country changed. Manual prices and quote ranges were cleared; re-enter them in " + (state.currency || "the selected market currency") + ". Quantities were kept.";
+      clearResult(); paintItems();
+    });
     if (!state.records && RPm && win && typeof win.fetch === "function") {
       win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; }).then(function (recs) {
         if (Array.isArray(recs) && recs.length) { state.records = recs; state.rp = RPm; paintItems(); }
@@ -362,5 +399,5 @@
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) {
     init(document, window.HPWProjectEstimator, window);
   }
-  return { createState: createState, addItem: addItem, removeItem: removeItem, setField: setField, setRoomPlan: setRoomPlan, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
+  return { createState: createState, setMarket: setMarket, addItem: addItem, removeItem: removeItem, setField: setField, setRoomPlan: setRoomPlan, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
 }));
