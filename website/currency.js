@@ -30,7 +30,7 @@
       if (clearPrices) {
         ["paint-price", "material-price", "energy-rate", "project-unit-price", "project-extra"].forEach(function (id) {
           var field = doc.getElementById(id);
-          if (field) field.value = "";
+          if (field) field.value = id === "project-extra" && field.value === "0" ? "0" : "";
         });
         ["paint-result", "material-result", "energy-result", "project-result"].forEach(function (id) {
           var result = doc.getElementById(id);
