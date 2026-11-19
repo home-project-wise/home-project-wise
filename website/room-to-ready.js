@@ -4,11 +4,12 @@
  */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.HPWRoomToReady = factory();
-}(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  else root.HPWRoomToReady = factory(root);
+}(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
   var M2_PER_FT2 = 0.09290304;
-  var MARKET_CURRENCY = { US: "USD", Canada: "CAD", UK: "GBP", Germany: "EUR", France: "EUR", Spain: "EUR", Italy: "EUR", Netherlands: "EUR" };
+  var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
+  var MARKET_CURRENCY = Currency.MARKET_CURRENCY;
 
   function fail(message) { throw new Error(message); }
   function finitePositive(value, field) {
