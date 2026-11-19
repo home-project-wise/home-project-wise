@@ -75,7 +75,7 @@ ok("input errors are explained, not thrown", () => {
   s.currency = "USD"; s.contingency = "150"; assert.match(L.summarize(s, E).error, /between 0 and 100/);
   s.contingency = "10"; s.items[0].price = ""; assert.match(L.summarize(s, E).error, /Enter a price for "Paint"/);
   s.items[0].price = "20"; s.items[1].mode = "range"; s.items[1].currency = s.currency; s.items[1].low = "5"; assert.match(L.summarize(s, E).error, /Enter both quotes/);
-  assert.match(L.summarize(newState(), E).error, /Add at least one item/);
+  assert.match(L.summarize(newState(), E).error, /Add an item or build a Room-to-Ready plan/);
   const q = sample(); q.items[0].quantity = "0"; assert.match(L.summarize(q, E).error, /Check the quantity/);
 });
 ok("user text is escaped in every rendered string", () => {
