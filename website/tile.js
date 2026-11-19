@@ -35,14 +35,17 @@
     var adjusted = net * (1 + waste / 100);
     var tileL = input.tileLength === "" || input.tileLength === null || input.tileLength === undefined ? null : positive(input.tileLength, "Tile length");
     var tileW = input.tileWidth === "" || input.tileWidth === null || input.tileWidth === undefined ? null : positive(input.tileWidth, "Tile width");
+    var tileUnit = ["mm","cm","in","m","ft"].indexOf(input.tileUnit) >= 0 ? input.tileUnit : null;
     var joint = input.joint === "" || input.joint === null || input.joint === undefined ? 0 : nonNegative(input.joint, "Joint width");
     var jointUnit = input.jointUnit === "in" ? "in" : input.jointUnit === "mm" ? "mm" : null;
     if (joint > 0 && !jointUnit) throw new Error("Choose millimetres or inches for the joint width.");
     var tiles = null, tileAreaM2 = null;
     if ((tileL === null) !== (tileW === null)) throw new Error("Enter both tile dimensions, or leave both blank.");
     if (tileL !== null) {
+      if (!tileUnit) throw new Error("Choose the unit used for your tile dimensions.");
+      var tileFactorM = tileUnit === "mm" ? 0.001 : tileUnit === "cm" ? 0.01 : tileUnit === "in" ? 0.0254 : tileUnit === "ft" ? M_PER_FT : 1;
       var jointM = jointUnit === "in" ? joint * 0.0254 : joint / 1000;
-      var tileLM = tileL * factor, tileWM = tileW * factor;
+      var tileLM = tileL * tileFactorM, tileWM = tileW * tileFactorM;
       tileAreaM2 = (tileLM + jointM) * (tileWM + jointM);
       if (!Number.isFinite(tileAreaM2) || tileAreaM2 <= 0) throw new Error("Tile dimensions are outside the supported range.");
       tiles = Math.ceil(adjusted / tileAreaM2 - 1e-12);
@@ -78,13 +81,14 @@
       '<div class="calc-field"><label for="tile-waste">Extra allowance (optional, your choice %)</label><input id="tile-waste" type="number" min="0" max="50" step="any" placeholder="Leave blank for none"></div>' +
       '<div class="calc-field"><label for="tile-length">Tile length (optional)</label><input id="tile-length" type="number" min="0" step="any" placeholder="From your tile"></div>' +
       '<div class="calc-field"><label for="tile-width">Tile width (optional)</label><input id="tile-width" type="number" min="0" step="any" placeholder="From your tile"></div>' +
+      '<div class="calc-field"><label for="tile-size-unit">Tile size unit</label><select id="tile-size-unit"><option value="mm">Millimetres (mm)</option><option value="cm" selected>Centimetres (cm)</option><option value="in">Inches (in)</option><option value="m">Metres (m)</option><option value="ft">Feet (ft)</option></select></div>' +
       '<div class="calc-field"><label for="tile-joint">Joint width (optional)</label><input id="tile-joint" type="number" min="0" step="any" placeholder="Your chosen joint"></div>' +
       '<div class="calc-field"><label for="tile-joint-unit">Joint unit</label><select id="tile-joint-unit"><option value="mm">Millimetres</option><option value="in">Inches</option></select></div>' +
       '<div class="calc-field"><label for="tile-box-coverage">Box coverage (optional, from product label)</label><input id="tile-box-coverage" type="number" min="0" step="any" placeholder="Enter label coverage"></div>' +
       '<div class="calc-field"><label for="tile-coverage-unit">Coverage unit on label</label><select id="tile-coverage-unit"><option value="m2">m²</option><option value="ft2">ft²</option></select></div></div>' +
       '<p class="calc-error" id="tile-error" role="alert"></p><button class="calc-btn" type="submit">Calculate tile quantity</button></form>' +
       '<div class="tool-result" id="tile-result" aria-live="polite"></div>' +
-      '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses (tile length + joint) × (tile width + joint). Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. No prices, grout, mortar or installation materials are estimated.</p></section>';
+      '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses your tile dimensions in the selected tile-size unit plus the joint width. Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. No prices, grout, mortar or installation materials are estimated.</p></section>';
     var sections = doc.getElementById("tile-sections"), count = 1;
     function addSection(length, width) {
       count += 1;
@@ -98,7 +102,7 @@
     doc.getElementById("tile-use-room").addEventListener("click", function () {
       var room = win && win.hpwRoom;
       if (!room || !(Number(room.length) > 0) || !(Number(room.width) > 0)) {
-        doc.getElementById("tile-error").textContent = "Enter a valid room length and width in “Enter your room once” first.";
+        doc.getElementById("tile-error").textContent = "Open “Enter your room once” and press one of its “Use for…” buttons to share the room dimensions first.";
         return;
       }
       doc.getElementById("tile-unit").value = room.unit === "ft" ? "ft" : "m";
@@ -135,7 +139,7 @@
         var opening = doc.getElementById("tile-openings").value;
         var result = calculate({ lengthUnit: doc.getElementById("tile-unit").value, sections: data,
           openings: opening === "" || Number(opening) === 0 ? [] : [opening], waste: doc.getElementById("tile-waste").value,
-          tileLength: doc.getElementById("tile-length").value, tileWidth: doc.getElementById("tile-width").value,
+          tileLength: doc.getElementById("tile-length").value, tileWidth: doc.getElementById("tile-width").value, tileUnit: doc.getElementById("tile-size-unit").value,
           joint: doc.getElementById("tile-joint").value, jointUnit: doc.getElementById("tile-joint-unit").value,
           boxCoverage: doc.getElementById("tile-box-coverage").value, coverageUnit: doc.getElementById("tile-coverage-unit").value });
         var fmt = function (n) { return Number(n).toLocaleString("en-US", { maximumFractionDigits: 3 }); };
