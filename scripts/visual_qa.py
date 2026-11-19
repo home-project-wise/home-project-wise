@@ -416,7 +416,7 @@ try:
                 check(f"{label}: quantity-only explanation is visible", "No prices" in page.locator("#tile-root").inner_text())
                 page.fill("#tile-length-1", "5"); page.fill("#tile-width-1", "4")
                 page.fill("#tile-openings", "2"); page.fill("#tile-waste", "")
-                page.fill("#tile-length", "0.6"); page.fill("#tile-width", "0.6")
+                page.fill("#tile-length", "0.6"); page.fill("#tile-width", "0.6"); page.select_option("#tile-size-unit", "m")
                 page.fill("#tile-joint", "3"); page.select_option("#tile-joint-unit", "mm")
                 page.fill("#tile-box-coverage", "1.44"); page.select_option("#tile-coverage-unit", "m2")
                 page.click("#tile-form button[type=submit]")
