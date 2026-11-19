@@ -104,7 +104,7 @@ function fire(el, type, extra) { (el.handlers[type] || []).forEach(f => f(Object
 function target(attrs, value) { return { attrs, value, getAttribute(k) { return this.attrs[k] === undefined ? null : this.attrs[k]; } }; }
 const doc = makeDoc(); const win = { navigator: {}, hpwLast: {}, hpwRegion: "US" };
 doc.getElementById("plist-root"); const ctl = L.init(doc, E, win); const els = new Proxy(doc.els, { get: (t, k) => doc.getElementById(k) });
-els["plist-currency"].value = "USD"; els["plist-contingency"].value = "10"; els["plist-budget"].value = "";
+els["plist-currency"].value = ""; els["plist-contingency"].value = "10"; els["plist-budget"].value = "";
 ok("init renders the empty list and the price guide", () => {
   assert.ok(els["plist-root"].innerHTML.includes("Don’t know the prices yet?"));
   assert.ok(els["plist-items"].innerHTML.includes("Your list is empty"));
@@ -166,7 +166,7 @@ const RP = require("../website/reference-prices.js");
 const REG = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "reference_prices.json"), "utf8"));
 const NOWD = new Date(Date.UTC(2026, 10, 14));
 function newList(records) {
-  const d = makeDoc(), w = { navigator: {}, hpwLast: {}, hpwRegion: "US" }; d.getElementById("plist-root");
+  const d = makeDoc(), w = { navigator: {}, hpwLast: {}, hpwRegion: "" }; d.getElementById("plist-root");
   const c = L.init(d, E, w, records ? { records, rp: RP } : undefined); if (c && records) c.state.now = NOWD;
   const e = new Proxy(d.els, { get: (tt, k) => d.getElementById(k) });
   e["plist-currency"].value = Currency.codeForMarket(country); e["plist-contingency"].value = "10"; e["plist-budget"].value = "";
@@ -225,7 +225,7 @@ ok("a reference sets the list currency; a European reference reads in EUR", () =
   assert.ok(x.e["plist-result"].innerHTML.includes("The list currency is now EUR") && x.e["plist-result"].innerHTML.includes("EUR "));
 });
 ok("the user's own price or two quotes override a reference and are never blended with it", () => {
-  const x = newList(REG), it = addFloor(x); pickRef(x, it, "US", "laminate");
+  const x = newListG(REG, "US"), it = addFloor(x); pickRef(x, it, "US", "laminate");
   fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "range") });
   fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "low" }, "28") });
   fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "high" }, "34") });
@@ -281,6 +281,8 @@ ok("a metre-based area item converts the area only, never the currency", () => {
 ok("area items need a matching reference, honour the user's own price, and never accept a non-area unit", () => {
   const x = newList(REG), it = addArea(x); pickRef(x, it, "Netherlands", "ceramic-tile"); fire(x.e["plist-calc-form"], "submit");
   assert.ok(x.e["plist-result"].innerHTML.includes("price not known yet") && !x.e["plist-result"].innerHTML.includes("[reference:"));
+  fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "unknown") });
+  x.w.hpwRegion = "US"; L.setMarket(x.c.state, "US");
   fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "known") });
   fire(x.e["plist-items"], "input", { target: target({ "data-id": it.id, "data-field": "price" }, "3") }); fire(x.e["plist-calc-form"], "submit");
   assert.ok(x.e["plist-result"].innerHTML.includes("USD 360.00") && !x.e["plist-result"].innerHTML.includes("Reference for"));
