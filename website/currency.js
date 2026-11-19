@@ -16,7 +16,7 @@
   function format(amount, code) {
     if (!validCode(code)) throw new Error("Choose a supported country before showing a price.");
     if (!Number.isFinite(Number(amount))) throw new Error("Price must be a finite number.");
-    return code + " " + Number(amount).toLocaleString("en-US", { maximumFractionDigits: 2 });
+    return code + " " + Number(amount).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
   function init(doc, win) {
     if (!doc || !win || !win.addEventListener) return null;
