@@ -108,15 +108,27 @@ rejects('energy 32 days', submit('energy-form', { ...E, 'energy-days': 32 }));
 rejects('energy zero watts', submit('energy-form', { ...E, 'energy-watts': 0 }));
 // 5 Project cost
 const J = { 'project-quantity': 10, 'project-unit-price': 25, 'project-extra': 50, 'project-contingency': 10, 'project-tax': 20 };
-has('project: 300 + 10% + 20% tax on 330 = 396', submit('project-form', J), 'Contingency: USD 30 Estimated tax: USD 66 Estimated project total: USD 396.00');
+has('project: 300 + 10% + 20% tax on 330 = 396', submit('project-form', J), 'Contingency: USD 30.00 Estimated tax: USD 66.00 Estimated project total: USD 396.00');
 has('project zero prices -> 0', submit('project-form', { ...J, 'project-unit-price': 0, 'project-extra': 0 }), 'Estimated project total: USD 0.00');
 rejects('project contingency over 100', submit('project-form', { ...J, 'project-contingency': 101 }));
 rejects('project blank unit price is an error, not silent zero', submit('project-form', { ...J, 'project-unit-price': '' }));
 rejects('project blank quantity is an error', submit('project-form', { ...J, 'project-quantity': '' }));
 rejects('project blank other costs is an error', submit('project-form', { ...J, 'project-extra': '' }));
 rejects('project blank contingency is an error', submit('project-form', { ...J, 'project-contingency': '' }));
-has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: USD 0 Estimated project total: USD 330.00');
+has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: USD 0.00 Estimated project total: USD 330.00');
 has('project explicit 0 unit price stays valid after the blank check', submit('project-form', { ...J, 'project-unit-price': 0 }), 'Materials and extras: USD 50.00');
+ok('changing the selected market updates ISO codes and clears all previous manual amounts', () => {
+  window.hpwRegion = 'Germany';
+  ['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => { els[id].value = '7'; });
+  window.dispatchEvent({ type: 'hpw-region', detail: { country: 'Germany' } });
+  ['paint-currency','material-currency','energy-currency','project-currency'].forEach(id => ok(id + ' is EUR', els[id].value === 'EUR', els[id].value));
+  ['paint-price','material-price','energy-rate','project-unit-price','project-extra'].forEach(id => ok(id + ' cleared', els[id].value === '', els[id].value));
+  ok('old paint result and add action cleared', els['paint-result'].innerHTML === '' && els['paint-add'].hidden === true);
+});
+has('Germany manual paint price is shown as EUR and carried with EUR identity', submit('paint-form', { ...P, 'paint-price': 20 }), 'Estimated paint cost: EUR 160.00');
+ok('paint list item carries the ISO currency code', window.hpwLast.paint.currency === 'EUR' && window.hpwLast.paint.price === 20);
+ok('country change clears old paint data before the next market price is entered', els['paint-currency'].value === 'EUR');
+
 // Stale results cleared after an invalid submission
 submit('energy-form', E);
 const bad = submit('energy-form', { ...E, 'energy-watts': 0 });
@@ -138,6 +150,20 @@ if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
 ok('loading the page does not rewrite the URL hash', hashWritesAtLoad === 0, String(hashWritesAtLoad));
 tabEls[2].handlers.click(); ok('clicking a tab writes #<panel id>', hashWrites[hashWrites.length - 1] === '#' + tabEls[2].attrs['aria-controls'], JSON.stringify(hashWrites));
 key(tabEls[2], 'ArrowRight'); ok('keyboard tab move writes the new tab hash', hashWrites[hashWrites.length - 1] === '#' + tabEls[3].attrs['aria-controls'], JSON.stringify(hashWrites));
+
+ok('without a selected country Paint remains quantity-first and never shows a guessed currency', () => {
+  window.hpwRegion = '';
+  window.dispatchEvent({ type: 'hpw-region', detail: { country: '' } });
+  const r = submit('paint-form', { ...P, 'paint-price': 20 });
+  ok('paint quantity still shown', r.res.includes('Buy at least 8 tin(s)'));
+  ok('no monetary amount shown', !r.res.includes('Estimated paint cost'));
+  ok('market selection is requested', r.res.includes('Choose your country above'));
+  ok('price is not carried into the Project List', window.hpwLast.paint.price === null && window.hpwLast.paint.currency === '');
+  const energy = submit('energy-form', E);
+  rejects('electricity price is blocked without a selected market', energy);
+  const project = submit('project-form', J);
+  rejects('project cost is blocked without a selected market', project);
+});
 ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+$/.test(u)), JSON.stringify(hashWrites));
 ok('Paint intro states walls only (ceilings, trim and primer not included)', /Walls only: ceilings, trim and primer are not included\./.test(html), 'paint scope line missing');
 console.log(fail ? '\n' + fail + ' check(s) failed' : '\nAll checks passed');
