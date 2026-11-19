@@ -16,10 +16,18 @@
     win.hpwRegion = "";
     host.innerHTML = '<div class="calc-field"><label for="region-country">Your country</label><select id="region-country"><option value="">Choose your country</option>' +
       RP.COUNTRY_ORDER.map(function (c) { return '<option value="' + esc(c) + '">' + esc(RP.COUNTRY_LABEL[c] || c) + '</option>'; }).join("") +
-      '</select><small>Used for typical prices, electricity rates and the currency code on manual prices below. Nothing is stored or sent.</small></div>';
+      '</select><small id="region-country-hint">Used for typical prices, electricity rates and the currency code on manual prices. Nothing is stored or sent. Quantity calculations remain available without choosing a country.</small></div>';
     var sel = doc.getElementById("region-country");
     sel.addEventListener("change", function () {
       win.hpwRegion = RP.COUNTRY_ORDER.indexOf(sel.value) === -1 ? "" : sel.value;
+      var currency = win.HPWCurrency && win.HPWCurrency.codeForMarket ? win.HPWCurrency.codeForMarket(win.hpwRegion) : "";
+      Array.prototype.forEach.call(doc.querySelectorAll("input[readonly]"), function (field) {
+        if (field.id && /currency/i.test(field.id)) {
+          field.value = currency;
+          field.placeholder = currency ? "" : "Choose your country above";
+          field.title = currency ? "Currency from your selected country" : "Choose your country above to set the currency";
+        }
+      });
       try { if (win.dispatchEvent && win.CustomEvent) win.dispatchEvent(new win.CustomEvent("hpw-region", { detail: { country: win.hpwRegion } })); } catch (e) {}
     });
     return { select: sel };
