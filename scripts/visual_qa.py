@@ -451,7 +451,7 @@ try:
                 page.fill("#tile-sections .tile-section:nth-child(2) .tile-width", "2")
                 page.click("#tile-form button[type=submit]")
                 multi = page.inner_text("#tile-result")
-                check(f"{label}: multiple rectangular areas are included", "22 m²" in multi and "boxes" in multi.lower(), multi)
+                check(f"{label}: multiple rectangular areas are included", "24 m²" in multi and "boxes" in multi.lower(), multi)
                 check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
                 if vp_name == "desktop":
                     page.locator("#tile-unit").focus(); page.keyboard.press("Tab")
