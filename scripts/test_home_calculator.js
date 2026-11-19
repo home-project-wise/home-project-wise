@@ -4,6 +4,7 @@
 // layout, HTML5 form validation (required/min/max), mobile and screen-reader checks stay manual.
 const fs = require('fs');
 const path = require('path');
+const Currency = require('../website/currency.js');
 const file = process.argv[2] || path.join(__dirname, '..', 'website', 'home-project-calculator.html');
 const html = fs.readFileSync(file, 'utf8');
 const script = html.split('<script>').pop().split('</script>')[0];
@@ -34,7 +35,8 @@ global.document = {
   querySelectorAll: s => s === '.calc-tabs button' ? tabEls : []
 };
 const hashWrites = [];
-global.window = { location: { hash: process.env.HPW_TEST_HASH || '' }, history: { replaceState(s, title, url) { hashWrites.push(url); } } };
+global.window = { location: { hash: process.env.HPW_TEST_HASH || '' }, history: { replaceState(s, title, url) { hashWrites.push(url); } }, hpwRegion: 'US', HPWCurrency: Currency, handlers: {}, addEventListener(t, f) { (this.handlers[t] = this.handlers[t] || []).push(f); }, dispatchEvent(e) { (this.handlers[e.type] || []).forEach(f => f(e)); } };
+Currency.init(global.document, global.window);
 eval(script);
 const hashWritesAtLoad = hashWrites.length;
 let fail = 0;
@@ -65,22 +67,22 @@ ok('paint beginner result has no tin line and the list button is hidden', !Strin
 rejects('paint: a negative coverage is rejected', submit('paint-form', { ...P, 'paint-coverage': -3 }));
 delete window.hpwPaint;
 has('paint without coverage and no estimator loaded still shows the wall area', submit('paint-form', { ...P, 'paint-coverage': '' }), 'Paintable wall area: 32 m²');
-has('paint 32 m2, 2 coats, 10%: 7.04 -> 8 tins, cost 160', submit('paint-form', P), 'Buy at least 8 tin(s) of the entered coverage. Estimated paint cost: $160');
+has('paint 32 m2, 2 coats, 10%: 7.04 -> 8 tins, cost 160', submit('paint-form', P), 'Buy at least 8 tin(s) of the entered coverage. Estimated paint cost: USD 160');
 ok('paint result is offered to the project list with quantity and price', window.hpwLast && window.hpwLast.paint.quantity === 8 && window.hpwLast.paint.unit === 'tin' && window.hpwLast.paint.price === 20 && els['paint-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('paint zero allowance: 6.4 -> 7 tins', submit('paint-form', { ...P, 'paint-waste': 0 }), 'Buy at least 7 tin(s)');
 has('paint exact boundary: 5 tins when 5.00 needed', submit('paint-form', { ...P, 'paint-openings': 0, 'paint-length': 5, 'paint-width': 5, 'paint-height': 2.5, 'paint-waste': 0, 'paint-coats': 1, 'paint-coverage': 10, 'paint-price': '' }), 'Buy at least 5 tin(s)');
 rejects('paint openings larger than walls', submit('paint-form', { ...P, 'paint-openings': 100 }));
 // 3 Material packs
 const K = { 'material-length': 5, 'material-width': 4, 'material-coverage': 2.1, 'material-waste': 10, 'material-price': 30 };
-has('material 20 m2 +10% = 22 m2 / 2.1 -> 11 packs, cost 330', submit('material-form', K), 'Required: 11 pack(s) Estimated material cost: $330');
+has('material 20 m2 +10% = 22 m2 / 2.1 -> 11 packs, cost 330', submit('material-form', K), 'Required: 11 pack(s) Estimated material cost: USD 330');
 ok('flooring result is offered to the project list with quantity and price', window.hpwLast.material.quantity === 11 && window.hpwLast.material.category === 'flooring' && window.hpwLast.material.coverage === 2.1 && window.hpwLast.material.coverageUnit === 'm²' && window.hpwLast.material.unit === 'pack' && window.hpwLast.material.price === 30 && els['material-add'].hidden === false, JSON.stringify(window.hpwLast));
 has('material exact pack boundary 21 / 2.1 = 10', submit('material-form', { ...K, 'material-length': 7, 'material-width': 3, 'material-waste': 0, 'material-price': '' }), 'Required: 10 pack(s)');
-has('material zero price is a valid price', submit('material-form', { ...K, 'material-price': 0 }), 'Estimated material cost: $0');
+has('material zero price is a valid price', submit('material-form', { ...K, 'material-price': 0 }), 'Estimated material cost: USD 0');
 // 3b Material packs, imperial (feet / ft²): same arithmetic in either unit, no conversion step in the pack count
 const KI = { 'material-unit': 'ft', 'material-length': 12, 'material-width': 10, 'material-coverage': 20, 'material-waste': 5, 'material-price': '' };
 has('material imperial 12x10 ft +5% = 126 ft2 / 20 -> 7 packs', submit('material-form', KI), 'Surface area: 120 ft² (11.15 m²) With 5% allowance: 126 ft² Required: 7 pack(s)');
 has('material imperial exact boundary 10x10 ft, 0%, 20 ft2/pack = exactly 5 (not 6)', submit('material-form', { ...KI, 'material-length': 10, 'material-width': 10, 'material-waste': 0 }), 'Surface area: 100 ft² (9.29 m²) With 0% allowance: 100 ft² Required: 5 pack(s)');
-has('material imperial price: 7 packs x 45 = 315', submit('material-form', { ...KI, 'material-price': 45 }), 'Required: 7 pack(s) Estimated material cost: $315');
+has('material imperial price: 7 packs x 45 = 315', submit('material-form', { ...KI, 'material-price': 45 }), 'Required: 7 pack(s) Estimated material cost: USD 315');
 rejects('material imperial zero width rejected', submit('material-form', { ...KI, 'material-width': 0 }));
 rejects('material imperial allowance above 50% rejected', submit('material-form', { ...KI, 'material-waste': 51 }));
 // metric parity: the same physical room entered in metres gives the same pack count (12 ft = 3.6576 m, 10 ft = 3.048 m, 20 ft2 = 1.8580608 m2)
@@ -96,9 +98,9 @@ rejects('flooring: a negative pack size is rejected', submit('material-form', { 
 els['material-unit'].value = 'm';
 // 4 Electricity
 const E = { 'energy-watts': 1000, 'energy-hours': 2, 'energy-days': 30, 'energy-rate': 0.2 };
-has('energy 1000 W, 2 h, 30 d, 0.20 -> 60 kWh, 12', submit('energy-form', E), '60 kWh per month Daily use: 2 kWh Estimated monthly cost: $12');
+has('energy 1000 W, 2 h, 30 d, 0.20 -> 60 kWh, 12', submit('energy-form', E), '60 kWh per month Daily use: 2 kWh Estimated monthly cost: USD 12');
 has('energy 0 hours -> 0 kWh, cost 0', submit('energy-form', { ...E, 'energy-hours': 0 }), 'Estimated energy: 0 kWh per month');
-has('energy tariff 0 -> cost 0', submit('energy-form', { ...E, 'energy-rate': 0 }), 'Estimated monthly cost: $0');
+has('energy tariff 0 -> cost 0', submit('energy-form', { ...E, 'energy-rate': 0 }), 'Estimated monthly cost: USD 0');
 rejects('energy blank days is an error, not silent zero', submit('energy-form', { ...E, 'energy-days': '' }));
 has('energy fractional days 15.5 -> 31 kWh', submit('energy-form', { ...E, 'energy-days': 15.5 }), '31 kWh per month');
 rejects('energy 25 hours', submit('energy-form', { ...E, 'energy-hours': 25 }));
@@ -106,15 +108,15 @@ rejects('energy 32 days', submit('energy-form', { ...E, 'energy-days': 32 }));
 rejects('energy zero watts', submit('energy-form', { ...E, 'energy-watts': 0 }));
 // 5 Project cost
 const J = { 'project-quantity': 10, 'project-unit-price': 25, 'project-extra': 50, 'project-contingency': 10, 'project-tax': 20 };
-has('project: 300 + 10% + 20% tax on 330 = 396', submit('project-form', J), 'Contingency: $30 Estimated tax: $66 Estimated project total: $396');
-has('project zero prices -> 0', submit('project-form', { ...J, 'project-unit-price': 0, 'project-extra': 0 }), 'Estimated project total: $0');
+has('project: 300 + 10% + 20% tax on 330 = 396', submit('project-form', J), 'Contingency: USD 30 Estimated tax: USD 66 Estimated project total: USD 396');
+has('project zero prices -> 0', submit('project-form', { ...J, 'project-unit-price': 0, 'project-extra': 0 }), 'Estimated project total: USD 0');
 rejects('project contingency over 100', submit('project-form', { ...J, 'project-contingency': 101 }));
 rejects('project blank unit price is an error, not silent zero', submit('project-form', { ...J, 'project-unit-price': '' }));
 rejects('project blank quantity is an error', submit('project-form', { ...J, 'project-quantity': '' }));
 rejects('project blank other costs is an error', submit('project-form', { ...J, 'project-extra': '' }));
 rejects('project blank contingency is an error', submit('project-form', { ...J, 'project-contingency': '' }));
-has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: $0 Estimated project total: $330');
-has('project explicit 0 unit price stays valid after the blank check', submit('project-form', { ...J, 'project-unit-price': 0 }), 'Materials and extras: $50');
+has('project blank tax is allowed (optional) -> 330', submit('project-form', { ...J, 'project-tax': '' }), 'Estimated tax: USD 0 Estimated project total: USD 330');
+has('project explicit 0 unit price stays valid after the blank check', submit('project-form', { ...J, 'project-unit-price': 0 }), 'Materials and extras: USD 50');
 // Stale results cleared after an invalid submission
 submit('energy-form', E);
 const bad = submit('energy-form', { ...E, 'energy-watts': 0 });
@@ -136,7 +138,7 @@ if (tabEls.every(e => typeof e.handlers.keydown === 'function')) {
 ok('loading the page does not rewrite the URL hash', hashWritesAtLoad === 0, String(hashWritesAtLoad));
 tabEls[2].handlers.click(); ok('clicking a tab writes #<panel id>', hashWrites[hashWrites.length - 1] === '#' + tabEls[2].attrs['aria-controls'], JSON.stringify(hashWrites));
 key(tabEls[2], 'ArrowRight'); ok('keyboard tab move writes the new tab hash', hashWrites[hashWrites.length - 1] === '#' + tabEls[3].attrs['aria-controls'], JSON.stringify(hashWrites));
-ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+$/.test(u)), JSON.stringify(hashWrites));
+ok('hash writes never use pushState-style history entries (replaceState only)', hashWrites.length >= 2 && hashWrites.every(u => /^#panel-[a-z]+USD /.test(u)), JSON.stringify(hashWrites));
 ok('Paint intro states walls only (ceilings, trim and primer not included)', /Walls only: ceilings, trim and primer are not included\./.test(html), 'paint scope line missing');
 console.log(fail ? '\n' + fail + ' check(s) failed' : '\nAll checks passed');
 process.exit(fail ? 1 : 0);
