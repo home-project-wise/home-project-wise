@@ -22,13 +22,14 @@
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[c];
     });
   }
-  function createState() { return { items: [], nextId: 1, currency: "USD", contingency: "", budget: "", roomPlan: null }; }
+  function createState() { return { items: [], nextId: 1, currency: "USD", market: "", contingency: "", budget: "", roomPlan: null }; }
   function setMarket(state, market) {
-    var next = Currency.codeForMarket(market);
-    if (state.currency !== next) state.items.forEach(function (it) {
+    var nextMarket = String(market || ""), next = Currency.codeForMarket(nextMarket);
+    if (state.market !== nextMarket) state.items.forEach(function (it) {
       if (it.mode === "known" || it.mode === "range") { it.mode = "unknown"; it.price = ""; it.low = ""; it.high = ""; it.currency = ""; }
       if (it.mode === "reference") it.subtype = "";
     });
+    state.market = nextMarket;
     state.currency = next;
     return next;
   }
@@ -301,7 +302,8 @@
     var rootEl = doc.getElementById("plist-root");
     if (!rootEl || !estimator) return null;
     var state = createState(), RPm = (opts && opts.rp) || rpModule();
-    state.currency = Currency.codeForMarket(win && win.hpwRegion);
+    state.market = String(win && win.hpwRegion || "");
+    state.currency = Currency.codeForMarket(state.market);
     if (win) win.hpwProjectListState = state;
     state.getRegion = function () { return (win && win.hpwRegion) || ""; };
     if (opts && opts.records && RPm) { state.records = opts.records; state.rp = RPm; }
