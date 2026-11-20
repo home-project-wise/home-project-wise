@@ -18,7 +18,7 @@
     host.innerHTML =
       '<section class="wp-room" aria-labelledby="room-plan-title">' +
       '<h3 id="room-plan-title">Room-to-Ready plan</h3>' +
-      '<p class="wp-note" id="room-plan-room-prompt" role="status">Enter your room first in <a href="#room-root" id="room-plan-open-room">Enter your room once</a> above; the section is collapsed until you open it. Then choose the work you plan to do.</p>' +
+      '<p class="wp-note" id="room-plan-room-prompt" role="status">First open ‘<a href="#room-root" id="room-plan-open-room">Enter your room once</a>’ above and add your room.</p>' +
       '<p class="wp-note">This combines only selected materials and keeps unknown costs visible.</p>' +
       '<form class="calc" id="room-plan-form" novalidate>' +
       '<label class="wp-check"><input id="plan-flooring" type="checkbox"> Include flooring</label>' +
@@ -46,11 +46,11 @@
       roomPrompt.hidden = hasRoom;
       roomPrompt.textContent = "";
       if (!hasRoom) {
-        roomPrompt.appendChild(doc.createTextNode("Enter your room first in "));
+        roomPrompt.appendChild(doc.createTextNode("First open \u2018"));
         var link = doc.createElement("a");
         link.href = "#room-root"; link.id = "room-plan-open-room"; link.textContent = "Enter your room once";
         roomPrompt.appendChild(link);
-        roomPrompt.appendChild(doc.createTextNode(" above; the section is collapsed until you open it."));
+        roomPrompt.appendChild(doc.createTextNode("\u2019 above and add your room."));
       }
     }
     roomPrompt.addEventListener("click", function (event) {

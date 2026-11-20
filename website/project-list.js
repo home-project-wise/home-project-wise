@@ -279,7 +279,7 @@
   }
   var SKELETON =
     "<h3>Project list</h3>" +
-    "<p class=\"wp-note\">Build one shopping list from your Paint and Flooring results, include your Room-to-Ready plan, or add your own items. Nothing is stored or sent; the list clears when you leave the page.</p>" +
+    "<p class=\"wp-note\">Build one list from your results, or add your own items. Nothing is stored or sent.</p>" +
     "<p class=\"wp-note\" id=\"plist-room-plan-note\" role=\"status\">No Room-to-Ready plan added yet.</p>" +
     "<details><summary>Don’t know the prices yet?</summary><ol>" +
     "<li>Check the unit the product is sold in (a tin or gallon, a box, a roll). Enter the price for one of that unit, the way the product page shows it.</li>" +
@@ -292,7 +292,7 @@
     "<div class=\"calc-field\"><label for=\"plist-qty\">Quantity</label><input id=\"plist-qty\" type=\"number\" min=\"0\" step=\"any\" value=\"1\"></div>" +
     "<div class=\"calc-field\"><label for=\"plist-unit\">Sold by (unit)</label><input id=\"plist-unit\" type=\"text\" maxlength=\"20\" placeholder=\"e.g. gallon, box, roll\"></div></div>" +
     "<p class=\"calc-error\" id=\"plist-add-error\" role=\"alert\"></p><button class=\"wp-btn\" type=\"submit\">Add item</button></form>" +
-    "<form class=\"calc\" id=\"plist-calc-form\" novalidate><div class=\"calc-grid\">" +
+    "<form class=\"calc\" id=\"plist-calc-form\" novalidate aria-labelledby=\"plist-settings-title\"><h4 class=\"plist-settings-title\" id=\"plist-settings-title\">List settings</h4><div class=\"calc-grid\">" +
     "<div class=\"calc-field\"><label for=\"plist-currency\">Currency code (from selected country)</label><input id=\"plist-currency\" class=\"currency-display\" type=\"text\" maxlength=\"3\" value=\"\" placeholder=\"Choose your country above\" readonly aria-describedby=\"plist-currency-note\"><small id=\"plist-currency-note\">Choose your country above to set the currency. Quantities can still be listed.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-contingency\">Contingency allowance (%), your choice</label><input id=\"plist-contingency\" type=\"number\" min=\"0\" max=\"100\" step=\"any\" placeholder=\"e.g. 10\"><small>Leave blank to add none.</small></div>" +
     "<div class=\"calc-field\"><label for=\"plist-budget\">Budget (optional)</label><input id=\"plist-budget\" type=\"number\" min=\"0\" step=\"any\"></div></div>" +
