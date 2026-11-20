@@ -2402,3 +2402,13 @@ Owner's critique: the currency code is derived from the country already chosen a
 
 Confirmed by the owner’s phone screenshots: the five hand-off notes are in place (hint, currency as plain text, “List settings” grouping and spacing, flat nested card, short intro). Two further refinements, CSS only: (a) the gap between the Room-to-Ready intro notes and “Include flooring” was too large (form top margin 20px → 12px); (b) on phones, now that the Room-to-Ready box is flat, “Project list” had no separation from the section above, so it gets the same hairline divider used above “List settings” (≤600px only; on wider screens the box border already separates). No JS, ID, class or data change. Still to review with screenshots: Paint, Flooring, Electricity and Wallpaper tabs on a phone.
 
+
+## 2026-11-20 — Claude, Calculator Owner — CLAIM + HANDOFF (smart-home and picture-hanging calculators; article-to-tool map)
+
+- **Owner direction (this session):** expand the calculators to every home project, starting with smart home and picture hanging (first clicks), and connect every article or article section that contains a real decision to a realistic calculation; the publishing Claude wants the same links from the editorial side.
+- **Plan (read first):** `docs/CALCULATOR-SMART-HOME-AND-HANGING-PLAN-2026-11-20.md`. Order: WS1 audit/spec (ChatGPT, parallel) -> T1 tool registry and link contract -> T2 picture-hanging planner -> T4a-b smart-plug v2 and running/standby cost -> T3 fixing-load check only if sources verify -> remaining items.
+- **Findings that shaped it:** only 7 of 45 articles link to any tool; the hanging and anchor guides state formulas but have no tool; Search Console shows 4 clicks in 28 days, so this is direction, not proof. Not every article gets a calculator: class C (guide-only, reason recorded) is valid.
+- **Claims:** Claude, Calculator Owner: review once per PR on its exact head and merge or return one consolidated list; no code claimed by me. ChatGPT: WS1 now, then each build item, one PR at a time, claiming the exact files here before starting.
+- **Exclusions:** article text and link placement (editorial lane; open PR #442 touches the wall-art guide), CSS/layout/microcopy tone (design lead), prices and reference data (ChatGPT data lane), any persistence (needs owner approval).
+- **Locks:** none taken by me. PR #439 (tile and paint reference prices) is awaiting its fix-up; the failed Pages deploy for `3a0ec3b` still needs a re-run and confirmation.
+- **Evidence level:** repository `main` at `d1d486f` read; metrics from `data/SEARCH_METRICS.md` (2026-11-11 entry); nothing deployed or tested.
