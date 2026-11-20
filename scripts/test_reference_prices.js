@@ -6,7 +6,7 @@ const fs = require("fs"), path = require("path");
 const RP = require("../website/reference-prices.js");
 const E = require("../website/project-estimator-engine.js");
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "reference_prices.json"), "utf8"));
-const NOW = new Date(Date.UTC(2026, 10, 14));
+const NOW = new Date(Date.UTC(2026, 10, 20));
 let n = 0; function ok(name, fn) { fn(); n++; console.log("PASS " + name); }
 const rec = (o) => Object.assign({ id: "T-1", audience: "US", category: "flooring", subtype: "laminate", autoEligible: true, item: "Laminate", unit: "sq ft", currency: "USD", low: 2, high: 3, kind: "editorial-range",
   source: { id: "S", name: "Survey", publisher: "P", url: "https://example.com", geography: "United States", geographyResolution: "national", observedAt: "2026-07-14", retrievedAt: "2026-11-14" } }, o);
@@ -103,7 +103,7 @@ ok("real data flooring: exact market and subtype only, no substitute", () => {
   const us = RP.select(data, { country: "US", category: "flooring", subtype: "laminate" });
   assert.equal(us.ok, true); assert.equal(us.record.audience, "US"); assert.equal(us.record.currency, "USD");
   const p = RP.packRange(us.record, 20, "sq ft"); assert.ok(Math.abs(p.low - us.record.low * 20) < 1e-3);
-  assert.equal(RP.select(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, false);
+  assert.equal(RP.select(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, true);
   assert.equal(RP.select(data, { country: "UK", category: "flooring", subtype: "lvp-spc" }).ok, false);
   assert.equal(RP.select(data, { country: "US", category: "flooring", subtype: "carpet-tile" }).ok, false);
   RP.flooringOptions(data, "Canada").forEach((s) => assert.equal(RP.select(data, { country: "Canada", category: "flooring", subtype: s }).ok, true, s));
@@ -139,4 +139,56 @@ ok("toEngineAreaPrice: price per area in the item's unit, no currency conversion
   const eur = RP.toEngineAreaPrice(rec({ unit: "m²", currency: "EUR", low: 20, high: 30 }), "sq ft"); assert.ok(Math.abs(eur.low - 20 * RP.M2_PER_SQFT) < 1e-3 && eur.currency === "EUR");
   assert.equal(RP.toEngineAreaPrice(r, "gallon"), null); assert.equal(RP.toEngineAreaPrice(rec({ unit: "gallon" }), "sq ft"), null); assert.equal(RP.toEngineAreaPrice(rec({ low: 5, high: 1 }), "sq ft"), null);
 });
+
+ok("current tile price bands match each market, subtype, currency and native area unit", () => {
+  const cases = [
+    ["US","porcelain-tile","USD","sq ft",1.49,16.43],
+    ["Canada","porcelain-tile","CAD","sq ft",1.79,7.16],
+    ["UK","ceramic-tile","GBP","m²",12,50.60],
+    ["UK","porcelain-tile","GBP","m²",29.78,40],
+    ["Germany","porcelain-tile","EUR","m²",13.95,59.95],
+    ["France","ceramic-tile","EUR","m²",9.99,34.90],
+    ["Spain","porcelain-tile","EUR","m²",9.99,35.49],
+    ["Italy","porcelain-tile","EUR","m²",14.99,21.99],
+    ["Netherlands","ceramic-tile","EUR","m²",17.85,92.85]
+  ];
+  cases.forEach(([country,subtype,currency,unit,low,high]) => {
+    const s = RP.select(data,{country,category:"flooring",subtype});
+    assert.equal(s.ok,true,country+" "+subtype);
+    assert.equal(s.record.currency,currency);
+    assert.equal(s.record.unit,unit);
+    assert.equal(s.record.low,low);
+    assert.equal(s.record.high,high);
+    assert.equal(s.record.autoEligible,true);
+    assert.ok(s.record.source.url.startsWith("https://"));
+    assert.ok(RP.parseDate(s.record.source.observedAt));
+  });
+  assert.equal(RP.select(data,{country:"Australia",category:"flooring",subtype:"porcelain-tile"}).ok,false);
+});
+ok("paint reference bands are per gallon or litre, market-currency exact, and display-only", () => {
+  const cases = [
+    ["US","USD","gallon",37.98,49.98],
+    ["Canada","CAD","L",7.64,12.53],
+    ["UK","GBP","L",1.70,12.80],
+    ["Germany","EUR","L",2.00,7.39],
+    ["France","EUR","L",2.79,4.99],
+    ["Spain","EUR","L",1.11,3.07],
+    ["Italy","EUR","L",1.25,7.12],
+    ["Netherlands","EUR","L",1.50,10.50]
+  ];
+  cases.forEach(([country,currency,unit,low,high]) => {
+    const r = data.find(x=>x.category==="paint" && x.audience===country && x.kind==="editorial-range");
+    assert.ok(r,country+" paint range missing");
+    assert.equal(r.currency,currency,country);
+    assert.equal(r.unit,unit,country);
+    assert.equal(r.low,low,country);
+    assert.equal(r.high,high,country);
+    assert.equal(r.autoEligible,false,country);
+    assert.equal(RP.isAutoEligible(r),false,country);
+    assert.ok(r.autoEligibleReason.includes("does not capture the selected can volume"),country);
+  });
+  const ca = data.find(x=>x.id==="CA-paint-interior-homedepot-379l-per-litre-2026-11-20");
+  assert.ok(ca.notes.includes("3.79 L") && ca.notes.includes("28.97 ÷ 3.79") && ca.notes.includes("47.47 ÷ 3.79"));
+});
+
 console.log("\n" + n + " reference-price tests passed");
