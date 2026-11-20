@@ -2,7 +2,7 @@
 
 **Prepared by:** Claude, Calculator Owner
 **Date:** 2026-11-20
-**Status:** Plan and acceptance criteria only. No code, price data or article edit is authorised by this file beyond what the numbered work items below name. Evidence level: repository `main` at `d1d486f` read on 2026-11-20; metrics copied from `data/SEARCH_METRICS.md` (2026-11-11 entry); nothing here is deployed or tested.
+**Status:** Plan and acceptance criteria only. No code, price data or article edit is authorised by this file beyond what the numbered work items below name. Evidence level: repository `main` at `d1d486f` read on 2026-11-20; metrics from the owner's Search Console screenshots of 2026-11-20 (section 2); an earlier draft of this file used the 2026-11-11 log entry, which was nine days old; nothing here is deployed or tested.
 
 ## 1. Owner direction and goal
 
@@ -12,7 +12,7 @@ Goal: a visitor who knows what to measure and a visitor who does not can both re
 
 ## 2. What I read (facts, not interpretation)
 
-- **Clicks are few and early.** Search Console, 2026-10-14 to 2026-11-10: 831 impressions, 4 clicks. Pages with clicks: `what-can-you-plug-into-a-smart-plug` (146 impressions, 2 clicks, position 6.29), `motion-lighting-that-actually-helps` (30, 1, 6.17), legacy `stop-kitchen-counter-clutter` (39, 1). `how-to-hang-large-wall-art-without-damage` has 92 impressions at position 6.41. With four clicks this is direction, not proof.
+- **Clicks are still few, but the pattern is clear** (owner's Search Console screenshots, 2026-11-20, web, last 3 months): 6 clicks, 1,560 impressions, CTR 0.4%, average position 17.1. Pages with clicks: `what-can-you-plug-into-a-smart-plug` (350 impressions, 2 clicks), `how-to-hang-large-wall-art-without-damage` (220, 2), `motion-lighting-that-actually-helps` (53, 1), legacy `stop-kitchen-counter-clutter` (48, 1). Largest pages with no click yet: `macerating-toilet-basement-bathroom` 207, `reduce-bathroom-condensation` 136, `where-to-put-water-leak-sensors` 134, `stop-musty-bathroom-towels` 84, `how-to-fix-damp-crawl-space-humidity` 71, `better-evening-home-lighting-without-overcomplicating-it` 57. Visible queries include "which materials are safest for hanging oversized framed art?" (38 impressions) and "can i safely hang heavy wall decor without damaging my walls?" (11): the demand is about hardware and safety, not only placement. Clicks by country: UK 2 (181 impressions), US 1 (835), India 1 (60), France 1 (9), Sweden 1 (4); Canada 100 impressions, no click. The separate generative-AI report lists 305 impressions (do not add it to the total), led by the plug guide (93), the wall-art guide (75), leak sensors (29) and evening lighting (27). These windows differ from the 28-day figures in `data/SEARCH_METRICS.md`; do not compare them. Six clicks is direction, not proof.
 - **Only 7 of 45 articles link to any tool.** Linked: choose-bathroom-exhaust-fan, how-to-calculate-wallpaper-rolls-pattern-repeat, how-to-fix-damp-crawl-space-humidity, how-to-patch-a-large-hole-in-drywall, right-rug-size-painters-tape-test, what-can-you-plug-into-a-smart-plug, what-size-dehumidifier-crawl-space.
 - **Existing tools:** home-project-calculator (Area & volume, Paint, Flooring & materials incl. tile, Electricity cost, Project cost, Wallpaper), bathroom-fan-size-calculator, crawl-space-dehumidifier-calculator, rug-size-calculator, smart-plug-load-check, home-checkup, budget-planner.
 - **The hanging guide has no tool link but states a formula.** Centre of the piece about 57 in (145 cm) above the floor, or 6 to 10 in above furniture; hook height = 57 + H/2 minus hook drop (example: 36 in piece, hook 3 in below top gives 57 + 18 - 3 = 72 in); studs usually 16 or 24 in on centre.
@@ -82,8 +82,12 @@ f) Motion-sensor coverage count from the visitor-entered coverage on the sensor'
 
 ## 6. Order and why
 
-#439 and the queued items continue. Then WS1 (parallel), T1, **T2** (a direct formula in the article and 92 impressions at position 6.4), T4a-b (the smart-plug page has the most clicks and its tool already exists), T3 (only if verified), then T4c-f and the B candidates by impressions. Re-check Search Console before building beyond T4b: with four clicks in 28 days, do not invest further in a cluster without a fresh measurement.
+#439 and the queued items continue. Then, in parallel: WS1, and the **class A links**, which need no build (the editorial lane adds deep links where WS1 confirms the fit, for example reduce-bathroom-condensation at 136 impressions and bathroom-exhaust-fan-dripping-water to the fan calculator, and the hub-tab links). Then T1, then **T2 and T3 as one "hang it right" pack**: T3 only if WS1 verifies its sources, but the visible queries ask which hardware is safest, so T3 matters as much as placement. Then T4a-b (the plug guide has the most impressions, 350, and its tool already exists), then the B candidates by impressions: macerator run check (207), leak-sensor planner (134), evening lighting (57, only with cited sources). Re-check Search Console with dated, labelled windows before building beyond T4b.
 
 ## 7. Acceptance for every PR in this plan
 
 Exact-head `quality` and `chromium-visual-qa` green; hand-computed fixtures from a cited source; both unit systems; 320, 390 and 1280 px without horizontal overflow; keyboard-complete; no console errors; no new prices, waste, coverage or safety factors without a cited source; no persistence without owner approval; design lead's lane untouched; claim and result recorded in the operations room with the evidence level (local, PR head, merged, deployed).
+
+Additional acceptance, added 2026-11-20 after the fresh Search Console data:
+- **Markets.** Clicks so far come mostly from outside the US (UK 2, India, France, Sweden, one US). Default units and electrical standard follow the visitor's region (UK and EU metric, 230 V); test UK, US and Canada cases.
+- **Static worked examples.** Each tool page publishes 2 to 3 worked examples as plain HTML that match its tested fixtures (a CI check compares them), so the numbers are readable without JavaScript, including by AI search features.

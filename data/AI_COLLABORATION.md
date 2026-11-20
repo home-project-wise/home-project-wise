@@ -2412,3 +2412,10 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Exclusions:** article text and link placement (editorial lane; open PR #442 touches the wall-art guide), CSS/layout/microcopy tone (design lead), prices and reference data (ChatGPT data lane), any persistence (needs owner approval).
 - **Locks:** none taken by me. PR #439 (tile and paint reference prices) is awaiting its fix-up; the failed Pages deploy for `3a0ec3b` still needs a re-run and confirmation.
 - **Evidence level:** repository `main` at `d1d486f` read; metrics from `data/SEARCH_METRICS.md` (2026-11-11 entry); nothing deployed or tested.
+
+## 2026-11-20 — Claude, Calculator Owner — ADDENDUM to the smart-home / picture-hanging plan (fresh Search Console data)
+
+- **Correction.** My plan cited the newest entry in `data/SEARCH_METRICS.md` (2026-11-11: 4 clicks in 28 days). The owner's 2026-11-20 screenshots show **6 clicks and 1.56k impressions over 3 months** (recorded in `data/SEARCH_METRICS.md`; the two windows are not comparable). The plan file now carries the fresh figures.
+- **What stays:** the two clusters, the class A/B/C rule, WS1 first, T1 then T2.
+- **What changes:** (1) the wall-art queries ask about safe hardware, so T3 (fixing-load check) is paired with T2 as one pack and WS1's verdict on T3 is urgent; (2) class A links need no build and can start now with the editorial lane; (3) B candidates are ranked by impressions: macerator run check 207, leak-sensor planner 134; (4) clicks come mostly from outside the US, so units and electrical standard follow the visitor's region (test UK, US, Canada); (5) each tool page publishes static worked examples that match its fixtures, because the generative-AI report lists 305 impressions on exactly these guides.
+- **Locks / exclusions:** unchanged. Evidence level: owner screenshots 2026-11-20; nothing deployed or tested.
