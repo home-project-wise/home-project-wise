@@ -36,8 +36,15 @@ ok("a country and floor type give a material cost range from the area alone, wit
   const rec = RP.select(REG, { country: "US", category: "flooring", subtype: "laminate" }).record;
   const html = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), c = RP.areaCost(rec, 120, "sq ft");
   const fmt = (v) => Currency.format(Number(v), "USD");
-  assert.ok(html.includes("Typical material cost for this area: <strong>" + fmt(c.low) + "–" + fmt(c.high) + "</strong> (approximate)"), html);
+  assert.ok(html.includes("Observed sample material cost for this area: <strong>" + fmt(c.low) + "–" + fmt(c.high) + "</strong> (approximate)"), html);
   assert.ok(html.includes('href="' + rec.source.url + '"') && html.includes("observed " + rec.source.observedAt) && html.includes("not a quote or a final cost"));
+});
+ok("weak tile evidence is explicitly shown as display-only, never called typical", () => {
+  const x = setup(REG); pick(x, "US", "porcelain-tile");
+  const h = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" });
+  assert.ok(h.includes("Observed sample material cost for this area (display only; not a typical market range)"), h);
+  assert.ok(h.includes("2 observed product listings") && h.includes("premium Merola decorative porcelain"), h);
+  assert.ok(!h.includes("Typical material cost for this area"), h);
 });
 ok("metric area on a per-sq-ft record is converted by area only", () => {
   const x = setup(REG); pick(x, "US", "laminate");
@@ -81,7 +88,7 @@ ok("a page-wide country hides the local country choice and drives the floor type
   assert.equal(x.e["material-country-field"].hidden, true); assert.equal(x.e["material-subtype-field"].hidden, false); assert.equal(x.e["material-region-note"].hidden, true);
   assert.equal(x.e["material-country"].value, "US"); RP.flooringOptions(REG, "US").forEach((t) => assert.ok(x.e["material-subtype"].innerHTML.includes('value="' + t + '"')));
   x.e["material-subtype"].value = "laminate"; const h = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" });
-  assert.ok(h.includes("Typical material cost for this area") && h.includes("United States") === false);
+  assert.ok(h.includes("Observed sample material cost for this area") && h.includes("United States") === false);
 });
 ok("changing the page-wide country updates the choices and the note; with no country the local choice comes back", () => {
   const x = setupG(REG, "US"); x.e["material-subtype"].value = "laminate";

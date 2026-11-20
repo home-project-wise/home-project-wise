@@ -1538,6 +1538,43 @@
     "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
   },
   {
+    "id": "US-paint-interior-lowes-top-sellers-iqr-2026-11-14",
+    "audience": "US",
+    "category": "paint",
+    "item": "Interior wall paint, 1 US gallon (retailer top-seller sample)",
+    "unit": "gallon",
+    "currency": "USD",
+    "low": 41.48,
+    "high": 51.98,
+    "kind": "editorial-range",
+    "source": {
+      "id": "LOWES-US-INTERIOR-PAINT-BESTSELLERS-2026-11-14",
+      "name": "Lowe's Best Sellers: Interior Paint",
+      "publisher": "Lowe's",
+      "url": "https://www.lowes.com/best-sellers/paint/interior-paint/4294729373",
+      "geography": "United States (nationally advertised Lowe's listings; local pricing may differ)",
+      "geographyResolution": "national",
+      "observedAt": "2026-11-14",
+      "retrievedAt": "2026-11-14"
+    },
+    "notes": "Indicative interquartile range (25th–75th percentile) calculated from the 12 one-gallon interior-paint products and prices displayed in Lowe's Best Sellers listing on 2026-11-14. Sample median: USD 46.48 per gallon. Products include different brands and sheens; this is a retailer top-seller sample, not a statistically representative US market survey.",
+    "caveats": "Prices and availability vary by store and ZIP code, brand, finish, paint line, promotion and date. Taxes may be additional. Use as a rough starting point and replace with a local quote.",
+    "reviewStatus": "researched",
+    "subtype": null,
+    "jurisdiction": null,
+    "tariffPlan": null,
+    "autoEligible": false,
+    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin.",
+    "sample": {
+      "count": 12,
+      "method": "published-retailer-sample",
+      "statistic": "interquartile-range",
+      "representative": false,
+      "description": "Interquartile range (25th–75th percentiles) from 12 one-US-gallon interior-paint products and prices in Lowe's Best Sellers listing, observed 14 Nov 2026; sample median USD 46.48/gal. Mixed brands and sheens; retailer top-seller sample, not a representative US market survey."
+    },
+    "displayOnly": true
+  },
+  {
     "id": "US-flooring-laminate-pergo-lf001161-2026-11-14",
     "audience": "US",
     "category": "flooring",
@@ -1994,7 +2031,7 @@
     "id": "US-paint-interior-lowes-top-rated-2026-11-20",
     "audience": "US",
     "category": "paint",
-    "item": "Interior wall paint, 1 US gallon (retailer top-seller sample)",
+    "item": "Interior wall paint, 1 US gallon (two selected Ovation Plus listings; display-only)",
     "unit": "gallon",
     "currency": "USD",
     "low": 37.98,
@@ -2010,14 +2047,22 @@
       "observedAt": "2026-11-20",
       "retrievedAt": "2026-11-20"
     },
-    "notes": "Selected one-US-gallon interior paint products shown in Lowe's Top Rated list: HGTV HOME by Sherwin-Williams Ovation Plus gallon products were displayed at USD 37.98–49.98 per gallon. Quart listings are excluded. Retailer-ranked sample only, not a representative national survey.",
+    "notes": "Two selected one-US-gallon HGTV HOME by Sherwin-Williams Ovation Plus product listings shown in Lowe's Top Rated interior-paint results at USD 37.98–49.98 per gallon. Quart listings are excluded. This is a two-listing sample from one product family, not a multi-brand or representative US market range.",
     "caveats": "Approximate, based on latest checked source (20 Nov 2026). Finish, base, tint, store/ZIP, promotions and date affect price. Tax may be additional. Display per gallon only; no paint-can total is calculated until the chosen package volume is known.",
     "reviewStatus": "researched",
     "subtype": null,
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only unit-price observation: the calculator does not capture the selected can volume, and this band contains only two listings from one product family. Do not multiply it by a tin count or describe it as a market range; a visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two one-US-gallon HGTV HOME by Sherwin-Williams Ovation Plus product listings from Lowe's Top Rated results; same product family, not a national brand mix."
+    },
+    "displayOnly": true
   },
   {
     "id": "US-flooring-laminate-vcalc-survey-2026-07-14",
@@ -2104,7 +2149,14 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes.",
+    "sample": {
+      "count": 15,
+      "method": "published-retailer-sample",
+      "statistic": "interquartile-range",
+      "representative": false,
+      "description": "Published vCalc sample of 15 Lowe's ceramic tile listings; low/high are the reported 25th and 75th percentiles."
+    }
   },
   {
     "id": "US-wallpaper-30-75sqft-roll-home-depot-top-listings-iqr-2026-11-14",
@@ -3361,7 +3413,14 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved.",
+    "sample": {
+      "count": 12,
+      "method": "published-retailer-sample",
+      "statistic": "interquartile-range",
+      "representative": false,
+      "description": "Interquartile range from 12 Home Depot porcelain floor/wall tile product listings; retained for audit and remains blocked by the existing contract exclusion."
+    }
   },
   {
     "id": "UK-interior-paint-wickes-listings-2026-11-20",
@@ -3390,7 +3449,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected interior matt-emulsion listings at opposite ends of the observed per-litre band."
+    },
+    "displayOnly": true
   },
   {
     "id": "UK-flooring-laminate-retailer-sample-2026-11-14",
@@ -3593,7 +3660,14 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes.",
+    "sample": {
+      "count": 20,
+      "method": "category-page-all-listed-products",
+      "statistic": "observed-min-max",
+      "representative": false,
+      "description": "All 20 products shown on the Wickes Ceramic Floor Tiles category page; observed minimum and maximum displayed per-m² prices."
+    }
   },
   {
     "id": "UK-flooring-porcelain-tile-catalogue-sample-2026-11-14",
@@ -3606,23 +3680,31 @@
     "high": 40,
     "kind": "editorial-range",
     "source": {
-      "id": "BDQ-UK-PORCELAIN-TILES-2026-11-13",
+      "id": "BDQ-UK-PORCELAIN-TILES-2026-11-20",
       "name": "Plain porcelain tile category listings",
       "publisher": "B&Q",
       "url": "https://www.diy.com/flooring-tiling/tiles.cat?Design+group=Plain&Material+type=Porcelain&Room+use=Any+room",
       "geography": "United Kingdom (B&Q online listings)",
       "geographyResolution": "national",
-      "observedAt": "2026-11-13",
+      "observedAt": "2026-11-20",
       "retrievedAt": "2026-11-20"
     },
-    "notes": "Selected plain porcelain tile examples show £29.78/m² for a 60 × 60 cm product and £40/m² for a 90 × 60 cm outdoor product. This is a selected retailer sample; confirm indoor/outdoor suitability for the intended room.",
-    "caveats": "Selected retailer catalogue sample for this exact tile subtype and market; not a national statistical survey. Local store/ZIP availability, tile format, grade, finish, promotion and date affect price. Adhesive, grout, waste/breakage, delivery and installation are excluded. Source page last checked 13 Nov 2026; one endpoint is an outdoor-rated product, so this broad catalogue band should be treated as indicative only.",
+    "notes": "Two selected plain porcelain examples on the B&Q page checked 20 Nov 2026: £29.78/m² for a 60 × 60 cm indoor product and £40/m² for a 90 × 60 cm outdoor product. The category page shows 65 products; these two selected examples are not the category min–max.",
+    "caveats": "B&Q page checked 20 Nov 2026. Only two selected examples are recorded, one is outdoor-rated, and the category page shows 65 products. Display-only for this exact market and subtype; not an indoor-floor typical range or national survey. Confirm indoor suitability and local availability. Adhesive, grout, waste/breakage, delivery and installation are excluded.",
     "reviewStatus": "researched",
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected plain porcelain listings from the B&Q page checked 20 Nov: one indoor £29.78/m² example and one outdoor-rated £40/m² example; the page shows 65 products overall."
+    },
+    "displayOnly": true
   },
   {
     "id": "UK-wallpaper-bq-listings-2026-11-14",
@@ -3739,7 +3821,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected 3.79 L interior wall-paint can listings from The Home Depot Canada; can prices divided by stated 3.79 L volume."
+    },
+    "displayOnly": true
   },
   {
     "id": "CA-flooring-laminate-rona-listings-2026-11-14",
@@ -3884,7 +3974,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected visible ceramic tile listings spanning basic and decorative feature products; broad product mix, not a representative floor-tile market sample."
+    },
+    "displayOnly": true
   },
   {
     "id": "CA-flooring-porcelain-tile-homedepot-listings-2026-11-14",
@@ -3912,8 +4010,16 @@
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected porcelain floor-tile listings with displayed prices per square foot."
+    },
+    "displayOnly": true
   },
   {
     "id": "CA-flooring-broadloom-carpet-homedepot-listings-2026-11-14",
@@ -4581,7 +4687,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected interior wall-paint listings at opposite ends of the observed per-litre band."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-DE-flooring-laminate-hornbach-2026-11-14",
@@ -4668,7 +4782,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected 10 L interior wall-paint listings at opposite ends of the observed per-litre band."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-FR-flooring-laminate-leroymerlin-2026-11-14",
@@ -4726,8 +4848,16 @@
     "subtype": "ceramic-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected interior ceramic floor-tile catalogue endpoints, 45 × 45 cm and 60 × 60 cm."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-ES-paint-leroymerlin-interior-range-2026-11-20",
@@ -4757,7 +4887,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected retailer-sold 15 L interior wall-paint listings; marketplace offers excluded."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-ES-flooring-laminate-leroymerlin-2026-11-14",
@@ -4814,8 +4952,16 @@
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected porcelain floor-tile catalogue endpoints, 60 × 60 cm and 60 × 120 cm; ceramic-only products excluded."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-IT-paint-leroymerlin-interior-white-2026-11-20",
@@ -4844,7 +4990,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected retailer-sold white interior wall-paint listings; decorative finishes, enamels and non-wall coatings excluded."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-IT-flooring-laminate-leroymerlin-2026-11-14",
@@ -4882,27 +5036,35 @@
     "item": "Porcelain stoneware floor tiles (selected Leroy Merlin listings)",
     "unit": "m²",
     "currency": "EUR",
-    "low": 14.99,
+    "low": 13.49,
     "high": 21.99,
     "kind": "editorial-range",
     "source": {
-      "id": "LEROYMERLIN-IT-GRES-PORCELLANATO-2026-11-13",
+      "id": "LEROYMERLIN-IT-GRES-PORCELLANATO-PAGE-SNAPSHOT-2026-11-16",
       "name": "Gres porcellanato category listings",
       "publisher": "Leroy Merlin Italia",
       "url": "https://www.leroymerlin.it/prodotti/pavimenti-e-rivestimenti/pavimenti-per-interni/tutti-i-pavimenti-e-rivestimenti-in-gres-porcellanato/",
       "geography": "Italy (Leroy Merlin online listings)",
       "geographyResolution": "national",
-      "observedAt": "2026-11-13",
+      "observedAt": "2026-11-16",
       "retrievedAt": "2026-11-20"
     },
-    "notes": "Selected interior porcelain tile examples include €14.99/m² and €21.99/m². The observed sample is a retailer catalogue band, not a national statistical survey.",
-    "caveats": "Selected retailer catalogue sample for this exact tile subtype and market; not a national statistical survey. Local store/ZIP availability, tile format, grade, finish, promotion and date affect price. Adhesive, grout, waste/breakage, delivery and installation are excluded. Source page last checked 13 Nov 2026.",
+    "notes": "Two selected interior porcelain tile examples in the page snapshot: €13.49/m² discounted (the displayed previous price was €14.99/m²) and €21.99/m². The category page lists about 2,000 products; these two selected examples are not the category min–max or a national market range.",
+    "caveats": "The page snapshot was crawled 16 Nov 2026 and retrieved 20 Nov 2026. Only two selected product examples are recorded while the category lists about 2,000 products; other listings fall below and above this pair. Display-only; not a market min–max or national survey. Product promotions, format, grade, store availability and date affect price. Adhesive, grout, waste/breakage, delivery and installation are excluded.",
     "reviewStatus": "researched",
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true,
-    "autoEligibleReason": "Eligible only as an approximate editorial material range after exact country, subtype, currency and area-unit match; retain the full source caveat and do not use any median mentioned in notes."
+    "autoEligible": false,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference.",
+    "sample": {
+      "count": 2,
+      "method": "selected-product-examples",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected interior porcelain examples in the 16 Nov page snapshot: current discounted €13.49/m² (previously €14.99/m²) and €21.99/m²; this pair is not the full category range."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-NL-paint-gamma-listings-2026-11-14",
@@ -4931,7 +5093,15 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence.",
+    "sample": {
+      "count": 3,
+      "method": "selected-product-examples",
+      "statistic": "observed-min-max",
+      "representative": false,
+      "description": "Three selected 10 L white latex examples: OK own-brand, GAMMA basic and colour-mix paint before member discount."
+    },
+    "displayOnly": true
   },
   {
     "id": "EU-NL-flooring-laminate-gamma-2026-11-14",
@@ -4989,7 +5159,14 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved."
+    "autoEligibleReason": "Blocked by contract section 10.1 or by mixed application, construction, finish, membership or price-condition evidence; retain for audit only until separately resolved.",
+    "sample": {
+      "count": 1,
+      "method": "single-sku-price-conditions",
+      "statistic": "standard-versus-member-price",
+      "representative": false,
+      "description": "One wall-tile SKU shown at its standard price and loyalty-card price; two price conditions, not two products and not a floor-tile market sample."
+    }
   },
   {
     "id": "EU-NL-flooring-pvc-gamma-2026-11-14",
@@ -5691,7 +5868,16 @@
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true
+    "autoEligible": false,
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected endpoint product listings: standard MSI porcelain and premium Merola decorative porcelain; 1,000+ category results exist, but only these two endpoints form this price band."
+    },
+    "displayOnly": true,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference."
   },
   {
     "id": "EU-DE-flooring-porcelain-tile-hornbach-range-2026-11-18",
@@ -5719,7 +5905,16 @@
     "subtype": "porcelain-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true
+    "autoEligible": false,
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected porcelain (Feinsteinzeug) catalogue endpoints: standard format and premium 120 × 120 cm product."
+    },
+    "displayOnly": true,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference."
   },
   {
     "id": "EU-NL-flooring-ceramic-tile-gamma-floor-range-2026-11-20",
@@ -5747,6 +5942,15 @@
     "subtype": "ceramic-tile",
     "jurisdiction": null,
     "tariffPlan": null,
-    "autoEligible": true
+    "autoEligible": false,
+    "sample": {
+      "count": 2,
+      "method": "selected-endpoint-listings",
+      "statistic": "selected-example-min-max",
+      "representative": false,
+      "description": "Two selected ceramic floor-tile catalogue endpoints: basic 30 × 30 cm and premium large-format tile."
+    },
+    "displayOnly": true,
+    "autoEligibleReason": "Display-only sample: fewer than 10 selected listings or mixed product scope. It may be shown as observed examples for the exact market and subtype, but must not be presented as a typical market range or used as a project-list price reference."
   }
 ]
