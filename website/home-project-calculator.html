@@ -40,8 +40,8 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 .formula{margin:18px 0 0;padding:12px 14px;border-radius:12px;background:var(--cp-notebg);color:var(--cp-muted);font-size:13px;line-height:1.5}
 @media(max-width:600px){.tool-panel .calc-btn{width:100%;min-width:0}}
 /* Designer pass, issue #415 hand-off: locked currency, grouped list settings, spacing, flat nested card */
-.tool-panel .calc input.currency-display[readonly]:not([type=checkbox]):not([type=radio]){background:var(--cp-notebg) repeating-linear-gradient(135deg,transparent 0 7px,rgba(127,146,152,.16) 7px 14px);border:1.5px dashed var(--cp-line);color:var(--cp-muted);cursor:default}
-.tool-panel .calc input.currency-display[readonly]:not(:placeholder-shown){font-weight:600;letter-spacing:.04em}
+.tool-panel .calc input.currency-display[readonly]:not([type=checkbox]):not([type=radio]){min-height:0;height:auto;padding:2px 0;border:0;border-radius:0;background:none;color:var(--cp-ink);font-weight:700;letter-spacing:.04em;cursor:default}
+.tool-panel .calc input.currency-display[readonly]::placeholder{color:var(--cp-muted);font-weight:400;letter-spacing:0;opacity:1}
 #room-plan-form>.calc-field{margin-top:18px}
 #plist-add-form .wp-btn{margin-top:18px}
 #plist-calc-form{margin-top:28px;padding-top:20px;border-top:1px solid var(--cp-line)}
