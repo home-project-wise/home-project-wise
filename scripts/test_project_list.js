@@ -206,7 +206,7 @@ ok("calculating uses the pack price range, shows attribution and the required di
   assert.ok(h.includes('href="' + rec.source.url + '"') && h.includes("retrieved " + rec.source.retrievedAt));
 });
 ok("no reference for a mismatched subtype: no substitute, the item stays unpriced", () => {
-  const x = newList(REG), it = addFloor(x); pickRef(x, it, "Netherlands", "ceramic-tile");
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "Netherlands", "lvp-spc");
   assert.ok(x.e["plist-items"].innerHTML.includes("No reference range yet; enter your own price or two quotes."));
   fire(x.e["plist-calc-form"], "submit");
   const h = x.e["plist-result"].innerHTML; assert.ok(h.includes("price not known yet") && h.includes("No prices yet") && !h.includes("[reference:"));
