@@ -47,7 +47,7 @@ ok("metric area on a per-sq-ft record is converted by area only", () => {
 ok("nothing chosen shows nothing; no range for a mismatch is said plainly, with no substitute", () => {
   const x = setup(REG); assert.equal(x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), "");
   pick(x, "US", ""); assert.equal(x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }), "");
-  x.e["material-country"].value = "Netherlands"; x.e["material-subtype"].value = "ceramic-tile";
+  x.e["material-country"].value = "Netherlands"; x.e["material-subtype"].value = "lvp-spc";
   const h = x.win.hpwFlooring({ needed: 120, areaUnit: "sq ft" }); assert.ok(h.includes("No reference range yet; enter your own price or two quotes.") && !h.includes("Typical material cost"));
 });
 ok("older data is labelled and text from the registry is escaped", () => {
