@@ -1535,7 +1535,7 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
   },
   {
     "id": "US-flooring-laminate-pergo-lf001161-2026-11-14",
@@ -4931,7 +4931,7 @@
     "jurisdiction": null,
     "tariffPlan": null,
     "autoEligible": false,
-    "autoEligibleReason": "Manual price/two-quote only: the calculator does not capture a compatible package volume, so a per-litre/per-gallon value cannot safely price a tin."
+    "autoEligibleReason": "Display-only material price per litre/gallon. The calculator does not capture the selected can volume, so do not multiply this unit range by a tin count or use it to calculate a paint total. A visitor-entered local price always takes precedence."
   },
   {
     "id": "EU-NL-flooring-laminate-gamma-2026-11-14",
