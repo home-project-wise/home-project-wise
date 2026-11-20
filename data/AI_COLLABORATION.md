@@ -2377,3 +2377,15 @@ All published through draft PR, local quality-gate emulation, owner hero upload 
 **Process:** before each build, a duplicate guard checks slug, topic keywords in published slugs, open PR titles and branch names (hard stop on a match). Batch 02 articles 013, 014, 015, 019 and 020 are not built yet; 014 and 015 are planned as one merged article; 013 is on hold for lack of sources.
 **Not verified:** live pages (no fetch of unindexed URLs from my tools), browser rendering beyond CI.
 **Scope reminder:** articles, images and records only. No calculator, price or design files touched.
+
+## 2026-11-20 — Claude, Design lead — CLAIM + RESULT (visual hand-off, issue #415 comment 7007065256)
+
+The owner asked the designer to start from the five visual notes ChatGPT relayed from his real-phone check of 2026-11-19. Visual changes only; behaviour, IDs, classes and hooks untouched.
+1. **Room hint** (room-to-ready-ui.js): now “First open ‘Enter your room once’ above and add your room.” The quoted words are the link (`#room-plan-open-room` kept); the “section is collapsed” remark is gone, in both the initial markup and the rebuilt prompt.
+2. **Locked currency** (home-project-calculator.html): cause was specificity. `.tool-panel .calc input:not([type=checkbox]):not([type=radio])` (0,4,0) beat `.currency-display[readonly]` (0,2,0), so the readonly look never applied. New rule scoped to `input.currency-display[readonly]` (0,6,0): tinted diagonal-stripe fill, dashed border, muted bold text, default cursor. `readonly` and `aria-readonly` untouched; focus ring unchanged. Also applies to the other currency fields.
+3. **Spacing and grouping:** 18px between fields in the Room-to-Ready form (Wall finish no longer touches the field above); 18px above “Add item”; Currency / Contingency / Budget now sit under a small “List settings” heading with a divider, after the item row (heading is the form’s accessible label).
+4. **Nested card:** on phones (≤600px) the Room-to-Ready box inside Project cost loses its border, radius and padding, so fields use the full width.
+5. **Project list intro:** now two short sentences: “Build one list from your results, or add your own items. Nothing is stored or sent.”
+**Files:** website/room-to-ready-ui.js, website/project-list.js, website/home-project-calculator.html (CSS only, no new script). No JS behaviour, no data, no workflow change.
+**Verified:** node tests test_project_list (35), test_room_to_ready, test_shared_room (9), test_home_calculator, test_wallpaper_beginner (9), test_wallpaper_reference (15), wallpaper/estimator integration (2) all pass on the edited files.
+**Not verified:** rendering at 390/320/1280px and the keyboard path (visual-qa runs in CI; no browser in my sandbox). Claude’s review of designer changes is technical-regression only, per the comment.

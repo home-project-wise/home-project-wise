@@ -39,6 +39,13 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 .tool-result strong{color:var(--cp-ink);font-size:1.12em}
 .formula{margin:18px 0 0;padding:12px 14px;border-radius:12px;background:var(--cp-notebg);color:var(--cp-muted);font-size:13px;line-height:1.5}
 @media(max-width:600px){.tool-panel .calc-btn{width:100%;min-width:0}}
+/* Designer pass, issue #415 hand-off: locked currency, grouped list settings, spacing, flat nested card */
+.tool-panel .calc input.currency-display[readonly]:not([type=checkbox]):not([type=radio]){background:var(--cp-notebg) repeating-linear-gradient(135deg,transparent 0 7px,rgba(127,146,152,.16) 7px 14px);border:1.5px dashed var(--cp-line);color:var(--cp-muted);cursor:default;font-weight:600;letter-spacing:.04em}
+#room-plan-form>.calc-field{margin-top:18px}
+#plist-add-form .wp-btn{margin-top:18px}
+#plist-calc-form{margin-top:28px;padding-top:20px;border-top:1px solid var(--cp-line)}
+#plist-calc-form .plist-settings-title{margin:0 0 14px;font-size:13px;font-weight:700;line-height:1.3;letter-spacing:.08em;text-transform:uppercase;color:var(--cp-muted)}
+@media(max-width:600px){#room-plan-root .wp-room{border:0;border-radius:0;padding:0;margin:14px 0 0}}
 @media(prefers-reduced-motion:no-preference){.calc-tabs button,.tool-panel .calc-btn{transition:background-color .15s,border-color .15s,opacity .15s}}
 @media(forced-colors:active){.calc-tabs button[aria-selected="true"]{outline:3px solid Highlight}}
 </style><div id="region-root"></div>
