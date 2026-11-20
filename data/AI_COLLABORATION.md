@@ -2389,3 +2389,8 @@ The owner asked the designer to start from the five visual notes ChatGPT relayed
 **Files:** website/room-to-ready-ui.js, website/project-list.js, website/home-project-calculator.html (CSS only, no new script). No JS behaviour, no data, no workflow change.
 **Verified:** node tests test_project_list (35), test_room_to_ready, test_shared_room (9), test_home_calculator, test_wallpaper_beginner (9), test_wallpaper_reference (15), wallpaper/estimator integration (2) all pass on the edited files.
 **Not verified:** rendering at 390/320/1280px and the keyboard path (visual-qa runs in CI; no browser in my sandbox). Claude’s review of designer changes is technical-regression only, per the comment.
+
+## 2026-11-20 — Claude, Design lead — FOLLOW-UP to PR #435 (owner phone screenshot, desktop mode)
+
+Owner's screenshot after the cache cleared confirmed items 1, 3 and 5 and the locked currency look. One flaw of mine: the bold + letter-spaced style I gave the locked currency field also applied to its placeholder, so “Choose your country above” was cut off. Fix (CSS only): bold and spacing now apply only when the field has a value (`:not(:placeholder-shown)`); the placeholder keeps normal weight. `readonly`, `aria-readonly`, IDs and JS untouched. Item 4 (flat nested card) applies at 600px and below only; the screenshot was at desktop width, so it is not yet seen on a phone layout.
+
