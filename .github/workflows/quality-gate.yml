@@ -25,3 +25,12 @@ jobs:
           node scripts/test_flooring_reference.js
           node scripts/test_reference_prices.js
           node scripts/test_paint_reference.js
+          node scripts/test_region.js
+          node scripts/test_shared_room.js
+          node scripts/test_project_estimator_engine.js
+          node scripts/test_budget_planner.js
+          node scripts/test_bathroom_fan_calculator.js
+          node scripts/test_wallpaper_beginner.js
+          node scripts/test_wallpaper_calculator_engine.js
+          node scripts/test_wallpaper_project_estimator_integration.js
+          node scripts/test_wallpaper_reference.js

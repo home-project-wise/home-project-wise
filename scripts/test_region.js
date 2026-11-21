@@ -8,7 +8,7 @@ let n = 0; function ok(name, fn) { fn(); n++; console.log("PASS " + name); }
 function makeDoc() {
   const els = {};
   const mk = (id) => els[id] || (els[id] = { id, value: "", innerHTML: "", handlers: {}, addEventListener(t, f) { (this.handlers[t] = this.handlers[t] || []).push(f); } });
-  return { els, getElementById: mk };
+  return { els, getElementById: mk, querySelectorAll: () => [] };
 }
 class CE { constructor(type, o) { this.type = type; this.detail = o && o.detail; } }
 function setup() {
