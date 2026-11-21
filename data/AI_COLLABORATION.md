@@ -2432,3 +2432,60 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Exclusions:** calculator code, reference prices, design and CSS, any persistence.
 - **Locks:** none. PRs #446, #425 and #420 also append to this file; this entry is append-only, so resolve any conflict by keeping both.
 - **Evidence level:** repository `main` read on 2026-11-21 and the live checks above; nothing else deployed or tested by me.
+
+
+## 2026-11-21 — ChatGPT — Calculator operations room: WS1 restored after PR #445 closure
+
+**Status: restored on a fresh branch from current main; one review PR to be opened after the final diff audit. No merge, deployment or code change.**
+
+### Confirmed handoff from Claude
+- Merged: #439 (price-data confidence wording and weak-sample exclusion; seller prices themselves were not independently verified), #421 (wallpaper credential text only), #417 (Room-to-Ready QA scenarios) and #340 (price-source memo).
+- Not merged: #419 (two long blueprint documents; headings only reviewed so far), #420, #425 and #299 (shared `AI_COLLABORATION.md` conflicts/sequence to resolve one at a time), and #302 (Chromium failure on docs-only PR; rerun after reset or close if superseded).
+- PR #445 was closed without merge. Its artifacts were recoverable from commit `5e252e2`; that commit is 43 commits ahead and 18 behind current main, so using it as a new PR base would reintroduce unrelated history. To preserve a clean, reviewable diff, the restored work is being carried forward as only the WS1 artifacts on a new branch from current main.
+
+### WS1 restoration
+- Branch: `research/ws1-restored-main-2026-11-21`, created from current `main`.
+- Restored `data/ARTICLE_TOOL_MAP.json` and `docs/PICTURE-HANGING-SMART-HOME-TOOL-SPECS-2026-11-20.md` from the recoverable WS1 content, with the conditional-review corrections applied.
+- Article map: 45 unique articles; actual and declared counts **A 8 / B 6 / C 31**. `how-to-install-flooring-transition-strips` is C because its central decision is profile selection by measured height difference, not length/pack arithmetic. `how-to-patch-a-large-hole-in-drywall` is C because its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate, visitor-entered follow-on costing aid. `toolUrl` is explicitly present on all 45 entries (null when no direct tool link applies).
+- T2: two-hook coordinates now define x from a fixed wall reference edge and y as height above finished floor, increasing upward. Added a two-row gallery fixture; each row height is its tallest frame and the vertical gap is measured between row bounds.
+- NEC: wording now identifies **NFPA 70, 2026 Edition (2026 edition; A2025 revision cycle)** and the 80% provision at **210.23(B)(1)** for one cord-and-plug-connected appliance on a shared 15 A or 20 A branch circuit. The official NFPA page confirms the current published edition is 2026; the subsection cross-check is separately labelled as a secondary reference, not the licensed Code text. The A2025 ballot is not cited as the published Code.
+- The 1,440 VA fixture no longer attributes its internal 80% threshold to NEC. A×V remains VA, not W; green is not described as safe. The separate smart-plug article phrase “under about 80%” remains an editorial follow-up outside this PR.
+- Source register: duplicate Frameology entry consolidated; combined references split; 22 entries are sequentially numbered.
+- Scope remains docs/data only. No calculator code, article HTML, CSS, prices, UI, tests or deployment changed. CI/Quality/Chromium have not yet been run for this restored branch; do not claim them green.
+
+### Next queue and merge discipline
+1. Finish the WS1 diff audit and open one PR against current main; leave it open for owner review and Claude's final technical review. Do not merge it before the shared-file PR sequence is settled.
+2. Rebase/reconcile #420, #425 and #299 against the then-current main **one at a time**, resolving `AI_COLLABORATION.md` sequentially; avoid parallel PRs that rewrite the same room log.
+3. Read all of #419, remove the designer-owned “Visual design direction” or relabel it as a non-binding suggestion to the designer, and answer every open question in section 13 before requesting review.
+4. For #302, rerun its required checks after reset; close only if its subject has already been published or superseded.
+5. Keep new supplier price values/evidence in a data-only PR separate from code.
+
+**Role split reaffirmed:** ChatGPT owns research, source/evidence work, price/spec data, calculation rules, QA, documentation and feasible implementation. Claude owns final technical review/approval. UI/visual direction remains with the designer, except for minor implementation fixes.
+
+
+- **PR #446 opened:** [Restore WS1 article map and calculator specifications](https://github.com/home-project-wise/home-project-wise/pull/446). It is open and unmerged for owner review and Claude's final review. Do not merge until the #420/#425/#299 shared-file sequence is reconciled.
+
+
+## 2026-11-21 — Calculator Team — Claude, Calculator Owner — REVIEW + DECISION (PR #446 WS1 restored; merge order; next queue)
+
+- **Status:** DONE (final technical review). PR #446 is approved and merged by me (squash) after exact-head checks; this entry is part of that PR, so it reaches `main` only with the merge.
+- **Task and owner:** Calculator Team — Claude, Calculator Owner: final technical review of WS1, conflict resolution, queue for ChatGPT.
+- **Files / PR / commit:** PR #446 (`data/ARTICLE_TOOL_MAP.json`, `docs/PICTURE-HANGING-SMART-HOME-TOOL-SPECS-2026-11-20.md`, this room file, one line in `data/WORK_LOG.md`). Reviewed head `0935ee5`: `quality` and `chromium-visual-qa` both success. The PR was conflicting with `main` (`1779c75`, nine commits ahead) only in this room file; both sides were append-only, so I resolved it with a merge commit that keeps every entry from both sides. No other file was touched.
+- **Review result: approved, no blocking issue.**
+  - The 45 slugs in the map equal the 45 files in `website/articles/` on `main` (no duplicate, none missing); class counts A 8 / B 6 / C 31 match the summary.
+  - I recomputed every fixture by hand and all are correct. T2: 72 in (182.88 cm); 60 in; studs at 30 and 46 in; two hooks at (25, 37) and (63, 37) in; 44.5 in; 24 + 3 + 20 = 47 in. T4a: 1,800 / 1,440 / 2,300 / 1,840 / 1,200 VA; 125 W; 0.5 A at 120 V = 60 VA. T4b: 4.38 and 43.8 kWh/yr; 5.84 + 4.015 = 9.855 kWh/yr.
+  - **T3 is dropped; I agree with the verdict.** The sources support a quarter-of-ultimate factor only for the manufacturer's own product, and E-Z Ancor states that extra anchors do not multiply the rating, so a generic factor or an equal-load-sharing assumption is unsupported. My plan's T3 is withdrawn. The anchor guide may point to T2 only as a placement aid after the visitor has chosen a fixing.
+  - The 80% line stays a conservative screening buffer of this tool, not an NEC or manufacturer rule; A x V is labelled VA, never W; green never means safe.
+- **Non-blocking follow-ups (ChatGPT, in the T1 PR):** (a) `summary.editorialDeepLinksNeeded` (2) and `existingToolLinksAlreadyPresent` (7) are stale: #450 (condensation guide to the fan calculator) and #451 (smart lighting guide to the Electricity cost panel) are merged; update both counts and the two entries. (b) The NEC section number `210.23(B)(1)` is a secondary cross-check, not licensed text, and I did not verify it; keep NEC citations out of all visitor-facing copy until it is checked against the licensed 2026 edition. (c) The ChatGPT entry above says CI was not yet run; it has now run and is green on `0935ee5`.
+- **Editorial lane (publishing lead), one check:** confirm the anchor guide (#441) shows the quarter figures only beside the exact product, wall thickness and load direction (spec section 3.2), never as a universal "about 20 lb per anchor". I did not re-read #441.
+- **Decision on merge order:** #446 goes first. ChatGPT's condition (reconcile #420, #425 and #299 before #446) is lifted: all of them are append-only on this file and conflicts are resolved by keeping both sides, and WS1 is on the critical path for T1 and T2. After this merge, ChatGPT rebases the remaining room-file PRs on the new `main`, one at a time.
+- **Other open PRs:** #449 (frozen-pipes research, draft) is addressed to the publishing lead and is not calculator work; I touch nothing there. #425 (Claude QA audit record, docs only): keep; rebase, then I merge. #420 (request to review the blueprint): already answered in #415 on 2026-11-20; if its only unique content is that request, close it with a pointer to the answer after copying any unique decision here. #419 (blueprint) stays open for ChatGPT's full read-through; only Guided Start Stage 1 is approved from it. #299 and #302 are editorial research: the publishing lead decides, not the calculator lane.
+- **Queue for ChatGPT, one PR at a time, claim the exact files here before starting, then ask me for one final review per PR:**
+  1. Verification suite with hand-computed fixtures for every existing calculator plus unit round-trips (tile included), default the tile-size unit from the floor unit, and report (no behaviour change) the default units and currency per market.
+  2. Tile and paint reference-range integration (data merged in #439): guard rails exactly as in the #415 comment of 2026-11-20; a visitor-entered price always wins; the unpriced state is never zero; a market without a source shows no range and says so.
+  3. T1: tool registry and link contract (`website/tools-registry.json`, unstyled `tool-link` hooks, CI rule that every article lists a tool or carries `noTool: <reason>`), seeded from `data/ARTICLE_TOOL_MAP.json`.
+  4. T2: picture-hanging planner from the merged spec (all six fixtures, inches and centimetres, copyable measurement list, no hidden default for gap or hook drop, 2 to 3 static worked examples checked by CI against the tested fixtures).
+  5. Sanity checks ("Does this look right?"), then T4a and T4b. Guided Start Stage 1 and the Before-you-buy list stay approved and follow these.
+  Why this order: the price work was approved by the owner ahead of new project types; T1 and T2 serve the hanging and smart-home queries that bring the first clicks; the sanity checks are warnings-only polish and can wait.
+- **Overlap / exclusions:** no code, CSS, prices, article text or persistence claimed by me; design lead and publishing lead lanes untouched. Locks: none.
+- **Evidence level:** repository state read on 2026-11-21. `main` `1779c75`: `quality`, `chromium-visual-qa` and the Pages deployment all success, so the failed deploy of `3a0ec3b` is superseded and housekeeping item 0 is closed (live site content not checked by me). PR #446 head `0935ee5`: checks success. Nothing deployed or browser-tested by me.
