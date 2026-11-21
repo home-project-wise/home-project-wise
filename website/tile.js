@@ -15,6 +15,16 @@
     if (!Number.isFinite(n) || n < 0) throw new Error(label + " must be zero or greater.");
     return n;
   }
+  var UNIT_DEFAULTS = {
+    m: { tileUnit: "cm", jointUnit: "mm", coverageUnit: "m2" },
+    ft: { tileUnit: "in", jointUnit: "in", coverageUnit: "ft2" }
+  };
+  /* Starting unit for the tile size, joint and label coverage selects, taken only from the floor-measurement unit the visitor
+   * chose. A starting choice, never a conversion: it is never applied over a unit the visitor picked or beside a number they typed. */
+  function defaultUnits(floorUnit) {
+    var d = floorUnit === "ft" ? UNIT_DEFAULTS.ft : floorUnit === "m" ? UNIT_DEFAULTS.m : null;
+    return d ? { tileUnit: d.tileUnit, jointUnit: d.jointUnit, coverageUnit: d.coverageUnit } : null;
+  }
   function calculate(input) {
     if (!input || !Array.isArray(input.sections) || !input.sections.length) throw new Error("Add at least one rectangular floor area.");
     var unit = input.lengthUnit === "ft" ? "ft" : input.lengthUnit === "m" ? "m" : null;
@@ -161,8 +171,25 @@
         output.appendChild(boxes);
       } catch (err) { error.textContent = err.message; }
     });
-    return { calculate: calculate };
+    var touched = {};
+    ["tile-size-unit", "tile-joint-unit", "tile-coverage-unit"].forEach(function (id) {
+      doc.getElementById(id).addEventListener("change", function () { touched[id] = true; });
+    });
+    function filled(ids) {
+      return ids.some(function (id) { return doc.getElementById(id).value !== ""; });
+    }
+    function applyUnitDefaults() {
+      var d = defaultUnits(doc.getElementById("tile-unit").value);
+      if (!d) return;
+      if (!touched["tile-size-unit"] && !filled(["tile-length", "tile-width"])) doc.getElementById("tile-size-unit").value = d.tileUnit;
+      if (!touched["tile-joint-unit"] && !filled(["tile-joint"])) doc.getElementById("tile-joint-unit").value = d.jointUnit;
+      if (!touched["tile-coverage-unit"] && !filled(["tile-box-coverage"])) doc.getElementById("tile-coverage-unit").value = d.coverageUnit;
+    }
+    doc.getElementById("tile-unit").addEventListener("change", applyUnitDefaults);
+    var useRoom = doc.getElementById("tile-use-room");
+    useRoom.addEventListener("click", applyUnitDefaults);
+    return { calculate: calculate, defaultUnits: defaultUnits };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) init(document, window);
-  return { calculate: calculate, formatArea: formatArea, init: init };
+  return { calculate: calculate, defaultUnits: defaultUnits, formatArea: formatArea, init: init };
 }));

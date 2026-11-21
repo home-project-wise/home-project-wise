@@ -77,3 +77,26 @@ test("room reuse is explicit and warns that it replaces extra areas", () => {
   assert.match(src,/replaces extra areas/);
   assert.match(src,/win\.hpwRoom/);
 });
+
+test("tile, joint and coverage units start from the floor unit and are a starting choice only", () => {
+  assert.deepEqual(Tile.defaultUnits("m"),{tileUnit:"cm",jointUnit:"mm",coverageUnit:"m2"});
+  assert.deepEqual(Tile.defaultUnits("ft"),{tileUnit:"in",jointUnit:"in",coverageUnit:"ft2"});
+  assert.equal(Tile.defaultUnits(""),null);
+  assert.equal(Tile.defaultUnits("yd"),null);
+  const src=require("node:fs").readFileSync(require("node:path").join(__dirname,"..","website","tile.js"),"utf8");
+  assert.match(src,/touched\[/);
+  assert.match(src,/filled\(/);
+});
+
+test("hand-computed fixture: the same 12 ft x 10 ft floor and 12 in tile give 118 tiles and 12 boxes in both unit systems", () => {
+  // Pitch 12 in + 1/8 in joint = 12.125 in = 1.010417 ft; footprint 1.020942 ft2; 120 ft2 / 1.020942 = 117.54, rounded up to 118. 120 ft2 / 10 ft2 per box = 12.
+  const d=Tile.defaultUnits("ft");
+  const ft=Tile.calculate({lengthUnit:"ft",sections:[{length:12,width:10}],openings:[],waste:"",tileLength:12,tileWidth:12,tileUnit:d.tileUnit,joint:0.125,jointUnit:d.jointUnit,boxCoverage:10,coverageUnit:d.coverageUnit});
+  const m=Tile.defaultUnits("m");
+  const metric=Tile.calculate({lengthUnit:"m",sections:[{length:3.6576,width:3.048}],openings:[],waste:"",tileLength:30.48,tileWidth:30.48,tileUnit:m.tileUnit,joint:3.175,jointUnit:m.jointUnit,boxCoverage:0.9290304,coverageUnit:m.coverageUnit});
+  assert.equal(ft.tileCount,118);
+  assert.equal(ft.boxes,12);
+  assert.equal(metric.tileCount,118);
+  assert.equal(metric.boxes,12);
+  assert.ok(Math.abs(ft.netAreaM2-metric.netAreaM2)<1e-9);
+});
