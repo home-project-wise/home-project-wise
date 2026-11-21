@@ -30,7 +30,8 @@ Before this PR CI ran 10 node tests. These existing tests were not run by any wo
 | Budget planner | `test_budget_planner.js` | `qa_browser_budget_planner.py` |
 | Bathroom fan size | `test_bathroom_fan_calculator.js` | `qa_browser_bathroom_fan_calculator.py` |
 | Room to Ready, shared room, country, currency, reference prices | `test_room_to_ready.js`, `test_shared_room.js`, `test_region.js`, `test_currency.js`, `test_reference_prices.js` | `qa_browser_home_calculator.py` |
-| **Rug size, Crawl space dehumidifier, Smart plug load check, Home Check-up** | **none: the logic is inline in each page** | `qa_browser_four_tools.py` only |
+| Rug size, Crawl space dehumidifier, Home Check-up | `scripts/qa_inline_tool_fixtures.py` (item 1b): 31 hand-computed checks in Chromium on the real pages, run by the Always-on visual QA workflow | `qa_browser_four_tools.py` |
+| **Smart plug load check** | **none yet: the logic is inline; extracted and fixtured together with T4a** | `qa_browser_four_tools.py` only |
 
 The only browser script run by CI is `scripts/visual_qa.py` (visual, responsive and link checks). Every `qa_browser_*` script is manual.
 
@@ -52,5 +53,9 @@ The "$ in every market" finding of the 2026-11-19 audit is resolved on `main` by
 ## 4. Other findings, not changed here
 
 1. `qa_browser_home_calculator.py` reports one failure on `main` and with this PR alike: "every input/select has exactly one label[for]" lists `plan-flooring`. That control is a checkbox wrapped inside its `<label>` (`room-to-ready-ui.js`), so it is labelled; the check is too strict. No site change needed; the check can allow wrapping labels.
-2. Rug size, Crawl space dehumidifier, Smart plug load check and Home Check-up have no node fixtures. Next step (item 1b): extract each page's arithmetic into a testable function with hand-computed fixtures; the smart-plug extraction is best done inside the T4a work so the logic is written once.
+2. Rug size, Crawl space dehumidifier and Home Check-up had no fixtures; item 1b adds them as browser fixtures against the real pages (no change to the pages, so no refactor risk). These are Chromium checks, not node tests, because the logic is inline; extracting it into modules is a refactor with its own risk and is not needed to protect the arithmetic. The Smart plug load check is left for T4a, so its logic is extracted and fixtured once.
 3. Not measured: real devices, Safari/Firefox, screen readers, field performance, live site.
+
+## 5. Item 1b: inline-tool fixtures (added after the first merge)
+
+`scripts/qa_inline_tool_fixtures.py` drives the real Rug size, Crawl space dehumidifier and Home Check-up pages in Chromium and checks hand-computed results (the arithmetic is written beside each check): dehumidifier 20 x 30 ft = 600 sq ft, 42 pints, 19.9 litres and its 6 x 10 m twin (646 sq ft, 45 pints, 21.4 litres), the 62% and 80% humidity branches and the area limit; rug living room 12 x 14 ft with a 7 x 9 ft seating area = a 9 x 12 ft rug with the minimum, roomier and largest sizes, a metric room whose only fit misses the roomier guideline, and the empty-form message; Check-up area order, High/Medium/Low boundaries (33% is Low, 67% is High), the all-"rarely" message and the missing-answer message. It passes 31 of 31 locally in under 5 seconds. Three deliberate edits of the pages (a changed dehumidifier constant, a changed rug size, and a changed Check-up threshold) were tried: the first two were caught; the Check-up threshold edit (66 to 60) cannot be caught because no answer set produces a percentage between 61 and 66, so it changes no result. The script blocks every outside request, so it never waits on the network.
