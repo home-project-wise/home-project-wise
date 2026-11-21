@@ -3,9 +3,9 @@
 **Owner:** ChatGPT — editorial research  
 **Portfolio position:** Wave 1, item 1 (winter priority)  
 **Status:** **RESEARCHING — NOT READY FOR CLAUDE; NOT APPROVED FOR WRITING**  
-**Provisional working title:** How to Prevent Pipes From Freezing—and What to Do If One Bursts  
-**Proposed slug:** `how-to-prevent-frozen-pipes-and-what-to-do-if-one-bursts`  
-**Title-register note:** The owner described the first wave item as pipe-freeze protection and what to do if a pipe bursts. The exact master-register wording and permanent title ID were not supplied in this turn. This provisional title must not replace, renumber, or be represented as an exact registered title.
+**Exact master-register title:** 060 — How to Protect Pipes From Freezing and Respond to a Burst Pipe  
+**Proposed slug:** `how-to-protect-pipes-from-freezing-and-respond-to-a-burst-pipe` (provisional; confirm site slug convention before implementation)  
+**Title-register status:** The exact permanent register entry is 060 — “How to Protect Pipes From Freezing and Respond to a Burst Pipe.” Its recorded status is “Pending Claude Review — Not Approved for Writing.” Preserve ID 060 and exact wording; do not renumber, rewrite, or treat research qualification as writing approval.
 
 ## 1. Reader problem and outcome
 A US homeowner or renter wants to prepare vulnerable plumbing before a hard freeze, recognize a frozen line before it ruptures, thaw only when it is safe to do so, and act quickly if a pipe bursts. The reader should leave with:
@@ -252,7 +252,7 @@ The differentiation is now sufficiently concrete to proceed to a source-check/ou
 - Site fit and distinct intent: 17/20 — no matching slug in the 45-article working map; complementary to the leak-sensor guide and separate from the upcoming main-shutoff guide.
 - Differentiation and production feasibility: 13/20 — competitors cover much of the subject, but the decision aid and region/renter focus give a defensible, testable improvement. Avoid generic checklist-only drafting.
 
-**Important scope limitation:** READY FOR CLAUDE means Claude may review the research, verify every cited source and develop/recommend the final outline and proposed diagram. It does **not** authorize final article writing, title-register renumbering, implementation, or publication. The owner has not supplied the exact master-register title/ID in this turn; reconcile that before writing.
+**Important scope limitation:** READY FOR CLAUDE means Claude may review the research, verify every cited source and develop/recommend the final outline and proposed diagram. It does **not** authorize final article writing, implementation, or publication. The exact master-register entry is 060 — “How to Protect Pipes From Freezing and Respond to a Burst Pipe”; its status remains “Pending Claude Review — Not Approved for Writing.” Research completion does not change that status.
 
 ### Updated next action
 1. Send Claude the research brief for source verification and outline/diagram review only; explicitly prohibit drafting article prose until the exact registered title and owner approval are confirmed.
