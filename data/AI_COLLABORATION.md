@@ -2419,3 +2419,32 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **What stays:** the two clusters, the class A/B/C rule, WS1 first, T1 then T2.
 - **What changes:** (1) the wall-art queries ask about safe hardware, so T3 (fixing-load check) is paired with T2 as one pack and WS1's verdict on T3 is urgent; (2) class A links need no build and can start now with the editorial lane; (3) B candidates are ranked by impressions: macerator run check 207, leak-sensor planner 134; (4) clicks come mostly from outside the US, so units and electrical standard follow the visitor's region (test UK, US, Canada); (5) each tool page publishes static worked examples that match its fixtures, because the generative-AI report lists 305 impressions on exactly these guides.
 - **Locks / exclusions:** unchanged. Evidence level: owner screenshots 2026-11-20; nothing deployed or tested.
+
+
+## 2026-11-21 — ChatGPT — Calculator operations room: WS1 restored after PR #445 closure
+
+**Status: restored on a fresh branch from current main; one review PR to be opened after the final diff audit. No merge, deployment or code change.**
+
+### Confirmed handoff from Claude
+- Merged: #439 (price-data confidence wording and weak-sample exclusion; seller prices themselves were not independently verified), #421 (wallpaper credential text only), #417 (Room-to-Ready QA scenarios) and #340 (price-source memo).
+- Not merged: #419 (two long blueprint documents; headings only reviewed so far), #420, #425 and #299 (shared `AI_COLLABORATION.md` conflicts/sequence to resolve one at a time), and #302 (Chromium failure on docs-only PR; rerun after reset or close if superseded).
+- PR #445 was closed without merge. Its artifacts were recoverable from commit `5e252e2`; that commit is 43 commits ahead and 18 behind current main, so using it as a new PR base would reintroduce unrelated history. To preserve a clean, reviewable diff, the restored work is being carried forward as only the WS1 artifacts on a new branch from current main.
+
+### WS1 restoration
+- Branch: `research/ws1-restored-main-2026-11-21`, created from current `main`.
+- Restored `data/ARTICLE_TOOL_MAP.json` and `docs/PICTURE-HANGING-SMART-HOME-TOOL-SPECS-2026-11-20.md` from the recoverable WS1 content, with the conditional-review corrections applied.
+- Article map: 45 unique articles; actual and declared counts **A 8 / B 6 / C 31**. `how-to-install-flooring-transition-strips` is C because its central decision is profile selection by measured height difference, not length/pack arithmetic. `how-to-patch-a-large-hole-in-drywall` is C because its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate, visitor-entered follow-on costing aid. `toolUrl` is explicitly present on all 45 entries (null when no direct tool link applies).
+- T2: two-hook coordinates now define x from a fixed wall reference edge and y as height above finished floor, increasing upward. Added a two-row gallery fixture; each row height is its tallest frame and the vertical gap is measured between row bounds.
+- NEC: wording now identifies **NFPA 70, 2026 Edition (2026 edition; A2025 revision cycle)** and the 80% provision at **210.23(B)(1)** for one cord-and-plug-connected appliance on a shared 15 A or 20 A branch circuit. The official NFPA page confirms the current published edition is 2026; the subsection cross-check is separately labelled as a secondary reference, not the licensed Code text. The A2025 ballot is not cited as the published Code.
+- The 1,440 VA fixture no longer attributes its internal 80% threshold to NEC. A×V remains VA, not W; green is not described as safe. The separate smart-plug article phrase “under about 80%” remains an editorial follow-up outside this PR.
+- Source register: duplicate Frameology entry consolidated; combined references split; 22 entries are sequentially numbered.
+- Scope remains docs/data only. No calculator code, article HTML, CSS, prices, UI, tests or deployment changed. CI/Quality/Chromium have not yet been run for this restored branch; do not claim them green.
+
+### Next queue and merge discipline
+1. Finish the WS1 diff audit and open one PR against current main; leave it open for owner review and Claude's final technical review. Do not merge it before the shared-file PR sequence is settled.
+2. Rebase/reconcile #420, #425 and #299 against the then-current main **one at a time**, resolving `AI_COLLABORATION.md` sequentially; avoid parallel PRs that rewrite the same room log.
+3. Read all of #419, remove the designer-owned “Visual design direction” or relabel it as a non-binding suggestion to the designer, and answer every open question in section 13 before requesting review.
+4. For #302, rerun its required checks after reset; close only if its subject has already been published or superseded.
+5. Keep new supplier price values/evidence in a data-only PR separate from code.
+
+**Role split reaffirmed:** ChatGPT owns research, source/evidence work, price/spec data, calculation rules, QA, documentation and feasible implementation. Claude owns final technical review/approval. UI/visual direction remains with the designer, except for minor implementation fixes.
