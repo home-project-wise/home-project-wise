@@ -192,3 +192,69 @@ The score is deliberately below the 85/100 production-queue threshold. Do not se
 2. ChatGPT: preserve the Wave 1 order; do not silently change the master title register or create a permanent title number from this provisional brief.
 3. Claude: no implementation task yet. The candidate is not READY FOR CLAUDE.
 4. Operations room: append the durable handoff to `data/AI_COLLABORATION.md` and the appropriate work-log line only after the currently open shared-file PR sequence (#446, #425 and #420) is reconciled. Those PRs all modify the canonical operations room; this research PR deliberately does not edit or conflict with that file.
+
+
+---
+
+## 14. Research completion addendum — 2026-11-21
+
+This addendum supersedes the incomplete-source notes where stated below. It does not change the title-register caveat or grant approval to write.
+
+### Additional competitor review
+
+**Consumer Reports — [How to Prevent Your Pipes From Freezing and Bursting](https://www.consumerreports.org/home-maintenance-repairs/how-to-keep-pipes-from-freezing)**  
+Search content was retrieved in detail; direct page opening returned a cache miss, so this remains a search-extract review, not a verified full-page review. The page was updated January 23, 2026. It covers vulnerable areas (basements, attics, garages, cabinets, exterior walls), insulation, garage/cabinet doors, targeted faucet dripping, steady heat, 55°F when away, thawing, and a warning to check for a burst before thawing. It explicitly warns that water can flood the home if a pipe has already burst. It recommends open-flame avoidance and calls a licensed plumber for inaccessible or unthawable pipes. This is strong and current competitor coverage; the proposed guide must improve the decision flow and checklist rather than repeat the advice.
+
+**The Home Depot — [How to Prevent Pipes From Freezing](https://www.homedepot.com/c/ah/how-to-prevent-pipes-from-freezing/9ba683603be9fa5395fab905760afb9)**  
+Search content was retrieved in detail; direct page opening returned HTTP 403, so this remains a search-extract review, not a verified full-page review. Last updated October 16, 2024. It covers attic/crawl-space insulation, thermostat-controlled heat tape/cables, sealing gaps, disconnecting hoses, draining outdoor faucets, faucet drips, neighbor checks during absence, identifying broken pipes and shutting off the main, thawing exposed/enclosed pipes, and no open flame. It overlaps substantially with the broad topic.
+
+**Updated competitor count:** 2 pages opened in full (This Old House and Lowe’s) plus 2 substantial search-extract reviews (Consumer Reports and Home Depot). Do not represent this as four full-page reviews.
+
+### Additional primary / authoritative evidence
+
+- **US EPA — [Winter Weather and Indoor Air Quality](https://www.epa.gov/emergencies-iaq/winter-weather-and-indoor-air-quality)** — opened in full. EPA advises insulating water lines along exterior walls, shutting off and draining outdoor spigots before freezing weather, learning how to shut off water valves, slightly opening taps on exterior walls during extreme cold or heat/power outages, opening cabinets for warmer air, moving chemicals away from children/pets, shutting off water if a pipe bursts, and never thawing with a torch. EPA also warns not to use generators or appliances if wet or in locations that could become wet, because of shock/electrocution risk. This supports a prominent electrical stop condition. EPA lines 48–53, 68–74, 90–95 in the opened page are particularly relevant.
+- **FEMA / Ready.gov — [How to Prepare for a Winter Storm (PDF)](https://www.ready.gov/sites/default/files/2020-08/fema_winterstorm_htp.pdf)** — opened and relevant passage located. Page 7 of the PDF (PDF page index 6) recommends insulating water pipes, allowing faucets to drip/trickle during unusually cold weather or if power/heat is out, knowing how to shut off water valves if a pipe bursts, and photographing/inventorying property for post-disaster claims. It also notes renters should coordinate with their landlord/property manager about home winterization responsibilities. Do not quote any dollar values or other unrelated figures from this older guide.
+- **IBHS — [Get Winter Ready: A Weekend of Preparation Can Help Prevent Costly Damage](https://ibhs.org/ibhs-news-releases/get-winter-ready-a-weekend-of-preparation-can-help-prevent-costly-damage/)** — current search content retrieved; direct page opening returned a cache miss. It specifically notes that homes in the Southeast and Gulf Coast can have plumbing in freeze-vulnerable locations even though cold is less common; recommends insulating exposed pipes, sealing gaps, locating and learning the main shutoff, and preparing unoccupied properties. This is an important regional angle, but attribute it to IBHS and do not overgeneralize to every southern home.
+- **IBHS — [Winter Weather Ready guide](https://ibhs.org/ibhs-news-releases/ibhs-winter-weather-ready-guide-provides-easy-to-do-actions-to-help-prevent-property-damage-from-colder-temperatures/)** — detailed search extract. It notes regional construction differences, exterior-wall pipes, crawl spaces and exterior hose spigots; advises insulation of hard-to-reach pipes, sealing exterior gaps, protecting outdoor valves, knowing the main shutoff, and changing washing-machine/dishwasher supply hoses older than 10 years. Treat the hose replacement age as IBHS advice, not a universal plumbing-code rule.
+- **US Department of Energy Building Science Education — [Pipes in Exterior Walls](https://bsesc.energy.gov/energy-basics/pipes-exterior-walls)** — search result retrieved. Where pipes must be in exterior walls, DOE recommends insulating pipes, placing suitable cavity insulation behind them (between pipe and exterior wall), and air-sealing the wall cavity so cold air does not flow around the pipes. This gives the guide a sound building-science explanation and helps distinguish pipe insulation from insulating the wall cavity.
+- **Insurance Information Institute / Triple-I — [How to Protect Your Home From Water Damage](https://www.iii.org/article/how-to-protect-your-home-from-water-damage)** — detailed search result retrieved; direct page open returned an unexpected status. It explains that homeowners/renters policies commonly cover certain burst-pipe damage while sewer/drain backup and flood may require separate coverage or endorsements; it also stresses knowing the main shutoff and documenting property. Insurance statements must be carefully qualified and the user's actual policy controls.
+- **American Red Cross — [Preventing & Thawing Frozen Pipes](https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/winter-storm/frozen-pipes.html)** — opened in full. Relevant text confirms vulnerable locations, draining hoses/outdoor lines, no antifreeze unless directed by manufacturer/installer, pipe sleeves/UL-listed heat tape or heat cable, targeted cold-water drip, stable heat, 55°F when away, faucet-open gentle thawing, no open flame/kerosene/propane/charcoal, and licensed-plumber escalation. It does not say to shut off the main before thawing a pipe that appears intact; therefore, do not invent that as Red Cross advice.
+- **Clayton County Water Authority — [Preventing and Thawing Frozen Pipes](https://www.ccwa.us/winterizeyourpipes/)** — retrieved in full. The page explicitly attributes the copied prevention/thawing recommendations to the American Red Cross. It adds local utility advice to know the main shutoff and close it immediately if a pipe bursts. Treat it as corroboration/implementation, not an independent source for the Red Cross text.
+- **Insurance Information Institute / Triple-I — [The Homeowner's Severe Cold Weather Survival Guide](https://www.iii.org/article/the-homeowners-severe-cold-weather-survival-guide)** — search content retrieved. It supports the emergency order: turn off water first after a burst, dry and repair damage, contact insurer, preserve damaged-item lists and receipts. Policy wording still controls coverage.
+
+### Safety resolution — final editorial rule
+
+The final article must present two different branches:
+
+**A. Suspected frozen pipe, no visible rupture and no wet/electrical hazard:** Red Cross recommends keeping the affected faucet open and applying gentle heat only to an accessible section using its listed methods; never use an open flame. Stop and call a licensed plumber if the location is inaccessible, cannot be safely reached, or does not thaw. If any sign of a split, leak, or uncertainty appears, do not continue DIY thawing; switch to the burst/uncertain branch and call a plumber.
+
+**B. Confirmed or reasonably suspected burst:** shut off the main water supply if it is safe to reach; avoid wet electrical equipment, appliances and standing water near electricity; call a licensed plumber; protect belongings only if safe; photograph damage and contact the insurer. Do not operate electrical equipment in wet areas. If water is near wiring, outlets, appliances or the electrical panel, do not enter the hazard area to reach a valve or breaker; seek qualified emergency assistance.
+
+This reconciles the apparent difference between Red Cross's thawing instructions for a frozen line and consumer/retail guidance warning to inspect for rupture before thawing. It avoids telling a homeowner to thaw a potentially ruptured line.
+
+### Final proposed differentiator
+
+The differentiation is now sufficiently concrete to proceed to a source-check/outline handoff, subject to exact title-register reconciliation:
+1. A prominent **“Frozen, or already burst?”** two-branch decision graphic, with red-flag stop conditions before any DIY thawing.
+2. A location-based winter walk-through that separates outside hose bibs, garage/attic/crawl-space lines, under-sink/exterior-wall lines and service-entry pipes.
+3. A regional note, sourced to IBHS, explaining why homes in warmer US regions can still have vulnerable plumbing during rare freezes.
+4. A renter/away-from-home branch (FEMA/Red Cross), not merely a generic homeowner checklist.
+5. A short emergency sequence for burst pipes that keeps electrical danger ahead of property cleanup and distinguishes insurance categories without promising coverage.
+6. A small internal link to the existing leak-sensor guide as an additional warning layer, not as freeze protection.
+
+### Updated score and gate
+
+**Updated provisional score: 86/100. Decision: READY FOR CLAUDE — RESEARCH / SOURCE VERIFICATION AND OUTLINE REVIEW ONLY.**
+
+- Intent and demand evidence: 18/20 — meaningful US query estimates, but no matching first-party GSC rows yet.
+- Evidence and accuracy: 19/20 — full Red Cross and EPA review, FEMA PDF passage, DOE building-science source, IBHS and Triple-I evidence; some competitor pages remain search-extract-only.
+- Practical reader utility: 19/20 — distinct freeze/burst decision path, region/renter branches and emergency response.
+- Site fit and distinct intent: 17/20 — no matching slug in the 45-article working map; complementary to the leak-sensor guide and separate from the upcoming main-shutoff guide.
+- Differentiation and production feasibility: 13/20 — competitors cover much of the subject, but the decision aid and region/renter focus give a defensible, testable improvement. Avoid generic checklist-only drafting.
+
+**Important scope limitation:** READY FOR CLAUDE means Claude may review the research, verify every cited source and develop/recommend the final outline and proposed diagram. It does **not** authorize final article writing, title-register renumbering, implementation, or publication. The owner has not supplied the exact master-register title/ID in this turn; reconcile that before writing.
+
+### Updated next action
+1. Send Claude the research brief for source verification and outline/diagram review only; explicitly prohibit drafting article prose until the exact registered title and owner approval are confirmed.
+2. Keep PR #449 as a draft research artifact until the repository checks and shared operations-room handoff are reconciled.
+3. Append the durable decision to `data/AI_COLLABORATION.md` and the work log after the open shared-file PR sequence (#446, #425, #420) is resolved. These PRs were rechecked on 2026-11-21 and remain open; do not edit the shared file on this branch.
