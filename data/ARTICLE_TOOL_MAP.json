@@ -1,0 +1,512 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-11-20",
+  "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
+  "classification": {
+    "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
+    "B": "A new calculation/planning tool is justified by an explicit article decision; status records whether further evidence is needed.",
+    "C": "No honest calculation is justified for the article's central decision; noToolReason records why. A relatedTool may be listed only for a distinct secondary task (for example, T2 placement after a fixing has been independently selected) and does not change the C classification."
+  },
+  "articles": [
+    {
+      "slug": "bathroom-exhaust-fan-dripping-water",
+      "path": "website/articles/bathroom-exhaust-fan-dripping-water.html",
+      "class": "C",
+      "decisionSentence": "Water is dripping from your bathroom exhaust fan, which should move moisture out, not drop it on you.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article diagnoses condensate, duct slope/insulation, blocked dampers, roof rain and flashing. It contains no fan-sizing decision; the existing CFM calculator cannot diagnose the source of a drip."
+    },
+    {
+      "slug": "better-evening-home-lighting-without-overcomplicating-it",
+      "path": "website/articles/better-evening-home-lighting-without-overcomplicating-it.html",
+      "class": "C",
+      "decisionSentence": "If your home feels too bright, too dim or harsh after sunset, you probably do not need more technology.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article recommends observing activities, moving lamps and reducing glare; it supplies no sourced room-level illuminance/lumen targets or reliable geometry for a brightness calculator.",
+      "toolUrl": null
+    },
+    {
+      "slug": "calm-room",
+      "path": "website/articles/calm-room.html",
+      "class": "C",
+      "decisionSentence": "A calmer room is usually less about adding things and more about removing friction: visual noise, harsh light, awkward storage and furniture that asks too much of the space.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The decisions are qualitative layout and decluttering choices; the 90 cm walking-route guideline is a check, not a calculation requiring a new tool.",
+      "toolUrl": null
+    },
+    {
+      "slug": "choose-bathroom-exhaust-fan",
+      "path": "website/articles/choose-bathroom-exhaust-fan.html",
+      "class": "A",
+      "decisionSentence": "Your target is the bathroom’s square footage (up to 100 sq ft), but never below 50 CFM for a fan you switch on and off.",
+      "tool": "bathroom-fan-size",
+      "toolUrl": "bathroom-fan-size-calculator.html",
+      "prefill": {},
+      "reason": "The existing calculator computes airflow target, fixture additions and duct checks; this is a direct match and the article already links it.",
+      "linkStatus": "already_linked"
+    },
+    {
+      "slug": "choose-paint-finish-for-each-room",
+      "path": "website/articles/choose-paint-finish-for-each-room.html",
+      "class": "C",
+      "decisionSentence": "Pick the wrong finish and walls show every roller mark, or scuff at the first wipe.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The decision is paint sheen and surface performance, not paint quantity or cost. The Paint tab would not answer the article's central finish-selection question.",
+      "toolUrl": null
+    },
+    {
+      "slug": "diy-home-energy-audit-walkthrough",
+      "path": "website/articles/diy-home-energy-audit-walkthrough.html",
+      "class": "C",
+      "decisionSentence": "A DIY home energy audit is a careful walk through your house with a flashlight and a notebook.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article explicitly says the walkthrough does not measure energy use or estimate savings. The existing Home Check-up scores storage, design, repairs/moisture and smart-home friction; it is not an energy audit, so linking it would misrepresent the result."
+    },
+    {
+      "slug": "do-you-need-a-thread-border-router",
+      "path": "website/articles/do-you-need-a-thread-border-router.html",
+      "class": "C",
+      "decisionSentence": "A Thread border router is a job, not always a separate box.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "This is a model- and protocol-compatibility lookup, not a numeric calculation. A reliable answer depends on exact device generation and official compatibility lists.",
+      "toolUrl": null
+    },
+    {
+      "slug": "fix-wobbly-furniture",
+      "path": "website/articles/fix-wobbly-furniture.html",
+      "class": "C",
+      "decisionSentence": "A wobble is a symptom, not a diagnosis.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article relies on repeatable physical tests to distinguish floor, contact, joint and structural causes; no honest formula can infer the cause from dimensions.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-much-weight-can-drywall-anchors-hold",
+      "path": "website/articles/how-much-weight-can-drywall-anchors-hold.html",
+      "class": "C",
+      "decisionSentence": "The big number on a drywall anchor package is not the weight you can safely hang.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "T3 is dropped: the quarter factor is product-specific (TOGGLER), other manufacturers give different or unspecified factors, and multi-anchor load sharing cannot be assumed additive or equal. Keep manufacturer tables and safety guidance in the article; no generic load calculator.",
+      "relatedTool": "picture-hanging-planner",
+      "relatedToolPath": "hang-art-calculator.html",
+      "relatedToolScope": "Placement only, after the visitor has independently selected an appropriate fixing. T2 does not estimate anchor capacity, choose hardware or approve a load.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-adjust-kitchen-cabinet-hinges",
+      "path": "website/articles/how-to-adjust-kitchen-cabinet-hinges.html",
+      "class": "C",
+      "decisionSentence": "A cabinet door that sits crooked, rubs its neighbor or sags is usually a hinge-adjustment job, not a repair.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The required adjustment ranges and screw functions vary by exact hinge family; identifying the maker's instructions is more reliable than a generic calculator.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-calculate-wallpaper-rolls-pattern-repeat",
+      "path": "website/articles/how-to-calculate-wallpaper-rolls-pattern-repeat.html",
+      "class": "A",
+      "decisionSentence": "The safest way to estimate wallpaper is to count full-height strips for each wall, then work out how many matched strips fit on one sale unit.",
+      "tool": "home-project-calculator-wallpaper",
+      "toolUrl": "home-project-calculator.html#panel-wallpaper",
+      "prefill": {},
+      "reason": "The existing Wallpaper panel is the matching destination. It must not imply exact roll counts unless product dimensions, pattern repeat and cut-yield inputs are supplied.",
+      "linkStatus": "already_linked"
+    },
+    {
+      "slug": "how-to-fix-a-squeaky-wood-floor",
+      "path": "website/articles/how-to-fix-a-squeaky-wood-floor.html",
+      "class": "C",
+      "decisionSentence": "A squeak means two parts of the floor are rubbing.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The repair depends on diagnosing which parts move and whether the underside is accessible; room dimensions do not produce a useful calculation.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-fix-a-sticking-interior-door",
+      "path": "website/articles/how-to-fix-a-sticking-interior-door.html",
+      "class": "C",
+      "decisionSentence": "A door that sticks usually rubs in one spot, and the cause is rarely the door alone.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article's measurements are maker-specific clearance checks; the fix depends on hinge, humidity and frame diagnosis, not a calculator.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-fix-damp-crawl-space-humidity",
+      "path": "website/articles/how-to-fix-damp-crawl-space-humidity.html",
+      "class": "A",
+      "decisionSentence": "A dehumidifier can help, but only after you have found and fixed the water source.",
+      "tool": "crawl-space-dehumidifier",
+      "toolUrl": "crawl-space-dehumidifier-calculator.html",
+      "prefill": {},
+      "reason": "Existing calculator fits the later, explicitly conditional sizing decision after water sources are addressed; already linked.",
+      "linkStatus": "already_linked"
+    },
+    {
+      "slug": "how-to-hang-large-wall-art-without-damage",
+      "path": "website/articles/how-to-hang-large-wall-art-without-damage.html",
+      "class": "B",
+      "decisionSentence": "Work out the hook height: 57 inches, plus half the height of the art, minus the distance from the top edge to the hanging point.",
+      "tool": "picture-hanging-planner",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "planned_T2",
+      "reason": "The article contains explicit geometry for center height, furniture gap, hook drop and stud positions; a visitor-input planner removes repeated arithmetic without choosing fixings.",
+      "plannedPath": "hang-art-calculator.html",
+      "priority": "T2_first"
+    },
+    {
+      "slug": "how-to-install-flooring-transition-strips",
+      "path": "website/articles/how-to-install-flooring-transition-strips.html",
+      "class": "C",
+      "decisionSentence": "Choose it by the height difference, size the gap before the planks go down, and fasten it to the subfloor, never through the planks.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The central decision is selecting the correct transition profile from the measured floor-height difference and matching the manufacturer's permitted height range. Summing opening lengths or estimating strip packs does not answer that decision; the guide's measuring and product-selection instructions are the appropriate path."
+    },
+    {
+      "slug": "how-to-measure-hvac-air-filter-size",
+      "path": "website/articles/how-to-measure-hvac-air-filter-size.html",
+      "class": "C",
+      "decisionSentence": "The quickest way to find your air filter size is to read it off the old filter.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The task is reading or measuring three physical dimensions and matching a manufacturer filter; no calculation improves on the existing guide.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-patch-a-large-hole-in-drywall",
+      "path": "website/articles/how-to-patch-a-large-hole-in-drywall.html",
+      "class": "C",
+      "decisionSentence": "Before you buy a patch, spend ten minutes finding out what is behind the wall and where the studs are.",
+      "tool": null,
+      "prefill": {},
+      "toolUrl": null,
+      "noToolReason": "The article's central decision is investigating what is behind the wall and locating studs before choosing a repair method or buying a patch. The Project cost panel cannot assess hidden services, wall condition or patch suitability; it is only a separate follow-on for totaling visitor-entered materials, quantities and prices.",
+      "relatedTool": "home-project-calculator-project-cost",
+      "relatedToolPath": "home-project-calculator.html#panel-project",
+      "relatedToolScope": "Visitor-entered project-cost totaling only, after the visitor has independently inspected the wall, selected an appropriate repair and determined the required materials and quantities. It does not inspect behind the wall, diagnose the damage or choose a patch."
+    },
+    {
+      "slug": "how-to-prepare-a-subfloor-for-lvp",
+      "path": "website/articles/how-to-prepare-a-subfloor-for-lvp.html",
+      "class": "C",
+      "decisionSentence": "Preparation is a series of pass-or-fail checks, and the limits come from the maker of your exact plank, not from a general rule.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "Flatness, moisture, pH and substrate acceptance are product-specific pass/fail tests; the existing Flooring tab estimates flooring area, not subfloor suitability.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-regrout-a-shower-without-rebuilding-it",
+      "path": "website/articles/how-to-regrout-a-shower-without-rebuilding-it.html",
+      "class": "B",
+      "decisionSentence": "Mapei’s sheet says to leave 2/3 of the tile’s depth open for grout, with joints clean and free of standing water, dust and dirt.",
+      "tool": "grout-quantity-planner",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "candidate_pending_product_coverage_source",
+      "reason": "Potentially useful only if the selected grout's own coverage table or a sourced consumption formula is used with visitor-entered tile and joint dimensions; no generic coverage rate."
+    },
+    {
+      "slug": "how-to-repair-or-replace-kitchen-drawer-slides",
+      "path": "website/articles/how-to-repair-or-replace-kitchen-drawer-slides.html",
+      "class": "C",
+      "decisionSentence": "A sticking or sagging drawer is often cheaper to fix than to replace, and a replacement that is chosen by length alone usually fails again.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The decision depends on slide type, side clearance, extension and mounting pattern; a calculator cannot replace the exact manufacturer's selection guide.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-replace-a-cracked-floor-tile",
+      "path": "website/articles/how-to-replace-a-cracked-floor-tile.html",
+      "class": "C",
+      "decisionSentence": "One cracked tile can be replaced without touching the rest of the floor, but only if you know why it cracked, remove it without hurting its neighbors, and set the new tile with full mortar contact.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "For a single-tile repair the quantity is usually one tile; the existing tile estimator adds little to the article's real decisions, which are cause, removal and mortar coverage.",
+      "toolUrl": null
+    },
+    {
+      "slug": "how-to-replace-bathtub-and-shower-caulk",
+      "path": "website/articles/how-to-replace-bathtub-and-shower-caulk.html",
+      "class": "B",
+      "decisionSentence": "Keep the bead no thicker than 1/2 inch and no thinner than 1/8 inch, with a width-to-depth ratio of 2 to 1.",
+      "tool": "sealant-quantity-planner",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "candidate_pending_exact_product_inputs",
+      "reason": "A useful quantity helper can use measured joint length and visitor-entered bead dimensions, then compare calculated volume with cartridge volume on the label; no hidden cartridge size or generic bead shape."
+    },
+    {
+      "slug": "kitchen-counter-zone-that-stays-clear",
+      "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
+      "class": "C",
+      "decisionSentence": "Protect the preparation surface first; give the other jobs defined places so they do not take over.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "This is a household routine and zone-design decision; measurements do not produce a meaningful calculation.",
+      "toolUrl": null
+    },
+    {
+      "slug": "macerating-toilet-basement-bathroom",
+      "path": "website/articles/macerating-toilet-basement-bathroom.html",
+      "class": "B",
+      "decisionSentence": "These are maximums, not a promise that you can reach both at once.",
+      "tool": "macerator-run-check",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "candidate_requires_model_specific_performance_curve",
+      "reason": "High-impression candidate for comparing measured lift/run/pipe layout against the exact selected unit's manual or performance curve. Do not compare independent maximums as if simultaneously achievable; without a combined curve, class C instead.",
+      "priority": "B1_after_T2",
+      "searchImpressions": 207
+    },
+    {
+      "slug": "make-small-living-room-feel-bigger",
+      "path": "website/articles/make-small-living-room-feel-bigger.html",
+      "class": "C",
+      "decisionSentence": "A small living room does not automatically need smaller furniture.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article recommends reversible layout experiments and a tape test; the outcome is visual and behavioral, not a reliable formula.",
+      "toolUrl": null
+    },
+    {
+      "slug": "motion-lighting-that-actually-helps",
+      "path": "website/articles/motion-lighting-that-actually-helps.html",
+      "class": "C",
+      "decisionSentence": "Placement matters more than a high-sensitivity setting.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "Manufacturer detection range alone cannot predict actual coverage through doors, furniture and approach angles; a sensor-count calculation would imply unsupported precision.",
+      "toolUrl": null
+    },
+    {
+      "slug": "quiet-entryway-storage",
+      "path": "website/articles/quiet-entryway-storage.html",
+      "class": "C",
+      "decisionSentence": "An entryway does not need a large cabinet or a perfect display.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The guide's hook and walkway dimensions are starting points to test in the actual space, not a numeric storage calculation.",
+      "toolUrl": null
+    },
+    {
+      "slug": "reduce-bathroom-condensation",
+      "path": "website/articles/reduce-bathroom-condensation.html",
+      "class": "A",
+      "decisionSentence": "HVI’s rule of thumb is 1 CFM (cubic feet per minute) per square foot for bathrooms up to 100 square feet.",
+      "tool": "bathroom-fan-size",
+      "toolUrl": "bathroom-fan-size-calculator.html",
+      "prefill": {},
+      "reason": "Existing fan-sizing calculator supports the decision to replace or resize an undersized fan; it does not calculate humidity decay or diagnose condensation.",
+      "linkStatus": "editorial_deep_link_needed"
+    },
+    {
+      "slug": "reduce-cable-clutter",
+      "path": "website/articles/reduce-cable-clutter.html",
+      "class": "C",
+      "decisionSentence": "A tidy cable setup should still be easy to unplug and change.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The task is identifying and routing cables; no quantitative decision is supported by the article.",
+      "toolUrl": null
+    },
+    {
+      "slug": "right-rug-size-painters-tape-test",
+      "path": "website/articles/right-rug-size-painters-tape-test.html",
+      "class": "A",
+      "decisionSentence": "The most common rug mistake is not the colour or the pattern. It is the size.",
+      "tool": "rug-size",
+      "toolUrl": "rug-size-calculator.html",
+      "prefill": {},
+      "reason": "Existing rug-size calculator directly supports room/furniture sizing and the article already links it.",
+      "linkStatus": "already_linked"
+    },
+    {
+      "slug": "simple-home-reset-that-prevents-weekend-chaos",
+      "path": "website/articles/simple-home-reset-that-prevents-weekend-chaos.html",
+      "class": "C",
+      "decisionSentence": "You do not need a perfect daily schedule, only a short reset that catches what makes tomorrow harder: dishes, visible clutter, laundry bottlenecks, rubbish and unfinished tasks.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "This is a time-boxed household routine; a calculator would add friction without improving the decision.",
+      "toolUrl": null
+    },
+    {
+      "slug": "small-bathroom-easier-to-clean",
+      "path": "website/articles/small-bathroom-easier-to-clean.html",
+      "class": "C",
+      "decisionSentence": "If a small bathroom looks dirty again soon after you clean it, the room setup is often the cause, not your routine.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article addresses access, surfaces and moisture habits, with no sourced quantity decision.",
+      "toolUrl": null
+    },
+    {
+      "slug": "smart-devices-keep-going-offline",
+      "path": "website/articles/smart-devices-keep-going-offline.html",
+      "class": "C",
+      "decisionSentence": "Your smart plug says \"offline\" again, the lamp schedule skipped, and the app only works after a restart.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The solution is diagnostic troubleshooting of Wi-Fi and device compatibility; no calculation can reliably identify the network fault.",
+      "toolUrl": null
+    },
+    {
+      "slug": "smart-home-privacy-check",
+      "path": "website/articles/smart-home-privacy-check.html",
+      "class": "C",
+      "decisionSentence": "Most worries about smart homes, a stranger watching a camera or a speaker that shares more than you expected, start with ordinary settings left on their defaults.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "Privacy settings and account hygiene are checklist decisions, not numeric calculations.",
+      "toolUrl": null
+    },
+    {
+      "slug": "smart-home-wifi-outage-test",
+      "path": "website/articles/smart-home-wifi-outage-test.html",
+      "class": "C",
+      "decisionSentence": "Here is the useful truth: you cannot know how your smart home behaves in an outage until you test it, and the test takes about 15 minutes.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article requires a real local-vs-cloud behavior test; a calculator cannot predict device behavior without testing each exact setup.",
+      "toolUrl": null
+    },
+    {
+      "slug": "smart-lighting",
+      "path": "website/articles/smart-lighting.html",
+      "class": "A",
+      "decisionSentence": "The formula: standby watts × 24 × 365 ÷ 1,000 = kWh per year.",
+      "tool": "home-project-calculator-electricity",
+      "toolUrl": "home-project-calculator.html#panel-energy",
+      "prefill": {},
+      "reason": "The existing Electricity cost panel can price visitor-entered kWh; the article already gives the standby-energy formula and example. The calculator should preserve separate active and standby hours.",
+      "linkStatus": "editorial_deep_link_needed_after_T4b_extension",
+      "toolWork": "T4b_existing_energy_panel_active_standby_extension_required"
+    },
+    {
+      "slug": "smart-thermostat-without-c-wire",
+      "path": "website/articles/smart-thermostat-without-c-wire.html",
+      "class": "C",
+      "decisionSentence": "Run the maker's compatibility checker for your exact thermostat and system before you buy.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "Compatibility depends on exact thermostat, HVAC system and wiring; this is a manufacturer lookup and electrician decision, not a generic calculation.",
+      "toolUrl": null
+    },
+    {
+      "slug": "stop-a-drafty-door-without-replacing-it",
+      "path": "website/articles/stop-a-drafty-door-without-replacing-it.html",
+      "class": "B",
+      "decisionSentence": "Measure the section you need to replace and compare it with the existing profile, because choosing a strip by thickness alone often gives a poor fit.",
+      "tool": "weatherstrip-length-planner",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "candidate_pending_measurement_contract",
+      "reason": "A simple sum of visitor-measured left, right and top lengths can estimate the perimeter seal; any trim allowance must be entered by the visitor, not hidden."
+    },
+    {
+      "slug": "stop-kitchen-counter-clutter",
+      "path": "website/articles/stop-kitchen-counter-clutter.html",
+      "class": "C",
+      "decisionSentence": "This guide has moved.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "This URL is a redirect stub to the canonical kitchen-counter-zone guide; do not create a separate tool mapping.",
+      "toolUrl": null
+    },
+    {
+      "slug": "stop-mail-and-paper-pile",
+      "path": "website/articles/stop-mail-and-paper-pile.html",
+      "class": "C",
+      "decisionSentence": "The pile is rarely a storage problem. It grows because mail and papers arrive without a decision attached to them.",
+      "tool": null,
+      "prefill": {},
+      "noToolReason": "The article proposes a four-outcome sorting routine; no calculation improves it.",
+      "toolUrl": null
+    },
+    {
+      "slug": "stop-musty-bathroom-towels",
+      "path": "website/articles/stop-musty-bathroom-towels.html",
+      "class": "C",
+      "decisionSentence": "A towel that smells fine from the dryer and musty three days later has a drying problem.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article's real decision is towel drying, ventilation habits and washer hygiene. It only points to the fan-sizing guide as a conditional next read if the fan is weak; adding a direct calculator link here would force a calculation that does not answer the towel-drying problem."
+    },
+    {
+      "slug": "what-can-you-plug-into-a-smart-plug",
+      "path": "website/articles/what-can-you-plug-into-a-smart-plug.html",
+      "class": "A",
+      "decisionSentence": "For everything else, keep the device's watts under about 80% of the plug's rating.",
+      "tool": "smart-plug-load-check",
+      "toolUrl": "smart-plug-load-check.html",
+      "prefill": {},
+      "reason": "The existing smart-plug checker matches the watt/current comparison; the 80% threshold needs the jurisdiction and device-rating caveat in the accompanying spec.",
+      "linkStatus": "already_linked",
+      "toolWork": "T4a_existing_checker_multi_device_extension_required"
+    },
+    {
+      "slug": "what-size-dehumidifier-crawl-space",
+      "path": "website/articles/what-size-dehumidifier-crawl-space.html",
+      "class": "A",
+      "decisionSentence": "Here is how to size one properly, where to put it, and how to tell in 7 days if it is working.",
+      "tool": "crawl-space-dehumidifier",
+      "toolUrl": "crawl-space-dehumidifier-calculator.html",
+      "prefill": {},
+      "reason": "Existing calculator directly handles crawl-space area and conditions; the article already links it.",
+      "linkStatus": "already_linked"
+    },
+    {
+      "slug": "where-to-put-water-leak-sensors",
+      "path": "website/articles/where-to-put-water-leak-sensors.html",
+      "class": "B",
+      "decisionSentence": "Start where a hose, supply line or tank can fail: washing machine, dishwasher, kitchen sink, water heater, toilets and bathroom sinks.",
+      "tool": "leak-sensor-spot-planner",
+      "toolUrl": null,
+      "prefill": {},
+      "status": "planned_T4e",
+      "reason": "A visitor-selected checklist/count of the six named spots can produce a sensor count and shopping-list line without pretending to predict leaks.",
+      "priority": "B2_after_macerator",
+      "searchImpressions": 134
+    }
+  ],
+  "summary": {
+    "articleCount": 45,
+    "classCounts": {
+      "A": 8,
+      "B": 6,
+      "C": 31
+    },
+    "existingToolLinksAlreadyPresent": 7,
+    "editorialDeepLinksNeeded": 2,
+    "notes": [
+      "7 current tool-linked articles are confirmed by inspecting their actual hrefs.",
+      "Two class-A editorial deep links are recommended: reduce-bathroom-condensation to the bathroom fan calculator, and smart-lighting to the Electricity cost panel after the T4b active/standby extension.",
+      "The flooring transition-strip article is class C: its central decision is profile selection by height difference, not length/pack arithmetic. The large drywall-patch article is class C for its central behind-the-wall inspection decision; the Project cost panel is only a distinct optional follow-on for visitor-entered costing."
+    ],
+    "priorityOrder": [
+      "Picture-hanging planner (T2) — current committed tool specification.",
+      "Macerator model-specific run check — 207 impressions; only if the exact model's combined performance curve is available.",
+      "Leak-sensor spot planner — 134 impressions; count only the visitor-selected locations.",
+      "Other B candidates remain unprioritized until product/manufacturer coverage or geometry sources are verified.",
+      "Evening-lighting planner remains C unless room-level lighting targets are sourced; motion-sensor coverage remains C because box range does not predict real-room coverage."
+    ]
+  }
+}
