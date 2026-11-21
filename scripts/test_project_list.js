@@ -206,7 +206,7 @@ ok("calculating uses the pack price range, shows attribution and the required di
   assert.ok(h.includes('href="' + rec.source.url + '"') && h.includes("retrieved " + rec.source.retrievedAt));
 });
 ok("no reference for a mismatched subtype: no substitute, the item stays unpriced", () => {
-  const x = newList(REG), it = addFloor(x); pickRef(x, it, "Netherlands", "ceramic-tile");
+  const x = newList(REG), it = addFloor(x); pickRef(x, it, "Netherlands", "lvp-spc");
   assert.ok(x.e["plist-items"].innerHTML.includes("No reference range yet; enter your own price or two quotes."));
   fire(x.e["plist-calc-form"], "submit");
   const h = x.e["plist-result"].innerHTML; assert.ok(h.includes("price not known yet") && h.includes("No prices yet") && !h.includes("[reference:"));
@@ -279,7 +279,7 @@ ok("a metre-based area item converts the area only, never the currency", () => {
   assert.equal(x.e["plist-error"].textContent, ""); assert.ok(x.e["plist-result"].innerHTML.includes(Currency.format(Number(ac.low), "USD")));
 });
 ok("area items need a matching reference, honour the user's own price, and never accept a non-area unit", () => {
-  const x = newList(REG), it = addArea(x); pickRef(x, it, "Netherlands", "ceramic-tile"); fire(x.e["plist-calc-form"], "submit");
+  const x = newList(REG), it = addArea(x); pickRef(x, it, "Netherlands", "lvp-spc"); fire(x.e["plist-calc-form"], "submit");
   assert.ok(x.e["plist-result"].innerHTML.includes("price not known yet") && !x.e["plist-result"].innerHTML.includes("[reference:"));
   fire(x.e["plist-items"], "change", { target: target({ "data-id": it.id, "data-field": "mode" }, "unknown") });
   x.w.hpwRegion = "US"; L.setMarket(x.c.state, "US");

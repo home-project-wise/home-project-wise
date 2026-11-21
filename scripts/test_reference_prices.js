@@ -6,7 +6,7 @@ const fs = require("fs"), path = require("path");
 const RP = require("../website/reference-prices.js");
 const E = require("../website/project-estimator-engine.js");
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "reference_prices.json"), "utf8"));
-const NOW = new Date(Date.UTC(2026, 10, 14));
+const NOW = new Date(Date.UTC(2026, 10, 20));
 let n = 0; function ok(name, fn) { fn(); n++; console.log("PASS " + name); }
 const rec = (o) => Object.assign({ id: "T-1", audience: "US", category: "flooring", subtype: "laminate", autoEligible: true, item: "Laminate", unit: "sq ft", currency: "USD", low: 2, high: 3, kind: "editorial-range",
   source: { id: "S", name: "Survey", publisher: "P", url: "https://example.com", geography: "United States", geographyResolution: "national", observedAt: "2026-07-14", retrievedAt: "2026-11-14" } }, o);
@@ -103,7 +103,7 @@ ok("real data flooring: exact market and subtype only, no substitute", () => {
   const us = RP.select(data, { country: "US", category: "flooring", subtype: "laminate" });
   assert.equal(us.ok, true); assert.equal(us.record.audience, "US"); assert.equal(us.record.currency, "USD");
   const p = RP.packRange(us.record, 20, "sq ft"); assert.ok(Math.abs(p.low - us.record.low * 20) < 1e-3);
-  assert.equal(RP.select(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, false);
+  assert.equal(RP.select(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, false); assert.equal(RP.selectDisplayOnly(data, { country: "Netherlands", category: "flooring", subtype: "ceramic-tile" }).ok, true);
   assert.equal(RP.select(data, { country: "UK", category: "flooring", subtype: "lvp-spc" }).ok, false);
   assert.equal(RP.select(data, { country: "US", category: "flooring", subtype: "carpet-tile" }).ok, false);
   RP.flooringOptions(data, "Canada").forEach((s) => assert.equal(RP.select(data, { country: "Canada", category: "flooring", subtype: s }).ok, true, s));
@@ -139,4 +139,100 @@ ok("toEngineAreaPrice: price per area in the item's unit, no currency conversion
   const eur = RP.toEngineAreaPrice(rec({ unit: "m²", currency: "EUR", low: 20, high: 30 }), "sq ft"); assert.ok(Math.abs(eur.low - 20 * RP.M2_PER_SQFT) < 1e-3 && eur.currency === "EUR");
   assert.equal(RP.toEngineAreaPrice(r, "gallon"), null); assert.equal(RP.toEngineAreaPrice(rec({ unit: "gallon" }), "sq ft"), null); assert.equal(RP.toEngineAreaPrice(rec({ low: 5, high: 1 }), "sq ft"), null);
 });
+
+ok("strong tile samples alone are auto-eligible; weaker exact-market examples are display-only", () => {
+  const strong = [
+    ["US","ceramic-tile","USD","sq ft",1.08,2.59,15],
+    ["UK","ceramic-tile","GBP","m²",12,50.60,20]
+  ];
+  strong.forEach(([country,subtype,currency,unit,low,high,count]) => {
+    const s = RP.select(data,{country,category:"flooring",subtype});
+    assert.equal(s.ok,true,country+" "+subtype);
+    assert.equal(s.record.currency,currency); assert.equal(s.record.unit,unit);
+    assert.equal(s.record.low,low); assert.equal(s.record.high,high);
+    assert.equal(s.record.sample.count,count); assert.equal(s.record.autoEligible,true);
+    assert.ok(s.record.source.url.startsWith("https://"));
+  });
+  const display = [
+    ["US","porcelain-tile","USD","sq ft",1.49,16.43],
+    ["Canada","ceramic-tile","CAD","sq ft",2.37,23.16],
+    ["Canada","porcelain-tile","CAD","sq ft",1.79,7.16],
+    ["UK","porcelain-tile","GBP","m²",29.78,40],
+    ["Germany","porcelain-tile","EUR","m²",13.95,59.95],
+    ["France","ceramic-tile","EUR","m²",9.99,34.90],
+    ["Spain","porcelain-tile","EUR","m²",9.99,35.49],
+    ["Italy","porcelain-tile","EUR","m²",13.49,21.99],
+    ["Netherlands","ceramic-tile","EUR","m²",17.85,92.85]
+  ];
+  display.forEach(([country,subtype,currency,unit,low,high]) => {
+    const q={country,category:"flooring",subtype}, s=RP.select(data,q), d=RP.selectDisplayOnly(data,q);
+    assert.equal(s.ok,false,country+" weak sample must not enter auto pricing");
+    assert.equal(d.ok,true,country+" "+subtype+" display-only sample");
+    assert.equal(d.record.currency,currency); assert.equal(d.record.unit,unit);
+    assert.equal(d.record.low,low); assert.equal(d.record.high,high);
+    assert.equal(d.record.sample.count,2); assert.equal(d.record.autoEligible,false); assert.equal(d.record.displayOnly,true);
+    assert.equal(RP.flooringOptions(data,country).includes(subtype),false);
+    assert.ok(RP.areaCost(d.record,10,unit));
+  });
+  assert.equal(RP.select(data,{country:"Australia",category:"flooring",subtype:"porcelain-tile"}).ok,false);
+  const oldUsPorcelain=pick("US-flooring-porcelain-tile-homedepot-sample-iqr-2026-11-14");
+  assert.ok(oldUsPorcelain && oldUsPorcelain.sample.count===12 && oldUsPorcelain.autoEligible===false,"preserve stronger historical IQR audit record and its block");
+  assert.equal(RP.select(data,{country:"US",category:"flooring",subtype:"ceramic-tile"}).record.id,"US-flooring-ceramic-tile-vcalc-survey-2026-07-14","do not replace stronger 15-product IQR with weaker sample");
+});
+ok("tile and paint bands record sample size and method; date ordering cannot be falsified", () => {
+  data.filter(r => r.low !== r.high && (r.category==="paint" || (r.category==="flooring" && /^(ceramic|porcelain)-tile$/.test(r.subtype||"")))).forEach(r => {
+    assert.ok(r.sample && Number.isInteger(r.sample.count) && r.sample.count > 0, r.id+" sample count");
+    assert.ok(r.sample.method && r.sample.statistic && r.sample.description, r.id+" sample method");
+    assert.equal(r.sample.representative,false,r.id+" must not claim representativeness");
+    if(r.category==="flooring" && /tile$/.test(r.subtype||"") && r.autoEligible) assert.ok(r.sample.count>=10,r.id+" weak tile sample auto eligible");
+  });
+  assert.equal(pick("UK-flooring-ceramic-tile-catalogue-sample-2026-11-14").source.observedAt,"2026-11-20");
+  assert.equal(pick("UK-flooring-porcelain-tile-catalogue-sample-2026-11-14").source.observedAt,"2026-11-20");
+  assert.equal(pick("UK-flooring-porcelain-tile-catalogue-sample-2026-11-14").source.retrievedAt,"2026-11-20");
+  assert.equal(pick("EU-IT-flooring-porcelain-tile-leroymerlin-2026-11-14").source.observedAt,"2026-11-16");
+  assert.equal(pick("EU-IT-flooring-porcelain-tile-leroymerlin-2026-11-14").source.retrievedAt,"2026-11-20");
+  const badOrder=rec({source:Object.assign({},rec().source,{observedAt:"2026-11-19",retrievedAt:"2026-11-18"})});
+  assert.ok(RP.validateDataset([badOrder],NOW).some(x=>x.includes("retrievedAt precedes observedAt")));
+  const future=rec({source:Object.assign({},rec().source,{retrievedAt:"2026-11-21"})});
+  assert.ok(RP.validateDataset([future],NOW).some(x=>x.includes("retrievedAt in the future")));
+  const missing=rec({category:"paint",low:1,high:2,sample:undefined});
+  assert.ok(RP.validateDataset([missing],NOW).some(x=>x.includes("sample.count")));
+  const weakEligible=rec({subtype:"porcelain-tile",sample:{count:2,method:"selected",statistic:"observed-min-max",description:"two",representative:false}});
+  assert.ok(RP.validateDataset([weakEligible],NOW).some(x=>x.includes("fewer than 10")));
+});
+ok("paint reference bands are per gallon or litre, market-currency exact, and display-only", () => {
+  const cases = [
+    ["US-paint-interior-lowes-top-rated-2026-11-20","US","USD","gallon",37.98,49.98],
+    ["CA-paint-interior-homedepot-379l-per-litre-2026-11-20","Canada","CAD","L",7.64,12.53],
+    ["UK-interior-paint-wickes-listings-2026-11-20","UK","GBP","L",1.70,12.80],
+    ["EU-DE-paint-hornbach-listings-2026-11-19","Germany","EUR","L",2.00,7.39],
+    ["EU-FR-paint-leroymerlin-white-interior-2026-11-19","France","EUR","L",2.79,4.99],
+    ["EU-ES-paint-leroymerlin-interior-range-2026-11-20","Spain","EUR","L",1.11,3.07],
+    ["EU-IT-paint-leroymerlin-interior-white-2026-11-20","Italy","EUR","L",1.25,7.12],
+    ["EU-NL-paint-gamma-listings-2026-11-14","Netherlands","EUR","L",1.50,10.50]
+  ];
+  cases.forEach(([id,country,currency,unit,low,high]) => {
+    const r = pick(id);
+    assert.ok(r,country+" paint range missing");
+    assert.equal(r.audience,country,country);
+    assert.equal(r.currency,currency,country);
+    assert.equal(r.unit,unit,country);
+    assert.equal(r.low,low,country);
+    assert.equal(r.high,high,country);
+    assert.equal(r.autoEligible,false,country);
+    assert.equal(RP.isAutoEligible(r),false,country);
+    assert.ok(r.autoEligibleReason.includes("does not capture the selected can volume") || r.autoEligibleReason.includes("does not capture"),country);
+  });
+  const oldUS=pick("US-paint-interior-lowes-top-sellers-iqr-2026-11-14");
+  assert.ok(oldUS,"retain the prior stronger US multi-brand sample");
+  assert.deepEqual([oldUS.low,oldUS.high,oldUS.sample.count,oldUS.sample.statistic],[41.48,51.98,12,"interquartile-range"]);
+  assert.equal(oldUS.source.observedAt,"2026-11-14");
+  assert.equal(oldUS.displayOnly,true);
+  const currentUS=pick("US-paint-interior-lowes-top-rated-2026-11-20");
+  assert.equal(currentUS.sample.count,2);
+  assert.ok(currentUS.item.includes("Ovation Plus") && !currentUS.item.includes("top-seller"),"new two-listing one-family sample must not retain the stale top-seller label");
+  const ca = data.find(x=>x.id==="CA-paint-interior-homedepot-379l-per-litre-2026-11-20");
+  assert.ok(ca.notes.includes("3.79 L") && ca.notes.includes("28.97 ÷ 3.79") && ca.notes.includes("47.47 ÷ 3.79"));
+});
+
 console.log("\n" + n + " reference-price tests passed");

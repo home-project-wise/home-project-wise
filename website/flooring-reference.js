@@ -54,14 +54,18 @@
     // Returns an HTML fragment for the Flooring result, or "" when the visitor did not ask for a reference.
     function fragment(info) {
       if (!state.records || !countryEl.value || !typeEl.value || !info) return "";
-      var sel = RP.select(state.records, { country: countryEl.value, category: "flooring", subtype: typeEl.value });
+      var query = { country: countryEl.value, category: "flooring", subtype: typeEl.value };
+      var sel = RP.select(state.records, query), displayOnly = false;
+      if (!sel.ok && typeof RP.selectDisplayOnly === "function") { sel = RP.selectDisplayOnly(state.records, query); displayOnly = !!sel.ok; }
       if (!sel.ok) return '<br><span class="wp-note">' + esc(sel.message) + '</span>';
       var c = RP.areaCost(sel.record, info.needed, info.areaUnit);
       if (!c) return "";
       var d = RP.describe(sel.record, state.now || new Date());
       var range = c.low === c.high ? money(c.low, c.currency) : money(c.low, c.currency) + "–" + money(c.high, c.currency);
-      return '<br>Typical material cost for this area: <strong>' + range + '</strong> (approximate)<br><span class="wp-note">Based on ' + esc(d.range) +
-        ', from ' + link(d.url, d.sourceName) + ', observed ' + esc(d.observedAt) + (d.older ? ' (older data)' : '') + '. ' + esc(d.caveats) + ' ' + esc(RP.DISCLAIMER) + '</span>';
+      var sampleText = d.sample ? 'Based on ' + d.sample.count + ' observed product listings; ' + d.sample.description + ' ' : 'Sample size and method were not recorded in the source. ';
+      var heading = displayOnly ? 'Observed sample material cost for this area (display only; not a typical market range): ' : 'Observed sample material cost for this area: ';
+      return '<br>' + heading + '<strong>' + range + '</strong> (approximate)<br><span class="wp-note">' + esc(sampleText) +
+        'Source: ' + link(d.url, d.sourceName) + ', observed ' + esc(d.observedAt) + ', retrieved ' + esc(d.retrievedAt) + (d.older ? ' (older data)' : '') + '. ' + esc(d.caveats) + ' ' + esc(RP.DISCLAIMER) + '</span>';
     }
     if (win) win.hpwFlooring = fragment;
     if (opts && opts.records) load(opts.records);

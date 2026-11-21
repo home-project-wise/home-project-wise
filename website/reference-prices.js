@@ -47,7 +47,11 @@
   }
   function isAutoEligible(r) {
     if (!commonOk(r)) return false;
-    if (r.kind === "editorial-range" && r.category === "flooring") return typeof r.subtype === "string" && r.subtype !== "" && areaBasis(r.unit) !== null;
+    if (r.kind === "editorial-range" && r.category === "flooring") {
+      if (typeof r.subtype !== "string" || !r.subtype || areaBasis(r.unit) === null) return false;
+      if (r.subtype === "ceramic-tile" || r.subtype === "porcelain-tile") return !!r.sample && Number.isInteger(r.sample.count) && r.sample.count >= 10 && !!r.sample.method && !!r.sample.statistic && r.displayOnly !== true;
+      return true;
+    }
     if (r.kind === "government-benchmark" && r.category === "electricity") return String(r.unit).toLowerCase() === "kwh" && !!r.jurisdiction && !!r.tariffPlan;
     return false;
   }
@@ -60,6 +64,16 @@
     hits.sort(function (a, b) { return a.source.observedAt < b.source.observedAt ? 1 : a.source.observedAt > b.source.observedAt ? -1 : 0; });
     if (hits.length > 1 && hits[0].source.observedAt === hits[1].source.observedAt) return { ok: false, message: NO_REFERENCE };
     return { ok: true, record: hits[0] };
+  }
+  // Exact-market examples may be shown as observations, but never enter automatic project-list pricing.
+  function selectDisplayOnly(records, query) {
+    var hits = (records || []).filter(function (r) {
+      return r && r.displayOnly === true && r.autoEligible === false && r.audience === query.country && r.category === query.category && r.subtype === query.subtype && validRange(r) && areaBasis(r.unit) !== null && r.sample && Number.isInteger(r.sample.count) && r.sample.count > 0 && !!r.sample.method && !!r.sample.description && r.source && !!parseDate(r.source.observedAt);
+    });
+    if (!hits.length) return { ok: false, message: NO_REFERENCE };
+    hits.sort(function (a, b) { return a.source.observedAt < b.source.observedAt ? 1 : a.source.observedAt > b.source.observedAt ? -1 : 0; });
+    if (hits.length > 1 && hits[0].source.observedAt === hits[1].source.observedAt) return { ok: false, ambiguous: true, message: NO_REFERENCE };
+    return { ok: true, record: hits[0], displayOnly: true };
   }
   // Electricity: exact jurisdiction (and plan where there is more than one). No cross-jurisdiction fallback;
   // "US-national" is only returned when it is asked for explicitly.
@@ -139,7 +153,7 @@
   function describe(record, now) {
     var s = record.source;
     return { range: record.low + "–" + record.high + " " + record.currency + " per " + record.unit, sourceName: s.name, publisher: s.publisher,
-      url: s.url, geography: s.geography, observedAt: s.observedAt, retrievedAt: s.retrievedAt, caveats: record.caveats, notes: record.notes,
+      url: s.url, geography: s.geography, observedAt: s.observedAt, retrievedAt: s.retrievedAt, caveats: record.caveats, notes: record.notes, sample: record.sample || null,
       older: isOlderData(record, now), disclaimer: DISCLAIMER };
   }
   // Structural checks from the contract, used by tests to audit the data file without changing it.
@@ -157,7 +171,17 @@
       ["id", "name", "publisher", "url", "geography", "geographyResolution"].forEach(function (k) { if (!s[k]) bad("source." + k + " missing"); });
       var obs = parseDate(s.observedAt), ret = parseDate(s.retrievedAt);
       if (!obs) bad("observedAt invalid"); else if (obs > now) bad("observedAt in the future");
-      if (!ret) bad("retrievedAt invalid");
+      if (!ret) bad("retrievedAt invalid"); else { if (ret > now) bad("retrievedAt in the future"); if (obs && ret < obs) bad("retrievedAt precedes observedAt"); }
+      var needsSample = r.low !== r.high && (r.category === "paint" || (r.category === "flooring" && (r.subtype === "ceramic-tile" || r.subtype === "porcelain-tile")));
+      if (needsSample) {
+        if (!r.sample || !Number.isInteger(r.sample.count) || r.sample.count < 1) bad("price band requires a positive integer sample.count");
+        if (!r.sample || !r.sample.method) bad("price band requires sample.method");
+        if (!r.sample || !r.sample.statistic) bad("price band requires sample.statistic");
+        if (!r.sample || !r.sample.description) bad("price band requires sample.description");
+        if (!r.sample || r.sample.representative !== false) bad("sample.representative must be false unless a representative survey is proven");
+        if (r.category === "flooring" && (r.subtype === "ceramic-tile" || r.subtype === "porcelain-tile") && r.autoEligible === true && (!r.sample || r.sample.count < 10)) bad("tile ranges with fewer than 10 observations cannot be auto-eligible");
+        if (r.displayOnly === true && r.autoEligible === true) bad("displayOnly records cannot be auto-eligible");
+      }
       if (r.kind === "retailer-listing") {
         if (r.low !== r.high) bad("retailer-listing must be a single price");
         if (!(r.productOrSku || s.productOrSku)) bad("retailer-listing missing productOrSku");
@@ -167,5 +191,5 @@
   }
   return { SQFT_PER_M2: SQFT_PER_M2, M2_PER_SQFT: M2_PER_SQFT, BLOCKED_IDS: BLOCKED_IDS, NO_REFERENCE: NO_REFERENCE, DISCLAIMER: DISCLAIMER,
     parseDate: parseDate, isOlderData: isOlderData, areaBasis: areaBasis, isAutoEligible: isAutoEligible, denyReason: denyReason, select: select, selectElectricity: selectElectricity, flooringOptions: flooringOptions, electricityOptions: electricityOptions, electricityChoices: electricityChoices, flooringCountries: flooringCountries, areaCost: areaCost, toEngineAreaPrice: toEngineAreaPrice, COUNTRY_LABEL: COUNTRY_LABEL, COUNTRY_ORDER: COUNTRY_ORDER, SUBTYPE_LABEL: SUBTYPE_LABEL,
-    packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, validateDataset: validateDataset };
+    packRange: packRange, toEnginePrice: toEnginePrice, describe: describe, selectDisplayOnly: selectDisplayOnly, validateDataset: validateDataset };
 }));
