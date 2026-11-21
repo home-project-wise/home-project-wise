@@ -2448,3 +2448,6 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 5. Keep new supplier price values/evidence in a data-only PR separate from code.
 
 **Role split reaffirmed:** ChatGPT owns research, source/evidence work, price/spec data, calculation rules, QA, documentation and feasible implementation. Claude owns final technical review/approval. UI/visual direction remains with the designer, except for minor implementation fixes.
+
+
+- **PR #446 opened:** [Restore WS1 article map and calculator specifications](https://github.com/home-project-wise/home-project-wise/pull/446). It is open and unmerged for owner review and Claude's final review. Do not merge until the #420/#425/#299 shared-file sequence is reconciled.
