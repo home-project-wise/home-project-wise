@@ -2419,3 +2419,16 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **What stays:** the two clusters, the class A/B/C rule, WS1 first, T1 then T2.
 - **What changes:** (1) the wall-art queries ask about safe hardware, so T3 (fixing-load check) is paired with T2 as one pack and WS1's verdict on T3 is urgent; (2) class A links need no build and can start now with the editorial lane; (3) B candidates are ranked by impressions: macerator run check 207, leak-sensor planner 134; (4) clicks come mostly from outside the US, so units and electrical standard follow the visitor's region (test UK, US, Canada); (5) each tool page publishes static worked examples that match its fixtures, because the generative-AI report lists 305 impressions on exactly these guides.
 - **Locks / exclusions:** unchanged. Evidence level: owner screenshots 2026-11-20; nothing deployed or tested.
+
+
+## 2026-11-21 — ChatGPT — PR #445 conditional-review corrections
+
+**Status: corrections pushed for diff-only re-review; PR remains open and unmerged.**
+
+- NEC wording corrected: distinguish the **2026 edition (A2025 revision cycle)** from the published **NFPA 70, 2026 Edition**. The ballot's proposed 210.23(B)(1) wording is not claimed as verified published-code text. The 1,440 VA value remains only an internal tool threshold; the 4.4 fixture no longer attributes it to NEC.
+- T2 clarified: two-hook x is measured from a fixed wall reference edge; y is height above the finished floor and increases upward. Added a two-row gallery fixture; each row height is its tallest frame and the vertical gap is between row bounds.
+- Article map now classifies flooring transition strips as C because the central decision is profile selection by height difference, not length totaling. The large drywall-patch article is C because its central decision is inspecting behind the wall; the Project cost panel is recorded only as a distinct follow-on costing aid after repair choices are independently made.
+- Map summary is **45 articles: A 8 / B 6 / C 31**. toolUrl is explicitly present (null where no direct tool link applies) on every article record.
+- Source register now has 21 sequentially numbered entries, no repeated Frameology source entry, and separate electrical references rather than combined citations.
+- No calculator code, UI, CSS, tests, article HTML, live links, prices or deployment were changed. This documentation/map correction does not claim Quality or Chromium success; inspect the resulting PR diff and exact-head checks only.
+- **Merge order remains mandatory:** #420 and #425 also edit this file. Do not merge #445 ahead of either; merge it last after they are resolved, or rebase/reset #445 onto their final merged state and reconcile this entry before merge.
