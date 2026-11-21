@@ -1417,7 +1417,7 @@
   },
   "wallpaperApproval": {
     "approvedAt": "2026-11-17",
-    "approvedBy": "repository owner via ChatGPT conversation (recorded by Claude in Issue #402)",
+    "approvedBy": "repository owner (approval recorded by Claude in Issue #402)",
     "approvalScope": "Initial one-envelope-per-market method for a beginner wallpaper material budget based on net wall area and nominal product roll coverage. The estimator may multiply the selected market's net wall area by the low/high per-m² range only.",
     "eligibleMarkets": [
       "US",
