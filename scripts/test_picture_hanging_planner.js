@@ -22,6 +22,8 @@ check("two measured hooks use independent offsets and floor datum", () => {
 check("confirmed stud spacing shows sequence and highlights only studs in frame", () => {
  const r=p.studs({firstStud:14,spacing:16,frameLeft:20,frameWidth:40});
  assert.deepEqual(r.positions,[14,30,46,62]); assert.deepEqual(r.withinFrame,[30,46]);
+ const irregular=p.studs({frameLeft:20,frameWidth:40,confirmedPositions:[13,31,47,59]});
+ assert.deepEqual(irregular.withinFrame,[31,47,59]);
 });
 check("one-row gallery: 18 + 2.5 gap + 24 = 44.5 in", () => {
  const r=p.gallery({rows:[[{width:18,height:18},{width:24,height:20}]],horizontalGap:2.5,verticalGap:0,centreX:60,centreY:57});
