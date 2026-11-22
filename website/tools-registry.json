@@ -296,6 +296,21 @@
       "articles": [
         "how-to-calculate-wallpaper-rolls-pattern-repeat"
       ]
+    },
+    {
+      "id": "picture-hanging-planner",
+      "title": "Picture Hanging Planner",
+      "url": "picture-hanging-planner.html",
+      "topics": [
+        "picture hanging",
+        "wall art",
+        "gallery wall",
+        "stud positions",
+        "placement"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     }
   ]
 }
