@@ -1,11 +1,11 @@
 """Chromium QA for the picture hanging planner at phone and desktop widths."""
-import functools, http.server, os, threading
+import functools, http.server, os, socketserver, threading
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "website")
 class Quiet(http.server.SimpleHTTPRequestHandler):
     def log_message(self, *args): pass
-server = http.server.TCPServer(("127.0.0.1", 0), functools.partial(Quiet, directory=ROOT))
+server = socketserver.TCPServer(("127.0.0.1", 0), functools.partial(Quiet, directory=ROOT))
 threading.Thread(target=server.serve_forever, daemon=True).start()
 BASE = "http://127.0.0.1:%d/" % server.server_address[1]
 failures = []
