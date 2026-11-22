@@ -162,9 +162,9 @@
       "tool": "picture-hanging-planner",
       "toolUrl": null,
       "prefill": {},
-      "status": "planned_T2",
-      "reason": "The article contains explicit geometry for center height, furniture gap, hook drop and stud positions; a visitor-input planner removes repeated arithmetic without choosing fixings.",
-      "plannedPath": "hang-art-calculator.html",
+      "status": "built_link_review_pending",
+      "reason": "The placement worksheet is implemented as a separate tool; article link placement remains outside T2 scope and requires a separate editorial decision.",
+      "plannedPath": "picture-hanging-planner.html",
       "priority": "T2_first"
     },
     {
