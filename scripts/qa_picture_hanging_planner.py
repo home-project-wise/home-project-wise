@@ -27,7 +27,7 @@ with sync_playwright() as p:
         check("six semantic worked examples at %dpx" % width, page.locator(".ph-example").count() == 6)
         # Mode A: 36 high, centre 57, measured drop 3 => hook 72 in.
         page.fill("#open-drop", "3"); page.click("button[type=submit]")
-        check("open wall result at %dpx" % width, "72 in" in page.locator("#planner-result").inner_text())
+        check("open wall result at %dpx" % width, "72.00 in" in page.locator("#planner-result").inner_text())
         # Metric twin: 91.44 cm frame, centre 144.78 cm, drop 7.62 cm => 182.88 cm hook.
         page.check('input[name=unit][value=cm]')
         page.fill("#open-height", "91.44"); page.fill("#open-centre", "144.78"); page.fill("#open-drop", "7.62")
@@ -38,7 +38,7 @@ with sync_playwright() as p:
         page.select_option("#mode", "furniture")
         for selector, value in (("#furn-top","30"),("#furn-gap","8"),("#furn-height","24"),("#furn-drop","2")): page.fill(selector,value)
         page.click("button[type=submit]")
-        check("furniture result at %dpx" % width, "60 in" in page.locator("#planner-result").inner_text())
+        check("furniture result at %dpx" % width, "60.00 in" in page.locator("#planner-result").inner_text())
         # Mode C.
         page.select_option("#mode", "two")
         for selector,value in (("#two-left","20"),("#two-bottom","16"),("#two-height","24"),("#two-width","48"),("#two-x1","5"),("#two-drop1","3"),("#two-x2","43"),("#two-drop2","3")): page.fill(selector,value)
