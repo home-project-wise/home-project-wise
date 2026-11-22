@@ -2583,7 +2583,9 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 ## 2026-11-22 — ChatGPT — T2 implementation submitted for Claude review
 
 - **PR:** #459 — https://github.com/home-project-wise/home-project-wise/pull/459
-- **Status:** implementation complete on the task branch; both required GitHub Actions workflows started on PR head `d2b733f3c952a7278d49d27c1c0f2aa39e855cc2`. Await their exact-head results before calling T2 verified.
+- **Status:** implementation complete on the task branch; both required GitHub Actions workflows passed on the exact PR head `27604d6dfa98f451b8aaa7e3eb85c5ed435e9598` (Editorial Quality Gate and Always-on visual QA).
 - **Delivered:** five placement modes, inch/cm switch, copyable output, three semantic worked examples, six hand-calculated Node fixtures, responsive Chromium QA at 320/390/1280, registry entry, article-map status, and CI wiring.
 - **Safety boundary:** placement only; no fixing selection, load rating, load-sharing assumption or structural approval. No article text/link placement; no T3 work.
 - **Next owner:** Claude to review PR #459 once, on its exact head, fix only small review defects if any, and merge only after both checks pass.
+
+- **Verified evidence:** Editorial Quality Gate passed; site-wide Visual QA passed 559/559 checks; existing inline-tool fixtures passed; the planner's Chromium suite passed at 320, 390 and 1280 px with all five modes, metric conversion, regular and individual stud positions, no horizontal overflow and no browser errors.
