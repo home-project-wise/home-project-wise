@@ -296,6 +296,16 @@
       "toolUrl": null
     },
     {
+      "slug": "protect-pipes-from-freezing-and-burst-pipe-response",
+      "path": "website/articles/protect-pipes-from-freezing-and-burst-pipe-response.html",
+      "class": "C",
+      "decisionSentence": "Insulate pipes in unheated spaces, open the cabinet doors under sinks on exterior walls, and disconnect and drain outdoor hoses.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article is a prevention checklist and an emergency response (shut-off, thaw from the tap end, burst pipe). Its only numbers are two organisations' separate minimum heating figures (55 F and 14 C), which are quoted advice and not an input to a calculation."
+    },
+    {
       "slug": "quiet-entryway-storage",
       "path": "website/articles/quiet-entryway-storage.html",
       "class": "C",
@@ -488,17 +498,16 @@
     }
   ],
   "summary": {
-    "articleCount": 45,
+    "articleCount": 46,
     "classCounts": {
+      "C": 32,
       "A": 8,
-      "B": 6,
-      "C": 31
+      "B": 6
     },
-    "existingToolLinksAlreadyPresent": 7,
-    "editorialDeepLinksNeeded": 2,
+    "existingToolLinksAlreadyPresent": 8,
+    "editorialDeepLinksNeeded": 0,
     "notes": [
-      "7 current tool-linked articles are confirmed by inspecting their actual hrefs.",
-      "Two class-A editorial deep links are recommended: reduce-bathroom-condensation to the bathroom fan calculator, and smart-lighting to the Electricity cost panel after the T4b active/standby extension.",
+      "Updated 2026-11-21 (T1): 8 class A articles link their tool today; the two deep links recommended in WS1 (reduce-bathroom-condensation to the fan calculator, smart-lighting to the Electricity cost panel) are merged (#450, #451). One A article, how-to-calculate-wallpaper-rolls-pattern-repeat, links the Home Project Calculator page and not its Wallpaper tab: an editorial deep link remains open. The frozen-pipes guide (#453) is class C.",
       "Class C is intentional; do not force a tool link where the existing tool does not answer the article's central decision.",
       "The flooring transition-strip article is C: its central decision is profile selection by measured height difference, not length/pack arithmetic.",
       "The large drywall-patch article is C: its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate follow-on for visitor-entered costing after repair choices are independently made.",
