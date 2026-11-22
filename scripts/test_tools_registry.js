@@ -40,6 +40,12 @@ test("registry: no parameter that can carry a price, waste or allowance is allow
   }));
 });
 
+test("site index: every standalone tool page in the registry is in the TOOLS list of scripts/rebuild_site_indexes.py (tools page, sitemap, search, hub)", () => {
+  const listed = [...read("scripts/rebuild_site_indexes.py").matchAll(/\{"slug": "([a-z0-9-]+)", "hub":/g)].map((m) => m[1]).sort();
+  const pages = [...new Set(registry.tools.map((t) => t.url.split("#")[0].replace(/\.html$/, "")))].sort();
+  assert.deepEqual(listed, pages, "add the tool to TOOLS in scripts/rebuild_site_indexes.py (and to the registry), or remove the page");
+});
+
 test("coverage: every article file has exactly one map entry and every map entry has a file", () => {
   assert.deepEqual(map.articles.map((a) => a.slug).sort(), articleFiles, "add a class A, B or C entry to data/ARTICLE_TOOL_MAP.json for each new article");
   assert.equal(new Set(map.articles.map((a) => a.slug)).size, map.articles.length);

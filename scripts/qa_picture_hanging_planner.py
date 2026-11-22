@@ -25,8 +25,12 @@ with sync_playwright() as p:
         check("planner loads at %dpx" % width, page.locator("h1").inner_text() == "Picture Hanging Planner")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         check("three semantic worked examples at %dpx" % width, page.locator(".ph-example").count() == 3)
-        # Mode A: 36 high, centre 57, measured drop 3 => hook 72 in.
+        # Nothing is assumed for the frame height: only the labelled 57 in starting centre is pre-filled.
+        check("frame height starts empty at %dpx" % width, page.input_value("#open-height") == "" and page.input_value("#open-centre") == "57")
         page.fill("#open-drop", "3"); page.click("button[type=submit]")
+        check("missing frame height is asked for, not assumed, at %dpx" % width, "Enter Frame height" in page.locator("#planner-error").inner_text() and page.locator("#planner-result").is_hidden())
+        # Mode A: 36 high, centre 57, measured drop 3 => hook 72 in.
+        page.fill("#open-height", "36"); page.click("button[type=submit]")
         check("open wall result at %dpx" % width, "72.00 in" in page.locator("#planner-result").inner_text())
         # Metric twin: 91.44 cm frame, centre 144.78 cm, drop 7.62 cm => 182.88 cm hook.
         page.check('input[name=unit][value=cm]')
@@ -62,6 +66,7 @@ with sync_playwright() as p:
         page.click("button[type=submit]")
         t=page.locator("#planner-result").inner_text()
         check("two-row gallery at %dpx" % width, "32.50 in" in t and "47.00 in" in t)
+        check("gallery states its alignment and datum at %dpx" % width, "share a bottom edge" in t and "finished floor" in t)
         check("no browser errors at %dpx" % width, not errors, errors)
         context.close()
     browser.close()
