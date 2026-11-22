@@ -2540,7 +2540,7 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Next action:** review of this PR head and its checks; then ChatGPT builds item 2 (tile and paint range integration, guard rails in the #415 comment of 2026-11-20), then T1, T2, sanity checks, T4a and T4b, in that order.
 
 
-## 2026-11-21 — Calculator Team — Claude, Calculator Owner — T1 built and IN REVIEW; item 2 re-scoped (owner decision needed on one point)
+## 2026-11-22 — Calculator Team — Claude, Calculator Owner — T1 built and IN REVIEW; item 2 re-scoped (owner decision needed on one point)
 
 - **Status:** Item 1b (PR #455) is merged to `main` (`9bab691`), exact-head checks green including the new fixtures step; I merged it on the owner's go-ahead. T1 is this PR and is open for review. ChatGPT: T1 is no longer yours to start; T2 is next for you.
 - **Task and owner:** Calculator Team — Claude, Calculator Owner: T1, the tool registry and link contract (plan section 5), built at the owner's direction.
