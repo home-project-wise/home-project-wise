@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 1,
+  "updated": "2026-11-22",
+  "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
+  "tools": [
+    {
+      "id": "bathroom-fan-size",
+      "title": "Bathroom Exhaust Fan Size Calculator",
+      "url": "bathroom-fan-size-calculator.html",
+      "topics": [
+        "bathroom",
+        "ventilation",
+        "moisture",
+        "airflow"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": [
+        "choose-bathroom-exhaust-fan",
+        "reduce-bathroom-condensation"
+      ]
+    },
+    {
+      "id": "crawl-space-dehumidifier",
+      "title": "Crawl Space Dehumidifier Size Calculator",
+      "url": "crawl-space-dehumidifier-calculator.html",
+      "topics": [
+        "crawl space",
+        "moisture",
+        "dehumidifier"
+      ],
+      "params": [
+        {
+          "name": "u",
+          "meaning": "unit system: us (feet) or m (metres)"
+        },
+        {
+          "name": "l",
+          "meaning": "length in the chosen unit"
+        },
+        {
+          "name": "w",
+          "meaning": "width in the chosen unit"
+        },
+        {
+          "name": "rh",
+          "meaning": "measured relative humidity, percent"
+        },
+        {
+          "name": "f",
+          "meaning": "conditions ticked, as a bit mask of the five checkboxes"
+        }
+      ],
+      "linkPrefill": [
+        "u"
+      ],
+      "articles": [
+        "how-to-fix-damp-crawl-space-humidity",
+        "what-size-dehumidifier-crawl-space"
+      ]
+    },
+    {
+      "id": "rug-size",
+      "title": "Rug Size Calculator",
+      "url": "rug-size-calculator.html",
+      "topics": [
+        "rug",
+        "living room",
+        "dining room",
+        "bedroom",
+        "layout"
+      ],
+      "params": [
+        {
+          "name": "u",
+          "meaning": "unit system: us or m"
+        },
+        {
+          "name": "t",
+          "meaning": "room type: living, dining or bedroom"
+        },
+        {
+          "name": "rw",
+          "meaning": "room width in inches"
+        },
+        {
+          "name": "rl",
+          "meaning": "room length in inches"
+        },
+        {
+          "name": "b",
+          "meaning": "bare floor border in inches"
+        },
+        {
+          "name": "gw",
+          "meaning": "seating area width in inches"
+        },
+        {
+          "name": "gd",
+          "meaning": "seating area depth in inches"
+        },
+        {
+          "name": "tw",
+          "meaning": "table width in inches"
+        },
+        {
+          "name": "tl",
+          "meaning": "table length in inches"
+        },
+        {
+          "name": "bed",
+          "meaning": "bed size, by list position"
+        }
+      ],
+      "linkPrefill": [
+        "u",
+        "t"
+      ],
+      "articles": [
+        "right-rug-size-painters-tape-test"
+      ]
+    },
+    {
+      "id": "smart-plug-load-check",
+      "title": "Smart Plug Load Check",
+      "url": "smart-plug-load-check.html",
+      "topics": [
+        "smart plug",
+        "electrical load",
+        "smart home"
+      ],
+      "params": [
+        {
+          "name": "r",
+          "meaning": "region choice, by list position"
+        },
+        {
+          "name": "d",
+          "meaning": "device id from the page's list"
+        },
+        {
+          "name": "m",
+          "meaning": "entry mode"
+        },
+        {
+          "name": "x",
+          "meaning": "the visitor's watts or amps value"
+        },
+        {
+          "name": "cv",
+          "meaning": "the visitor's own plug voltage"
+        },
+        {
+          "name": "ca",
+          "meaning": "the visitor's own plug amp rating"
+        }
+      ],
+      "linkPrefill": [
+        "r"
+      ],
+      "articles": [
+        "what-can-you-plug-into-a-smart-plug"
+      ]
+    },
+    {
+      "id": "home-checkup",
+      "title": "Home Check-up",
+      "url": "home-checkup.html",
+      "topics": [
+        "home priorities",
+        "storage",
+        "design",
+        "repairs",
+        "smart home",
+        "guided start"
+      ],
+      "params": [
+        {
+          "name": "a",
+          "meaning": "ten answers written as one string of 0, 1 or 2"
+        }
+      ],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "budget-planner",
+      "title": "Project Budget Planner",
+      "url": "budget-planner.html",
+      "topics": [
+        "budget",
+        "project cost",
+        "buying order"
+      ],
+      "params": [
+        {
+          "name": "s",
+          "meaning": "share state written by the page itself; it can hold the visitor's own prices"
+        }
+      ],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator",
+      "title": "Home Project Calculator",
+      "url": "home-project-calculator.html",
+      "topics": [
+        "area",
+        "paint",
+        "flooring",
+        "tile",
+        "electricity",
+        "project cost",
+        "wallpaper"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-area-volume",
+      "title": "Home Project Calculator: Area & volume",
+      "url": "home-project-calculator.html#panel-measure",
+      "topics": [
+        "area",
+        "volume",
+        "room size"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-paint",
+      "title": "Home Project Calculator: Paint",
+      "url": "home-project-calculator.html#panel-paint",
+      "topics": [
+        "paint",
+        "walls"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-flooring",
+      "title": "Home Project Calculator: Flooring & materials",
+      "url": "home-project-calculator.html#panel-material",
+      "topics": [
+        "flooring",
+        "tile",
+        "materials"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-electricity",
+      "title": "Home Project Calculator: Electricity cost",
+      "url": "home-project-calculator.html#panel-energy",
+      "topics": [
+        "electricity",
+        "running cost",
+        "smart home"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": [
+        "smart-lighting"
+      ]
+    },
+    {
+      "id": "home-project-calculator-project-cost",
+      "title": "Home Project Calculator: Project cost",
+      "url": "home-project-calculator.html#panel-project",
+      "topics": [
+        "project cost",
+        "budget"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-wallpaper",
+      "title": "Home Project Calculator: Wallpaper",
+      "url": "home-project-calculator.html#panel-wallpaper",
+      "topics": [
+        "wallpaper",
+        "pattern repeat"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": [
+        "how-to-calculate-wallpaper-rolls-pattern-repeat"
+      ]
+    }
+  ]
+}
