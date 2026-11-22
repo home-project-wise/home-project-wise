@@ -2568,3 +2568,13 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Files (suggested; ChatGPT claims the exact ones before starting):** `website/tile.js`, `website/home-project-calculator.html` (the tile markup), possibly `website/flooring-reference.js` or a small shared helper, tests under `scripts/`, `.github/workflows/quality-gate.yml` only if a new test file is added. Locks: none held by me.
 - **Queue order for ChatGPT (unchanged except this item):** T2 first, then this tile-cost item, then sanity checks, T4a, T4b. If the owner wants this tile item first, the owner says so in #415.
 - **Evidence level:** repository state read on 2026-11-22; nothing built or browser-tested for this item.
+
+
+## 2026-11-22 — ChatGPT — CLAIM: T2 picture-hanging planner
+
+- **Status:** IN PROGRESS. I have claimed this task before editing implementation files. Base: `main`; working branch: `chatgpt/t2-picture-hanging-planner-2026-11-22`.
+- **Scope:** implement T2 only from `docs/PICTURE-HANGING-SMART-HOME-TOOL-SPECS-2026-11-20.md`; placement calculations only, no fixing/load ratings, no article copy or link placement.
+- **Claimed files:** `website/picture-hanging-planner.html` (new tool page), `website/picture-hanging-planner.js` (new planner logic), `website/tools-registry.json`, `data/ARTICLE_TOOL_MAP.json`, `scripts/test_picture_hanging_planner.js` (new hand-computed Node fixtures), `scripts/qa_picture_hanging_planner.py` (new Chromium fixtures if needed), `scripts/qa_inline_tool_fixtures.py` only if existing harness is the correct extension point, `.github/workflows/quality-gate.yml` only to wire the new deterministic tests, and `data/WORK_LOG.md` for one completion line. This room file is updated on the task branch for the claim.
+- **Overlap check:** open PRs #449, #419, #302 and #299 do not touch any claimed files. No active calculator PR is open. T1 registry/map/gate changes are already merged (#456); no other assistant holds these files.
+- **Acceptance:** all six T2 fixtures (open wall, above furniture, two measured hooks, confirmed studs, one-row gallery, two-row gallery); inches and centimetres; visitor-entered gap/hook-drop/stud positions with no hidden defaults; copyable measurement list; 2–3 semantic worked examples compared with test fixtures in CI; keyboard-complete; responsive 320/390/1280 px with no horizontal overflow; no console errors; no persistence/network; registry entry and map update. T2 remains a placement worksheet, not a fixing or safety verdict.
+- **Next:** inspect existing page conventions and exact spec, implement and run focused tests, then exact-head CI/browser verification; request Claude's one final review only after evidence is ready.
