@@ -33,7 +33,7 @@ check("two-row gallery uses tallest frame per row and row-bound gap", () => {
  close(r.rows[0].frames[0].bottom-r.rows[1].frames[0].bottom,23);
 });
 check("invalid or missing visitor measurements are rejected", () => {
- assert.throws(()=>p.openWall({frameHeight:36,centreHeight:57,hookDrop:""}));
+ assert.throws(()=>p.openWall({frameHeight:0,centreHeight:57,hookDrop:3}));
  assert.throws(()=>p.gallery({rows:"",horizontalGap:2,verticalGap:3,centreX:10,centreY:20}));
  assert.throws(()=>p.twoHooks({frameLeft:1,frameBottom:1,frameHeight:10,supports:[{x:1,drop:1}]}));
 });
