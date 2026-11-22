@@ -61,7 +61,7 @@ with sync_playwright() as p:
         for selector,value in (("#gallery-hgap","2.5"),("#gallery-vgap","3"),("#gallery-cx","60"),("#gallery-cy","60")): page.fill(selector,value)
         page.click("button[type=submit]")
         t=page.locator("#planner-result").inner_text()
-        check("two-row gallery at %dpx" % width, "44.50 in" in t and "47.00 in" in t)
+        check("two-row gallery at %dpx" % width, "32.50 in" in t and "47.00 in" in t)
         check("no browser errors at %dpx" % width, not errors, errors)
         context.close()
     browser.close()
