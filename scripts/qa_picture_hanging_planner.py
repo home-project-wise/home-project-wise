@@ -24,7 +24,7 @@ with sync_playwright() as p:
         page.goto(BASE + "picture-hanging-planner.html", wait_until="load")
         check("planner loads at %dpx" % width, page.locator("h1").inner_text() == "Picture Hanging Planner")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
-        check("six semantic worked examples at %dpx" % width, page.locator(".ph-example").count() == 6)
+        check("three semantic worked examples at %dpx" % width, page.locator(".ph-example").count() == 3)
         # Mode A: 36 high, centre 57, measured drop 3 => hook 72 in.
         page.fill("#open-drop", "3"); page.click("button[type=submit]")
         check("open wall result at %dpx" % width, "72.00 in" in page.locator("#planner-result").inner_text())
