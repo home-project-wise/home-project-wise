@@ -34,4 +34,5 @@ jobs:
           node scripts/test_wallpaper_calculator_engine.js
           node scripts/test_wallpaper_project_estimator_integration.js
           node scripts/test_wallpaper_reference.js
+          node scripts/test_picture_hanging_planner.js
           node scripts/test_tools_registry.js
