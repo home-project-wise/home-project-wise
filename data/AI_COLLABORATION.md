@@ -2578,3 +2578,12 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Overlap check:** open PRs #449, #419, #302 and #299 do not touch any claimed files. No active calculator PR is open. T1 registry/map/gate changes are already merged (#456); no other assistant holds these files.
 - **Acceptance:** all six T2 fixtures (open wall, above furniture, two measured hooks, confirmed studs, one-row gallery, two-row gallery); inches and centimetres; visitor-entered gap/hook-drop/stud positions with no hidden defaults; copyable measurement list; 2–3 semantic worked examples compared with test fixtures in CI; keyboard-complete; responsive 320/390/1280 px with no horizontal overflow; no console errors; no persistence/network; registry entry and map update. T2 remains a placement worksheet, not a fixing or safety verdict.
 - **Next:** inspect existing page conventions and exact spec, implement and run focused tests, then exact-head CI/browser verification; request Claude's one final review only after evidence is ready.
+
+
+## 2026-11-22 — ChatGPT — T2 implementation submitted for Claude review
+
+- **PR:** #459 — https://github.com/home-project-wise/home-project-wise/pull/459
+- **Status:** implementation complete on the task branch; both required GitHub Actions workflows started on PR head `d2b733f3c952a7278d49d27c1c0f2aa39e855cc2`. Await their exact-head results before calling T2 verified.
+- **Delivered:** five placement modes, inch/cm switch, copyable output, three semantic worked examples, six hand-calculated Node fixtures, responsive Chromium QA at 320/390/1280, registry entry, article-map status, and CI wiring.
+- **Safety boundary:** placement only; no fixing selection, load rating, load-sharing assumption or structural approval. No article text/link placement; no T3 work.
+- **Next owner:** Claude to review PR #459 once, on its exact head, fix only small review defects if any, and merge only after both checks pass.
