@@ -43,6 +43,10 @@ with sync_playwright() as p:
         # UK ceramic: 5 x 4 m = 20 m2; source range 12 to 50.60 GBP/m2 => GBP 240 to 1,012.
         page.select_option("#region-country", "UK")
         check("selected market currency is GBP at %dpx" % width, page.input_value("#tile-currency") == "GBP" and not page.is_disabled("#tile-manual-price") and not page.is_disabled("#tile-pack-price"))
+        page.locator("#tile-type").focus()
+        page.keyboard.press("Tab")
+        check("keyboard reaches the manual price after tile type at %dpx" % width,
+              page.evaluate("document.activeElement.id === 'tile-manual-price'"))
         page.select_option("#tile-type", "ceramic-tile")
         page.click("#tile-form button[type=submit]")
         result = page.inner_text("#tile-result")
@@ -65,7 +69,10 @@ with sync_playwright() as p:
               page.input_value("#tile-manual-price") == "" and page.inner_text("#tile-result") == "")
 
         # Market change clears manual and pack prices; Netherlands has no porcelain reference.
-        page.locator("#tile-form details summary").click()
+        page.locator("#tile-form details summary").focus()
+        page.keyboard.press("Enter")
+        check("advanced pack details open by keyboard at %dpx" % width,
+              page.locator("#tile-form details").evaluate("(el) => el.open"))
         page.fill("#tile-pack-price", "10")
         page.select_option("#region-country", "Netherlands")
         check("market change clears prices and updates currency at %dpx" % width,
