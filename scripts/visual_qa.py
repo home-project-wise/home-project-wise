@@ -424,7 +424,7 @@ try:
                 result = page.inner_text("#tile-result")
                 check(f"{label}: subtracts openings and calculates tile and label box counts", "18 m²" in result and "50" in result and "13" in result, result)
                 check(f"{label}: does not add an unrequested allowance and waits for a country before pricing", "no extra allowance added" in result.lower() and "choose your country above" in result.lower() and "GBP" not in result and "USD" not in result, result)
-                # Exercise explicit shared-room reuse and its empty-state path.
+                # Exercise automatic shared-room synchronisation and the no-button state.
                 page.locator("#room-root summary").click()
                 for field, value in (("room-unit", "ft"), ("room-length", "12"), ("room-width", "10")):
                     if field == "room-unit": page.select_option("#" + field, value)
