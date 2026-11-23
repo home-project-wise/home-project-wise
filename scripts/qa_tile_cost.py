@@ -96,7 +96,7 @@ with sync_playwright() as p:
         page.click("#tile-form button[type=submit]")
         result = page.inner_text("#tile-result")
         check("display-only porcelain sample is labelled at %dpx" % width,
-              "Display only" in result and "2 observed product listings" in result, result)
+              "display only; not a typical market range" in result and "2 observed product listings" in result, result)
 
         check("tile price controls have associated labels at %dpx" % width,
               page.locator("label[for=tile-type]").count() == 1 and
