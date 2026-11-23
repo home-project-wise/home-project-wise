@@ -28,7 +28,8 @@ with sync_playwright() as p:
         check("manual prices stay disabled until a market is selected at %dpx" % width, page.is_disabled("#tile-manual-price") and page.is_disabled("#tile-pack-price"))
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
 
-        # Shared room: type the dimensions once; Tile follows without pressing a Use-for button.
+        # Shared room is collapsed by default; open the room form, but do not press any Use-for button.
+        page.locator("#room-root summary").click()
         page.select_option("#room-unit", "m")
         page.fill("#room-length", "5")
         page.fill("#room-width", "4")
