@@ -232,7 +232,10 @@
           manualPrice: doc.getElementById("tile-manual-price").value, packPrice: doc.getElementById("tile-pack-price").value,
           boxes: result.boxes, now: new Date() });
         var costTitle = doc.createElement("p"), costStrong = doc.createElement("strong");
-        costStrong.textContent = "Estimated tile material cost"; costTitle.appendChild(costStrong); output.appendChild(costTitle);
+        costStrong.textContent = cost.kind === "manual" ? "Your material cost for this area:" :
+          (cost.displayOnly ? "Observed sample material cost for this area (display only; not a typical market range):" :
+            "Observed sample material cost for this area:");
+        costTitle.appendChild(costStrong); output.appendChild(costTitle);
         if (cost.areaCost) {
           var total = cost.areaCost.low === cost.areaCost.high ? Currency.format(cost.areaCost.low, cost.currency) :
             Currency.format(cost.areaCost.low, cost.currency) + "–" + Currency.format(cost.areaCost.high, cost.currency);
@@ -240,7 +243,7 @@
           var pricedArea = areaUnit === "sq ft" ? result.adjustedAreaFt2 : result.adjustedAreaM2;
           costLine.textContent = total + " for " + fmt(pricedArea) + " " + areaUnit +
             (result.wastePercent ? " (includes your " + fmt(result.wastePercent) + "% extra allowance)" : " (no extra allowance added)") +
-            (cost.kind === "manual" ? " (your price; replaces the reference range)." : " (approximate material-only estimate).");
+            (cost.kind === "manual" ? " (your price; replaces the reference range)." : " (approximate).");
           output.appendChild(costLine);
           if (cost.description) {
             var sourceLine = doc.createElement("p"), desc = cost.description;
