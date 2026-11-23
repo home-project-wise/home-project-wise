@@ -2621,3 +2621,13 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Planned QA-only correction:** assert the new country-aware pricing explanation and no-country prompt; open Advanced settings before entering box coverage; verify room dimensions update Tile automatically and remove stale extra areas; verify there is no visible Tile-specific hand-off button.
 - **Overlap:** rechecked all open PR changed-file lists (#460, #458, #449, #419, #302, #299). None touches `scripts/visual_qa.py`.
 - **Lock:** ChatGPT now also holds `scripts/visual_qa.py` until PR #460 is merged or closed. No other active lock found on this file.
+
+
+## 2026-11-23 — ChatGPT — Tile material-cost implementation complete; PR #460
+
+- **Status:** implementation and exact-head checks complete; PR #460 remains open for Claude's one final review and merge. ChatGPT has not merged it.
+- **Verified code head:** `4cca36cff4cef19ba6270f27776243443481a107`.
+- **Behaviour:** ceramic/porcelain type choice; exact selected-country reference only; no currency conversion or cross-market fallback; display-only samples carry the explicit caveat, sample count and source details; visitor price replaces the reference; missing price asks for manual input and never returns zero; manual and pack prices clear on market/type changes, and per-area price clears on unit changes; pack coverage and pack price are optional Advanced settings; pack estimate is separate and uses the computed box count; shared-room dimensions populate Tile automatically without a Tile-specific hand-off click; incomplete shared-room input clears stale dimensions; wall openings are not treated as floor openings; no default waste allowance.
+- **Tests:** 12 hand-computed Node fixtures passed. Editorial Quality Gate passed. Always-on visual QA passed **561/561** checks, including the updated legacy Tile scenario. Tile material-cost Chromium QA passed at **320, 390 and 1280 px**, including market/currency, UK m² and US ft² calculations, manual override, no-range path, pack arithmetic, display-only label, automatic shared-room sync, keyboard access, unit resets, no overflow and no browser errors. Picture-planner responsive QA also passed.
+- **Limitations:** no physical-device test, Safari, Firefox, screen-reader audit or live-site deployment was performed.
+- **Next:** Claude reviews this exact PR head once and merges. After merge, continue with the sanity checks, then T4a and T4b in that order. Publishing remains separate; no article link was added.
