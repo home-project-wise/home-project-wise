@@ -329,7 +329,7 @@
       if (!length || !width || !unit) return;
       if (Number(length.value) > 0 && Number(width.value) > 0) {
         applySharedRoom({ length: length.value, width: width.value, unit: unit.value });
-      } else if (sharedRoomApplied && length.value === "" && width.value === "") {
+      } else if (sharedRoomApplied) {
         sections.querySelectorAll(".tile-section").forEach(function (row) {
           row.querySelector(".tile-length").value = ""; row.querySelector(".tile-width").value = "";
         });
