@@ -346,6 +346,12 @@
       win.addEventListener("hpw-room", function () { applySharedRoom(win.hpwRoom); });
       win.addEventListener("hpw-region", function () { syncCurrency(true); });
     }
+    doc.getElementById("tile-type").addEventListener("change", function () {
+      if (manualPrice.value !== "" || packPriceField.value !== "") {
+        manualPrice.value = ""; packPriceField.value = "";
+        doc.getElementById("tile-result").textContent = "";
+      }
+    });
     doc.getElementById("tile-unit").addEventListener("change", updateManualUnit);
     syncCurrency(false); updateManualUnit();
     if (win && win.hpwRoom) applySharedRoom(win.hpwRoom);
