@@ -25,6 +25,7 @@ with sync_playwright() as p:
         page.wait_for_selector("#tile-type")
         page.wait_for_timeout(700)
         check("tile calculator loads at %dpx" % width, page.locator("#tile-form").is_visible())
+        check("manual prices stay disabled until a market is selected at %dpx" % width, page.is_disabled("#tile-manual-price") and page.is_disabled("#tile-pack-price"))
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
 
         # Shared room: type the dimensions once; Tile follows without pressing a Use-for button.
@@ -37,7 +38,7 @@ with sync_playwright() as p:
 
         # UK ceramic: 5 x 4 m = 20 m2; source range 12 to 50.60 GBP/m2 => GBP 240 to 1,012.
         page.select_option("#region-country", "UK")
-        check("selected market currency is GBP at %dpx" % width, page.input_value("#tile-currency") == "GBP")
+        check("selected market currency is GBP at %dpx" % width, page.input_value("#tile-currency") == "GBP" and not page.is_disabled("#tile-manual-price") and not page.is_disabled("#tile-pack-price"))
         page.select_option("#tile-type", "ceramic-tile")
         page.click("#tile-form button[type=submit]")
         result = page.inner_text("#tile-result")
