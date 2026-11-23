@@ -1,9 +1,11 @@
 /* Tile quantity estimator. Quantity only: visitor-entered dimensions, joint, waste and label coverage; no prices or hidden allowance. */
 (function (root, factory) {
-  if (typeof module === "object" && module.exports) module.exports = factory();
-  else root.HPWTile = factory();
-}(typeof globalThis !== "undefined" ? globalThis : this, function () {
+  if (typeof module === "object" && module.exports) module.exports = factory(typeof globalThis !== "undefined" ? globalThis : root);
+  else root.HPWTile = factory(root);
+}(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
+  var RP = typeof module === "object" && module.exports && typeof require === "function" ? require("./reference-prices.js") : root.HPWReferencePrices;
+  var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
   var M_PER_FT = 0.3048, FT2_PER_M2 = 10.7639104167;
   function positive(value, label) {
     var n = Number(value);
@@ -77,6 +79,54 @@
     var metric = fmt(m2) + " m²", imperial = fmt(m2 * FT2_PER_M2) + " ft²";
     return { primary: preferredUnit === "ft" ? imperial : metric, metric: metric, imperial: imperial };
   }
+  function selectTileReference(records, country, subtype) {
+    if (!RP || !country || !subtype) return { ok: false, message: RP ? RP.NO_REFERENCE : "No reference range yet." };
+    var query = { country: country, category: "flooring", subtype: subtype };
+    var selected = RP.select(records || [], query);
+    if (!selected.ok && typeof RP.selectDisplayOnly === "function") {
+      var observed = RP.selectDisplayOnly(records || [], query);
+      if (observed.ok) return { ok: true, record: observed.record, displayOnly: true };
+    }
+    return selected.ok ? { ok: true, record: selected.record, displayOnly: false } : selected;
+  }
+  function estimateMaterialCost(input) {
+    input = input || {};
+    var country = input.country || "", currency = Currency && Currency.codeForMarket ? Currency.codeForMarket(country) : "";
+    var manual = input.manualPrice === "" || input.manualPrice === null || input.manualPrice === undefined ? null : Number(input.manualPrice);
+    var pack = input.packPrice === "" || input.packPrice === null || input.packPrice === undefined ? null : Number(input.packPrice);
+    if (manual !== null && (!Number.isFinite(manual) || manual <= 0)) throw new Error("Your material price per area must be greater than zero, or leave it blank.");
+    if (pack !== null && (!Number.isFinite(pack) || pack <= 0)) throw new Error("Your price per box must be greater than zero, or leave it blank.");
+    var areaUnit = input.areaUnit === "sq ft" ? "sq ft" : "m²";
+    var area = areaUnit === "sq ft" ? Number(input.areaFt2) : Number(input.areaM2);
+    if (!Number.isFinite(area) || area <= 0) throw new Error("The floor area must be greater than zero before estimating material cost.");
+    var result = { ok: false, currency: currency, kind: "unpriced", displayOnly: false, record: null, areaCost: null, packTotal: null, packCount: null, message: "" };
+    if (!currency) {
+      result.message = "Choose your country above to show material prices in the correct market currency. The quantity calculation still works.";
+    } else if (manual !== null) {
+      var total = Number((manual * area).toFixed(2));
+      result.ok = true; result.kind = "manual"; result.areaCost = { low: total, high: total, currency: currency, quantity: area, quantityUnit: areaUnit };
+      result.message = "Your entered price replaces the reference range.";
+    } else {
+      var selected = selectTileReference(input.records, country, input.subtype);
+      if (!selected.ok) {
+        result.message = "No reference range is available for this tile type in " + country + ". Enter your own local price per " + areaUnit + "; no price from another country is substituted.";
+      } else {
+        var areaCost = RP.areaCost(selected.record, area, areaUnit);
+        if (areaCost) {
+          result.ok = true; result.kind = "reference"; result.displayOnly = selected.displayOnly;
+          result.record = selected.record; result.areaCost = areaCost;
+          result.description = RP.describe(selected.record, input.now || new Date());
+        } else result.message = "A reference price could not be calculated for this area. Enter your own local price instead.";
+      }
+    }
+    if (pack !== null && currency) {
+      if (Number.isInteger(input.boxes) && input.boxes > 0) {
+        result.packCount = input.boxes;
+        result.packTotal = Number((pack * input.boxes).toFixed(2));
+      } else result.packMessage = "Enter the box coverage from the product label to calculate the separate pack-price estimate.";
+    }
+    return result;
+  }
   function init(doc, win) {
     var host = doc.getElementById("tile-root");
     if (!host) return null;
@@ -86,7 +136,7 @@
       '<form class="calc" id="tile-form" novalidate>' +
       '<div class="calc-grid"><div class="calc-field"><label for="tile-unit">Floor measurements</label><select id="tile-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div></div>' +
       '<div id="tile-sections"><div class="calc-grid tile-section"><div class="calc-field"><label for="tile-length-1">Area 1 length</label><input id="tile-length-1" class="tile-length" type="number" min="0" step="any" required></div><div class="calc-field"><label for="tile-width-1">Area 1 width</label><input id="tile-width-1" class="tile-width" type="number" min="0" step="any" required></div></div></div>' +
-      '<p><button type="button" class="wp-btn" id="tile-add-section">Add another rectangular area</button> <button type="button" class="wp-btn" id="tile-use-room">Use shared room length and width (replaces extra areas)</button></p>' +
+      '<p><button type="button" class="wp-btn" id="tile-add-section">Add another rectangular area</button> <button type="button" class="wp-btn" id="tile-use-room" hidden>Use shared room length and width (replaces extra areas)</button></p><p class="wp-note" id="tile-room-note" hidden>Using the dimensions entered in “Enter your room once”. Tile floor openings remain a separate optional measurement.</p>' +
       '<div class="calc-grid"><div class="calc-field"><label for="tile-openings">Total opening area to subtract (optional)</label><input id="tile-openings" type="number" min="0" step="any" value="0"><small>Enter the combined area of any un-tiled openings in the same unit system.</small></div>' +
       '<div class="calc-field"><label for="tile-waste">Extra allowance (optional, your choice %)</label><input id="tile-waste" type="number" min="0" max="50" step="any" placeholder="Leave blank for none"></div>' +
       '<div class="calc-field"><label for="tile-length">Tile length (optional)</label><input id="tile-length" type="number" min="0" step="any" placeholder="From your tile"></div>' +
@@ -96,10 +146,14 @@
       '<div class="calc-field"><label for="tile-joint-unit">Joint unit</label><select id="tile-joint-unit"><option value="mm">Millimetres</option><option value="in">Inches</option></select></div>' +
       '<div class="calc-field"><label for="tile-box-coverage">Box coverage (optional, from product label)</label><input id="tile-box-coverage" type="number" min="0" step="any" placeholder="Enter label coverage"></div>' +
       '<div class="calc-field"><label for="tile-coverage-unit">Coverage unit on label</label><select id="tile-coverage-unit"><option value="m2">m²</option><option value="ft2">ft²</option></select></div></div>' +
+      '<div class="calc-grid"><div class="calc-field"><label for="tile-type">Tile type</label><select id="tile-type"><option value="">Choose a tile type</option><option value="ceramic-tile">Ceramic tile</option><option value="porcelain-tile">Porcelain tile</option></select><small>Prices use your selected country and this tile type only.</small></div>' +
+      '<div class="calc-field"><label id="tile-manual-price-label" for="tile-manual-price">Your material price per m² (optional)</label><input id="tile-manual-price" type="number" min="0" step="any" placeholder="Enter your local price"><small>Your price replaces the reference estimate. Use the currency shown for your selected country.</small></div>' +
+      '<div class="calc-field"><label for="tile-currency">Currency code</label><input id="tile-currency" type="text" readonly value=""></div></div>' +
+      '<details class="calc-advanced"><summary>Advanced: price per box (optional)</summary><div class="calc-grid"><div class="calc-field"><label for="tile-pack-price">Your price per box</label><input id="tile-pack-price" type="number" min="0" step="any" placeholder="Enter price from the shop"></div></div><p class="wp-note">This is a separate estimate using the box count above; it does not replace the per-area material estimate.</p></details>' +
       '<p class="calc-error" id="tile-error" role="alert"></p><button class="calc-btn" type="submit">Calculate tile quantity</button></form>' +
       '<div class="tool-result" id="tile-result" aria-live="polite"></div>' +
-      '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses your tile dimensions in the selected tile-size unit plus the joint width. Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. No prices, grout, mortar or installation materials are estimated.</p></section>';
-    var sections = doc.getElementById("tile-sections"), count = 1;
+      '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses your tile dimensions in the selected tile-size unit plus the joint width. Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. Material cost uses the selected exact-market tile reference or your own price per area. No default allowance, currency conversion, grout, mortar or installation cost is added.</p></section>';
+    var sections = doc.getElementById("tile-sections"), count = 1, priceRecords = null, sharedRoomApplied = false;
     function addSection(length, width) {
       count += 1;
       var row = doc.createElement("div"); row.className = "calc-grid tile-section";
@@ -169,6 +223,45 @@
         boxes.textContent = result.boxes === null ? "Box count not calculated: enter the coverage printed on your product label." :
           "Estimated boxes: " + result.boxes + " (using the label coverage only).";
         output.appendChild(boxes);
+        var areaUnit = result.lengthUnit === "ft" ? "sq ft" : "m²";
+        var cost = estimateMaterialCost({ records: priceRecords, country: win && win.hpwRegion, subtype: doc.getElementById("tile-type").value,
+          areaM2: result.adjustedAreaM2, areaFt2: result.adjustedAreaFt2, areaUnit: areaUnit,
+          manualPrice: doc.getElementById("tile-manual-price").value, packPrice: doc.getElementById("tile-pack-price").value,
+          boxes: result.boxes, now: new Date() });
+        var costTitle = doc.createElement("p"), costStrong = doc.createElement("strong");
+        costStrong.textContent = "Estimated tile material cost"; costTitle.appendChild(costStrong); output.appendChild(costTitle);
+        if (cost.areaCost) {
+          var total = cost.areaCost.low === cost.areaCost.high ? Currency.format(cost.areaCost.low, cost.currency) :
+            Currency.format(cost.areaCost.low, cost.currency) + "–" + Currency.format(cost.areaCost.high, cost.currency);
+          var costLine = doc.createElement("p");
+          costLine.textContent = total + " for " + fmt(cost.areaCost.quantity) + " " + cost.areaCost.quantityUnit +
+            (cost.kind === "manual" ? " (your price; replaces the reference range)." : " (approximate material-only estimate).");
+          output.appendChild(costLine);
+          if (cost.description) {
+            var sourceLine = doc.createElement("p"), desc = cost.description;
+            sourceLine.className = "wp-note";
+            sourceLine.textContent = (cost.displayOnly ? "Display only — " : "") +
+              (desc.sample ? "Based on " + desc.sample.count + " observed product listings; " + desc.sample.description + " " : "") +
+              "Source: " + desc.sourceName + ", observed " + desc.observedAt + ", retrieved " + desc.retrievedAt +
+              (desc.older ? " (older data)" : "") + ". " + (desc.caveats || "") + " " + (desc.notes || "") + " " + desc.disclaimer;
+            if (desc.url && /^https:\/\//.test(desc.url)) {
+              var sourceLink = doc.createElement("a"); sourceLink.href = desc.url; sourceLink.target = "_blank"; sourceLink.rel = "noopener";
+              sourceLink.textContent = "Source page"; sourceLine.appendChild(doc.createTextNode(" ")); sourceLine.appendChild(sourceLink);
+            }
+            output.appendChild(sourceLine);
+          }
+        } else {
+          var noPrice = doc.createElement("p"); noPrice.className = "wp-note";
+          noPrice.textContent = cost.message || "No price is shown until a supported country and a source or your own price are available.";
+          output.appendChild(noPrice);
+        }
+        if (doc.getElementById("tile-pack-price").value !== "") {
+          var packLine = doc.createElement("p"); packLine.className = "wp-note";
+          packLine.textContent = cost.packTotal !== null ? "Separate pack-price estimate: " + Currency.format(cost.packTotal, cost.currency) +
+            " (" + cost.packCount + " boxes × " + Currency.format(Number(doc.getElementById("tile-pack-price").value), cost.currency) + " per box)." :
+            (cost.packMessage || "Choose a country and enter box coverage to calculate the separate pack-price estimate.");
+          output.appendChild(packLine);
+        }
       } catch (err) { error.textContent = err.message; }
     });
     var touched = {};
@@ -188,8 +281,65 @@
     doc.getElementById("tile-unit").addEventListener("change", applyUnitDefaults);
     var useRoom = doc.getElementById("tile-use-room");
     useRoom.addEventListener("click", applyUnitDefaults);
-    return { calculate: calculate, defaultUnits: defaultUnits };
+    var manualLabel = doc.getElementById("tile-manual-price-label"), manualPrice = doc.getElementById("tile-manual-price");
+    function syncCurrency(clearManual) {
+      var code = Currency && Currency.codeForMarket ? Currency.codeForMarket(win && win.hpwRegion) : "";
+      doc.getElementById("tile-currency").value = code;
+      if (clearManual) {
+        manualPrice.value = "";
+        doc.getElementById("tile-pack-price").value = "";
+        doc.getElementById("tile-result").textContent = "";
+      }
+    }
+    function updateManualUnit() {
+      if (manualLabel) manualLabel.textContent = "Your material price per " + (doc.getElementById("tile-unit").value === "ft" ? "ft²" : "m²") + " (optional)";
+    }
+    function applySharedRoom(room) {
+      if (!room || !(Number(room.length) > 0) || !(Number(room.width) > 0)) return false;
+      doc.getElementById("tile-unit").value = room.unit === "ft" ? "ft" : "m";
+      var rows = sections.querySelectorAll(".tile-section");
+      if (!rows.length) return false;
+      rows[0].querySelector(".tile-length").value = room.length;
+      rows[0].querySelector(".tile-width").value = room.width;
+      Array.prototype.slice.call(rows, 1).forEach(function (r) { r.remove(); });
+      count = 1; sharedRoomApplied = true;
+      doc.getElementById("tile-room-note").hidden = false;
+      applyUnitDefaults(); updateManualUnit();
+      return true;
+    }
+    function syncSharedRoomFromFields() {
+      var length = doc.getElementById("room-length"), width = doc.getElementById("room-width"), unit = doc.getElementById("room-unit");
+      if (!length || !width || !unit) return;
+      if (Number(length.value) > 0 && Number(width.value) > 0) {
+        applySharedRoom({ length: length.value, width: width.value, unit: unit.value });
+      } else if (sharedRoomApplied && length.value === "" && width.value === "") {
+        sections.querySelectorAll(".tile-section").forEach(function (row) {
+          row.querySelector(".tile-length").value = ""; row.querySelector(".tile-width").value = "";
+        });
+        sharedRoomApplied = false; doc.getElementById("tile-room-note").hidden = true;
+      }
+    }
+    doc.addEventListener("input", function (event) {
+      if (event.target && /^(room-length|room-width|room-unit)$/.test(event.target.id || "")) syncSharedRoomFromFields();
+    });
+    doc.addEventListener("change", function (event) {
+      if (event.target && /^(room-length|room-width|room-unit)$/.test(event.target.id || "")) syncSharedRoomFromFields();
+    });
+    if (win && win.addEventListener) {
+      win.addEventListener("hpw-room", function () { applySharedRoom(win.hpwRoom); });
+      win.addEventListener("hpw-region", function () { syncCurrency(true); });
+    }
+    doc.getElementById("tile-unit").addEventListener("change", updateManualUnit);
+    syncCurrency(false); updateManualUnit();
+    if (win && win.hpwRoom) applySharedRoom(win.hpwRoom);
+    if (win && typeof win.fetch === "function") {
+      win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (response) {
+        return response && response.ok ? response.json() : null;
+      }).then(function (records) { if (Array.isArray(records)) priceRecords = records; }).catch(function () {});
+    }
+    return { calculate: calculate, defaultUnits: defaultUnits, selectTileReference: selectTileReference, estimateMaterialCost: estimateMaterialCost,
+      applySharedRoom: applySharedRoom };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) init(document, window);
-  return { calculate: calculate, defaultUnits: defaultUnits, formatArea: formatArea, init: init };
+  return { calculate: calculate, defaultUnits: defaultUnits, formatArea: formatArea, selectTileReference: selectTileReference, estimateMaterialCost: estimateMaterialCost, init: init };
 }));
