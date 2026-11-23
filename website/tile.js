@@ -1,4 +1,4 @@
-/* Tile quantity estimator. Quantity only: visitor-entered dimensions, joint, waste and label coverage; no prices or hidden allowance. */
+/* Tile quantity and exact-market material-cost estimator. No hidden geometry, waste or price assumptions. */
 (function (root, factory) {
   if (typeof module === "object" && module.exports) module.exports = factory(typeof globalThis !== "undefined" ? globalThis : root);
   else root.HPWTile = factory(root);
@@ -80,7 +80,7 @@
     return { primary: preferredUnit === "ft" ? imperial : metric, metric: metric, imperial: imperial };
   }
   function selectTileReference(records, country, subtype) {
-    if (!RP || !country || !subtype) return { ok: false, message: RP ? RP.NO_REFERENCE : "No reference range yet." };
+    if (!RP || !country || !subtype || ["ceramic-tile", "porcelain-tile"].indexOf(subtype) === -1) return { ok: false, message: RP ? RP.NO_REFERENCE : "No reference range yet." };
     var query = { country: country, category: "flooring", subtype: subtype };
     var selected = RP.select(records || [], query);
     if (!selected.ok && typeof RP.selectDisplayOnly === "function") {
@@ -108,7 +108,9 @@
       result.message = "Your entered price replaces the reference range.";
     } else {
       var selected = selectTileReference(input.records, country, input.subtype);
-      if (!selected.ok) {
+      if (!input.subtype) {
+        result.message = "Choose ceramic or porcelain tile to check the exact-market reference. You can still enter your own local price per " + areaUnit + ".";
+      } else if (!selected.ok) {
         result.message = "No reference range is available for this tile type in " + country + ". Enter your own local price per " + areaUnit + "; no price from another country is substituted.";
       } else {
         var areaCost = RP.areaCost(selected.record, area, areaUnit);
@@ -132,7 +134,7 @@
     if (!host) return null;
     host.innerHTML =
       '<section class="wp-room" aria-labelledby="tile-title"><h3 id="tile-title">Tile quantity</h3>' +
-      '<p class="wp-note">Measure each rectangular floor area and subtract openings. Tile count uses the dimensions and joint you enter; box count uses coverage printed on your product label. No prices or hidden allowance are added.</p>' +
+      '<p class="wp-note">Measure each rectangular floor area and subtract any untiled floor openings. Tile count uses the dimensions and joint you enter. Material prices appear only when a source exists for your selected country and tile type; no allowance is added unless you enter one.</p>' +
       '<form class="calc" id="tile-form" novalidate>' +
       '<div class="calc-grid"><div class="calc-field"><label for="tile-unit">Floor measurements</label><select id="tile-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div></div>' +
       '<div id="tile-sections"><div class="calc-grid tile-section"><div class="calc-field"><label for="tile-length-1">Area 1 length</label><input id="tile-length-1" class="tile-length" type="number" min="0" step="any" required></div><div class="calc-field"><label for="tile-width-1">Area 1 width</label><input id="tile-width-1" class="tile-width" type="number" min="0" step="any" required></div></div></div>' +
@@ -144,12 +146,13 @@
       '<div class="calc-field"><label for="tile-size-unit">Tile size unit</label><select id="tile-size-unit"><option value="mm">Millimetres (mm)</option><option value="cm" selected>Centimetres (cm)</option><option value="in">Inches (in)</option><option value="m">Metres (m)</option><option value="ft">Feet (ft)</option></select></div>' +
       '<div class="calc-field"><label for="tile-joint">Joint width (optional)</label><input id="tile-joint" type="number" min="0" step="any" placeholder="Your chosen joint"></div>' +
       '<div class="calc-field"><label for="tile-joint-unit">Joint unit</label><select id="tile-joint-unit"><option value="mm">Millimetres</option><option value="in">Inches</option></select></div>' +
-      '<div class="calc-field"><label for="tile-box-coverage">Box coverage (optional, from product label)</label><input id="tile-box-coverage" type="number" min="0" step="any" placeholder="Enter label coverage"></div>' +
-      '<div class="calc-field"><label for="tile-coverage-unit">Coverage unit on label</label><select id="tile-coverage-unit"><option value="m2">m²</option><option value="ft2">ft²</option></select></div></div>' +
+      '</div>' +
       '<div class="calc-grid"><div class="calc-field"><label for="tile-type">Tile type</label><select id="tile-type"><option value="">Choose a tile type</option><option value="ceramic-tile">Ceramic tile</option><option value="porcelain-tile">Porcelain tile</option></select><small>Prices use your selected country and this tile type only.</small></div>' +
-      '<div class="calc-field"><label id="tile-manual-price-label" for="tile-manual-price">Your material price per m² (optional)</label><input id="tile-manual-price" type="number" min="0" step="any" placeholder="Enter your local price"><small>Your price replaces the reference estimate. Use the currency shown for your selected country.</small></div>' +
+      '<div class="calc-field"><label id="tile-manual-price-label" for="tile-manual-price">Your material price per m² (optional)</label><input id="tile-manual-price" type="number" min="0.01" step="any" placeholder="Enter your local price"><small>Your price replaces the reference estimate. Use the currency shown for your selected country.</small></div>' +
       '<div class="calc-field"><label for="tile-currency">Currency code</label><input id="tile-currency" type="text" readonly value=""></div></div>' +
-      '<details class="calc-advanced"><summary>Advanced: price per box (optional)</summary><div class="calc-grid"><div class="calc-field"><label for="tile-pack-price">Your price per box</label><input id="tile-pack-price" type="number" min="0" step="any" placeholder="Enter price from the shop"></div></div><p class="wp-note">This is a separate estimate using the box count above; it does not replace the per-area material estimate.</p></details>' +
+      '<details class="calc-advanced"><summary>Advanced: pack details and price (optional)</summary><div class="calc-grid"><div class="calc-field"><label for="tile-box-coverage">Box coverage (from product label)</label><input id="tile-box-coverage" type="number" min="0" step="any" placeholder="Enter label coverage"></div>' +
+      '<div class="calc-field"><label for="tile-coverage-unit">Coverage unit on label</label><select id="tile-coverage-unit"><option value="m2">m²</option><option value="ft2">ft²</option></select></div>' +
+      '<div class="calc-field"><label for="tile-pack-price">Your price per box</label><input id="tile-pack-price" type="number" min="0.01" step="any" placeholder="Enter price from the shop"></div></div><p class="wp-note">Box count uses label coverage only. The pack-price estimate is separate and does not replace the per-area material estimate.</p></details>' +
       '<p class="calc-error" id="tile-error" role="alert"></p><button class="calc-btn" type="submit">Calculate tile quantity</button></form>' +
       '<div class="tool-result" id="tile-result" aria-live="polite"></div>' +
       '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses your tile dimensions in the selected tile-size unit plus the joint width. Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. Material cost uses the selected exact-market tile reference or your own price per area. No default allowance, currency conversion, grout, mortar or installation cost is added.</p></section>';
