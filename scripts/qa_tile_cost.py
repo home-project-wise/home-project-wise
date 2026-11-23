@@ -49,6 +49,10 @@ with sync_playwright() as p:
         check("UK ceramic estimate uses exact-market range at %dpx" % width,
               "GBP 240.00–GBP 1,012.00" in result and "Source:" in result, result)
         check("no hidden waste allowance at %dpx" % width, "no extra allowance added" in result.lower(), result)
+        page.select_option("#tile-type", "porcelain-tile")
+        check("changing tile type clears the previous reference result at %dpx" % width, page.inner_text("#tile-result") == "")
+        page.select_option("#tile-type", "ceramic-tile")
+        page.click("#tile-form button[type=submit]")
 
         # Visitor price replaces, not blends with, the reference.
         page.fill("#tile-manual-price", "25")
