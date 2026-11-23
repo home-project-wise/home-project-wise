@@ -290,10 +290,12 @@
     var useRoom = doc.getElementById("tile-use-room");
     useRoom.addEventListener("click", applyUnitDefaults);
     var manualLabel = doc.getElementById("tile-manual-price-label"), manualPrice = doc.getElementById("tile-manual-price");
+    var packPriceField = doc.getElementById("tile-pack-price");
     var lastManualUnit = doc.getElementById("tile-unit").value;
     function syncCurrency(clearManual) {
       var code = Currency && Currency.codeForMarket ? Currency.codeForMarket(win && win.hpwRegion) : "";
       doc.getElementById("tile-currency").value = code;
+      manualPrice.disabled = !code; packPriceField.disabled = !code;
       if (clearManual) {
         manualPrice.value = "";
         doc.getElementById("tile-pack-price").value = "";
