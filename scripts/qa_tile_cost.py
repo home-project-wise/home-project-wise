@@ -35,6 +35,10 @@ with sync_playwright() as p:
         check("shared room fills tile dimensions automatically at %dpx" % width,
               page.input_value("#tile-length-1") == "5" and page.input_value("#tile-width-1") == "4" and not page.locator("#tile-room-note").is_hidden())
         check("shared room wall openings are not reused as floor openings at %dpx" % width, page.input_value("#tile-openings") == "0")
+        page.fill("#room-width", "")
+        check("incomplete shared room clears stale tile dimensions at %dpx" % width,
+              page.input_value("#tile-length-1") == "" and page.input_value("#tile-width-1") == "")
+        page.fill("#room-width", "4")
 
         # UK ceramic: 5 x 4 m = 20 m2; source range 12 to 50.60 GBP/m2 => GBP 240 to 1,012.
         page.select_option("#region-country", "UK")
