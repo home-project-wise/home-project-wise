@@ -282,6 +282,7 @@
     var useRoom = doc.getElementById("tile-use-room");
     useRoom.addEventListener("click", applyUnitDefaults);
     var manualLabel = doc.getElementById("tile-manual-price-label"), manualPrice = doc.getElementById("tile-manual-price");
+    var lastManualUnit = doc.getElementById("tile-unit").value;
     function syncCurrency(clearManual) {
       var code = Currency && Currency.codeForMarket ? Currency.codeForMarket(win && win.hpwRegion) : "";
       doc.getElementById("tile-currency").value = code;
@@ -292,7 +293,13 @@
       }
     }
     function updateManualUnit() {
-      if (manualLabel) manualLabel.textContent = "Your material price per " + (doc.getElementById("tile-unit").value === "ft" ? "ft²" : "m²") + " (optional)";
+      var currentUnit = doc.getElementById("tile-unit").value;
+      if (currentUnit !== lastManualUnit && manualPrice.value !== "") {
+        manualPrice.value = "";
+        doc.getElementById("tile-result").textContent = "";
+      }
+      lastManualUnit = currentUnit;
+      if (manualLabel) manualLabel.textContent = "Your material price per " + (currentUnit === "ft" ? "ft²" : "m²") + " (optional)";
     }
     function applySharedRoom(room) {
       if (!room || !(Number(room.length) > 0) || !(Number(room.width) > 0)) return false;
