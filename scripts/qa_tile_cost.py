@@ -66,7 +66,6 @@ with sync_playwright() as p:
 
         # A separate pack price uses the computed boxes only; it does not replace the per-area estimate.
         page.select_option("#tile-type", "ceramic-tile")
-        page.locator("#tile-form details summary").click()
         page.fill("#tile-box-coverage", "1.5")
         page.select_option("#tile-coverage-unit", "m2")
         page.fill("#tile-pack-price", "10")
