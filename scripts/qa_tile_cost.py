@@ -56,6 +56,9 @@ with sync_playwright() as p:
         result = page.inner_text("#tile-result")
         check("manual per-area price replaces reference at %dpx" % width,
               "GBP 500.00" in result and "your price; replaces the reference range" in result, result)
+        page.select_option("#tile-type", "porcelain-tile")
+        check("changing tile type clears product-specific manual price at %dpx" % width,
+              page.input_value("#tile-manual-price") == "" and page.inner_text("#tile-result") == "")
 
         # Market change clears manual and pack prices; Netherlands has no porcelain reference.
         page.locator("#tile-form details summary").click()
