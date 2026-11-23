@@ -18,6 +18,7 @@ jobs:
           node scripts/test_room_to_ready.js
           node scripts/test_soil_mulch.js
           node scripts/test_tile.js
+          node scripts/test_tile_cost.js
           node scripts/test_currency.js
           node scripts/test_home_calculator.js
           node scripts/test_project_list.js
