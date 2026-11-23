@@ -237,7 +237,9 @@
           var total = cost.areaCost.low === cost.areaCost.high ? Currency.format(cost.areaCost.low, cost.currency) :
             Currency.format(cost.areaCost.low, cost.currency) + "–" + Currency.format(cost.areaCost.high, cost.currency);
           var costLine = doc.createElement("p");
-          costLine.textContent = total + " for " + fmt(cost.areaCost.quantity) + " " + cost.areaCost.quantityUnit +
+          var pricedArea = areaUnit === "sq ft" ? result.adjustedAreaFt2 : result.adjustedAreaM2;
+          costLine.textContent = total + " for " + fmt(pricedArea) + " " + areaUnit +
+            (result.wastePercent ? " (includes your " + fmt(result.wastePercent) + "% extra allowance)" : " (no extra allowance added)") +
             (cost.kind === "manual" ? " (your price; replaces the reference range)." : " (approximate material-only estimate).");
           output.appendChild(costLine);
           if (cost.description) {
