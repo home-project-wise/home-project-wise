@@ -2,7 +2,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const Tile = require("../website/tile.js");
-const RP = require("../website/reference-prices.js");
 const Currency = require("../website/currency.js");
 const records = require("../data/reference_prices.json");
 
@@ -14,6 +13,7 @@ test("UK ceramic tile uses the exact-market GBP per-m² range", () => {
   assert.equal(selected.record.currency, "GBP");
   assert.equal(selected.record.unit, "m²");
   assert.deepEqual([selected.record.low, selected.record.high], [12, 50.6]);
+  assert.equal(Tile.selectTileReference(records, "UK", "laminate").ok, false);
   const cost = Tile.estimateMaterialCost({ records, country: "UK", subtype: "ceramic-tile", ...area, areaUnit: "m²" });
   assert.deepEqual([cost.kind, cost.currency, cost.areaCost.low, cost.areaCost.high], ["reference", "GBP", 216, 910.8]);
   assert.equal(cost.displayOnly, false);
