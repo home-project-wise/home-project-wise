@@ -53,6 +53,7 @@ with sync_playwright() as p:
               "GBP 500.00" in result and "your price; replaces the reference range" in result, result)
 
         # Market change clears manual and pack prices; Netherlands has no porcelain reference.
+        page.locator("#tile-form details summary").click()
         page.fill("#tile-pack-price", "10")
         page.select_option("#region-country", "Netherlands")
         check("market change clears prices and updates currency at %dpx" % width,
@@ -65,6 +66,7 @@ with sync_playwright() as p:
 
         # A separate pack price uses the computed boxes only; it does not replace the per-area estimate.
         page.select_option("#tile-type", "ceramic-tile")
+        page.locator("#tile-form details summary").click()
         page.fill("#tile-box-coverage", "1.5")
         page.select_option("#tile-coverage-unit", "m2")
         page.fill("#tile-pack-price", "10")
@@ -85,6 +87,10 @@ with sync_playwright() as p:
               page.input_value("#tile-unit") == "ft" and "USD 129.60–USD 310.80" in result, result)
         check("manual price label follows square-foot unit at %dpx" % width,
               "Your material price per ft²" in page.locator("#tile-manual-price-label").inner_text())
+        page.fill("#tile-manual-price", "2")
+        page.select_option("#tile-unit", "m")
+        check("manual per-area price clears when its unit changes at %dpx" % width, page.input_value("#tile-manual-price") == "")
+        page.select_option("#tile-unit", "ft")
 
         # Display-only sample remains explicit.
         page.select_option("#tile-type", "porcelain-tile")
