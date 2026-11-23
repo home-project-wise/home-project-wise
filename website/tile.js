@@ -133,7 +133,7 @@
     var host = doc.getElementById("tile-root");
     if (!host) return null;
     host.innerHTML =
-      '<section class="wp-room" aria-labelledby="tile-title"><h3 id="tile-title">Tile quantity</h3>' +
+      '<section class="wp-room" aria-labelledby="tile-title"><h3 id="tile-title">Tile quantity and material cost</h3>' +
       '<p class="wp-note">Measure each rectangular floor area and subtract any untiled floor openings. Tile count uses the dimensions and joint you enter. Material prices appear only when a source exists for your selected country and tile type; no allowance is added unless you enter one.</p>' +
       '<form class="calc" id="tile-form" novalidate>' +
       '<div class="calc-grid"><div class="calc-field"><label for="tile-unit">Floor measurements</label><select id="tile-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div></div>' +
@@ -153,7 +153,7 @@
       '<details class="calc-advanced"><summary>Advanced: pack details and price (optional)</summary><div class="calc-grid"><div class="calc-field"><label for="tile-box-coverage">Box coverage (from product label)</label><input id="tile-box-coverage" type="number" min="0" step="any" placeholder="Enter label coverage"></div>' +
       '<div class="calc-field"><label for="tile-coverage-unit">Coverage unit on label</label><select id="tile-coverage-unit"><option value="m2">m²</option><option value="ft2">ft²</option></select></div>' +
       '<div class="calc-field"><label for="tile-pack-price">Your price per box</label><input id="tile-pack-price" type="number" min="0.01" step="any" placeholder="Enter price from the shop"></div></div><p class="wp-note">Box count uses label coverage only. The pack-price estimate is separate and does not replace the per-area material estimate.</p></details>' +
-      '<p class="calc-error" id="tile-error" role="alert"></p><button class="calc-btn" type="submit">Calculate tile quantity</button></form>' +
+      '<p class="calc-error" id="tile-error" role="alert"></p><button class="calc-btn" type="submit">Calculate tile quantity and cost</button></form>' +
       '<div class="tool-result" id="tile-result" aria-live="polite"></div>' +
       '<p class="formula">Net area = total measured rectangular areas − opening area. Tile count uses your tile dimensions in the selected tile-size unit plus the joint width. Box count uses only the coverage you enter from the product label. Extra allowance is optional and never pre-filled. Material cost uses the selected exact-market tile reference or your own price per area. No default allowance, currency conversion, grout, mortar or installation cost is added.</p></section>';
     var sections = doc.getElementById("tile-sections"), count = 1, priceRecords = null, sharedRoomApplied = false;
