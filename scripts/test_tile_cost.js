@@ -105,7 +105,7 @@ test("manual and pack prices must be positive and no missing price is returned a
   assert.throws(() => Tile.estimateMaterialCost({ ...base, manualPrice: "0" }), /greater than zero/);
   assert.throws(() => Tile.estimateMaterialCost({ ...base, manualPrice: "-1" }), /greater than zero/);
   assert.throws(() => Tile.estimateMaterialCost({ ...base, packPrice: "0" }), /greater than zero/);
-  const missing = Tile.estimateMaterialCost({ ...base, subtype: "porcelain-tile" });
+  const missing = Tile.estimateMaterialCost({ ...base, country: "Netherlands", subtype: "porcelain-tile" });
   assert.equal(missing.areaCost, null);
-  assert.notEqual(missing.areaCost && missing.areaCost.low, 0);
+  assert.equal(missing.kind, "unpriced");
 });
