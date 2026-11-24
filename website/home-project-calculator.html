@@ -235,6 +235,12 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 function byId(id){return document.getElementById(id);}
 function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
 function error(id,msg){byId(id).textContent=msg;}
+function appendSanityWarning(id,message){
+ var target=byId(id);if(!target||!message)return;
+ var note=document.createElement('p');note.className='wp-note';note.setAttribute('role','status');
+ var heading=document.createElement('strong');heading.textContent='Does this look right? ';
+ note.appendChild(heading);note.appendChild(document.createTextNode(message));target.appendChild(note);
+}
 /* Wallpaper tab: DOM adapter only. All arithmetic lives in wallpaper-calculator-engine.js and project-estimator-engine.js. Nothing is stored, logged or sent. */
 var WP=window.HomeProjectWiseWallpaper,EST=window.HPWProjectEstimator,wpRoomN=0,wpWallN=0,wpLast=null;
 function wpEl(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e;}
@@ -354,6 +360,7 @@ byId('measure-form').addEventListener('submit',function(e){e.preventDefault();er
  var factor=u==='ft'?0.3048:1,area=L*W,per=2*(L+W),volume=D===null?null:area*D;
  var m2=area*factor*factor,ft2=m2*10.7639104167,perM=per*factor,volM3=volume===null?null:volume*factor*factor*factor;
  show('measure-result','<strong>Floor area: '+fmt(m2)+' m²</strong> ('+fmt(ft2)+' ft²)<br>Perimeter: '+fmt(perM)+' m ('+fmt(perM/0.3048)+' ft)'+(volM3===null?'':'<br>Volume: '+fmt(volM3)+' m³ ('+fmt(volM3*35.3146667)+' ft³)'));
+ if(D===0)appendSanityWarning('measure-result','Depth is 0, so the volume is 0. Check whether that was intentional.');
 });
 function updatePaintUnits(){var s=byId('paint-unit').value==='ft'?'ft²':'m²';document.querySelectorAll('.paint-area-unit').forEach(function(el){el.textContent=s;});}
 byId('paint-unit').addEventListener('change',updatePaintUnits);
@@ -401,6 +408,10 @@ byId('energy-form').addEventListener('submit',function(e){e.preventDefault();err
  var c=byId('energy-currency').value.trim();if(!c){error('energy-error','Choose your country at the top so the electricity price is labelled with the correct currency.');return;}
  var kwh=value('energy-watts')/1000*value('energy-hours')*value('energy-days'),daily=value('energy-watts')/1000*value('energy-hours'),rate=value('energy-rate');
  show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
+ var energyWarnings=[];
+ if(value('energy-hours')===0)energyWarnings.push('Hours used per day is 0, so estimated energy use and cost are 0. Check whether that was intentional.');
+ if(byId('energy-days').value===''||value('energy-days')===0)energyWarnings.push(byId('energy-days').value===''?'Days used per month is blank and is being read as 0, so estimated monthly energy use and cost are 0. Enter the number of days if the appliance is used.':'Days used per month is 0, so estimated monthly energy use and cost are 0. Check whether that was intentional.');
+ if(energyWarnings.length)appendSanityWarning('energy-result',energyWarnings.join(' '));
 });
 byId('project-form').addEventListener('submit',function(e){e.preventDefault();error('project-error','');show('project-result','');
  if(['project-quantity','project-unit-price','project-extra','project-contingency'].some(function(id){return byId(id).value==='';})){error('project-error','Fill in quantity, price per unit, other costs and contingency (0 is allowed for the last three). Tax may stay empty.');return;}
@@ -408,6 +419,7 @@ byId('project-form').addEventListener('submit',function(e){e.preventDefault();er
  var c=byId('project-currency').value.trim();if(!c){error('project-error','Choose your country at the top so the project prices use the correct currency.');return;}
  var base=value('project-quantity')*value('project-unit-price')+value('project-extra'),reserve=base*value('project-contingency')/100,tax=(base+reserve)*value('project-tax')/100,total=base+reserve+tax;
  show('project-result','Materials and extras: <strong>'+money(base,c)+'</strong><br>Contingency: '+money(reserve,c)+'<br>Estimated tax: '+money(tax,c)+'<br>Estimated project total: <strong>'+money(total,c)+'</strong>');
+ if(value('project-unit-price')===0)appendSanityWarning('project-result','Price per unit is 0, so this item contributes no material cost. Check whether you meant to enter a price.');
 });
 })();
 </script></body></html>
