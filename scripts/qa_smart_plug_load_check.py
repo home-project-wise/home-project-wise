@@ -17,7 +17,7 @@ with sync_playwright() as p:
     browser=p.chromium.launch(args=["--no-sandbox"])
     for width in (320,390,1280):
         context=browser.new_context(viewport={"width":width,"height":900})
-        context.route("**/*",lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
+        context.route("**/*",lambda route: route.fulfill(status=200,content_type="application/javascript",body="") if "gc.zgo.at" in route.request.url else (route.continue_() if route.request.url.startswith(BASE) else route.abort()))
         page=context.new_page(); errors=[]; console=[]
         page.on("pageerror",lambda e: errors.append(str(e)))
         page.on("console",lambda m: console.append(m.text) if m.type=="error" else None)
@@ -66,7 +66,7 @@ with sync_playwright() as p:
     page.get_by_role("button",name="Add another device").focus()
     page.keyboard.press("Enter")
     check("keyboard Enter adds another device",page.locator("#device-rows .device-row").count()==2)
-    page.locator("#device-rows .device-row").nth(1).get_by_role("button",name="Remove device 3").click()
+    page.locator("#device-rows .device-row").nth(1).get_by_role("button",name="Remove device 2").click()
     check("remove button removes only its device",page.locator("#device-rows .device-row").count()==1)
     context.close();browser.close()
 server.shutdown()
