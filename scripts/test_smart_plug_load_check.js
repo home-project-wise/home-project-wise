@@ -1,0 +1,14 @@
+"use strict";
+const assert=require("node:assert/strict"),api=require("../website/smart-plug-load-check.js");let n=0;
+function t(name,fn){fn();n++;console.log("PASS "+name);}const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,a+" !== "+b),us={volts:120,amps:15};
+t("15 A × 120 V = 1,800 W; 80% = 1,440 W",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:12}]});close(r.plugLimitW,1800);close(r.screeningLimitW,1440);});
+t("three devices are summed before comparison: 12 + 65 + 150 = 227 W",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:12},{deviceId:"charger",mode:"w",value:65},{deviceId:"tv",mode:"w",value:150}]});close(r.totalW,227);assert.equal(r.level,"green");});
+t("exact 80% is not over the screening line",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:1440}]});close(r.totalW,1440);assert.equal(r.level,"green");});
+t("just above 80% is not recommended",()=>{assert.equal(api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:1441}]}).level,"red");});
+t("2,300 W plug example has 1,840 W screening line",()=>{const r=api.calculate({plug:{volts:230,amps:10},devices:[{deviceId:"lamp",mode:"w",value:100}]});close(r.plugLimitW,2300);close(r.screeningLimitW,1840);});
+t("amps convert to watts using plug voltage",()=>{close(api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"a",value:.5}]}).totalW,60);});
+t("combined load above plug rating is red",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:1000},{deviceId:"router",mode:"w",value:900}]});assert.match(r.title,/Over the plug's rating/);});
+t("heat devices, fridges and critical devices retain red stop verdicts",()=>{for(const id of ["heater","kettle","fridge","critical"])assert.equal(api.calculate({plug:us,devices:[{deviceId:id,mode:id==="heater"||id==="kettle"?"t":"w",value:5}]}).level,"red");});
+t("motors and power strips retain amber verdicts below the line",()=>{for(const id of ["ac","strip"])assert.equal(api.calculate({plug:us,devices:[{deviceId:id,mode:"w",value:100}]}).level,"amber");});
+t("invalid plug, no devices and invalid values are rejected",()=>{assert.equal(api.calculate({plug:{volts:0,amps:15},devices:[{deviceId:"lamp",mode:"w",value:1}]}).ok,false);assert.equal(api.calculate({plug:us,devices:[]}).ok,false);assert.equal(api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:0}]}).ok,false);});
+console.log(n+" Smart Plug load-check fixtures passed");
