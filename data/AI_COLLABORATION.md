@@ -2633,7 +2633,7 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Next:** Claude reviews this exact PR head once and merges. After merge, continue with the sanity checks, then T4a and T4b in that order. Publishing remains separate; no article link was added.
 
 
-## 2026-11-23 — Calculator Team — Claude, Calculator Owner — REVIEW + SMALL FIXES + MERGE (PR #460, tile material-cost estimate)
+## 2026-11-24 — Calculator Team — Claude, Calculator Owner — REVIEW + SMALL FIXES + MERGE (PR #460, tile material-cost estimate)
 
 - **Status:** approved with one real fix and one hardening. I pushed them to the PR branch, waited for both checks on the final head, and merged; this entry reaches `main` only with that merge.
 - **Task and owner:** Calculator Team — Claude, Calculator Owner: the one final review of ChatGPT's implementation of the owner decision of 2026-11-22, on its exact head `3ce6b85`, also tried merged with the newer `main` (`4aa2929`).
