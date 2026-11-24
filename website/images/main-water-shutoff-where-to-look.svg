@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Cutaway of a house showing the street main, the utility meter, and the main shutoff valve just inside where the water pipe enters" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+<rect width="960" height="540" fill="#F7F5F0"/>
+<text x="480" y="40" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">Follow the pipe from the street to the wall</text>
+<rect x="0" y="300" width="960" height="240" fill="#EFEADF"/>
+<line x1="0" y1="300" x2="960" y2="300" stroke="#243238" stroke-width="3"/>
+<polygon points="500,130 710,60 920,130" fill="#E4ECE8" stroke="#243238" stroke-width="3" stroke-linejoin="round"/>
+<rect x="520" y="130" width="380" height="170" fill="#fff" stroke="#243238" stroke-width="3"/>
+<rect x="520" y="300" width="380" height="170" fill="#F3F6F4" stroke="#243238" stroke-width="3"/>
+<rect x="660" y="226" width="100" height="22" rx="4" fill="#fff" stroke="#243238" stroke-width="3"/>
+<line x1="710" y1="226" x2="710" y2="200" stroke="#243238" stroke-width="5" stroke-linecap="round"/>
+<path d="M710 200 q0 -20 22 -20" fill="none" stroke="#243238" stroke-width="5" stroke-linecap="round"/>
+<line x1="60" y1="440" x2="700" y2="440" stroke="#243238" stroke-width="10" stroke-linecap="round"/>
+<line x1="700" y1="440" x2="700" y2="248" stroke="#243238" stroke-width="10" stroke-linecap="round"/>
+<rect x="290" y="400" width="100" height="80" rx="8" fill="#fff" stroke="#243238" stroke-width="3"/>
+<circle cx="340" cy="440" r="22" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="340" y="378" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Meter or street valve</text>
+<text x="340" y="502" font-size="16" font-weight="500" fill="#5b6b70" text-anchor="middle">usually the utility's</text>
+<text x="60" y="415" font-size="20" font-weight="700" fill="#243238">Street main</text>
+<text x="440" y="508" font-size="20" font-weight="700" fill="#243238">Pipe enters the home</text>
+<line x1="470" y1="490" x2="518" y2="446" stroke="#243238" stroke-width="3" stroke-linecap="round"/>
+<polygon points="575,426 575,454 590,440" fill="#B5482F"/>
+<polygon points="605,426 605,454 590,440" fill="#B5482F"/>
+<line x1="590" y1="440" x2="590" y2="414" stroke="#B5482F" stroke-width="5" stroke-linecap="round"/>
+<line x1="574" y1="414" x2="606" y2="414" stroke="#B5482F" stroke-width="6" stroke-linecap="round"/>
+<circle cx="590" cy="440" r="40" fill="none" stroke="#B5482F" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="530" y="346" font-size="22" font-weight="700" fill="#B5482F">Main shutoff</text>
+<text x="530" y="370" font-size="17" font-weight="500" fill="#B5482F">first valve inside</text>
+<line x1="575" y1="378" x2="586" y2="402" stroke="#B5482F" stroke-width="3" stroke-linecap="round"/>
+</svg>

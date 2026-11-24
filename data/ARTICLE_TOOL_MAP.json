@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-22",
+  "updated": "2026-11-24",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -122,6 +122,16 @@
       "prefill": {},
       "reason": "The existing Wallpaper panel is the matching destination. It must not imply exact roll counts unless product dimensions, pattern repeat and cut-yield inputs are supplied.",
       "linkStatus": "already_linked"
+    },
+    {
+      "slug": "how-to-find-and-operate-your-main-water-shutoff",
+      "path": "website/articles/how-to-find-and-operate-your-main-water-shutoff.html",
+      "class": "C",
+      "decisionSentence": "Find where the water pipe enters the building.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article is about locating, identifying, testing and labelling the main shutoff valve. Its only numbers are WaterSafe's six-month and American Water's annual test intervals and the quarter-turn and half-turn back-off advice, which are quoted guidance and not an input to a calculation. The leak-sensor spot planner belongs to the sensor-placement guide, not to a valve-finding guide."
     },
     {
       "slug": "how-to-fix-a-squeaky-wood-floor",
@@ -508,9 +518,9 @@
     }
   ],
   "summary": {
-    "articleCount": 47,
+    "articleCount": 48,
     "classCounts": {
-      "C": 33,
+      "C": 34,
       "A": 8,
       "B": 6
     },
@@ -521,7 +531,8 @@
       "Class C is intentional; do not force a tool link where the existing tool does not answer the article's central decision.",
       "The flooring transition-strip article is C: its central decision is profile selection by measured height difference, not length/pack arithmetic.",
       "The large drywall-patch article is C: its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate follow-on for visitor-entered costing after repair choices are independently made.",
-      "The drywall-anchor article remains C for load safety but may link to T2 only as a separate placement aid."
+      "The drywall-anchor article remains C for load safety but may link to T2 only as a separate placement aid.",
+      "Updated 2026-11-24: how-to-find-and-operate-your-main-water-shutoff added as class C (locating, testing and labelling a valve; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
