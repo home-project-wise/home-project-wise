@@ -30,6 +30,8 @@ jobs:
         run: python scripts/visual_qa.py
       - name: Run hand-computed fixtures for the inline-script tools
         run: python scripts/qa_inline_tool_fixtures.py
+      - name: Run warnings-only calculator sanity checks
+        run: python scripts/qa_calculator_sanity.py
       - name: Run picture hanging planner responsive QA
         run: python scripts/qa_picture_hanging_planner.py
       - name: Run tile material-cost responsive QA
