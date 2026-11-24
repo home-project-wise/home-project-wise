@@ -5,12 +5,12 @@ function q(s){return form.querySelector(s);}
 function esc(t){var d=document.createElement('div');d.textContent=String(t);return d.innerHTML;}
 function fill(){var r=q('#region');REGIONS.forEach(function(x,i){var o=document.createElement('option');o.value=i;o.textContent=x.name;r.appendChild(o);});r.selectedIndex=0;addRow();}
 function showCustom(){q('#custom').hidden=REGIONS[q('#region').value].volts!==0;}
-function plug(){var r=REGIONS[q('#region').value];return r.volts===0?{volts:parseFloat(q('#cv').value),amps:parseFloat(q('#ca').value)}:{volts:r.volts,amps:r.amps};}
+function plug(){var r=REGIONS[q('#region').value];return r.volts===0?{volts:parseFloat(q('#cv').value),amps:parseFloat(q('#ca').value),uk:false}:{volts:r.volts,amps:r.amps,uk:r.volts===230};}
 function refreshRemove(){var all=rows.querySelectorAll('.device-row');all.forEach(function(row){row.querySelector('[data-role=remove]').hidden=all.length===1;});}
 function addRow(initial){rowCount++;var id=rowCount,row=document.createElement('div');row.className='calc-grid device-row';row.dataset.rowId=String(id);
 var options=DEVICES.map(function(d){return '<option value="'+esc(d.id)+'">'+esc(d.name)+'</option>';}).join('');
 row.innerHTML='<div class="calc-field"><label for="device-'+id+'">Device '+id+'</label><select id="device-'+id+'" data-role="device">'+options+'</select></div><div class="calc-field"><label for="mode-'+id+'">What do you know?</label><select id="mode-'+id+'" data-role="mode"><option value="w">Watts (W)</option><option value="a">Amps (A)</option><option value="t">Use a typical value</option></select></div><div class="calc-field"><label for="value-'+id+'">Value from the device label</label><input id="value-'+id+'" data-role="value" type="number" inputmode="decimal" min="0" step="any"><small>For amps, watts = amps × plug volts. Typical values are rough guides.</small><button type="button" class="calc-btn" data-role="remove">Remove device '+id+'</button></div>';
-rows.appendChild(row);if(initial){row.querySelector('[data-role=device]').value=initial.deviceId||'lamp';row.querySelector('[data-role=mode]').value=initial.mode||'w';row.querySelector('[data-role=value]').value=initial.value||'';}
+rows.appendChild(row);if(initial){row.querySelector('[data-role=device]').value=initial.deviceId||'lamp';row.querySelector('[data-role=mode]').value=initial.mode||'w';row.querySelector('[data-role=value]').value=initial.value||'';row.querySelector('[data-role=value]').disabled=initial.mode==='t';}
 row.querySelector('[data-role=mode]').addEventListener('change',function(){row.querySelector('[data-role=value]').disabled=this.value==='t';});
 row.querySelector('[data-role=remove]').addEventListener('click',function(){row.remove();refreshRemove();out.innerHTML='';err.textContent='';});
 refreshRemove();return row;}
