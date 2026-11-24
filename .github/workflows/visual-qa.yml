@@ -34,6 +34,8 @@ jobs:
         run: python scripts/qa_calculator_sanity.py
       - name: Run Smart Plug load-check calculation fixtures
         run: node scripts/test_smart_plug_load_check.js
+      - name: Run Smart Plug multi-device Chromium QA
+        run: python scripts/qa_smart_plug_load_check.py
       - name: Run picture hanging planner responsive QA
         run: python scripts/qa_picture_hanging_planner.py
       - name: Run tile material-cost responsive QA
