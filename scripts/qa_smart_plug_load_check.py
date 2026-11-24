@@ -46,7 +46,8 @@ with sync_playwright() as p:
         result=page.locator("#calc-out").inner_text()
         check("multi-device 12 + 65 + 150 = 227 W at %s px"%width,"Combined device load: 227 W" in result and "Plug rating: 1800 W" in result and "80% screening line: 1440 W" in result,result)
         check("static worked examples are present at %s px"%width,"Three devices on a 15 A, 120 V plug" in page.locator("body").inner_text())
-        check("no horizontal overflow at %s px"%width,page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"))
+        overflow=page.evaluate("""() => [...document.querySelectorAll("body *")].filter(e => e.getBoundingClientRect().right > document.documentElement.clientWidth + 1).map(e => ({tag:e.tagName,id:e.id,role:e.getAttribute("data-role"),right:Math.round(e.getBoundingClientRect().right),width:Math.round(e.getBoundingClientRect().width)})).slice(0,12)""")
+        check("no horizontal overflow at %s px"%width,page.evaluate("document.documentElement.scrollWidth <= document.documentElement.clientWidth"),overflow)
         check("no page or console errors at %s px"%width,not errors and not console,{"page":errors,"console":console})
         context.close()
     # Exact threshold and just-over threshold; then verify UK/EU voltage math.
