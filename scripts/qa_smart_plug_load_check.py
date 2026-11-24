@@ -20,7 +20,7 @@ with sync_playwright() as p:
         context.route("**/*",lambda route: route.fulfill(status=200,content_type="application/javascript",body="") if "gc.zgo.at" in route.request.url else (route.continue_() if route.request.url.startswith(BASE) else route.abort()))
         page=context.new_page(); errors=[]; console=[]
         page.on("pageerror",lambda e: errors.append(str(e)))
-        page.on("console",lambda m: console.append(m.text) if m.type=="error" else None)
+        page.on("console",lambda m: console.append(m.text) if m.type=="error" and "gc.zgo.at" not in m.text else None)
         responses=[]
         page.on("response",lambda r: responses.append((r.url,r.status)) if "smart-plug-load-check.js" in r.url else None)
         page.goto(BASE+"smart-plug-load-check.html",wait_until="load")
