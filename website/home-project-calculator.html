@@ -336,6 +336,7 @@ function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&'
 function money(n,c){return window.HPWCurrency.format(n,c);}
 function show(id,html){byId(id).innerHTML=html;}
 function error(id,msg){byId(id).textContent=msg;}
+// Informational only: append after rendering; never block or alter the calculation.
 function appendSanityWarning(id,message){
  var target=byId(id);if(!target||!message)return;
  target.innerHTML+='<p class="wp-note" role="status"><strong>Does this look right?</strong> '+safe(message)+'</p>';
