@@ -124,6 +124,22 @@ with sync_playwright() as p:
               page.locator("label[for=tile-pack-price]").count() == 1)
         check("no browser errors at %dpx" % width, not errors, errors)
         context.close()
+    # Reference prices that fail to download must not be reported as "no range for your market".
+    context = browser.new_context(viewport={"width": 390, "height": 900})
+    context.route("**/*", lambda route: route.abort() if route.request.url.endswith("reference-prices.json") or not route.request.url.startswith(BASE) else route.continue_())
+    page = context.new_page()
+    errors = []
+    page.on("pageerror", lambda e: errors.append(str(e)))
+    page.goto(BASE + "home-project-calculator.html#panel-material", wait_until="load")
+    page.wait_for_selector("#tile-type")
+    page.wait_for_timeout(500)
+    page.fill("#tile-length-1", "5"); page.fill("#tile-width-1", "4")
+    page.select_option("#region-country", "UK"); page.select_option("#tile-type", "ceramic-tile")
+    page.click("#tile-form button[type=submit]")
+    result = page.inner_text("#tile-result")
+    check("a failed price download is not reported as a missing market range", "not available right now" in result and "No reference range is available" not in result and "GBP 0" not in result, result)
+    check("no browser errors when the price download fails", not errors, errors)
+    context.close()
     browser.close()
 server.shutdown()
 if failures:

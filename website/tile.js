@@ -110,8 +110,12 @@
       var selected = selectTileReference(input.records, country, input.subtype);
       if (!input.subtype) {
         result.message = "Choose ceramic or porcelain tile to check the exact-market reference. You can still enter your own local price per " + areaUnit + ".";
+      } else if (!Array.isArray(input.records)) {
+        result.message = "Reference prices are not available right now (still loading or could not be loaded), so no range is shown. Enter your own local price per " + areaUnit + ", or calculate again in a moment.";
       } else if (!selected.ok) {
         result.message = "No reference range is available for this tile type in " + country + ". Enter your own local price per " + areaUnit + "; no price from another country is substituted.";
+      } else if (selected.record.currency !== currency) {
+        result.message = "The reference range for this tile type is not in your market's currency, so it is not shown. Enter your own local price per " + areaUnit + "; no price from another country is substituted.";
       } else {
         var areaCost = RP.areaCost(selected.record, area, areaUnit);
         if (areaCost) {

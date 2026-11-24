@@ -109,3 +109,22 @@ test("manual and pack prices must be positive and no missing price is returned a
   assert.equal(missing.areaCost, null);
   assert.equal(missing.kind, "unpriced");
 });
+
+test("reference prices that are not loaded are not reported as a missing market range", () => {
+  const cost = Tile.estimateMaterialCost({ records: null, country: "UK", subtype: "ceramic-tile", ...area, areaUnit: "m²" });
+  assert.equal(cost.areaCost, null);
+  assert.equal(cost.kind, "unpriced");
+  assert.match(cost.message, /not available right now/);
+  assert.doesNotMatch(cost.message, /No reference range is available/);
+  const manual = Tile.estimateMaterialCost({ records: null, country: "UK", subtype: "ceramic-tile", ...area, areaUnit: "m²", manualPrice: "25" });
+  assert.deepEqual([manual.kind, manual.areaCost.low], ["manual", 450]);
+});
+
+test("a reference record whose currency is not the selected market's currency is never shown", () => {
+  const uk = records.find((r) => r.audience === "UK" && r.subtype === "ceramic-tile" && r.autoEligible);
+  const wrong = [{ ...uk, currency: "EUR" }];
+  const cost = Tile.estimateMaterialCost({ records: wrong, country: "UK", subtype: "ceramic-tile", ...area, areaUnit: "m²" });
+  assert.equal(cost.areaCost, null);
+  assert.match(cost.message, /not in your market's currency/);
+});
+
