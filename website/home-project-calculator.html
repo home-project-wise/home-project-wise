@@ -338,9 +338,7 @@ function show(id,html){byId(id).innerHTML=html;}
 function error(id,msg){byId(id).textContent=msg;}
 function appendSanityWarning(id,message){
  var target=byId(id);if(!target||!message)return;
- var note=document.createElement('p');note.className='wp-note';note.setAttribute('role','status');
- var heading=document.createElement('strong');heading.textContent='Does this look right? ';
- note.appendChild(heading);note.appendChild(document.createTextNode(message));target.appendChild(note);
+ target.innerHTML+='<p class="wp-note" role="status"><strong>Does this look right?</strong> '+safe(message)+'</p>';
 }
 var tabs=Array.prototype.slice.call(document.querySelectorAll('.calc-tabs button'));
 function selectTab(btn,focus){tabs.forEach(function(b){var on=b===btn;b.setAttribute('aria-selected',String(on));b.setAttribute('tabindex',on?'0':'-1');});
