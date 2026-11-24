@@ -410,7 +410,7 @@ byId('energy-form').addEventListener('submit',function(e){e.preventDefault();err
  show('energy-result','Estimated energy: <strong>'+fmt(kwh)+' kWh per month</strong><br>Daily use: '+fmt(daily)+' kWh<br>Estimated monthly cost: <strong>'+money(kwh*rate,c)+'</strong><br>Estimated 30-day cost at the same use: '+money(value('energy-watts')/1000*value('energy-hours')*30*rate,c));
  var energyWarnings=[];
  if(value('energy-hours')===0)energyWarnings.push('Hours used per day is 0, so estimated energy use and cost are 0. Check whether that was intentional.');
- if(byId('energy-days').value===''||value('energy-days')===0)energyWarnings.push(byId('energy-days').value===''?'Days used per month is blank and is being read as 0, so estimated monthly energy use and cost are 0. Enter the number of days if the appliance is used.':'Days used per month is 0, so estimated monthly energy use and cost are 0. Check whether that was intentional.');
+ if(value('energy-days')===0)energyWarnings.push('Days used per month is 0, so estimated monthly energy use and cost are 0. Check whether that was intentional.');
  if(energyWarnings.length)appendSanityWarning('energy-result',energyWarnings.join(' '));
 });
 byId('project-form').addEventListener('submit',function(e){e.preventDefault();error('project-error','');show('project-result','');
