@@ -21,8 +21,12 @@ with sync_playwright() as p:
         page=context.new_page(); errors=[]; console=[]
         page.on("pageerror",lambda e: errors.append(str(e)))
         page.on("console",lambda m: console.append(m.text) if m.type=="error" else None)
+        responses=[]
+        page.on("response",lambda r: responses.append((r.url,r.status)) if "smart-plug-load-check.js" in r.url else None)
         page.goto(BASE+"smart-plug-load-check.html",wait_until="load")
-        check("page loads at %s px"%width,page.locator("#device-rows .device-row").count()==1)
+        row_count=page.locator("#device-rows .device-row").count()
+        check("page loads at %s px"%width,row_count==1,{"page_errors":errors,"console_errors":console,"module":page.evaluate("typeof window.HPWSmartPlugLoadCheck"),"script_responses":responses})
+        if row_count!=1: raise AssertionError("Smart Plug page did not create its first device row")
         # 12 + 65 + 150 = 227 W on 1,800 W plug; 80% line = 1,440 W.
         rows=page.locator("#device-rows .device-row")
         rows.nth(0).locator('[data-role=device]').select_option("lamp")
