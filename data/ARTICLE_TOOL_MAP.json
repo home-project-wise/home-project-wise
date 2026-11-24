@@ -484,6 +484,16 @@
       "linkStatus": "already_linked"
     },
     {
+      "slug": "what-to-do-first-when-you-discover-a-water-leak",
+      "path": "website/articles/what-to-do-first-when-you-discover-a-water-leak.html",
+      "class": "C",
+      "decisionSentence": "Gas first, then people, then water, then electricity, then help.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The article is an emergency order of action (gas, people, water shut-off, electricity, who to call) plus drying advice. Its only numbers are the EPA and CDC 24 to 48 hour drying target and a mold patch size of about 10 square feet, quoted advice that is not an input to a calculation. The planned leak-sensor spot planner belongs to the sensor-placement guide, not to a response checklist."
+    },
+    {
       "slug": "where-to-put-water-leak-sensors",
       "path": "website/articles/where-to-put-water-leak-sensors.html",
       "class": "B",
@@ -498,9 +508,9 @@
     }
   ],
   "summary": {
-    "articleCount": 46,
+    "articleCount": 47,
     "classCounts": {
-      "C": 32,
+      "C": 33,
       "A": 8,
       "B": 6
     },
