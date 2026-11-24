@@ -235,12 +235,7 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 function byId(id){return document.getElementById(id);}
 function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
 function error(id,msg){byId(id).textContent=msg;}
-function appendSanityWarning(id,message){
- var target=byId(id);if(!target||!message)return;
- var note=document.createElement('p');note.className='wp-note';note.setAttribute('role','status');
- var heading=document.createElement('strong');heading.textContent='Does this look right? ';
- note.appendChild(heading);note.appendChild(document.createTextNode(message));target.appendChild(note);
-}
+
 /* Wallpaper tab: DOM adapter only. All arithmetic lives in wallpaper-calculator-engine.js and project-estimator-engine.js. Nothing is stored, logged or sent. */
 var WP=window.HomeProjectWiseWallpaper,EST=window.HPWProjectEstimator,wpRoomN=0,wpWallN=0,wpLast=null;
 function wpEl(t,c,x){var e=document.createElement(t);if(c)e.className=c;if(x!==undefined)e.textContent=x;return e;}
@@ -341,6 +336,12 @@ function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&'
 function money(n,c){return window.HPWCurrency.format(n,c);}
 function show(id,html){byId(id).innerHTML=html;}
 function error(id,msg){byId(id).textContent=msg;}
+function appendSanityWarning(id,message){
+ var target=byId(id);if(!target||!message)return;
+ var note=document.createElement('p');note.className='wp-note';note.setAttribute('role','status');
+ var heading=document.createElement('strong');heading.textContent='Does this look right? ';
+ note.appendChild(heading);note.appendChild(document.createTextNode(message));target.appendChild(note);
+}
 var tabs=Array.prototype.slice.call(document.querySelectorAll('.calc-tabs button'));
 function selectTab(btn,focus){tabs.forEach(function(b){var on=b===btn;b.setAttribute('aria-selected',String(on));b.setAttribute('tabindex',on?'0':'-1');});
  document.querySelectorAll('.tool-panel').forEach(function(p){p.classList.toggle('active',p.id===btn.getAttribute('aria-controls'));});
