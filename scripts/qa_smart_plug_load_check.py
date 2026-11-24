@@ -47,7 +47,7 @@ with sync_playwright() as p:
         context.close()
     # Exact threshold and just-over threshold; then verify UK/EU voltage math.
     context=browser.new_context(viewport={"width":1280,"height":900})
-    context.route("**/*",lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
+    context.route("**/*",lambda route: route.fulfill(status=200,content_type="application/javascript",body="") if "gc.zgo.at" in route.request.url else (route.continue_() if route.request.url.startswith(BASE) else route.abort()))
     page=context.new_page();page.goto(BASE+"smart-plug-load-check.html",wait_until="load")
     row=page.locator("#device-rows .device-row").first
     row.locator('[data-role=device]').select_option("lamp")
