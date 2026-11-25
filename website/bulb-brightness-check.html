@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bulb Brightness Check | HomeProjectWise</title>
+<meta name="description" content="Add the number of fixtures, bulbs per fixture and lumens from the label to calculate your own light-output totals.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/bulb-brightness-check.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Bulb Brightness Check | HomeProjectWise"><meta property="og:description" content="Calculate your own fixture and total bulb-lumen output, with an optional plain floor-area ratio."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/bulb-brightness-check.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.bb-wrap{max-width:820px;margin:auto}.bb-panel,.bb-result{background:#f7f5f0;border:1px solid #ddd9d0;border-radius:12px;padding:16px;margin:16px 0}.bb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.bb-field label{display:block;font-weight:650;margin-bottom:5px}.bb-field input,.bb-field select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:10px;border:1px solid #aeb7b3;border-radius:7px;background:#fff;color:#243238;font:inherit}.bb-help,.bb-note{font-size:14px;color:#576165;line-height:1.5}.bb-actions{margin-top:16px}.bb-button{min-height:44px;padding:11px 17px;border:0;border-radius:8px;background:#243238;color:#fff;font:inherit;font-weight:700}.bb-result{background:#fff}.bb-error{color:#9b2c20;font-weight:650}.bb-result:empty{display:none}
+@media(prefers-color-scheme:dark){.bb-panel{background:#202a2d;border-color:#465357;color:#edf1ed}.bb-field input,.bb-field select{background:#172124;color:#edf1ed;border-color:#68777b}.bb-help,.bb-note{color:#c1cbc7}.bb-result{background:#172124;border-color:#465357;color:#edf1ed}}
+@media(max-width:600px){.bb-grid{grid-template-columns:1fr}.bb-panel{padding:13px}}
+</style></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article bb-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Bulb Brightness Check</nav>
+<p class="eyebrow">FREE TOOL · LIGHT OUTPUT</p><h1>Bulb Brightness Check</h1>
+<p class="lead">Enter the light output printed on your bulb box and count how many bulbs and fixtures you have. This adds up your own lumens; it does not decide whether a room is bright enough.</p>
+<section class="bb-panel">
+<h2>Your room and fixtures</h2>
+<form id="brightness-form" novalidate>
+<div class="bb-grid">
+<div class="bb-field"><label for="room-type">Room type (optional)</label><select id="room-type"><option value="">No room example</option><option value="kitchen">Kitchen</option><option value="bathroom">Bathroom</option><option value="home-office">Home office</option><option value="living-room">Living room</option><option value="bedroom">Bedroom</option></select><small class="bb-help">Only room types named in the ENERGY STAR brightness examples are listed.</small></div>
+<div class="bb-field"><label for="fixture-count">Number of fixtures</label><input id="fixture-count" type="number" min="1" step="1" placeholder="Count your fixtures" required></div>
+<div class="bb-field"><label for="bulbs-per-fixture">Bulbs per fixture</label><input id="bulbs-per-fixture" type="number" min="1" step="1" placeholder="Count bulbs in each" required></div>
+<div class="bb-field"><label for="lumens-per-bulb">Lumens per bulb (from the label)</label><input id="lumens-per-bulb" type="number" min="0" step="any" placeholder="Enter the printed lumens"></div><p class="bb-help">This entry assumes each fixture has the same number of bulbs and each bulb has the same lumen rating. If the setup or rating differs, calculate that group separately.</p>
+</div>
+<h3>Optional floor area</h3><p class="bb-help">You can leave this blank. If you opened this tool from the shared-room section, its measured floor area is copied here and remains editable.</p>
+<div class="bb-grid">
+<div class="bb-field"><label for="room-area">Room floor area</label><input id="room-area" type="number" min="0" step="any" placeholder="Optional"></div>
+<div class="bb-field"><label for="area-unit">Area unit</label><select id="area-unit"><option value="m2">Square metres (m²)</option><option value="ft2">Square feet (ft²)</option></select></div>
+</div>
+<p id="shared-room-note" class="bb-note" role="status"></p><p id="brightness-error" class="bb-error" role="alert"></p>
+<div class="bb-actions"><button class="bb-button" type="submit">Calculate my light output</button></div>
+</form><div id="brightness-result" class="bb-result" aria-live="polite"></div>
+</section>
+<section class="bb-panel">
+<h2>How to read this result</h2>
+<p>ENERGY STAR's one-page fixture sheet gives brightness examples for kitchens, bathrooms, home offices, living rooms and bedrooms. It does not set a pass/fail target for your room.</p>
+<p>Bulb lumens describe light-source output. Lux and foot-candles describe illuminance on a surface. Fixture distribution, placement and light loss affect the light that reaches a surface, so this tool does not convert your lumens into lux or give an area-based lighting target.</p>
+<p class="bb-note">Source: <a href="https://www.energystar.gov/sites/default/files/asset/document/ES_Fixtures_FactSheet_MW.pdf" target="_blank" rel="noopener">ENERGY STAR / EPA — Fixtures Made Easy (PDF, page 1)</a>. The PDF does not state a publication or revision date.</p>
+<p>For practical placement, layers and glare, read <a href="articles/better-evening-home-lighting-without-overcomplicating-it.html">Better Evening Home Lighting Without Overcomplicating It</a>.</p>
+</section></main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="bulb-brightness-check.js"></script>
+</body></html>

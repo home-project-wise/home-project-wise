@@ -312,6 +312,20 @@
       "params": [],
       "linkPrefill": [],
       "articles": []
+    },
+    {
+      "id": "bulb-brightness-check",
+      "title": "Bulb Brightness Check",
+      "url": "bulb-brightness-check.html",
+      "topics": [
+        "lighting",
+        "bulb brightness",
+        "lumens",
+        "room lighting"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     }
   ]
 }
