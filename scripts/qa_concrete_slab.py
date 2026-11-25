@@ -24,10 +24,10 @@ with sync_playwright() as p:
         page.goto(BASE + "concrete-slab-calculator.html", wait_until="load")
         check("page loads at %dpx" % width, page.locator("h1").inner_text() == "Concrete Slab Volume Calculator")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
-        check("thickness and extra allowance have no assumed defaults at %dpx" % width, page.input_value("#slab-thickness") == "" and page.input_value("#slab-allowance") == "")
+        check("dimensions, units, yield unit and allowance have no assumed defaults at %dpx" % width, page.input_value("#slab-thickness") == "" and page.input_value("#slab-allowance") == "" and page.input_value("#slab-length-unit") == "" and page.input_value("#slab-thickness-unit") == "" and page.input_value("#slab-bag-yield-unit") == "")
         page.click("button[type=submit]")
         check("blank dimensions show validation and no result at %dpx" % width,
-              "Length is required" in page.locator("#concrete-slab-error").inner_text() and page.locator("#concrete-slab-result").inner_text() == "")
+              "Choose metres or feet" in page.locator("#concrete-slab-error").inner_text() and page.locator("#concrete-slab-result").inner_text() == "")
         page.select_option("#slab-length-unit","ft")
         page.fill("#slab-length","10"); page.fill("#slab-width","10")
         page.select_option("#slab-thickness-unit","in"); page.fill("#slab-thickness","4")
@@ -79,7 +79,7 @@ with sync_playwright() as p:
     popup.wait_for_load_state("load")
     check("shared room sends 5 × 4 metres to slab tool", popup.input_value("#slab-length") == "5" and
           popup.input_value("#slab-width") == "4" and popup.input_value("#slab-length-unit") == "m")
-    check("shared-room handoff leaves thickness blank", popup.input_value("#slab-thickness") == "")
+    check("shared-room handoff leaves thickness and thickness unit blank", popup.input_value("#slab-thickness") == "" and popup.input_value("#slab-thickness-unit") == "")
     check("shared-room note says thickness remains visitor-entered",
           "Thickness is still blank" in popup.locator("#slab-room-note").inner_text())
     context.close()
