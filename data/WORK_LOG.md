@@ -256,3 +256,5 @@ Format: date | what was done | what is next.
 
 
 - 2026-11-25 — ChatGPT claimed T4b Smart Plug running/standby energy-cost estimate on `chatgpt/t4b-smart-plug-energy-cost-2026-11-25`, based on main `64982504507d3092e7d1b1208f9f7a8fa6ec2e68`. Files, overlap, locks, scope, guardrails and verification plan are recorded in `data/AI_COLLABORATION.md` before implementation. T4b will reuse the existing market-aware electricity reference adapter without changing its data; first commit also includes Claude's two phone-review copy fixes (shorter closed-select labels and visible FAQ/JSON-LD wording parity). No CSS or article changes.
+
+- T4b claim addendum: also lock `website/smart-plug-load-check.js`, `scripts/test_smart_plug_load_check.js`, and `scripts/qa_smart_plug_load_check.py` for the closed-select label fix and regression checks; CSS remains excluded.
