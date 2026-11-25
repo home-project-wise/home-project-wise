@@ -87,6 +87,10 @@ test("invalid entered bag yields, units and negative allowances are rejected", (
 test("very small positive dimensions remain positive in every volume unit", () => {
   const r = Slab.calculate({length:0.01,width:0.01,lengthUnit:"m",thickness:0.1,thicknessUnit:"cm"});
   assert.ok(r.volumeM3>0 && r.volumeFt3>0 && r.volumeYd3>0);
+  const display = Slab.format(r);
+  assert.ok(!display.metric.startsWith("0"), display.metric);
+  assert.ok(!display.feet.startsWith("0"), display.feet);
+  assert.ok(!display.yards.startsWith("0"), display.yards);
 });
 
 test("volume calculation contains no hidden allowance, price or material assumptions", () => {
