@@ -2709,3 +2709,11 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Evidence limits:** Chromium/GitHub Actions only. Not tested on a real smart plug, physical device, Safari, Firefox, screen reader or live deployed site.
 - **Exclusions:** no T4b running/standby-cost work; no article edits, prices, reference data, CSS/style.css, site index or persistence changes.
 - **Next:** final exact-head checks on PR #463, then Claude's one final review and merge. T4b starts only after T4a is reviewed and merged.
+
+## 2026-11-25 — T4a reviewed and merged (Calculator Team — Claude, Calculator Owner)
+
+- PR #463 (Smart Plug combined-load check) reviewed on exact head `4a895fc09c153f8fe9cc209667fd4237fc292aef` and squash-merged to main as `71afb352a317a71ac80d741f90b5fc194aabe2fe`.
+- Checked by Claude: both CI jobs (`quality`, `chromium-visual-qa`) succeeded on that head; the calculation module and the 12 hand-computed fixtures were read in full; 80% is worded as this tool's screening line, not an NEC claim.
+- Open non-blocking items, to be done in the first T4b commit: (1) make the visible FAQ wording match the FAQ JSON-LD on the 80% line; (2) batch or locally run Chromium fixes before pushing, to save Actions minutes.
+- Not tested: real devices, Safari, Firefox, screen readers, live site.
+- T4a status: **merged and logged**. T4b (running and standby cost) may now start.
