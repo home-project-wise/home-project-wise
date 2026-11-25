@@ -28,8 +28,17 @@
       length:length, width:width, thickness:thickness, lengthUnit:lengthUnit, thicknessUnit:thicknessUnit,
       lengthM:lengthM, widthM:widthM, thicknessM:thicknessM, volumeM3:volumeM3,
       volumeFt3:volumeM3 / M3_PER_FT3, volumeYd3:volumeM3 / M3_PER_YD3,
+      allowancePercent:null, adjustedVolumeM3:volumeM3,
       bagCount:null, bagRatio:null, productName:null, bagYield:null, bagYieldUnit:null
     };
+    var allowanceBlank = input.allowancePercent === "" || input.allowancePercent === null || input.allowancePercent === undefined;
+    if (!allowanceBlank) {
+      var allowance = Number(input.allowancePercent);
+      if (!Number.isFinite(allowance) || allowance < 0) throw new Error("Extra allowance must be zero or greater, or leave it blank.");
+      result.allowancePercent = allowance;
+      result.adjustedVolumeM3 = volumeM3 * (1 + allowance / 100);
+      if (!Number.isFinite(result.adjustedVolumeM3)) throw new Error("The adjusted volume is outside the supported range.");
+    }
     var name = String(input.productName || "").trim();
     var yieldBlank = input.bagYield === "" || input.bagYield === null || input.bagYield === undefined;
     if (name || !yieldBlank) {
@@ -38,7 +47,7 @@
       var bagYield = positive(input.bagYield, "Published yield per bag"), bagUnit = input.bagYieldUnit;
       var yieldM3 = bagUnit === "m3" ? bagYield : bagUnit === "ft3" ? bagYield * M3_PER_FT3 : bagUnit === "yd3" ? bagYield * M3_PER_YD3 : NaN;
       if (!Number.isFinite(yieldM3) || yieldM3 <= 0) throw new Error("Choose a valid bag-yield unit.");
-      var ratio = volumeM3 / yieldM3;
+      var ratio = result.adjustedVolumeM3 / yieldM3;
       if (!Number.isFinite(ratio) || ratio <= 0) throw new Error("The bag estimate is outside the supported range.");
       result.bagCount = Math.ceil(ratio - Number.EPSILON * Math.max(1, Math.abs(ratio)) * 4);
       result.bagRatio = ratio; result.productName = name; result.bagYield = bagYield; result.bagYieldUnit = bagUnit;
@@ -47,7 +56,12 @@
   }
   function format(result) {
     var fmt = function (n, digits) { return Number(n).toLocaleString("en-US", { maximumFractionDigits:digits === undefined ? 3 : digits }); };
-    return { metric:fmt(result.volumeM3,4) + " m³", feet:fmt(result.volumeFt3,3) + " ft³", yards:fmt(result.volumeYd3,3) + " yd³" };
+    return {
+      metric:fmt(result.volumeM3,4) + " m³", feet:fmt(result.volumeFt3,3) + " ft³", yards:fmt(result.volumeYd3,3) + " yd³",
+      adjustedMetric:fmt(result.adjustedVolumeM3,4) + " m³",
+      adjustedFeet:fmt(result.adjustedVolumeM3 / M3_PER_FT3,3) + " ft³",
+      adjustedYards:fmt(result.adjustedVolumeM3 / M3_PER_YD3,3) + " yd³"
+    };
   }
   function init(doc, win) {
     var form = doc.getElementById("concrete-slab-form");
@@ -74,6 +88,7 @@
           thicknessUnit:doc.getElementById("slab-thickness-unit").value,
           productName:doc.getElementById("slab-product-name").value,
           bagYield:doc.getElementById("slab-bag-yield").value,
+          allowancePercent:doc.getElementById("slab-allowance").value,
           bagYieldUnit:doc.getElementById("slab-bag-yield-unit").value
         });
         var volume = format(data);
@@ -89,10 +104,14 @@
         line("Entered dimensions: "+lengthText+" × "+widthText+" × "+thickText+".");
         line("Convert to metres: "+data.lengthM+" m × "+data.widthM+" m × "+data.thicknessM+" m = "+volume.metric+".");
         line("Equivalent volume: "+volume.feet+" and "+volume.yards+".",true);
+        if (data.allowancePercent !== null) {
+          line("Your entered extra allowance: "+data.allowancePercent+"%.");
+          line("Adjusted volume: base volume × (1 + "+data.allowancePercent+" ÷ 100) = "+volume.adjustedMetric+" ("+volume.adjustedFeet+"; "+volume.adjustedYards+").");
+        }
         line("Conversions: 1 ft = 0.3048 m; 1 in = 0.0254 m; 1 cm = 0.01 m. 1 ft³ = 0.028316846592 m³; 1 yd³ = 0.764554857984 m³.");
         if (data.bagCount === null) line("Bag count not calculated. Add a named product and its published yield per bag if you want this optional estimate.");
         else {
-          var selectedVolume=data.bagYieldUnit==="m3"?volume.metric:data.bagYieldUnit==="ft3"?volume.feet:volume.yards;
+          var selectedVolume=data.bagYieldUnit==="m3"?volume.adjustedMetric:data.bagYieldUnit==="ft3"?volume.adjustedFeet:volume.adjustedYards;
           line("Optional bag estimate for "+data.productName+": "+selectedVolume+" ÷ "+data.bagYield+" "+data.bagYieldUnit+" per bag = "+data.bagRatio.toLocaleString("en-US",{maximumFractionDigits:4})+" bags; rounded up to "+data.bagCount+" whole bags. Only the yield you entered was used.");
         }
         line("This is a volume calculation from the measurements entered, not a slab design or engineering assessment.");
