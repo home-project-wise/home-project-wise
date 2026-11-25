@@ -40,19 +40,21 @@ with sync_playwright() as p:
     check("0.5 W standby fixture shows 4.38 kWh/year and USD 0.88/year","4.3800 kWh" in result and "USD 0.88" in result,result)
     examples=page.locator("#energy-cost-estimate").inner_text()
     check("static standby and running examples match hand-computed fixtures","0.5 W × 24 hours × 365 days ÷ 1,000 = 4.38 kWh per year per bulb." in examples and "60 W × 5 hours × 30 days ÷ 1,000 = 9 kWh per month." in examples,examples)
-    page.locator("#region-country").select_option("US")
     page.wait_for_selector("#energy-ref-choice")
     choices=page.locator("#energy-ref-choice option").evaluate_all("(xs)=>xs.map(x=>x.value).filter(Boolean)")
     used=False
+    used_choice=None
     for choice in choices:
         page.locator("#energy-ref-choice").select_option(choice)
         if page.locator('#energy-ref-root [data-action="use"]').count():
             page.locator('#energy-ref-root [data-action="use"]').click()
             used=True
+            used_choice=choice
             break
     check("eligible single sourced rate can be explicitly used",used and page.locator("#energy-rate").input_value()!="" and page.locator("#energy-currency").input_value()=="USD")
-    if len(choices)>1:
-        page.locator("#energy-ref-choice").select_option(choices[1])
+    other_choice=next((x for x in choices if x!=used_choice),None)
+    if other_choice:
+        page.locator("#energy-ref-choice").select_option(other_choice)
         check("changing the selected tariff clears the previously copied rate",page.locator("#energy-rate").input_value()=="")
     page.locator("#region-country").select_option("Canada")
     page.wait_for_selector("#energy-ref-choice")
