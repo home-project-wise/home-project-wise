@@ -13,8 +13,9 @@ function calculate(input){
   if(!Number.isFinite(days)||days<1||days>31)return{ok:false,error:"Enter days per month from 1 to 31."};
   if(!Number.isFinite(rate)||rate<0)return{ok:false,error:"Enter your electricity rate per kWh (zero is allowed)."};
   if(!/^[A-Z]{3}$/.test(currency))return{ok:false,error:"Choose your country above so the currency is clear."};
-  var daily=watts*hours/1000,monthly=daily*days,annual=watts*hours*365/1000;
-  return{ok:true,watts:watts,hoursPerDay:hours,daysPerMonth:days,ratePerKwh:rate,currency:currency,dailyKwh:daily,monthlyKwh:monthly,annualKwh:annual,monthlyCost:monthly*rate,annualCost:annual*rate};
+  var daily=watts*hours/1000,monthly=daily*days,annual=watts*hours*365/1000,monthlyCost=monthly*rate,annualCost=annual*rate;
+  if(![daily,monthly,annual,monthlyCost,annualCost].every(Number.isFinite))return{ok:false,error:"Those values are too large to calculate."};
+  return{ok:true,watts:watts,hoursPerDay:hours,daysPerMonth:days,ratePerKwh:rate,currency:currency,dailyKwh:daily,monthlyKwh:monthly,annualKwh:annual,monthlyCost:monthlyCost,annualCost:annualCost};
 }
 function money(n,c){return c+" "+Number(n).toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});}
 function init(doc,win){
