@@ -75,4 +75,15 @@ ok("the page has the Wallpaper wall-area note (hidden until used) above the prod
   assert.ok(/id="wallpaper-room-area" hidden/.test(html) && html.indexOf('id="wallpaper-room-area"') < html.indexOf('id="wp-form"') && html.indexOf('id="wallpaper-room-area"') > html.indexOf('id="panel-wallpaper"'));
   assert.ok(html.includes('id="tab-wallpaper"')); assert.ok(fs.readFileSync(path.join(__dirname, "..", "website", "shared-room.js"), "utf8").includes('data-target="wallpaper"'));
 });
-console.log("\n" + n + " shared-room tests passed");
+ok("shared room opens the bulb brightness check with the validated room available to its same-origin opener", () => {
+  const d = makeDoc(); d.getElementById("room-root"); let opened = null;
+  const w = { Event: Ev, open: (...args) => { opened = args; return {}; } };
+  SR.init(d, w);
+  const e = new Proxy(d.els, { get: (t, k) => d.getElementById(k) });
+  Object.entries({ "room-unit":"m", "room-length":"5", "room-width":"4", "room-height":"", "room-openings":"" }).forEach(([k,v]) => { e[k].value=v; });
+  e["room-form"].handlers.click.forEach(f => f({ target: { getAttribute: k => k === "data-target" ? "bulb-brightness" : null } }));
+  assert.deepEqual(opened, ["bulb-brightness-check.html", "_blank"]);
+  assert.equal(w.hpwRoom.length * w.hpwRoom.width, 20);
+  assert.match(e["room-note"].textContent, /new tab/);
+});
+console.log("\\n" + n + " shared-room tests passed");
