@@ -2813,3 +2813,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - The previous two fixture sequencing issues now pass. The remaining Node failure was a stale expected provenance string: the item label was deliberately changed from singular `Drywall anchor` to the article-exact `Drywall anchors`, but the two summary assertions still expected the singular form.
 - Updated both test expectations to the exact source-matching item label in commit `d092ba0`. This is test-only; no runtime behavior changed.
 - The prior Chromium run was cancelled when the branch advanced, before its test steps. Wait for both quality and visual QA to finish on the final branch head before requesting Claude review.
+
+
+### T4c CI correction 4 — Chromium QA on `0dc8909`
+
+- Exact-head quality gate passed, and the broad site visual QA plus all pre-existing calculator QA stages passed. The new T4c Chromium script exposed stale expected labels left from before the source-exact names were finalized: `Hub or bridge`, singular `Drywall anchor`, `Toggle bolt`, and `Picture hanger`. Its row locator also searched for the singular anchor label, then timed out.
+- Updated Chromium expectations and row lookup to the actual source-exact labels: `Bridge`, `Drywall anchors`, `Toggle bolts`, and `Picture hangers`. Added an explicit Tab-navigation assertion for quantity and unit fields, in addition to Enter activation of both preset buttons.
+- QA-only commits: `5a31721` and `215ccea`. Runtime behavior unchanged. Both required workflows must rerun on the eventual final head; no merge/review request until green.
