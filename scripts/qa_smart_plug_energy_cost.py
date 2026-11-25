@@ -38,6 +38,8 @@ with sync_playwright() as p:
     page.get_by_role("button",name="Calculate running and standby cost").click()
     result=page.locator("#energy-cost-result").inner_text()
     check("0.5 W standby fixture shows 4.38 kWh/year and USD 0.88/year","4.3800 kWh" in result and "USD 0.88" in result,result)
+    examples=page.locator("#energy-cost-estimate").inner_text()
+    check("static standby and running examples match hand-computed fixtures","0.5 W × 24 hours × 365 days ÷ 1,000 = 4.38 kWh per year per bulb." in examples and "60 W × 5 hours × 30 days ÷ 1,000 = 9 kWh per month." in examples,examples)
     page.locator("#region-country").select_option("US")
     page.wait_for_selector("#energy-ref-choice")
     choices=page.locator("#energy-ref-choice option").evaluate_all("(xs)=>xs.map(x=>x.value).filter(Boolean)")
@@ -49,9 +51,14 @@ with sync_playwright() as p:
             used=True
             break
     check("eligible single sourced rate can be explicitly used",used and page.locator("#energy-rate").input_value()!="" and page.locator("#energy-currency").input_value()=="USD")
-    page.locator("#energy-rate").fill("0.19")
     page.locator("#region-country").select_option("Canada")
-    check("changing market clears the previous rate and changes currency",page.locator("#energy-rate").input_value()=="" and page.locator("#energy-currency").input_value()=="CAD")
+    page.wait_for_selector("#energy-ref-choice")
+    page.locator("#energy-ref-choice").select_option("CA-electricity-ontario-oeb-residential-2026-11")
+    tou=page.locator("#energy-ref-root").inner_text()
+    check("Ontario TOU range is displayed but never averaged or auto-filled","Reference range:" in tou and page.locator('#energy-ref-root [data-action="use"]').count()==0 and page.locator("#energy-rate").input_value()=="",tou)
+    page.locator("#energy-rate").fill("0.19")
+    page.locator("#region-country").select_option("US")
+    check("changing market clears the previous rate and changes currency",page.locator("#energy-rate").input_value()=="" and page.locator("#energy-currency").input_value()=="USD")
     faq=page.evaluate("""() => {
       const data=[...document.querySelectorAll('script[type="application/ld+json"]')].map(x=>{try{return JSON.parse(x.textContent)}catch(e){return null}}).find(x=>x&&x['@type']==='FAQPage');
       const q=[...document.querySelectorAll('h3')].find(x=>x.textContent.trim()==='How many watts can a smart plug handle?');
