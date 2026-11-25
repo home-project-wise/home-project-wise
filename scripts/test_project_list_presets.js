@@ -10,8 +10,8 @@ function addManual(state, name, extra) {
   return L.addItem(state, Object.assign({ name, unit: "each", quantity: 2 }, extra || {}));
 }
 const expected = {
-  "smart-home-starter": ["Smart plug", "Smart bulb", "Smart switch or dimmer", "Hub or bridge", "Wireless remote", "Switch cover"],
-  "hang-and-mount": ["Stud finder", "Wood screw", "Drywall anchor", "Toggle bolt", "Picture hanger", "French cleat", "Rubber bumpers"]
+  "smart-home-starter": ["Smart plug", "Smart bulb", "Smart switch or dimmer", "Bridge", "Wireless remote", "Switch cover"],
+  "hang-and-mount": ["Stud finder", "Wood screw", "Drywall anchors", "Toggle bolts", "Picture hangers", "French cleat", "Rubber bumpers"]
 };
 const allowedSources = new Set([
   "what-can-you-plug-into-a-smart-plug",
@@ -28,6 +28,8 @@ ok("the two presets contain exactly the registered article-derived names", () =>
       for (const source of item.sources) {
         assert.ok(allowedSources.has(source.slug), source.slug);
         assert.ok(source.title && source.title.trim());
+        const article = fs.readFileSync(path.join(__dirname, "..", "website", "articles", source.slug + ".html"), "utf8").toLowerCase();
+        assert.ok(article.includes(item.name.toLowerCase()), item.name + " is not verbatim in " + source.slug);
       }
     }
   }
@@ -51,7 +53,7 @@ ok("preset insertion creates names only with blank quantity, unit, price and quo
 ok("each preset item records its source article and multi-source items retain both sources", () => {
   const s = fresh();
   L.addPreset(s, "hang-and-mount");
-  const anchor = s.items.find(x => x.name === "Drywall anchor");
+  const anchor = s.items.find(x => x.name === "Drywall anchors");
   const cleat = s.items.find(x => x.name === "French cleat");
   assert.deepEqual(anchor.sourceArticles.map(x => x.slug), [
     "how-to-hang-large-wall-art-without-damage",
