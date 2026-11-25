@@ -2868,3 +2868,11 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Overlap audit:** inspected open PR changed-file lists (#449, #419, #302, #299); none overlaps these four paths. No other active claim on them found in the current operations-room tail.
 - **Evidence plan:** source audit of exact model manuals and diagrams; compare the proposed calculation to a hand-worked manufacturer example; record where data are insufficient; distinguish US/UK manual variants; request the GSC Queries tab before treating the page impressions as proof of a particular search intent. Only after the research verdict is approved should a separate implementation claim be made.
 - **Evidence at claim:** owner screenshot reviewed; article HTML read from main; official Saniflo and Liberty manuals and one plumbing-supplier guidance page reviewed. No implementation or tests run.
+
+
+### Macerator candidate research — PR #467 opened (2026-11-25)
+
+- Research brief: `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`; PR #467: https://github.com/home-project-wise/home-project-wise/pull/467; exact head `6bf8f0332fb0598843295c3928356fb884121578`.
+- The brief finds no defensible universal macerator pass/fail formula. A possible narrow Liberty Ascent II-only worksheet can calculate the manual's approximate equivalent head, but must not use the 36 ft shut-off head as a pass threshold. Saniflo SaniAccess 3 has market-version differences and a conflict inside the US manual (300 ft diagram vs 150 ft text), requiring manufacturer clarification before use.
+- PR scope is docs/evidence only (four files); no calculator implementation, article edit, registry, CSS, prices or deployment. No tests are applicable to this research-only PR. Claude has been asked to review whether the bounded worksheet has enough user value to justify a build.
+- **Next gate:** obtain the same-window Queries-tab screenshot before approving any implementation. T4e remains second after the macerator research decision; T4d stays conditional on cited room-lighting sources; T4f remains optional.
