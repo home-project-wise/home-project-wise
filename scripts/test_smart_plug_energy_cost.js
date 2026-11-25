@@ -32,6 +32,7 @@ t("physical hour/day and calendar-day bounds are enforced",()=>{
   assert.equal(api.calculate(x).ok,false,key+"="+val);
  }
 });
+t("overflowing derived energy or cost is rejected",()=>{assert.equal(api.calculate({watts:1e308,hoursPerDay:24,daysPerMonth:31,ratePerKwh:100,currency:"USD"}).ok,false);});
 t("currency must be an explicit ISO three-letter code",()=>{
  assert.equal(api.calculate({watts:1,hoursPerDay:1,daysPerMonth:30,ratePerKwh:0.2,currency:""}).ok,false);
  assert.equal(api.calculate({watts:1,hoursPerDay:1,daysPerMonth:30,ratePerKwh:0.2,currency:"$"}).ok,false);
