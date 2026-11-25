@@ -51,6 +51,9 @@ with sync_playwright() as p:
             used=True
             break
     check("eligible single sourced rate can be explicitly used",used and page.locator("#energy-rate").input_value()!="" and page.locator("#energy-currency").input_value()=="USD")
+    if len(choices)>1:
+        page.locator("#energy-ref-choice").select_option(choices[1])
+        check("changing the selected tariff clears the previously copied rate",page.locator("#energy-rate").input_value()=="")
     page.locator("#region-country").select_option("Canada")
     page.wait_for_selector("#energy-ref-choice")
     page.locator("#energy-ref-choice").select_option("CA-electricity-ontario-oeb-residential-2026-11")
