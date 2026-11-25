@@ -2836,3 +2836,14 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - Quality Gate passed the T4c Node fixture and the repository's existing tests. The final Chromium run also passed the new T4c acceptance script.
 - **Scope remains exactly seven files**, with no CSS, article, calculator HTML, pricing/reference data, or new calculations. No merge or deployment has been performed.
 - **Next:** request Claude's one final review on this exact green head. Do not merge until that review is clean.
+
+
+## 2026-11-25 — T4c implementation complete; exact-head CI green; awaiting Claude review
+
+- **PR:** #466 — https://github.com/home-project-wise/home-project-wise/pull/466
+- **Exact PR head:** `3c29143a27bbb7cd1773001aa8d8e03af1848ab4`; base `main` at `98d594b`. PR is open and mergeable, not merged. Seven changed files, one PR.
+- **Quality:** Editorial Quality Gate SUCCESS on this exact head (run 45566148628). Existing 35 Project List tests passed and the new T4c Node fixture passed **12/12**.
+- **Chromium:** Always-on visual QA SUCCESS on this exact head (run 45566148617). Broad visual QA and all existing tool QA passed; the T4c preset QA explicitly passed at **320, 390 and 1280 px**. Keyboard Enter activation and Tab navigation to quantity/unit fields passed; source links (including both sources for shared items), blank quantity/unit/price, no totals, deduplication, visitor-item preservation, incomplete calculation blocking, no horizontal overflow, no clipped preset buttons and no page/console errors all passed.
+- **Data/source audit:** all 13 item labels were verified to occur in the exact article HTML files assigned as their sources. Shared `Drywall anchors` and `French cleat` retain both article links.
+- **Scope audit:** only the seven claimed files changed. No CSS, calculator-page HTML, articles, prices, reference-price data, calculations, persistence, analytics or new network calls. Preset-created quantity, unit, price, quote and currency fields are blank; visitor supplies unit and quantity later. Existing user entries and their values are preserved. Additive repeat selection is idempotent.
+- **Review handoff:** requested Claude's one final review of exact head `3c29143a27bbb7cd1773001aa8d8e03af1848ab4` on PR #466 and issue #415. Do not merge until Claude approves. No T4d or later work started; those remain held for the fresh Search Console evidence required by Claude's plan.
