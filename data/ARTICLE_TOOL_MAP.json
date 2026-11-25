@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-24",
+  "updated": "2026-11-25",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -306,6 +306,17 @@
       "toolUrl": null
     },
     {
+      "slug": "plug-in-power-meter-vs-smart-plug-energy-monitoring",
+      "path": "website/articles/plug-in-power-meter-vs-smart-plug-energy-monitoring.html",
+      "class": "A",
+      "decisionSentence": "Choose a plug-in power meter for a quick one-off check, and a smart plug with energy monitoring for long-term tracking or automation.",
+      "tool": "home-project-calculator-electricity",
+      "toolUrl": "home-project-calculator.html#panel-energy",
+      "prefill": {},
+      "reason": "The existing Electricity running cost panel turns visitor-entered watts, hours per day, days per month and price per kWh into a monthly cost, which is the worked step in this article; the article links it. It does not measure real consumption or replace a meter.",
+      "linkStatus": "already_linked"
+    },
+    {
       "slug": "protect-pipes-from-freezing-and-burst-pipe-response",
       "path": "website/articles/protect-pipes-from-freezing-and-burst-pipe-response.html",
       "class": "C",
@@ -518,13 +529,13 @@
     }
   ],
   "summary": {
-    "articleCount": 48,
+    "articleCount": 49,
     "classCounts": {
       "C": 34,
-      "A": 8,
+      "A": 9,
       "B": 6
     },
-    "existingToolLinksAlreadyPresent": 8,
+    "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
     "notes": [
       "Updated 2026-11-22 (T1): 8 class A articles link their tool today; the two deep links recommended in WS1 (reduce-bathroom-condensation to the fan calculator, smart-lighting to the Electricity cost panel) are merged (#450, #451). One A article, how-to-calculate-wallpaper-rolls-pattern-repeat, links the Home Project Calculator page and not its Wallpaper tab: an editorial deep link remains open. The frozen-pipes guide (#453) is class C.",
@@ -532,7 +543,8 @@
       "The flooring transition-strip article is C: its central decision is profile selection by measured height difference, not length/pack arithmetic.",
       "The large drywall-patch article is C: its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate follow-on for visitor-entered costing after repair choices are independently made.",
       "The drywall-anchor article remains C for load safety but may link to T2 only as a separate placement aid.",
-      "Updated 2026-11-24: how-to-find-and-operate-your-main-water-shutoff added as class C (locating, testing and labelling a valve; no calculation is justified)."
+      "Updated 2026-11-24: how-to-find-and-operate-your-main-water-shutoff added as class C (locating, testing and labelling a valve; no calculation is justified).",
+      "Updated 2026-11-25: plug-in-power-meter-vs-smart-plug-energy-monitoring added as class A; it links the Electricity running cost panel for the worked kWh step."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",

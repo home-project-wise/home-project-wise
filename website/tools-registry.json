@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-22",
+  "updated": "2026-11-25",
   "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
   "tools": [
     {
@@ -268,6 +268,7 @@
       "params": [],
       "linkPrefill": [],
       "articles": [
+        "plug-in-power-meter-vs-smart-plug-energy-monitoring",
         "smart-lighting"
       ]
     },
