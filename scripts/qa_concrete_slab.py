@@ -24,7 +24,7 @@ with sync_playwright() as p:
         page.goto(BASE + "concrete-slab-calculator.html", wait_until="load")
         check("page loads at %dpx" % width, page.locator("h1").inner_text() == "Concrete Slab Volume Calculator")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
-        check("thickness has no assumed default at %dpx" % width, page.input_value("#slab-thickness") == "")
+        check("thickness and extra allowance have no assumed defaults at %dpx" % width, page.input_value("#slab-thickness") == "" and page.input_value("#slab-allowance") == "")
         page.click("button[type=submit]")
         check("blank dimensions show validation and no result at %dpx" % width,
               "Length is required" in page.locator("#concrete-slab-error").inner_text() and page.locator("#concrete-slab-result").inner_text() == "")
@@ -40,7 +40,7 @@ with sync_playwright() as p:
         page.fill("#slab-product-name","Named test mix"); page.fill("#slab-bag-yield","0.5")
         page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
         result = page.locator("#concrete-slab-result").inner_text()
-        check("named product yield rounds bag count up at %dpx" % width, "67 whole bags" in result and "rounded up" in result, result)
+        check("named product yield rounds bag count up at %dpx" % width, "67 whole bags" in result and "rounded up" in result, result)\n        page.fill("#slab-allowance","10"); page.click("button[type=submit]")\n        result = page.locator("#concrete-slab-result").inner_text()\n        check("only visitor-entered allowance changes the bag estimate at %dpx" % width, "Your entered extra allowance: 10%" in result and "74 whole bags" in result, result)\n        page.fill("#slab-allowance","");
         page.fill("#slab-product-name",""); page.fill("#slab-bag-yield",""); page.fill("#slab-thickness","0")
         page.click("button[type=submit]")
         check("zero thickness is rejected at %dpx" % width,
