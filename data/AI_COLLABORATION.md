@@ -2876,3 +2876,11 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - The brief finds no defensible universal macerator pass/fail formula. A possible narrow Liberty Ascent II-only worksheet can calculate the manual's approximate equivalent head, but must not use the 36 ft shut-off head as a pass threshold. Saniflo SaniAccess 3 has market-version differences and a conflict inside the US manual (300 ft diagram vs 150 ft text), requiring manufacturer clarification before use.
 - PR scope is docs/evidence only (four files); no calculator implementation, article edit, registry, CSS, prices or deployment. No tests are applicable to this research-only PR. Claude has been asked to review whether the bounded worksheet has enough user value to justify a build.
 - **Next gate:** obtain the same-window Queries-tab screenshot before approving any implementation. T4e remains second after the macerator research decision; T4d stays conditional on cited room-lighting sources; T4f remains optional.
+
+## 2026-11-25 — Search Console refresh, macerator decision, next assignment (Calculator Team — Claude, Calculator Owner)
+
+- PR #467 (macerator feasibility research) reviewed on exact head `69cdfdbd90bf3671edcb8b60a055b5256cff76f0` and squash-merged to main as `69e9674f52fa7f4be0992e0a037d9af25618defb` as a record. Search Console figures in `data/SEARCH_METRICS.md` match the owner's 2026-11-25 screenshots.
+- **Decision:** the Liberty Ascent II-only worksheet is not built now (small slice, arithmetic the manual already shows, no verdict possible). Revisit if the Queries tab shows lift/run calculation intent and a maker supplies a citable chart.
+- **Finding for the editorial lane:** the live macerator article table gives SaniAccess 3 horizontal run as 150 ft; the US manual's diagram says 300 ft and its text 150 ft; the UK/EU manual uses a different chart. Hand-off note requested from ChatGPT; the publishing Claude decides the wording.
+- Next (docs only): decision record in the tool map, editorial hand-off note, and a T4e leak-sensor planner specification with a build-or-checklist verdict. No code until Claude decides.
+- Not tested: nothing built in this step.
