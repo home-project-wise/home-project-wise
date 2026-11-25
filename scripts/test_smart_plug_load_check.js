@@ -1,6 +1,7 @@
 "use strict";
 const assert=require("node:assert/strict"),api=require("../website/smart-plug-load-check.js");let n=0;
 function t(name,fn){fn();n++;console.log("PASS "+name);}const close=(a,b)=>assert.ok(Math.abs(a-b)<1e-9,a+" !== "+b),us={volts:120,amps:15};
+t("short plug-rating labels fit the phone select",()=>{assert.deepEqual(api.REGIONS.map(x=>x.name),["US/Canada: 15 A, 120 V","UK: 13 A, 230 V","UK/Europe: 10 A, 230 V","Europe: 16 A, 230 V","Custom rating"]);});
 t("15 A × 120 V = 1,800 W; 80% = 1,440 W",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:12}]});close(r.plugLimitW,1800);close(r.screeningLimitW,1440);});
 t("three devices are summed before comparison: 12 + 65 + 150 = 227 W",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:12},{deviceId:"charger",mode:"w",value:65},{deviceId:"tv",mode:"w",value:150}]});close(r.totalW,227);assert.equal(r.level,"green");});
 t("exact 80% is not over the screening line",()=>{const r=api.calculate({plug:us,devices:[{deviceId:"lamp",mode:"w",value:1440}]});close(r.totalW,1440);assert.equal(r.level,"green");});
