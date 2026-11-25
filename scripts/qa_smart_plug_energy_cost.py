@@ -71,7 +71,7 @@ with sync_playwright() as p:
       const q=[...document.querySelectorAll('h3')].find(x=>x.textContent.trim()==='How many watts can a smart plug handle?');
       return {structured:data&&data.mainEntity.find(x=>x.name==='How many watts can a smart plug handle?')?.acceptedAnswer?.text,visible:q&&q.nextElementSibling?.textContent.trim()};
     }""")
-    check("visible 80% FAQ exactly matches FAQ JSON-LD",faq.structured==faq.visible,faq)
+    check("visible 80% FAQ exactly matches FAQ JSON-LD",faq["structured"]==faq["visible"],faq)
     page.locator('a[href="home-project-calculator.html#panel-energy"]').click()
     check("electricity-cost deep link opens its tab",page.url.endswith("home-project-calculator.html#panel-energy"),page.url)
     context.close();browser.close()
