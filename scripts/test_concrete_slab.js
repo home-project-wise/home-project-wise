@@ -75,6 +75,7 @@ test("partial or invalid product-yield details are rejected rather than treated 
   assert.throws(()=>Slab.calculate({...base,productName:"",bagYield:0.5}),/named concrete product/);
   assert.throws(()=>Slab.calculate({...base,productName:"Named mix",bagYield:0}),/greater than zero/);
   assert.throws(()=>Slab.calculate({...base,productName:"Named mix",bagYield:1,bagYieldUnit:"kg"}),/valid bag-yield unit/);
+  assert.throws(()=>Slab.calculate({...base,allowancePercent:-1}),/Extra allowance/);
 });
 
 test("very small positive dimensions remain positive in every volume unit", () => {
