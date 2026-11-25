@@ -1,7 +1,7 @@
 (function(root,factory){
   var api=factory();
   if(typeof module==="object"&&module.exports)module.exports=api;
-  if(root&&root.document)api.init(root.document,root);
+  if(root&&root.document){root.HPWSmartPlugEnergyCost=api;api.init(root.document,root);}
 })(typeof globalThis!=="undefined"?globalThis:this,function(){
 "use strict";
 function number(v){return String(v===undefined||v===null?"":v).trim()===""?NaN:Number(v);}
