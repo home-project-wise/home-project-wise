@@ -56,7 +56,10 @@
     return result;
   }
   function format(result) {
-    var fmt = function (n, digits) { return Number(n).toLocaleString("en-US", { maximumFractionDigits:digits === undefined ? 3 : digits }); };
+    var fmt = function (n, digits) {
+      var value = Number(n), rendered = value.toLocaleString("en-US", { maximumFractionDigits:digits === undefined ? 3 : digits });
+      return value > 0 && Number(rendered.replace(/,/g, "")) === 0 ? value.toExponential(3) : rendered;
+    };
     return {
       metric:fmt(result.volumeM3,4) + " m³", feet:fmt(result.volumeFt3,3) + " ft³", yards:fmt(result.volumeYd3,3) + " yd³",
       adjustedMetric:fmt(result.adjustedVolumeM3,4) + " m³",
