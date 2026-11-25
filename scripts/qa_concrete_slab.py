@@ -21,9 +21,11 @@ with sync_playwright() as p:
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda e: errors.append(str(e)))
+        page.on("console", lambda msg: errors.append(msg.text) if msg.type == "error" else None)
         page.goto(BASE + "concrete-slab-calculator.html", wait_until="load")
         check("page loads at %dpx" % width, page.locator("h1").inner_text() == "Concrete Slab Volume Calculator")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
+        check("measurement labels are associated with their inputs at %dpx" % width, all(page.locator('label[for="%s"]' % field).count() == 1 for field in ["slab-length", "slab-width", "slab-thickness", "slab-allowance", "slab-product-name", "slab-bag-yield"]))
         check("dimensions, units, yield unit and allowance have no assumed defaults at %dpx" % width, page.input_value("#slab-thickness") == "" and page.input_value("#slab-allowance") == "" and page.input_value("#slab-length-unit") == "" and page.input_value("#slab-thickness-unit") == "" and page.input_value("#slab-bag-yield-unit") == "")
         page.click("button[type=submit]")
         check("blank dimensions show validation and no result at %dpx" % width,
@@ -70,18 +72,24 @@ with sync_playwright() as p:
     context = browser.new_context(viewport={"width":390,"height":844})
     context.route("**/*", lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
     home = context.new_page()
+    handoff_errors = []
+    home.on("pageerror", lambda e: handoff_errors.append(str(e)))
+    home.on("console", lambda msg: handoff_errors.append(msg.text) if msg.type == "error" else None)
     home.goto(BASE + "home-project-calculator.html", wait_until="domcontentloaded")
     home.locator("#room-root summary").click()
     home.select_option("#room-unit","m"); home.fill("#room-length","5"); home.fill("#room-width","4")
     with home.expect_popup() as popup_info:
         home.locator('button[data-target="concrete-slab"]').click()
     popup = popup_info.value
+    popup.on("pageerror", lambda e: handoff_errors.append(str(e)))
+    popup.on("console", lambda msg: handoff_errors.append(msg.text) if msg.type == "error" else None)
     popup.wait_for_load_state("load")
     check("shared room sends 5 × 4 metres to slab tool", popup.input_value("#slab-length") == "5" and
           popup.input_value("#slab-width") == "4" and popup.input_value("#slab-length-unit") == "m")
     check("shared-room handoff leaves thickness and thickness unit blank", popup.input_value("#slab-thickness") == "" and popup.input_value("#slab-thickness-unit") == "")
     check("shared-room note says thickness remains visitor-entered",
           "Thickness is still blank" in popup.locator("#slab-room-note").inner_text())
+    check("no browser console or page errors during shared-room handoff", not handoff_errors, handoff_errors)
     context.close()
     browser.close()
 server.shutdown()
