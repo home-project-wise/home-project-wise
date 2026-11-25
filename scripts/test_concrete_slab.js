@@ -41,7 +41,21 @@ test("bag yields entered in cubic yards and cubic metres use their own units", (
   assert.equal(metric.bagCount,3);
 });
 
-test("a visitor-entered allowance is explicit, optional and included in the adjusted bag estimate", () => {\n  const r = Slab.calculate({length:10,width:10,lengthUnit:"ft",thickness:4,thicknessUnit:"in",allowancePercent:10,productName:"Named product",bagYield:0.5,bagYieldUnit:"ft3"});\n  close(r.volumeFt3,100/3);\n  close(r.adjustedVolumeM3,r.volumeM3*1.1);\n  assert.equal(r.allowancePercent,10);\n  assert.equal(r.bagCount,74);\n});\n\ntest("blank allowance adds nothing and does not create an assumed percentage", () => {\n  const r = Slab.calculate({length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm",allowancePercent:""});\n  assert.equal(r.allowancePercent,null);\n  close(r.adjustedVolumeM3,r.volumeM3);\n});\n\ntest("no bag count is displayed unless the visitor enters both product name and published yield", () => {
+test("a visitor-entered allowance is explicit, optional and included in the adjusted bag estimate", () => {
+  const r = Slab.calculate({length:10,width:10,lengthUnit:"ft",thickness:4,thicknessUnit:"in",allowancePercent:10,productName:"Named product",bagYield:0.5,bagYieldUnit:"ft3"});
+  close(r.volumeFt3,100/3);
+  close(r.adjustedVolumeM3,r.volumeM3*1.1);
+  assert.equal(r.allowancePercent,10);
+  assert.equal(r.bagCount,74);
+});
+
+test("blank allowance adds nothing and does not create an assumed percentage", () => {
+  const r = Slab.calculate({length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm",allowancePercent:""});
+  assert.equal(r.allowancePercent,null);
+  close(r.adjustedVolumeM3,r.volumeM3);
+});
+
+test("no bag count is displayed unless the visitor enters both product name and published yield", () => {
   const r = Slab.calculate({length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm",
     productName:"",bagYield:"",bagYieldUnit:"m3"});
   assert.equal(r.bagCount,null);
@@ -72,6 +86,7 @@ test("volume calculation contains no hidden allowance, price or material assumpt
   const r = Slab.calculate({length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm"});
   close(r.volumeM3,0.2);
   assert.equal(r.bagCount,null);
-  assert.equal(r.allowancePercent,null);\n  assert.equal(r.waste,undefined);
+  assert.equal(r.allowancePercent,null);
+  assert.equal(r.waste,undefined);
   assert.equal(r.price,undefined);
 });
