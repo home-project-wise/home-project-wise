@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concrete Slab Volume Calculator | HomeProjectWise</title>
+<meta name="description" content="Calculate concrete slab or pad volume from your own length, width and thickness measurements in metric or imperial units.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/concrete-slab-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Concrete Slab Volume Calculator | HomeProjectWise"><meta property="og:description" content="Calculate slab or pad volume in cubic feet, cubic yards and cubic metres from your own measurements."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/concrete-slab-calculator.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.cs-wrap{max-width:820px;margin:auto}.cs-panel,.cs-result{background:#f7f5f0;border:1px solid #ddd9d0;border-radius:12px;padding:16px;margin:16px 0}.cs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.cs-field label{display:block;font-weight:650;margin-bottom:5px}.cs-field input,.cs-field select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:10px;border:1px solid #aeb7b3;border-radius:7px;background:#fff;color:#243238;font:inherit}.cs-help,.cs-note{font-size:14px;color:#576165;line-height:1.5}.cs-button{min-height:44px;padding:11px 17px;border:0;border-radius:8px;background:#243238;color:#fff;font:inherit;font-weight:700}.cs-error{color:#9b2c20;font-weight:650}.cs-result{background:#fff}.cs-result:empty{display:none}
+@media(prefers-color-scheme:dark){.cs-panel{background:#202a2d;border-color:#465357;color:#edf1ed}.cs-field input,.cs-field select{background:#172124;color:#edf1ed;border-color:#68777b}.cs-help,.cs-note{color:#c1cbc7}.cs-result{background:#172124;border-color:#465357;color:#edf1ed}}
+@media(max-width:600px){.cs-grid{grid-template-columns:1fr}.cs-panel{padding:13px}}
+</style></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article cs-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Concrete Slab Volume Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p><h1>Concrete Slab Volume Calculator</h1>
+<p class="lead">Enter the length, width and thickness you have measured to calculate a volume in cubic feet, cubic yards and cubic metres. The tool does not choose or recommend any dimension.</p>
+<section class="cs-panel">
+<h2>Your slab or pad measurements</h2>
+<form id="concrete-slab-form" novalidate>
+<div class="cs-grid">
+<div class="cs-field"><label for="slab-length-unit">Length and width unit</label><select id="slab-length-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="cs-field"><label for="slab-length">Length</label><input id="slab-length" type="number" min="0" step="any" placeholder="Enter measured length" required></div>
+<div class="cs-field"><label for="slab-width">Width</label><input id="slab-width" type="number" min="0" step="any" placeholder="Enter measured width" required></div>
+<div class="cs-field"><label for="slab-thickness-unit">Thickness unit</label><select id="slab-thickness-unit"><option value="cm">Centimetres</option><option value="in">Inches</option></select></div>
+<div class="cs-field"><label for="slab-thickness">Thickness</label><input id="slab-thickness" type="number" min="0" step="any" placeholder="Enter thickness from your plan or measurement" required></div>
+</div>
+<h3>Optional bag estimate</h3>
+<p class="cs-help">Only enter this if you have a named product and its published yield per bag. The tool does not look up or assume a bag yield.</p>
+<div class="cs-grid">
+<div class="cs-field"><label for="slab-product-name">Named concrete product</label><input id="slab-product-name" type="text" placeholder="Product name from the label"></div>
+<div class="cs-field"><label for="slab-bag-yield">Published yield per bag</label><input id="slab-bag-yield" type="number" min="0" step="any" placeholder="Enter the stated yield"></div>
+<div class="cs-field"><label for="slab-bag-yield-unit">Yield unit</label><select id="slab-bag-yield-unit"><option value="m3">Cubic metres (m³)</option><option value="ft3">Cubic feet (ft³)</option><option value="yd3">Cubic yards (yd³)</option></select></div>
+</div>
+<p class="cs-help">The yield must match the named product and the unit shown on its manufacturer information or packaging. The visitor-entered yield is not independently verified. Bag count is rounded up to a whole bag; no bag size, weight or yield is inferred.</p>
+<p id="slab-room-note" class="cs-note" role="status"></p><p id="concrete-slab-error" class="cs-error" role="alert"></p>
+<p><button class="cs-button" type="submit">Calculate concrete volume</button></p>
+</form><div id="concrete-slab-result" class="cs-result" aria-live="polite"></div>
+</section>
+<section class="cs-panel">
+<h2>Formula and limits</h2>
+<p><strong>Volume = length × width × thickness.</strong> All three dimensions are converted to metres before multiplying. The result is then converted to ft³ and yd³ using the factors shown in the calculation.</p>
+<p>This tool gives a volume from the numbers entered. It is not a design, structural recommendation or engineering assessment. It does not advise on thickness, reinforcement, concrete mix, sub-base, curing, slope, frost, loads or code requirements. No allowance for waste or uneven subgrade is included.</p>
+<p class="cs-note">Conversion source: <a href="https://www.nist.gov/system/files/documents/2025/12/23/2026_NIST_HB133_AppendixE-20251222.pdf" target="_blank" rel="noopener">NIST Handbook 133 (2026), Appendix E, page 245</a>. The published cubic-foot and cubic-yard conversion factors are used.</p>
+</section></main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="concrete-slab-calculator.js"></script>
+</body></html>
