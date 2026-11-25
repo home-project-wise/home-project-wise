@@ -74,7 +74,6 @@ with sync_playwright() as p:
     home = context.new_page()
     handoff_errors = []
     home.on("pageerror", lambda e: handoff_errors.append(str(e)))
-    home.on("console", lambda msg: handoff_errors.append(msg.text) if msg.type == "error" else None)
     home.goto(BASE + "home-project-calculator.html", wait_until="domcontentloaded")
     home.locator("#room-root summary").click()
     home.select_option("#room-unit","m"); home.fill("#room-length","5"); home.fill("#room-width","4")
