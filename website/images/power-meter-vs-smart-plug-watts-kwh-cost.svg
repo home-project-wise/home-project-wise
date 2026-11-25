@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Diagram showing watts multiplied by hours and divided by 1,000 gives kilowatt-hours, and kilowatt-hours multiplied by price gives cost" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+<rect width="960" height="540" fill="#F7F5F0"/>
+<text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">From watts to a monthly cost</text>
+<rect x="40" y="170" width="220" height="150" rx="14" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="150" y="238" font-size="34" font-weight="700" fill="#243238" text-anchor="middle">Watts</text>
+<text x="150" y="274" font-size="18" font-weight="500" fill="#5b6b70" text-anchor="middle">power right now</text>
+<text x="315" y="228" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">× hours</text>
+<text x="315" y="256" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">÷ 1,000</text>
+<line x1="268" y1="285" x2="350" y2="285" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="362,285 346,276 346,294" fill="#243238"/>
+<rect x="370" y="170" width="220" height="150" rx="14" fill="#E4ECE8" stroke="#243238" stroke-width="3"/>
+<text x="480" y="238" font-size="34" font-weight="700" fill="#243238" text-anchor="middle">kWh</text>
+<text x="480" y="274" font-size="18" font-weight="500" fill="#5b6b70" text-anchor="middle">energy over time</text>
+<text x="645" y="228" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">× price</text>
+<text x="645" y="256" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">per kWh</text>
+<line x1="598" y1="285" x2="680" y2="285" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="692,285 676,276 676,294" fill="#243238"/>
+<rect x="700" y="170" width="220" height="150" rx="14" fill="#fff" stroke="#B5482F" stroke-width="3"/>
+<text x="810" y="238" font-size="34" font-weight="700" fill="#B5482F" text-anchor="middle">Cost</text>
+<text x="810" y="274" font-size="18" font-weight="500" fill="#5b6b70" text-anchor="middle">an estimate, not your bill</text>
+<text x="480" y="400" font-size="22" font-weight="700" fill="#243238" text-anchor="middle">Example only: 100 W × 8 h × 30 days ÷ 1,000 = 24 kWh</text>
+<text x="480" y="436" font-size="18" font-weight="500" fill="#5b6b70" text-anchor="middle">Use your own unit rate, never the standing charge</text>
+</svg>

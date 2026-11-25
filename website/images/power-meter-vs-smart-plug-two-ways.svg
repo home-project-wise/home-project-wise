@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Two ways to measure the same appliance: a plug-in power meter with its own screen, and a smart plug that reports to a phone app" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+<rect width="960" height="540" fill="#F7F5F0"/>
+<text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">Same spot, different place to read it</text>
+<rect x="60" y="90" width="140" height="80" rx="10" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="130" y="138" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Wall socket</text>
+<line x1="205" y1="130" x2="283" y2="130" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="295,130 279,121 279,139" fill="#243238"/>
+<rect x="300" y="80" width="220" height="100" rx="12" fill="#E4ECE8" stroke="#243238" stroke-width="3"/>
+<rect x="320" y="94" width="180" height="42" rx="6" fill="#fff" stroke="#243238" stroke-width="2"/>
+<text x="410" y="123" font-size="19" font-weight="600" fill="#5b6b70" text-anchor="middle">W · kWh · cost</text>
+<text x="410" y="164" font-size="19" font-weight="700" fill="#243238" text-anchor="middle">Plug-in power meter</text>
+<line x1="525" y1="130" x2="603" y2="130" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="615,130 599,121 599,139" fill="#243238"/>
+<rect x="620" y="90" width="180" height="80" rx="10" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="710" y="138" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Appliance</text>
+<text x="410" y="214" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">Reads on its own screen</text>
+<line x1="60" y1="250" x2="900" y2="250" stroke="#CBD8D2" stroke-width="2" stroke-dasharray="8 8"/>
+<rect x="60" y="280" width="140" height="80" rx="10" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="130" y="328" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Wall socket</text>
+<line x1="205" y1="320" x2="283" y2="320" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="295,320 279,311 279,329" fill="#243238"/>
+<rect x="300" y="280" width="220" height="80" rx="12" fill="#E4ECE8" stroke="#243238" stroke-width="3"/>
+<circle cx="330" cy="300" r="6" fill="#6F8F82"/>
+<text x="410" y="329" font-size="22" font-weight="700" fill="#243238" text-anchor="middle">Smart plug</text>
+<line x1="525" y1="320" x2="603" y2="320" stroke="#243238" stroke-width="5" stroke-linecap="round"/><polygon points="615,320 599,311 599,329" fill="#243238"/>
+<rect x="620" y="280" width="180" height="80" rx="10" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="710" y="328" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Appliance</text>
+<line x1="410" y1="364" x2="410" y2="408" stroke="#6F8F82" stroke-width="4" stroke-dasharray="7 6"/>
+<path d="M392 392 q18 -14 36 0" fill="none" stroke="#6F8F82" stroke-width="4" stroke-linecap="round"/>
+<rect x="378" y="410" width="64" height="104" rx="10" fill="#fff" stroke="#243238" stroke-width="3"/>
+<rect x="388" y="424" width="44" height="64" rx="4" fill="#E4ECE8"/>
+<circle cx="410" cy="500" r="4" fill="#243238"/>
+<text x="470" y="468" font-size="19" font-weight="700" fill="#6F8F82">Reads in a phone app</text>
+</svg>
