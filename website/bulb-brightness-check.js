@@ -60,7 +60,7 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault(); error.textContent = ""; result.textContent = "";
       var lumensValue = doc.getElementById("lumens-per-bulb").value;
-      if (lumensValue === "") return;
+      if (lumensValue === "") { result.textContent = "Enter the lumens printed on the bulb box to see your totals."; return; }
       try {
         var data = calculate({ roomType: doc.getElementById("room-type").value,
           fixtureCount: doc.getElementById("fixture-count").value,

@@ -27,7 +27,7 @@ with sync_playwright() as p:
         check("lumens starts blank at %dpx" % width, page.input_value("#lumens-per-bulb") == "" and page.locator("#brightness-result").inner_text() == "")
         page.fill("#fixture-count","2"); page.fill("#bulbs-per-fixture","3"); page.select_option("#room-type","kitchen")
         page.fill("#room-area","24"); page.select_option("#area-unit","m2"); page.click("button[type=submit]")
-        check("blank lumens shows no result at %dpx" % width, page.locator("#brightness-result").inner_text() == "")
+        check("blank lumens shows a neutral live-region prompt, not a zero or result, at %dpx" % width, page.locator("#brightness-result").inner_text() == "Enter the lumens printed on the bulb box to see your totals." and "0 lumens" not in page.locator("#brightness-result").inner_text())
         page.fill("#lumens-per-bulb","800"); page.click("button[type=submit]")
         result = page.locator("#brightness-result").inner_text()
         check("kitchen example and hand-computed fixture/total arithmetic at %dpx" % width, "1,000+ lumens per fixture" in result and "2,400 lumens per fixture" in result and "4,800 lumens" in result, result)

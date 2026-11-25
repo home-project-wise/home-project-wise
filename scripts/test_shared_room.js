@@ -86,4 +86,15 @@ ok("shared room opens the bulb brightness check with the validated room availabl
   assert.equal(w.hpwRoom.length * w.hpwRoom.width, 20);
   assert.match(e["room-note"].textContent, /new tab/);
 });
-console.log("\\n" + n + " shared-room tests passed");
+ok("shared room opens the concrete slab tool with dimensions in memory and does not assume thickness", () => {
+  const d = makeDoc(); d.getElementById("room-root"); let opened = null;
+  const w = { Event: Ev, open: (...args) => { opened = args; return {}; } };
+  SR.init(d, w);
+  const e = new Proxy(d.els, { get: (t, k) => d.getElementById(k) });
+  Object.entries({ "room-unit":"ft", "room-length":"12", "room-width":"10", "room-height":"", "room-openings":"" }).forEach(([k,v]) => { e[k].value=v; });
+  e["room-form"].handlers.click.forEach(f => f({ target: { getAttribute: k => k === "data-target" ? "concrete-slab" : null } }));
+  assert.deepEqual(opened, ["concrete-slab-calculator.html", "_blank"]);
+  assert.deepEqual(w.hpwRoom, { unit:"ft", length:12, width:10, height:null, openings:0 });
+  assert.match(e["room-note"].textContent, /Thickness remains blank/);
+});
+console.log("\n" + n + " shared-room tests passed");
