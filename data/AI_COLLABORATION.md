@@ -2806,3 +2806,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - The first incomplete-row test now passed. The next Node case then failed because it populated the unit and quantity only for the first preset row, but called `buildEstimateInput` on the full multi-item list. The runtime correctly rejected the next row's blank unit.
 - Corrected the fixture to model the visitor completing every preset row, while giving the first row quantity 2 and the others quantity 1. This is another test-only sequencing correction; no runtime or preset behavior changed.
 - Test commit: `82183b4`. The visual run on the prior head was cancelled by the newer push before Chromium installation; it supplied no browser evidence. Both required gates must complete on the final head.
+
+
+### T4c CI correction 3 — third quality run on `82183b4`
+
+- The previous two fixture sequencing issues now pass. The remaining Node failure was a stale expected provenance string: the item label was deliberately changed from singular `Drywall anchor` to the article-exact `Drywall anchors`, but the two summary assertions still expected the singular form.
+- Updated both test expectations to the exact source-matching item label in commit `d092ba0`. This is test-only; no runtime behavior changed.
+- The prior Chromium run was cancelled when the branch advanced, before its test steps. Wait for both quality and visual QA to finish on the final branch head before requesting Claude review.
