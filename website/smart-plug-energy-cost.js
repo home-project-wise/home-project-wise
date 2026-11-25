@@ -13,7 +13,7 @@ function calculate(input){
   if(!Number.isFinite(days)||days<1||days>31)return{ok:false,error:"Enter days per month from 1 to 31."};
   if(!Number.isFinite(rate)||rate<0)return{ok:false,error:"Enter your electricity rate per kWh (zero is allowed)."};
   if(!/^[A-Z]{3}$/.test(currency))return{ok:false,error:"Choose your country above so the currency is clear."};
-  var daily=watts*hours/1000,monthly=daily*days,annual=watts*hours*365/1000,monthlyCost=monthly*rate,annualCost=annual*rate;
+  var daily=watts*hours/1000,monthly=daily*days,annual=monthly*12,monthlyCost=monthly*rate,annualCost=monthlyCost*12;
   if(![daily,monthly,annual,monthlyCost,annualCost].every(Number.isFinite))return{ok:false,error:"Those values are too large to calculate."};
   return{ok:true,watts:watts,hoursPerDay:hours,daysPerMonth:days,ratePerKwh:rate,currency:currency,dailyKwh:daily,monthlyKwh:monthly,annualKwh:annual,monthlyCost:monthlyCost,annualCost:annualCost};
 }
@@ -38,9 +38,9 @@ function init(doc,win){
     out.innerHTML='<h3>Estimated energy use and cost</h3><ul class="calc-list">'+
       '<li>Energy per day: <strong>'+r.dailyKwh.toFixed(4)+' kWh</strong></li>'+
       '<li>Energy per month ('+r.daysPerMonth+' days): <strong>'+r.monthlyKwh.toFixed(4)+' kWh</strong></li>'+
-      '<li>Energy per year (365 days): <strong>'+r.annualKwh.toFixed(4)+' kWh</strong></li>'+
+      '<li>Energy per year (12 × the monthly figure): <strong>'+r.annualKwh.toFixed(4)+' kWh</strong></li>'+
       '<li>Estimated monthly cost: <strong>'+money(r.monthlyCost,r.currency)+'</strong></li>'+
-      '<li>Estimated yearly cost: <strong>'+money(r.annualCost,r.currency)+'</strong></li></ul>'+
+      '<li>Estimated yearly cost (12 × monthly cost): <strong>'+money(r.annualCost,r.currency)+'</strong></li></ul>'+
       '<p class="calc-note">Based on the watts and hours you entered and the '+r.currency+' rate shown above. Actual use and bills can vary.</p>';
   });
   return{calculate:calculate};

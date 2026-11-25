@@ -3,13 +3,17 @@ const assert=require("node:assert/strict");
 const api=require("../website/smart-plug-energy-cost.js");
 let n=0;function t(name,fn){fn();n++;console.log("PASS "+name);}
 const near=(a,b)=>assert.ok(Math.abs(a-b)<1e-10,String(a)+" != "+String(b));
-t("standby bulb: 0.5 W × 8,760 h/year = 4.38 kWh/year",()=>{
+t("standby bulb: 0.5 W × 24 h/day × 30 days/month × 12 = 4.32 kWh/year",()=>{
  const r=api.calculate({watts:0.5,hoursPerDay:24,daysPerMonth:30,ratePerKwh:0.2,currency:"USD"});
- assert.equal(r.ok,true);near(r.annualKwh,4.38);near(r.annualCost,0.876);near(r.monthlyKwh,0.36);near(r.monthlyCost,0.072);
+ assert.equal(r.ok,true);near(r.annualKwh,4.32);near(r.annualCost,0.864);near(r.monthlyKwh,0.36);near(r.monthlyCost,0.072);
 });
 t("running example: 60 W × 5 h/day × 30 days = 9 kWh/month",()=>{
  const r=api.calculate({watts:60,hoursPerDay:5,daysPerMonth:30,ratePerKwh:0.25,currency:"GBP"});
- near(r.dailyKwh,0.3);near(r.monthlyKwh,9);near(r.annualKwh,109.5);near(r.monthlyCost,2.25);near(r.annualCost,27.375);
+ near(r.dailyKwh,0.3);near(r.monthlyKwh,9);near(r.annualKwh,108);near(r.monthlyCost,2.25);near(r.annualCost,27);
+});
+t("10 days/month: 60 W × 5 h/day = 3 kWh/month and 36 kWh/year",()=>{
+ const r=api.calculate({watts:60,hoursPerDay:5,daysPerMonth:10,ratePerKwh:0.25,currency:"USD"});
+ assert.equal(r.ok,true);near(r.monthlyKwh,3);near(r.annualKwh,36);near(r.monthlyCost,0.75);near(r.annualCost,9);
 });
 t("fractional watts and a non-US currency are preserved",()=>{
  const r=api.calculate({watts:1.2,hoursPerDay:8,daysPerMonth:31,ratePerKwh:0.31,currency:"EUR"});
