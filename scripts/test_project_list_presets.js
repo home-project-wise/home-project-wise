@@ -155,8 +155,8 @@ ok("source links render beside the item and source provenance enters the copyabl
     return { currency: "USD", lineItems: input.lineItems.map(item => ({ id: item.id, unitPriceLow: 0, unitPriceHigh: 0, totalLow: 0, totalHigh: 0 })), unknownRequired: input.lineItems.map(item => item.name), pricedLineCount: 0 };
   } });
   assert.ok(summary.ok);
-  assert.ok(summary.text.includes("Preset item source for Drywall anchor: How to Hang Large Wall Art Without Damaging Your Walls"));
-  assert.ok(summary.text.includes("Preset item source for Drywall anchor: How Much Weight Can Drywall Anchors Hold?"));
+  assert.ok(summary.text.includes("Preset item source for Drywall anchors: How to Hang Large Wall Art Without Damaging Your Walls"));
+  assert.ok(summary.text.includes("Preset item source for Drywall anchors: How Much Weight Can Drywall Anchors Hold?"));
 });
 ok("preset controls are present in the existing project-list module without page or CSS edits", () => {
   const src = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
