@@ -88,6 +88,19 @@ with sync_playwright() as p:
         check("all preset items retain source article provenance at %dpx" % width,
               all(x["sources"] for x in all_state[1:]), all_state)
 
+        # Tab navigation must reach the list's quantity and unit controls.
+        second.focus()
+        keyboard_fields = set()
+        for _ in range(20):
+            page.keyboard.press("Tab")
+            field = page.evaluate("document.activeElement.getAttribute('data-field')")
+            if field in ("quantity", "unit"):
+                keyboard_fields.add(field)
+            if keyboard_fields == {"quantity", "unit"}:
+                break
+        check("keyboard tab order reaches quantity and unit fields at %dpx" % width,
+              keyboard_fields == {"quantity", "unit"}, sorted(keyboard_fields))
+
         # Source attribution is also present on the actual rows, including both source links for shared items.
         anchor_row = page.locator("#plist-items fieldset").filter(has=page.get_by_text("Drywall anchors", exact=True))
         check("Drywall anchor row shows both source articles at %dpx" % width,
