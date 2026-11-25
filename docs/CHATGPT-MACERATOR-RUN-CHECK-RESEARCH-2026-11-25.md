@@ -59,7 +59,7 @@ A **Liberty Ascent II-only arithmetic worksheet** could reproduce the manual's s
 H_{eq}=H_v + \frac{L_h}{10} + 3N_{90}
 \]
 
-where (H_v) is vertical rise in feet, (L_h) is total horizontal run in feet, and (N_{90}) is the number of 90-degree bends. The manual's own example gives (5 + 43/10 + 3(3)=18.3) ft. This formula is explicitly model-specific and approximate; the manual says to use the performance curve and consult the factory for long runs or multiple elbows.
+where `H_v` is vertical rise in feet, `L_h` is total horizontal run in feet, and `N_90` is the number of 90-degree bends. The manual's own example gives (5 + 43/10 + 3(3)=18.3) ft. This formula is explicitly model-specific and approximate; the manual says to use the performance curve and consult the factory for long runs or multiple elbows.
 
 ### What is not supported
 
