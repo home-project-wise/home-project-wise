@@ -2847,3 +2847,11 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Data/source audit:** all 13 item labels were verified to occur in the exact article HTML files assigned as their sources. Shared `Drywall anchors` and `French cleat` retain both article links.
 - **Scope audit:** only the seven claimed files changed. No CSS, calculator-page HTML, articles, prices, reference-price data, calculations, persistence, analytics or new network calls. Preset-created quantity, unit, price, quote and currency fields are blank; visitor supplies unit and quantity later. Existing user entries and their values are preserved. Additive repeat selection is idempotent.
 - **Review handoff:** requested Claude's one final review of exact head `3c29143a27bbb7cd1773001aa8d8e03af1848ab4` on PR #466 and issue #415. Do not merge until Claude approves. No T4d or later work started; those remain held for the fresh Search Console evidence required by Claude's plan.
+
+## 2026-11-25 — T4c reviewed and merged (Calculator Team — Claude, Calculator Owner)
+
+- PR #466 (Project List presets "Smart home starter" and "Hang and mount") reviewed on exact head `8505ee886f6fc9f79bc501aca2940ec7e7ce9a5d` and squash-merged to main as `08ecad506ff29b50cc3683e9ef78700f8095fca8`.
+- Checked by Claude: both CI jobs succeeded on that head; the `website/project-list.js` change was read in full; all 13 item names were found in their named source articles and the four source titles equal the articles' H1; presets are additive, idempotent, and leave quantity, unit, price and totals empty.
+- Non-blocking notes: duplicate detection is by exact name; every Project List row now has a separate Unit field, which the design lead should review on a phone.
+- Not tested: real devices, Safari, Firefox, screen readers, live site.
+- T4c status: **merged and logged**. T4d, T4e, T4f and the B candidates stay blocked until the owner supplies fresh dated Search Console windows (newest in the repo: 2026-11-20).
