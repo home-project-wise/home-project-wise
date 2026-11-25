@@ -24,6 +24,13 @@ with sync_playwright() as p:
         responses=[]
         page.on("response",lambda r: responses.append((r.url,r.status)) if "smart-plug-load-check.js" in r.url else None)
         page.goto(BASE+"smart-plug-load-check.html",wait_until="load")
+        labels=page.locator("#region").evaluate("""el => {
+            const c=document.createElement("canvas").getContext("2d"),s=getComputedStyle(el);
+            c.font=s.font;
+            const available=el.clientWidth-parseFloat(s.paddingLeft||0)-parseFloat(s.paddingRight||0)-32;
+            return [...el.options].map(o=>({label:o.textContent,width:c.measureText(o.textContent).width,available}));
+        }""")
+        check("all closed plug-rating labels fit at %s px"%width,all(x["width"]<=x["available"] for x in labels),labels)
         row_count=page.locator("#device-rows .device-row").count()
         check("page loads at %s px"%width,row_count==1,{"page_errors":errors,"console_errors":console,"module":page.evaluate("typeof window.HPWSmartPlugLoadCheck"),"script_responses":responses})
         if row_count!=1: raise AssertionError("Smart Plug page did not create its first device row")
