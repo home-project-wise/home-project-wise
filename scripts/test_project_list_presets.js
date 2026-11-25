@@ -118,8 +118,7 @@ ok("blank preset unit and quantity block calculation until the visitor supplies 
   const s = fresh();
   L.addPreset(s, "smart-home-starter");
   assert.throws(() => L.buildEstimateInput(s), /Enter a unit for "Smart plug"/);
-  const item = s.items[0];
-  L.setField(s, item.id, "unit", "each");
+  s.items.forEach(item => L.setField(s, item.id, "unit", "each"));
   assert.throws(() => L.buildEstimateInput(s), /Check the quantity for "Smart plug"/);
 });
 ok("unit can be supplied later and is retained as visitor input", () => {
