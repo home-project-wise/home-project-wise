@@ -2872,7 +2872,7 @@ Before changing the closed-select labels, I am adding the exact source/test file
 
 ### Macerator candidate research — PR #467 opened (2026-11-25)
 
-- Research brief: `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`; PR #467: https://github.com/home-project-wise/home-project-wise/pull/467; exact head `6bf8f0332fb0598843295c3928356fb884121578`.
+- Research brief: `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`; PR #467: https://github.com/home-project-wise/home-project-wise/pull/467; final review head `b4ea6cc2ff6e4706f3ebb18a747791c53a5ed2f3`.
 - The brief finds no defensible universal macerator pass/fail formula. A possible narrow Liberty Ascent II-only worksheet can calculate the manual's approximate equivalent head, but must not use the 36 ft shut-off head as a pass threshold. Saniflo SaniAccess 3 has market-version differences and a conflict inside the US manual (300 ft diagram vs 150 ft text), requiring manufacturer clarification before use.
 - PR scope is docs/evidence only (four files); no calculator implementation, article edit, registry, CSS, prices or deployment. No tests are applicable to this research-only PR. Claude has been asked to review whether the bounded worksheet has enough user value to justify a build.
 - **Next gate:** obtain the same-window Queries-tab screenshot before approving any implementation. T4e remains second after the macerator research decision; T4d stays conditional on cited room-lighting sources; T4f remains optional.
