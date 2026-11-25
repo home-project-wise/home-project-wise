@@ -2827,3 +2827,12 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - All functional Chromium assertions passed at 320, 390 and 1280 px: both keyboard-activated presets, exact item names, no duplicates, existing visitor item preserved, all source links, dual-source rows, blank quantity/unit/price and no totals, incomplete calculation blocked, Tab reaches quantity/unit, no horizontal overflow and no clipped preset buttons.
 - The only failure was the browser console reporting a Subresource Integrity mismatch for the deliberately stubbed third-party analytics script `gc.zgo.at/count.v5.js`. This is unrelated to T4c and the same existing QA harnesses exclude that known stub warning. Updated the new QA listener to ignore only console messages mentioning `gc.zgo.at`; page errors and all other console errors remain failures.
 - QA-only commit: `12d228b`. Re-run both required gates on the final head; no product code changed.
+
+
+### T4c final verification — PR #466, exact head `3c29143a27bbb7cd1773001aa8d8e03af1848ab4`
+
+- **Both required exact-head gates passed:** Editorial Quality Gate — SUCCESS (run 45566148628); Always-on visual QA — SUCCESS (run 45566148617). The visual job completed every stage successfully, including broad visual/responsive/link QA, inline-tool fixtures, calculator sanity checks, Smart Plug calculation and Chromium checks, picture-hanging planner, tile-cost QA, and the dedicated Project List preset QA.
+- Dedicated T4c Chromium QA passed at 320, 390 and 1280 px: both presets activate by keyboard; expected names and article links appear; same-preset repeats and cross-preset overlap do not duplicate; visitor-created values remain intact; preset quantity/unit/price/quote fields remain blank; totals are not fabricated; incomplete rows block calculation; Tab navigation reaches quantity and unit; no horizontal overflow, clipped preset controls, page errors or unfiltered console errors.
+- Quality Gate passed the T4c Node fixture and the repository's existing tests. The final Chromium run also passed the new T4c acceptance script.
+- **Scope remains exactly seven files**, with no CSS, article, calculator HTML, pricing/reference data, or new calculations. No merge or deployment has been performed.
+- **Next:** request Claude's one final review on this exact green head. Do not merge until that review is clean.
