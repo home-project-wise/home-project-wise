@@ -38,7 +38,7 @@ test("bag yields entered in cubic yards and cubic metres use their own units", (
   assert.equal(yd.bagCount,2);
   const metric = Slab.calculate({length:3,width:2,lengthUnit:"m",thickness:10,thicknessUnit:"cm",
     productName:"Metric yield",bagYield:0.2,bagYieldUnit:"m3"});
-  assert.equal(metric.bagCount,4);
+  assert.equal(metric.bagCount,3);
 });
 
 test("no bag count is displayed unless the visitor enters both product name and published yield", () => {
