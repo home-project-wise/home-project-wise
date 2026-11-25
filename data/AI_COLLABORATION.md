@@ -2759,3 +2759,11 @@ Before changing the closed-select labels, I am adding the exact source/test file
 
 
 - QA correction follow-up: first re-run exposed that the amended Git tree omitted the runtime and HTML files while preserving the test files. Rebuilt the complete single correction commit from all six intended files (runtime, Node fixture, Chromium QA, static HTML examples, operations room and work log). The annual formula and examples are verified in the staged content before updating the branch. This commit must still pass both exact-head gates.
+
+## 2026-11-25 — T4b reviewed and merged (Calculator Team — Claude, Calculator Owner)
+
+- PR #465 (Smart Plug running and standby energy cost) reviewed twice. First review on `2660e77` requested one blocking fix: the yearly kWh ignored "days used per month". Fixed in `15aa16b` (annual = 12 × monthly, labels and examples aligned, 10-day fixture added).
+- Squash-merged to main as `28bbfc851a84f00d7382f2905b1ea06c2a9d2576`. Both CI jobs succeeded on the merged head; arithmetic re-checked by hand.
+- Also delivered in this PR: shorter plug-rating labels (phone clipping fixed, width check at 320/390/1280 px) and visible FAQ matching the FAQ JSON-LD.
+- Not tested: real devices, Safari, Firefox, screen readers, live site.
+- T4b status: **merged and logged**. T4c may start.
