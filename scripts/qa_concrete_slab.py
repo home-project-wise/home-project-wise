@@ -25,7 +25,7 @@ with sync_playwright() as p:
         page.goto(BASE + "concrete-slab-calculator.html", wait_until="load")
         check("page loads at %dpx" % width, page.locator("h1").inner_text() == "Concrete Slab Volume Calculator")
         check("no horizontal overflow at %dpx" % width, page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
-        check("measurement labels are associated with their inputs at %dpx" % width, all(page.locator('label[for="%s"]' % field).count() == 1 for field in ["slab-length", "slab-width", "slab-thickness", "slab-allowance", "slab-product-name", "slab-bag-yield"]))
+        check("measurement labels are associated with their inputs at %dpx" % width, all(page.locator('label[for="%s"]' % field).count() == 1 for field in ["slab-length-unit", "slab-length", "slab-width", "slab-thickness-unit", "slab-thickness", "slab-allowance", "slab-product-name", "slab-bag-yield", "slab-bag-yield-unit"]))
         check("dimensions, units, yield unit and allowance have no assumed defaults at %dpx" % width, page.input_value("#slab-thickness") == "" and page.input_value("#slab-allowance") == "" and page.input_value("#slab-length-unit") == "" and page.input_value("#slab-thickness-unit") == "" and page.input_value("#slab-bag-yield-unit") == "")
         page.click("button[type=submit]")
         check("blank dimensions show validation and no result at %dpx" % width,
