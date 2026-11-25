@@ -69,10 +69,16 @@ test("blank, zero, negative, non-finite and invalid dimensions are rejected", ()
   ]) assert.throws(()=>Slab.calculate({...base,...patch}));
 });
 
-test("partial or invalid product-yield details are rejected rather than treated as zero", () => {
+test("incomplete bag details do not block the volume result or create a bag count", () => {
   const base = {length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm"};
-  assert.throws(()=>Slab.calculate({...base,productName:"Named mix",bagYield:""}),/published yield/);
-  assert.throws(()=>Slab.calculate({...base,productName:"",bagYield:0.5}),/named concrete product/);
+  const namedOnly = Slab.calculate({...base,productName:"Named mix",bagYield:""});
+  assert.equal(namedOnly.volumeM3,0.2); assert.equal(namedOnly.bagCount,null); assert.equal(namedOnly.bagDetailsIncomplete,true);
+  const yieldOnly = Slab.calculate({...base,productName:"",bagYield:0.5,bagYieldUnit:"m3"});
+  assert.equal(yieldOnly.volumeM3,0.2); assert.equal(yieldOnly.bagCount,null); assert.equal(yieldOnly.bagDetailsIncomplete,true);
+});
+
+test("invalid entered bag yields, units and negative allowances are rejected", () => {
+  const base = {length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm"};
   assert.throws(()=>Slab.calculate({...base,productName:"Named mix",bagYield:0}),/greater than zero/);
   assert.throws(()=>Slab.calculate({...base,productName:"Named mix",bagYield:1,bagYieldUnit:"kg"}),/valid bag-yield unit/);
   assert.throws(()=>Slab.calculate({...base,allowancePercent:-1}),/Extra allowance/);
