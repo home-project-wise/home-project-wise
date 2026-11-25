@@ -37,7 +37,11 @@ with sync_playwright() as p:
               "33.333 ft³" in result and "1.235 yd³" in result and "0.9439 m³" in result, result)
         check("entered formula and conversion factors are shown at %dpx" % width,
               "10 ft × 10 ft × 4 in" in result and "0.3048 m" in result)
-        page.fill("#slab-product-name","Named test mix"); page.fill("#slab-bag-yield","0.5")
+        page.fill("#slab-product-name","Named test mix"); page.click("button[type=submit]")
+        result = page.locator("#concrete-slab-result").inner_text()
+        check("incomplete bag details keep volume visible but do not show a bag count at %dpx" % width,
+              "33.333 ft³" in result and "enter both the named product" in result and "whole bags" not in result, result)
+        page.fill("#slab-bag-yield","0.5")
         page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
         result = page.locator("#concrete-slab-result").inner_text()
         check("named product yield rounds bag count up at %dpx" % width, "67 whole bags" in result and "rounded up" in result, result)
