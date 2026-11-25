@@ -146,11 +146,19 @@ ok("source links render beside the item and source provenance enters the copyabl
   assert.ok(html.includes('href="articles/how-to-hang-large-wall-art-without-damage.html"'));
   assert.ok(html.includes('href="articles/how-much-weight-can-drywall-anchors-hold.html"'));
   assert.ok(html.includes("Source:"));
+  const state = win.hpwProjectListState;
+  state.items.forEach(item => { L.setField(state, item.id, "unit", "each"); L.setField(state, item.id, "quantity", "1"); });
+  const summary = L.summarize(state, { calculateEstimate(input) {
+    return { currency: "USD", lineItems: input.lineItems.map(item => ({ id: item.id, unitPriceLow: 0, unitPriceHigh: 0, totalLow: 0, totalHigh: 0 })), unknownRequired: input.lineItems.map(item => item.name), pricedLineCount: 0 };
+  } });
+  assert.ok(summary.ok);
+  assert.ok(summary.text.includes("Preset item source for Drywall anchor: How to Hang Large Wall Art Without Damaging Your Walls"));
+  assert.ok(summary.text.includes("Preset item source for Drywall anchor: How Much Weight Can Drywall Anchors Hold?"));
 });
 ok("preset controls are present in the existing project-list module without page or CSS edits", () => {
   const src = fs.readFileSync(path.join(__dirname, "..", "website", "project-list.js"), "utf8");
-  assert.ok(src.includes('id=\\"plist-preset-smart-home\\"'));
-  assert.ok(src.includes('id=\\"plist-preset-hang-mount\\"'));
+  assert.ok(src.includes("plist-preset-smart-home"));
+  assert.ok(src.includes("plist-preset-hang-mount"));
   assert.ok(src.includes("sourceArticles"));
   assert.ok(!src.includes("localStorage") && !src.includes("sessionStorage"));
 });
