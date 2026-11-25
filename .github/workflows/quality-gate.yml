@@ -22,6 +22,7 @@ jobs:
           node scripts/test_currency.js
           node scripts/test_home_calculator.js
           node scripts/test_project_list.js
+          node scripts/test_project_list_presets.js
           node scripts/test_energy_reference.js
           node scripts/test_flooring_reference.js
           node scripts/test_reference_prices.js

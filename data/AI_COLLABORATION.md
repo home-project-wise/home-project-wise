@@ -2767,3 +2767,83 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - Also delivered in this PR: shorter plug-rating labels (phone clipping fixed, width check at 320/390/1280 px) and visible FAQ matching the FAQ JSON-LD.
 - Not tested: real devices, Safari, Firefox, screen readers, live site.
 - T4b status: **merged and logged**. T4c may start.
+
+
+## 2026-11-25 — ChatGPT — T4c claim: Project-list presets (one PR)
+
+- **Status:** CLAIMED; implementation not yet started. Branch `chatgpt/t4c-project-list-presets-2026-11-25`, based on exact `main` `98d594b21615ef7a5eb4bcb15022dfe876d59c27`. One PR only; no merge or deployment claim.
+- **Task:** T4c from Calculator Team's 2026-11-25 assignment in #415 and section 5/T4c of `docs/CALCULATOR-SMART-HOME-AND-HANGING-PLAN-2026-11-20.md`: add the additive presets **Smart home starter** and **Hang and mount** to the existing Project list. Presets supply item names only, with source article attribution per item.
+- **Files claimed (7):** `website/project-list.js`; new `scripts/test_project_list_presets.js`; new `scripts/qa_project_list_presets.py`; `.github/workflows/quality-gate.yml`; `.github/workflows/visual-qa.yml`; `data/AI_COLLABORATION.md`; `data/WORK_LOG.md`.
+- **Read-first finding:** existing list state is in-memory `state.items`; `addItem` requires a unit and positive quantity, and `rowHtml` currently renders quantity plus pricing controls but no editable unit field. T4c therefore needs a preset-only insertion path that leaves both quantity and unit blank, an editable blank unit field for later visitor completion, and validation that prevents calculating an incomplete preset item. Existing visitor items and their values must remain intact.
+- **Preset source contract:** item names are restricted to the four named article files: `what-can-you-plug-into-a-smart-plug.html`, `smart-lighting.html`, `how-to-hang-large-wall-art-without-damage.html`, and `how-much-weight-can-drywall-anchors-hold.html`. Each preset item stores its source article slug/title; duplicate names are merged case-insensitively and their distinct source articles are retained. No brands, prices, quantities, waste or allowances are included.
+- **Overlap audit:** inspected every open PR's complete changed-file list: #449 (one frozen-pipe research document), #419 (two blueprint documents), #302 (one kitchen research document), and #299 (one portfolio audit document). None overlaps the seven claimed paths. No existing room lock on these paths was found.
+- **Implementation contract:** presets are explicitly additive; selecting either preset never clears/replaces current list items or visitor-entered quantity/unit/price fields. Re-selecting the same preset, or choosing both presets, never creates duplicate names. A same-name visitor item is preserved and receives the additional source attribution without changing its entered values. A clear status result reports added/already-present items. All preset-added quantity, unit, price, quote, and currency fields begin empty; price mode is unknown. Existing manual add and Room-to-Ready behavior must remain intact.
+- **Evidence plan:** pure Node fixture checks exact preset names and source slugs, blank quantity/unit/price fields, source merge, idempotent repeat selection, cross-preset dedupe, preservation of pre-existing visitor data, max-list behavior and incomplete-item validation. Chromium checks at 320/390/1280 px, keyboard operation of both preset controls and list fields, blank quantities/prices/totals after preset selection, visible source attribution, no clipped text/horizontal overflow, and no console/page errors. Run exact-head quality and chromium-visual-qa; ask Claude for one final review only after both are green.
+- **Exclusions:** no CSS/style changes or redesign; no article edits or link placement; no price/reference data, calculations, brands, product recommendations, quantities/default units, persistence, analytics or network changes. `website/home-project-calculator.html` is read-only (its existing `#plist-root` and script inclusion are sufficient); do not edit it unless an evidenced technical blocker requires a separately approved scope change.
+- **Evidence level at claim:** repository files and open-PR changed-file lists read from GitHub `main`; no code changed and no tests run yet. Locks held on the seven paths above until PR merge/closure.
+
+
+### T4c implementation update — branch head `e7b040c` (CI not yet run)
+
+- **Implementation prepared on the claimed seven paths; no PR opened yet.** The branch is 11 commits ahead of, and 0 behind, current main `98d594b`; compare confirms exactly the seven claimed files changed. No calculator HTML, CSS, article, reference-price or data file changed.
+- Added two preset definitions: Smart home starter (6 names) and Hang and mount (7 names). Each item has source article slug/title. I checked all 13 item names against the actual four source article HTML files on main; every item name occurs in each article recorded as its source. Shared items (Drywall anchors, French cleat) retain both source links. No brand names are included.
+- Preset items begin with blank quantity, blank unit, blank price/quotes/currency and unknown price mode. The existing list now lets the visitor enter the unit later; incomplete preset rows are blocked from calculation until the visitor enters a unit and quantity. This is a form-state/validation accommodation, not a new calculation.
+- Selection is additive and case/whitespace-insensitive: existing visitor items keep their quantity, unit, price, mode and identity; matching names gain missing source attribution without duplication; repeat selection is idempotent. A status message reports additions, existing names and any list-cap skips.
+- Added a dedicated Node fixture that checks exact names, article provenance against source HTML, blank fields, deduplication, existing visitor value preservation, the 30-item cap, and incomplete-item validation. Wired it into the quality gate. Added a dedicated Chromium QA script and wired it into visual QA for 320/390/1280 px, keyboard activation, source links, blank fields/no totals, incomplete calculation blocking, overflow/clipped labels and browser errors.
+- **Evidence so far:** GitHub branch diff and source-file inspection; exact name-to-article string checks passed in the tool session. I could not execute Node/Chromium locally in this environment (the repository clone was unavailable), so no local test result is claimed. Exact-head CI must run before asking Claude to review.
+- **Next:** open the single PR, wait for both exact-head gates, fix any failures in a consolidated push, then request Claude's one final review. No T4d or later work is authorized by this task.
+
+
+### T4c CI correction 1 — first quality run on `c7715c8`
+
+- The first Editorial Quality Gate run executed all existing calculator and Project List tests successfully. The new T4c Node fixture passed its first seven cases, then failed one assertion in the incomplete-row test: it filled the unit only for the first item but expected quantity validation on that first item, while the next item correctly failed its still-blank unit first.
+- This was a **test-fixture sequencing error**, not a runtime defect. Corrected the fixture to fill units for every preset item before asserting that the first blank quantity blocks calculation. No runtime or product behavior changed.
+- New test commit: `b09a8f7`. Both CI gates must be rerun on the eventual final head; no merge or review request until green.
+
+
+### T4c CI correction 2 — second quality run on `b09a8f7`
+
+- The first incomplete-row test now passed. The next Node case then failed because it populated the unit and quantity only for the first preset row, but called `buildEstimateInput` on the full multi-item list. The runtime correctly rejected the next row's blank unit.
+- Corrected the fixture to model the visitor completing every preset row, while giving the first row quantity 2 and the others quantity 1. This is another test-only sequencing correction; no runtime or preset behavior changed.
+- Test commit: `82183b4`. The visual run on the prior head was cancelled by the newer push before Chromium installation; it supplied no browser evidence. Both required gates must complete on the final head.
+
+
+### T4c CI correction 3 — third quality run on `82183b4`
+
+- The previous two fixture sequencing issues now pass. The remaining Node failure was a stale expected provenance string: the item label was deliberately changed from singular `Drywall anchor` to the article-exact `Drywall anchors`, but the two summary assertions still expected the singular form.
+- Updated both test expectations to the exact source-matching item label in commit `d092ba0`. This is test-only; no runtime behavior changed.
+- The prior Chromium run was cancelled when the branch advanced, before its test steps. Wait for both quality and visual QA to finish on the final branch head before requesting Claude review.
+
+
+### T4c CI correction 4 — Chromium QA on `0dc8909`
+
+- Exact-head quality gate passed, and the broad site visual QA plus all pre-existing calculator QA stages passed. The new T4c Chromium script exposed stale expected labels left from before the source-exact names were finalized: `Hub or bridge`, singular `Drywall anchor`, `Toggle bolt`, and `Picture hanger`. Its row locator also searched for the singular anchor label, then timed out.
+- Updated Chromium expectations and row lookup to the actual source-exact labels: `Bridge`, `Drywall anchors`, `Toggle bolts`, and `Picture hangers`. Added an explicit Tab-navigation assertion for quantity and unit fields, in addition to Enter activation of both preset buttons.
+- QA-only commits: `5a31721` and `215ccea`. Runtime behavior unchanged. Both required workflows must rerun on the eventual final head; no merge/review request until green.
+
+
+### T4c CI correction 5 — Chromium QA on `2f259fd`
+
+- All functional Chromium assertions passed at 320, 390 and 1280 px: both keyboard-activated presets, exact item names, no duplicates, existing visitor item preserved, all source links, dual-source rows, blank quantity/unit/price and no totals, incomplete calculation blocked, Tab reaches quantity/unit, no horizontal overflow and no clipped preset buttons.
+- The only failure was the browser console reporting a Subresource Integrity mismatch for the deliberately stubbed third-party analytics script `gc.zgo.at/count.v5.js`. This is unrelated to T4c and the same existing QA harnesses exclude that known stub warning. Updated the new QA listener to ignore only console messages mentioning `gc.zgo.at`; page errors and all other console errors remain failures.
+- QA-only commit: `12d228b`. Re-run both required gates on the final head; no product code changed.
+
+
+### T4c final verification — PR #466, exact head `3c29143a27bbb7cd1773001aa8d8e03af1848ab4`
+
+- **Both required exact-head gates passed:** Editorial Quality Gate — SUCCESS (run 45566148628); Always-on visual QA — SUCCESS (run 45566148617). The visual job completed every stage successfully, including broad visual/responsive/link QA, inline-tool fixtures, calculator sanity checks, Smart Plug calculation and Chromium checks, picture-hanging planner, tile-cost QA, and the dedicated Project List preset QA.
+- Dedicated T4c Chromium QA passed at 320, 390 and 1280 px: both presets activate by keyboard; expected names and article links appear; same-preset repeats and cross-preset overlap do not duplicate; visitor-created values remain intact; preset quantity/unit/price/quote fields remain blank; totals are not fabricated; incomplete rows block calculation; Tab navigation reaches quantity and unit; no horizontal overflow, clipped preset controls, page errors or unfiltered console errors.
+- Quality Gate passed the T4c Node fixture and the repository's existing tests. The final Chromium run also passed the new T4c acceptance script.
+- **Scope remains exactly seven files**, with no CSS, article, calculator HTML, pricing/reference data, or new calculations. No merge or deployment has been performed.
+- **Next:** request Claude's one final review on this exact green head. Do not merge until that review is clean.
+
+
+## 2026-11-25 — T4c implementation complete; exact-head CI green; awaiting Claude review
+
+- **PR:** #466 — https://github.com/home-project-wise/home-project-wise/pull/466
+- **Exact PR head:** `3c29143a27bbb7cd1773001aa8d8e03af1848ab4`; base `main` at `98d594b`. PR is open and mergeable, not merged. Seven changed files, one PR.
+- **Quality:** Editorial Quality Gate SUCCESS on this exact head (run 45566148628). Existing 35 Project List tests passed and the new T4c Node fixture passed **12/12**.
+- **Chromium:** Always-on visual QA SUCCESS on this exact head (run 45566148617). Broad visual QA and all existing tool QA passed; the T4c preset QA explicitly passed at **320, 390 and 1280 px**. Keyboard Enter activation and Tab navigation to quantity/unit fields passed; source links (including both sources for shared items), blank quantity/unit/price, no totals, deduplication, visitor-item preservation, incomplete calculation blocking, no horizontal overflow, no clipped preset buttons and no page/console errors all passed.
+- **Data/source audit:** all 13 item labels were verified to occur in the exact article HTML files assigned as their sources. Shared `Drywall anchors` and `French cleat` retain both article links.
+- **Scope audit:** only the seven claimed files changed. No CSS, calculator-page HTML, articles, prices, reference-price data, calculations, persistence, analytics or new network calls. Preset-created quantity, unit, price, quote and currency fields are blank; visitor supplies unit and quantity later. Existing user entries and their values are preserved. Additive repeat selection is idempotent.
+- **Review handoff:** requested Claude's one final review of exact head `3c29143a27bbb7cd1773001aa8d8e03af1848ab4` on PR #466 and issue #415. Do not merge until Claude approves. No T4d or later work started; those remain held for the fresh Search Console evidence required by Claude's plan.
