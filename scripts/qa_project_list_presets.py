@@ -22,11 +22,11 @@ def check(name, ok, detail=""):
 
 EXPECTED_SMART = [
     "Smart plug", "Smart bulb", "Smart switch or dimmer",
-    "Hub or bridge", "Wireless remote", "Switch cover"
+    "Bridge", "Wireless remote", "Switch cover"
 ]
 EXPECTED_HANG = [
-    "Stud finder", "Wood screw", "Drywall anchor", "Toggle bolt",
-    "Picture hanger", "French cleat", "Rubber bumpers"
+    "Stud finder", "Wood screw", "Drywall anchors", "Toggle bolts",
+    "Picture hangers", "French cleat", "Rubber bumpers"
 ]
 
 with sync_playwright() as p:
@@ -89,7 +89,7 @@ with sync_playwright() as p:
               all(x["sources"] for x in all_state[1:]), all_state)
 
         # Source attribution is also present on the actual rows, including both source links for shared items.
-        anchor_row = page.locator("#plist-items fieldset").filter(has=page.get_by_text("Drywall anchor", exact=True))
+        anchor_row = page.locator("#plist-items fieldset").filter(has=page.get_by_text("Drywall anchors", exact=True))
         check("Drywall anchor row shows both source articles at %dpx" % width,
               anchor_row.locator("a").count() == 2, anchor_row.inner_text())
         cleat_row = page.locator("#plist-items fieldset").filter(has=page.get_by_text("French cleat", exact=True))
