@@ -58,8 +58,8 @@ with sync_playwright() as p:
         check("design disclaimer and NIST source are present at %dpx" % width,
               "not a slab design" in result and page.locator('a[href*="nist.gov"]').count() == 1)
         page.locator("#slab-thickness").focus(); page.keyboard.press("Tab")
-        check("keyboard order proceeds from thickness to product name at %dpx" % width,
-              page.evaluate("document.activeElement.id === 'slab-product-name'"))
+        check("keyboard order proceeds from thickness to optional allowance at %dpx" % width,
+              page.evaluate("document.activeElement.id === 'slab-allowance'"))
         check("no browser errors at %dpx" % width, not errors, errors)
         context.close()
 
