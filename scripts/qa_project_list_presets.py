@@ -42,7 +42,7 @@ with sync_playwright() as p:
         page = context.new_page()
         page_errors, console_errors = [], []
         page.on("pageerror", lambda error: page_errors.append(str(error)))
-        page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" else None)
+        page.on("console", lambda msg: console_errors.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in msg.text else None)
         page.goto(BASE + "home-project-calculator.html#panel-project", wait_until="load")
         page.get_by_role("tab", name="Project cost").click()
         page.wait_for_selector("#plist-preset-smart-home")
