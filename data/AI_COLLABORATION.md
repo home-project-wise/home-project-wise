@@ -2731,3 +2731,8 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - **Guardrails:** no guessed electricity rate, no averaging time-of-use ranges, no currency conversion, no rate copied from another market. A sourced rate is only auto-filled when the existing energy-reference adapter marks it eligible and single-valued; otherwise the visitor enters their own rate. Keep the 80% line explicitly tool-specific, not an NEC or manufacturer rule; no safety certification language.
 - **Exclusions:** no article edit or publishing link placement; no CSS/design changes (refer any CSS need to the designer); no price/reference-data changes, persistence, analytics, or network beyond the existing same-origin reference registry fetch; no claims of real-device/Safari/Firefox/screen-reader/live-site testing.
 - **Next:** implement T4b plus the two phone-review copy fixes, run the focused fixtures and exact-head quality/Chromium gates, open one PR, then ask Claude for the single final review. Do not start T4c or unrelated work.
+
+
+### T4b claim addendum — existing Smart Plug label source and regression checks
+
+Before changing the closed-select labels, I am adding the exact source/test files to the claim: `website/smart-plug-load-check.js` (the five option labels), `scripts/test_smart_plug_load_check.js` (label-content regression), and `scripts/qa_smart_plug_load_check.py` (closed-select rendered-width regression). These are part of the phone defect described in #415 and are locked with the original T4b paths. The existing CSS remains excluded.
