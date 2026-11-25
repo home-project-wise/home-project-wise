@@ -69,7 +69,7 @@
     state.roomPlan = plan; return true;
   }
   function toNumber(v) { return (v === "" || v === null || v === undefined) ? NaN : Number(v); }
-  function normalizedName(v) { return String(v || "").trim().toLowerCase().replace(/\\s+/g, " "); }
+  function normalizedName(v) { return String(v || "").trim().toLowerCase().replace(/\s+/g, " "); }
   function mergeItemSources(item, sources) {
     if (!Array.isArray(item.sourceArticles)) item.sourceArticles = [];
     (sources || []).forEach(function (source) {
