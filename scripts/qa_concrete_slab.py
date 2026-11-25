@@ -62,7 +62,7 @@ with sync_playwright() as p:
         check("metric example calculates 0.6 cubic metres at %dpx" % width,
               "0.6 m³" in result and "21.189 ft³" in result and "0.785 yd³" in result, result)
         check("design disclaimer and NIST source are present at %dpx" % width,
-              "not a slab design" in result and page.locator('a[href*="nist.gov"]').count() == 1)
+              "not a slab design" in result and page.locator('a[href*="nist.gov"]').count() == 2)
         page.locator("#slab-thickness").focus(); page.keyboard.press("Tab")
         check("keyboard order proceeds from thickness to optional allowance at %dpx" % width,
               page.evaluate("document.activeElement.id === 'slab-allowance'"))
