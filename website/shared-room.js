@@ -49,7 +49,7 @@
   }
   var MARKUP =
     '<details><summary>Enter your room once (optional)</summary>' +
-    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, or see the wall area for Wallpaper, or send length and width to the concrete slab volume tool. Nothing is stored or sent.</p>' +
+    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check or Concrete Slab Volume Calculator. Nothing is stored or sent.</p>' +
     '<form class="calc" id="room-form" novalidate><div class="calc-grid">' +
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
