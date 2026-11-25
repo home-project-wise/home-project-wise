@@ -19,10 +19,10 @@
 <h2>Your slab or pad measurements</h2>
 <form id="concrete-slab-form" novalidate>
 <div class="cs-grid">
-<div class="cs-field"><label for="slab-length-unit">Length and width unit</label><select id="slab-length-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="cs-field"><label for="slab-length-unit">Length and width unit</label><select id="slab-length-unit"><option value="" selected>Choose a unit</option><option value="m">Metres</option><option value="ft">Feet</option></select></div>
 <div class="cs-field"><label for="slab-length">Length</label><input id="slab-length" type="number" min="0" step="any" placeholder="Enter measured length" required></div>
 <div class="cs-field"><label for="slab-width">Width</label><input id="slab-width" type="number" min="0" step="any" placeholder="Enter measured width" required></div>
-<div class="cs-field"><label for="slab-thickness-unit">Thickness unit</label><select id="slab-thickness-unit"><option value="cm">Centimetres</option><option value="in">Inches</option></select></div>
+<div class="cs-field"><label for="slab-thickness-unit">Thickness unit</label><select id="slab-thickness-unit"><option value="" selected>Choose a unit</option><option value="cm">Centimetres</option><option value="in">Inches</option></select></div>
 <div class="cs-field"><label for="slab-thickness">Thickness</label><input id="slab-thickness" type="number" min="0" step="any" placeholder="Enter thickness from your plan or measurement" required></div>
 </div>
 <div class="cs-field"><label for="slab-allowance">Optional extra allowance (%)</label><input id="slab-allowance" type="number" min="0" step="any" placeholder="Leave blank for no added allowance"></div>
@@ -32,7 +32,7 @@
 <div class="cs-grid">
 <div class="cs-field"><label for="slab-product-name">Named concrete product</label><input id="slab-product-name" type="text" placeholder="Product name from the label"></div>
 <div class="cs-field"><label for="slab-bag-yield">Published yield per bag</label><input id="slab-bag-yield" type="number" min="0" step="any" placeholder="Enter the stated yield"></div>
-<div class="cs-field"><label for="slab-bag-yield-unit">Yield unit</label><select id="slab-bag-yield-unit"><option value="m3">Cubic metres (m³)</option><option value="ft3">Cubic feet (ft³)</option><option value="yd3">Cubic yards (yd³)</option></select></div>
+<div class="cs-field"><label for="slab-bag-yield-unit">Yield unit</label><select id="slab-bag-yield-unit"><option value="" selected>Choose yield unit</option><option value="m3">Cubic metres (m³)</option><option value="ft3">Cubic feet (ft³)</option><option value="yd3">Cubic yards (yd³)</option></select></div>
 </div>
 <p class="cs-help">The yield must match the named product and the unit shown on its manufacturer information or packaging. The visitor-entered yield is not independently verified. Bag count is rounded up to a whole bag; no bag size, weight or yield is inferred.</p>
 <p id="slab-room-note" class="cs-note" role="status"></p><p id="concrete-slab-error" class="cs-error" role="alert"></p>
