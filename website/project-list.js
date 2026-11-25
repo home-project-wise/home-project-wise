@@ -9,6 +9,37 @@
 }(typeof globalThis !== "undefined" ? globalThis : this, function (root) {
   "use strict";
   var MAX_ITEMS = 30;
+  var PRESETS = {
+    "smart-home-starter": {
+      label: "Smart home starter",
+      items: [
+        { name: "Smart plug", sources: [{ slug: "what-can-you-plug-into-a-smart-plug", title: "What Can You Safely Plug Into a Smart Plug? The Watt-Check Method" }] },
+        { name: "Smart bulb", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
+        { name: "Smart switch or dimmer", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
+        { name: "Hub or bridge", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
+        { name: "Wireless remote", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
+        { name: "Switch cover", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] }
+      ]
+    },
+    "hang-and-mount": {
+      label: "Hang and mount",
+      items: [
+        { name: "Stud finder", sources: [{ slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" }] },
+        { name: "Wood screw", sources: [{ slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" }] },
+        { name: "Drywall anchor", sources: [
+          { slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" },
+          { slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }
+        ] },
+        { name: "Toggle bolt", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
+        { name: "Picture hanger", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
+        { name: "French cleat", sources: [
+          { slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" },
+          { slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }
+        ] },
+        { name: "Rubber bumpers", sources: [{ slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" }] }
+      ]
+    }
+  };
   var Currency = typeof module === "object" && module.exports && typeof require === "function" ? require("./currency.js") : root.HPWCurrency;
   function rpModule() {
     if (typeof module === "object" && module.exports && typeof require === "function") return require("./reference-prices.js");
@@ -38,6 +69,43 @@
     state.roomPlan = plan; return true;
   }
   function toNumber(v) { return (v === "" || v === null || v === undefined) ? NaN : Number(v); }
+  function normalizedName(v) { return String(v || "").trim().toLowerCase().replace(/\\s+/g, " "); }
+  function mergeItemSources(item, sources) {
+    if (!Array.isArray(item.sourceArticles)) item.sourceArticles = [];
+    (sources || []).forEach(function (source) {
+      if (!source || !source.slug || !source.title) return;
+      if (!item.sourceArticles.some(function (existing) { return existing.slug === source.slug; })) {
+        item.sourceArticles.push({ slug: source.slug, title: source.title });
+      }
+    });
+  }
+  function addPreset(state, presetId) {
+    var preset = PRESETS[presetId];
+    if (!preset) return { ok: false, error: "Choose a listed project preset." };
+    var added = [], alreadyPresent = [], skipped = [];
+    preset.items.forEach(function (spec) {
+      var existing = state.items.filter(function (item) { return normalizedName(item.name) === normalizedName(spec.name); })[0];
+      if (existing) {
+        mergeItemSources(existing, spec.sources);
+        alreadyPresent.push(spec.name);
+        return;
+      }
+      if (state.items.length >= MAX_ITEMS) {
+        skipped.push(spec.name);
+        return;
+      }
+      var item = {
+        id: "i" + state.nextId++, name: spec.name, unit: "", quantity: "",
+        mode: "unknown", price: "", low: "", high: "", currency: "",
+        category: "", coverage: "", coverageUnit: "", country: "", subtype: "",
+        sourceArticles: []
+      };
+      mergeItemSources(item, spec.sources);
+      state.items.push(item);
+      added.push(spec.name);
+    });
+    return { ok: true, label: preset.label, added: added, alreadyPresent: alreadyPresent, skipped: skipped };
+  }
   function addItem(state, spec) {
     var name = String(spec.name || "").trim(), unit = String(spec.unit || "").trim();
     var quantity = toNumber(spec.quantity);
@@ -51,7 +119,7 @@
     var known = hasPrice;
     var item = { id: "i" + state.nextId++, name: name, unit: unit, quantity: String(quantity),
       mode: known ? "known" : "unknown", price: known ? String(spec.price) : "", low: "", high: "", currency: known ? priceCurrency : "",
-      category: "", coverage: "", coverageUnit: "", country: "", subtype: "" };
+      category: "", coverage: "", coverageUnit: "", country: "", subtype: "", sourceArticles: [] };
     if (spec.category === "paint") {
       item.category = "paint";
     } else if (spec.category === "flooring" && Number(spec.coverage) > 0 && (spec.coverageUnit === "sq ft" || spec.coverageUnit === "m²")) {
@@ -66,7 +134,7 @@
   function findItem(state, id) { for (var i = 0; i < state.items.length; i++) if (state.items[i].id === id) return state.items[i]; return null; }
   function setField(state, id, field, value) {
     var it = findItem(state, id);
-    if (!it || ["quantity", "mode", "price", "low", "high", "country", "subtype"].indexOf(field) === -1) return false;
+    if (!it || ["quantity", "unit", "mode", "price", "low", "high", "country", "subtype"].indexOf(field) === -1) return false;
     if (field === "mode" && ["known", "range", "unknown", "reference"].indexOf(value) === -1) return false;
     if (field === "mode" && (value === "known" || value === "range") && !Currency.validCode(state.currency)) return false;
     if (field === "mode" && value === "reference" && !((it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records)) return false;
@@ -95,6 +163,7 @@
     var hasManualPrices = state.items.some(function (it) { return it.mode === "known" || it.mode === "range"; });
     if (hasManualPrices && !Currency.validCode(currency)) throw new Error("Choose your country before entering or calculating manual prices.");
     state.items.forEach(function (it) {
+      if (!String(it.unit || "").trim()) throw new Error("Enter a unit for \"" + it.name + "\" before calculating.");
       if ((it.mode === "known" || it.mode === "range") && it.currency !== currency) throw new Error("The price for " + it.name + " belongs to a different currency. Re-enter it for the selected country.");
     });
     var cRaw = String(state.contingency === undefined || state.contingency === null ? "" : state.contingency).trim();
@@ -206,6 +275,11 @@
     } else if (state.budget !== "") { budgetLine = "Budget must be a number greater than zero."; }
     var refsInfo = (state.refs || []).map(function (r) { return { name: findItem(state, r.itemId).name, d: state.rp.describe(r.record, now) }; });
     var notes = refsInfo.map(function (x) { return "Reference for " + x.name + ": " + x.d.sourceName + " (" + x.d.publisher + "), " + x.d.geography + ", observed " + x.d.observedAt + ", retrieved " + x.d.retrievedAt + (x.d.older ? " (older data)" : "") + ". " + x.d.url + " Caveat: " + x.d.caveats; });
+    state.items.forEach(function (it) {
+      (it.sourceArticles || []).forEach(function (source) {
+        notes.push("Preset item source for " + it.name + ": " + source.title + " (articles/" + source.slug + ".html).");
+      });
+    });
     var roomPlanSources = state.roomPlan && Array.isArray(state.roomPlan.sources) ? state.roomPlan.sources : [];
     roomPlanSources.forEach(function (s) { notes.push("Room plan source for " + s.item + ": " + s.name + ", " + s.geography + ", observed " + s.observedAt + ". " + (s.urls || []).join(" ; ")); });
     if (state.roomPlan && state.roomPlan.wallFinishNote) notes.push(state.roomPlan.wallFinishNote);
@@ -243,8 +317,15 @@
   function rowHtml(it, state) {
     var id = it.id, sel = function (m) { return it.mode === m ? " selected" : ""; };
     var canRef = (it.category === "flooring" || it.category === "flooring-area") && state.rp && state.records;
-    var h = '<fieldset class="wp-room"><legend>' + esc(it.name) + '</legend><div class="calc-grid">';
-    h += '<div class="calc-field"><label for="pl-q-' + id + '">Quantity (' + esc(it.unit) + ')</label><input id="pl-q-' + id + '" type="number" min="0" step="any" value="' + esc(it.quantity) + '" data-id="' + id + '" data-field="quantity"></div>';
+    var h = '<fieldset class="wp-room"><legend>' + esc(it.name) + '</legend>';
+    if (Array.isArray(it.sourceArticles) && it.sourceArticles.length) {
+      h += '<p class="wp-note">Source: ' + it.sourceArticles.map(function (source) {
+        return '<a href="articles/' + esc(source.slug) + '.html">' + esc(source.title) + '</a>';
+      }).join('; ') + '</p>';
+    }
+    h += '<div class="calc-grid">';
+    h += '<div class="calc-field"><label for="pl-q-' + id + '">Quantity</label><input id="pl-q-' + id + '" type="number" min="0" step="any" value="' + esc(it.quantity) + '" data-id="' + id + '" data-field="quantity"></div>';
+    h += '<div class="calc-field"><label for="pl-u-' + id + '">Unit</label><input id="pl-u-' + id + '" type="text" maxlength="20" value="' + esc(it.unit) + '" placeholder="e.g. item, box, pack" data-id="' + id + '" data-field="unit"></div>';
     h += '<div class="calc-field"><label for="pl-m-' + id + '">How will you price this?</label><select id="pl-m-' + id + '" data-id="' + id + '" data-field="mode"><option value="known"' + sel("known") + (Currency.validCode(state.currency) ? "" : " disabled") + '>I know the price</option><option value="range"' + sel("range") + (Currency.validCode(state.currency) ? "" : " disabled") + '>Two quotes (a range)</option>' +
       (canRef ? '<option value="reference"' + sel("reference") + '>Typical range from sources</option>' : '') + '<option value="unknown"' + sel("unknown") + '>Not sure yet</option></select></div>';
     if (it.mode === "known") {
@@ -281,6 +362,11 @@
     "<h3>Project list</h3>" +
     "<p class=\"wp-note\">Build one list from your results, or add your own items. Nothing is stored or sent.</p>" +
     "<p class=\"wp-note\" id=\"plist-room-plan-note\" role=\"status\">No Room-to-Ready plan added yet.</p>" +
+    "<fieldset class=\"wp-room\" id=\"plist-presets\"><legend>Ready-made project lists</legend>" +
+    "<p class=\"wp-note\">Adds item names only. Your existing entries and values stay in the list; repeated picks do not add duplicates.</p>" +
+    "<div class=\"wp-actions\"><button type=\"button\" class=\"wp-btn\" id=\"plist-preset-smart-home\">Smart home starter</button>" +
+    "<button type=\"button\" class=\"wp-btn\" id=\"plist-preset-hang-mount\">Hang and mount</button></div>" +
+    "<p class=\"wp-note\" id=\"plist-preset-note\" role=\"status\" aria-live=\"polite\"></p></fieldset>" +
     "<details><summary>Don’t know the prices yet?</summary><ol>" +
     "<li>Check the unit the product is sold in (a tin or gallon, a box, a roll). Enter the price for one of that unit, the way the product page shows it.</li>" +
     "<li>Look at two stores or websites. Choose “Two quotes” and enter both prices. You get a cost range instead of a guess.</li>" +
@@ -311,6 +397,18 @@
     var itemsEl = doc.getElementById("plist-items");
     function paintItems() { itemsEl.innerHTML = itemsHtml(state); }
     function clearResult() { doc.getElementById("plist-result").innerHTML = ""; }
+    function applyPreset(id) {
+      var result = addPreset(state, id), note = doc.getElementById("plist-preset-note");
+      if (!result.ok) { if (note) note.textContent = result.error; return; }
+      var parts = [];
+      if (result.added.length) parts.push("Added " + result.added.length + " item name(s).");
+      if (result.alreadyPresent.length) parts.push(result.alreadyPresent.length + " already on your list; kept without duplication.");
+      if (result.skipped.length) parts.push(result.skipped.length + " skipped because the list limit is " + MAX_ITEMS + ".");
+      if (!parts.length) parts.push("No new items were needed; the list is unchanged.");
+      if (note) note.textContent = result.label + ": " + parts.join(" ");
+      paintItems();
+      clearResult();
+    }
     function syncRoomPlan() {
       setRoomPlan(state, win && win.hpwRoomToReadyPlan ? win.hpwRoomToReadyPlan : null);
       var note = doc.getElementById("plist-room-plan-note");
@@ -328,6 +426,8 @@
       clearResult();
     }
     paintItems();
+    doc.getElementById("plist-preset-smart-home").addEventListener("click", function () { applyPreset("smart-home-starter"); });
+    doc.getElementById("plist-preset-hang-mount").addEventListener("click", function () { applyPreset("hang-and-mount"); });
     if (win && win.addEventListener) win.addEventListener("hpw-room-plan", syncRoomPlan);
     syncRoomPlan();
     itemsEl.addEventListener("input", function (e) {
@@ -338,11 +438,11 @@
     itemsEl.addEventListener("change", function (e) {
       var t = e.target; if (!t || !t.getAttribute) return;
       var id = t.getAttribute("data-id"), f = t.getAttribute("data-field");
-      if (!id || ["mode", "country", "subtype"].indexOf(f) === -1) return;
+      if (!id || ["unit", "mode", "country", "subtype"].indexOf(f) === -1) return;
       if (!setField(state, id, f, t.value)) return;
       if (f === "country") setField(state, id, "subtype", "");
       clearResult(); paintItems();
-      var again = doc.getElementById({ mode: "pl-m-", country: "pl-c-", subtype: "pl-s-" }[f] + id); if (again && again.focus) again.focus();
+      var again = doc.getElementById({ unit: "pl-u-", mode: "pl-m-", country: "pl-c-", subtype: "pl-s-" }[f] + id); if (again && again.focus) again.focus();
     });
     itemsEl.addEventListener("click", function (e) {
       var t = e.target; if (!t || !t.getAttribute || t.getAttribute("data-action") !== "remove") return;
@@ -403,5 +503,5 @@
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) {
     init(document, window.HPWProjectEstimator, window);
   }
-  return { createState: createState, setMarket: setMarket, addItem: addItem, removeItem: removeItem, setField: setField, setRoomPlan: setRoomPlan, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
+  return { PRESETS: PRESETS, createState: createState, setMarket: setMarket, addItem: addItem, addPreset: addPreset, removeItem: removeItem, setField: setField, setRoomPlan: setRoomPlan, buildEstimateInput: buildEstimateInput, summarize: summarize, init: init, esc: esc };
 }));
