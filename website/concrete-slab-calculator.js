@@ -40,7 +40,7 @@
       if (!Number.isFinite(yieldM3) || yieldM3 <= 0) throw new Error("Choose a valid bag-yield unit.");
       var ratio = volumeM3 / yieldM3;
       if (!Number.isFinite(ratio) || ratio <= 0) throw new Error("The bag estimate is outside the supported range.");
-      result.bagCount = Math.ceil(ratio - 1e-12);
+      result.bagCount = Math.ceil(ratio - Number.EPSILON * Math.max(1, Math.abs(ratio)) * 4);
       result.bagRatio = ratio; result.productName = name; result.bagYield = bagYield; result.bagYieldUnit = bagUnit;
     }
     return result;
