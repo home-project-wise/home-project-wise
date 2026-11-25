@@ -57,7 +57,7 @@
     '<div class="calc-field"><label for="room-height">Wall height (for paint)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
-    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
+    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
   function init(doc, win) {
     var host = doc.getElementById("room-root"); if (!host) return null;
     host.innerHTML = MARKUP;
@@ -71,6 +71,10 @@
       if (win) {
         win.hpwRoom = r.room;
         if (win.dispatchEvent && win.Event) win.dispatchEvent(new win.Event("hpw-room"));
+      }
+      if (target === "bulb-brightness") {
+        var opened = win && typeof win.open === "function" ? win.open("bulb-brightness-check.html", "_blank") : null;
+        note.textContent = opened ? "Room area sent to the Bulb Brightness Check in a new tab." : "Allow the new tab, or open the Bulb Brightness Check directly and enter the room area."; return;
       }
       var a = apply(target, r.room, doc, win);
       if (!a.ok) { err.textContent = a.error; return; }
