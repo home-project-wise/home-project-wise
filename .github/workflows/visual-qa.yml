@@ -36,6 +36,10 @@ jobs:
         run: node scripts/test_smart_plug_load_check.js
       - name: Run Smart Plug multi-device Chromium QA
         run: python scripts/qa_smart_plug_load_check.py
+      - name: Run Smart Plug energy-cost calculation fixtures
+        run: node scripts/test_smart_plug_energy_cost.js
+      - name: Run Smart Plug energy-cost Chromium QA
+        run: python scripts/qa_smart_plug_energy_cost.py
       - name: Run picture hanging planner responsive QA
         run: python scripts/qa_picture_hanging_planner.py
       - name: Run tile material-cost responsive QA
