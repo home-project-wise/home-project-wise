@@ -2792,3 +2792,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - Added a dedicated Node fixture that checks exact names, article provenance against source HTML, blank fields, deduplication, existing visitor value preservation, the 30-item cap, and incomplete-item validation. Wired it into the quality gate. Added a dedicated Chromium QA script and wired it into visual QA for 320/390/1280 px, keyboard activation, source links, blank fields/no totals, incomplete calculation blocking, overflow/clipped labels and browser errors.
 - **Evidence so far:** GitHub branch diff and source-file inspection; exact name-to-article string checks passed in the tool session. I could not execute Node/Chromium locally in this environment (the repository clone was unavailable), so no local test result is claimed. Exact-head CI must run before asking Claude to review.
 - **Next:** open the single PR, wait for both exact-head gates, fix any failures in a consolidated push, then request Claude's one final review. No T4d or later work is authorized by this task.
+
+
+### T4c CI correction 1 — first quality run on `c7715c8`
+
+- The first Editorial Quality Gate run executed all existing calculator and Project List tests successfully. The new T4c Node fixture passed its first seven cases, then failed one assertion in the incomplete-row test: it filled the unit only for the first item but expected quantity validation on that first item, while the next item correctly failed its still-blank unit first.
+- This was a **test-fixture sequencing error**, not a runtime defect. Corrected the fixture to fill units for every preset item before asserting that the first blank quantity blocks calculation. No runtime or product behavior changed.
+- New test commit: `b09a8f7`. Both CI gates must be rerun on the eventual final head; no merge or review request until green.
