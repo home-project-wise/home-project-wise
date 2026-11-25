@@ -275,15 +275,13 @@
     {
       "slug": "macerating-toilet-basement-bathroom",
       "path": "website/articles/macerating-toilet-basement-bathroom.html",
-      "class": "B",
+      "class": "C",
       "decisionSentence": "These are maximums, not a promise that you can reach both at once.",
-      "tool": "macerator-run-check",
+      "tool": null,
       "toolUrl": null,
       "prefill": {},
-      "status": "candidate_requires_model_specific_performance_curve",
-      "reason": "High-impression candidate for comparing measured lift/run/pipe layout against the exact selected unit's manual or performance curve. Do not compare independent maximums as if simultaneously achievable; without a combined curve, class C instead.",
-      "priority": "B1_after_T2",
-      "searchImpressions": 207
+      "searchImpressions": 267,
+      "noToolReason": "Do not build a macerator run-check now. The proposed Liberty Ascent II-only arithmetic repeats an example already printed in its manual and cannot provide a defensible fit/pass verdict; it serves a narrow model slice. The SaniAccess 3 US manual conflicts internally (300 ft diagram versus 150 ft text), and the UK/EU manual uses a different chart. Revisit only if the Search Console Requests/Queries report shows lift/run calculation intent AND Saniflo or another relevant maker supplies or clarifies a citable model-specific combined performance chart. Until then keep model-specific manual checks in the guide and correct the unsupported certainty in its SaniAccess 3 table through the publishing lane."
     },
     {
       "slug": "make-small-living-room-feel-bigger",
@@ -517,23 +515,21 @@
     {
       "slug": "where-to-put-water-leak-sensors",
       "path": "website/articles/where-to-put-water-leak-sensors.html",
-      "class": "B",
+      "class": "C",
       "decisionSentence": "Start where a hose, supply line or tank can fail: washing machine, dishwasher, kitchen sink, water heater, toilets and bathroom sinks.",
-      "tool": "leak-sensor-spot-planner",
+      "tool": null,
       "toolUrl": null,
       "prefill": {},
-      "status": "planned_T4e",
-      "reason": "A visitor-selected checklist/count of the six named spots can produce a sensor count and shopping-list line without pretending to predict leaks.",
-      "priority": "B2_after_macerator",
-      "searchImpressions": 134
+      "searchImpressions": 171,
+      "noToolReason": "Keep this as a guide checklist, not a standalone planner. The article already names the six main locations, says one sensor is needed for each place, identifies the three first-priority spots, lists optional extras and explains that there is no official total. A checkbox tool would only count selected labels; it would not discover how many actual toilets or bathroom-sink cabinets a home has, distinguish model-specific sensing accessories, or establish coverage. The article itself supplies no sourced per-country sensor count or coverage rule. A checklist in the guide is clearer and avoids implying that a category count guarantees protection."
     }
   ],
   "summary": {
     "articleCount": 49,
     "classCounts": {
-      "C": 34,
       "A": 9,
-      "B": 6
+      "B": 4,
+      "C": 36
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -544,13 +540,13 @@
       "The large drywall-patch article is C: its central decision is inspecting behind the wall and locating studs; the Project cost panel is only a separate follow-on for visitor-entered costing after repair choices are independently made.",
       "The drywall-anchor article remains C for load safety but may link to T2 only as a separate placement aid.",
       "Updated 2026-11-24: how-to-find-and-operate-your-main-water-shutoff added as class C (locating, testing and labelling a valve; no calculation is justified).",
-      "Updated 2026-11-25: plug-in-power-meter-vs-smart-plug-energy-monitoring added as class A; it links the Electricity running cost panel for the worked kWh step."
+      "Updated 2026-11-25: plug-in-power-meter-vs-smart-plug-energy-monitoring added as class A; it links the Electricity running cost panel for the worked kWh step.",
+      "Updated 2026-11-25 after owner Search Console refresh and Claude's decision: macerating-toilet-basement-bathroom is class C for now; do not build a macerator run-check until the Requests/Queries report shows lift/run calculation intent AND the manufacturer clarifies or supplies a citable model-specific combined performance chart. The SaniAccess 3 table discrepancy is an editorial trust issue for the publishing lane.",
+      "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
-      "Macerator model-specific run check — 207 impressions; only if the exact model's combined performance curve is available.",
-      "Leak-sensor spot planner — 134 impressions; count only the visitor-selected locations.",
-      "Other B candidates remain unprioritized until product/manufacturer coverage or geometry sources are verified.",
+      "Other remaining B candidates stay unprioritized until product/manufacturer coverage or geometry sources are verified.",
       "Evening-lighting planner remains C unless room-level lighting targets are sourced; motion-sensor coverage remains C because box range does not predict real-room coverage."
     ]
   }
