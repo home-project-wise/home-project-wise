@@ -2820,3 +2820,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - Exact-head quality gate passed, and the broad site visual QA plus all pre-existing calculator QA stages passed. The new T4c Chromium script exposed stale expected labels left from before the source-exact names were finalized: `Hub or bridge`, singular `Drywall anchor`, `Toggle bolt`, and `Picture hanger`. Its row locator also searched for the singular anchor label, then timed out.
 - Updated Chromium expectations and row lookup to the actual source-exact labels: `Bridge`, `Drywall anchors`, `Toggle bolts`, and `Picture hangers`. Added an explicit Tab-navigation assertion for quantity and unit fields, in addition to Enter activation of both preset buttons.
 - QA-only commits: `5a31721` and `215ccea`. Runtime behavior unchanged. Both required workflows must rerun on the eventual final head; no merge/review request until green.
+
+
+### T4c CI correction 5 — Chromium QA on `2f259fd`
+
+- All functional Chromium assertions passed at 320, 390 and 1280 px: both keyboard-activated presets, exact item names, no duplicates, existing visitor item preserved, all source links, dual-source rows, blank quantity/unit/price and no totals, incomplete calculation blocked, Tab reaches quantity/unit, no horizontal overflow and no clipped preset buttons.
+- The only failure was the browser console reporting a Subresource Integrity mismatch for the deliberately stubbed third-party analytics script `gc.zgo.at/count.v5.js`. This is unrelated to T4c and the same existing QA harnesses exclude that known stub warning. Updated the new QA listener to ignore only console messages mentioning `gc.zgo.at`; page errors and all other console errors remain failures.
+- QA-only commit: `12d228b`. Re-run both required gates on the final head; no product code changed.
