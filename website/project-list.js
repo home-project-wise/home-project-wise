@@ -16,7 +16,7 @@
         { name: "Smart plug", sources: [{ slug: "what-can-you-plug-into-a-smart-plug", title: "What Can You Safely Plug Into a Smart Plug? The Watt-Check Method" }] },
         { name: "Smart bulb", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
         { name: "Smart switch or dimmer", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
-        { name: "Hub or bridge", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
+        { name: "Bridge", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
         { name: "Wireless remote", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] },
         { name: "Switch cover", sources: [{ slug: "smart-lighting", title: "Smart Bulb or Smart Switch? How to Choose" }] }
       ]
@@ -26,12 +26,12 @@
       items: [
         { name: "Stud finder", sources: [{ slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" }] },
         { name: "Wood screw", sources: [{ slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" }] },
-        { name: "Drywall anchor", sources: [
+        { name: "Drywall anchors", sources: [
           { slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" },
           { slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }
         ] },
-        { name: "Toggle bolt", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
-        { name: "Picture hanger", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
+        { name: "Toggle bolts", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
+        { name: "Picture hangers", sources: [{ slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }] },
         { name: "French cleat", sources: [
           { slug: "how-to-hang-large-wall-art-without-damage", title: "How to Hang Large Wall Art Without Damaging Your Walls" },
           { slug: "how-much-weight-can-drywall-anchors-hold", title: "How Much Weight Can Drywall Anchors Hold? A Manufacturer-Based Guide" }
