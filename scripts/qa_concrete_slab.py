@@ -64,7 +64,7 @@ with sync_playwright() as p:
     home = context.new_page()
     home.goto(BASE + "home-project-calculator.html", wait_until="domcontentloaded")
     home.locator("#room-root summary").click()
-    home.fill("#room-unit","m"); home.fill("#room-length","5"); home.fill("#room-width","4")
+    home.select_option("#room-unit","m"); home.fill("#room-length","5"); home.fill("#room-width","4")
     with home.expect_popup() as popup_info:
         home.locator('button[data-target="concrete-slab"]').click()
     popup = popup_info.value
