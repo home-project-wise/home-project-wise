@@ -21,6 +21,14 @@ function init(doc,win){
   var form=doc.getElementById("energy-cost-form"),out=doc.getElementById("energy-cost-result"),err=doc.getElementById("energy-cost-error");
   if(!form||!out||!err)return null;
   function value(id){var el=doc.getElementById(id);return el?el.value:"";}
+  var country=doc.getElementById("region-root"),rates=doc.getElementById("energy-ref-root");
+  if(win&&win.addEventListener)win.addEventListener("hpw-region",function(){out.innerHTML="";err.textContent="";});
+  if(rates)rates.addEventListener("change",function(e){
+    if(e.target&&e.target.id==="energy-ref-choice"){
+      var rate=doc.getElementById("energy-rate");if(rate)rate.value="";
+      out.innerHTML="";err.textContent="";
+    }
+  });
   form.addEventListener("submit",function(e){
     e.preventDefault();out.innerHTML="";err.textContent="";
     var r=calculate({watts:value("energy-cost-watts"),hoursPerDay:value("energy-cost-hours"),daysPerMonth:value("energy-cost-days"),ratePerKwh:value("energy-rate"),currency:value("energy-currency")});
