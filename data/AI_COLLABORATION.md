@@ -2855,3 +2855,24 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - Non-blocking notes: duplicate detection is by exact name; every Project List row now has a separate Unit field, which the design lead should review on a phone.
 - Not tested: real devices, Safari, Firefox, screen readers, live site.
 - T4c status: **merged and logged**. T4d, T4e, T4f and the B candidates stay blocked until the owner supplies fresh dated Search Console windows (newest in the repo: 2026-11-20).
+
+
+
+## 2026-11-25 — ChatGPT — Search Console refresh and macerator candidate research claim
+
+- **Correction to the initial chat recommendation:** I first suggested T4e (leak-sensor planner) ahead of the macerator candidate because it looked simpler to build. Re-reading the approved plan and `data/ARTICLE_TOOL_MAP.json` shows the leak-sensor planner is explicitly `B2_after_macerator`; the new screenshot also shows the macerator article at **267 impressions / 0 clicks**, ahead of leak sensors at **171 / 0**. The earlier T4e-first recommendation is withdrawn. No T4e code or PR was created; its abandoned branch is not an active task. Correct order: macerator candidate research first; T4e second; T4d remains conditional on room-lighting sources; T4f remains optional.
+- **Fresh owner-supplied GSC evidence (2026-11-25):** last-3-months Web view: 7 clicks, 1.94K impressions, 0.4% CTR, average position 18. The visible Pages table (1–10 of 23) shows macerating-toilet-basement-bathroom 267 impressions/0 clicks; water-leak-sensor guide 171/0; damp-crawl-space guide 147/0; bathroom-condensation guide 136/0; smart-plug guide 444/3; large-wall-art guide 275/2; motion-lighting guide 60/1. Country table is only 1–10 of 88. Queries tab was not supplied. OpenSEO Search Console API read returned `not_connected`; no query rows or exact query intent are claimed.
+- **Research task claimed (research/spec only):** `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`. Determine whether a genuinely useful, source-safe model-specific discharge-route worksheet can be built from the article's cited manuals. Do not start calculator code until the research brief gives a defensible model-specific calculation and explicit limits, or records a no-go.
+- **Source boundary:** use the macerator article's existing model-specific manuals and primary manufacturer instructions. Do not combine maximum lift and maximum horizontal run as if they can occur together; do not use shut-off head as an operating allowance; do not output pass/safe/approved; do not assume local code. Require exact model/manual and professional sizing where the manufacturer calls for it.
+- **Files claimed (4):** `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`, `data/SEARCH_METRICS.md`, `data/AI_COLLABORATION.md`, `data/WORK_LOG.md`. No calculator code, article, registry, CSS, pricing or reference data changes.
+- **Overlap audit:** inspected open PR changed-file lists (#449, #419, #302, #299); none overlaps these four paths. No other active claim on them found in the current operations-room tail.
+- **Evidence plan:** source audit of exact model manuals and diagrams; compare the proposed calculation to a hand-worked manufacturer example; record where data are insufficient; distinguish US/UK manual variants; request the GSC Queries tab before treating the page impressions as proof of a particular search intent. Only after the research verdict is approved should a separate implementation claim be made.
+- **Evidence at claim:** owner screenshot reviewed; article HTML read from main; official Saniflo and Liberty manuals and one plumbing-supplier guidance page reviewed. No implementation or tests run.
+
+
+### Macerator candidate research — PR #467 opened (2026-11-25)
+
+- Research brief: `docs/CHATGPT-MACERATOR-RUN-CHECK-RESEARCH-2026-11-25.md`; PR #467: https://github.com/home-project-wise/home-project-wise/pull/467; final review head `b4ea6cc2ff6e4706f3ebb18a747791c53a5ed2f3`.
+- The brief finds no defensible universal macerator pass/fail formula. A possible narrow Liberty Ascent II-only worksheet can calculate the manual's approximate equivalent head, but must not use the 36 ft shut-off head as a pass threshold. Saniflo SaniAccess 3 has market-version differences and a conflict inside the US manual (300 ft diagram vs 150 ft text), requiring manufacturer clarification before use.
+- PR scope is docs/evidence only (four files); no calculator implementation, article edit, registry, CSS, prices or deployment. No tests are applicable to this research-only PR. Claude has been asked to review whether the bounded worksheet has enough user value to justify a build.
+- **Next gate:** obtain the same-window Queries-tab screenshot before approving any implementation. T4e remains second after the macerator research decision; T4d stays conditional on cited room-lighting sources; T4f remains optional.
