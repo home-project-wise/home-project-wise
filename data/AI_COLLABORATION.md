@@ -2799,3 +2799,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - The first Editorial Quality Gate run executed all existing calculator and Project List tests successfully. The new T4c Node fixture passed its first seven cases, then failed one assertion in the incomplete-row test: it filled the unit only for the first item but expected quantity validation on that first item, while the next item correctly failed its still-blank unit first.
 - This was a **test-fixture sequencing error**, not a runtime defect. Corrected the fixture to fill units for every preset item before asserting that the first blank quantity blocks calculation. No runtime or product behavior changed.
 - New test commit: `b09a8f7`. Both CI gates must be rerun on the eventual final head; no merge or review request until green.
+
+
+### T4c CI correction 2 — second quality run on `b09a8f7`
+
+- The first incomplete-row test now passed. The next Node case then failed because it populated the unit and quantity only for the first preset row, but called `buildEstimateInput` on the full multi-item list. The runtime correctly rejected the next row's blank unit.
+- Corrected the fixture to model the visitor completing every preset row, while giving the first row quantity 2 and the others quantity 1. This is another test-only sequencing correction; no runtime or preset behavior changed.
+- Test commit: `82183b4`. The visual run on the prior head was cancelled by the newer push before Chromium installation; it supplied no browser evidence. Both required gates must complete on the final head.
