@@ -21,13 +21,13 @@ A useful tool would need to help a visitor collect and check those model-specifi
 
 ### Saniflo SaniAccess 3 — US manual
 
-The US SaniAccess 3 instruction manual shows a maximum vertical discharge of 15 ft and a 3/4 in or 1 in discharge pipe; it also specifies the vent pipe and fixture connections. Its routing diagrams require the vertical rise before the horizontal run, show an initial toilet-to-unit connection maximum of 18 in, and prefer smooth bends over tight 90-degree elbows. The US manual diagram indicates a 2% drainage slope. Source: [Saniflo SaniAccess 3 Instruction Manual (US PDF)](https://sfa.backend.sfagroup.com/sites/default/files/2025-03/SaniAccess%203%20Instruction%20Manual.pdf), reviewed 2026-11-25.
+The US SaniAccess 3 instruction manual shows a maximum vertical discharge of 15 ft and a 3/4 in or 1 in discharge pipe; it also specifies the vent pipe and fixture connections. Its routing diagrams require the vertical rise before the horizontal run, show an initial toilet-to-unit connection maximum of 18 in, and prefer smooth bends over tight 90-degree elbows. The US manual diagram indicates a 2% drainage slope. **There is a material inconsistency inside this same manual:** its performance diagram is labelled up to 300 ft horizontal discharge distance (page 2), while the additional-information text says up to 150 ft horizontally (page 4). The article currently repeats 150 ft. This must be clarified with Saniflo before any SaniAccess 3 combined-run calculator uses either figure. Source: [Saniflo SaniAccess 3 Instruction Manual (US PDF)](https://sfa.backend.sfagroup.com/sites/default/files/2025-03/SaniAccess%203%20Instruction%20Manual.pdf), reviewed 2026-11-25.
 
 ### Saniflo SaniAccess 3 — UK/European manual version
 
 The UK/European manual contains a different installation chart: five vertical heights (1–5 m) paired with a horizontal-distance scale up to 100 m, and a 1% slope marker. This is not interchangeable with the US manual's displayed 2% slope. The manual also shows model-specific connection dimensions and routing diagrams. Source: [Saniflo SaniAccess 3 Installation Instructions (UK/European PDF)](https://www.saniflo-pumpshop.co.uk/wp-content/uploads/2023/09/saniaccess-3-instructions.pdf), reviewed 2026-11-25.
 
-**Implication:** a generic international calculator cannot safely reuse one SaniAccess 3 chart or slope assumption across market/manual variants. Country, product version and the actual manual matter.
+**Implication:** a generic international calculator cannot safely reuse one SaniAccess 3 chart or slope assumption across market/manual variants. Country, product version and the actual manual matter. The US manual's 150 ft vs 300 ft horizontal-distance inconsistency is an additional stop condition; do not choose the more favorable number or infer a resolution.
 
 ### Liberty Pumps Ascent II — manufacturer manual
 
