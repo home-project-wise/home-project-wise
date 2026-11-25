@@ -2717,3 +2717,45 @@ Confirmed by the owner’s phone screenshots: the five hand-off notes are in pla
 - Open non-blocking items, to be done in the first T4b commit: (1) make the visible FAQ wording match the FAQ JSON-LD on the 80% line; (2) batch or locally run Chromium fixes before pushing, to save Actions minutes.
 - Not tested: real devices, Safari, Firefox, screen readers, live site.
 - T4a status: **merged and logged**. T4b (running and standby cost) may now start.
+
+
+## 2026-11-25 — ChatGPT — CLAIM: T4b Smart Plug running and standby energy-cost estimate
+
+- **Status:** CLAIMED before implementation. Base: `main` at `64982504507d3092e7d1b1208f9f7a8fa6ec2e68` (T4a merge is included). Working branch: `chatgpt/t4b-smart-plug-energy-cost-2026-11-25`.
+- **Owner / scope:** ChatGPT builds; Claude performs one final review on the exact PR head and merges or returns one consolidated list. T4b only: add a running/standby energy-use and cost estimate to the existing Smart Plug page. Formula: watts × hours ÷ 1,000 = kWh; cost = kWh × the visitor's own rate or an eligible sourced regional electricity rate already in the energy-reference system. The hand-computed guide fixture is 0.5 W × 24 h/day × 30 days/month × 12 = 4.32 kWh/year per bulb.
+- **First-commit corrections from Claude's phone QA:** shorten the five closed-select labels to fit at 320–390 px (content-only; preferred over CSS); make the visible 80% FAQ answer exactly match its FAQ JSON-LD answer; add a Chromium assertion that the closed selected option text fits, not merely that the page has no horizontal overflow.
+- **Files claimed (10):** `website/smart-plug-load-check.html`; `website/smart-plug-load-check.js`; new `website/smart-plug-energy-cost.js`; `scripts/test_smart_plug_load_check.js`; `scripts/qa_smart_plug_load_check.py`; new `scripts/test_smart_plug_energy_cost.js`; new `scripts/qa_smart_plug_energy_cost.py`; `.github/workflows/visual-qa.yml`; `data/AI_COLLABORATION.md`; `data/WORK_LOG.md`.
+- **Overlap:** checked complete changed-file lists for all four open PRs: #449 (frozen-pipe research document only), #419 (two product-blueprint documents), #302 (kitchen research document only), and #299 (article-portfolio audit document only). None touches the claimed paths. No other open PR is present in the repository search.
+- **Locks:** ChatGPT holds the ten exact paths above until this PR is merged or closed. No overlapping lock was found in the current operations-room tail. Reuse (without editing) `website/energy-reference.js`, `website/reference-prices.js`, `website/region.js` and `website/currency.js`; their existing market/source rules remain authoritative. No CSS/style.css, article, price data, reference assumptions, site registry, or shared calculator edits.
+- **Evidence plan:** pure Node fixtures including 0.5 W × 24 h/day × 365 days = 4.38 kWh/year, with independently checked cost multiplication; additional fractional watts, runtime, monthly and annual kWh/cost, invalid bounds, zero/blank distinctions and ISO currency handling. Chromium at 320/390/1280 px: closed rating text fully fits; visible FAQ answer equals FAQ JSON-LD; manual and eligible sourced-rate paths; TOU ranges remain unfilled; market change clears stale manual rates; no horizontal overflow, keyboard or console/page errors. Static HTML examples must match tested arithmetic. Batch local checks before pushing.
+- **Guardrails:** no guessed electricity rate, no averaging time-of-use ranges, no currency conversion, no rate copied from another market. A sourced rate is only auto-filled when the existing energy-reference adapter marks it eligible and single-valued; otherwise the visitor enters their own rate. Keep the 80% line explicitly tool-specific, not an NEC or manufacturer rule; no safety certification language.
+- **Exclusions:** no article edit or publishing link placement; no CSS/design changes (refer any CSS need to the designer); no price/reference-data changes, persistence, analytics, or network beyond the existing same-origin reference registry fetch; no claims of real-device/Safari/Firefox/screen-reader/live-site testing.
+- **Next:** implement T4b plus the two phone-review copy fixes, run the focused fixtures and exact-head quality/Chromium gates, open one PR, then ask Claude for the single final review. Do not start T4c or unrelated work.
+
+
+### T4b claim addendum — existing Smart Plug label source and regression checks
+
+Before changing the closed-select labels, I am adding the exact source/test files to the claim: `website/smart-plug-load-check.js` (the five option labels), `scripts/test_smart_plug_load_check.js` (label-content regression), and `scripts/qa_smart_plug_load_check.py` (closed-select rendered-width regression). These are part of the phone defect described in #415 and are locked with the original T4b paths. The existing CSS remains excluded.
+
+
+### T4b implementation record — PR #465
+
+- **PR:** https://github.com/home-project-wise/home-project-wise/pull/465. Implementation code head tested: `403cf4bc025d659af4b82666589a004de0f521d9`. The next commit is this operations-room/work-log update only; both required gates will be rerun on the final PR head before requesting review.
+- **Built:** Smart Plug now estimates daily, monthly and annual kWh and cost calculated as 12 × the entered monthly usage and cost from watts, hours/day, days/month and a visitor-entered rate. It reuses the existing region, currency and electricity-reference adapter; single-valued eligible rates require an explicit “use” action. TOU ranges are displayed without averaging or auto-fill. Market/tariff/input changes clear stale rates/results. Added direct link to `home-project-calculator.html#panel-energy`.
+- **Arithmetic fixtures:** 9/9 Node tests passed, including 0.5 W × 24 h/day × 30 days/month × 12 = 4.32 kWh/year; 60 W × 5 h/day × 30 days = 9 kWh/month and 108 kWh/year; fractional watts; zero vs blank; physical bounds; ISO currency; and overflow rejection.
+- **Chromium:** Smart Plug energy-cost QA passed at 320/390/1280 px with no page/console errors or horizontal overflow. Confirmed manual-rate flow, eligible sourced single-rate selection, tariff change clears prior copied rate, Ontario TOU range remains unfilled/unaveraged, market change clears stale rate and changes currency, visible FAQ exactly equals FAQ JSON-LD, and Electricity-cost deep link works. The five closed plug-rating labels passed width checks at 320/390/1280 px. Existing Smart Plug multi-device checks passed; picture planner and tile-cost responsive checks passed.
+- **Gates on code head:** Editorial Quality Gate SUCCESS; Always-on visual QA SUCCESS. The visual workflow also passed site-wide visual/link QA, inline-tool fixtures, 60 sanity checks, Smart Plug legacy fixtures/Chromium, the 9 new energy-cost fixtures/Chromium, picture-hanging QA, and tile-cost QA.
+- **QA corrections before green:** first Chromium attempt exposed a test harness assumption (reference rates are inside collapsed details); second exposed Python dictionary attribute access in the FAQ assertion. Both test-only issues were corrected. The final code-head run passed all steps. No application CSS or price/reference data changed.
+- **Review request:** after this log-only commit receives green checks on its exact head, ask Claude for one final exact-head review and merge. No T4c or unrelated work until that review is complete.
+
+
+### T4b review correction — Claude's blocking arithmetic finding (2026-11-25)
+
+- Claude's exact-head review of `2660e776d372f3c2e70da44dc0f427604a8736e7` found that the annual formula used `watts × hours × 365` and ignored the visitor-entered days/month. This made monthly and annual outputs inconsistent whenever days/month was not 30/31.
+- Corrected rule: `annualKwh = monthlyKwh × 12`; `annualCost = monthlyCost × 12`. The result label explicitly says annual = 12 × monthly figure. This is a 12-month projection of the monthly usage pattern entered, not a fixed 365-day runtime assumption.
+- Corrected worked examples: standby 0.5 W × 24 h/day × 30 days/month × 12 = 4.32 kWh/year (at USD 0.20/kWh: USD 0.86/year); 60 W × 5 h/day × 30 days = 9 kWh/month and 108 kWh/year.
+- Added independent Node and Chromium regression for 60 W × 5 h/day × 10 days/month: 3 kWh/month, 36 kWh/year, USD 0.75/month and USD 9.00/year at USD 0.25/kWh.
+- This is a blocking calculation correction requested by Claude; do not merge until the exact revised head passes both required gates and Claude re-reviews this commit. No CSS, reference-price data, country logic or tariff behavior changed.
+
+
+- QA correction follow-up: first re-run exposed that the amended Git tree omitted the runtime and HTML files while preserving the test files. Rebuilt the complete single correction commit from all six intended files (runtime, Node fixture, Chromium QA, static HTML examples, operations room and work log). The annual formula and examples are verified in the staged content before updating the branch. This commit must still pass both exact-head gates.
