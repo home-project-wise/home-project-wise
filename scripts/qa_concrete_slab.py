@@ -39,11 +39,20 @@ with sync_playwright() as p:
               "33.333 ft³" in result and "1.235 yd³" in result and "0.9439 m³" in result, result)
         check("entered formula and conversion factors are shown at %dpx" % width,
               "10 ft × 10 ft × 4 in" in result and "0.3048 m" in result)
+        page.fill("#slab-length","12"); page.click("button[type=submit]")
+        result = page.locator("#concrete-slab-result").inner_text()
+        check("converted dimensions show clean six-decimal values at %dpx" % width,
+              "3.6576 m × 3.048 m × 0.1016 m" in result and "3.6576000000000004" not in result, result)
+        page.fill("#slab-length","10"); page.click("button[type=submit]")
         page.fill("#slab-product-name","Named test mix"); page.click("button[type=submit]")
         result = page.locator("#concrete-slab-result").inner_text()
         check("incomplete bag details keep volume visible but do not show a bag count at %dpx" % width,
-              "33.333 ft³" in result and "enter both the named product" in result and "whole bags" not in result, result)
-        page.fill("#slab-bag-yield","0.5")
+              "33.333 ft³" in result and "enter the named product" in result and "whole bags" not in result, result)
+        page.fill("#slab-bag-yield","0.5"); page.click("button[type=submit]")
+        result = page.locator("#concrete-slab-result").inner_text()
+        check("missing yield unit keeps the volume visible and requests the unit at %dpx" % width,
+              "33.333 ft³" in result and "yield unit" in result and "whole bags" not in result, result)
+        page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
         page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
         result = page.locator("#concrete-slab-result").inner_text()
         check("named product yield rounds bag count up at %dpx" % width, "67 whole bags" in result and "rounded up" in result, result)
