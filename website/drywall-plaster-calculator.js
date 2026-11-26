@@ -91,7 +91,10 @@
   function format(result) {
     return { metric:fmt(result.totalAreaM2,3) + " m²", imperial:fmt(result.totalAreaFt2,3) + " ft²",
       boardRatio:result.boardRatio === null ? null : fmt(result.boardRatio,3),
-      plasterRatio:result.plasterBagRatio === null ? null : fmt(result.plasterBagRatio,3) };
+      plasterRatio:result.plasterBagRatio === null ? null : fmt(result.plasterBagRatio,3),
+      plasterCoverageM2:result.plasterCoverageM2 === null ? null : fmt(result.plasterCoverageM2,3),
+      plasterReferenceThicknessMm:result.plasterReferenceThicknessMm === null ? null : fmt(result.plasterReferenceThicknessMm,3),
+      plasterApplicationThicknessMm:result.plasterApplicationThicknessMm === null ? null : fmt(result.plasterApplicationThicknessMm,3) };
   }
   function init(doc, win) {
     var form = doc.getElementById("dp-form");
@@ -147,10 +150,11 @@
         }
         var shown = format(data);
         line("Net measured surface area: " + shown.metric + " (" + shown.imperial + ").", true);
-        line("Area calculation: measured wall rectangles − the openings area entered + any shared-room wall area + any ceiling area entered.");
-        if (data.boardCount !== null) line("Drywall board estimate: " + shown.metric + " ÷ (" + doc.getElementById("dp-board-width").value + " × " + doc.getElementById("dp-board-height").value + " " + lengthUnit + " panel face) = " + shown.boardRatio + " boards; rounded up to " + data.boardCount + " whole boards.");
+        line("Area arithmetic: wall rectangles " + fmt(data.grossWallAreaM2,3) + " m² − openings " + fmt(data.openingsAreaM2,3) + " m² + shared-room walls " + fmt(data.sharedWallAreaM2,3) + " m² + ceiling " + fmt(data.ceilingAreaM2,3) + " m² = " + shown.metric + ".");
+        var boardAreaText = lengthUnit === "ft" ? shown.imperial : shown.metric;
+        if (data.boardCount !== null) line("Drywall board estimate: " + boardAreaText + " ÷ (" + doc.getElementById("dp-board-width").value + " × " + doc.getElementById("dp-board-height").value + " " + lengthUnit + " panel face) = " + shown.boardRatio + " boards; rounded up to " + data.boardCount + " whole boards.");
         else line(data.boardDetailsIncomplete ? "Drywall board count not calculated: enter both panel face dimensions from the selected board. No standard board size is assumed." : "No drywall board count calculated. Enter the actual panel face width and length from your selected board if you want this estimate.");
-        if (data.plasterBagCount !== null) line("Plaster bag estimate for " + data.plasterProductName + ": net area × application thickness ÷ (published coverage per bag × reference thickness) = " + shown.plasterRatio + " bags; rounded up to " + data.plasterBagCount + " whole bags. Only the product-label values you entered were used.");
+        if (data.plasterBagCount !== null) line("Plaster bag estimate for " + data.plasterProductName + ": " + shown.metric + " × " + shown.plasterApplicationThicknessMm + " mm ÷ (" + shown.plasterCoverageM2 + " m² per bag × " + shown.plasterReferenceThicknessMm + " mm) = " + shown.plasterRatio + " bags; rounded up to " + data.plasterBagCount + " whole bags. Only the product-label values you entered were used.");
         else line(data.plasterDetailsIncomplete ? "Plaster bag count not calculated: complete the named product, published coverage per bag, coverage unit, reference thickness and application thickness. Your area result remains available." : "No plaster bag count calculated. Add the exact product-label coverage and the two thickness values if you want this estimate.");
         line("Board count is an area estimate, not a sheet-layout or cut plan. Actual layouts, framing, joints and offcuts can change quantities.");
         line("This tool does not assess product suitability, substrates, moisture, fire or sound ratings, structural performance or code compliance.");
