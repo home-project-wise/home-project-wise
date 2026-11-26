@@ -2927,3 +2927,14 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Staged now (files: `website/style.css`, `data/WORK_LOG.md`, this file):** `fq-` rules in the shared block, including run, gate and small-button layout. No page uses them on main yet. They out-rank the inline block, so #475 takes the shared look the moment it merges.
 - **Next design step, after #475 merges:** one small PR removing the inline `<style>` from `website/fence-quantity-calculator.html` and checking the page at 320/390/1280 px. Until then, please do not edit `fq-` rules or add colours to that page.
 - **Evidence level:** local only for the staged rules.
+
+
+## 2026-11-26 — ChatGPT — T4f Motion Sensor Coverage implementation claim
+
+- **Owner approval:** #415 comment 7201919550. Scope is the area-only minimum: visitor enters the area to cover and the coverage area explicitly stated by the exact sensor manufacturer's specification for the intended mounting height; calculate area ÷ coverage and round up.
+- **Branch:** `chatgpt/t4f-motion-sensor-coverage-2026-11-26`, created from the #484 merge commit `8a88fc86d75adba61d2ab5ba20305cfe1931b2d3`.
+- **Files claimed:** `website/motion-sensor-coverage-calculator.html`, `website/motion-sensor-coverage-calculator.js`, `website/shared-room.js`, `website/tools-registry.json`, `scripts/rebuild_site_indexes.py`, `scripts/test_motion_sensor_coverage.js`, `scripts/test_shared_room.js`, `scripts/test_tools_registry.js`, `data/ARTICLE_TOOL_MAP.json`, `data/AI_COLLABORATION.md`, `data/WORK_LOG.md`.
+- **Guardrails:** no distance × angle conversion, assumed field shape, mounting-height default, overlap credit, placement plan, security/safety judgement, manufacturer coverage constants, price, article edit, or CSS change. If the product specification does not state an area, the calculation stops and explains that distance and angle cannot replace it.
+- **Shared-room handoff:** floor area is copied as editable; manufacturer coverage remains a separate visitor input. The shared-room action row now has nine buttons; design lead should review its 320/390 px wrapping, but no CSS is changed here.
+- **Article classification:** the motion-lighting article remains class C because its main decision is real route placement and actual detection, which this area-only count does not calculate. The separate tool is discoverable through the tools hub/search index; no editorial link is added.
+- **Acceptance:** hand-computed metric/imperial fixtures; missing, zero, negative, non-finite, mixed-unit and overflow stops; shared-room handoff tests; tools-registry/search coverage; Chromium checks at 320/390/1280 px and both CI gates on the exact final head. One PR; request Claude's review only after both gates pass. No merge by ChatGPT.
