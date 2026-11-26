@@ -141,6 +141,31 @@ try:
                    "coverage": popup.input_value("#msc-coverage")})
             check("shared-room: no page errors", not opener_errors and not popup_errors, opener_errors + popup_errors)
             popup.close()
+
+            # Regression: binary 3 * 1.1 must be handed off as decimal 3.3.
+            opener.select_option("#room-unit", "m")
+            opener.fill("#room-length", "3")
+            opener.fill("#room-width", "1.1")
+            with opener.expect_popup() as popup_info:
+                opener.click('#room-form button[data-target="motion-sensor-coverage"]')
+            popup = popup_info.value
+            popup.route("**/*", route_request)
+            popup.on("pageerror", lambda exc: popup_errors.append(str(exc)))
+            popup.wait_for_selector("#msc-form", timeout=15000)
+            check("shared-room: 3 × 1.1 m is prefilled as exact 3.3 m²",
+                  popup.input_value("#msc-area") == "3.3" and popup.input_value("#msc-unit") == "m2",
+                  popup.input_value("#msc-area"))
+            popup.fill("#msc-coverage", "3.3")
+            popup.click('#msc-form button[type="submit"]')
+            check("shared-room: 3.3 m² / 3.3 m² returns one sensor",
+                  "Minimum by area only: 1 sensor." in popup.inner_text("#msc-result"),
+                  popup.inner_text("#msc-result"))
+            popup.fill("#msc-coverage", "1.1")
+            popup.click('#msc-form button[type="submit"]')
+            check("shared-room: 3.3 m² / 1.1 m² returns three sensors",
+                  "Minimum by area only: 3 sensors." in popup.inner_text("#msc-result"),
+                  popup.inner_text("#msc-result"))
+            popup.close()
         except Exception as exc:
             check("shared-room: popup handoff completes", False, repr(exc))
         finally:
