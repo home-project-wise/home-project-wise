@@ -37,4 +37,9 @@ check("zero and invalid inputs are rejected, not treated as missing or zero outp
   {fixtureCount:1.5,bulbsPerFixture:1,lumensPerBulb:800}
  ]) assert.throws(()=>B.calculate(input));
 });
+check("shared-room 3 m × 1.1 m handoff is normalized before area ratio",()=>{
+ assert.equal(B.roomFloorArea(3,1.1),3.3);
+ const r=B.calculate({fixtureCount:1,bulbsPerFixture:1,lumensPerBulb:3.3,area:B.roomFloorArea(3,1.1),areaUnit:"m2"});
+ close(r.ratio,1);
+});
 console.log(passed+" bulb brightness fixtures passed");

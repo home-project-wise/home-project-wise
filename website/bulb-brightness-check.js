@@ -3,6 +3,16 @@
   else root.HPWBulbBrightness = factory();
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
+  function roundArea(value) {
+    var n = Number(value);
+    if (!Number.isFinite(n)) return n;
+    var rounded = Number(n.toFixed(6));
+    return rounded === 0 && n > 0 ? n : rounded;
+  }
+  function roomFloorArea(length, width) {
+    return roundArea(Number(length) * Number(width));
+  }
+
   var REFERENCES = {
     kitchen: { room: "kitchens", text: "1,000+ lumens per fixture" },
     bathroom: { room: "bathrooms", text: "1,000+ lumens per fixture" },
@@ -52,7 +62,7 @@
       if (win.opener && !win.opener.closed && win.opener.location.origin === win.location.origin && win.opener.hpwRoom) {
         var room = win.opener.hpwRoom;
         if (Number(room.length) > 0 && Number(room.width) > 0 && (room.unit === "m" || room.unit === "ft")) {
-          area.value = String(Number(room.length) * Number(room.width));
+          area.value = String(roomFloorArea(room.length, room.width));
           areaUnit.value = room.unit === "ft" ? "ft2" : "m2";
           roomNote.textContent = "Floor area copied from your shared room: " + area.value + " " + (room.unit === "ft" ? "ft²" : "m²") + ". You can edit it below.";
         }
@@ -84,5 +94,5 @@
     return { calculate: calculate };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) init(document, window);
-  return { REFERENCES: REFERENCES, calculate: calculate, init: init };
+  return { REFERENCES: REFERENCES, calculate: calculate, init: init, roomFloorArea: roomFloorArea };
 }));

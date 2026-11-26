@@ -59,6 +59,28 @@ with sync_playwright() as p:
     popup.click("#ins-form button[type=submit]")
     check("shared-room-only area calculates without a second unit choice","30.844 m²" in popup.locator("#ins-result").inner_text() and "332 ft²" in popup.locator("#ins-result").inner_text())
     check("no browser errors during shared-room handoff",not handoff_errors,handoff_errors)
+
+    # Regression: wall perimeter math can also carry a binary floating-point tail.
+    home.select_option("#room-unit","m")
+    home.fill("#room-length","1.1"); home.fill("#room-width","0.55")
+    home.fill("#room-height","1"); home.fill("#room-openings","")
+    with home.expect_popup() as popup_info:
+        home.locator('button[data-target="insulation-quantity"]').click()
+    popup2=popup_info.value
+    popup2.on("pageerror",lambda e:handoff_errors.append(str(e)))
+    popup2.wait_for_load_state("load")
+    check("shared-room wall handoff is normalized to 3.3 m²",
+          "3.3 m²" in popup2.locator("#ins-room-note").inner_text(),
+          popup2.locator("#ins-room-note").inner_text())
+    popup2.fill("#ins-product-name","Pack Alpha")
+    popup2.fill("#ins-pack-coverage","3.3")
+    popup2.select_option("#ins-coverage-unit","m2")
+    popup2.click("#ins-form button[type=submit]")
+    check("3.3 m² shared wall area with 3.3 m² pack coverage returns one pack",
+          "1 pack(s)" in popup2.locator("#ins-result").inner_text(),
+          popup2.locator("#ins-result").inner_text())
+    popup2.close()
+    check("no browser errors during decimal shared-room handoff",not handoff_errors,handoff_errors)
     context.close()
     browser.close()
 server.shutdown()
