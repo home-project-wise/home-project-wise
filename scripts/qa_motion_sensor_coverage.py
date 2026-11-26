@@ -99,6 +99,23 @@ try:
             finally:
                 context.close()
 
+        # Shared-room action row: confirm the ninth action still fits at phone and desktop widths.
+        for label, width, height in (("shared-room-320", 320, 740), ("shared-room-390", 390, 844), ("shared-room-1280", 1280, 900)):
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page.route("**/*", route_request)
+            try:
+                page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.locator("#room-root summary").click()
+                buttons = page.locator('#room-form button[data-target]')
+                check(f"{label}: all nine shared-room actions are present", buttons.count() == 9, buttons.count())
+                check(f"{label}: expanded shared-room row has no horizontal overflow",
+                      page.evaluate("document.documentElement.scrollWidth") <= width, page.evaluate("document.documentElement.scrollWidth"))
+            except Exception as exc:
+                check(f"{label}: shared-room responsive row", False, repr(exc))
+            finally:
+                context.close()
+
         # Shared-room integration: only the measured floor area and unit are transferred.
         context = browser.new_context(viewport={"width": 390, "height": 844}, color_scheme="light", reduced_motion="reduce")
         opener = context.new_page()
