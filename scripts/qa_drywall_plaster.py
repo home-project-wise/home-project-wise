@@ -68,6 +68,9 @@ with sync_playwright() as p:
         page.fill("#dp-openings","1000"); page.click("button[type=submit]")
         check("openings larger than manually measured wall area are rejected at %dpx" % width,
               "cannot exceed" in page.locator("#dp-error").inner_text() and page.locator("#dp-result").inner_text() == "")
+        page.locator('[data-remove-section]').click()
+        check("visitor can remove a mistakenly added wall section at %dpx" % width,
+              page.locator("#dp-sections .dp-section").count() == 1)
         page.locator("#dp-unit").focus(); page.keyboard.press("Tab")
         check("keyboard order moves from unit selector to openings at %dpx" % width,
               page.evaluate("document.activeElement.id === 'dp-openings'"))
@@ -91,9 +94,8 @@ with sync_playwright() as p:
     popup.on("console", lambda msg: handoff_errors.append(msg.text) if msg.type == "error" else None)
     popup.wait_for_load_state("load")
     check("shared room sends net 332 ft² wall area to drywall/plaster", "332 ft²" in popup.locator("#dp-room-note").inner_text())
-    popup.select_option("#dp-unit","ft")
     popup.click("button[type=submit]")
-    check("shared-room wall area calculates without manual wall rows", "30.844 m²" in popup.locator("#dp-result").inner_text() or "30.84 m²" in popup.locator("#dp-result").inner_text())
+    check("shared-room-only wall area calculates without a second unit selection", "30.844 m²" in popup.locator("#dp-result").inner_text() or "30.84 m²" in popup.locator("#dp-result").inner_text())
     check("no browser errors during shared-room handoff", not handoff_errors, handoff_errors)
     context.close()
     browser.close()
