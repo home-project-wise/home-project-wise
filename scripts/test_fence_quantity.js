@@ -93,6 +93,7 @@ test("rejects incomplete, overlapping, negative and out-of-run gate positions", 
 test("rejects invalid shared-corner deductions", () => {
   assert.throws(()=>F.calculate({lengthUnit:"m",postSpacing:2,runs:[{length:10},{length:10}],sharedCorners:3}),/cannot exceed/);
   assert.throws(()=>F.calculate({lengthUnit:"m",postSpacing:2,runs:[{length:2},{length:2}],sharedCorners:2}),/exceeds the available/);
+  assert.throws(()=>F.calculate({lengthUnit:"m",postSpacing:2,runs:[{length:10}],sharedCorners:1}),/at least two/);
 });
 test("no quantities, materials, costs or allowances are invented", () => {
   const r = F.calculate({lengthUnit:"m",postSpacing:2,runs:[{length:10}]});
