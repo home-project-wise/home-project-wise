@@ -49,7 +49,7 @@
   }
   var MARKUP =
     '<details><summary>Enter your room once (optional)</summary>' +
-    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check, Concrete Slab Volume Calculator or Drywall and Plaster Quantity Calculator. Nothing is stored or sent.</p>' +
+    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check, Concrete Slab Volume Calculator, Drywall and Plaster Quantity Calculator or Insulation Quantity Calculator. Nothing is stored or sent.</p>' +
     '<form class="calc" id="room-form" novalidate><div class="calc-grid">' +
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
@@ -57,7 +57,7 @@
     '<div class="calc-field"><label for="room-height">Wall height (for wall-area tools)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
-    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
+    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <button type="button" class="wp-btn" data-target="insulation-quantity">Use for insulation area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
   function init(doc, win) {
     var host = doc.getElementById("room-root"); if (!host) return null;
     host.innerHTML = MARKUP;
@@ -83,7 +83,7 @@
         note.textContent = wallTab ? "Room wall area sent to the Drywall and Plaster Quantity Calculator in a new tab. Openings entered above are deducted once." : "Allow the new tab, or open the Drywall and Plaster Quantity Calculator directly and enter your wall measurements.";
         return;
       }
-      if (target === "bulb-brightness") {
+      if (target === "insulation-quantity") {\n        if (!r.room.height) { err.textContent = "Insulation wall area needs the wall height. Enter it above, then try again."; return; }\n        var insulationTab = win && typeof win.open === "function" ? win.open("insulation-quantity-calculator.html", "_blank") : null;\n        note.textContent = insulationTab ? "Room wall area sent to the Insulation Quantity Calculator in a new tab. Openings entered above are deducted once. This is gross wall surface area, not clear cavity area between framing." : "Allow the new tab, or open the Insulation Quantity Calculator directly. Its shared-room area is gross wall surface area, not clear cavity area between framing.";\n        return;\n      }\n      if (target === "bulb-brightness") {
         var opened = win && typeof win.open === "function" ? win.open("bulb-brightness-check.html", "_blank") : null;
         note.textContent = opened ? "Room area sent to the Bulb Brightness Check in a new tab." : "Allow the new tab, or open the Bulb Brightness Check directly and enter the room area."; return;
       }
