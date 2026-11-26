@@ -4,7 +4,7 @@
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
-  function positive(value, label) {  function roundArea(value) {
+function roundArea(value) {
     var n = Number(value);
     if (!Number.isFinite(n)) return n;
     var rounded = Number(n.toFixed(6));
@@ -14,7 +14,7 @@
     return roundArea(Number(length) * Number(width));
   }
 
-
+  function positive(value, label) {
     if (value === "" || value === null || value === undefined) {
       throw new Error(label + " is required. If the manufacturer lists only detection distance and angle, this calculator cannot convert them into an area.");
     }
