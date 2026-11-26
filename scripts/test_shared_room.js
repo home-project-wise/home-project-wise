@@ -125,4 +125,16 @@ ok("shared room opens Insulation with gross wall area handoff, clearly distingui
   click(y, "insulation-quantity");
   assert.match(y.e["room-error"].textContent, /needs the wall height/);
 });
+ok("shared room opens Room Lighting Planner with editable floor area and no wall-height requirement", () => {
+  const d = makeDoc(); d.getElementById("room-root"); let opened = null;
+  const w = { Event: Ev, open: (...args) => { opened = args; return {}; } };
+  SR.init(d, w);
+  const e = new Proxy(d.els, { get: (t, k) => d.getElementById(k) });
+  assert.ok(e["room-root"].innerHTML.includes('data-target="room-lighting-planner"'));
+  Object.entries({ "room-unit":"ft", "room-length":"12", "room-width":"10", "room-height":"", "room-openings":"" }).forEach(([k,v]) => { e[k].value=v; });
+  e["room-form"].handlers.click.forEach(f => f({ target: { getAttribute: k => k === "data-target" ? "room-lighting-planner" : null } }));
+  assert.deepEqual(opened, ["room-lighting-planner.html", "_blank"]);
+  assert.deepEqual(w.hpwRoom, { unit:"ft", length:12, width:10, height:null, openings:0 });
+  assert.match(e["room-note"].textContent, /task-zone area/);
+});
 console.log("\n" + n + " shared-room tests passed");
