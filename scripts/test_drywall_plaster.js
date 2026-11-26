@@ -95,3 +95,17 @@ test("does not scale published plaster coverage when application thickness diffe
   assert.equal(r.plasterBagCount,null);
   assert.equal(r.plasterThicknessMismatch,true);
 });
+
+
+test("shared-room-only area calculates without a redundant length-unit selection", () => {
+  const r = DP.calculate({lengthUnit:"",sections:[{length:"",height:""}],sharedWallAreaM2:20});
+  close(r.totalAreaM2,20);
+  assert.equal(r.boardCount,null);
+});
+test("manual wall dimensions still require an explicit unit", () => {
+  assert.throws(()=>DP.calculate({lengthUnit:"",sections:[{length:5,height:2.4}]}),/Choose metres or feet/);
+});
+test("added wall sections can be removed without affecting the remaining first section", () => {
+  const r = DP.calculate({lengthUnit:"m",sections:[{length:5,height:2.4}],openingsArea:0});
+  assert.equal(r.totalAreaM2,12);
+});
