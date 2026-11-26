@@ -28,6 +28,9 @@
     var sections = Array.isArray(input.sections) ? input.sections : [];
     var grossM2 = 0;
     sections.forEach(function (section, index) {
+      var lengthBlank = section.length === "" || section.length === null || section.length === undefined;
+      var heightBlank = section.height === "" || section.height === null || section.height === undefined;
+      if (lengthBlank && heightBlank) return;
       var length = positive(section.length, "Wall section " + (index + 1) + " length");
       var height = positive(section.height, "Wall section " + (index + 1) + " height");
       grossM2 += length * factor * height * factor;
