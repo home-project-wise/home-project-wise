@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Illustration of water meter dials: a leak indicator, a sweep hand, the main digits and the red decimal digits" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif">
+<rect width="960" height="540" fill="#F7F5F0"/>
+<text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">What to look at on the meter</text>
+<circle cx="360" cy="290" r="200" fill="#fff" stroke="#243238" stroke-width="8"/>
+<circle cx="360" cy="290" r="176" fill="#F3F6F4" stroke="#CBD8D2" stroke-width="3"/>
+<rect x="250" y="236" width="220" height="50" rx="6" fill="#fff" stroke="#243238" stroke-width="3"/>
+<text x="265" y="272" font-size="30" font-weight="700" fill="#243238" letter-spacing="6">00482</text>
+<rect x="395" y="240" width="70" height="42" rx="4" fill="#B5482F"/>
+<text x="406" y="271" font-size="28" font-weight="700" fill="#fff" letter-spacing="5">163</text>
+<line x1="360" y1="290" x2="300" y2="165" stroke="#243238" stroke-width="6" stroke-linecap="round"/>
+<circle cx="360" cy="290" r="9" fill="#243238"/>
+<circle cx="360" cy="370" r="38" fill="#fff" stroke="#B5482F" stroke-width="4"/>
+<polygon points="360,342 378,378 342,378" fill="#B5482F"/>
+<line x1="540" y1="190" x2="318" y2="200" stroke="#243238" stroke-width="3"/>
+<text x="560" y="196" font-size="22" font-weight="700" fill="#243238">Sweep hand</text>
+<text x="560" y="222" font-size="17" font-weight="500" fill="#5b6b70">should not move if no water is used</text>
+<line x1="560" y1="300" x2="472" y2="262" stroke="#243238" stroke-width="3"/>
+<text x="572" y="296" font-size="22" font-weight="700" fill="#243238">Main digits</text>
+<text x="572" y="322" font-size="17" font-weight="500" fill="#5b6b70">the total used so far</text>
+<line x1="560" y1="400" x2="432" y2="380" stroke="#B5482F" stroke-width="3"/>
+<text x="572" y="396" font-size="22" font-weight="700" fill="#B5482F">Leak indicator</text>
+<text x="572" y="422" font-size="17" font-weight="500" fill="#5b6b70">spins or creeps if water is flowing</text>
+<text x="560" y="478" font-size="19" font-weight="700" fill="#B5482F">Red digits: the small amounts</text>
+</svg>

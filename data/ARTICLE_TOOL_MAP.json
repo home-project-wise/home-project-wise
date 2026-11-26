@@ -221,6 +221,16 @@
       "toolUrl": null
     },
     {
+      "slug": "how-to-read-your-water-meter-to-find-a-hidden-leak",
+      "path": "website/articles/how-to-read-your-water-meter-to-find-a-hidden-leak.html",
+      "class": "C",
+      "decisionSentence": "Turn off all water inside and outside the house, including the irrigation controller, ice maker and washing machine.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The meter test is a procedure of reading dials and comparing two readings, and no existing tool computes it. The only figures are the waiting times quoted from Chandler, Portland and United Utilities, which are guidance and not an input to a calculation."
+    },
+    {
       "slug": "how-to-regrout-a-shower-without-rebuilding-it",
       "path": "website/articles/how-to-regrout-a-shower-without-rebuilding-it.html",
       "class": "B",
@@ -525,11 +535,11 @@
     }
   ],
   "summary": {
-    "articleCount": 49,
+    "articleCount": 50,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 36
+      "C": 37
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -542,7 +552,8 @@
       "Updated 2026-11-24: how-to-find-and-operate-your-main-water-shutoff added as class C (locating, testing and labelling a valve; no calculation is justified).",
       "Updated 2026-11-25: plug-in-power-meter-vs-smart-plug-energy-monitoring added as class A; it links the Electricity running cost panel for the worked kWh step.",
       "Updated 2026-11-25 after owner Search Console refresh and Claude's decision: macerating-toilet-basement-bathroom is class C for now; do not build a macerator run-check until the Requests/Queries report shows lift/run calculation intent AND the manufacturer clarifies or supplies a citable model-specific combined performance chart. The SaniAccess 3 table discrepancy is an editorial trust issue for the publishing lane.",
-      "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage."
+      "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage.",
+      "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
