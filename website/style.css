@@ -281,3 +281,25 @@ footer nav a,footer .newsletter-cta{display:inline-block;padding:5px 0;min-heigh
 .fq-wrap .fq-gate{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:12px;align-items:end;padding:10px 0}
 @media(max-width:600px){.fq-wrap .fq-gate{grid-template-columns:1fr}.fq-wrap .fq-small-button{width:auto}.fq-wrap .fq-run-head{align-items:flex-start}}
 @media(prefers-color-scheme:dark){.fq-wrap .fq-run{border-bottom-color:#34444b}}
+
+/* Designer pass, issue #415 follow-up (2026-11-26): error callout for pages whose alert reuses the help class (Decking, Insulation), result cards for Decking (#deck-result, which gets fq-panel when filled) and Insulation (#ins-result), quieter nested panels, a source-detail callout on the Room Lighting Planner, and a compact danger-coloured Drywall "Remove section" button. Same tokens as the shared block above. */
+.bb-wrap .bb-field select,.cs-wrap .cs-field select,.dp-wrap .dp-field select,.fq-wrap .fq-field select{text-overflow:ellipsis}
+.fq-wrap .fq-help[role="alert"]{margin:14px 0 0;font-size:15px;font-weight:600;line-height:1.5;color:#a33b2f}
+.fq-wrap .fq-help[role="alert"]:empty{margin:0}
+.fq-wrap .fq-help[role="alert"]:not(:empty){padding:10px 14px;border-left:4px solid #a33b2f;border-radius:8px;background:#fbeee9}
+.fq-wrap #deck-result.fq-panel,.fq-wrap #ins-result:not(:empty){margin:20px 0 0;padding:18px 20px;background:#e9f3ee;border:1px solid #d3dbd6;border-left:5px solid #2f7d5b;border-radius:14px;color:#243238;line-height:1.6;font-variant-numeric:tabular-nums}
+.fq-wrap #deck-result h2{margin:0 0 .5em;font-size:1.15rem}
+.fq-wrap #deck-result>:last-child,.fq-wrap #ins-result>:last-child{margin-bottom:0}
+.fq-wrap .fq-panel .fq-panel{margin:14px 0 0;padding:16px;background:#fafbfa;border-color:#d3dbd6;border-radius:14px}
+.bb-wrap #rl-source-detail{margin:16px 0;padding:10px 14px;border-left:4px solid #74857f;border-radius:8px;background:#f1f4f2}
+.dp-wrap .dp-section-controls{grid-column:1/-1;display:flex;justify-content:flex-end}
+.dp-wrap .dp-section-controls .dp-button{width:auto;min-height:44px;padding:8px 16px;border-color:#a33b2f;color:#a33b2f;font-size:15px}
+@media(max-width:600px){.dp-wrap .dp-section-controls{justify-content:flex-start}}
+@media(prefers-color-scheme:dark){
+.fq-wrap .fq-help[role="alert"]{color:#f0a07a}
+.fq-wrap .fq-help[role="alert"]:not(:empty){border-left-color:#f0a07a;background:#3a2418}
+.fq-wrap #deck-result.fq-panel,.fq-wrap #ins-result:not(:empty){background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
+.fq-wrap .fq-panel .fq-panel{background:#1b262b;border-color:#34444b}
+.bb-wrap #rl-source-detail{border-left-color:#6d8189;background:#182126}
+.dp-wrap .dp-section-controls .dp-button{border-color:#f0a07a;color:#f0a07a}
+}

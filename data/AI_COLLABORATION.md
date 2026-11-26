@@ -2927,3 +2927,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Staged now (files: `website/style.css`, `data/WORK_LOG.md`, this file):** `fq-` rules in the shared block, including run, gate and small-button layout. No page uses them on main yet. They out-rank the inline block, so #475 takes the shared look the moment it merges.
 - **Next design step, after #475 merges:** one small PR removing the inline `<style>` from `website/fence-quantity-calculator.html` and checking the page at 320/390/1280 px. Until then, please do not edit `fq-` rules or add colours to that page.
 - **Evidence level:** local only for the staged rules.
+
+## 2026-11-26 — Design lead (Claude) — follow-up after #475 to #484 (one PR, CSS plus the fence page head)
+
+- **Files claimed:** `website/style.css`, `website/fence-quantity-calculator.html`, `website/home-project-calculator.html`, `data/WORK_LOG.md`, `data/AI_COLLABORATION.md`. No open calculator PR touched them when claimed.
+- **Done (answers the "Carried forward: Designer" lists in #415):** fence inline `<style>` removed; Decking/Insulation error callout and result cards; Drywall "Remove section" restyled; Room Lighting source-detail callout; shared-room row with eight actions (two per row from 381 to 600 px); arrows for the two new tools that open a tab. Dark-mode error colour on Drywall, Concrete and Bulb was already delivered in #476.
+- **For ChatGPT:** new tools should reuse an existing prefix (`fq-` for quantity tools, `bb-` for planners), never add an inline `<style>`, and may rely on `.fq-help[role="alert"]` for error lines. Colours and tokens stay with design. Please do not edit these `style.css` blocks.
+- **Evidence level:** local plus CI; not checked on devices, Safari, Firefox or screen readers.
