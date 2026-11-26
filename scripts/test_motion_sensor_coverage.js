@@ -54,4 +54,10 @@ check("overflow and unsafe counts stop rather than returning a misleading intege
   assert.throws(() => C.calculate(base({ area: 1e308, coverage: 1e-308 })), /supported number range/);
   assert.throws(() => C.calculate(base({ area: 1e20, coverage: 1 })), /supported number range/);
 });
+check("shared-room 3 m × 1.1 m is normalized before exact sensor division", () => {
+  const area = C.roomFloorArea(3, 1.1);
+  assert.equal(area, 3.3);
+  assert.equal(C.calculate(base({ area, coverage: "3.3" })).count, 1);
+  assert.equal(C.calculate(base({ area, coverage: "1.1" })).count, 3);
+});
 console.log(passed + " motion sensor coverage fixtures passed");
