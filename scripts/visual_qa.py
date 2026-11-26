@@ -476,6 +476,7 @@ try:
             try:
                 page.goto(base + "/decking-quantity-calculator.html", wait_until="domcontentloaded", timeout=30000)
                 page.wait_for_selector("#deck-form", state="attached", timeout=15000)
+                check(f"{label}: live result region exists visible and empty before calculation", page.locator("#deck-result").count() == 1 and page.locator("#deck-result").get_attribute("hidden") is None and page.locator("#deck-result").get_attribute("aria-live") == "polite" and page.locator("#deck-result").inner_text() == "")
                 check(f"{label}: unit, board details and first section start blank",
                       page.input_value("#deck-unit") == "" and page.input_value("#deck-board-width") == "" and
                       page.input_value("#deck-board-gap") == "" and page.input_value("#deck-stock-length") == "" and
@@ -487,6 +488,7 @@ try:
                 page.fill("#deck-width-1", "2"); page.select_option("#deck-orientation-1", "along-length")
                 page.fill("#deck-edge-1", "0"); page.click("#deck-form button[type=submit]")
                 result = page.inner_text("#deck-result")
+                check(f"{label}: edge-clearance wording limits it to the two sides across board rows", "two sides across the board rows" in page.locator("#deck-form").inner_text() and "No clearance is subtracted from the board-run length" in page.locator("#deck-form").inner_text())
                 check(f"{label}: metric first section calculates 40 boards",
                       "20 rows × 2 stock boards per row = 40 boards" in result and "Total stock boards: 40" in result, result)
                 check(f"{label}: blank allowance adds no hidden waste", "No extra allowance added." in result, result)
@@ -506,7 +508,7 @@ try:
                 check(f"{label}: removing a section restores 40 boards", "Total stock boards: 40" in page.inner_text("#deck-result"), page.inner_text("#deck-result"))
                 page.fill("#deck-board-gap", ""); page.click("#deck-form button[type=submit]")
                 check(f"{label}: missing board gap stops calculation",
-                      "Gap between boards" in page.inner_text("#deck-error") and page.locator("#deck-result").is_hidden(), page.inner_text("#deck-error"))
+                      "Gap between boards" in page.inner_text("#deck-error") and page.locator("#deck-result").inner_text() == "" and page.locator("#deck-result").get_attribute("hidden") is None, page.inner_text("#deck-error"))
                 check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
                 if width == 1280:
                     page.locator("#deck-unit").focus(); page.keyboard.press("Tab")
