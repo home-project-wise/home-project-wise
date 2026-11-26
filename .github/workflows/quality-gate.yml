@@ -40,4 +40,5 @@ jobs:
           node scripts/test_bulb_brightness_check.js
           node scripts/test_concrete_slab.js
           node scripts/test_drywall_plaster.js
+          node scripts/test_fence_quantity.js
           node scripts/test_tools_registry.js
