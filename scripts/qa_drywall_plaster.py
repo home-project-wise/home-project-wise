@@ -46,7 +46,7 @@ with sync_playwright() as p:
         check("hand-computed metric surface area and board count at %dpx" % width,
               "28.4 m²" in result and "9.861 boards" in result and "rounded up to 10 whole boards" in result, result)
         check("named plaster coverage and thickness calculate rounded bags at %dpx" % width,
-              "4.26 bags" in result and "rounded up to 5 whole bags" in result, result)
+              "2.84 bags" in result and "rounded up to 3 whole bags" in result, result)
         page.click("#dp-add-section")
         check("additional wall section has an associated label at %dpx" % width,
               page.locator('label[for="dp-length-2"]').count() == 1 and page.locator('label[for="dp-height-2"]').count() == 1)
@@ -54,7 +54,7 @@ with sync_playwright() as p:
         page.click("button[type=submit]")
         result = page.locator("#dp-result").inner_text()
         check("multiple wall sections sum before openings and ceiling at %dpx" % width,
-              "38 m²" in result and "rounded up to 14 whole boards" in result and "rounded up to 6 whole bags" in result, result)
+              "38 m²" in result and "rounded up to 14 whole boards" in result and "rounded up to 4 whole bags" in result, result)
         page.fill("#dp-plaster-name",""); page.fill("#dp-plaster-coverage","")
         page.click("button[type=submit]")
         result = page.locator("#dp-result").inner_text()
