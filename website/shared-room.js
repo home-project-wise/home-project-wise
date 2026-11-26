@@ -1,5 +1,5 @@
 /* HomeProjectWise shared room (Stage 1 of the beginner flow, Issue #362). The visitor enters the room once and sends it to the
- * Flooring, Paint, Wallpaper, bulb brightness, room lighting, concrete slab, drywall/plaster and insulation tools. In memory only: nothing is stored or sent, and no value is assumed
+ * Flooring, Paint, Wallpaper, bulb brightness, room lighting, motion sensor coverage, concrete slab, drywall/plaster and insulation tools. In memory only: nothing is stored or sent, and no value is assumed
  * (height, openings and slab thickness stay empty unless entered).
  */
 (function (root, factory) {
@@ -49,7 +49,7 @@
   }
   var MARKUP =
     '<details><summary>Enter your room once (optional)</summary>' +
-    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check, Room Lighting Planner, Concrete Slab Volume Calculator, Drywall and Plaster Quantity Calculator or Insulation Quantity Calculator. Nothing is stored or sent.</p>' +
+    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check, Room Lighting Planner, Motion Sensor Coverage Calculator, Concrete Slab Volume Calculator, Drywall and Plaster Quantity Calculator or Insulation Quantity Calculator. Nothing is stored or sent.</p>' +
     '<form class="calc" id="room-form" novalidate><div class="calc-grid">' +
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
@@ -57,7 +57,7 @@
     '<div class="calc-field"><label for="room-height">Wall height (for wall-area tools)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
-    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="room-lighting-planner">Use for room lighting</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <button type="button" class="wp-btn" data-target="insulation-quantity">Use for insulation area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
+    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="room-lighting-planner">Use for room lighting</button> <button type="button" class="wp-btn" data-target="motion-sensor-coverage">Use for motion sensor coverage</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <button type="button" class="wp-btn" data-target="insulation-quantity">Use for insulation area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
   function init(doc, win) {
     var host = doc.getElementById("room-root"); if (!host) return null;
     host.innerHTML = MARKUP;
@@ -92,6 +92,11 @@
       if (target === "room-lighting-planner") {
         var lightingTab = win && typeof win.open === "function" ? win.open("room-lighting-planner.html", "_blank") : null;
         note.textContent = lightingTab ? "Room floor area sent to the Room Lighting Planner in a new tab. The area remains editable; for task rows, enter the task-zone area instead." : "Allow the new tab, or open the Room Lighting Planner directly and enter the area. For task rows, use the task-zone area.";
+        return;
+      }
+      if (target === "motion-sensor-coverage") {
+        var sensorTab = win && typeof win.open === "function" ? win.open("motion-sensor-coverage-calculator.html", "_blank") : null;
+        note.textContent = sensorTab ? "Room floor area sent to the Motion Sensor Coverage Calculator in a new tab. The area remains editable; enter the manufacturer coverage area separately." : "Allow the new tab, or open the Motion Sensor Coverage Calculator directly and enter the area. Enter the manufacturer coverage area separately.";
         return;
       }
       if (target === "bulb-brightness") {

@@ -28,6 +28,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Run visual, responsive and link QA
         run: python scripts/visual_qa.py
+      - name: Run Motion Sensor Coverage responsive and handoff QA
+        run: python scripts/qa_motion_sensor_coverage.py
       - name: Run hand-computed fixtures for the inline-script tools
         run: python scripts/qa_inline_tool_fixtures.py
       - name: Run warnings-only calculator sanity checks
