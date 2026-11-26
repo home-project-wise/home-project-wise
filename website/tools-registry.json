@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
   "tools": [
     {
@@ -371,6 +371,22 @@
         "panels",
         "rails",
         "boards",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "decking-quantity-calculator",
+      "title": "Decking Quantity Calculator",
+      "url": "decking-quantity-calculator.html",
+      "topics": [
+        "decking",
+        "deck boards",
+        "board rows",
+        "stock board count",
+        "deck surface",
         "quantity"
       ],
       "params": [],
