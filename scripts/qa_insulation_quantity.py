@@ -20,7 +20,7 @@ with sync_playwright() as p:
         page.on("pageerror",lambda e:errors.append(str(e)))
         page.goto(BASE+"insulation-quantity-calculator.html",wait_until="load")
         check("page loads at %dpx"%width,page.locator("h1").inner_text()=="Insulation Quantity Calculator")
-        check("result live region is present and visible at %dpx"%width,page.locator("#ins-result").count()==1 and not page.locator("#ins-result").is_hidden() and page.locator("#ins-result").get_attribute("aria-live")=="polite")
+        check("result live region is present and visible at %dpx"%width,page.locator("#ins-result").count()==1 and page.locator("#ins-result").get_attribute("hidden") is None and page.locator("#ins-result").get_attribute("aria-live")=="polite")
         check("inputs start blank at %dpx"%width,page.input_value("#ins-unit")=="" and page.input_value("#ins-length-1")=="" and page.input_value("#ins-pack-coverage")=="" and page.input_value("#ins-coverage-unit")=="")
         page.select_option("#ins-unit","m"); page.fill("#ins-length-1","5"); page.fill("#ins-width-1","4"); page.fill("#ins-openings","2")
         page.click("#ins-form button[type=submit]")
