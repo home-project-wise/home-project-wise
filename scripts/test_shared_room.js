@@ -97,4 +97,17 @@ ok("shared room opens the concrete slab tool with dimensions in memory and does 
   assert.deepEqual(w.hpwRoom, { unit:"ft", length:12, width:10, height:null, openings:0 });
   assert.match(e["room-note"].textContent, /Thickness remains blank/);
 });
+ok("shared room opens drywall/plaster with room area and requires wall height", () => {
+  const d = makeDoc(); d.getElementById("room-root"); let opened = null;
+  const w = { Event: Ev, open: (...args) => { opened = args; return {}; } };
+  SR.init(d, w);
+  const e = new Proxy(d.els, { get: (t, k) => d.getElementById(k) });
+  Object.entries({ "room-unit":"ft", "room-length":"12", "room-width":"10", "room-height":"8", "room-openings":"20" }).forEach(([k,v]) => { e[k].value=v; });
+  e["room-form"].handlers.click.forEach(f => f({ target: { getAttribute: k => k === "data-target" ? "drywall-plaster" : null } }));
+  assert.deepEqual(opened, ["drywall-plaster-calculator.html", "_blank"]);
+  assert.deepEqual(w.hpwRoom, { unit:"ft", length:12, width:10, height:8, openings:20 });
+  assert.match(e["room-note"].textContent, /deducted once/);
+  const y = setup({ "room-length":"5", "room-width":"4", "room-height":"" }); click(y, "drywall-plaster");
+  assert.match(y.e["room-error"].textContent, /needs the wall height/);
+});
 console.log("\n" + n + " shared-room tests passed");
