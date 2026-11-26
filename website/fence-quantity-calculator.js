@@ -95,6 +95,9 @@
     var sharedCorners = null;
     if (runs.length === 1 && blank(input.sharedCorners)) sharedCorners = 0;
     else if (!blank(input.sharedCorners)) sharedCorners = whole(input.sharedCorners, "Shared corners", 0);
+    if (sharedCorners !== null && sharedCorners > 0 && runs.length < 2) {
+      throw new Error("A shared corner needs at least two separately measured straight runs.");
+    }
     if (sharedCorners !== null && sharedCorners > runs.length) {
       throw new Error("Shared corners cannot exceed the number of straight runs in this simple, non-branching layout.");
     }
