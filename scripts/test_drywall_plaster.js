@@ -30,18 +30,18 @@ test("drywall board estimate uses visitor-entered panel face dimensions and roun
 test("plaster bags scale only from the named product's entered coverage and thickness", () => {
   const r = DP.calculate({lengthUnit:"m",sections:[{length:5,height:2.4}],openingsArea:0,
     plasterProductName:"Named plaster",plasterCoverage:10,plasterCoverageUnit:"m2",
-    plasterReferenceThickness:10,plasterApplicationThickness:15,plasterThicknessUnit:"mm"});
-  close(r.plasterBagRatio,1.8);
+    plasterReferenceThickness:10,plasterApplicationThickness:10,plasterThicknessUnit:"mm"});
+  close(r.plasterBagRatio,1.2);
   assert.equal(r.plasterBagCount,2);
 });
 
 test("imperial plaster coverage and inch thickness convert correctly", () => {
   const r = DP.calculate({lengthUnit:"ft",sections:[{length:12,height:8}],openingsArea:0,
     plasterProductName:"Named plaster",plasterCoverage:100,plasterCoverageUnit:"ft2",
-    plasterReferenceThickness:0.5,plasterApplicationThickness:0.75,plasterThicknessUnit:"in"});
+    plasterReferenceThickness:0.5,plasterApplicationThickness:0.5,plasterThicknessUnit:"in"});
   close(r.totalAreaFt2,96);
-  close(r.plasterBagRatio,1.44);
-  assert.equal(r.plasterBagCount,2);
+  close(r.plasterBagRatio,0.96);
+  assert.equal(r.plasterBagCount,1);
 });
 
 test("shared-room wall area is accepted without requiring a blank manual section", () => {
@@ -84,4 +84,14 @@ test("does not introduce price, waste, structural or product-suitability calcula
   assert.equal(r.waste,undefined);
   assert.equal(r.structural,undefined);
   assert.equal(r.totalAreaM2,4);
+});
+
+
+test("does not scale published plaster coverage when application thickness differs", () => {
+  const r = DP.calculate({lengthUnit:"m",sections:[{length:5,height:2.4}],
+    plasterProductName:"Named plaster",plasterCoverage:10,plasterCoverageUnit:"m2",
+    plasterReferenceThickness:10,plasterApplicationThickness:15,plasterThicknessUnit:"mm"});
+  assert.equal(r.totalAreaM2,12);
+  assert.equal(r.plasterBagCount,null);
+  assert.equal(r.plasterThicknessMismatch,true);
 });
