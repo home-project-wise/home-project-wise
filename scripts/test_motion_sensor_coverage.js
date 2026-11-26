@@ -24,6 +24,12 @@ check("exact division does not add an extra sensor", () => {
 check("any positive remainder rounds up to the next whole sensor", () => {
   assert.equal(C.calculate(base({ area: 60.01, coverage: 20 })).count, 4);
 });
+check("decimal values just above an integer ratio are never rounded down by a tolerance", () => {
+  assert.equal(C.calculate(base({ area: "10.00000000001", coverage: "10" })).count, 2);
+});
+check("exact decimal division is not over-counted by binary floating-point noise", () => {
+  assert.equal(C.calculate(base({ area: "0.3", coverage: "0.1" })).count, 3);
+});
 check("one sensor is the minimum when its stated area covers the entered area", () => {
   assert.equal(C.calculate(base({ area: 18, coverage: 500 })).count, 1);
 });
