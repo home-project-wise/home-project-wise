@@ -73,13 +73,13 @@
         '<div class="fq-field"><label for="deck-length-' + n + '">Measured length (' + n + ')</label><input id="deck-length-' + n + '" class="dk-length" type="number" min="0" step="any" placeholder="Enter the measured length"></div>' +
         '<div class="fq-field"><label for="deck-width-' + n + '">Measured width (' + n + ')</label><input id="deck-width-' + n + '" class="dk-width" type="number" min="0" step="any" placeholder="Enter the measured width"></div>' +
         '<div class="fq-field"><label for="deck-orientation-' + n + '">Board direction</label><select id="deck-orientation-' + n + '" class="dk-orientation"><option value="">Choose direction</option><option value="along-length">Boards run along this section length</option><option value="along-width">Boards run along this section width</option></select></div>' +
-        '<div class="fq-field"><label for="deck-edge-' + n + '">Edge clearance at each side (' + n + ')</label><input id="deck-edge-' + n + '" class="dk-edge" type="number" min="0" step="any" placeholder="Enter clearance; use 0 if flush"></div>' +
+        '<div class="fq-field"><label for="deck-edge-' + n + '">Clearance at each of the two sides across the board rows (' + n + ')</label><input id="deck-edge-' + n + '" class="dk-edge" type="number" min="0" step="any" placeholder="Enter clearance; use 0 if flush"></div>' +
         (n > 1 ? '<button type="button" class="fq-small-button" data-remove-section>Remove section</button>' : '') +
         '</section>';
     }
     function clearOutput() {
       error.textContent = "";
-      result.hidden = true;
+      result.className = "";
       result.textContent = "";
     }
     doc.getElementById("deck-add-section").addEventListener("click", function () {
@@ -132,8 +132,8 @@
           '<p>Board face width: ' + format(estimate.boardWidth) + ' ' + estimate.unit +
           '; gap between boards: ' + format(estimate.boardGap) + ' ' + estimate.unit +
           '; stock length: ' + format(estimate.stockLength) + ' ' + estimate.unit + '.</p>' +
-          '<p>Rows start and finish at the entered edge clearance. A row may need a final board cut to length, and the last row across the width may need to be ripped to fit. The tool does not calculate cuts or joint positions; offcuts are not reused between rows or sections.</p>';
-        result.hidden = false;
+          '<p>The entered clearance is applied only at the two sides across the board rows. No clearance is subtracted from the board-run length; if you need end clearance, subtract it from the measured run length before entering it. A row may need a final board cut to length, and the last row across the width may need to be ripped to fit. The tool does not calculate cuts or joint positions; offcuts are not reused between rows or sections.</p>';
+        result.className = "fq-panel";
       } catch (e) {
         error.textContent = e && e.message ? e.message : "Check the measurements and try again.";
       }
