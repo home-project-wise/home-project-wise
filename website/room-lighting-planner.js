@@ -8,7 +8,7 @@
     uk: {
       id: "uk", name: "Thomas Pocklington Trust — A practical guide to improving lighting in existing homes",
       category: "UK good-practice guide for people affected by sight loss; suggested task and floor illuminances",
-      year: "May 2015 (2nd edition)", reference: "Table on printed page 22 (PDF page 27)",
+      year: "May 2015 (2nd edition)", reference: "Table on printed page 22",
       url: "https://www.housinglin.org.uk/_assets/Resources/Housing/OtherOrganisation/A-practical-guide-to-improving-lighting-in-existing-homes.pdf",
       rows: [
         ["uk-shower","Showering / bathing (task)",100,300,"100–300 lx"],
@@ -35,7 +35,7 @@
     canada: {
       id: "canada", name: "CSA/ASC B652:23 — Accessible dwellings",
       category: "National Standard of Canada for accessible dwellings; minimum ambient and task lighting levels",
-      year: "January 2023", reference: "Table 3, printed page 52 (PDF page 59)",
+      year: "January 2023", reference: "Table 3, printed page 52",
       url: "https://www.csagroup.org/wp-content/uploads/2430606.pdf",
       rows: [
         ["ca-kitchen-ambient","Kitchen — General / ambient",300,300,"300 lx"],
@@ -67,7 +67,7 @@
     malta: {
       id: "malta", name: "Building & Construction Authority — Technical Document F, Part 3",
       category: "Malta dwelling light-level guidance; indicative values referring to CIBSE Guide A",
-      year: "Effective 1 July 2024", reference: "Table 29, printed page 48 (PDF page 48)",
+      year: "Effective 1 July 2024", reference: "Table 29, printed page 48",
       url: "https://bca.org.mt/wp-content/uploads/2024/01/Technical-Document-F-Part-3.pdf",
       rows: [
         ["mt-bedroom","Bedroom",100,100,"100 lx"],
@@ -82,7 +82,7 @@
     australia: {
       id: "australia", name: "Australian Government E3 — Energy efficient lighting and design: training guide for retailers",
       category: "Joint Australian, State and Territory and New Zealand government training guide; AS/NZS 1680 residential recommended average illuminance",
-      year: "September 2014", reference: "Table 6, printed page 32 (PDF page 37)",
+      year: "September 2014", reference: "Table 6, printed page 32",
       url: "https://www.energyrating.gov.au/sites/default/files/2022-12/Lighting%2520Retailer%2520Training%2520Guide%5B1%5D.pdf",
       rows: [
         ["au-kitchen-workbench-initial","Kitchen workbench — Initial",300,300,"300 lx"],
