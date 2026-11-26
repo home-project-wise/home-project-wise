@@ -42,10 +42,11 @@
         pieceLength = positive(input.pieceLength, "Length of each piece");
       }
     }
-    var spans = 0, netLength = 0, rawPosts = 0, terminalPosts = 0, linePosts = 0, panelCount = 0;
+    var spans = 0, grossLength = 0, gateWidthTotal = 0, netLength = 0, rawPosts = 0, terminalPosts = 0, linePosts = 0, panelCount = 0;
     var details = [], gateCount = 0;
     runs.forEach(function (run, runIndex) {
       var length = positive(run.length, "Run " + (runIndex + 1) + " length");
+      grossLength += length;
       var gates = Array.isArray(run.gates) ? run.gates.slice() : [];
       gates = gates.map(function (gate, gateIndex) {
         var offset = nonNegative(gate.offset, "Run " + (runIndex + 1) + " gate " + (gateIndex + 1) + " position");
@@ -80,7 +81,7 @@
         addPosition(positions, gate.offset); addPosition(positions, gate.offset + gate.width);
         addPosition(terminals, gate.offset); addPosition(terminals, gate.offset + gate.width);
         cursor = gate.offset + gate.width;
-        runNet -= gate.width;
+        runNet -= gate.width; gateWidthTotal += gate.width;
       });
       addSegment(cursor, length, gates.length + 1);
       netLength += runNet;
@@ -105,7 +106,7 @@
     var pieces = piecesPerSpan === null || piecesIncomplete ? null : spans * piecesPerSpan;
     return {
       unit:unit, postSpacing:spacing, runCount:runs.length, gateCount:gateCount,
-      netLength:netLength, spans:spans, rawPosts:rawPosts, terminalPosts:terminalPosts,
+      grossLength:grossLength, gateWidthTotal:gateWidthTotal, netLength:netLength, spans:spans, rawPosts:rawPosts, terminalPosts:terminalPosts,
       linePosts:linePosts, sharedCorners:sharedCorners, posts:posts,
       panelWidth:panelWidth, panelCount:panelWidth === null ? null : panelCount,
       piecesPerSpan:piecesPerSpan, pieceLength:pieceLength, piecesIncomplete:piecesIncomplete,
@@ -124,8 +125,8 @@
       gateSeq += 1;
       var gate = doc.createElement("div"); gate.className = "fq-gate";
       gate.innerHTML =
-        '<div class="fq-field"><label for="fq-gate-offset-' + gateSeq + '">Gate position from this run start (' + runSeq + ')</label><input id="fq-gate-offset-' + gateSeq + '" class="fq-gate-offset" type="number" min="0" step="any" placeholder="Distance to first gate post"></div>' +
-        '<div class="fq-field"><label for="fq-gate-width-' + gateSeq + '">Clear gate opening width</label><input id="fq-gate-width-' + gateSeq + '" class="fq-gate-width" type="number" min="0" step="any" placeholder="Measured opening width"></div>' +
+        '<div class="fq-field"><label for="fq-gate-offset-' + gateSeq + '">Distance from run start to first gate-post position</label><input id="fq-gate-offset-' + gateSeq + '" class="fq-gate-offset" type="number" min="0" step="any" placeholder="Measured post-centre distance"></div>' +
+        '<div class="fq-field"><label for="fq-gate-width-' + gateSeq + '">Distance between gate-post positions</label><input id="fq-gate-width-' + gateSeq + '" class="fq-gate-width" type="number" min="0" step="any" placeholder="Post-centre to post-centre"></div>' +
         '<button type="button" class="fq-small-button" data-remove-gate>Remove gate</button>';
       runRow.querySelector(".fq-gates").appendChild(gate);
     }
@@ -178,9 +179,7 @@
           else p.textContent = value;
           output.appendChild(p);
         }
-        var gross = r.netLength;
-        r.segments.forEach(function (s) { /* details are emitted below without reconstructing gross run geometry */ });
-        line("Net fenced length after gate openings: " + fmt(r.netLength) + " " + unit + ".", true);
+        line("Net fenced length: " + fmt(r.grossLength) + " " + unit + " total measured runs − " + fmt(r.gateWidthTotal) + " " + unit + " gate-post distances = " + fmt(r.netLength) + " " + unit + ".", true);
         r.segments.forEach(function (s) {
           line("Run " + s.run + ", fenced segment " + s.segment + ": " + fmt(s.length) + " " + unit + " ÷ " +
             fmt(r.postSpacing) + " " + unit + " chosen spacing = " + s.spans + " spans; equalised spacing " +
