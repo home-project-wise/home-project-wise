@@ -44,7 +44,7 @@
   function init(doc, win) {
     var form = doc.getElementById("brightness-form");
     if (!form) return null;
-    var error = doc.getElementById("brightness-error"), result = doc.getElementById("brightness-result");
+    var error = doc.getElementById("brightness-error"), result = doc.getElementById("brightness-result");\n    var status = doc.getElementById("brightness-status");
     var area = doc.getElementById("room-area"), areaUnit = doc.getElementById("area-unit");
     var roomNote = doc.getElementById("shared-room-note");
     try {
@@ -58,9 +58,9 @@
       }
     } catch (e) { /* Cross-window access is optional; manual area entry remains available. */ }
     form.addEventListener("submit", function (event) {
-      event.preventDefault(); error.textContent = ""; result.textContent = "";
+      event.preventDefault(); error.textContent = ""; result.textContent = ""; status.textContent = "";
       var lumensValue = doc.getElementById("lumens-per-bulb").value;
-      if (lumensValue === "") { result.textContent = "Enter the lumens printed on the bulb box to see your totals."; return; }
+      if (lumensValue === "") { status.textContent = "Enter the lumens printed on the bulb box to see your totals."; return; }
       try {
         var data = calculate({ roomType: doc.getElementById("room-type").value,
           fixtureCount: doc.getElementById("fixture-count").value,
