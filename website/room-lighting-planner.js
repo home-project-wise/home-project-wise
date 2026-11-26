@@ -4,6 +4,15 @@
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   var SQFT_TO_SQM = 0.09290304;
+  function roundArea(value) {
+    var n = Number(value);
+    if (!Number.isFinite(n)) return n;
+    var rounded = Number(n.toFixed(6));
+    return rounded === 0 && n > 0 ? n : rounded;
+  }
+  function roomFloorArea(length, width) {
+    return roundArea(Number(length) * Number(width));
+  }
   var SOURCES = {
     uk: {
       id: "uk", name: "Thomas Pocklington Trust — A practical guide to improving lighting in existing homes",
@@ -175,7 +184,7 @@
       if (win.opener && !win.opener.closed && win.opener.location.origin === win.location.origin && win.opener.hpwRoom) {
         var room = win.opener.hpwRoom;
         if (Number(room.length) > 0 && Number(room.width) > 0 && (room.unit === "m" || room.unit === "ft")) {
-          area.value = String(Number(room.length) * Number(room.width));
+          area.value = String(roomFloorArea(room.length, room.width));
           areaUnit.value = room.unit === "ft" ? "ft2" : "m2";
           status.textContent = "Floor area copied from your shared room: " + area.value + " " + (room.unit === "ft" ? "ft²" : "m²") + ". You can edit it below. For a task row, enter the task-zone area instead.";
         }
@@ -211,5 +220,5 @@
     return { calculate: calculate, updateSource: updateSource };
   }
   if (typeof document !== "undefined" && typeof window !== "undefined" && document.getElementById) init(document, window);
-  return { SOURCES: SOURCES, calculate: calculate, init: init, SQFT_TO_SQM: SQFT_TO_SQM };
+  return { SOURCES: SOURCES, calculate: calculate, init: init, SQFT_TO_SQM: SQFT_TO_SQM, roomFloorArea: roomFloorArea };
 }));
