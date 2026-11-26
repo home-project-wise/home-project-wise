@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fence Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate fence spans, posts and optional panels or repeated rails/boards from your measured straight runs, gate positions and chosen post spacing.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/fence-quantity-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Fence Quantity Calculator | HomeProjectWise"><meta property="og:description" content="Count spans and posts from your measured fence runs, gate positions and chosen spacing, without assumed dimensions."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/fence-quantity-calculator.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.fq-wrap{max-width:850px;margin:auto}.fq-panel,.fq-result{background:#f7f5f0;border:1px solid #ddd9d0;border-radius:12px;padding:16px;margin:16px 0}.fq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.fq-field label{display:block;font-weight:650;margin-bottom:5px}.fq-field input,.fq-field select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:10px;border:1px solid #aeb7b3;border-radius:7px;background:#fff;color:#243238;font:inherit}.fq-help,.fq-note{font-size:14px;color:#576165;line-height:1.5}.fq-button,.fq-small-button{min-height:44px;padding:10px 15px;border:1px solid #68777b;border-radius:8px;background:#fff;color:#243238;font:inherit;font-weight:650}.fq-small-button{min-height:40px;padding:8px 12px}.fq-run{padding:14px 0;border-bottom:1px solid #ddd9d0}.fq-run-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.fq-run-head h3{margin:0}.fq-gate{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:10px;align-items:end;padding:10px 0}.fq-error{font-weight:650}.fq-result{background:#fff}.fq-result:empty{display:none}
+@media(prefers-color-scheme:dark){.fq-panel{background:#202a2d;border-color:#465357;color:#edf1ed}.fq-field input,.fq-field select{background:#172124;color:#edf1ed;border-color:#68777b}.fq-help,.fq-note{color:#c1cbc7}.fq-button,.fq-small-button{background:#172124;color:#edf1ed;border-color:#68777b}.fq-run{border-color:#465357}.fq-result{background:#172124;border-color:#465357;color:#edf1ed}}
+@media(max-width:600px){.fq-grid,.fq-gate{grid-template-columns:1fr}.fq-panel{padding:13px}.fq-run-head{align-items:flex-start}}
+</style></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Fence Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p><h1>Fence Quantity Calculator</h1>
+<p class="lead">Measure each straight part between post-centre positions. Enter the post spacing you have chosen and each gate's post-centre positions. The calculator counts spans and post positions from those measurements; it does not choose a fence system or spacing for you.</p>
+<section class="fq-panel">
+<h2>Your fence measurements</h2>
+<form id="fence-form" novalidate>
+<div class="fq-grid">
+<div class="fq-field"><label for="fence-unit">Length unit for all measurements</label><select id="fence-unit"><option value="" selected>Choose metres or feet</option><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="fq-field"><label for="fence-spacing">Your chosen maximum post spacing</label><input id="fence-spacing" type="number" min="0" step="any" placeholder="Enter spacing from your selected plan or system"></div>
+</div>
+<p class="fq-help">Use the same unit for run lengths, gate positions and widths, spacing, panel width and piece length. Measure run ends, spacing and gate positions from post centre to post centre. A gate width here means the distance between the two gate-post centres, not the gate leaf width or clear opening; do not infer it from a gate label. No spacing or unit is preselected.</p>
+<div id="fence-runs">
+<section class="fq-run">
+<div class="fq-field"><label for="fq-run-length-1">Straight run 1 total measured length</label><input id="fq-run-length-1" class="fq-run-length" type="number" min="0" step="any" placeholder="Enter measured length"></div>
+<div class="fq-gates"></div><button type="button" class="fq-small-button" data-add-gate>Add gate opening to this run</button>
+</section>
+</div>
+<p><button type="button" class="fq-button" id="fence-add-run">Add another straight run</button></p>
+<h3>Optional panel quantity</h3>
+<div class="fq-field"><label for="fence-panel-width">Actual panel face / coverage width</label><input id="fence-panel-width" type="number" min="0" step="any" placeholder="Enter the width shown for your selected panel"></div>
+<p class="fq-help">If entered, panels are estimated by rounding each uninterrupted fenced segment up separately by this width. This is a coverage estimate only; it does not check whether fixed-width panels can be trimmed or fit your post layout.</p>
+<h3>Shared corners between runs</h3>
+<div class="fq-field"><label for="fence-shared-corners">Number of corners where two runs use the same physical post</label><input id="fence-shared-corners" type="number" min="0" step="1" placeholder="Required when you enter more than one run"></div>
+<p class="fq-help">For one run, leave this blank. For multiple runs, enter the number of simple two-run shared corners; each removes one duplicate post from the total. Branching / three-way junctions are not modelled.</p>
+<h3>Optional repeated rails or boards</h3>
+<div class="fq-grid">
+<div class="fq-field"><label for="fence-pieces-per-span">Rails or boards per span</label><input id="fence-pieces-per-span" type="number" min="1" step="1" placeholder="Enter the pieces in each span"></div>
+<div class="fq-field"><label for="fence-piece-length">Length of each rail or board</label><input id="fence-piece-length" type="number" min="0" step="any" placeholder="Enter the actual piece length"></div>
+</div>
+<p class="fq-help">The count appears only when both values are entered. The tool does not choose a rail count, board layout or stock length.</p>
+<p id="fence-error" class="fq-error" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate fence quantities</button></p>
+</form>
+<div id="fence-result" class="fq-result" aria-live="polite"></div>
+</section>
+<section class="fq-panel">
+<h2>How the count works</h2>
+<p>Each uninterrupted straight fence segment is divided into the smallest whole number of spans that does not exceed your chosen maximum post spacing. The segment length is then divided evenly across those spans. Each segment's two ends count as posts; gate openings split a run and contribute a post position at each edge. Shared corners between two runs are deducted once only when you enter their count.</p>
+<p>Runs are measured separately and rounded separately. Gate position is measured from the start of its straight run to the first gate-post centre; enter the distance between the two gate-post centres. This is not the gate leaf width or clear opening. If you only know the clear opening, the post dimensions and hardware needed to derive centre spacing are not supplied, so do not guess. Gate openings are subtracted from net fence length, but their edge posts remain in the count.</p>
+<p>This tool gives quantities from the measurements and spacing you enter. It is not a fence design or installation recommendation. It does not assess post dimensions, foundations, concrete, fence height, wind, frost, property boundaries, easements, utilities, permits, materials, slope, retaining walls or code compliance. Check actual product fit and the site layout separately.</p>
+</section>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="fence-quantity-calculator.js"></script>
+</body></html>
