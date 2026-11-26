@@ -6,7 +6,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   var M_PER_FT = 0.3048, M2_PER_FT2 = 0.09290304;
-  function blank(value) {  function roundArea(value) {
+  function roundArea(value) {
     var n = Number(value);
     if (!Number.isFinite(n)) return n;
     var rounded = Number(n.toFixed(6));
@@ -17,7 +17,7 @@
     return roundArea(Math.max(0, 2 * (Number(room.length) + Number(room.width)) * Number(room.height) -
       Number(room.openings || 0)) * factor * factor);
   }
- return value === "" || value === null || value === undefined; }
+  function blank(value) { return value === "" || value === null || value === undefined; }
   function positive(value, label) {
     if (blank(value)) throw new Error(label + " is required.");
     var n = Number(value);
