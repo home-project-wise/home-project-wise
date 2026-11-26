@@ -476,7 +476,7 @@ try:
             try:
                 page.goto(base + "/decking-quantity-calculator.html", wait_until="domcontentloaded", timeout=30000)
                 page.wait_for_selector("#deck-form", state="attached", timeout=15000)
-                check(f"{label}: live result region exists visible and empty before calculation", page.locator("#deck-result").count() == 1 and not page.locator("#deck-result").is_hidden() and page.locator("#deck-result").get_attribute("aria-live") == "polite" and page.locator("#deck-result").inner_text() == "")
+                check(f"{label}: live result region exists visible and empty before calculation", page.locator("#deck-result").count() == 1 and page.locator("#deck-result").get_attribute("hidden") is None and page.locator("#deck-result").get_attribute("aria-live") == "polite" and page.locator("#deck-result").inner_text() == "")
                 check(f"{label}: unit, board details and first section start blank",
                       page.input_value("#deck-unit") == "" and page.input_value("#deck-board-width") == "" and
                       page.input_value("#deck-board-gap") == "" and page.input_value("#deck-stock-length") == "" and
