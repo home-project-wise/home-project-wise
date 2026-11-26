@@ -320,7 +320,7 @@
       "decisionSentence": "Placement matters more than a high-sensitivity setting.",
       "tool": null,
       "prefill": {},
-      "noToolReason": "Manufacturer detection range alone cannot predict actual coverage through doors, furniture and approach angles; a sensor-count calculation would imply unsupported precision.",
+      "noToolReason": "The guide's central decision is actual route placement and real-world detection. The optional area-only minimum tool does not calculate placement or prove coverage, so this article remains guide-only.",
       "toolUrl": null
     },
     {
@@ -569,7 +569,7 @@
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
       "Other remaining B candidates stay unprioritized until product/manufacturer coverage or geometry sources are verified.",
-      "Evening-lighting planner remains C unless room-level lighting targets are sourced; motion-sensor coverage remains C because box range does not predict real-room coverage."
+      "T4f motion-sensor area-only minimum calculator — optional standalone tool; do not link it as a placement or actual-coverage answer."
     ]
   }
 }
