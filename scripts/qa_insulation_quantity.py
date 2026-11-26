@@ -33,7 +33,7 @@ with sync_playwright() as p:
         page.fill("#ins-product-name",""); page.click("#ins-form button[type=submit]")
         check("partial product details keep area but withhold pack count at %dpx"%width,"18 m²" in page.locator("#ins-result").inner_text() and "To count packs" in page.locator("#ins-result").inner_text())
         page.fill("#ins-product-name","Pack Alpha"); page.fill("#ins-pack-coverage","0"); page.click("#ins-form button[type=submit]")
-        check("zero pack coverage is rejected at %dpx"%width,"greater than zero" in page.locator("#ins-error").inner_text() and page.locator("#ins-result").inner_text()=="")
+        check("zero pack coverage withholds count but keeps measured area at %dpx"%width,"greater than zero" in page.locator("#ins-error").inner_text() and "18 m²" in page.locator("#ins-result").inner_text() and "Pack count not shown" in page.locator("#ins-result").inner_text())
         page.fill("#ins-pack-coverage",""); page.fill("#ins-product-name",""); page.select_option("#ins-coverage-unit","")
         page.select_option("#ins-unit","ft"); page.fill("#ins-length-1","10"); page.fill("#ins-width-1","12"); page.fill("#ins-openings","")
         page.click("#ins-form button[type=submit]")
