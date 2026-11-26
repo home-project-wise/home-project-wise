@@ -331,7 +331,14 @@
       "id": "drywall-plaster-quantity",
       "title": "Drywall and Plaster Quantity Calculator",
       "url": "drywall-plaster-calculator.html",
-      "topics": ["drywall", "plaster", "wall area", "ceiling area", "board quantity", "material quantity"],
+      "topics": [
+        "drywall",
+        "plaster",
+        "wall area",
+        "ceiling area",
+        "board quantity",
+        "material quantity"
+      ],
       "params": [],
       "linkPrefill": [],
       "articles": []
@@ -345,6 +352,25 @@
         "slab",
         "pad",
         "concrete volume",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "fence-quantity-calculator",
+      "title": "Fence Quantity Calculator",
+      "url": "fence-quantity-calculator.html",
+      "topics": [
+        "fence",
+        "fencing",
+        "fence posts",
+        "fence spans",
+        "gate openings",
+        "panels",
+        "rails",
+        "boards",
         "quantity"
       ],
       "params": [],
