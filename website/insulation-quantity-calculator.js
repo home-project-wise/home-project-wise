@@ -6,7 +6,18 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
   var M_PER_FT = 0.3048, M2_PER_FT2 = 0.09290304;
-  function blank(value) { return value === "" || value === null || value === undefined; }
+  function blank(value) {  function roundArea(value) {
+    var n = Number(value);
+    if (!Number.isFinite(n)) return n;
+    var rounded = Number(n.toFixed(6));
+    return rounded === 0 && n > 0 ? n : rounded;
+  }
+  function sharedRoomWallAreaM2(room) {
+    var factor = room.unit === "ft" ? M_PER_FT : 1;
+    return roundArea(Math.max(0, 2 * (Number(room.length) + Number(room.width)) * Number(room.height) -
+      Number(room.openings || 0)) * factor * factor);
+  }
+ return value === "" || value === null || value === undefined; }
   function positive(value, label) {
     if (blank(value)) throw new Error(label + " is required.");
     var n = Number(value);
@@ -99,7 +110,7 @@
         var room = win.opener.hpwRoom;
         if (Number(room.length) > 0 && Number(room.width) > 0 && Number(room.height) > 0 && (room.unit === "m" || room.unit === "ft")) {
           var f = room.unit === "ft" ? M_PER_FT : 1;
-          sharedWallAreaM2 = Math.max(0, 2 * (Number(room.length) + Number(room.width)) * Number(room.height) - Number(room.openings || 0)) * f * f;
+          sharedWallAreaM2 = sharedRoomWallAreaM2(room);
           if (sharedWallAreaM2 > 0) {
             doc.getElementById("ins-room-note").textContent =
               "Shared-room gross wall area added: " + fmt(sharedWallAreaM2, 3) + " m² (" + fmt(sharedWallAreaM2 / M2_PER_FT2, 3) + " ft²), after shared-room openings. This is wall surface area, not clear cavity area between studs or joists.";
@@ -152,5 +163,5 @@
     });
     return { calculate: calculate };
   }
-  return { calculate: calculate, init: init };
+  return { calculate: calculate, init: init, sharedRoomWallAreaM2: sharedRoomWallAreaM2 };
 });
