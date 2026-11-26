@@ -35,7 +35,8 @@
     canada: {
       id: "canada", name: "CSA/ASC B652:23 — Accessible dwellings",
       category: "National Standard of Canada for accessible dwellings; minimum ambient and task lighting levels",
-      year: "January 2023", reference: "Table 3, printed page 52",
+      year: "January 2023", reference: "Table 3, printed pages 52–53", rowReference: "Table 3, printed page 52",
+      rowPages: {"ca-workshop-ambient":53,"ca-workshop-task":53,"ca-exterior":53},
       url: "https://www.csagroup.org/wp-content/uploads/2430606.pdf",
       rows: [
         ["ca-kitchen-ambient","Kitchen — General / ambient",300,300,"300 lx"],
@@ -102,6 +103,10 @@
       ]
     }
   };
+  function rowReference(source, row) {
+    var page = source.rowPages && source.rowPages[row[0]];
+    return page ? "Table 3, printed page " + page : (source.rowReference || source.reference);
+  }
   function positive(value, label) {
     if (value === "" || value === null || value === undefined) throw new Error(label + " is required.");
     var n = Number(value);
@@ -130,7 +135,7 @@
       bulbsMax = ceilCount(lumensMax / bulbLumens);
     }
     return {
-      source: source, targetId: row[0], targetLabel: row[1], printedLux: row[4],
+      source: source, targetId: row[0], targetLabel: row[1], printedLux: row[4], reference: rowReference(source, row),
       luxMin: luxMin, luxMax: luxMax, areaEntered: enteredArea, areaUnit: areaUnit,
       areaM2: areaM2, lumensMin: lumensMin, lumensMax: lumensMax,
       bulbLumens: bulbLumens, bulbsMin: bulbsMin, bulbsMax: bulbsMax,
@@ -158,7 +163,7 @@
       if (!source) { detail.textContent = "Choose one source. Its room and task rows will appear here; sources are never combined."; return; }
       source.rows.forEach(function (row) {
         var option = doc.createElement("option"); option.value = row[0];
-        option.textContent = row[1] + " — " + row[4] + " (" + source.reference + ")";
+        option.textContent = row[1] + " — " + row[4] + " (" + rowReference(source, row) + ")";
         targetSelect.appendChild(option);
       });
       detail.textContent = source.name + " | " + source.category + " | " + source.year + " | " + source.reference + ". Only rows printed in this source are available.";
@@ -183,7 +188,7 @@
         var data = calculate({ sourceId: sourceSelect.value, targetId: targetSelect.value,
           area: area.value, areaUnit: areaUnit.value, bulbLumens: doc.getElementById("rl-bulb-lumens").value });
         var source = data.source;
-        setLine(result, data.targetLabel + " — source value: " + data.printedLux + ".", true);
+        setLine(result, data.targetLabel + " — source value: " + data.printedLux + " (" + data.reference + ").", true);
         setLine(result, "Selected source: " + source.name + " (" + source.year + "). " + source.category);
         if (data.areaUnit === "ft²") {
           setLine(result, "Area entered: " + fmt(data.areaEntered) + " ft² × 0.09290304 = " + fmt(data.areaM2) + " m².");
