@@ -109,7 +109,6 @@
       if (win && win.opener && !win.opener.closed && win.opener.location.origin === win.location.origin && win.opener.hpwRoom) {
         var room = win.opener.hpwRoom;
         if (Number(room.length) > 0 && Number(room.width) > 0 && Number(room.height) > 0 && (room.unit === "m" || room.unit === "ft")) {
-          var f = room.unit === "ft" ? M_PER_FT : 1;
           sharedWallAreaM2 = sharedRoomWallAreaM2(room);
           if (sharedWallAreaM2 > 0) {
             doc.getElementById("ins-room-note").textContent =
