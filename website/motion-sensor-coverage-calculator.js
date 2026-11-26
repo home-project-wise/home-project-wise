@@ -13,6 +13,28 @@
     return n;
   }
 
+  function decimalParts(value) {
+    var raw = String(value).trim().toLowerCase();
+    var match = /^\\+?(\\d*)(?:\\.(\\d*))?(?:e([+-]?\\d+))?$/.exec(raw);
+    if (!match || !(match[1] || match[2])) throw new Error("Enter a valid positive decimal area value.");
+    var fraction = match[2] || "";
+    var digits = (match[1] + fraction).replace(/^0+/, "") || "0";
+    var scale = fraction.length - Number(match[3] || 0);
+    if (scale < 0) { digits += "0".repeat(-scale); scale = 0; }
+    while (scale > 0 && digits.endsWith("0")) { digits = digits.slice(0, -1); scale -= 1; }
+    return { integer: BigInt(digits), scale: scale };
+  }
+
+  function exactCeilCount(areaValue, coverageValue) {
+    var a = decimalParts(areaValue);
+    var c = decimalParts(coverageValue);
+    var numerator = a.integer * (10n ** BigInt(c.scale));
+    var denominator = c.integer * (10n ** BigInt(a.scale));
+    var count = (numerator + denominator - 1n) / denominator;
+    if (count > BigInt(Number.MAX_SAFE_INTEGER)) throw new Error("The sensor count is outside the supported number range.");
+    return Number(count);
+  }
+
   function calculate(input) {
     if (!input || typeof input !== "object") throw new Error("Enter both areas before calculating.");
     var area = positive(input.area, "Area to cover");
