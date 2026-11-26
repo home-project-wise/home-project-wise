@@ -27,7 +27,7 @@ test("drywall board estimate uses visitor-entered panel face dimensions and roun
   assert.equal(r.boardCount,5);
 });
 
-test("plaster bags scale only from the named product's entered coverage and thickness", () => {
+test("plaster bags use named-product coverage only when application thickness matches", () => {
   const r = DP.calculate({lengthUnit:"m",sections:[{length:5,height:2.4}],openingsArea:0,
     plasterProductName:"Named plaster",plasterCoverage:10,plasterCoverageUnit:"m2",
     plasterReferenceThickness:10,plasterApplicationThickness:10,plasterThicknessUnit:"mm"});
