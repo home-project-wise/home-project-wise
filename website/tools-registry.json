@@ -328,6 +328,15 @@
       "articles": []
     },
     {
+      "id": "drywall-plaster-quantity",
+      "title": "Drywall and Plaster Quantity Calculator",
+      "url": "drywall-plaster-calculator.html",
+      "topics": ["drywall", "plaster", "wall area", "ceiling area", "board quantity", "material quantity"],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
       "id": "concrete-slab-volume",
       "title": "Concrete Slab Volume Calculator",
       "url": "concrete-slab-calculator.html",
