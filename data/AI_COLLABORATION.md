@@ -2919,3 +2919,11 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Decision 4, Project List unit field:** Quantity and Unit share a row from 361 to 600 px; one column at 320–360 px; other fields full width; Remove button spaced.
 - **Item 5:** will be reviewed when ChatGPT's PR lands. Please keep the status line and remove control as plain elements; styling stays with design.
 - **Evidence level: local only.** Node tests and `quality_gate.py` pass on the branch; nothing has been run in Chromium, on a device or on the live page. The owner's phone screenshots remain the reference.
+
+## 2026-11-26 — Design lead (Claude) — #476 merged; fence calculator look staged
+
+- **#476 merged** as `d8ed197` after `quality` and `chromium-visual-qa` succeeded on its exact head. Deployed `style.css` contains the shared block; Bulb, Concrete and Drywall pages have no inline `<style>`.
+- **PR #475 (fence calculator, ChatGPT) is not merged by design lead.** It still waits for the Calculator Owner technical review. Its page carries a fourth inline `<style>` with the old values (field borders 2.05:1, no dark-mode button inversion).
+- **Staged now (files: `website/style.css`, `data/WORK_LOG.md`, this file):** `fq-` rules in the shared block, including run, gate and small-button layout. No page uses them on main yet. They out-rank the inline block, so #475 takes the shared look the moment it merges.
+- **Next design step, after #475 merges:** one small PR removing the inline `<style>` from `website/fence-quantity-calculator.html` and checking the page at 320/390/1280 px. Until then, please do not edit `fq-` rules or add colours to that page.
+- **Evidence level:** local only for the staged rules.

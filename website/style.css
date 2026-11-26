@@ -238,3 +238,46 @@ footer nav a,footer .newsletter-cta{display:inline-block;padding:5px 0;min-heigh
 .dp-wrap .dp-result{background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
 .dp-wrap .dp-section{border-bottom-color:#34444b}
 }
+
+/* Designer pass, issue #415 (2026-11-26): the same shared look for the Fence Quantity Calculator (prefix fq-), staged before the page lands. These rules out-rank the page's own inline block, so the page takes this look on merge; the inline block is removed in a follow-up. */
+.fq-wrap{max-width:820px;margin:auto}
+.fq-wrap .fq-panel{background:#fff;border:1px solid #d3dbd6;border-radius:18px;padding:clamp(16px,3vw,26px);margin:18px 0}
+.fq-wrap .fq-panel>h2:first-child{margin-top:0}
+.fq-wrap .fq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.fq-wrap .fq-field label{display:block;margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.35}
+.fq-wrap .fq-field input,.fq-wrap .fq-field select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:48px;padding:10px 12px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font:inherit;font-size:17px}
+.fq-wrap .fq-field input::placeholder{color:#576165;opacity:1}
+.fq-wrap .fq-field input:focus,.fq-wrap .fq-field select:focus{border-color:#2f6f58}
+.fq-wrap .fq-help,.fq-wrap .fq-note{font-size:15px;line-height:1.5;color:#566266}
+.fq-wrap .fq-button,.fq-wrap .fq-small-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 26px;border:1.5px solid #243238;border-radius:14px;background:#243238;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.fq-wrap .fq-button[type=button],.fq-wrap .fq-small-button[type=button]{background:transparent;color:#243238}
+.fq-wrap .fq-button:hover,.fq-wrap .fq-small-button:hover{opacity:.9}
+.fq-wrap .fq-error{margin:14px 0 0;font-size:15px;font-weight:600;line-height:1.5;color:#a33b2f}
+.fq-wrap .fq-error:empty{margin:0}
+.fq-wrap .fq-error:not(:empty){padding:10px 14px;border-left:4px solid #a33b2f;border-radius:8px;background:#fbeee9}
+.fq-wrap .fq-result{margin:20px 0 0;padding:18px 20px;background:#e9f3ee;border:1px solid #d3dbd6;border-left:5px solid #2f7d5b;border-radius:14px;color:#243238;line-height:1.6;font-variant-numeric:tabular-nums}
+.fq-wrap .fq-result:empty{display:none}
+.fq-wrap .fq-section{padding:14px 0;border-bottom:1px solid #d3dbd6}
+@media(max-width:600px){.fq-wrap .fq-grid{grid-template-columns:1fr}.fq-wrap .fq-button,.fq-wrap .fq-small-button{width:100%}}
+@media(prefers-reduced-motion:no-preference){.fq-wrap .fq-button,.fq-wrap .fq-small-button{transition:opacity .15s}}
+@media(prefers-color-scheme:dark){
+.fq-wrap .fq-panel{background:#202b30;border-color:#34444b;color:#eef1ee}
+.fq-wrap .fq-field input,.fq-wrap .fq-field select{background:#182126;border-color:#6d8189;color:#eef1ee}
+.fq-wrap .fq-field input::placeholder{color:#8fa0a6}
+.fq-wrap .fq-field input:focus,.fq-wrap .fq-field select:focus{border-color:#D9B77A}
+.fq-wrap .fq-help,.fq-wrap .fq-note{color:#b4bfc2}
+.fq-wrap .fq-button,.fq-wrap .fq-small-button{background:#e8ecea;border-color:#e8ecea;color:#182126}
+.fq-wrap .fq-button[type=button],.fq-wrap .fq-small-button[type=button]{background:transparent;color:#e8ecea}
+.fq-wrap .fq-error{color:#f0a07a}
+.fq-wrap .fq-error:not(:empty){border-left-color:#f0a07a;background:#3a2418}
+.fq-wrap .fq-result{background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
+.fq-wrap .fq-section{border-bottom-color:#34444b}
+}
+.fq-wrap .fq-small-button{min-height:44px;padding:8px 14px;font-size:15px}
+.fq-wrap .fq-run{padding:16px 0;border-bottom:1px solid #d3dbd6}
+.fq-wrap .fq-run-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.fq-wrap .fq-run-head h3{margin:0}
+.fq-wrap .fq-gates{margin-top:12px}
+.fq-wrap .fq-gate{display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) auto;gap:12px;align-items:end;padding:10px 0}
+@media(max-width:600px){.fq-wrap .fq-gate{grid-template-columns:1fr}.fq-wrap .fq-small-button{width:auto}.fq-wrap .fq-run-head{align-items:flex-start}}
+@media(prefers-color-scheme:dark){.fq-wrap .fq-run{border-bottom-color:#34444b}}
