@@ -3,7 +3,7 @@
   else root.HPWBulbBrightness = factory();
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
-function roundArea(value) {
+  function roundArea(value) {
     var n = Number(value);
     if (!Number.isFinite(n)) return n;
     var rounded = Number(n.toFixed(6));
