@@ -3,7 +3,7 @@
   else root.HPWBulbBrightness = factory();
 }(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
-  var REFERENCES = {  function roundArea(value) {
+function roundArea(value) {
     var n = Number(value);
     if (!Number.isFinite(n)) return n;
     var rounded = Number(n.toFixed(6));
@@ -13,6 +13,7 @@
     return roundArea(Number(length) * Number(width));
   }
 
+  var REFERENCES = {
     kitchen: { room: "kitchens", text: "1,000+ lumens per fixture" },
     bathroom: { room: "bathrooms", text: "1,000+ lumens per fixture" },
     "home-office": { room: "home offices", text: "1,000+ lumens per fixture" },
