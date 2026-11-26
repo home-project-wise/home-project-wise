@@ -44,7 +44,8 @@
   function init(doc, win) {
     var form = doc.getElementById("brightness-form");
     if (!form) return null;
-    var error = doc.getElementById("brightness-error"), result = doc.getElementById("brightness-result");\n    var status = doc.getElementById("brightness-status");
+    var error = doc.getElementById("brightness-error"), result = doc.getElementById("brightness-result");
+    var status = doc.getElementById("brightness-status");
     var area = doc.getElementById("room-area"), areaUnit = doc.getElementById("area-unit");
     var roomNote = doc.getElementById("shared-room-note");
     try {
