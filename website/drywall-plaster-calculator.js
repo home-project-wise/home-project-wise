@@ -46,7 +46,7 @@
       lengthUnit:unit, sectionCount:sections.length, grossWallAreaM2:grossM2, openingsAreaM2:openings,
       manualNetWallAreaM2:manualNet, sharedWallAreaM2:sharedArea, ceilingAreaM2:ceiling, totalAreaM2:totalAreaM2,
       totalAreaFt2:totalAreaM2 / M2_PER_FT2, boardCount:null, boardRatio:null, boardDetailsIncomplete:false,
-      plasterBagCount:null, plasterBagRatio:null, plasterDetailsIncomplete:false,
+      plasterBagCount:null, plasterBagRatio:null, plasterDetailsIncomplete:false, plasterThicknessMismatch:false,
       plasterProductName:null, plasterCoverageM2:null, plasterReferenceThicknessMm:null, plasterApplicationThicknessMm:null
     };
     var bwBlank = input.boardWidth === "" || input.boardWidth === null || input.boardWidth === undefined;
@@ -74,12 +74,15 @@
           Number.isFinite(appThickness) && appThickness > 0 && Number.isFinite(coverageFactor) && Number.isFinite(thicknessFactor)) {
         var coverageM2 = coverage * coverageFactor;
         var refMm = refThickness * thicknessFactor, appMm = appThickness * thicknessFactor;
-        result.plasterBagRatio = totalAreaM2 * appMm / (coverageM2 * refMm);
-        if (Number.isFinite(result.plasterBagRatio) && result.plasterBagRatio > 0) {
-          result.plasterBagCount = ceilCount(result.plasterBagRatio);
-          result.plasterProductName = product; result.plasterCoverageM2 = coverageM2;
-          result.plasterReferenceThicknessMm = refMm; result.plasterApplicationThicknessMm = appMm;
-        } else result.plasterDetailsIncomplete = true;
+        result.plasterProductName = product; result.plasterCoverageM2 = coverageM2;
+        result.plasterReferenceThicknessMm = refMm; result.plasterApplicationThicknessMm = appMm;
+        if (Math.abs(refMm - appMm) <= 1e-9) {
+          result.plasterBagRatio = totalAreaM2 / coverageM2;
+          if (Number.isFinite(result.plasterBagRatio) && result.plasterBagRatio > 0) result.plasterBagCount = ceilCount(result.plasterBagRatio);
+          else result.plasterDetailsIncomplete = true;
+        } else {
+          result.plasterDetailsIncomplete = true; result.plasterThicknessMismatch = true;
+        }
       } else result.plasterDetailsIncomplete = true;
     } else if (anyPlaster) result.plasterDetailsIncomplete = true;
     return result;
@@ -154,7 +157,8 @@
         var boardAreaText = lengthUnit === "ft" ? shown.imperial : shown.metric;
         if (data.boardCount !== null) line("Drywall board estimate: " + boardAreaText + " ÷ (" + doc.getElementById("dp-board-width").value + " × " + doc.getElementById("dp-board-height").value + " " + lengthUnit + " panel face) = " + shown.boardRatio + " boards; rounded up to " + data.boardCount + " whole boards.");
         else line(data.boardDetailsIncomplete ? "Drywall board count not calculated: enter both panel face dimensions from the selected board. No standard board size is assumed." : "No drywall board count calculated. Enter the actual panel face width and length from your selected board if you want this estimate.");
-        if (data.plasterBagCount !== null) line("Plaster bag estimate for " + data.plasterProductName + ": " + shown.metric + " × " + shown.plasterApplicationThicknessMm + " mm ÷ (" + shown.plasterCoverageM2 + " m² per bag × " + shown.plasterReferenceThicknessMm + " mm) = " + shown.plasterRatio + " bags; rounded up to " + data.plasterBagCount + " whole bags. Only the product-label values you entered were used.");
+        if (data.plasterBagCount !== null) line("Plaster bag estimate for " + data.plasterProductName + ": " + shown.metric + " ÷ " + shown.plasterCoverageM2 + " m² per bag (published at " + shown.plasterReferenceThicknessMm + " mm; your entered application thickness matches) = " + shown.plasterRatio + " bags; rounded up to " + data.plasterBagCount + " whole bags. Only the product-label coverage you entered was used.");
+        else if (data.plasterThicknessMismatch) line("Plaster bag count not calculated: your application thickness does not match the thickness stated with the product's published coverage. Use coverage published for your actual thickness; no scaling is assumed. Your area result remains available.");
         else line(data.plasterDetailsIncomplete ? "Plaster bag count not calculated: complete the named product, published coverage per bag, coverage unit, reference thickness and application thickness. Your area result remains available." : "No plaster bag count calculated. Add the exact product-label coverage and the two thickness values if you want this estimate.");
         line("Board count is an area estimate, not a sheet-layout or cut plan. Actual layouts, framing, joints and offcuts can change quantities.");
         line("This tool does not assess product suitability, substrates, moisture, fire or sound ratings, structural performance or code compliance.");
