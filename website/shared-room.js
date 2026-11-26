@@ -54,7 +54,7 @@
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-width">Room width</label><input id="room-width" type="number" min="0" step="any"></div>' +
-    '<div class="calc-field"><label for="room-height">Wall height (for paint)</label><input id="room-height" type="number" min="0" step="any"></div>' +
+    '<div class="calc-field"><label for="room-height">Wall height (for wall-area tools)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
     '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
