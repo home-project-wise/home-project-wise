@@ -22,10 +22,18 @@
   function calculate(input) {
     if (!input || typeof input !== "object") throw new Error("Enter at least one measured surface.");
     var unit = input.lengthUnit === "m" || input.lengthUnit === "ft" ? input.lengthUnit : null;
-    if (!unit) throw new Error("Choose metres or feet for the measured dimensions.");
+    var sections = Array.isArray(input.sections) ? input.sections : [];
+    var sharedArea = nonNegativeOptional(input.sharedWallAreaM2, "Shared-room wall area");
+    var hasManualMeasurements = sections.some(function (section) {
+      return !(section.length === "" || section.length === null || section.length === undefined) ||
+        !(section.height === "" || section.height === null || section.height === undefined);
+    }) || !((input.openingsArea === "" || input.openingsArea === null || input.openingsArea === undefined)) ||
+      !((input.ceilingArea === "" || input.ceilingArea === null || input.ceilingArea === undefined));
+    if (!unit && !(sharedArea > 0 && !hasManualMeasurements)) {
+      throw new Error("Choose metres or feet when entering manual wall dimensions, openings, ceiling area or board dimensions. A shared-room-only area is already in square metres.");
+    }
     var factor = unit === "ft" ? M_PER_FT : 1;
     var areaFactor = factor * factor;
-    var sections = Array.isArray(input.sections) ? input.sections : [];
     var grossM2 = 0;
     sections.forEach(function (section, index) {
       var lengthBlank = section.length === "" || section.length === null || section.length === undefined;
@@ -37,7 +45,6 @@
     });
     var openings = nonNegativeOptional(input.openingsArea, "Openings area") * areaFactor;
     if (openings > grossM2 + 1e-12) throw new Error("Openings area cannot exceed the manually measured wall area.");
-    var sharedArea = nonNegativeOptional(input.sharedWallAreaM2, "Shared-room wall area");
     var ceiling = nonNegativeOptional(input.ceilingArea, "Ceiling area") * areaFactor;
     var manualNet = Math.max(0, grossM2 - openings);
     var totalAreaM2 = manualNet + sharedArea + ceiling;
@@ -51,7 +58,8 @@
     };
     var bwBlank = input.boardWidth === "" || input.boardWidth === null || input.boardWidth === undefined;
     var bhBlank = input.boardHeight === "" || input.boardHeight === null || input.boardHeight === undefined;
-    if (!bwBlank && !bhBlank) {
+    if (!unit && (!bwBlank || !bhBlank)) result.boardDetailsIncomplete = true;
+    else if (!bwBlank && !bhBlank) {
       var bw = Number(input.boardWidth), bh = Number(input.boardHeight);
       if (Number.isFinite(bw) && bw > 0 && Number.isFinite(bh) && bh > 0) {
         var boardAreaM2 = bw * factor * bh * factor;
@@ -108,12 +116,17 @@
       var row = doc.createElement("div"); row.className = "dp-grid dp-section";
       row.innerHTML = '<div class="dp-field"><label for="dp-length-' + count + '">Wall section ' + count + ' length</label><input id="dp-length-' + count + '" class="dp-length" type="number" min="0" step="any" required></div>' +
         '<div class="dp-field"><label for="dp-height-' + count + '">Wall section ' + count + ' height</label><input id="dp-height-' + count + '" class="dp-height" type="number" min="0" step="any" required></div>';
+      row.insertAdjacentHTML("beforeend", '<div class="dp-section-controls"><button type="button" class="dp-button" data-remove-section aria-label="Remove wall section ' + count + '">Remove section</button></div>');
       sections.appendChild(row);
       if (length !== undefined) row.querySelector(".dp-length").value = String(length);
       if (height !== undefined) row.querySelector(".dp-height").value = String(height);
     }
     var add = doc.getElementById("dp-add-section");
     add.addEventListener("click", function () { addSection(); });
+    sections.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-remove-section]");
+      if (button) { var row = button.closest(".dp-section"); if (row) row.remove(); }
+    });
     try {
       if (win.opener && !win.opener.closed && win.opener.location.origin === win.location.origin && win.opener.hpwRoom) {
         var room = win.opener.hpwRoom;
