@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-25",
+  "updated": "2026-11-26",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -163,6 +163,16 @@
       "prefill": {},
       "reason": "Existing calculator fits the later, explicitly conditional sizing decision after water sources are addressed; already linked.",
       "linkStatus": "already_linked"
+    },
+    {
+      "slug": "how-to-hang-a-heavy-mirror-on-drywall",
+      "path": "website/articles/how-to-hang-a-heavy-mirror-on-drywall.html",
+      "class": "C",
+      "decisionSentence": "Weigh the mirror first, then use two fasteners, even if one is rated for the full weight.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The guide is a hanging procedure. The only arithmetic is a glass-weight estimate from a manufacturer density, and no existing tool covers it; a mirror weight calculator would be a new tool for the Calculator Team to judge."
     },
     {
       "slug": "how-to-hang-large-wall-art-without-damage",
@@ -535,11 +545,11 @@
     }
   ],
   "summary": {
-    "articleCount": 50,
+    "articleCount": 51,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 37
+      "C": 38
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -553,7 +563,8 @@
       "Updated 2026-11-25: plug-in-power-meter-vs-smart-plug-energy-monitoring added as class A; it links the Electricity running cost panel for the worked kWh step.",
       "Updated 2026-11-25 after owner Search Console refresh and Claude's decision: macerating-toilet-basement-bathroom is class C for now; do not build a macerator run-check until the Requests/Queries report shows lift/run calculation intent AND the manufacturer clarifies or supplies a citable model-specific combined performance chart. The SaniAccess 3 table discrepancy is an editorial trust issue for the publishing lane.",
       "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage.",
-      "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified)."
+      "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified).",
+      "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
