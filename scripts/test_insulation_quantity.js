@@ -73,4 +73,14 @@ test("missing units cannot be guessed for manual measurements", function () {
 test("no positive area is rejected", function () {
   assert.throws(()=>calculate(base({sections:[],unit:"",sharedWallAreaM2:0})),/Choose metres or feet/);
 });
+test("shared-room wall area is rounded to six decimals before pack division", function () {
+  const area = require("../website/insulation-quantity-calculator.js").sharedRoomWallAreaM2({
+    unit:"m", length:1.1, width:0.55, height:1, openings:0
+  });
+  assert.equal(area, 3.3);
+  const one = calculate(base({unit:"",sections:[],sharedWallAreaM2:area,productName:"Pack",packCoverage:"3.3",coverageUnit:"m2"}));
+  const three = calculate(base({unit:"",sections:[],sharedWallAreaM2:area,productName:"Pack",packCoverage:"1.1",coverageUnit:"m2"}));
+  assert.equal(one.packCount,1);
+  assert.equal(three.packCount,3);
+});
 console.log(passed + " insulation quantity fixtures passed");
