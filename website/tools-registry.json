@@ -328,6 +328,22 @@
       "articles": []
     },
     {
+      "id": "room-lighting-planner",
+      "title": "Room Lighting Planner",
+      "url": "room-lighting-planner.html",
+      "topics": [
+        "room lighting",
+        "lux",
+        "lumens",
+        "lighting estimate",
+        "bulb count",
+        "illuminance"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
       "id": "drywall-plaster-quantity",
       "title": "Drywall and Plaster Quantity Calculator",
       "url": "drywall-plaster-calculator.html",

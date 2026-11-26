@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Room Lighting Planner | HomeProjectWise</title>
+<meta name="description" content="Estimate a source-labelled range of lighting lumens and optional bulb counts from published room or task illuminance values.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/room-lighting-planner.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Room Lighting Planner | HomeProjectWise"><meta property="og:description" content="Estimate a planning range from one selected lighting source, your measured area and optional bulb lumens."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/room-lighting-planner.html">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article bb-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Room Lighting Planner</nav>
+<p class="eyebrow">FREE TOOL · LIGHTING PLANNING RANGE</p><h1>Room Lighting Planner</h1>
+<p class="lead">Choose one published source, then choose a room or task that appears in its table. Enter the area you want to light to estimate a range of light-source lumens. You can also enter the lumens printed on one bulb to estimate a bulb-count range.</p>
+<section class="bb-panel">
+<h2>Choose your source and target</h2>
+<form id="rl-form" novalidate>
+<div class="bb-grid">
+<div class="bb-field"><label for="rl-source">Lighting source</label><select id="rl-source" required>
+<option value="">Choose one source</option>
+<option value="uk">UK — Thomas Pocklington Trust (2015)</option>
+<option value="canada">Canada — CSA/ASC B652:23 (2023)</option>
+<option value="malta">Malta — BCA Technical Document F (2024)</option>
+<option value="australia">Australia / New Zealand — E3 guide (2014)</option>
+</select><small class="bb-help">Each source has its own population, scope and table. Their values are never combined.</small></div>
+<div class="bb-field"><label for="rl-target">Room or task in that source</label><select id="rl-target" required><option value="">Choose a source first</option></select><small class="bb-help">Only rows printed in the selected source are offered.</small></div>
+</div>
+<p id="rl-source-detail" class="bb-note" aria-live="polite">Choose one source. Its room and task rows will appear here.</p>
+<h2>Enter the area and bulb output</h2>
+<div class="bb-grid">
+<div class="bb-field"><label for="rl-area">Area to be lit</label><input id="rl-area" type="number" min="0" step="any" placeholder="Enter a measured area" required></div>
+<div class="bb-field"><label for="rl-area-unit">Area unit</label><select id="rl-area-unit"><option value="m2">Square metres (m²)</option><option value="ft2">Square feet (ft²)</option></select></div>
+<div class="bb-field"><label for="rl-bulb-lumens">Lumens per bulb (optional)</label><input id="rl-bulb-lumens" type="number" min="0" step="any" placeholder="From the bulb label"></div>
+</div>
+<p class="bb-help">For a room/floor row, enter the room floor area. For a task row such as a countertop or reading area, enter the task zone's area instead. If you use the shared-room handoff, its floor area is copied here and remains editable.</p>
+<p id="rl-error" class="bb-error" role="alert"></p>
+<div class="bb-actions"><button class="bb-button" type="submit">Calculate lighting range</button></div>
+<p id="rl-status" class="bb-note" role="status" aria-live="polite"></p>
+</form>
+<div id="rl-result" class="bb-result" aria-live="polite"></div>
+</section>
+<section class="bb-panel">
+<h2>How this estimate works</h2>
+<p><strong>Required light-source lumens = target Lux × area ÷ coefficient of utilisation (CoU).</strong></p>
+<p>The E3 guide describes CoU as usually between 0.3 and 0.7, depending on room size and shape and fitting efficiency. The planner uses both ends: 0.7 for the lower lumen estimate and 0.3 for the upper estimate. It does not choose one hidden coefficient for you.</p>
+<p>The selected room/task Lux values remain tied to the source you chose. The E3 CoU range is shown as a separate estimating method reference; it is not a claim that the four target sources use identical lighting standards.</p>
+<p class="bb-note">Method source: <a href="https://www.energyrating.gov.au/sites/default/files/2022-12/Lighting%2520Retailer%2520Training%2520Guide%5B1%5D.pdf" target="_blank" rel="noopener">Australian Government E3 lighting guide</a>, printed page 33.</p>
+<p><strong>Important:</strong> This is a planning estimate only. It is not a lighting design, not a compliance statement, and not a judgement that a room is adequately lit. Actual illuminance depends on the fitting, light distribution, room geometry and the task's measurement plane. A suitable light meter gives real readings.</p>
+</section>
+<section class="bb-panel">
+<h2>Sources and scope</h2>
+<ul>
+<li><strong>UK:</strong> Thomas Pocklington Trust, <em>A practical guide to improving lighting in existing homes</em>, 2nd edition, May 2015. A good-practice guide for people affected by sight loss; suggested task and floor illuminances, printed page 22. <a href="https://www.housinglin.org.uk/_assets/Resources/Housing/OtherOrganisation/A-practical-guide-to-improving-lighting-in-existing-homes.pdf" target="_blank" rel="noopener">Open source PDF</a>.</li>
+<li><strong>Canada:</strong> CSA/ASC B652:23, <em>Accessible dwellings</em>, January 2023. National Standard of Canada for accessible dwellings; minimum ambient and task lighting levels, Table 3, printed page 52. <a href="https://www.csagroup.org/wp-content/uploads/2430606.pdf" target="_blank" rel="noopener">Open source PDF</a>.</li>
+<li><strong>Malta:</strong> Building &amp; Construction Authority, <em>Technical Document F, Part 3: Technical Building Systems</em>, effective 1 July 2024. Indicative dwelling light-level guidance referring to CIBSE Guide A, Table 29, printed page 48. <a href="https://bca.org.mt/wp-content/uploads/2024/01/Technical-Document-F-Part-3.pdf" target="_blank" rel="noopener">Open source PDF</a>.</li>
+<li><strong>Australia / New Zealand:</strong> Australian Government E3, <em>Energy efficient lighting and design: training guide for retailers</em>, September 2014. Joint Australian, State and Territory and New Zealand government guide; residential recommended average illuminance based on AS/NZS 1680, Table 6, printed page 32. CoU method, printed page 33. <a href="https://www.energyrating.gov.au/sites/default/files/2022-12/Lighting%2520Retailer%2520Training%2520Guide%5B1%5D.pdf" target="_blank" rel="noopener">Open source PDF</a>.</li>
+</ul>
+<p>The United States is not supported in this planner because no owner-approved source has been selected. No US room values are inferred from another country's source.</p>
+</section>
+<section class="bb-panel">
+<h2>Related reading</h2>
+<p>For practical placement, layers and glare, read <a href="articles/better-evening-home-lighting-without-overcomplicating-it.html">Better Evening Home Lighting Without Overcomplicating It</a>.</p>
+</section>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="room-lighting-planner.js"></script>
+</body></html>
