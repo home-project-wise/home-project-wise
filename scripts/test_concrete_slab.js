@@ -101,3 +101,21 @@ test("volume calculation contains no hidden allowance, price or material assumpt
   assert.equal(r.waste,undefined);
   assert.equal(r.price,undefined);
 });
+
+
+test("displayed converted dimensions suppress floating-point noise without changing calculation precision", () => {
+  const r = Slab.calculate({length:12,width:10,lengthUnit:"ft",thickness:4,thicknessUnit:"in"});
+  const shown = Slab.format(r);
+  assert.equal(shown.convertedLength,"3.6576");
+  assert.equal(shown.convertedWidth,"3.048");
+  assert.equal(shown.convertedThickness,"0.1016");
+  close(r.lengthM,12*0.3048,1e-15);
+  close(r.volumeM3,12*0.3048*10*0.3048*4*0.0254,1e-15);
+});
+
+test("missing bag-yield unit keeps the volume result and marks bag details incomplete", () => {
+  const r = Slab.calculate({length:2,width:2,lengthUnit:"m",thickness:5,thicknessUnit:"cm", productName:"Named mix",bagYield:0.5,bagYieldUnit:""});
+  assert.equal(r.volumeM3,0.2);
+  assert.equal(r.bagCount,null);
+  assert.equal(r.bagDetailsIncomplete,true);
+});
