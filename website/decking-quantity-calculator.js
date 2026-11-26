@@ -132,7 +132,7 @@
           '<p>Board face width: ' + format(estimate.boardWidth) + ' ' + estimate.unit +
           '; gap between boards: ' + format(estimate.boardGap) + ' ' + estimate.unit +
           '; stock length: ' + format(estimate.stockLength) + ' ' + estimate.unit + '.</p>' +
-          '<p>Rows start and finish at the entered edge clearance. Stock-board counts are rounded up per row; offcuts are not reused between rows or sections.</p>';
+          '<p>Rows start and finish at the entered edge clearance. A row may need a final board cut to length, and the last row across the width may need to be ripped to fit. The tool does not calculate cuts or joint positions; offcuts are not reused between rows or sections.</p>';
         result.hidden = false;
       } catch (e) {
         error.textContent = e && e.message ? e.message : "Check the measurements and try again.";
