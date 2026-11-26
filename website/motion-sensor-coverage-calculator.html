@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Motion Sensor Coverage Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate the minimum number of motion sensors by area using the coverage area stated in the exact product's manufacturer specification.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/motion-sensor-coverage-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Motion Sensor Coverage Calculator | HomeProjectWise"><meta property="og:description" content="A limited area-only count from your measured area and the coverage area printed in your sensor's manufacturer specification."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/motion-sensor-coverage-calculator.html">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article bb-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Motion Sensor Coverage Calculator</nav>
+<p class="eyebrow">FREE TOOL · AREA-ONLY MINIMUM</p><h1>Motion Sensor Coverage Calculator</h1>
+<p class="lead">Enter the area you want to cover and the coverage area printed in the specification for your exact sensor. The result is a minimum count by area only — it does not predict where a sensor will detect movement.</p>
+<section class="bb-panel">
+<h2>Enter the two area values</h2>
+<form id="msc-form" novalidate>
+<div class="bb-grid">
+<div class="bb-field"><label for="msc-area">Area to cover</label><input id="msc-area" type="number" min="0" step="any" placeholder="Enter a measured area" required></div>
+<div class="bb-field"><label for="msc-coverage">Manufacturer-stated coverage area per sensor</label><input id="msc-coverage" type="number" min="0" step="any" placeholder="From the exact product specification" required></div>
+<div class="bb-field"><label for="msc-unit">Unit for both areas</label><select id="msc-unit" required><option value="m2">Square metres (m²)</option><option value="ft2">Square feet (ft²)</option></select></div>
+</div>
+<p class="bb-help">Use only a coverage area explicitly printed in the manufacturer's specification for the exact sensor and the mounting height you plan to use. Do not convert detection distance and angle into an area. If the manufacturer does not state an area, there is not enough information for this calculation.</p>
+<p id="msc-error" class="bb-error" role="alert"></p>
+<div class="bb-actions"><button class="bb-button" type="submit">Calculate area-only minimum</button></div>
+<p id="msc-status" class="bb-note" role="status" aria-live="polite"></p>
+</form>
+<div id="msc-result" class="bb-result" aria-live="polite"></div>
+</section>
+<section class="bb-panel">
+<h2>What this result means — and does not mean</h2>
+<p><strong>Minimum count by area only = area to cover ÷ manufacturer-stated coverage area per sensor, rounded up.</strong></p>
+<p>The two area values must use the same unit. The calculator does not estimate coverage from detection distance, angle, mounting height or room geometry. It does not account for overlap.</p>
+<p><strong>Important:</strong> This is not a placement plan, a security assessment or a safety assessment. Actual coverage depends on mounting height, field of view, obstacles and sensor type. Follow the exact manufacturer's instructions and test the real route before fixing a sensor permanently. Do not rely on this count as proof that an area is monitored.</p>
+</section>
+<section class="bb-panel">
+<h2>Related reading</h2>
+<p>For practical placement and route testing, read <a href="articles/motion-lighting-that-actually-helps.html">Where Motion Lighting Helps — and Where It Just Gets Annoying</a>.</p>
+</section>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="motion-sensor-coverage-calculator.js"></script>
+</body></html>
