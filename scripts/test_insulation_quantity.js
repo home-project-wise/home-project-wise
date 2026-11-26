@@ -49,12 +49,15 @@ test("shared-room and manual areas are added transparently", function () {
   const r=calculate(base({sharedWallAreaM2:10,sections:[{length:2,width:3}]}));
   assert.equal(r.totalAreaM2,16);
 });
-test("zero and negative coverage are rejected when all product details are present", function () {
-  assert.throws(()=>calculate(base({productName:"Pack",packCoverage:0,coverageUnit:"m2"})),/greater than zero/);
-  assert.throws(()=>calculate(base({productName:"Pack",packCoverage:-1,coverageUnit:"m2"})),/greater than zero/);
+test("zero and negative pack coverage withhold pack count but preserve measured area", function () {
+  const zero=calculate(base({productName:"Pack",packCoverage:0,coverageUnit:"m2"}));
+  const negative=calculate(base({productName:"Pack",packCoverage:-1,coverageUnit:"m2"}));
+  assert.equal(zero.totalAreaM2,20); assert.equal(zero.packCount,null); assert.match(zero.productDetailsError,/greater than zero/);
+  assert.equal(negative.totalAreaM2,20); assert.equal(negative.packCount,null); assert.match(negative.productDetailsError,/greater than zero/);
 });
-test("unsupported coverage unit is rejected", function () {
-  assert.throws(()=>calculate(base({productName:"Pack",packCoverage:5,coverageUnit:"litres"})),/Choose square metres or square feet/);
+test("unsupported coverage unit withholds pack count but preserves measured area", function () {
+  const r=calculate(base({productName:"Pack",packCoverage:5,coverageUnit:"litres"}));
+  assert.equal(r.totalAreaM2,20); assert.equal(r.packCount,null); assert.match(r.productDetailsError,/Choose square metres or square feet/);
 });
 test("openings cannot exceed manual gross area", function () {
   assert.throws(()=>calculate(base({openingsArea:21})),/cannot exceed/);
