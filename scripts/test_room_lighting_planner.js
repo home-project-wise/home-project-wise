@@ -7,6 +7,24 @@ const close = (a,b) => assert.ok(Math.abs(a-b) < 1e-8, a + " !== " + b);
 function base(overrides) {
   return Object.assign({sourceId:"uk",targetId:"uk-kitchen",area:20,areaUnit:"m2",bulbLumens:""},overrides||{});
 }
+check("all 19 UK, 24 Canada and 7 Malta rows match the printed Lux values", () => {
+  const expected = {
+    uk: ["100–300 lx","200–300 lx","100–300 lx","100–300 lx","200–1,000 lx","200–500 lx","200–500 lx","100–200 lx","100–400 lx","100–300 lx","200–1,000 lx","200–1,000 lx","200–1,000 lx","100–300 lx","100–300 lx","200–300 lx","100–300 lx","100–300 lx","100–200 lx"],
+    canada: ["300 lx","750 lx","100–300 lx","500 lx","500 lx","800 lx","300 lx","300–700 lx","300 lx","500 lx","300 lx","150 lx","500 lx","200 lx","300 lx","200 lx","100–500 lx","500 lx","800 lx","500 lx","750 lx","800 lx","1,100 lx","50 lx"],
+    malta: ["100 lx","150 lx","100 lx","150–300 lx","50–300 lx","100 lx","100 lx"]
+  };
+  for (const [sourceId, values] of Object.entries(expected)) {
+    assert.equal(P.SOURCES[sourceId].rows.length, values.length, sourceId + " row count");
+    assert.deepEqual(P.SOURCES[sourceId].rows.map(row => row[4]), values, sourceId + " printed Lux sequence");
+  }
+});
+check("Canada Table 3 row references distinguish printed pages 52 and 53", () => {
+  assert.equal(P.SOURCES.canada.reference, "Table 3, printed pages 52–53");
+  assert.equal(P.calculate(base({sourceId:"canada",targetId:"ca-garage-task"})).reference, "Table 3, printed page 52");
+  for (const targetId of ["ca-workshop-ambient","ca-workshop-task","ca-exterior"]) {
+    assert.equal(P.calculate(base({sourceId:"canada",targetId})).reference, "Table 3, printed page 53");
+  }
+});
 check("UK floor row retains its printed 200–300 lx range and source identity", () => {
   const r=P.calculate(base({bulbLumens:800}));
   assert.equal(r.printedLux,"200–300 lx"); assert.equal(r.source.name,P.SOURCES.uk.name);
