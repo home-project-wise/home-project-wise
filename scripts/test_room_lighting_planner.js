@@ -75,4 +75,8 @@ check("zero, negative and non-finite areas or bulb lumens are rejected", () => {
   for (const area of [0,-1,"NaN","Infinity"]) assert.throws(()=>P.calculate(base({area})));
   for (const bulbLumens of [0,-1,"NaN","Infinity"]) assert.throws(()=>P.calculate(base({bulbLumens})));
 });
+check("shared-room 3 m × 1.1 m handoff is a clean six-decimal area", () => {
+  assert.equal(P.roomFloorArea(3, 1.1), 3.3);
+  assert.equal(P.roomFloorArea(12, 10), 120);
+});
 console.log(passed + " room lighting planner fixtures passed");
