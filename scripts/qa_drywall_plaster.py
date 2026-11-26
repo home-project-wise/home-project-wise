@@ -45,8 +45,13 @@ with sync_playwright() as p:
         result = page.locator("#dp-result").inner_text()
         check("hand-computed metric surface area and board count at %dpx" % width,
               "28.4 m²" in result and "9.861 boards" in result and "rounded up to 10 whole boards" in result, result)
-        check("named plaster coverage and thickness calculate rounded bags at %dpx" % width,
+        check("named plaster coverage and matching thickness calculate rounded bags at %dpx" % width,
               "2.84 bags" in result and "rounded up to 3 whole bags" in result, result)
+        page.fill("#dp-plaster-application","15"); page.click("button[type=submit]")
+        result = page.locator("#dp-result").inner_text()
+        check("different application thickness does not scale published coverage at %dpx" % width,
+              "28.4 m²" in result and "no scaling is assumed" in result and "whole bags" not in result, result)
+        page.fill("#dp-plaster-application","10"); page.click("button[type=submit]")
         page.click("#dp-add-section")
         check("additional wall section has an associated label at %dpx" % width,
               page.locator('label[for="dp-length-2"]').count() == 1 and page.locator('label[for="dp-height-2"]').count() == 1)
