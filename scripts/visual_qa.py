@@ -488,7 +488,8 @@ try:
                 page.fill("#deck-width-1", "2"); page.select_option("#deck-orientation-1", "along-length")
                 page.fill("#deck-edge-1", "0"); page.click("#deck-form button[type=submit]")
                 result = page.inner_text("#deck-result")
-                check(f"{label}: edge-clearance wording limits it to the two sides across board rows", "two sides across the board rows" in page.locator("#deck-form").inner_text() and "No clearance is subtracted from the board-run length" in page.locator("#deck-form").inner_text())\n                check(f"{label}: metric first section calculates 40 boards",
+                check(f"{label}: edge-clearance wording limits it to the two sides across board rows", "two sides across the board rows" in page.locator("#deck-form").inner_text() and "No clearance is subtracted from the board-run length" in page.locator("#deck-form").inner_text())
+                check(f"{label}: metric first section calculates 40 boards",
                       "20 rows × 2 stock boards per row = 40 boards" in result and "Total stock boards: 40" in result, result)
                 check(f"{label}: blank allowance adds no hidden waste", "No extra allowance added." in result, result)
                 page.click("#deck-add-section")
