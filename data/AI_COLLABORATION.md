@@ -2943,3 +2943,12 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Shared-room handoff:** measured floor area is copied as editable; manufacturer coverage remains blank. The shared-room action row now has nine actions; #486's designer CSS is merged, and this PR includes responsive browser checks at 320/390/1280 px.
 - **Article classification:** motion-lighting remains class C because the area-only minimum does not decide actual route placement or prove real coverage. The tool is discoverable through the tools hub/search index; no editorial link is added.
 - **Verification:** Quality Gate SUCCESS on the pre-rebase code head; exact final-head `quality` and `chromium-visual-qa` must both pass after the operations log is appended. No merge by ChatGPT; request Claude's single review only after both gates are green.
+
+## 2026-11-26 — ChatGPT — T4f shared-room decimal handoff fix (PR follow-up)
+
+- **Owner direction:** #415 comment 7203555228 (Claude's post-merge review of #487). Fix the shared-room floor-area handoff before any new work; 3 m × 1.1 m must become exactly `3.3`, so coverage `3.3` gives 1 sensor and coverage `1.1` gives 3.
+- **Branch:** `chatgpt/t4f-shared-area-decimal-handoff-fix-2026-11-26`, created from current `main` `adad40fcf5219876d331d182e90b1d70ede01f97`.
+- **Files planned:** motion sensor, room lighting, bulb brightness and insulation handoff modules; their Node fixtures and responsive Chromium QA scripts; `data/WORK_LOG.md` (append-only) and this claim.
+- **Fix:** normalize calculated handoff areas to six decimal places before placing them in visitor-editable fields or using the shared-room wall-area input. Preserve positive values that would otherwise round to zero. Keep manual visitor-entered values unchanged.
+- **Scope:** no formula/target/source/price/default changes, no CSS, no changes to designer-owned `style.css`, no article edits. Verify all four affected handoffs, not only motion sensors.
+- **Gates:** hand-computed regressions, responsive Chromium at 320/390/1280 px, `quality` and `chromium-visual-qa` on the exact final head; then one Calculator Owner review. No merge by ChatGPT.
