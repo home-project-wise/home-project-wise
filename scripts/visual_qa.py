@@ -508,7 +508,7 @@ try:
                 check(f"{label}: removing a section restores 40 boards", "Total stock boards: 40" in page.inner_text("#deck-result"), page.inner_text("#deck-result"))
                 page.fill("#deck-board-gap", ""); page.click("#deck-form button[type=submit]")
                 check(f"{label}: missing board gap stops calculation",
-                      "Gap between boards" in page.inner_text("#deck-error") and page.locator("#deck-result").inner_text() == "" and not page.locator("#deck-result").is_hidden(), page.inner_text("#deck-error"))
+                      "Gap between boards" in page.inner_text("#deck-error") and page.locator("#deck-result").inner_text() == "" and page.locator("#deck-result").get_attribute("hidden") is None, page.inner_text("#deck-error"))
                 check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
                 if width == 1280:
                     page.locator("#deck-unit").focus(); page.keyboard.press("Tab")
