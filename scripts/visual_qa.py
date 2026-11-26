@@ -13,7 +13,7 @@ SITE = ROOT / "website"
 OUT = Path(os.environ.get("VISUAL_QA_OUT", ROOT / "visual-qa-results"))
 OUT.mkdir(parents=True, exist_ok=True)
 PAGES = [
-    ("home", "/"), ("guides", "/guides.html"), ("tools", "/tools.html"),
+    ("home", "/"), ("guides", "/guides.html"), ("tools", "/tools.html"), ("motion-sensor-coverage", "/motion-sensor-coverage-calculator.html"),
     ("calculator", "/home-project-calculator.html"), ("budget-planner", "/budget-planner.html"),
     ("search", "/search.html"), ("about", "/about.html"),
 ]
@@ -45,7 +45,7 @@ try:
             for mode in ("light", "dark"):
                 for vp_name, width, height in VIEWPORTS:
                     # Full matrix for the key pages; mobile/desktop for the supporting pages.
-                    if page_name not in ("home", "calculator", "tools") and vp_name in ("mobile-small", "wide"):
+                    if page_name not in ("home", "calculator", "tools", "motion-sensor-coverage") and vp_name in ("mobile-small", "wide"):
                         continue
                     context = browser.new_context(
                         viewport={"width": width, "height": height},

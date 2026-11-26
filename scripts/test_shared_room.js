@@ -137,4 +137,17 @@ ok("shared room opens Room Lighting Planner with editable floor area and no wall
   assert.deepEqual(w.hpwRoom, { unit:"ft", length:12, width:10, height:null, openings:0 });
   assert.match(e["room-note"].textContent, /task-zone area/);
 });
+
+ok("shared room opens Motion Sensor Coverage Calculator with editable floor area and no coverage assumption", () => {
+  const d = makeDoc(); d.getElementById("room-root"); let opened = null;
+  const w = { Event: Ev, open: (...args) => { opened = args; return {}; } };
+  SR.init(d, w);
+  const e = new Proxy(d.els, { get: (t, k) => d.getElementById(k) });
+  assert.ok(e["room-root"].innerHTML.includes('data-target="motion-sensor-coverage"'));
+  Object.entries({ "room-unit":"m", "room-length":"5", "room-width":"4", "room-height":"", "room-openings":"" }).forEach(([k,v]) => { e[k].value=v; });
+  e["room-form"].handlers.click.forEach(f => f({ target: { getAttribute: k => k === "data-target" ? "motion-sensor-coverage" : null } }));
+  assert.deepEqual(opened, ["motion-sensor-coverage-calculator.html", "_blank"]);
+  assert.deepEqual(w.hpwRoom, { unit:"m", length:5, width:4, height:null, openings:0 });
+  assert.match(e["room-note"].textContent, /manufacturer coverage area separately/);
+});
 console.log("\n" + n + " shared-room tests passed");
