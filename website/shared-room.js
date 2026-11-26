@@ -1,5 +1,5 @@
 /* HomeProjectWise shared room (Stage 1 of the beginner flow, Issue #362). The visitor enters the room once and sends it to the
- * Flooring, Paint, Wallpaper, bulb brightness and concrete slab tools. In memory only: nothing is stored or sent, and no value is assumed
+ * Flooring, Paint, Wallpaper, bulb brightness, concrete slab and drywall/plaster tools. In memory only: nothing is stored or sent, and no value is assumed
  * (height, openings and slab thickness stay empty unless entered).
  */
 (function (root, factory) {
@@ -49,7 +49,7 @@
   }
   var MARKUP =
     '<details><summary>Enter your room once (optional)</summary>' +
-    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check or Concrete Slab Volume Calculator. Nothing is stored or sent.</p>' +
+    '<p class="wp-note">Fill in the size once and send it to the Flooring or Paint calculator, see the wall area for Wallpaper, or send room measurements to the Bulb Brightness Check, Concrete Slab Volume Calculator or Drywall and Plaster Quantity Calculator. Nothing is stored or sent.</p>' +
     '<form class="calc" id="room-form" novalidate><div class="calc-grid">' +
     '<div class="calc-field"><label for="room-unit">Measurements</label><select id="room-unit"><option value="m">Metres</option><option value="ft">Feet</option></select></div>' +
     '<div class="calc-field"><label for="room-length">Room length</label><input id="room-length" type="number" min="0" step="any"></div>' +
@@ -57,7 +57,7 @@
     '<div class="calc-field"><label for="room-height">Wall height (for paint)</label><input id="room-height" type="number" min="0" step="any"></div>' +
     '<div class="calc-field"><label for="room-openings">Doors and windows to leave out, total area (optional)</label><input id="room-openings" type="number" min="0" step="any"><small>Leave blank if you do not know; nothing is assumed.</small></div>' +
     '</div><p class="calc-error" id="room-error" role="alert"></p>' +
-    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
+    '<button type="button" class="wp-btn" data-target="flooring">Use for Flooring</button> <button type="button" class="wp-btn" data-target="paint">Use for Paint</button> <button type="button" class="wp-btn" data-target="wallpaper">Use for Wallpaper</button> <button type="button" class="wp-btn" data-target="bulb-brightness">Use for bulb brightness check</button> <button type="button" class="wp-btn" data-target="concrete-slab">Use for concrete slab volume</button> <button type="button" class="wp-btn" data-target="drywall-plaster">Use for drywall / plaster area</button> <span class="wp-note" id="room-note" role="status"></span></form></details>';
   function init(doc, win) {
     var host = doc.getElementById("room-root"); if (!host) return null;
     host.innerHTML = MARKUP;
@@ -75,6 +75,12 @@
       if (target === "concrete-slab") {
         var slabTab = win && typeof win.open === "function" ? win.open("concrete-slab-calculator.html", "_blank") : null;
         note.textContent = slabTab ? "Room length and width sent to the Concrete Slab Volume Calculator in a new tab. Thickness remains blank for you to enter." : "Allow the new tab, or open the Concrete Slab Volume Calculator directly and enter your measurements.";
+        return;
+      }
+      if (target === "drywall-plaster") {
+        if (!r.room.height) { err.textContent = "Drywall and plaster wall area needs the wall height. Enter it above, then try again."; return; }
+        var wallTab = win && typeof win.open === "function" ? win.open("drywall-plaster-calculator.html", "_blank") : null;
+        note.textContent = wallTab ? "Room wall area sent to the Drywall and Plaster Quantity Calculator in a new tab. Openings entered above are deducted once." : "Allow the new tab, or open the Drywall and Plaster Quantity Calculator directly and enter your wall measurements.";
         return;
       }
       if (target === "bulb-brightness") {
