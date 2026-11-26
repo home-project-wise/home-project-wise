@@ -15,7 +15,7 @@
 
   function decimalParts(value) {
     var raw = String(value).trim().toLowerCase();
-    var match = /^\\+?(\\d*)(?:\\.(\\d*))?(?:e([+-]?\\d+))?$/.exec(raw);
+    var match = /^\+?(\d*)(?:\.(\d*))?(?:e([+-]?\d+))?$/.exec(raw);
     if (!match || !(match[1] || match[2])) throw new Error("Enter a valid positive decimal area value.");
     var fraction = match[2] || "";
     var digits = (match[1] + fraction).replace(/^0+/, "") || "0";
