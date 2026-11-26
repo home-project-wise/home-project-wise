@@ -200,7 +200,7 @@
         } else {
           setLine(result, "No bulb count shown: enter the lumens printed on one bulb if you want a bulb-count range.");
         }
-        setLine(result, "Planning estimate only — not a lighting design, compliance statement or judgement that a room is adequately lit. Actual illuminance depends on fitting, distribution, room geometry and task plane; use a suitable light meter for real readings.");
+        setLine(result, "Planning estimate only — not a lighting design, not a compliance statement, and not a judgement that a room is adequately lit. Actual illuminance depends on fitting, distribution, room geometry and task plane; use a suitable light meter for real readings.");
       } catch (e) { error.textContent = e && e.message ? e.message : "Check the selections and measurements, then try again."; }
     });
     return { calculate: calculate, updateSource: updateSource };
