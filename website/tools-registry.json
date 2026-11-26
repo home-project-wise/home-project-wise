@@ -344,6 +344,20 @@
       "articles": []
     },
     {
+      "id": "motion-sensor-coverage",
+      "title": "Motion Sensor Coverage Calculator",
+      "url": "motion-sensor-coverage-calculator.html",
+      "topics": [
+        "motion sensor",
+        "sensor coverage",
+        "smart home",
+        "area-only minimum"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
       "id": "drywall-plaster-quantity",
       "title": "Drywall and Plaster Quantity Calculator",
       "url": "drywall-plaster-calculator.html",
