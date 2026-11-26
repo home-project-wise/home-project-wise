@@ -50,12 +50,13 @@ with sync_playwright() as p:
     home = context.new_page()
     home.goto(BASE + "home-project-calculator.html", wait_until="domcontentloaded")
     home.locator("#room-root summary").click()
-    home.fill("#room-length","5"); home.fill("#room-width","4")
+    home.select_option("#room-unit","m")
+    home.fill("#room-length","3"); home.fill("#room-width","1.1")
     with home.expect_popup() as popup_info:
         home.locator('button[data-target="bulb-brightness"]').click()
     popup = popup_info.value
     popup.wait_for_load_state("load")
-    check("shared room pre-fills 20 m² in the new tool tab", popup.input_value("#room-area") == "20" and popup.input_value("#area-unit") == "m2", popup.input_value("#room-area"))
+    check("shared room pre-fills exact 3.3 m² in Bulb Brightness", popup.input_value("#room-area") == "3.3" and popup.input_value("#area-unit") == "m2", popup.input_value("#room-area"))
     check("shared-room handoff note is visible", "copied from your shared room" in popup.locator("#shared-room-note").inner_text())
     context.close()
     for width in (320, 390, 1280):
@@ -108,15 +109,16 @@ with sync_playwright() as p:
     home = context.new_page()
     home.goto(BASE + "home-project-calculator.html", wait_until="domcontentloaded")
     home.locator("#room-root summary").click()
-    home.fill("#room-length","5"); home.fill("#room-width","4")
+    home.select_option("#room-unit","m")
+    home.fill("#room-length","3"); home.fill("#room-width","1.1")
     with home.expect_popup() as popup_info:
         home.locator('button[data-target="room-lighting-planner"]').click()
     popup = popup_info.value
     popup.wait_for_load_state("load")
-    check("shared room pre-fills 20 m² in room lighting planner", popup.input_value("#rl-area") == "20" and popup.input_value("#rl-area-unit") == "m2", popup.input_value("#rl-area"))
+    check("shared room pre-fills exact 3.3 m² in Room Lighting", popup.input_value("#rl-area") == "3.3" and popup.input_value("#rl-area-unit") == "m2", popup.input_value("#rl-area"))
     popup.select_option("#rl-source","uk"); popup.select_option("#rl-target","uk-kitchen")
     popup.click("#rl-form button[type=submit]")
-    check("shared-room area can calculate through the selected source", "20 m²" in popup.locator("#rl-result").inner_text())
+    check("shared-room 3.3 m² can calculate through the selected source", "3.3 m²" in popup.locator("#rl-result").inner_text())
     context.close()
     browser.close()
 server.shutdown()
