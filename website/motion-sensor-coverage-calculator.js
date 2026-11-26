@@ -42,7 +42,7 @@
     if (input.unit !== "m2" && input.unit !== "ft2") throw new Error("Choose square metres or square feet for both area values.");
     var ratio = area / coverage;
     if (!Number.isFinite(ratio) || !(ratio > 0)) throw new Error("The result is outside the supported number range.");
-    var count = Math.ceil(ratio - 1e-10);
+    var count = exactCeilCount(input.area, input.coverage);
     if (!Number.isSafeInteger(count) || count < 1) throw new Error("The sensor count is outside the supported number range.");
     return {
       area: area,
