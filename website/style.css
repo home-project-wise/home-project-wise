@@ -132,3 +132,109 @@ footer .brand-logo-footer{width:200px;max-width:100%;height:auto;display:block}
 .breadcrumb a{display:inline-block;padding:5px 0;min-height:24px}
 footer nav a,footer .newsletter-cta{display:inline-block;padding:5px 0;min-height:24px}
 .calculator-feature-secondary{display:inline-flex;align-items:center;min-height:44px}
+
+/* Designer pass, issue #415 hand-off (2026-11-26): one shared look for the standalone calculator tools (Bulb Brightness, Concrete Slab, Drywall/Plaster).
+   Class names are unchanged (bb-, cs-, dp-); the per-page inline style blocks were moved here. Light-mode error treatment now matches the main calculator
+   (#a33b2f on #fbeee9); dark-mode error is the approved shared token #f0a07a on #3a2418 (about 6.9:1), the same one the main calculator already uses. */
+.bb-wrap{max-width:820px;margin:auto}
+.bb-wrap .bb-panel{background:#fff;border:1px solid #d3dbd6;border-radius:18px;padding:clamp(16px,3vw,26px);margin:18px 0}
+.bb-wrap .bb-panel>h2:first-child{margin-top:0}
+.bb-wrap .bb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.bb-wrap .bb-field label{display:block;margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.35}
+.bb-wrap .bb-field input,.bb-wrap .bb-field select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:48px;padding:10px 12px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font:inherit;font-size:17px}
+.bb-wrap .bb-field input::placeholder{color:#576165;opacity:1}
+.bb-wrap .bb-field input:focus,.bb-wrap .bb-field select:focus{border-color:#2f6f58}
+.bb-wrap .bb-help,.bb-wrap .bb-note{font-size:15px;line-height:1.5;color:#566266}
+.bb-wrap .bb-actions{margin-top:18px}
+.bb-wrap .bb-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 26px;border:1.5px solid #243238;border-radius:14px;background:#243238;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.bb-wrap .bb-button[type=button]{background:transparent;color:#243238}
+.bb-wrap .bb-button:hover{opacity:.9}
+.bb-wrap .bb-error{margin:14px 0 0;font-size:15px;font-weight:600;line-height:1.5;color:#a33b2f}
+.bb-wrap .bb-error:empty{margin:0}
+.bb-wrap .bb-error:not(:empty){padding:10px 14px;border-left:4px solid #a33b2f;border-radius:8px;background:#fbeee9}
+.bb-wrap .bb-result{margin:20px 0 0;padding:18px 20px;background:#e9f3ee;border:1px solid #d3dbd6;border-left:5px solid #2f7d5b;border-radius:14px;color:#243238;line-height:1.6;font-variant-numeric:tabular-nums}
+.bb-wrap .bb-result:empty{display:none}
+.bb-wrap .bb-section{padding:14px 0;border-bottom:1px solid #d3dbd6}
+@media(max-width:600px){.bb-wrap .bb-grid{grid-template-columns:1fr}.bb-wrap .bb-button{width:100%}}
+@media(prefers-reduced-motion:no-preference){.bb-wrap .bb-button{transition:opacity .15s}}
+@media(prefers-color-scheme:dark){
+.bb-wrap .bb-panel{background:#202b30;border-color:#34444b;color:#eef1ee}
+.bb-wrap .bb-field input,.bb-wrap .bb-field select{background:#182126;border-color:#6d8189;color:#eef1ee}
+.bb-wrap .bb-field input::placeholder{color:#8fa0a6}
+.bb-wrap .bb-field input:focus,.bb-wrap .bb-field select:focus{border-color:#D9B77A}
+.bb-wrap .bb-help,.bb-wrap .bb-note{color:#b4bfc2}
+.bb-wrap .bb-button{background:#e8ecea;border-color:#e8ecea;color:#182126}
+.bb-wrap .bb-button[type=button]{background:transparent;color:#e8ecea}
+.bb-wrap .bb-error{color:#f0a07a}
+.bb-wrap .bb-error:not(:empty){border-left-color:#f0a07a;background:#3a2418}
+.bb-wrap .bb-result{background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
+.bb-wrap .bb-section{border-bottom-color:#34444b}
+}
+.cs-wrap{max-width:820px;margin:auto}
+.cs-wrap .cs-panel{background:#fff;border:1px solid #d3dbd6;border-radius:18px;padding:clamp(16px,3vw,26px);margin:18px 0}
+.cs-wrap .cs-panel>h2:first-child{margin-top:0}
+.cs-wrap .cs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.cs-wrap .cs-field label{display:block;margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.35}
+.cs-wrap .cs-field input,.cs-wrap .cs-field select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:48px;padding:10px 12px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font:inherit;font-size:17px}
+.cs-wrap .cs-field input::placeholder{color:#576165;opacity:1}
+.cs-wrap .cs-field input:focus,.cs-wrap .cs-field select:focus{border-color:#2f6f58}
+.cs-wrap .cs-help,.cs-wrap .cs-note{font-size:15px;line-height:1.5;color:#566266}
+.cs-wrap .cs-actions{margin-top:18px}
+.cs-wrap .cs-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 26px;border:1.5px solid #243238;border-radius:14px;background:#243238;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.cs-wrap .cs-button[type=button]{background:transparent;color:#243238}
+.cs-wrap .cs-button:hover{opacity:.9}
+.cs-wrap .cs-error{margin:14px 0 0;font-size:15px;font-weight:600;line-height:1.5;color:#a33b2f}
+.cs-wrap .cs-error:empty{margin:0}
+.cs-wrap .cs-error:not(:empty){padding:10px 14px;border-left:4px solid #a33b2f;border-radius:8px;background:#fbeee9}
+.cs-wrap .cs-result{margin:20px 0 0;padding:18px 20px;background:#e9f3ee;border:1px solid #d3dbd6;border-left:5px solid #2f7d5b;border-radius:14px;color:#243238;line-height:1.6;font-variant-numeric:tabular-nums}
+.cs-wrap .cs-result:empty{display:none}
+.cs-wrap .cs-section{padding:14px 0;border-bottom:1px solid #d3dbd6}
+@media(max-width:600px){.cs-wrap .cs-grid{grid-template-columns:1fr}.cs-wrap .cs-button{width:100%}}
+@media(prefers-reduced-motion:no-preference){.cs-wrap .cs-button{transition:opacity .15s}}
+@media(prefers-color-scheme:dark){
+.cs-wrap .cs-panel{background:#202b30;border-color:#34444b;color:#eef1ee}
+.cs-wrap .cs-field input,.cs-wrap .cs-field select{background:#182126;border-color:#6d8189;color:#eef1ee}
+.cs-wrap .cs-field input::placeholder{color:#8fa0a6}
+.cs-wrap .cs-field input:focus,.cs-wrap .cs-field select:focus{border-color:#D9B77A}
+.cs-wrap .cs-help,.cs-wrap .cs-note{color:#b4bfc2}
+.cs-wrap .cs-button{background:#e8ecea;border-color:#e8ecea;color:#182126}
+.cs-wrap .cs-button[type=button]{background:transparent;color:#e8ecea}
+.cs-wrap .cs-error{color:#f0a07a}
+.cs-wrap .cs-error:not(:empty){border-left-color:#f0a07a;background:#3a2418}
+.cs-wrap .cs-result{background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
+.cs-wrap .cs-section{border-bottom-color:#34444b}
+}
+.dp-wrap{max-width:820px;margin:auto}
+.dp-wrap .dp-panel{background:#fff;border:1px solid #d3dbd6;border-radius:18px;padding:clamp(16px,3vw,26px);margin:18px 0}
+.dp-wrap .dp-panel>h2:first-child{margin-top:0}
+.dp-wrap .dp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 20px}
+.dp-wrap .dp-field label{display:block;margin:0 0 6px;font-size:15px;font-weight:600;line-height:1.35}
+.dp-wrap .dp-field input,.dp-wrap .dp-field select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;min-height:48px;padding:10px 12px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font:inherit;font-size:17px}
+.dp-wrap .dp-field input::placeholder{color:#576165;opacity:1}
+.dp-wrap .dp-field input:focus,.dp-wrap .dp-field select:focus{border-color:#2f6f58}
+.dp-wrap .dp-help,.dp-wrap .dp-note{font-size:15px;line-height:1.5;color:#566266}
+.dp-wrap .dp-actions{margin-top:18px}
+.dp-wrap .dp-button{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:12px 26px;border:1.5px solid #243238;border-radius:14px;background:#243238;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
+.dp-wrap .dp-button[type=button]{background:transparent;color:#243238}
+.dp-wrap .dp-button:hover{opacity:.9}
+.dp-wrap .dp-error{margin:14px 0 0;font-size:15px;font-weight:600;line-height:1.5;color:#a33b2f}
+.dp-wrap .dp-error:empty{margin:0}
+.dp-wrap .dp-error:not(:empty){padding:10px 14px;border-left:4px solid #a33b2f;border-radius:8px;background:#fbeee9}
+.dp-wrap .dp-result{margin:20px 0 0;padding:18px 20px;background:#e9f3ee;border:1px solid #d3dbd6;border-left:5px solid #2f7d5b;border-radius:14px;color:#243238;line-height:1.6;font-variant-numeric:tabular-nums}
+.dp-wrap .dp-result:empty{display:none}
+.dp-wrap .dp-section{padding:14px 0;border-bottom:1px solid #d3dbd6}
+@media(max-width:600px){.dp-wrap .dp-grid{grid-template-columns:1fr}.dp-wrap .dp-button{width:100%}}
+@media(prefers-reduced-motion:no-preference){.dp-wrap .dp-button{transition:opacity .15s}}
+@media(prefers-color-scheme:dark){
+.dp-wrap .dp-panel{background:#202b30;border-color:#34444b;color:#eef1ee}
+.dp-wrap .dp-field input,.dp-wrap .dp-field select{background:#182126;border-color:#6d8189;color:#eef1ee}
+.dp-wrap .dp-field input::placeholder{color:#8fa0a6}
+.dp-wrap .dp-field input:focus,.dp-wrap .dp-field select:focus{border-color:#D9B77A}
+.dp-wrap .dp-help,.dp-wrap .dp-note{color:#b4bfc2}
+.dp-wrap .dp-button{background:#e8ecea;border-color:#e8ecea;color:#182126}
+.dp-wrap .dp-button[type=button]{background:transparent;color:#e8ecea}
+.dp-wrap .dp-error{color:#f0a07a}
+.dp-wrap .dp-error:not(:empty){border-left-color:#f0a07a;background:#3a2418}
+.dp-wrap .dp-result{background:#1f3329;border-color:#34444b;border-left-color:#8db8a6;color:#eef1ee}
+.dp-wrap .dp-section{border-bottom-color:#34444b}
+}

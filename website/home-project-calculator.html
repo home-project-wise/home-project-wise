@@ -50,6 +50,18 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 @media(max-width:600px){#room-plan-root .wp-room{border:0;border-radius:0;padding:0;margin:14px 0 0}#plist-root{margin-top:28px;padding-top:24px;border-top:1px solid var(--cp-line)}#plist-root>h3:first-child{margin-top:0}}
 @media(prefers-reduced-motion:no-preference){.calc-tabs button,.tool-panel .calc-btn{transition:background-color .15s,border-color .15s,opacity .15s}}
 @media(forced-colors:active){.calc-tabs button[aria-selected="true"]{outline:3px solid Highlight}}
+/* Designer pass, issue #415 (2026-11-26): shared-room action row as a wrapping grid (1 column on phones, 2-3 on wider screens); the three tools that open in a new tab get a trailing arrow */
+#room-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px}
+#room-form>:not(.wp-btn){grid-column:1/-1;margin-top:0}
+#room-form>.calc-grid{margin-bottom:8px}
+#room-form>.wp-btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 14px;border-radius:12px;border-color:var(--cp-fline);font-size:15px;line-height:1.3;text-align:center}
+#room-form>.wp-btn[data-target="bulb-brightness"]::after,#room-form>.wp-btn[data-target="concrete-slab"]::after,#room-form>.wp-btn[data-target="drywall-plaster"]::after{content:"\2197";content:"\2197" / "";flex:none;opacity:.75}
+#room-form>.wp-note{font-size:14px;line-height:1.5;color:var(--cp-muted)}
+#room-form>.wp-note:empty{display:none}
+/* Designer pass, issue #415 (2026-11-26): Project List rows; Quantity and Unit share a row from 361 to 600 px, everything stays one column at 320 to 360 px */
+#plist-items .wp-btn[data-action="remove"]{margin-top:16px}
+#plist-items input[data-field="unit"]::placeholder{text-overflow:ellipsis}
+@media(min-width:361px) and (max-width:600px){#plist-items .calc-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:16px 12px}#plist-items .calc-grid>.calc-field:nth-child(n+3){grid-column:1/-1}}
 </style><div id="region-root"></div>
 
 <div id="room-root"></div>

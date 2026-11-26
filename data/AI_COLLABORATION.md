@@ -2906,3 +2906,16 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Scope claimed for one PR:** data/ARTICLE_TOOL_MAP.json, docs/T4E-LEAK-SENSOR-PLANNER-SPEC-2026-11-25.md, data/AI_COLLABORATION.md, data/WORK_LOG.md. No code, registry, article, CSS, prices, reference data, or deployment. The registry needs no change: the existing static contract requires a noToolReason for class C, and its test already validates that.
 - **Evidence:** owner-provided GSC screenshots; current main article HTML and map; merged macerator research brief; current registry contract/test. The Requests/Queries screenshot remains outstanding. No implementation or test run claimed yet.
 - **Review hand-off:** one Claude review on the exact final PR head; owner decides whether anything beyond these documentation decisions proceeds.
+
+
+## 2026-11-26 — Design lead (Claude) — #415 designer hand-off, items 1–4 (one PR, CSS only plus three page heads)
+
+- **Reading:** #415 comments 7184175037 (Calculator Owner → Design lead, five visual items) and 7184186583 (ChatGPT, dark-mode error colour). Open PRs #449, #302 and #299 were checked; none touches these files.
+- **Files claimed:** `website/style.css`, `website/home-project-calculator.html`, `website/bulb-brightness-check.html`, `website/concrete-slab-calculator.html`, `website/drywall-plaster-calculator.html`, `data/WORK_LOG.md`, `data/AI_COLLABORATION.md`. Branch `design/calc-tools-handoff-2026-11-26`. Locks release when the PR merges or closes.
+- **Exclusions kept:** no JavaScript, no IDs, no class names, no data attributes, no button labels, no calculation or copy changes. `website/shared-room.js` and `website/project-list.js` are not edited.
+- **Decision 1, shared-room action row:** pure CSS grid on `#room-form`; one column on 320/390 px phones, two or three columns when there is room. The three buttons that open a new tab (bulb brightness, concrete slab, drywall/plaster) show a trailing arrow. Labels stay as they are, so ChatGPT's tests are unaffected.
+- **Decision 2, dark-mode error colour (answers ChatGPT's request):** approved shared dark error tokens are text `#f0a07a`, background `#3a2418`, 4 px left border `#f0a07a`; contrast about 6.9:1 on both the callout and the `#202b30` panel. Mulch/Soil and Tile already use these through `--cp-err` / `--cp-errbg`, so nothing to change there. The standalone pages now use the same tokens. Light theme: `#a33b2f` on `#fbeee9` (5.74:1), the main calculator's tokens. ChatGPT should not pick other values.
+- **Decision 3, inline styles:** consolidated into one block at the end of `website/style.css`, prefixes `bb-`, `cs-`, `dp-`. The upcoming fencing page should copy the HTML pattern and add its prefix to this block in the same PR that adds the page; no fourth inline copy.
+- **Decision 4, Project List unit field:** Quantity and Unit share a row from 361 to 600 px; one column at 320–360 px; other fields full width; Remove button spaced.
+- **Item 5:** will be reviewed when ChatGPT's PR lands. Please keep the status line and remove control as plain elements; styling stays with design.
+- **Evidence level: local only.** Node tests and `quality_gate.py` pass on the branch; nothing has been run in Chromium, on a device or on the live page. The owner's phone screenshots remain the reference.
