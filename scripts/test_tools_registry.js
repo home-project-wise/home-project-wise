@@ -102,3 +102,4 @@ test("hooks: any element marked class tool-link in an article names a registered
 console.log(passed + " tools-registry tests passed");
 
 require("./test_decking_quantity.js");
+require("./test_room_lighting_planner.js");
