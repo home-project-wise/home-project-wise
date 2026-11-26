@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Insulation Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Calculate measured insulation area and optional product pack counts from the coverage and unit you enter, without assumed framing or coverage.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/insulation-quantity-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Insulation Quantity Calculator | HomeProjectWise"><meta property="og:description" content="Estimate measured insulation area and optional pack quantities using your product's stated coverage."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/insulation-quantity-calculator.html">
+<link rel="stylesheet" href="style.css"></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Insulation Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p><h1>Insulation Quantity Calculator</h1>
+<p class="lead">Measure the surfaces you actually plan to cover. See the area, then optionally count packs using the product name and coverage printed on its label. No framing fraction or pack coverage is assumed.</p>
+<section class="fq-panel">
+<h2>Measure the area to be covered</h2>
+<form id="ins-form" novalidate>
+<div class="fq-field"><label for="ins-unit">Length and area unit for your measurements</label><select id="ins-unit"><option value="" selected>Choose metres or feet</option><option value="m">Metres / square metres</option><option value="ft">Feet / square feet</option></select></div>
+<p class="fq-help">Enter each measured rectangular section. If the insulation is fitted between studs or joists, measure the clear area between the framing that the insulation will cover; do not use the full framed wall or floor area as a substitute. You can enter separate clear rectangles for separate cavities.</p>
+<div id="ins-sections">
+<section class="fq-panel ins-section">
+<h3>Measured section 1</h3>
+<div class="fq-field"><label for="ins-length-1">Section 1 length</label><input id="ins-length-1" class="ins-length" type="number" min="0" step="any" placeholder="Measured length"></div>
+<div class="fq-field"><label for="ins-width-1">Section 1 width</label><input id="ins-width-1" class="ins-width" type="number" min="0" step="any" placeholder="Measured width"></div>
+</section>
+</div>
+<p><button type="button" class="fq-small-button" id="ins-add-section">Add another rectangular section</button></p>
+<div class="fq-field"><label for="ins-openings">Optional openings to subtract from your entered sections</label><input id="ins-openings" type="number" min="0" step="any" placeholder="Combined opening area in the chosen area unit"></div>
+<p id="ins-room-note" class="fq-help" role="status"></p>
+<h2>Optional product pack count</h2>
+<p class="fq-help">Enter the product name and the coverage stated for one pack. Coverage must use the unit printed by the manufacturer. A pack count appears only when all three details are entered.</p>
+<div class="fq-field"><label for="ins-product-name">Product name</label><input id="ins-product-name" type="text" maxlength="120" placeholder="Enter the product name"></div>
+<div class="fq-field"><label for="ins-pack-coverage">Coverage per pack</label><input id="ins-pack-coverage" type="number" min="0" step="any" placeholder="Enter the stated coverage"></div>
+<div class="fq-field"><label for="ins-coverage-unit">Coverage unit</label><select id="ins-coverage-unit"><option value="" selected>Choose m² or ft²</option><option value="m2">Square metres (m²)</option><option value="ft2">Square feet (ft²)</option></select></div>
+<p id="ins-error" class="fq-help" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate insulation area and packs</button></p>
+</form>
+<div id="ins-result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<section class="fq-panel">
+<h2>How the calculation works</h2>
+<p>Each entered rectangle is length × width. The optional openings area is subtracted from the manually entered sections. The shared-room wall area, when available, is added separately in square metres. The calculator also shows the equivalent area in square feet.</p>
+<p>When you enter all product details, the pack count is the total measured area divided by the entered coverage per pack, rounded up to a whole pack. The calculation does not add waste or an extra allowance.</p>
+<p><strong>Important for insulation between framing:</strong> the proportion of a wall or floor occupied by studs or joists is not assumed. Measure and enter the clear cavity area that the product will cover. The shared-room handoff represents gross wall surface area after the room's entered openings; it is not a measurement of the clear cavity area between framing.</p>
+<p>This tool does not assess insulation type, R-value, thickness, energy savings, vapour barriers, moisture, ventilation, fire, safety, installation suitability or building-code requirements. It does not provide prices, product recommendations or reference coverage. Follow the product label and seek qualified advice where needed.</p>
+</section>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="insulation-quantity-calculator.js"></script>
+<script>if (window.InsulationQuantity) window.InsulationQuantity.init(document, window);</script>
+</body></html>
