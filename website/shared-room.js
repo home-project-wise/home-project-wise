@@ -83,7 +83,13 @@
         note.textContent = wallTab ? "Room wall area sent to the Drywall and Plaster Quantity Calculator in a new tab. Openings entered above are deducted once." : "Allow the new tab, or open the Drywall and Plaster Quantity Calculator directly and enter your wall measurements.";
         return;
       }
-      if (target === "insulation-quantity") {\n        if (!r.room.height) { err.textContent = "Insulation wall area needs the wall height. Enter it above, then try again."; return; }\n        var insulationTab = win && typeof win.open === "function" ? win.open("insulation-quantity-calculator.html", "_blank") : null;\n        note.textContent = insulationTab ? "Room wall area sent to the Insulation Quantity Calculator in a new tab. Openings entered above are deducted once. This is gross wall surface area, not clear cavity area between framing." : "Allow the new tab, or open the Insulation Quantity Calculator directly. Its shared-room area is gross wall surface area, not clear cavity area between framing.";\n        return;\n      }\n      if (target === "bulb-brightness") {
+      if (target === "insulation-quantity") {
+        if (!r.room.height) { err.textContent = "Insulation wall area needs the wall height. Enter it above, then try again."; return; }
+        var insulationTab = win && typeof win.open === "function" ? win.open("insulation-quantity-calculator.html", "_blank") : null;
+        note.textContent = insulationTab ? "Room wall area sent to the Insulation Quantity Calculator in a new tab. Openings entered above are deducted once. This is gross wall surface area, not clear cavity area between framing." : "Allow the new tab, or open the Insulation Quantity Calculator directly. Its shared-room area is gross wall surface area, not clear cavity area between framing.";
+        return;
+      }
+      if (target === "bulb-brightness") {
         var opened = win && typeof win.open === "function" ? win.open("bulb-brightness-check.html", "_blank") : null;
         note.textContent = opened ? "Room area sent to the Bulb Brightness Check in a new tab." : "Allow the new tab, or open the Bulb Brightness Check directly and enter the room area."; return;
       }
