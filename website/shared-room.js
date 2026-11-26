@@ -1,5 +1,5 @@
 /* HomeProjectWise shared room (Stage 1 of the beginner flow, Issue #362). The visitor enters the room once and sends it to the
- * Flooring, Paint, Wallpaper, bulb brightness, concrete slab and drywall/plaster tools. In memory only: nothing is stored or sent, and no value is assumed
+ * Flooring, Paint, Wallpaper, bulb brightness, room lighting, concrete slab, drywall/plaster and insulation tools. In memory only: nothing is stored or sent, and no value is assumed
  * (height, openings and slab thickness stay empty unless entered).
  */
 (function (root, factory) {
