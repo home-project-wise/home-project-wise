@@ -39,7 +39,7 @@ with sync_playwright() as p:
         page.fill("#dp-board-width","1.2"); page.fill("#dp-board-height","2.4")
         page.fill("#dp-plaster-name","Named plaster")
         page.fill("#dp-plaster-coverage","10"); page.select_option("#dp-plaster-coverage-unit","m2")
-        page.fill("#dp-plaster-reference","10"); page.fill("#dp-plaster-application","15")
+        page.fill("#dp-plaster-reference","10"); page.fill("#dp-plaster-application","10")
         page.select_option("#dp-plaster-thickness-unit","mm")
         page.click("button[type=submit]")
         result = page.locator("#dp-result").inner_text()
@@ -64,7 +64,7 @@ with sync_playwright() as p:
         page.click("button[type=submit]")
         result = page.locator("#dp-result").inner_text()
         check("missing optional product details do not hide the area result at %dpx" % width,
-              "38 m²" in result and "No plaster bag count calculated" in result, result)
+              "38 m²" in result and "Plaster bag count not calculated" in result and "whole bags" not in result, result)
         page.fill("#dp-openings","1000"); page.click("button[type=submit]")
         check("openings larger than manually measured wall area are rejected at %dpx" % width,
               "cannot exceed" in page.locator("#dp-error").inner_text() and page.locator("#dp-result").inner_text() == "")
