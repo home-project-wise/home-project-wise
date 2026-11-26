@@ -464,6 +464,61 @@ try:
                 check(f"{label}: tile browser scenario", False, repr(e))
             finally:
                 context.close()
+        # Decking quantity tool: explicit board gap, edge clearance and orientation; no hidden allowance.
+        for vp_name, width, height in (("mobile-320", 320, 800), ("mobile-390", 390, 844), ("desktop", 1280, 900)):
+            label = f"decking-quantity/{vp_name}"
+            context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+            page = context.new_page()
+            page_errors, app_console = [], []
+            page.on("pageerror", lambda exc, acc=page_errors: acc.append(str(exc)))
+            page.on("console", lambda msg, acc=app_console: acc.append(msg.text) if msg.type == "error" and "gc.zgo.at" not in (msg.location or {}).get("url", "") and "goatcounter" not in (msg.location or {}).get("url", "") else None)
+            page.route("**/*", handle_request)
+            try:
+                page.goto(base + "/decking-quantity-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                page.wait_for_selector("#deck-form", state="attached", timeout=15000)
+                check(f"{label}: unit, board details and first section start blank",
+                      page.input_value("#deck-unit") == "" and page.input_value("#deck-board-width") == "" and
+                      page.input_value("#deck-board-gap") == "" and page.input_value("#deck-stock-length") == "" and
+                      page.input_value("#deck-length-1") == "" and page.input_value("#deck-edge-1") == "" and
+                      page.input_value("#deck-waste") == "")
+                page.select_option("#deck-unit", "m")
+                page.fill("#deck-board-width", "0.1"); page.fill("#deck-board-gap", "0.005")
+                page.fill("#deck-stock-length", "2.5"); page.fill("#deck-length-1", "4")
+                page.fill("#deck-width-1", "2"); page.select_option("#deck-orientation-1", "along-length")
+                page.fill("#deck-edge-1", "0"); page.click("#deck-form button[type=submit]")
+                result = page.inner_text("#deck-result")
+                check(f"{label}: metric first section calculates 40 boards",
+                      "20 rows × 2 stock boards per row = 40 boards" in result and "Total stock boards: 40" in result, result)
+                check(f"{label}: blank allowance adds no hidden waste", "No extra allowance added." in result, result)
+                page.click("#deck-add-section")
+                page.fill("#deck-length-2", "2"); page.fill("#deck-width-2", "1")
+                page.select_option("#deck-orientation-2", "along-width"); page.fill("#deck-edge-2", "0")
+                page.fill("#deck-waste", "5"); page.click("#deck-form button[type=submit]")
+                result = page.inner_text("#deck-result")
+                check(f"{label}: multiple sections and per-section direction",
+                      "Section 1: 20 rows × 2 stock boards per row = 40 boards" in result and
+                      "Section 2: 20 rows × 1 stock boards per row = 20 boards" in result and
+                      "Base stock boards before extra allowance: 60" in result, result)
+                check(f"{label}: explicit 5% allowance adds three boards",
+                      "Visitor-selected extra allowance: 5% (3 extra boards)." in result and "Total stock boards: 63" in result, result)
+                page.click("[data-remove-section]"); page.fill("#deck-waste", "")
+                page.click("#deck-form button[type=submit]")
+                check(f"{label}: removing a section restores 40 boards", "Total stock boards: 40" in page.inner_text("#deck-result"), page.inner_text("#deck-result"))
+                page.fill("#deck-board-gap", ""); page.click("#deck-form button[type=submit]")
+                check(f"{label}: missing board gap stops calculation",
+                      "Gap between boards" in page.inner_text("#deck-error") and page.locator("#deck-result").is_hidden(), page.inner_text("#deck-error"))
+                check(f"{label}: no horizontal overflow", page.evaluate("document.documentElement.scrollWidth") <= width + 1)
+                if width == 1280:
+                    page.locator("#deck-unit").focus(); page.keyboard.press("Tab")
+                    check(f"{label}: keyboard order reaches board width", page.evaluate("document.activeElement.id === 'deck-board-width'"))
+                check(f"{label}: no browser/page errors", not page_errors and not app_console, (page_errors + app_console)[:5])
+                shot = OUT / f"decking-quantity-{width}x{height}.png"
+                page.screenshot(path=str(shot), full_page=True, animations="disabled")
+                report["screenshots"].append(str(shot.relative_to(ROOT)))
+            except Exception as e:
+                check(f"{label}: decking browser scenario", False, repr(e))
+            finally:
+                context.close()
         browser.close()
 finally:
     server.shutdown()
