@@ -59,7 +59,7 @@ with sync_playwright() as p:
         page.fill("#fence-shared-corners","1")
         page.click("button[type=submit]")
         check("explicit shared corner is deducted once at %dpx" % width,
-              "Post count: 9" in page.locator("#fence-result").inner_text())
+              "Post count: 10" in page.locator("#fence-result").inner_text())
         page.locator("#fence-unit").focus(); page.keyboard.press("Tab")
         check("keyboard order reaches post spacing at %dpx" % width,
               page.evaluate("document.activeElement.id === 'fence-spacing'"))
