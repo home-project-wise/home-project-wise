@@ -48,22 +48,27 @@
     var productName = String(input.productName || "").trim();
     var coverageBlank = blank(input.packCoverage), unitBlank = blank(input.coverageUnit);
     var anyProduct = productName !== "" || !coverageBlank || !unitBlank;
-    var packCount = null, packRatio = null, coverageM2 = null, productDetailsIncomplete = anyProduct;
+    var packCount = null, packRatio = null, coverageM2 = null, productDetailsIncomplete = anyProduct, productDetailsError = null;
     if (productName && !coverageBlank && !unitBlank) {
-      var coverage = positive(input.packCoverage, "Coverage per pack");
-      if (input.coverageUnit !== "m2" && input.coverageUnit !== "ft2") throw new Error("Choose square metres or square feet for pack coverage.");
-      coverageM2 = coverage * (input.coverageUnit === "ft2" ? M2_PER_FT2 : 1);
-      packRatio = totalM2 / coverageM2;
-      if (!Number.isFinite(packRatio) || packRatio <= 0) throw new Error("The pack calculation is outside the supported number range.");
-      packCount = ceilCount(packRatio);
       productDetailsIncomplete = false;
+      try {
+        var coverage = positive(input.packCoverage, "Coverage per pack");
+        if (input.coverageUnit !== "m2" && input.coverageUnit !== "ft2") throw new Error("Choose square metres or square feet for pack coverage.");
+        coverageM2 = coverage * (input.coverageUnit === "ft2" ? M2_PER_FT2 : 1);
+        packRatio = totalM2 / coverageM2;
+        if (!Number.isFinite(packRatio) || packRatio <= 0) throw new Error("The pack calculation is outside the supported number range.");
+        packCount = ceilCount(packRatio);
+      } catch (e) {
+        productDetailsError = e && e.message ? e.message : "Check the product coverage and unit.";
+        packRatio = null; coverageM2 = null; packCount = null;
+      }
     }
     return {
       unit: unit, sectionCount: sectionCount, grossManualAreaM2: gross, openingsAreaM2: openings,
       manualNetAreaM2: manualNet, sharedWallAreaM2: sharedArea, totalAreaM2: totalM2,
       totalAreaFt2: totalM2 / M2_PER_FT2, productName: productName || null,
       coverageUnit: input.coverageUnit || null, coverageM2: coverageM2,
-      packRatio: packRatio, packCount: packCount, productDetailsIncomplete: productDetailsIncomplete
+      packRatio: packRatio, packCount: packCount, productDetailsIncomplete: productDetailsIncomplete, productDetailsError: productDetailsError
     };
   }
   function fmt(value, digits) {
@@ -128,7 +133,10 @@
         }
         line("Measured area to cover: " + fmt(data.totalAreaM2, 3) + " m² (" + fmt(data.totalAreaFt2, 3) + " ft²).", true);
         line("Manual sections: " + fmt(data.manualNetAreaM2, 3) + " m² after subtracting " + fmt(data.openingsAreaM2, 3) + " m² of entered openings; shared-room wall area: " + fmt(data.sharedWallAreaM2, 3) + " m².");
-        if (data.packCount !== null) {
+        if (data.productDetailsError) {
+          error.textContent = data.productDetailsError;
+          line("Area remains available. Pack count not shown: " + data.productDetailsError);
+        } else if (data.packCount !== null) {
           var shownCoverage = Number(doc.getElementById("ins-pack-coverage").value);
           var coverageUnit = doc.getElementById("ins-coverage-unit").value;
           var areaInCoverageUnit = coverageUnit === "ft2" ? data.totalAreaFt2 : data.totalAreaM2;
