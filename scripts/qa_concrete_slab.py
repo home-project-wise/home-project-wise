@@ -53,7 +53,6 @@ with sync_playwright() as p:
         check("missing yield unit keeps the volume visible and requests the unit at %dpx" % width,
               "33.333 ft³" in result and "yield unit" in result and "whole bags" not in result, result)
         page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
-        page.select_option("#slab-bag-yield-unit","ft3"); page.click("button[type=submit]")
         result = page.locator("#concrete-slab-result").inner_text()
         check("named product yield rounds bag count up at %dpx" % width, "67 whole bags" in result and "rounded up" in result, result)
         page.fill("#slab-allowance","10"); page.click("button[type=submit]")
