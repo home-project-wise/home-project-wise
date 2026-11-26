@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="icon" type="image/svg+xml" href="favicon.svg"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Drywall and Plaster Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate drywall board area or plaster quantity from measured wall and ceiling surfaces and the exact dimensions or coverage on your product label.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/drywall-plaster-calculator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Drywall and Plaster Quantity Calculator | HomeProjectWise"><meta property="og:description" content="Calculate a measured surface area and optional board or named plaster-product quantity without assumed panel sizes or coverage."><meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/drywall-plaster-calculator.html">
+<link rel="stylesheet" href="style.css">
+<style>
+.dp-wrap{max-width:850px;margin:auto}.dp-panel,.dp-result{background:#f7f5f0;border:1px solid #ddd9d0;border-radius:12px;padding:16px;margin:16px 0}.dp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.dp-field label{display:block;font-weight:650;margin-bottom:5px}.dp-field input,.dp-field select{box-sizing:border-box;width:100%;min-width:0;min-height:44px;padding:10px;border:1px solid #aeb7b3;border-radius:7px;background:#fff;color:#243238;font:inherit}.dp-help,.dp-note{font-size:14px;color:#576165;line-height:1.5}.dp-button{min-height:44px;padding:11px 17px;border:0;border-radius:8px;background:#243238;color:#fff;font:inherit;font-weight:700}.dp-error{color:#9b2c20;font-weight:650}.dp-result{background:#fff}.dp-result:empty{display:none}.dp-section{padding:12px 0;border-bottom:1px solid #ddd9d0}
+@media(prefers-color-scheme:dark){.dp-panel{background:#202a2d;border-color:#465357;color:#edf1ed}.dp-field input,.dp-field select{background:#172124;color:#edf1ed;border-color:#68777b}.dp-help,.dp-note{color:#c1cbc7}.dp-result{background:#172124;border-color:#465357;color:#edf1ed}.dp-section{border-color:#465357}}
+@media(max-width:600px){.dp-grid{grid-template-columns:1fr}.dp-panel{padding:13px}}
+</style></head><body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article dp-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Drywall and Plaster Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p><h1>Drywall and Plaster Quantity Calculator</h1>
+<p class="lead">Measure the wall or ceiling surfaces you plan to cover. Add the actual board dimensions or the named plaster product's published coverage only if you have them. No standard panel size, product coverage or extra allowance is assumed.</p>
+<section class="dp-panel">
+<h2>Measure your surfaces</h2>
+<form id="dp-form" novalidate>
+<div class="dp-grid">
+<div class="dp-field"><label for="dp-unit">Length and area unit</label><select id="dp-unit"><option value="" selected>Choose a unit</option><option value="m">Metres / square metres</option><option value="ft">Feet / square feet</option></select></div>
+<div class="dp-field"><label for="dp-openings">Openings to subtract from the wall sections (optional)</label><input id="dp-openings" type="number" min="0" step="any" placeholder="Total door and window area"></div>
+</div>
+<p class="dp-help">Enter each wall as its own rectangle. Leave openings blank only if there is no area to deduct from the manually entered wall sections. Shared-room openings are already deducted when you use the shared-room handoff.</p>
+<div id="dp-sections"><div class="dp-grid dp-section"><div class="dp-field"><label for="dp-length-1">Wall section 1 length</label><input id="dp-length-1" class="dp-length" type="number" min="0" step="any" placeholder="Measured wall length"></div><div class="dp-field"><label for="dp-height-1">Wall section 1 height</label><input id="dp-height-1" class="dp-height" type="number" min="0" step="any" placeholder="Measured wall height"></div></div></div>
+<p><button type="button" class="dp-button" id="dp-add-section">Add another wall section</button></p>
+<div class="dp-field"><label for="dp-ceiling">Optional ceiling area (same area unit)</label><input id="dp-ceiling" type="number" min="0" step="any" placeholder="Enter measured ceiling area"></div>
+<p id="dp-room-note" class="dp-note" role="status"></p>
+<h3>Optional drywall board estimate</h3>
+<p class="dp-help">Enter the actual face width and length printed for your selected board. This is an area estimate only, not a cut or sheet-layout plan.</p>
+<div class="dp-grid">
+<div class="dp-field"><label for="dp-board-width">Board face width (chosen length unit)</label><input id="dp-board-width" type="number" min="0" step="any" placeholder="From the board specification"></div>
+<div class="dp-field"><label for="dp-board-height">Board face length (chosen length unit)</label><input id="dp-board-height" type="number" min="0" step="any" placeholder="From the board specification"></div>
+</div>
+<h3>Optional plaster product estimate</h3>
+<p class="dp-help">Use the exact named product's published coverage per bag at its stated reference thickness. Enter the application thickness you plan to use; the tool does not assess suitability or recommend a thickness.</p>
+<div class="dp-grid">
+<div class="dp-field"><label for="dp-plaster-name">Named plaster product</label><input id="dp-plaster-name" type="text" placeholder="Product name from the label"></div>
+<div class="dp-field"><label for="dp-plaster-coverage">Published coverage per bag</label><input id="dp-plaster-coverage" type="number" min="0" step="any" placeholder="Coverage from product data"></div>
+<div class="dp-field"><label for="dp-plaster-coverage-unit">Coverage area unit</label><select id="dp-plaster-coverage-unit"><option value="" selected>Choose area unit</option><option value="m2">Square metres (m²)</option><option value="ft2">Square feet (ft²)</option></select></div>
+<div class="dp-field"><label for="dp-plaster-reference">Reference thickness</label><input id="dp-plaster-reference" type="number" min="0" step="any" placeholder="Thickness stated with coverage"></div>
+<div class="dp-field"><label for="dp-plaster-application">Your entered application thickness</label><input id="dp-plaster-application" type="number" min="0" step="any" placeholder="Your measured or specified thickness"></div>
+<div class="dp-field"><label for="dp-plaster-thickness-unit">Both thickness values use</label><select id="dp-plaster-thickness-unit"><option value="" selected>Choose thickness unit</option><option value="mm">Millimetres (mm)</option><option value="in">Inches (in)</option></select></div>
+</div>
+<p class="dp-help">A bag estimate appears only when all product and thickness details are entered. The entered product coverage is not independently verified.</p>
+<p id="dp-error" class="dp-error" role="alert"></p><p><button class="dp-button" type="submit">Calculate surface quantity</button></p>
+</form><div id="dp-result" class="dp-result" aria-live="polite"></div>
+</section>
+<section class="dp-panel">
+<h2>Formula and limits</h2>
+<p><strong>Net surface area = measured wall rectangles − openings entered + shared-room wall area + ceiling area entered.</strong> Each manually measured wall section is length × height. Shared-room dimensions are converted to area and openings are deducted once.</p>
+<p>Drywall boards = net area ÷ actual board face area, rounded up to whole boards. Plaster bags = net area × entered application thickness ÷ (published coverage per bag × its reference thickness), rounded up. The plaster calculation assumes the product's stated coverage scales proportionally with thickness; it is only a quantity estimate from the values entered.</p>
+<p>This is not a sheet-layout plan or installation guide. It does not determine board orientation, framing, joints, cut reuse, plaster suitability, substrate condition, moisture performance, fire or sound ratings, structural performance or code compliance. No waste, labour, prices or product recommendations are included.</p>
+</section>
+</main>
+<footer><a href="./">HomeProjectWise</a> · <a href="tools.html">All tools</a></footer>
+<script src="drywall-plaster-calculator.js"></script>
+</body></html>
