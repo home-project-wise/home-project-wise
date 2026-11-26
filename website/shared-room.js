@@ -98,7 +98,8 @@
         var sensorTab = win && typeof win.open === "function" ? win.open("motion-sensor-coverage-calculator.html", "_blank") : null;
         note.textContent = sensorTab ? "Room floor area sent to the Motion Sensor Coverage Calculator in a new tab. The area remains editable; enter the manufacturer coverage area separately." : "Allow the new tab, or open the Motion Sensor Coverage Calculator directly and enter the area. Enter the manufacturer coverage area separately.";
         return;
-      }\n      if (target === "bulb-brightness") {
+      }
+      if (target === "bulb-brightness") {
         var opened = win && typeof win.open === "function" ? win.open("bulb-brightness-check.html", "_blank") : null;
         note.textContent = opened ? "Room area sent to the Bulb Brightness Check in a new tab." : "Allow the new tab, or open the Bulb Brightness Check directly and enter the room area."; return;
       }
