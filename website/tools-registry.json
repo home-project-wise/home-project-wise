@@ -392,6 +392,21 @@
       "params": [],
       "linkPrefill": [],
       "articles": []
+    },
+    {
+      "id": "insulation-quantity-calculator",
+      "title": "Insulation Quantity Calculator",
+      "url": "insulation-quantity-calculator.html",
+      "topics": [
+        "insulation",
+        "insulation area",
+        "pack coverage",
+        "pack count",
+        "material quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     }
   ]
 }
