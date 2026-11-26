@@ -40,7 +40,7 @@ with sync_playwright() as p:
         page.click("button[type=submit]")
         result = page.locator("#fence-result").inner_text()
         check("gate splits run and retains two gate-edge posts at %dpx" % width,
-              "Net fenced length after gate openings: 9 m" in result and
+              "10 m total measured runs" in result and "1 m gate-post distances = 9 m" in result and
               "Total spans: 5" in result and "Post count: 7" in result, result)
         page.fill("#fence-panel-width","2.5")
         page.fill("#fence-pieces-per-span","2")
@@ -66,6 +66,13 @@ with sync_playwright() as p:
         check("no horizontal overflow at %dpx" % width,
               page.evaluate("document.documentElement.scrollWidth <= window.innerWidth"))
         check("no browser console or page errors at %dpx" % width, not errors, errors)
+        page.reload(wait_until="domcontentloaded")
+        page.select_option("#fence-unit","ft")
+        page.fill("#fence-spacing","10"); page.fill("#fq-run-length-1","30")
+        page.click("button[type=submit]")
+        imperial = page.locator("#fence-result").inner_text()
+        check("imperial straight run gives three spans and four posts at %dpx" % width,
+              "Net fenced length: 30 ft" in imperial and "Total spans: 3" in imperial and "Post count: 4" in imperial, imperial)
         context.close()
     browser.close()
 server.shutdown()
