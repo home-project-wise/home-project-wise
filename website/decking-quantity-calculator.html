@@ -17,7 +17,7 @@
 <div class="fq-field"><label for="deck-board-width">Actual board face width</label><input id="deck-board-width" type="number" min="0" step="any" placeholder="Enter actual width in the chosen unit"></div>
 <div class="fq-field"><label for="deck-board-gap">Gap between boards</label><input id="deck-board-gap" type="number" min="0" step="any" placeholder="Enter gap in the chosen unit; use 0 if none"></div>
 <div class="fq-field"><label for="deck-stock-length">Stock board length</label><input id="deck-stock-length" type="number" min="0" step="any" placeholder="Enter the length shown for your board"></div>
-<p class="fq-help">Use the actual face width, not the nominal lumber size. Enter board gap in the same unit as the other measurements. If there is no gap, enter 0; the calculator will not choose one.</p>
+<p class="fq-help">Use the actual face width, not the nominal lumber size. Enter board gap in the same unit as the other measurements. If there is no gap, enter 0; the calculator will not choose one. Edge clearance is applied only across the board rows. No clearance is subtracted from the board-run length; if you need end clearance, subtract it from the measured run length before entering it.</p>
 <h2>Measured deck sections</h2>
 <div id="deck-sections">
 <section class="fq-panel dk-section" data-section="1">
@@ -25,7 +25,7 @@
 <div class="fq-field"><label for="deck-length-1">Measured length</label><input id="deck-length-1" class="dk-length" type="number" min="0" step="any" placeholder="Enter the measured length"></div>
 <div class="fq-field"><label for="deck-width-1">Measured width</label><input id="deck-width-1" class="dk-width" type="number" min="0" step="any" placeholder="Enter the measured width"></div>
 <div class="fq-field"><label for="deck-orientation-1">Board direction</label><select id="deck-orientation-1" class="dk-orientation"><option value="" selected>Choose direction</option><option value="along-length">Boards run along this section length</option><option value="along-width">Boards run along this section width</option></select></div>
-<div class="fq-field"><label for="deck-edge-1">Edge clearance at each side</label><input id="deck-edge-1" class="dk-edge" type="number" min="0" step="any" placeholder="Enter clearance; use 0 if flush"></div>
+<div class="fq-field"><label for="deck-edge-1">Clearance at each of the two sides across the board rows</label><input id="deck-edge-1" class="dk-edge" type="number" min="0" step="any" placeholder="Enter clearance; use 0 if flush"></div>
 </section>
 </div>
 <p><button type="button" class="fq-small-button" id="deck-add-section">Add another rectangular section</button></p>
@@ -34,11 +34,11 @@
 <p id="deck-error" class="fq-help" role="alert"></p>
 <p><button class="fq-button" type="submit">Calculate deck-board quantities</button></p>
 </form>
-<div id="deck-result" class="fq-panel" aria-live="polite" hidden></div>
+<div id="deck-result" aria-live="polite" aria-atomic="true"></div>
 </section>
 <section class="fq-panel">
 <h2>How the count works</h2>
-<p>For each rectangular section, the selected board direction determines the run length and the width across which rows are counted. The usable width is the measured width minus twice the edge clearance. Rows are rounded up using the actual board face width plus the gap between boards. Stock boards per row are rounded up from the run length divided by the entered stock length. A row may need a final board cut to length, and the last row across the width may need to be ripped to fit; cut layout and joint positions are not calculated.</p>
+<p>For each rectangular section, the selected board direction determines the run length and the width across which rows are counted. The usable width across the board rows is the measured width minus twice the entered side clearance. No clearance is subtracted from the board-run length; subtract any required end clearance from the measured run length before entering it. Rows are rounded up using the actual board face width plus the gap between boards. Stock boards per row are rounded up from the run length divided by the entered stock length. A row may need a final board cut to length, and the last row across the width may need to be ripped to fit; cut layout and joint positions are not calculated.</p>
 <p>Each section is calculated separately. Offcuts are not reused between rows or sections, so the stock-board count is a planning estimate rather than a cut-optimised layout. The optional extra allowance is only applied when you enter it.</p>
 <p>This tool does not calculate joists, joist spacing, beams, posts, ledgers, stairs, railings, fasteners, foundations, loads, spans, structural suitability, permits or code compliance. It does not recommend board products, materials or installation methods. Follow the selected product's instructions and use a qualified professional for structural design.</p>
 </section>
