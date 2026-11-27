@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roof Covering Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate roof-covering packs from measured roof-plane areas and the product coverage you enter. Add accessories using your own quantities and pack sizes.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/roof-covering-quantity-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roof Covering Quantity Calculator | HomeProjectWise">
+<meta property="og:description" content="Calculate roof-covering packs and accessory packs from your measured areas, stated product coverage and entered quantities.">
+<meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/roof-covering-quantity-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Roof Covering Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p>
+<h1>Roof Covering Quantity Calculator</h1>
+<p class="lead">Estimate covering packs from the measured area of each roof plane and the coverage printed for your product. Enter accessory quantities separately. No roof pitch, waste factor, product coverage or price is assumed.</p>
+<section class="fq-panel">
+<h2>Your roof covering details</h2>
+<form id="roof-form" novalidate>
+<div class="fq-field"><label for="roof-unit">Area unit for all roof planes and covering coverage</label><select id="roof-unit"><option value="" selected>Choose square metres or square feet</option><option value="m²">Square metres (m²)</option><option value="ft²">Square feet (ft²)</option></select></div>
+<div class="fq-field"><label for="roof-coverage">Product coverage per pack (<span data-area-unit>area unit</span>)</label><input id="roof-coverage" type="number" min="0" step="any" placeholder="Enter the coverage stated by the supplier"></div>
+<p class="fq-help">Use the product's stated coverage for the exact roof-covering product you plan to buy. Convert units first if the label uses a different area unit.</p>
+<h2>Measured roof planes</h2>
+<p class="fq-help">Enter the actual surface area of each sloping roof plane, not the horizontal footprint. Add separate planes where the roof has different sections. Do not estimate slope or pitch here.</p>
+<div id="roof-planes">
+<section class="fq-panel rc-plane" data-plane="1">
+<h3>Roof plane 1</h3>
+<div class="fq-field"><label for="roof-area-1">Measured roof-plane area (<span data-area-unit>area unit</span>)</label><input id="roof-area-1" class="rc-area" type="number" min="0" step="any" placeholder="Enter measured surface area"></div>
+</section>
+</div>
+<p><button type="button" class="fq-small-button" id="roof-add-plane">Add another roof plane</button></p>
+<h2>Optional accessories</h2>
+<p class="fq-help">Add only accessories you need to estimate. For each one, enter its total required quantity and how many units are in one pack. Put the unit in the item name (for example, “ridge caps — pieces” or “underlay — rolls”). These quantities are not calculated from roof area.</p>
+<div id="roof-accessories"></div>
+<p><button type="button" class="fq-small-button" id="roof-add-accessory">Add an accessory</button></p>
+<p id="roof-error" class="fq-help" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate roof quantities</button></p>
+</form>
+<div id="roof-result" class="fq-result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<section class="fq-panel">
+<h2>How the estimate works</h2>
+<p>The calculator adds the measured surface areas you enter for each roof plane. Covering packs = total measured roof area ÷ the product coverage per pack you enter, rounded up to a whole pack. Each optional accessory is calculated independently: packs = your entered required quantity ÷ your entered units per pack, rounded up.</p>
+<p>All roof-plane areas and the covering coverage must use the same selected area unit. Accessory quantities use the unit stated in each accessory name and must match the quantity-per-pack unit.</p>
+<h2>What to measure</h2>
+<h3>Roof-plane surface area</h3><p>Use a measured surface area for every roof plane. This calculator does not derive sloping area from building footprint, roof pitch, rise/run or plan dimensions. If you do not have the actual roof-plane areas, obtain a suitable measurement before relying on the estimate.</p>
+<h3>Product coverage</h3><p>Enter the coverage for one sellable pack exactly as stated for your selected product. Coverage can vary by product type, profile, exposure, installation method and manufacturer; this tool does not substitute a typical value.</p>
+<h3>Accessories</h3><p>Accessory quantities are manual takeoff inputs. The calculator only converts the quantity you enter into packs using the pack size you enter; it does not calculate ridge, hip, valley, verge, flashing, underlay, battens, fixings or ventilation requirements.</p>
+<h2>Limits of this calculator</h2>
+<p>This is a material-quantity estimate only, not a roof design, inspection or code check. It does not infer roof pitch, drainage, wind or snow loads, fire performance, ventilation, waterproofing details, batten spacing, fixing schedules, overlaps, laps, starter/edge details, waste, breakage, offcut reuse, prices or product suitability. It does not determine whether the roof structure can support a covering. Follow the product instructions and applicable local requirements, and have roof measurements and design checked by a qualified professional where appropriate.</p>
+<h2>Common questions</h2>
+<h3>Does the calculator add a waste percentage?</h3><p>No. It rounds the covering and accessory pack counts up to whole packs, but adds no waste, overlap or breakage allowance.</p>
+<h3>Can I use the building's floor area?</h3><p>Not as a substitute for roof-plane surface area. Roof planes are usually sloped and may include overhangs or multiple sections. Enter measured surface areas.</p>
+<h3>Does it calculate ridge caps or underlay?</h3><p>No. Add each accessory with the total quantity you have measured and the number of units in one pack. The calculator only converts those inputs into pack counts.</p>
+</section>
+<p class="hub-link"><a href="tools.html">Browse all HomeProjectWise calculators →</a></p>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="roof-covering-quantity-calculator.js"></script>
+<script>if (window.RoofCoveringQuantity) window.RoofCoveringQuantity.init(document);</script>
+</body>
+</html>
