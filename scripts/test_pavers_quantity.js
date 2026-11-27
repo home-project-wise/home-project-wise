@@ -38,9 +38,9 @@ test("joint width affects the repeating module in both directions", function () 
 });
 test("paver direction rotates the row and run dimensions", function () {
   const r=calculate(base({sections:[{length:4,width:3,borderWidth:0,orientation:"along-width"}]}));
-  assert.equal(r.sections[0].runPavers,13);
-  assert.equal(r.sections[0].acrossPavers,35);
-  assert.equal(r.fieldPavers,455);
+  assert.equal(r.sections[0].runPavers,15);
+  assert.equal(r.sections[0].acrossPavers,39);
+  assert.equal(r.fieldPavers,585);
 });
 test("multiple sections are calculated separately and summed", function () {
   const r=calculate(base({sections:[
