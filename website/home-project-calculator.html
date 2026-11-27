@@ -65,6 +65,9 @@ main.article>p.lead{font-size:17px;line-height:1.55;max-width:720px;margin:0 0 4
 /* Designer pass, issue #415 follow-up (2026-11-26): Insulation and Room Lighting also open a new tab, so they get the arrow too; with eight actions, phones from 381 to 600 px show two per row (one per row below that) */
 #room-form>.wp-btn[data-target="insulation-quantity"]::after,#room-form>.wp-btn[data-target="room-lighting-planner"]::after{content:"\2197";content:"\2197" / "";flex:none;opacity:.75}
 @media(min-width:381px) and (max-width:600px){#room-form{grid-template-columns:repeat(2,minmax(0,1fr))}#room-form>.wp-btn{padding:10px 8px;font-size:14px}}
+/* Designer pass, issue #415 (2026-11-26): ninth action. Motion Sensor Coverage also opens a new tab, so it gets the arrow; when the phone row has an odd number of actions the last one spans both columns */
+#room-form>.wp-btn[data-target="motion-sensor-coverage"]::after{content:"\2197";content:"\2197" / "";flex:none;opacity:.75}
+@media(min-width:381px) and (max-width:600px){#room-form>.wp-btn:last-of-type:nth-of-type(odd){grid-column:1/-1}}
 </style><div id="region-root"></div>
 
 <div id="room-root"></div>
