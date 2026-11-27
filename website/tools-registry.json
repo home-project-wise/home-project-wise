@@ -473,6 +473,15 @@
       "articles": [
         "what-can-you-plug-into-a-smart-plug"
       ]
+    },
+    {
+      "id": "roof-covering-quantity",
+      "title": "Roof Covering Quantity Calculator",
+      "url": "roof-covering-quantity-calculator.html",
+      "topics": ["roofing", "roof covering", "roof tiles", "shingles", "metal roofing", "roof area", "coverage", "packs", "accessories", "quantity"],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     }
   ]
 }
