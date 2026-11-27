@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -122,6 +122,16 @@
       "prefill": {},
       "reason": "The existing Wallpaper panel is the matching destination. It must not imply exact roll counts unless product dimensions, pattern repeat and cut-yield inputs are supplied.",
       "linkStatus": "already_linked"
+    },
+    {
+      "slug": "how-to-find-a-wall-stud-without-a-stud-finder",
+      "path": "website/articles/how-to-find-a-wall-stud-without-a-stud-finder.html",
+      "class": "C",
+      "decisionSentence": "Find one stud from an outlet, a magnet or the trim, then measure along the wall and confirm each stud with a test nail.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "Finding a stud is a physical search and measuring procedure. The only figures are the typical stud spacings quoted from This Old House and DIY Doctor, and no existing calculator uses them."
     },
     {
       "slug": "how-to-find-and-operate-your-main-water-shutoff",
@@ -545,11 +555,11 @@
     }
   ],
   "summary": {
-    "articleCount": 51,
+    "articleCount": 52,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 38
+      "C": 39
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -564,7 +574,8 @@
       "Updated 2026-11-25 after owner Search Console refresh and Claude's decision: macerating-toilet-basement-bathroom is class C for now; do not build a macerator run-check until the Requests/Queries report shows lift/run calculation intent AND the manufacturer clarifies or supplies a citable model-specific combined performance chart. The SaniAccess 3 table discrepancy is an editorial trust issue for the publishing lane.",
       "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage.",
       "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified).",
-      "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic)."
+      "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic).",
+      "Updated 2026-11-27: how-to-find-a-wall-stud-without-a-stud-finder added as class C (a physical search procedure; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",

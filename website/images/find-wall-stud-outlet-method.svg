@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Wall diagram: an outlet box nailed to the side of a stud, with measuring marks to the next studs at regular spacing" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="960" height="540" fill="#F7F5F0"/><text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">One stud found, the rest follow</text>
+<rect x="60" y="80" width="840" height="400" rx="6" fill="#fff" stroke="#243238" stroke-width="3"/>
+<rect x="200" y="80" width="44" height="400" fill="#E4D9C3" stroke="#B9A98A" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="470" y="80" width="44" height="400" fill="#E4D9C3" stroke="#B9A98A" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="740" y="80" width="44" height="400" fill="#E4D9C3" stroke="#B9A98A" stroke-width="2" stroke-dasharray="8 6"/>
+<rect x="250" y="250" width="60" height="90" rx="6" fill="#E4ECE8" stroke="#243238" stroke-width="4"/>
+<circle cx="280" cy="280" r="7" fill="#243238"/><circle cx="280" cy="310" r="7" fill="#243238"/>
+<text x="280" y="372" font-size="20" font-weight="700" fill="#243238" text-anchor="middle">Outlet box</text>
+<text x="222" y="108" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">Stud</text>
+<text x="492" y="108" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">Next stud</text>
+<text x="762" y="108" font-size="19" font-weight="700" fill="#6F8F82" text-anchor="middle">Next stud</text>
+<line x1="222" y1="440" x2="470" y2="440" stroke="#B5482F" stroke-width="4"/><polygon points="492,440 472,431 472,449" fill="#B5482F"/><polygon points="222,440 242,431 242,449" fill="#B5482F"/>
+<line x1="492" y1="440" x2="740" y2="440" stroke="#B5482F" stroke-width="4"/><polygon points="762,440 742,431 742,449" fill="#B5482F"/><polygon points="492,440 512,431 512,449" fill="#B5482F"/>
+<text x="357" y="428" font-size="18" font-weight="700" fill="#B5482F" text-anchor="middle">16 in (US)</text>
+<text x="627" y="428" font-size="18" font-weight="700" fill="#B5482F" text-anchor="middle">400 or 600 mm (UK)</text>
+</svg>
