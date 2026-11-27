@@ -3,7 +3,7 @@ const assert=require("node:assert/strict");
 const {calculate}=require("../website/baseboard-skirting-trim-calculator.js");
 let passed=0;function test(name,fn){fn();passed++;console.log("PASS "+name);}
 function base(overrides){return Object.assign({unit:"m",stockLength:2.4,cuttingAllowance:0.2,rooms:[{length:4,width:3,openingWidth:0.9}]},overrides||{});}
-test("one room perimeter minus doorway plus entered allowance",()=>{const r=calculate(base());assert.equal(r.perimeter,14);assert.equal(r.netTrimLength,13.1);assert.equal(r.requiredLength,13.3);assert.equal(r.stockPieces,6);});
+test("one room perimeter minus doorway plus entered allowance",()=>{const r=calculate(base());assert.equal(r.perimeter,14);assert.equal(r.netTrimLength,13.1);assert.ok(Math.abs(r.requiredLength-13.3)<1e-12);assert.equal(r.stockPieces,6);});
 test("multiple rooms add their perimeters and openings",()=>{const r=calculate(base({rooms:[{length:4,width:3,openingWidth:0.9},{length:5,width:2,openingWidth:0}]}));assert.equal(r.perimeter,28);assert.equal(r.openingWidth,0.9);assert.equal(r.netTrimLength,27.1);assert.equal(r.stockPieces,12);});
 test("explicit zero allowance adds nothing",()=>{const r=calculate(base({cuttingAllowance:0}));assert.equal(r.requiredLength,13.1);assert.equal(r.stockPieces,6);});
 test("exact stock-length boundary does not add a piece",()=>{const r=calculate(base({stockLength:2,cuttingAllowance:0,rooms:[{length:1,width:1,openingWidth:0}]}));assert.equal(r.requiredLength,3);assert.equal(r.stockPieces,2);});
