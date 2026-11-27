@@ -5,7 +5,7 @@
   if (root) root.PaversQuantity = api;
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
-  var EPS = 1e-10;
+  var EPS = Number.EPSILON * 4;
   function blank(v) { return v === "" || v === null || v === undefined; }
   function positive(v, label) {
     if (blank(v) || !Number.isFinite(Number(v)) || Number(v) <= 0) {
