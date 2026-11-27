@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baseboard &amp; Skirting Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate baseboard, skirting and trim lengths from measured room dimensions, openings, stock lengths and your own cutting allowance.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/baseboard-skirting-trim-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Baseboard &amp; Skirting Quantity Calculator | HomeProjectWise">
+<meta property="og:description" content="Calculate trim length and stock-piece equivalents from your own room measurements and explicit allowances.">
+<meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/baseboard-skirting-trim-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Baseboard &amp; Skirting Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p>
+<h1>Baseboard &amp; Skirting Quantity Calculator</h1>
+<p class="lead">Estimate the trim length for one or more rectangular rooms, subtracting the openings where trim will not be installed. Enter the stock length and any extra cutting allowance yourself; nothing is assumed.</p>
+<section class="fq-panel">
+<h2>Your trim details</h2>
+<form id="trim-form" novalidate>
+<div class="fq-field"><label for="trim-unit">Unit for every measurement</label><select id="trim-unit"><option value="" selected>Choose metres or feet</option><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="fq-grid">
+<div class="fq-field"><label for="trim-stock">Length of each stock piece</label><input id="trim-stock" type="number" min="0" step="any" placeholder="Enter the actual stock length"></div>
+<div class="fq-field"><label for="trim-allowance">Extra cutting allowance (total length)</label><input id="trim-allowance" type="number" min="0" step="any" placeholder="Enter 0 if you do not want an allowance"></div>
+</div>
+<p class="fq-help">Use the sellable length stated by your supplier. The cutting allowance is one total extra length for the whole project, not a percentage. Enter 0 explicitly if you do not want to add any.</p>
+<h2>Measure each room</h2>
+<div id="trim-rooms">
+<section class="fq-panel tr-room" data-room="1">
+<h3>Room 1</h3>
+<div class="fq-grid">
+<div class="fq-field"><label for="trim-length-1">Room length</label><input id="trim-length-1" class="tr-length" type="number" min="0" step="any" placeholder="Enter room length"></div>
+<div class="fq-field"><label for="trim-width-1">Room width</label><input id="trim-width-1" class="tr-width" type="number" min="0" step="any" placeholder="Enter room width"></div>
+<div class="fq-field"><label for="trim-openings-1">Total width with no trim</label><input id="trim-openings-1" class="tr-openings" type="number" min="0" step="any" placeholder="Enter 0 if none"></div>
+</div>
+<p class="fq-help">Enter the combined width of doorways or other gaps along the perimeter where this trim will not be fitted. Do not subtract openings where trim will continue.</p>
+</section>
+</div>
+<p><button type="button" class="fq-small-button" id="trim-add-room">Add another room</button></p>
+<p id="trim-error" class="fq-help" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate trim quantity</button></p>
+</form>
+<div id="trim-result" class="fq-result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<section class="fq-panel">
+<h2>How the estimate works</h2>
+<p>For each rectangular room, the perimeter is 2 × (length + width). The entered total width of openings without trim is subtracted from that perimeter. Net room lengths are added, then your entered total cutting allowance is added. The stock-piece equivalent is the total required length divided by the entered stock length, rounded up to a whole piece.</p>
+<p>Rooms are measured separately for their perimeter, then their net lengths are combined. The stock count is a length-based estimate, not an optimized cut list. It does not assume that offcuts can be reused or prove that every individual wall segment can be cut from the stated stock pieces.</p>
+<h2>What to measure</h2>
+<h3>Room length and width</h3><p>Measure the perimeter of each rectangular room where the same trim will be installed. For non-rectangular rooms, split the boundary into measured straight runs and use a suitable takeoff method rather than treating the room as one rectangle.</p>
+<h3>Openings without trim</h3><p>Add the widths of doorways and other perimeter gaps where the selected trim stops. If trim runs across an opening or continues around it, do not subtract that width.</p>
+<h3>Stock length and cutting allowance</h3><p>Use the actual stock length available from your supplier. Choose any extra cutting allowance based on your own project; enter zero if you do not want one. The calculator never inserts a waste percentage.</p>
+<h2>Limits of this calculator</h2>
+<p>This tool estimates linear quantity only. It does not calculate corner blocks, mitre angles, joint placement, coping, returns, profile-specific lengths, fastening, adhesive, price, availability or installation suitability. It does not create a board-by-board cut plan or reuse offcuts. Check the actual room shape, product instructions and supplier stock lengths before ordering.</p>
+<h2>Common questions</h2>
+<h3>Does it include extra material for mistakes?</h3><p>Only if you enter a cutting allowance. There is no hidden waste or breakage percentage.</p>
+<h3>Can I calculate several rooms?</h3><p>Yes. Add each rectangular room separately. Their net trim lengths are combined for the stock-length equivalent.</p>
+<h3>Is the stock-piece count a guaranteed cutting plan?</h3><p>No. It divides total required length by stock length. Individual wall segments, corner cuts and offcut reuse can change the number of pieces actually needed.</p>
+</section>
+<p class="hub-link"><a href="tools.html">Browse all HomeProjectWise calculators →</a></p>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="baseboard-skirting-trim-calculator.js"></script>
+<script>if (window.BaseboardTrim) window.BaseboardTrim.init(document);</script>
+</body>
+</html>
