@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Diagram showing that the rating applies to the whole strip: three devices share one total limit" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="960" height="540" fill="#F7F5F0"/><text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">One strip, one total limit</text>
+<rect x="80" y="160" width="190" height="90" rx="12" fill="#fff" stroke="#243238" stroke-width="3"/><text x="175" y="214" font-size="22" font-weight="700" fill="#243238" text-anchor="middle">Device A</text>
+<rect x="385" y="160" width="190" height="90" rx="12" fill="#fff" stroke="#243238" stroke-width="3"/><text x="480" y="214" font-size="22" font-weight="700" fill="#243238" text-anchor="middle">Device B</text>
+<rect x="690" y="160" width="190" height="90" rx="12" fill="#fff" stroke="#243238" stroke-width="3"/><text x="785" y="214" font-size="22" font-weight="700" fill="#243238" text-anchor="middle">Device C</text>
+<line x1="175" y1="252" x2="175" y2="318" stroke="#243238" stroke-width="4"/><line x1="480" y1="252" x2="480" y2="318" stroke="#243238" stroke-width="4"/><line x1="785" y1="252" x2="785" y2="318" stroke="#243238" stroke-width="4"/>
+<rect x="80" y="320" width="800" height="70" rx="14" fill="#E4ECE8" stroke="#243238" stroke-width="4"/>
+<text x="480" y="364" font-size="24" font-weight="700" fill="#243238" text-anchor="middle">Smart power strip</text>
+<line x1="480" y1="392" x2="480" y2="440" stroke="#243238" stroke-width="4"/>
+<text x="480" y="470" font-size="22" font-weight="700" fill="#B5482F" text-anchor="middle">A + B + C must stay under the strip's total rating</text>
+<text x="480" y="500" font-size="17" font-weight="500" fill="#5b6b70" text-anchor="middle">Example: Kasa HS300 is rated 15 A and 1875 W in total</text>
+</svg>
