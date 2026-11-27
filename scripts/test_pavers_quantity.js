@@ -12,8 +12,8 @@ function base(overrides) {
 test("metric patio separates field grid and area-based border equivalents", function () {
   const r=calculate(base());
   assert.equal(r.totalArea,12);
-  assert.equal(r.fieldArea,9.36);
-  assert.equal(r.borderArea,2.64);
+  assert.ok(Math.abs(r.fieldArea-9.36)<1e-9);
+  assert.ok(Math.abs(r.borderArea-2.64)<1e-9);
   assert.equal(r.sections[0].runPavers,18);
   assert.equal(r.sections[0].acrossPavers,25);
   assert.equal(r.fieldPavers,450);
