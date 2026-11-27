@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paver &amp; Patio Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate patio paver quantities from measured rectangular sections, paver dimensions, joint width and an entered border width.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/pavers-quantity-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Paver &amp; Patio Quantity Calculator | HomeProjectWise">
+<meta property="og:description" content="Count patio pavers from your own measurements and product dimensions, with no hidden waste or assumed joint size.">
+<meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/pavers-quantity-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Paver &amp; Patio Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p>
+<h1>Paver &amp; Patio Quantity Calculator</h1>
+<p class="lead">Enter the measured patio sections and the dimensions of the pavers you plan to use. The estimate separates the inner field from the border and never adds an unrequested waste allowance.</p>
+<section class="fq-panel">
+<h2>Your paver details</h2>
+<form id="pavers-form" novalidate>
+<div class="fq-field"><label for="pavers-unit">Unit for every measurement</label><select id="pavers-unit"><option value="" selected>Choose metres or feet</option><option value="m">Metres</option><option value="ft">Feet</option></select></div>
+<div class="fq-grid">
+<div class="fq-field"><label for="pavers-length">Paver face length</label><input id="pavers-length" type="number" min="0" step="any" placeholder="Enter the actual length"></div>
+<div class="fq-field"><label for="pavers-paver-width">Paver face width</label><input id="pavers-paver-width" type="number" min="0" step="any" placeholder="Enter the actual width"></div>
+<div class="fq-field"><label for="pavers-joint">Joint width between pavers</label><input id="pavers-joint" type="number" min="0" step="any" placeholder="Enter the joint width; use 0 if none"></div>
+</div>
+<p class="fq-help">Use the actual face dimensions and intended joint width from your chosen layout or product instructions. No joint size is assumed. Keep all measurements in the selected unit.</p>
+<h2>Measured patio sections</h2>
+<div id="pavers-sections">
+<section class="fq-panel pv-section" data-section="1">
+<h3>Patio section 1</h3>
+<div class="fq-grid">
+<div class="fq-field"><label for="pavers-length-1">Measured length</label><input id="pavers-length-1" class="pv-length" type="number" min="0" step="any" placeholder="Enter length"></div>
+<div class="fq-field"><label for="pavers-width-1">Measured width</label><input id="pavers-width-1" class="pv-width" type="number" min="0" step="any" placeholder="Enter width"></div>
+<div class="fq-field"><label for="pavers-border-1">Border width on each side</label><input id="pavers-border-1" class="pv-border" type="number" min="0" step="any" placeholder="Enter width; use 0 for no border"></div>
+<div class="fq-field"><label for="pavers-direction-1">Paver direction</label><select id="pavers-direction-1" class="pv-direction"><option value="" selected>Choose direction</option><option value="along-length">Paver length runs along section length</option><option value="along-width">Paver length runs along section width</option></select></div>
+</div>
+</section>
+</div>
+<p><button type="button" class="fq-small-button" id="pavers-add-section">Add another rectangular section</button></p>
+<p id="pavers-error" class="fq-help" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate paver quantities</button></p>
+</form>
+<div id="pavers-result" class="fq-result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<section class="fq-panel">
+<h2>How the estimate works</h2>
+<p>The inner field is the measured length and width after subtracting twice the border width. Field rows and pavers per row are rounded up using the entered paver face dimensions plus the entered joint width. The border area is the total patio area minus the inner field area; its paver-equivalent count is calculated from that area and the repeating paver-plus-joint module area.</p>
+<p>Each rectangular section is calculated separately and the quantities are added. This is a quantity estimate, not a cutting or laying plan. Border pavers are full-paver equivalents based on area, not a verified count of individual pieces in a particular border pattern.</p>
+<h2>What to measure</h2>
+<h3>Patio length and width</h3><p>Measure each rectangular section separately. Split an L-shape or irregular patio into rectangles that do not overlap.</p>
+<h3>Paver face dimensions</h3><p>Enter the actual face length and width, not a nominal product description. Choose the direction in which the long side runs for each section.</p>
+<h3>Joint and border width</h3><p>Enter the intended joint width and the border width on each side. Enter 0 when there is no joint or no border; blanks are not treated as zero.</p>
+<h2>Limits of this calculator</h2>
+<p>The tool does not calculate base depth, excavation, bedding sand, sub-base, compaction, drainage, slope, retaining walls, load capacity, accessibility, permits or code compliance. It does not recommend a paving pattern or confirm that the ground preparation is suitable. Follow the product instructions and obtain professional advice for site or structural questions.</p>
+<h2>Common questions</h2>
+<h3>Does the result include extra pavers for breakage?</h3><p>No. There is no hidden waste or breakage percentage. The result is the calculated quantity only; decide any extra allowance separately using your project and supplier guidance.</p>
+<h3>Can I enter an L-shaped patio?</h3><p>Yes. Add separate rectangles that cover the measured area without overlapping. Each section is rounded separately, and offcuts are not reused between sections.</p>
+<h3>Does it design the border pattern?</h3><p>No. The border count is an area-based paver equivalent using the same paver size. A contrasting border product or cut layout needs its own measured product and layout plan.</p>
+</section>
+<p class="hub-link"><a href="tools.html">Browse all HomeProjectWise calculators →</a></p>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="pavers-quantity-calculator.js"></script>
+<script>if (window.PaversQuantity) window.PaversQuantity.init(document);</script>
+</body>
+</html>

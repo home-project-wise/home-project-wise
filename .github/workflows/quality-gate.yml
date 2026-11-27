@@ -43,4 +43,5 @@ jobs:
           node scripts/test_fence_quantity.js
           node scripts/test_decking_quantity.js
           node scripts/test_insulation_quantity.js
+          node scripts/test_pavers_quantity.js
           node scripts/test_tools_registry.js

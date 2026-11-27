@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
   "tools": [
     {
@@ -433,6 +433,24 @@
         "pack coverage",
         "pack count",
         "material quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "pavers-quantity-calculator",
+      "title": "Paver & Patio Quantity Calculator",
+      "url": "pavers-quantity-calculator.html",
+      "topics": [
+        "pavers",
+        "patio",
+        "paving",
+        "brick paving",
+        "paver dimensions",
+        "joint width",
+        "border",
+        "quantity"
       ],
       "params": [],
       "linkPrefill": [],
