@@ -459,6 +459,16 @@
       "toolWork": "T4b_existing_energy_panel_active_standby_extension_required"
     },
     {
+      "slug": "smart-plug-vs-smart-power-strip",
+      "path": "website/articles/smart-plug-vs-smart-power-strip.html",
+      "class": "C",
+      "decisionSentence": "Buy a smart plug to control one device, and a smart power strip when several devices sit together and need their own switching.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The guide is a buying comparison. Its only arithmetic is cost per switched outlet from invented example prices, and the Smart Plug Load Check tool already covers the watt check for a single plug, which the article links to rather than repeats."
+    },
+    {
       "slug": "smart-thermostat-without-c-wire",
       "path": "website/articles/smart-thermostat-without-c-wire.html",
       "class": "C",
@@ -555,11 +565,11 @@
     }
   ],
   "summary": {
-    "articleCount": 52,
+    "articleCount": 53,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 39
+      "C": 40
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -575,7 +585,8 @@
       "Updated 2026-11-25: where-to-put-water-leak-sensors is class C; keep the six-location count as a guide checklist. A standalone selector adds no distinct decision beyond the existing article and cannot reliably count multiple toilets/vanities or prove sensor coverage.",
       "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified).",
       "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic).",
-      "Updated 2026-11-27: how-to-find-a-wall-stud-without-a-stud-finder added as class C (a physical search procedure; no calculation is justified)."
+      "Updated 2026-11-27: how-to-find-a-wall-stud-without-a-stud-finder added as class C (a physical search procedure; no calculation is justified).",
+      "Updated 2026-11-27: smart-plug-vs-smart-power-strip added as class C (a buying comparison; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
