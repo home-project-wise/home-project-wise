@@ -103,7 +103,7 @@
         '<div class="fq-field"><label for="pavers-length-' + n + '">Measured length</label><input id="pavers-length-' + n + '" class="pv-length" type="number" min="0" step="any" placeholder="Enter length"></div>' +
         '<div class="fq-field"><label for="pavers-width-' + n + '">Measured width</label><input id="pavers-width-' + n + '" class="pv-width" type="number" min="0" step="any" placeholder="Enter width"></div>' +
         '<div class="fq-field"><label for="pavers-border-' + n + '">Border width on each side</label><input id="pavers-border-' + n + '" class="pv-border" type="number" min="0" step="any" placeholder="Enter width; use 0 for no border"></div>' +
-        '<div class="fq-field"><label for="pavers-direction-' + n + '">Paver direction</label><select id="pavers-direction-' + n + '" class="pv-direction"><option value="">Choose direction</option><option value="along-length">Long side runs along section length</option><option value="along-width">Long side runs along section width</option></select></div>' +
+        '<div class="fq-field"><label for="pavers-direction-' + n + '">Paver direction</label><select id="pavers-direction-' + n + '" class="pv-direction"><option value="">Choose direction</option><option value="along-length">Paver length runs along section length</option><option value="along-width">Paver length runs along section width</option></select></div>' +
         '</div></section>';
     }
     function clearOutput() { error.textContent = ""; result.textContent = ""; }
