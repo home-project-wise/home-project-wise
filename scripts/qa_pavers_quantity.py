@@ -31,7 +31,7 @@ with sync_playwright() as p:
         check("hand-computed metric patio gives 450 field + 123 border equivalents", "450" in result and "123" in result and "573 pavers" in result,result)
         page.fill("#pavers-border-1","0")
         page.click("#pavers-form button[type=submit]")
-        check("zero border leaves all measured area in the field","12 m²" in page.locator("#pavers-result").inner_text() and "0 m² border" in page.locator("#pavers-result").inner_text())
+        check("zero border leaves all measured area in the field","12 m²" in page.locator("#pavers-result").inner_text() and "border area: 0 m²" in page.locator("#pavers-result").inner_text())
         page.click("#pavers-add-section")
         page.fill("#pavers-length-2","2"); page.fill("#pavers-width-2","1"); page.fill("#pavers-border-2","0")
         page.select_option("#pavers-direction-2","along-width")
