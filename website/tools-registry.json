@@ -4,6 +4,24 @@
   "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
   "tools": [
     {
+      "id": "baseboard-skirting-trim",
+      "title": "Baseboard & Skirting Quantity Calculator",
+      "url": "baseboard-skirting-trim-calculator.html",
+      "topics": [
+        "baseboard",
+        "skirting",
+        "trim",
+        "moulding",
+        "molding",
+        "perimeter",
+        "linear length",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
       "id": "bathroom-fan-size",
       "title": "Bathroom Exhaust Fan Size Calculator",
       "url": "bathroom-fan-size-calculator.html",
@@ -19,6 +37,53 @@
         "choose-bathroom-exhaust-fan",
         "reduce-bathroom-condensation"
       ]
+    },
+    {
+      "id": "budget-planner",
+      "title": "Project Budget Planner",
+      "url": "budget-planner.html",
+      "topics": [
+        "budget",
+        "project cost",
+        "buying order"
+      ],
+      "params": [
+        {
+          "name": "s",
+          "meaning": "share state written by the page itself; it can hold the visitor's own prices"
+        }
+      ],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "bulb-brightness-check",
+      "title": "Bulb Brightness Check",
+      "url": "bulb-brightness-check.html",
+      "topics": [
+        "lighting",
+        "bulb brightness",
+        "lumens",
+        "room lighting"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "concrete-slab-volume",
+      "title": "Concrete Slab Volume Calculator",
+      "url": "concrete-slab-calculator.html",
+      "topics": [
+        "concrete",
+        "slab",
+        "pad",
+        "concrete volume",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     },
     {
       "id": "crawl-space-dehumidifier",
@@ -58,6 +123,253 @@
         "how-to-fix-damp-crawl-space-humidity",
         "what-size-dehumidifier-crawl-space"
       ]
+    },
+    {
+      "id": "decking-quantity-calculator",
+      "title": "Decking Quantity Calculator",
+      "url": "decking-quantity-calculator.html",
+      "topics": [
+        "decking",
+        "deck boards",
+        "board rows",
+        "stock board count",
+        "deck surface",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "drywall-plaster-quantity",
+      "title": "Drywall and Plaster Quantity Calculator",
+      "url": "drywall-plaster-calculator.html",
+      "topics": [
+        "drywall",
+        "plaster",
+        "wall area",
+        "ceiling area",
+        "board quantity",
+        "material quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "fence-quantity-calculator",
+      "title": "Fence Quantity Calculator",
+      "url": "fence-quantity-calculator.html",
+      "topics": [
+        "fence",
+        "fencing",
+        "fence posts",
+        "fence spans",
+        "gate openings",
+        "panels",
+        "rails",
+        "boards",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-checkup",
+      "title": "Home Check-up",
+      "url": "home-checkup.html",
+      "topics": [
+        "home priorities",
+        "storage",
+        "design",
+        "repairs",
+        "smart home",
+        "guided start"
+      ],
+      "params": [
+        {
+          "name": "a",
+          "meaning": "ten answers written as one string of 0, 1 or 2"
+        }
+      ],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator",
+      "title": "Home Project Calculator",
+      "url": "home-project-calculator.html",
+      "topics": [
+        "area",
+        "paint",
+        "flooring",
+        "tile",
+        "electricity",
+        "project cost",
+        "wallpaper"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-area-volume",
+      "title": "Home Project Calculator: Area & volume",
+      "url": "home-project-calculator.html#panel-measure",
+      "topics": [
+        "area",
+        "volume",
+        "room size"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-electricity",
+      "title": "Home Project Calculator: Electricity cost",
+      "url": "home-project-calculator.html#panel-energy",
+      "topics": [
+        "electricity",
+        "running cost",
+        "smart home"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": [
+        "plug-in-power-meter-vs-smart-plug-energy-monitoring",
+        "smart-lighting"
+      ]
+    },
+    {
+      "id": "home-project-calculator-flooring",
+      "title": "Home Project Calculator: Flooring & materials",
+      "url": "home-project-calculator.html#panel-material",
+      "topics": [
+        "flooring",
+        "tile",
+        "materials"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-paint",
+      "title": "Home Project Calculator: Paint",
+      "url": "home-project-calculator.html#panel-paint",
+      "topics": [
+        "paint",
+        "walls"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-project-cost",
+      "title": "Home Project Calculator: Project cost",
+      "url": "home-project-calculator.html#panel-project",
+      "topics": [
+        "project cost",
+        "budget"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "home-project-calculator-wallpaper",
+      "title": "Home Project Calculator: Wallpaper",
+      "url": "home-project-calculator.html#panel-wallpaper",
+      "topics": [
+        "wallpaper",
+        "pattern repeat"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": [
+        "how-to-calculate-wallpaper-rolls-pattern-repeat"
+      ]
+    },
+    {
+      "id": "insulation-quantity-calculator",
+      "title": "Insulation Quantity Calculator",
+      "url": "insulation-quantity-calculator.html",
+      "topics": [
+        "insulation",
+        "insulation area",
+        "pack coverage",
+        "pack count",
+        "material quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "motion-sensor-coverage",
+      "title": "Motion Sensor Coverage Calculator",
+      "url": "motion-sensor-coverage-calculator.html",
+      "topics": [
+        "motion sensor",
+        "sensor coverage",
+        "smart home",
+        "area-only minimum"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "pavers-quantity-calculator",
+      "title": "Paver & Patio Quantity Calculator",
+      "url": "pavers-quantity-calculator.html",
+      "topics": [
+        "pavers",
+        "patio",
+        "paving",
+        "brick paving",
+        "paver dimensions",
+        "joint width",
+        "border",
+        "quantity"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "picture-hanging-planner",
+      "title": "Picture Hanging Planner",
+      "url": "picture-hanging-planner.html",
+      "topics": [
+        "picture hanging",
+        "wall art",
+        "gallery wall",
+        "stud positions",
+        "placement"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    },
+    {
+      "id": "room-lighting-planner",
+      "title": "Room Lighting Planner",
+      "url": "room-lighting-planner.html",
+      "topics": [
+        "room lighting",
+        "lux",
+        "lumens",
+        "lighting estimate",
+        "bulb count",
+        "illuminance"
+      ],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
     },
     {
       "id": "rug-size",
@@ -161,300 +473,6 @@
       "articles": [
         "what-can-you-plug-into-a-smart-plug"
       ]
-    },
-    {
-      "id": "home-checkup",
-      "title": "Home Check-up",
-      "url": "home-checkup.html",
-      "topics": [
-        "home priorities",
-        "storage",
-        "design",
-        "repairs",
-        "smart home",
-        "guided start"
-      ],
-      "params": [
-        {
-          "name": "a",
-          "meaning": "ten answers written as one string of 0, 1 or 2"
-        }
-      ],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "budget-planner",
-      "title": "Project Budget Planner",
-      "url": "budget-planner.html",
-      "topics": [
-        "budget",
-        "project cost",
-        "buying order"
-      ],
-      "params": [
-        {
-          "name": "s",
-          "meaning": "share state written by the page itself; it can hold the visitor's own prices"
-        }
-      ],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator",
-      "title": "Home Project Calculator",
-      "url": "home-project-calculator.html",
-      "topics": [
-        "area",
-        "paint",
-        "flooring",
-        "tile",
-        "electricity",
-        "project cost",
-        "wallpaper"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator-area-volume",
-      "title": "Home Project Calculator: Area & volume",
-      "url": "home-project-calculator.html#panel-measure",
-      "topics": [
-        "area",
-        "volume",
-        "room size"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator-paint",
-      "title": "Home Project Calculator: Paint",
-      "url": "home-project-calculator.html#panel-paint",
-      "topics": [
-        "paint",
-        "walls"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator-flooring",
-      "title": "Home Project Calculator: Flooring & materials",
-      "url": "home-project-calculator.html#panel-material",
-      "topics": [
-        "flooring",
-        "tile",
-        "materials"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator-electricity",
-      "title": "Home Project Calculator: Electricity cost",
-      "url": "home-project-calculator.html#panel-energy",
-      "topics": [
-        "electricity",
-        "running cost",
-        "smart home"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": [
-        "plug-in-power-meter-vs-smart-plug-energy-monitoring",
-        "smart-lighting"
-      ]
-    },
-    {
-      "id": "home-project-calculator-project-cost",
-      "title": "Home Project Calculator: Project cost",
-      "url": "home-project-calculator.html#panel-project",
-      "topics": [
-        "project cost",
-        "budget"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "home-project-calculator-wallpaper",
-      "title": "Home Project Calculator: Wallpaper",
-      "url": "home-project-calculator.html#panel-wallpaper",
-      "topics": [
-        "wallpaper",
-        "pattern repeat"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": [
-        "how-to-calculate-wallpaper-rolls-pattern-repeat"
-      ]
-    },
-    {
-      "id": "picture-hanging-planner",
-      "title": "Picture Hanging Planner",
-      "url": "picture-hanging-planner.html",
-      "topics": [
-        "picture hanging",
-        "wall art",
-        "gallery wall",
-        "stud positions",
-        "placement"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "bulb-brightness-check",
-      "title": "Bulb Brightness Check",
-      "url": "bulb-brightness-check.html",
-      "topics": [
-        "lighting",
-        "bulb brightness",
-        "lumens",
-        "room lighting"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "room-lighting-planner",
-      "title": "Room Lighting Planner",
-      "url": "room-lighting-planner.html",
-      "topics": [
-        "room lighting",
-        "lux",
-        "lumens",
-        "lighting estimate",
-        "bulb count",
-        "illuminance"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "motion-sensor-coverage",
-      "title": "Motion Sensor Coverage Calculator",
-      "url": "motion-sensor-coverage-calculator.html",
-      "topics": [
-        "motion sensor",
-        "sensor coverage",
-        "smart home",
-        "area-only minimum"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "drywall-plaster-quantity",
-      "title": "Drywall and Plaster Quantity Calculator",
-      "url": "drywall-plaster-calculator.html",
-      "topics": [
-        "drywall",
-        "plaster",
-        "wall area",
-        "ceiling area",
-        "board quantity",
-        "material quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "concrete-slab-volume",
-      "title": "Concrete Slab Volume Calculator",
-      "url": "concrete-slab-calculator.html",
-      "topics": [
-        "concrete",
-        "slab",
-        "pad",
-        "concrete volume",
-        "quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "fence-quantity-calculator",
-      "title": "Fence Quantity Calculator",
-      "url": "fence-quantity-calculator.html",
-      "topics": [
-        "fence",
-        "fencing",
-        "fence posts",
-        "fence spans",
-        "gate openings",
-        "panels",
-        "rails",
-        "boards",
-        "quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "decking-quantity-calculator",
-      "title": "Decking Quantity Calculator",
-      "url": "decking-quantity-calculator.html",
-      "topics": [
-        "decking",
-        "deck boards",
-        "board rows",
-        "stock board count",
-        "deck surface",
-        "quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "insulation-quantity-calculator",
-      "title": "Insulation Quantity Calculator",
-      "url": "insulation-quantity-calculator.html",
-      "topics": [
-        "insulation",
-        "insulation area",
-        "pack coverage",
-        "pack count",
-        "material quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
-    },
-    {
-      "id": "pavers-quantity-calculator",
-      "title": "Paver & Patio Quantity Calculator",
-      "url": "pavers-quantity-calculator.html",
-      "topics": [
-        "pavers",
-        "patio",
-        "paving",
-        "brick paving",
-        "paver dimensions",
-        "joint width",
-        "border",
-        "quantity"
-      ],
-      "params": [],
-      "linkPrefill": [],
-      "articles": []
     }
   ]
 }
