@@ -58,6 +58,8 @@ jobs:
         run: python scripts/qa_pavers_quantity.py
       - name: Run baseboard and skirting quantity responsive QA
         run: python scripts/qa_baseboard_skirting_trim.py
+      - name: Run roof covering quantity responsive QA
+        run: python scripts/qa_roof_covering_quantity.py
       - name: Run tile material-cost responsive QA
         run: python scripts/qa_tile_cost.py
       - name: Run Project List preset responsive QA
