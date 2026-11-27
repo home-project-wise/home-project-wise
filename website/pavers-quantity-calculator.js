@@ -55,6 +55,9 @@
       var outerArea = length * width;
       var innerArea = innerLength * innerWidth;
       var sectionBorderArea = outerArea - innerArea;
+      if (!Number.isFinite(outerArea) || !Number.isFinite(innerArea) || !Number.isFinite(sectionBorderArea)) {
+        throw new Error(label + ": the entered dimensions produce an area too large to calculate safely.");
+      }
       var runLength = section.orientation === "along-length" ? innerLength : innerWidth;
       var acrossWidth = section.orientation === "along-length" ? innerWidth : innerLength;
       var runPavers = ceilCount((runLength + joint) / (moduleLength));
@@ -64,17 +67,26 @@
       if (!Number.isSafeInteger(sectionFieldPavers) || !Number.isSafeInteger(sectionBorderPavers)) {
         throw new Error(label + ": the entered dimensions produce a quantity too large to calculate safely.");
       }
+      var sectionTotalPavers = sectionFieldPavers + sectionBorderPavers;
+      if (!Number.isSafeInteger(sectionTotalPavers)) {
+        throw new Error(label + ": the total paver quantity is too large to calculate safely.");
+      }
       totalArea += outerArea;
       fieldArea += innerArea;
       borderArea += sectionBorderArea;
       fieldPavers += sectionFieldPavers;
       borderPavers += sectionBorderPavers;
+      if (!Number.isFinite(totalArea) || !Number.isFinite(fieldArea) || !Number.isFinite(borderArea) ||
+          !Number.isSafeInteger(fieldPavers) || !Number.isSafeInteger(borderPavers) ||
+          !Number.isSafeInteger(fieldPavers + borderPavers)) {
+        throw new Error("The combined patio dimensions produce totals too large to calculate safely.");
+      }
       details.push({
         section: index + 1, length: length, width: width, borderWidth: border,
         area: outerArea, fieldArea: innerArea, borderArea: sectionBorderArea,
         orientation: section.orientation, runPavers: runPavers, acrossPavers: acrossPavers,
         fieldPavers: sectionFieldPavers, borderPavers: sectionBorderPavers,
-        totalPavers: sectionFieldPavers + sectionBorderPavers
+        totalPavers: sectionTotalPavers
       });
     });
     return {
