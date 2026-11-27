@@ -15,7 +15,7 @@
     if (blank(v) || !Number.isFinite(Number(v)) || Number(v) < 0) throw new Error(label + " must be zero or greater.");
     return Number(v);
   }
-  function ceilCount(value) { return Math.ceil(value - EPS * Math.max(1, Math.abs(value))); }
+  function ceilCount(value) { var nearest = Math.round(value); return Math.abs(value - nearest) <= EPS * Math.max(1, Math.abs(value)) ? nearest : Math.ceil(value); }
   function calculate(input) {
     input = input || {};
     if (input.unit !== "m²" && input.unit !== "ft²") throw new Error("Choose square metres or square feet.");
