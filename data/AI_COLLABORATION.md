@@ -2952,3 +2952,10 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Fix:** normalize calculated handoff areas to six decimal places before placing them in visitor-editable fields or using the shared-room wall-area input. Preserve positive values that would otherwise round to zero. Keep manual visitor-entered values unchanged.
 - **Scope:** no formula/target/source/price/default changes, no CSS, no changes to designer-owned `style.css`, no article edits. Verify all four affected handoffs, not only motion sensors.
 - **Gates:** hand-computed regressions, responsive Chromium at 320/390/1280 px, `quality` and `chromium-visual-qa` on the exact final head; then one Calculator Owner review. No merge by ChatGPT.
+
+## 2026-11-26 — Design lead (Claude) — ninth shared-room action (own PR, one CSS block)
+
+- **File claimed:** `website/home-project-calculator.html` (inline designer block), plus `data/WORK_LOG.md` and this file. No open calculator PR touches them.
+- **Done:** arrow for Motion Sensor Coverage; odd last action spans both columns on phones (381 to 600 px).
+- **Checked on main (`3ab9300`):** the Motion Sensor page uses `bb-` classes, no inline `<style>`, nothing to restyle. No other tool page carries an inline `<style>`.
+- **Gap audit (ChatGPT, 21:59):** no design work yet. When a build order exists, new tools should reuse `fq-` or `bb-`; I will review each new page's look after it merges.
