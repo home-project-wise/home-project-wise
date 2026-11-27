@@ -86,6 +86,15 @@ test("negative joint and border are rejected", function () {
 test("border that consumes the inner field is rejected", function () {
   assert.throws(()=>calculate(base({sections:[{length:4,width:3,borderWidth:1.5,orientation:"along-length"}]})),/leaves no positive inner field/);
 });
+test("area overflow is rejected rather than returning Infinity", function () {
+  assert.throws(()=>calculate(base({sections:[{length:1e308,width:2,borderWidth:0,orientation:"along-length"}]})),/area too large/);
+});
+test("combined section quantity overflow is rejected", function () {
+  assert.throws(()=>calculate(base({paverLength:1,paverWidth:1,jointWidth:0,sections:[
+    {length:6000000000000000,width:1,borderWidth:0,orientation:"along-length"},
+    {length:6000000000000000,width:1,borderWidth:0,orientation:"along-length"}
+  ]})),/combined patio dimensions/);
+});
 test("empty section list is rejected", function () {
   assert.throws(()=>calculate(base({sections:[]})),/at least one measured/);
 });
