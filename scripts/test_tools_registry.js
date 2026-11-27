@@ -104,3 +104,5 @@ console.log(passed + " tools-registry tests passed");
 require("./test_decking_quantity.js");
 require("./test_room_lighting_planner.js");
 require("./test_motion_sensor_coverage.js");
+
+require("./test_baseboard_skirting_trim.js");
