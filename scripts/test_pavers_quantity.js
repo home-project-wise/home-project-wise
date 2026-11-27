@@ -60,6 +60,10 @@ test("exact module boundary does not add a spurious extra paver", function () {
   const r=calculate(base({paverLength:0.2,paverWidth:0.1,jointWidth:0,sections:[{length:0.4,width:0.3,borderWidth:0,orientation:"along-length"}]}));
   assert.equal(r.fieldPavers,6);
 });
+test("a real dimension just above an exact module boundary rounds up", function () {
+  const r=calculate(base({paverLength:0.2,paverWidth:0.1,jointWidth:0,sections:[{length:0.20000000001,width:0.1,borderWidth:0,orientation:"along-length"}]}));
+  assert.equal(r.fieldPavers,2);
+});
 test("missing unit is rejected rather than guessed", function () {
   assert.throws(()=>calculate(base({unit:""})),/Choose metres or feet/);
 });
