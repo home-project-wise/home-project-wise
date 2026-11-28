@@ -352,7 +352,7 @@ function validNonNegative(ids){return ids.every(function(id){return Number.isFin
 function fmt(n,d){return Number(n).toLocaleString('en-US',{maximumFractionDigits:d===undefined?2:d});}
 function safe(s){return String(s||'').replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
 function money(n,c){return window.HPWCurrency.format(n,c);}
-function show(id,html){var el=byId(id);el.innerHTML=html;if(html&&typeof el.scrollIntoView==='function')el.scrollIntoView({behavior:'smooth',block:'start'});}
+function show(id,html){var el=byId(id);el.innerHTML=html;if(html&&typeof el.scrollIntoView==='function')el.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});}
 function error(id,msg){byId(id).textContent=msg;}
 // Informational only: append after rendering; never block or alter the calculation.
 function appendSanityWarning(id,message){
