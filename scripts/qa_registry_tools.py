@@ -139,7 +139,7 @@ def metrics(page):
       document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
         if(visible(el)&&el.scrollWidth>el.clientWidth+1)clipped.push({id:el.id,placeholder:el.placeholder,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth});
       });
-      const selector='button,input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),select,textarea,[role="button"],a.button,a.btn,label:has(input[type="radio"]),label:has(input[type="checkbox"])';
+      const selector='button,input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]):not([readonly]),select,textarea,[role="button"],a.button,a.btn,label:has(input[type="radio"]),label:has(input[type="checkbox"])';
       const small=[];
       document.querySelectorAll(selector).forEach(el=>{
         if(!visible(el)||el.disabled)return; const r=el.getBoundingClientRect();
@@ -184,11 +184,11 @@ try:
                     form, result = form_and_result(page, tool["id"])
                     if form and result:
                         before = result.inner_text()
-                        submit = form.locator('button[type="submit"],input[type="submit"]').first
+                        submit = form.locator('button[type="submit"],input[type="submit"],button:not([type])').first
                         if submit.count() and submit.is_visible():
                             fill_form(form)
                             submit.click(timeout=5000)
-                            page.wait_for_timeout(120)
+                            page.wait_for_timeout(450)
                             after = result.inner_text()
                             if after.strip() and after != before:
                                 rect = result.evaluate("el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom};}")
