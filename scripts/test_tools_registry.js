@@ -131,14 +131,15 @@ test("registry formatting: canonical two-space JSON prevents whole-file reformat
   assert.equal(read("website/tools-registry.json"), JSON.stringify(registry, null, 2) + "\n");
 });
 
-test("responsive QA baseline: exactly the seven approved legacy pages are tracked with explicit selectors and owner reasons", () => {
+test("responsive QA baseline: exactly seven approved legacy pages use page-level known-debt ratcheting", () => {
   const baseline = JSON.parse(read("scripts/qa-target-size-baseline.json"));
   assert.equal(baseline.version, 1);
+  assert.equal(baseline.scope, "page", "known debt must be baselined at page scope, not by an incomplete selector allowlist");
   const expected = ["bathroom-fan-size", "budget-planner", "crawl-space-dehumidifier", "home-checkup", "picture-hanging-planner", "rug-size", "smart-plug-load-check"].sort();
   assert.deepEqual(Object.keys(baseline.pages).sort(), expected, "baseline may only contain the seven pages approved in #415");
   Object.entries(baseline.pages).forEach(([id, entry]) => {
     assert.equal(entry.reason, "legacy layout, owner: design lead", id + " owner reason");
-    assert.ok(Array.isArray(entry.selectors) && entry.selectors.length > 0, id + " must name exact failing selectors");
+    assert.ok(Array.isArray(entry.selectors) && entry.selectors.length > 0, id + " must retain selector details for designer warnings");
     assert.equal(new Set(entry.selectors).size, entry.selectors.length, id + " selectors must be unique");
     const tool = registry.tools.find((item) => item.id === id);
     assert.ok(tool, id + " must remain a public registry tool");
@@ -147,7 +148,7 @@ test("responsive QA baseline: exactly the seven approved legacy pages are tracke
     entry.selectors.forEach((selector) => {
       assert.ok(selector.startsWith("#") || selector.startsWith("."), id + ": selector must be a page-scoped id/class selector");
       const token = selector.replace(/^#|^\./, "").split(/[ .:[\]]/)[0];
-      assert.ok(html.includes('id="' + token + '"') || html.includes('class="' + token + '"') || html.includes('class="') && html.includes(" " + token), id + ": selector hook " + selector + " no longer exists; remove or correct the baseline entry");
+      assert.ok(html.includes('id="' + token + '"') || html.includes('class="' + token + '"') || html.includes('class="') && html.includes(" " + token), id + ": selector hook " + selector + " no longer exists; keep designer follow-up details valid");
     });
   });
 });
