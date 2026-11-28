@@ -483,5 +483,15 @@
       "linkPrefill": [],
       "articles": []
     }
+ ,
+    {
+      "id": "siding-cladding-quantity",
+      "title": "Siding & Cladding Quantity Calculator",
+      "url": "siding-cladding-quantity-calculator.html",
+      "topics": ["siding", "cladding", "exterior wall", "wall face area", "product coverage", "packs", "quantity"],
+      "params": [],
+      "linkPrefill": [],
+      "articles": []
+    }
   ]
 }
