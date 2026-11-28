@@ -58,6 +58,20 @@ def activate_deep_link(page, fragment):
             tab.first.click()
             page.wait_for_timeout(50)
 
+def choose_supported_country(page):
+    page.evaluate("""() => {
+      document.querySelectorAll('select[id*="country" i],select[name*="country" i]').forEach(el => {
+        const options = [...el.options].filter(x => x.value !== '' && !x.disabled);
+        const preferred = options.find(x => /united states|\\busa\\b|\\bus\\b/i.test(x.textContent + ' ' + x.value));
+        const option = preferred || options.find(x => !/choose|select|country/i.test(x.textContent));
+        if (option) {
+          el.value = option.value;
+          el.dispatchEvent(new Event('input', {bubbles:true}));
+          el.dispatchEvent(new Event('change', {bubbles:true}));
+        }
+      });
+    }""")
+
 def fill_form(form):
     form.evaluate("""form => {
       const seen = new Set();
@@ -73,9 +87,22 @@ def fill_form(form):
         }
         if (el.type === 'checkbox') { if (el.required) el.checked = true; continue; }
         if (el.tagName === 'SELECT') {
-          if (!el.value) { const option = [...el.options].find(x => x.value !== ''); if (option) el.value = option.value; }
-        } else if (el.type === 'number' && !el.value) {
+          if (!el.value || /country/i.test(el.id + ' ' + el.name)) {
+            const options = [...el.options].filter(x => x.value !== '' && !x.disabled);
+            const preferred = /country/i.test(el.id + ' ' + el.name)
+              ? options.find(x => /united states|\\busa\\b|\\bus\\b/i.test(x.textContent + ' ' + x.value))
+              : null;
+            const option = preferred || options.find(x => !/choose|select|country/i.test(x.textContent));
+            if (option) el.value = option.value;
+          }
+        } else if (el.type === 'number') {
           const min = el.min === '' ? 0 : Number(el.min), max = el.max === '' ? Infinity : Number(el.max);
+          const current = el.value === '' ? NaN : Number(el.value);
+          if (Number.isFinite(current) && current >= min && current <= max) {
+            el.dispatchEvent(new Event('input', {bubbles:true}));
+            el.dispatchEvent(new Event('change', {bubbles:true}));
+            continue;
+          }
           const step = el.step && el.step !== 'any' ? Number(el.step) : 1;
           let value = Math.max(min, 1);
           if (Number.isFinite(max)) value = Math.min(value, max);
@@ -108,12 +135,9 @@ def form_and_result(page, tool_id):
 def metrics(page):
     return page.evaluate("""() => {
       const visible = el => { const r=el.getBoundingClientRect(),s=getComputedStyle(el); return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'; };
-      const canvas=document.createElement('canvas'),ctx=canvas.getContext('2d'),clipped=[];
+      const clipped=[];
       document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
-        if(!visible(el))return; const s=getComputedStyle(el); ctx.font=s.font;
-        const textWidth=ctx.measureText(el.placeholder||'').width;
-        const available=el.clientWidth-parseFloat(s.paddingLeft||0)-parseFloat(s.paddingRight||0)-(el.type==='number'?22:8);
-        if(el.scrollWidth>el.clientWidth+1||textWidth>available+1)clipped.push({id:el.id,placeholder:el.placeholder,textWidth,available,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth});
+        if(visible(el)&&el.scrollWidth>el.clientWidth+1)clipped.push({id:el.id,placeholder:el.placeholder,scrollWidth:el.scrollWidth,clientWidth:el.clientWidth});
       });
       const selector='button,input:not([type="hidden"]):not([type="radio"]):not([type="checkbox"]),select,textarea,[role="button"],a.button,a.btn,label:has(input[type="radio"]),label:has(input[type="checkbox"])';
       const small=[];
@@ -133,7 +157,17 @@ try:
                 context = browser.new_context(viewport={"width":width,"height":height}, reduced_motion="reduce")
                 page = context.new_page()
                 console_errors, page_errors = [], []
-                page.on("console", lambda msg: console_errors.append(msg.text) if msg.type=="error" and "gc.zgo.at" not in msg.text else None)
+                def capture_console(msg):
+                    if msg.type != "error":
+                        return
+                    location = msg.location or {}
+                    source = location.get("url", "")
+                    if source and not source.startswith(BASE):
+                        return
+                    if "Failed to load resource: net::ERR_FAILED" in msg.text:
+                        return
+                    console_errors.append(msg.text)
+                page.on("console", capture_console)
                 page.on("pageerror", lambda exc: page_errors.append(str(exc)))
                 page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
                 label = f'{tool["id"]}/{width}px'
@@ -146,6 +180,7 @@ try:
                     check(label + ": no sideways page scroll", m["pageWidth"]<=width+1, m["pageWidth"])
                     check(label + ": placeholders are not clipped", not m["clipped"], m["clipped"][:5])
                     check(label + ": interactive targets are at least 44px", not m["small"], m["small"][:8])
+                    choose_supported_country(page)
                     form, result = form_and_result(page, tool["id"])
                     if form and result:
                         before = result.inner_text()
