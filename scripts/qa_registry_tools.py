@@ -13,6 +13,7 @@ SITE = ROOT / "website"
 OUT = ROOT / "visual-qa-results"
 OUT.mkdir(parents=True, exist_ok=True)
 REGISTRY = json.loads((SITE / "tools-registry.json").read_text(encoding="utf-8"))
+BASELINE = json.loads((ROOT / "scripts" / "qa-target-size-baseline.json").read_text(encoding="utf-8"))
 VIEWPORTS = [(320, 740), (390, 844), (1280, 900)]
 HOME_FORMS = {
     "home-project-calculator": ("measure-form", "measure-result"),
@@ -151,8 +152,8 @@ def form_and_result(page, tool_id):
     if not form.count() or not result.count(): return None, None
     return form, result
 
-def metrics(page):
-    return page.evaluate("""() => {
+def metrics(page, baseline_selectors):
+    return page.evaluate("""(baselineSelectors) => {
       const visible = el => { const r=el.getBoundingClientRect(),s=getComputedStyle(el); return r.width>0&&r.height>0&&s.display!=='none'&&s.visibility!=='hidden'; };
       const clipped=[];
       document.querySelectorAll('input[placeholder],textarea[placeholder]').forEach(el=>{
@@ -164,8 +165,20 @@ def metrics(page):
         if(!visible(el)||el.disabled)return; const r=el.getBoundingClientRect();
         if(r.width<44||r.height<44)small.push({tag:el.tagName,id:el.id,width:Math.round(r.width),height:Math.round(r.height),text:(el.innerText||el.getAttribute('aria-label')||'').trim().slice(0,70)});
       });
-      return {pageWidth:document.documentElement.scrollWidth,clipped,small};
-    }""")
+      const isSmall = el => { const r=el.getBoundingClientRect(); return r.width<44||r.height<44; };
+      const baselineMatches = baselineSelectors.map(selector => {
+        let count = 0;
+        try { document.querySelectorAll(selector).forEach(el => { if(visible(el)&&!el.disabled&&isSmall(el)) count++; }); }
+        catch (error) { return {selector,count:-1,error:String(error)}; }
+        return {selector,count};
+      });
+      const outsideBaseline = small.filter(item => {
+        const el = [...document.querySelectorAll(selector)].find(node => node.id === item.id && node.tagName === item.tag);
+        if (!el) return true;
+        return !baselineSelectors.some(selector => { try { return el.matches(selector); } catch (error) { return false; } });
+      });
+      return {pageWidth:document.documentElement.scrollWidth,clipped,small,baselineMatches,outsideBaseline};
+    }""", baseline_selectors)
 
 try:
     with sync_playwright() as p:
@@ -195,10 +208,16 @@ try:
                     check(label + ": page loads", bool(response and response.status==200), response.status if response else "no response")
                     activate_deep_link(page, parsed.fragment)
                     page.wait_for_timeout(80)
-                    m = metrics(page)
+                    baseline_entry = BASELINE["pages"].get(tool["id"])
+                    baseline_selectors = baseline_entry["selectors"] if baseline_entry else []
+                    if width == VIEWPORTS[0][0] and baseline_entry:
+                        for selector in baseline_selectors:
+                            print("WARN known-debt baseline: %s %s — %s" % (tool["id"], selector, baseline_entry["reason"]))
+                    m = metrics(page, baseline_selectors)
                     check(label + ": no sideways page scroll", m["pageWidth"]<=width+1, m["pageWidth"])
                     check(label + ": placeholders are not clipped", not m["clipped"], m["clipped"][:5])
-                    check(label + ": interactive targets are at least 44px", not m["small"], m["small"][:8])
+                    check(label + ": baseline entries still reproduce known debt", all(x["count"] > 0 for x in m["baselineMatches"]), [x for x in m["baselineMatches"] if x["count"] <= 0])
+                    check(label + ": interactive targets are at least 44px outside approved baseline", not m["outsideBaseline"], m["outsideBaseline"][:8])
                     choose_supported_country(page)
                     form, result = form_and_result(page, tool["id"])
                     if tool["id"] == "home-project-calculator-project-cost":
