@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-27",
+  "updated": "2026-11-28",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -293,6 +293,16 @@
       "reason": "A useful quantity helper can use measured joint length and visitor-entered bead dimensions, then compare calculated volume with cartridge volume on the label; no hidden cartridge size or generic bead shape."
     },
     {
+      "slug": "how-to-shut-off-water-to-a-toilet-sink-or-washing-machine",
+      "path": "website/articles/how-to-shut-off-water-to-a-toilet-sink-or-washing-machine.html",
+      "class": "C",
+      "decisionSentence": "Close the small valve nearest the problem first, and use the main shutoff only when that valve is missing or will not move.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The guide is a procedure for closing a valve and checking the fixture. It has no calculation, and the only figures are time and cost quoted from Angi."
+    },
+    {
       "slug": "kitchen-counter-zone-that-stays-clear",
       "path": "website/articles/kitchen-counter-zone-that-stays-clear.html",
       "class": "C",
@@ -565,11 +575,11 @@
     }
   ],
   "summary": {
-    "articleCount": 53,
+    "articleCount": 54,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 40
+      "C": 41
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -586,7 +596,8 @@
       "Updated 2026-11-25: how-to-read-your-water-meter-to-find-a-hidden-leak added as class C (a reading-and-comparing procedure; no calculation is justified).",
       "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic).",
       "Updated 2026-11-27: how-to-find-a-wall-stud-without-a-stud-finder added as class C (a physical search procedure; no calculation is justified).",
-      "Updated 2026-11-27: smart-plug-vs-smart-power-strip added as class C (a buying comparison; no calculation is justified)."
+      "Updated 2026-11-27: smart-plug-vs-smart-power-strip added as class C (a buying comparison; no calculation is justified).",
+      "Updated 2026-11-28: how-to-shut-off-water-to-a-toilet-sink-or-washing-machine added as class C (a valve-closing procedure; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",

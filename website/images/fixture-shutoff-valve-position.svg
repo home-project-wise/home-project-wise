@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Diagram of the pipe from the wall to a basin tap: wall pipe, isolation valve, flexible hose and tap" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="960" height="540" fill="#F7F5F0"/><text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">Where the small valve sits</text>
+<rect x="40" y="120" width="110" height="380" fill="#EDE8DC" stroke="#243238" stroke-width="3"/><text x="95" y="320" font-size="20" font-weight="700" fill="#243238" text-anchor="middle" transform="rotate(-90 95 320)">Wall</text>
+<line x1="150" y1="400" x2="330" y2="400" stroke="#243238" stroke-width="12" stroke-linecap="round"/>
+<text x="240" y="440" font-size="19" font-weight="700" fill="#243238" text-anchor="middle">Wall pipe</text>
+<rect x="330" y="372" width="70" height="56" rx="10" fill="#E4ECE8" stroke="#B5482F" stroke-width="5"/>
+<line x1="365" y1="372" x2="365" y2="340" stroke="#B5482F" stroke-width="6"/><rect x="345" y="326" width="40" height="14" rx="4" fill="#B5482F"/>
+<text x="365" y="480" font-size="21" font-weight="700" fill="#B5482F" text-anchor="middle">Isolation valve</text>
+<path d="M400 400 C500 400 520 400 560 330 C600 260 610 250 640 240" fill="none" stroke="#243238" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 8"/>
+<text x="560" y="400" font-size="19" font-weight="700" fill="#243238">Flexible hose</text>
+<path d="M640 240 L640 190 Q640 160 670 160 L760 160" fill="none" stroke="#243238" stroke-width="14" stroke-linecap="round"/>
+<text x="740" y="130" font-size="21" font-weight="700" fill="#243238" text-anchor="middle">Tap</text>
+<rect x="640" y="330" width="260" height="30" rx="6" fill="#fff" stroke="#243238" stroke-width="3"/>
+</svg>
