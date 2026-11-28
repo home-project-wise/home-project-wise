@@ -383,6 +383,37 @@ TOOLS = [
      "kw": "siding cladding exterior wall covering facade facade cladding wall area net area coverage pack quantity calculator"},
 ]
 
+# Hub grouping (designer P1, issue #415): the "All tools" list is shown by job instead of one long list. A tool that is not listed here is
+# shown last under "More tools", so a new tool can never disappear from the hub; add its slug to the right group in the PR that adds the tool.
+TOOL_GROUPS = [
+    ("Start here and plan", ["home-project-calculator", "home-checkup", "budget-planner"]),
+    ("Floors, walls and finishes", ["rug-size-calculator", "baseboard-skirting-trim-calculator", "drywall-plaster-calculator", "picture-hanging-planner"]),
+    ("Outdoors and building shell", ["fence-quantity-calculator", "decking-quantity-calculator", "pavers-quantity-calculator", "concrete-slab-calculator", "roof-covering-quantity-calculator", "siding-cladding-quantity-calculator", "insulation-quantity-calculator"]),
+    ("Energy, lighting and air", ["bulb-brightness-check", "room-lighting-planner", "motion-sensor-coverage-calculator", "smart-plug-load-check", "bathroom-fan-size-calculator", "crawl-space-dehumidifier-calculator"]),
+]
+
+HUB_FILTER_JS = r'''(function(){var box=document.getElementById('tool-filter-box'),inp=document.getElementById('tool-filter'),st=document.getElementById('tool-filter-status');if(!box||!inp||!st)return;box.hidden=false;var groups=[].slice.call(document.querySelectorAll('.tool-group')),items=[].slice.call(document.querySelectorAll('.tool-group li')),total=items.length;function norm(x){var v=String(x).toLowerCase();return v.normalize?v.normalize('NFD').replace(/[\u0300-\u036f]/g,''):v;}function run(){var t=norm(inp.value).split(/[^a-z0-9]+/).filter(Boolean),n=0;items.forEach(function(li){var k=li.getAttribute('data-kw')||'',ok=t.every(function(w){return k.indexOf(w)>-1;});li.hidden=!ok;if(ok)n++;});groups.forEach(function(g){g.hidden=!g.querySelector('li:not([hidden])');});st.textContent=t.length?(n?'Showing '+n+' of '+total+' tools.':'No tool matches. Try a shorter word such as fence, paint or light.'):'';}inp.addEventListener('input',run);})();'''
+
+
+def tool_groups_html():
+    """Grouped, filterable version of the tool list; every TOOLS entry appears exactly once."""
+    by_slug = {t["slug"]: t for t in TOOLS}
+    seen, groups = set(), []
+    for title, slugs in TOOL_GROUPS:
+        members = [by_slug[x] for x in slugs if x in by_slug]
+        seen.update(t["slug"] for t in members)
+        if members:
+            groups.append((title, members))
+    rest = [t for t in TOOLS if t["slug"] not in seen]
+    if rest:
+        groups.append(("More tools", rest))
+    out = []
+    for n, (title, members) in enumerate(groups, 1):
+        lis = "".join('<li data-kw="' + escape((t["title"] + " " + t["desc"] + " " + t["kw"]).lower(), quote=True) + '"><a href="' + t["slug"] + '.html">' + escape(t["title"]) + "</a><span>" + escape(t["desc"]) + "</span></li>" for t in members)
+        out.append('<section class="tool-group" aria-labelledby="tg-' + str(n) + '"><h3 id="tg-' + str(n) + '">' + escape(title) + ' <span class="tool-count">' + str(len(members)) + '</span></h3><ul class="tool-list">' + lis + "</ul></section>")
+    return "".join(out)
+
+
 
 ASK_JS = r'''(function(){
 var TOOLS=__TOOLS__;
@@ -440,7 +471,7 @@ def write_tools_hub():
             '<p class="lead">Simple calculators that apply the rules and sources from our guides to your own measurements. Each result is an estimate to confirm with a tape measure or a test, and each tool links to the guide behind it.</p>'
             '<form id="ask" class="search-form ask-form" role="search"><label for="askq" class="sr-only">Describe what you want to work out</label><input id="askq" type="text" placeholder="e.g. rug for a 12x15 ft living room" autocomplete="off"><button type="submit">Find my calculator</button></form>'
             '<p class="ask-examples">Try: <button type="button" class="chip">What rug size for a 12x15 ft living room?</button> <button type="button" class="chip">Dehumidifier for a 20 x 40 ft damp crawl space</button> <button type="button" class="chip">Can I put a 1500 W heater on a smart plug?</button> <button type="button" class="chip">Where should I start with my home?</button></p><div id="ask-out" class="calc-out" aria-live="polite"></div>'
-            '<h2>All tools</h2><ul class="tool-list">' + items + '</ul><h2>Suggest a tool</h2><p>Is there something you keep calculating by hand? Tell us on the <a href="contact.html">Contact</a> page.</p></main>' + footer() + '<script>' + ASK_JS.replace('__TOOLS__', json.dumps([{k: t[k] for k in ('slug', 'title', 'desc', 'kw')} for t in TOOLS])) + '</script></body></html>')
+            '<h2>All tools</h2><div id="tool-filter-box" class="tool-filter" hidden><label for="tool-filter" class="sr-only">Filter the list below</label><input id="tool-filter" type="search" placeholder="Filter the list, e.g. fence" autocomplete="off" enterkeyhint="search"><p id="tool-filter-status" class="tool-filter-status" role="status" aria-live="polite"></p></div>' + tool_groups_html() + '<h2>Suggest a tool</h2><p>Is there something you keep calculating by hand? Tell us on the <a href="contact.html">Contact</a> page.</p></main>' + footer() + '<script>' + ASK_JS.replace('__TOOLS__', json.dumps([{k: t[k] for k in ('slug', 'title', 'desc', 'kw')} for t in TOOLS])) + '</script><script>' + HUB_FILTER_JS + '</script></body></html>')
     (WEBSITE / "tools.html").write_text(page, encoding="utf-8")
 
 
