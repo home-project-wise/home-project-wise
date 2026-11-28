@@ -10,7 +10,7 @@
   var blank = utils.blank;
   var positive = utils.positive;
   var nonNegative = function (value, label) { return utils.nonNegative(value, label, false); };
-  var ceilCount = utils.ceilCount;
+  var ceilCount = utils.ceilCountNearest;
   function calculate(input) {
     input = input || {};
     if (input.unit !== "m²" && input.unit !== "ft²") throw new Error("Choose square metres or square feet.");
