@@ -356,3 +356,18 @@ main:has(.calc-tabs) .calc-tabs button[aria-selected="true"]{color:#fff}
   main:has(.calc-tabs) .tool-panel .calc select option{background-color:#182126;color:#eef1ee}
   main:has(.calc-tabs) .tool-panel .calc input:not([type=checkbox]):not([type=radio]):focus,main:has(.calc-tabs) .tool-panel .calc select:focus{border-color:#D9B77A}
 }
+
+/* Designer pass, issue #415 P1 (2026-11-28): Home Check-up answers. The question is now a normal heading inside the box (the old legend sat on the border and wrapped across it on phones), and each of the three answers is a full-width 48 px tap target stacked in one column. Markup and behaviour are unchanged. */
+fieldset.quiz-q.calc-checks{display:block;min-width:0;margin:14px 0 0;padding:16px 16px 8px}
+.quiz-q.calc-checks legend{float:left;width:100%;box-sizing:border-box;margin:0 0 12px;padding:0;font-size:17px;line-height:1.4;font-weight:600}
+.quiz-q.calc-checks legend+label{clear:both}
+.quiz-q.calc-checks label{display:flex;align-items:center;gap:12px;box-sizing:border-box;width:100%;min-height:48px;margin:0 0 8px;padding:10px 14px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font-size:17px;line-height:1.3;cursor:pointer}
+.quiz-q.calc-checks input{flex:none;width:22px;height:22px;margin:0;accent-color:#2f6f58}
+.quiz-q.calc-checks label:has(input:checked){border-color:#2f7d5b;background:#e9f3ee;font-weight:600}
+.quiz-q.calc-checks label:has(input:focus-visible){outline:3px solid #a8481d;outline-offset:2px}
+@media(prefers-color-scheme:dark){
+.quiz-q.calc-checks label{border-color:#6d8189;background:#182126;color:#eef1ee}
+.quiz-q.calc-checks input{accent-color:#8db8a6}
+.quiz-q.calc-checks label:has(input:checked){border-color:#8db8a6;background:#1f3329}
+.quiz-q.calc-checks label:has(input:focus-visible){outline-color:#f0a07a}
+}
