@@ -1,27 +1,16 @@
 "use strict";
 (function (root, factory) {
-  var api = factory();
+  var utils = root && root.HPWCalculatorUtils;
+  if (!utils && typeof module === "object" && module.exports) utils = require("./calculator-utils.js");
+  var api = factory(utils);
   if (typeof module === "object" && module.exports) module.exports = api;
   if (root) root.PaversQuantity = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (utils) {
   "use strict";
-  var EPS = Number.EPSILON * 4;
-  function blank(v) { return v === "" || v === null || v === undefined; }
-  function positive(v, label) {
-    if (blank(v) || !Number.isFinite(Number(v)) || Number(v) <= 0) {
-      throw new Error(label + " must be greater than zero.");
-    }
-    return Number(v);
-  }
-  function nonNegative(v, label) {
-    if (blank(v) || !Number.isFinite(Number(v)) || Number(v) < 0) {
-      throw new Error(label + " must be zero or greater. Enter 0 if none.");
-    }
-    return Number(v);
-  }
-  function ceilCount(value) {
-    return Math.ceil(value - EPS * Math.max(1, Math.abs(value)));
-  }
+  var blank = utils.blank;
+  var positive = utils.positive;
+  var nonNegative = function (value, label) { return utils.nonNegative(value, label, true); };
+  var ceilCount = utils.ceilCount;
   function calculate(input) {
     input = input || {};
     if (input.unit !== "m" && input.unit !== "ft") {
@@ -97,9 +86,7 @@
       sections: details
     };
   }
-  function format(value) {
-    return Number(value).toLocaleString("en-US", { maximumFractionDigits: 3 });
-  }
+  var format = utils.format;
   function init(doc) {
     var form = doc.getElementById("pavers-form");
     if (!form) return null;
