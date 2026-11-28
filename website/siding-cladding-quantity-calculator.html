@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Siding &amp; Cladding Quantity Calculator | HomeProjectWise</title>
+<meta name="description" content="Estimate siding or exterior cladding packs from measured net wall-face areas and the exact product coverage you enter.">
+<link rel="canonical" href="https://home-project-wise.github.io/home-project-wise/siding-cladding-quantity-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Siding &amp; Cladding Quantity Calculator | HomeProjectWise">
+<meta property="og:description" content="Calculate siding or cladding packs from your measured net wall areas and stated product coverage.">
+<meta property="og:url" content="https://home-project-wise.github.io/home-project-wise/siding-cladding-quantity-calculator.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav"><a class="brand" href="./"><img class="brand-logo" src="images/logo.svg" alt="HomeProjectWise" width="220" height="33"></a><a class="nav-cta" href="tools.html">All tools</a></header>
+<main class="section article fq-wrap">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="./">Home</a><span>›</span><a href="tools.html">Tools</a><span>›</span>Siding &amp; Cladding Quantity Calculator</nav>
+<p class="eyebrow">FREE TOOL · MATERIAL QUANTITY</p>
+<h1>Siding &amp; Cladding Quantity Calculator</h1>
+<p class="lead">Estimate the number of product packs from the net area you have measured for each exterior wall face and the coverage stated for your exact siding or cladding product. No dimensions, coverage or extra allowance are assumed.</p>
+<section class="fq-panel">
+<h2>Your wall measurements and product</h2>
+<form id="siding-form" novalidate>
+<div class="fq-field">
+<label for="siding-unit">Area unit for every wall face and product coverage</label>
+<select id="siding-unit"><option value="" selected>Choose square metres or square feet</option><option value="m²">Square metres (m²)</option><option value="ft²">Square feet (ft²)</option></select>
+</div>
+<div class="fq-field">
+<label for="siding-coverage">Exact product coverage per pack (<span data-area-unit>area unit</span>)</label>
+<input id="siding-coverage" type="number" min="0" step="any" placeholder="Enter the coverage stated by the supplier">
+</div>
+<p class="fq-help">Use the coverage for the exact product, profile and pack you plan to buy. If the label uses another area unit, convert it before entering it. Do not use a gross coverage figure if the manufacturer gives a different effective coverage for the installed product.</p>
+<h2>Net exterior wall-face areas</h2>
+<p class="fq-help">Enter the net area that will receive siding or cladding for each wall face, after subtracting the measured areas of windows, doors and other openings where no cladding will be installed. Measure each face separately and add another row for each additional face. Do not use floor area, building footprint or indoor room dimensions as a substitute.</p>
+<div id="siding-faces">
+<section class="fq-run siding-face" data-face="1">
+<div class="fq-run-head"><h3>Wall face 1</h3></div>
+<div class="fq-field"><label for="siding-area-1">Net cladding area (<span data-area-unit>area unit</span>)</label><input id="siding-area-1" class="siding-area" type="number" min="0" step="any" placeholder="Enter measured net wall area"></div>
+</section>
+</div>
+<p><button type="button" class="fq-small-button" id="siding-add-face">Add another wall face</button></p>
+<p id="siding-error" class="fq-help" role="alert"></p>
+<p><button class="fq-button" type="submit">Calculate siding quantity</button></p>
+</form>
+<div id="siding-result" class="fq-result" aria-live="polite" aria-atomic="true"></div>
+</section>
+<section class="fq-panel">
+<h2>How the estimate works</h2>
+<p>The calculator adds the net cladding areas you enter for each wall face. Required packs = total net cladding area ÷ the exact product coverage per pack you enter, rounded up to a whole pack. It does not add any extra area or allowance.</p>
+<h2>What to measure</h2>
+<p>Measure each exterior wall face that will receive the product. Subtract openings only when you have measured their actual areas and they will not receive cladding. Enter the resulting net area for each face. For irregular walls, gables, dormers, bay windows or angled sections, measure and add the actual cladding surfaces as separate faces; this calculator does not infer their geometry.</p>
+<p>Check the product label or manufacturer documentation for coverage per pack for the exact profile and installation configuration. Coverage can depend on effective exposure, profile and installation details. This calculator does not substitute a typical value.</p>
+<h2>Limits of this calculator</h2>
+<p>This is a material-quantity estimate only. It does not calculate starter strips, corner boards, trims, flashings, battens, fasteners, membranes, insulation, labour or prices. It does not determine overlaps, exposure, waste, breakage, offcut reuse, gable geometry, framing, ventilation, weather barriers, drainage planes, fire performance, wind resistance, structural suitability, permits or code compliance. Follow the exact product instructions and applicable local requirements; have the wall assembly checked by a qualified professional where needed.</p>
+<h2>Common questions</h2>
+<h3>Does it calculate the area of my walls from house dimensions?</h3><p>No. Enter each measured net wall-face area. Building footprint, room dimensions and storey count do not establish the actual exterior cladding area.</p>
+<h3>Does it subtract windows and doors automatically?</h3><p>No. Measure the openings that will not receive cladding, subtract them from the relevant wall face yourself, and enter the resulting net area. No opening size is assumed.</p>
+<h3>Does it add a waste or overlap allowance?</h3><p>No. Pack counts are rounded up to whole packs only. No waste, overlap, breakage or cutting allowance is added.</p>
+</section>
+<p class="hub-link"><a href="tools.html">Browse all HomeProjectWise calculators →</a></p>
+</main>
+<footer><nav><a href="./">Home</a><a href="guides.html">Guides</a><a href="tools.html">Tools</a><a href="about.html">About</a></nav><p>Better decisions. Better projects. A better home.</p></footer>
+<script src="siding-cladding-quantity-calculator.js"></script>
+<script>if (window.SidingCladdingQuantity) window.SidingCladdingQuantity.init(document);</script>
+</body>
+</html>
