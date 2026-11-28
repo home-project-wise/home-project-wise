@@ -13,6 +13,7 @@ SITE = ROOT / "website"
 OUT = ROOT / "visual-qa-results"
 OUT.mkdir(parents=True, exist_ok=True)
 REGISTRY = json.loads((SITE / "tools-registry.json").read_text(encoding="utf-8"))
+HOME_PROJECT_CASES = json.loads((ROOT / "scripts" / "qa_home_project_cases.json").read_text(encoding="utf-8"))
 BASELINE = json.loads((ROOT / "scripts" / "qa-target-size-baseline.json").read_text(encoding="utf-8"))
 VIEWPORTS = [(320, 740), (390, 844), (1280, 900)]
 HOME_FORMS = {
@@ -139,6 +140,55 @@ def fill_form(form, tool_id):
       }
     }""", values)
 
+def run_declared_home_project_cases(browser, tool_id):
+    """Run independently hand-worked cases against the real rendered Home Project Calculator."""
+    entry = HOME_PROJECT_CASES["tools"].get(tool_id)
+    if not entry:
+        return
+    form_ids = {
+        "home-project-calculator-area-volume": ("measure-form", "measure-result", "measure-error"),
+        "home-project-calculator-paint": ("paint-form", "paint-result", "paint-error"),
+        "home-project-calculator-wallpaper": ("wp-form", "wp-result", "wp-error"),
+    }
+    form_id, result_id, error_id = form_ids[tool_id]
+    for case in entry["cases"]:
+        context = browser.new_context(viewport={"width": 1280, "height": 900}, reduced_motion="reduce")
+        page = context.new_page()
+        page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
+        label = tool_id + ": " + case["name"]
+        try:
+            response = page.goto(BASE + entry["page"], wait_until="load", timeout=20000)
+            if not response or response.status != 200:
+                check(label + " rendered expected result", False, "page did not return HTTP 200")
+                continue
+            for selector in case.get("click", []):
+                page.locator(selector).click()
+            for item in case.get("fill", []):
+                target = page.locator(item["selector"])
+                if "index" in item:
+                    target = target.nth(item["index"])
+                if item.get("kind") == "select":
+                    target.select_option(item["value"])
+                else:
+                    target.fill(item["value"])
+            page.locator("#" + form_id + ' button[type="submit"]').click(no_wait_after=True)
+            page.wait_for_timeout(80)
+            rendered = page.locator("#" + result_id).inner_text()
+            error_text = page.locator("#" + error_id).inner_text()
+            missing = [expected for expected in case.get("expect", []) if expected not in rendered]
+            expected_error = case.get("expectError", "")
+            error_ok = expected_error in error_text if expected_error else not error_text.strip()
+            empty_ok = not rendered.strip() if case.get("resultEmpty") else True
+            ok = not missing and error_ok and empty_ok
+            detail = {"missing_rendered_text": missing, "error": error_text,
+                      "expected_error": expected_error, "result": rendered[:700],
+                      "result_empty_expected": bool(case.get("resultEmpty"))}
+            check(label + " rendered expected result", ok, detail)
+        except Exception as exc:
+            check(label + " rendered expected result", False, repr(exc))
+        finally:
+            context.close()
+
 def form_and_result(page, tool_id):
     if tool_id in HOME_FORMS:
         form_id, result_id = HOME_FORMS[tool_id]
@@ -237,6 +287,7 @@ try:
                     check(label + ": QA completed", False, repr(exc))
                 finally:
                     context.close()
+            run_declared_home_project_cases(browser, tool["id"])
             if baseline_entry:
                 check(tool["id"] + ": page-level baseline still reproduces known debt across all tested viewports",
                       sum(baseline_debt_counts) > 0,
