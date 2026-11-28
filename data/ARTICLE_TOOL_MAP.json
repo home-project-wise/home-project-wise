@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updated": "2026-11-28",
+  "updated": "2026-11-29",
   "sourceOfTruth": "Current main branch article HTML; each decisionSentence is copied from the corresponding article body.",
   "classification": {
     "A": "An existing tool genuinely supports a calculation/check in the article; toolUrl is provided.",
@@ -572,14 +572,24 @@
       "prefill": {},
       "searchImpressions": 171,
       "noToolReason": "Keep this as a guide checklist, not a standalone planner. The article already names the six main locations, says one sensor is needed for each place, identifies the three first-priority spots, lists optional extras and explains that there is no official total. A checkbox tool would only count selected labels; it would not discover how many actual toilets or bathroom-sink cabinets a home has, distinguish model-specific sensing accessories, or establish coverage. The article itself supplies no sourced per-country sensor count or coverage rule. A checklist in the guide is clearer and avoids implying that a category count guarantees protection."
+    },
+    {
+      "slug": "why-is-my-toilet-running-or-refilling",
+      "path": "website/articles/why-is-my-toilet-running-or-refilling.html",
+      "class": "C",
+      "decisionSentence": "Run a dye test first, then check the flapper, the chain and the water level before you replace anything.",
+      "tool": null,
+      "toolUrl": null,
+      "prefill": {},
+      "noToolReason": "The guide is a diagnosis and repair procedure. Its figures are test waits, slack and water-level targets, and water-waste cases quoted from manufacturers and utilities; no existing tool computes them and a made-up estimator would add no accuracy."
     }
   ],
   "summary": {
-    "articleCount": 54,
+    "articleCount": 55,
     "classCounts": {
       "A": 9,
       "B": 4,
-      "C": 41
+      "C": 42
     },
     "existingToolLinksAlreadyPresent": 9,
     "editorialDeepLinksNeeded": 0,
@@ -597,7 +607,8 @@
       "Updated 2026-11-26: how-to-hang-a-heavy-mirror-on-drywall added as class C (hanging procedure; a glass-weight estimate is the only arithmetic).",
       "Updated 2026-11-27: how-to-find-a-wall-stud-without-a-stud-finder added as class C (a physical search procedure; no calculation is justified).",
       "Updated 2026-11-27: smart-plug-vs-smart-power-strip added as class C (a buying comparison; no calculation is justified).",
-      "Updated 2026-11-28: how-to-shut-off-water-to-a-toilet-sink-or-washing-machine added as class C (a valve-closing procedure; no calculation is justified)."
+      "Updated 2026-11-28: how-to-shut-off-water-to-a-toilet-sink-or-washing-machine added as class C (a valve-closing procedure; no calculation is justified).",
+      "Updated 2026-11-29: why-is-my-toilet-running-or-refilling added as class C (a diagnosis procedure; no calculation is justified)."
     ],
     "priorityOrder": [
       "Picture-hanging planner (T2) — current committed tool specification.",
