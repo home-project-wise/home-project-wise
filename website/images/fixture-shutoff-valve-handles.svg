@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Three isolation valve handles: a round handle turned clockwise, a lever turned across the pipe, and a screwdriver slot turned a quarter turn" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="960" height="540" fill="#F7F5F0"/><text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">Three handles, three ways to close</text>
+<rect x="30" y="90" width="280" height="400" rx="14" fill="#fff" stroke="#243238" stroke-width="2.5"/>
+<rect x="340" y="90" width="280" height="400" rx="14" fill="#fff" stroke="#243238" stroke-width="2.5"/>
+<rect x="650" y="90" width="280" height="400" rx="14" fill="#fff" stroke="#243238" stroke-width="2.5"/>
+<text x="170" y="132" font-size="24" font-weight="700" fill="#243238" text-anchor="middle">Round handle</text>
+<circle cx="170" cy="260" r="62" fill="#E4ECE8" stroke="#243238" stroke-width="5"/><circle cx="170" cy="260" r="14" fill="#243238"/>
+<path d="M118 200 A 78 78 0 0 1 225 215" fill="none" stroke="#6F8F82" stroke-width="7" stroke-linecap="round"/><polygon points="236,224 214,222 228,204" fill="#6F8F82"/>
+<text x="170" y="400" font-size="20" font-weight="700" fill="#6F8F82" text-anchor="middle">Clockwise</text><text x="170" y="428" font-size="16" font-weight="500" fill="#5b6b70" text-anchor="middle">until it stops</text>
+<text x="480" y="132" font-size="24" font-weight="700" fill="#243238" text-anchor="middle">Lever</text>
+<rect x="360" y="262" width="240" height="26" fill="#CBD8D2" stroke="#243238" stroke-width="3"/><rect x="450" y="244" width="60" height="62" rx="8" fill="#E4ECE8" stroke="#243238" stroke-width="3"/>
+<line x1="480" y1="275" x2="480" y2="190" stroke="#B5482F" stroke-width="12" stroke-linecap="round"/>
+<text x="480" y="400" font-size="20" font-weight="700" fill="#B5482F" text-anchor="middle">Across the pipe</text><text x="480" y="428" font-size="16" font-weight="500" fill="#5b6b70" text-anchor="middle">= closed</text>
+<text x="790" y="132" font-size="24" font-weight="700" fill="#243238" text-anchor="middle">Screwdriver slot</text>
+<circle cx="790" cy="260" r="52" fill="#E4ECE8" stroke="#243238" stroke-width="5"/>
+<line x1="790" y1="214" x2="790" y2="306" stroke="#B5482F" stroke-width="10" stroke-linecap="round"/>
+<text x="790" y="400" font-size="20" font-weight="700" fill="#B5482F" text-anchor="middle">Quarter turn</text><text x="790" y="428" font-size="16" font-weight="500" fill="#5b6b70" text-anchor="middle">slot across the flow = closed</text>
+</svg>

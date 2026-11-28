@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="Diagram of a toilet with the small supply valve on the thin pipe at the bottom left of the cistern" font-family="system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif"><rect width="960" height="540" fill="#F7F5F0"/><text x="480" y="42" font-size="30" font-weight="700" fill="#243238" text-anchor="middle">The toilet valve</text>
+<rect x="60" y="100" width="130" height="400" fill="#EDE8DC" stroke="#243238" stroke-width="3"/><text x="125" y="310" font-size="20" font-weight="700" fill="#243238" text-anchor="middle" transform="rotate(-90 125 310)">Wall</text>
+<rect x="380" y="110" width="320" height="120" rx="14" fill="#fff" stroke="#243238" stroke-width="4"/><text x="540" y="180" font-size="26" font-weight="700" fill="#243238" text-anchor="middle">Cistern</text>
+<path d="M410 250 Q400 400 540 410 Q690 400 680 250 Z" fill="#fff" stroke="#243238" stroke-width="4"/><text x="545" y="350" font-size="26" font-weight="700" fill="#243238" text-anchor="middle">Bowl</text>
+<line x1="190" y1="400" x2="300" y2="400" stroke="#243238" stroke-width="10" stroke-linecap="round"/>
+<rect x="300" y="376" width="56" height="48" rx="9" fill="#E4ECE8" stroke="#B5482F" stroke-width="5"/>
+<line x1="356" y1="400" x2="372" y2="400" stroke="#243238" stroke-width="10"/><path d="M372 400 C372 300 395 240 420 232" fill="none" stroke="#243238" stroke-width="8" stroke-linecap="round"/>
+<text x="328" y="470" font-size="21" font-weight="700" fill="#B5482F" text-anchor="middle">Supply valve</text>
+<text x="328" y="496" font-size="17" font-weight="500" fill="#5b6b70" text-anchor="middle">on the thin pipe, low on the left</text>
+<text x="780" y="170" font-size="19" font-weight="700" fill="#6F8F82">Close it, flush once:</text><text x="780" y="196" font-size="19" font-weight="700" fill="#6F8F82">no refill = it worked</text>
+</svg>
