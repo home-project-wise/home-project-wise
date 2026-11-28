@@ -31,6 +31,8 @@ test("non-negative validation preserves both calculator help variants", () => {
 
 test("four-ULP ceil tolerance keeps exact and near-exact positive pack boundaries", () => {
   const tolerance = Number.EPSILON * 4 * 3;
+  assert.equal(utils.ceilCount(0), 0);
+  assert.equal(Object.is(utils.ceilCount(0), -0), false);
   assert.equal(utils.ceilCount(3), 3);
   assert.equal(utils.ceilCount(3 + tolerance / 2), 3);
   assert.equal(utils.ceilCount(3 - tolerance / 2), 3);
