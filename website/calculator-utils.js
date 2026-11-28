@@ -31,6 +31,7 @@
   // snap used by the roof and siding tools, while preserving the four-ULP
   // tolerance used by the paver and baseboard tools.
   function ceilCount(value) {
+    if (value === 0) return 0;
     return Math.ceil(value - ROUND_EPSILON * Math.max(1, Math.abs(value)));
   }
 
