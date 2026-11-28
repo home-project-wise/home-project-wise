@@ -133,8 +133,10 @@
     estimate.lineItems.forEach(function (item) {
       if (item.priceKind === "user-input" || item.priceKind === "user-range") evidenceCounts.visitorConfirmed += 1;
       else if (item.source) evidenceCounts.sourceBacked += 1;
-      else evidenceCounts.unpriced += 1;
     });
+    // The estimate engine intentionally omits unpriced lines from lineItems; count them from
+    // its explicit unknownRequired collection rather than treating them as priced zeros.
+    evidenceCounts.unpriced = estimate.unknownRequired.length;
     return {
       market: market, currency: currency, areas: areas, wallFinish: finish,
       evidenceCounts: evidenceCounts,
