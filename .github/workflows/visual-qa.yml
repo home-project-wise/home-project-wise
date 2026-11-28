@@ -30,14 +30,42 @@ jobs:
         run: python scripts/visual_qa.py
       - name: Run registry-driven tool QA at 320/390/1280 px
         run: python scripts/qa_registry_tools.py
+      - name: Run Motion Sensor Coverage responsive and handoff QA
+        run: python scripts/qa_motion_sensor_coverage.py
       - name: Run hand-computed fixtures for the inline-script tools
         run: python scripts/qa_inline_tool_fixtures.py
       - name: Run warnings-only calculator sanity checks
         run: python scripts/qa_calculator_sanity.py
       - name: Run Smart Plug load-check calculation fixtures
         run: node scripts/test_smart_plug_load_check.js
+      - name: Run Smart Plug multi-device Chromium QA
+        run: python scripts/qa_smart_plug_load_check.py
       - name: Run Smart Plug energy-cost calculation fixtures
         run: node scripts/test_smart_plug_energy_cost.js
+      - name: Run Smart Plug energy-cost Chromium QA
+        run: python scripts/qa_smart_plug_energy_cost.py
+      - name: Run picture hanging planner responsive QA
+        run: python scripts/qa_picture_hanging_planner.py
+      - name: Run bulb brightness check responsive QA
+        run: python scripts/qa_bulb_brightness_check.py
+      - name: Run concrete slab volume responsive QA
+        run: python scripts/qa_concrete_slab.py
+      - name: Run drywall and plaster quantity responsive QA
+        run: python scripts/qa_drywall_plaster.py
+      - name: Run fence quantity responsive QA
+        run: python scripts/qa_fence_quantity.py
+      - name: Run insulation quantity responsive QA
+        run: python scripts/qa_insulation_quantity.py
+      - name: Run paver and patio quantity responsive QA
+        run: python scripts/qa_pavers_quantity.py
+      - name: Run baseboard and skirting quantity responsive QA
+        run: python scripts/qa_baseboard_skirting_trim.py
+      - name: Run roof covering quantity responsive QA
+        run: python scripts/qa_roof_covering_quantity.py
+      - name: Run siding and cladding quantity responsive QA
+        run: python scripts/qa_siding_cladding_quantity.py
+      - name: Run tile material-cost responsive QA
+        run: python scripts/qa_tile_cost.py
       - name: Run Project List preset responsive QA
         run: python scripts/qa_project_list_presets.py
       - name: Upload screenshots and report even when checks fail
