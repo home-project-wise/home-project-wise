@@ -2981,3 +2981,15 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Design audit:** page uses the existing `fq-` shared classes and `website/style.css`; no inline `<style>`, no colour/token changes, no designer-owned CSS edits.
 - **Limitations:** no real-device, Safari, Firefox or screen-reader testing is claimed. The tool remains quantity-only and does not calculate trims/accessories, labour, costs, exposure, waste or building geometry.
 - **Status:** ready for Calculator Owner review; not merged and not deployed. Any code change or head movement requires both gates to be rerun on the new exact head. ChatGPT does not merge.
+
+
+## Room-to-Ready summary completeness — implementation pending exact-head verification (28 Nov 2026)
+
+Calculator Owner direction: #415 comment 7234909491. One bounded PR; no new standalone calculator, no prices/research/assumptions, no registry changes, no article or design changes.
+
+- `website/room-to-ready.js`: returns evidence counts (source-backed, visitor-confirmed, unpriced/unknown), explicit excluded/not-priced categories (labour, delivery, tools, preparation, unverified tax), and optional electricity provenance while preserving electricity separation from the material subtotal.
+- `website/room-to-ready-ui.js`: shows the three evidence counts and exclusions. Reuses the existing `reference-prices.json` fetch and selected Electricity-tab tariff; when wattage, hours/day and days/month are entered, multiplies the exact selected tariff low/high by monthly kWh and shows a separate monthly running-cost line with source/date. If tariff or usage is unavailable, keeps the existing Electricity-tab pointer.
+- `scripts/test_room_to_ready.js`: added fixtures for evidence counts, exclusions, electricity source provenance and the invariant that electricity never enters the one-time material subtotal.
+- `docs/ROOM-TO-READY-STAGE-A-IMPLEMENTATION-2026-11-18.md`: updated implementation and verification notes.
+
+No registry change, no inline CSS, no new colours/tokens, no formulas for material costs changed, no additional reference prices introduced. Exact-head quality SUCCESS (run 46115423719) and chromium-visual-qa SUCCESS (run 46115423712) on `cf2adef2ade8f356ed8046c4e7f845b5e438a83e`. Node tests passed in the quality gate. Room-to-Ready Chromium checks passed at 320/390/1280 px, including evidence counts, exclusions, tariff-derived monthly electricity/source/date, subtotal separation, country switching, simulated reference-registry failure and no browser errors. Existing desktop keyboard path passed. Screen-reader and real-device checks remain manual owner checks. Not merged; Calculator Owner review required.

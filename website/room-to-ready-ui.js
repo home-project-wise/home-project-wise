@@ -14,7 +14,7 @@
     var Paint = (opts && opts.paint) || win.HPWPaintReference;
     var Wallpaper = (opts && opts.wallpaper) || win.HPWWallpaperReference;
     if (!host || !Model || !Engine || !RP || !Paint || !Wallpaper) return null;
-    var state = { flooring: null, assumptions: null };
+    var state = { flooring: null, assumptions: null, electricity: null };
     host.innerHTML =
       '<section class="wp-room" aria-labelledby="room-plan-title">' +
       '<h3 id="room-plan-title">Room-to-Ready plan</h3>' +
@@ -114,6 +114,30 @@
         low: p.record.low, high: p.record.high,
         source: sourceFor(p.record, "Approved wallpaper sample range", market) };
     }
+    function electricityCost(market) {
+      if (!Array.isArray(state.electricity)) return null;
+      var choiceId = doc.getElementById("energy-ref-choice");
+      var choice = choiceId && RP.electricityChoices(state.electricity).filter(function (x) {
+        return x.id === choiceId.value && x.audience === market;
+      })[0];
+      if (!choice) return null;
+      var selected = RP.selectElectricity(state.electricity, {
+        jurisdiction: choice.jurisdiction, tariffPlan: choice.tariffPlan
+      });
+      if (!selected || !selected.ok) return null;
+      var watts = doc.getElementById("energy-watts");
+      var hours = doc.getElementById("energy-hours");
+      var days = doc.getElementById("energy-days");
+      if (!watts || !hours || !days || [watts.value, hours.value, days.value].some(function (v) { return v === ""; })) return null;
+      var w = Number(watts.value), h = Number(hours.value), d = Number(days.value);
+      if (!Number.isFinite(w) || w <= 0 || !Number.isFinite(h) || h < 0 || h > 24 ||
+          !Number.isFinite(d) || d < 0 || d > 31) return null;
+      var r = selected.record, monthlyKwh = w / 1000 * h * d;
+      var source = r.source ? { id: r.id, name: r.source.name, observedAt: r.source.observedAt,
+        geography: r.source.geography, urls: r.source.url ? [r.source.url] : [] } : null;
+      return { low: monthlyKwh * r.low, high: monthlyKwh * r.high,
+        currency: r.currency, period: "month", source: source };
+    }
     function render(plan) {
       output.textContent = "";
       if (win) { win.hpwRoomToReadyPlan = plan; if (win.dispatchEvent && win.Event) win.dispatchEvent(new win.Event("hpw-room-plan")); }
@@ -124,7 +148,9 @@
         : "No priced items yet");
       h.appendChild(strong); output.appendChild(h);
       var count = doc.createElement("p");
-      count.textContent = "Unpriced required items: " + plan.unknownRequired.length + (plan.isIncomplete ? " — this plan is incomplete." : " — no selected item is currently unpriced.");
+      count.textContent = "Evidence: " + plan.evidenceCounts.sourceBacked + " source-backed item(s), " +
+        plan.evidenceCounts.visitorConfirmed + " visitor-confirmed item(s), " +
+        plan.evidenceCounts.unpriced + " unpriced / unknown item(s).";
       output.appendChild(count);
       var areas = doc.createElement("p");
       areas.textContent = "Floor area: " + plan.areas.floorM2.toFixed(2) + " m². " +
@@ -160,8 +186,26 @@
       if (list.children.length) output.appendChild(list);
       var note = doc.createElement("p"); note.className = "wp-note"; note.textContent = plan.disclaimer; output.appendChild(note);
       if (plan.wallFinishNote) { var caveat = doc.createElement("p"); caveat.className = "wp-note"; caveat.textContent = plan.wallFinishNote; output.appendChild(caveat); }
+      var exclusions = doc.createElement("div");
+      var exclusionTitle = doc.createElement("p");
+      exclusionTitle.textContent = "Not priced / excluded from this materials estimate:";
+      exclusions.appendChild(exclusionTitle);
+      var exclusionList = doc.createElement("ul");
+      plan.exclusions.forEach(function (label) {
+        var li = doc.createElement("li"); li.textContent = label; exclusionList.appendChild(li);
+      });
+      exclusions.appendChild(exclusionList); output.appendChild(exclusions);
       var energy = doc.createElement("p"); energy.className = "wp-note";
-      energy.textContent = "Electricity running cost is separate and is not included in this one-time materials subtotal. See the Electricity tab for usage cost.";
+      if (plan.electricity) {
+        energy.textContent = "Estimated electricity running cost (" + plan.electricity.period + "): " +
+          money(plan.electricity.low, plan.currency) +
+          (plan.electricity.low === plan.electricity.high ? "" : "–" + money(plan.electricity.high, plan.currency)) +
+          ". Separate recurring cost; never included in the one-time materials subtotal.";
+        if (plan.electricity.source) energy.textContent += " Reference: " + plan.electricity.source.name +
+          " (observed " + plan.electricity.source.observedAt + ").";
+      } else {
+        energy.textContent = "Electricity running cost is separate and is not included in this one-time materials subtotal. See the Electricity tab; a selected reference tariff and appliance usage are needed to show a range here.";
+      }
       output.appendChild(energy);
       var basket = doc.createElement("p"); basket.className = "wp-note";
       basket.textContent = "This room plan is now included in the Project List below. Calculate the combined list there to include any extra items, your contingency choice and optional budget.";
@@ -193,7 +237,8 @@
         flooring = { price: price };
       }
       var finish = wallFinish.value;
-      var input = { market: market, room: room, flooring: flooring, wallFinish: finish };
+      var input = { market: market, room: room, flooring: flooring, wallFinish: finish,
+        electricity: electricityCost(market) };
       if (finish === "paint") { input.paintCoats = Number(doc.getElementById("plan-paint-coats").value); input.paintPrice = manualPrice("plan-wall-price", "m²/coat", market) || paintPrice(market); }
       if (finish === "wallpaper") input.wallpaperPrice = manualPrice("plan-wall-price", "m²", market) || wallpaperPrice(market);
       try { render(Model.buildPlan(input, Engine)); }
@@ -208,7 +253,7 @@
     });
     if (win && typeof win.fetch === "function") {
       win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
-        .then(function (records) { if (Array.isArray(records)) { state.flooring = records; fillFloorTypes(); } }).catch(function () {});
+        .then(function (records) { if (Array.isArray(records)) { state.flooring = records; state.electricity = records; fillFloorTypes(); } }).catch(function () {});
       win.fetch("reference-assumptions.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
         .then(function (file) { if (file && Array.isArray(file.records)) state.assumptions = file; }).catch(function () {});
     }

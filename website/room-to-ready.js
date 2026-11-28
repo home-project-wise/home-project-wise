@@ -119,11 +119,29 @@
       if (e.currency !== currency) fail("Electricity currency must match the selected market; no currency conversion is performed.");
       if (typeof e.low !== "number" || !Number.isFinite(e.low) || e.low < 0 ||
           typeof e.high !== "number" || !Number.isFinite(e.high) || e.high < e.low) fail("Electricity running-cost range is invalid.");
+      var electricitySource = null;
+      if (e.source !== null && e.source !== undefined) {
+        var es = e.source;
+        if (!es || !es.id || !es.name || !es.observedAt) fail("Electricity reference is missing source provenance.");
+        electricitySource = { id: es.id, name: es.name, observedAt: es.observedAt,
+          geography: es.geography || market, urls: Array.isArray(es.urls) ? es.urls.slice() : [] };
+      }
       electricity = { low: e.low, high: e.high, currency: currency, period: String(e.period || "period not specified"),
-        excludedFromMaterialsSubtotal: true };
+        source: electricitySource, excludedFromMaterialsSubtotal: true };
     }
+    var evidenceCounts = { sourceBacked: 0, visitorConfirmed: 0, unpriced: 0 };
+    estimate.lineItems.forEach(function (item) {
+      if (item.priceKind === "user-input" || item.priceKind === "user-range") evidenceCounts.visitorConfirmed += 1;
+      else if (item.source) evidenceCounts.sourceBacked += 1;
+    });
+    // The estimate engine intentionally omits unpriced lines from lineItems; count them from
+    // its explicit unknownRequired collection rather than treating them as priced zeros.
+    evidenceCounts.unpriced = estimate.unknownRequired.length;
     return {
       market: market, currency: currency, areas: areas, wallFinish: finish,
+      evidenceCounts: evidenceCounts,
+      exclusions: ["Labour — not priced", "Delivery — not priced", "Tools — not priced",
+        "Preparation — not priced", "Tax — not priced (not verified)"],
       estimate: estimate,
       engineLineItems: lineItems,
       sources: sourceDetails,

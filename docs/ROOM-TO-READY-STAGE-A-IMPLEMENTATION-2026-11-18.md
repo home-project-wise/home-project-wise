@@ -7,7 +7,7 @@ Date: 18 November 2026
 - `website/room-to-ready.js` is a pure domain adapter that turns one shared room and selected work into a single known-material estimate using the existing `HPWProjectEstimator`.
 - `website/room-to-ready-ui.js` adds a Room-to-Ready section inside the Project cost tab and synchronizes the current plan into the Project List below.
 - `website/home-project-calculator.html` loads the two modules and provides their mount point.
-- `tests/room-to-ready.test.js` covers the core area, currency, unknown-cost, finish-exclusivity and electricity-separation rules.
+- `scripts/test_room_to_ready.js` covers the core area, currency, unknown-cost, finish-exclusivity and electricity-separation rules.
 
 ## Inputs and price provenance
 
@@ -28,7 +28,8 @@ Date: 18 November 2026
 - Wallpaper uses net wall area once. The wall-finish selector is a single choice: none, paint, or wallpaper.
 - Missing wall height creates an explicit unmeasured required item. It is not treated as zero area.
 - Unknown prices are passed to the existing estimate engine as null prices. They remain required unknowns and are excluded from the known subtotal, never silently priced at zero.
-- Electricity is shown as a separate running-cost category and is not added to one-time materials.
+- Electricity can be shown as a separate monthly running-cost estimate when the visitor has selected an existing reference tariff and entered appliance wattage, hours per day and days per month in the existing Electricity tab. The reference low/high tariff is multiplied by the entered monthly kWh; its source and observation date are retained. If the tariff or usage inputs are unavailable, the summary keeps its pointer to the Electricity tab. Electricity is never added to one-time materials.
+- The Room-to-Ready summary reports counts of source-backed, visitor-confirmed and unpriced/unknown selected items. Labour, delivery, tools, preparation and unverified tax are explicitly listed as not priced/excluded.
 
 ## Current boundary / not claimed complete
 
@@ -39,7 +40,7 @@ This is the first integrated Room-to-Ready slice, not the complete future Home P
 Run the domain tests from the repository root:
 
 ```sh
-node --test tests/room-to-ready.test.js
+node --test scripts/test_room_to_ready.js
 ```
 
-The tests exercise the existing project-estimator engine directly, the combined Project List flow, and exact-market price currency matching across all eight supported markets. Manual/browser verification is still required for responsive layout, keyboard/screen-reader interaction, registry fetch failures and country switching before release.
+The tests exercise the existing project-estimator engine directly, the combined Project List flow, exact-market price currency matching across all eight supported markets, evidence counts, exclusion labels, electricity provenance and the invariant that electricity never enters the one-time materials subtotal. CI/Chromium verification must also cover responsive widths, country switching and a simulated reference-registry fetch failure. Keyboard and screen-reader verification remains a manual check for the owner.
