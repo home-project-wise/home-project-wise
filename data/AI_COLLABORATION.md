@@ -3013,3 +3013,8 @@ No calculation logic, CSS, registry, price data, article or design changes. Exac
 - **Done in this PR:** the question is a heading inside the box and the three answers are stacked 48 px tap targets. Markup and behaviour unchanged.
 - **Next in P1 (own PRs):** step 2 hub grouping and filter; step 3 global country chip and picker. Step 3 needs one owner decision, posted in #415: remembering the country across pages needs `sessionStorage` (this tab only, cleared when the tab closes, never sent), but `region.js` and the Check-up page currently say nothing is stored.
 - **Evidence level:** local plus CI on the exact head; not rendered in a browser by me; not checked on devices, Safari, Firefox or screen readers.
+
+
+## Shared calculator utilities — P2 implementation (28 Nov 2026)
+
+Calculator Owner direction: #415 comment 7235824428. This first migration slice extracts blank/positive/non-negative validation, four-ULP quantity rounding, en-US number formatting and safe textContent DOM element creation into `website/calculator-utils.js`. Paver, Baseboard/Skirting, Roof Covering and Siding/Cladding now consume the shared helpers; their calculation formulas and existing per-calculator fixtures remain unchanged. Browser pages load the shared utility before their calculator module. A dedicated Node suite locks validation messages, blank handling, boundary tolerance, positive-zero handling, parity with the prior roof/siding rounding, formatting and textContent-only node creation. The quality workflow runs the new suite. CI caught a negative-zero result for a zero accessory count; the shared helper now explicitly returns positive zero and the regression is covered. This is the first incremental migration, not a claim that every calculator has been migrated.
