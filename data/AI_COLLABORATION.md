@@ -3032,3 +3032,12 @@ Calculator Owner direction: #415 comment 7235824428. This first migration slice 
 - P1 step 2 (#503) explicitly keeps `tools-registry.json` unchanged and owns project grouping in `TOOL_GROUPS` within `scripts/rebuild_site_indexes.py`. The registry schema test should validate this single group assignment source rather than introduce a duplicate `projectGroup` field.
 - Registry mode flags can be schema-validated independently; all current tools remain manual-entry until P3 introduces source-backed Quick estimate mode.
 - Registry-driven responsive QA should consolidate shared layout checks while retaining hand-computed calculation fixtures that protect tool-specific arithmetic.
+
+
+## Registry-driven quality gate — P2 (28 Nov 2026)
+
+- Replaced the 14 per-calculator responsive QA workflow calls with `scripts/qa_registry_tools.py`, which iterates all 26 registry entries at 320, 390 and 1280 px.
+- Checks page loading, placeholder overflow by scrollWidth/clientWidth, 44 px interactive targets, horizontal overflow, browser/console errors and result visibility after calculation. It uses safe sample fixtures for the calculators whose forms need nontrivial values; the Project Cost tab is explicitly treated as a project-list view, not a calculate form.
+- Removed the 14 superseded per-calculator `qa_*.py` scripts. Kept hand-computed inline-tool fixtures, the Home Project Calculator sanity check and Project List preset QA.
+- Registry schema v2 now declares manual/quickEstimate mode flags. Project group assignment remains exclusively in designer-owned `TOOL_GROUPS` in `scripts/rebuild_site_indexes.py`; the schema test enforces exactly one group per public tool and canonical two-space JSON formatting.
+- Latest completed registry baseline (run 46123340583, before cleanup-only script deletions): 26 tools, 543 checks, 522 passed, 21 failed, 3 explicit skips for the Project Cost list tab. All 21 failures are 44 px target-size violations on Bathroom Fan, Budget Planner, Crawl-space Dehumidifier, Home Checkup, Picture Hanging, Rug Size and Smart Plug. No placeholder, overflow, browser-console or tested result-scroll failures remain. These UI/CSS fixes are assigned to the designer; ChatGPT did not change designer-owned CSS.
