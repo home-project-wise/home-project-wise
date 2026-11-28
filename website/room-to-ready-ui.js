@@ -253,11 +253,9 @@
     });
     if (win && typeof win.fetch === "function") {
       win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
-        .then(function (records) { if (Array.isArray(records)) { state.flooring = records; fillFloorTypes(); } }).catch(function () {});
+        .then(function (records) { if (Array.isArray(records)) { state.flooring = records; state.electricity = records; fillFloorTypes(); } }).catch(function () {});
       win.fetch("reference-assumptions.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
         .then(function (file) { if (file && Array.isArray(file.records)) state.assumptions = file; }).catch(function () {});
-      win.fetch("reference-prices.json", { cache: "no-cache" }).then(function (r) { return r && r.ok ? r.json() : null; })
-        .then(function (records) { if (Array.isArray(records)) state.electricity = records; }).catch(function () {});
     }
     fillFloorTypes();
     updatePriceLabels();
