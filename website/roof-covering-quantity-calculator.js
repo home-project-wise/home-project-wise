@@ -1,21 +1,16 @@
 "use strict";
 (function (root, factory) {
-  var api = factory();
+  var utils = root && root.HPWCalculatorUtils;
+  if (!utils && typeof module === "object" && module.exports) utils = require("./calculator-utils.js");
+  var api = factory(utils);
   if (typeof module === "object" && module.exports) module.exports = api;
   if (root) root.RoofCoveringQuantity = api;
-})(typeof globalThis !== "undefined" ? globalThis : this, function () {
+})(typeof globalThis !== "undefined" ? globalThis : this, function (utils) {
   "use strict";
-  var EPS = Number.EPSILON * 4;
-  function blank(v) { return v === "" || v === null || v === undefined; }
-  function positive(v, label) {
-    if (blank(v) || !Number.isFinite(Number(v)) || Number(v) <= 0) throw new Error(label + " must be greater than zero.");
-    return Number(v);
-  }
-  function nonNegative(v, label) {
-    if (blank(v) || !Number.isFinite(Number(v)) || Number(v) < 0) throw new Error(label + " must be zero or greater.");
-    return Number(v);
-  }
-  function ceilCount(value) { var nearest = Math.round(value); return Math.abs(value - nearest) <= EPS * Math.max(1, Math.abs(value)) ? nearest : Math.ceil(value); }
+  var blank = utils.blank;
+  var positive = utils.positive;
+  var nonNegative = function (value, label) { return utils.nonNegative(value, label, false); };
+  var ceilCount = utils.ceilCount;
   function calculate(input) {
     input = input || {};
     if (input.unit !== "m²" && input.unit !== "ft²") throw new Error("Choose square metres or square feet.");
@@ -46,8 +41,8 @@
     return {unit:input.unit,coveragePerPack:coverage,totalArea:totalArea,exactCoveringPacks:exactCoveringPacks,
       coveringPacks:coveringPacks,planes:planes,accessories:accessories};
   }
-  function format(value) { return Number(value).toLocaleString("en-US",{maximumFractionDigits:3}); }
-  function element(doc,tag,text) { var node=doc.createElement(tag); if(text!==undefined) node.textContent=text; return node; }
+  var format = utils.format;
+  var element = utils.element;
   function init(doc) {
     var form=doc.getElementById("roof-form"); if(!form) return null;
     var planeHost=doc.getElementById("roof-planes"),accessoryHost=doc.getElementById("roof-accessories");
