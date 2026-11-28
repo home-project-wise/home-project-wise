@@ -338,7 +338,7 @@ try:
                     failure_page.click("#tab-project")
                     failure_page.select_option("#plan-wall-finish", "paint")
                     failure_page.click("#room-plan-submit")
-                    failure_page.wait_for_function("window.hpwRoomToReadyPlan !== null", timeout=10000)
+                    failure_page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.market === 'Germany'", timeout=10000)
                     fallback = failure_page.inner_text("#room-plan-result")
                     check(f"{label}: simulated registry failure keeps an independently priced paint plan renderable", "Known material subtotal:" in fallback and "Electricity running cost is separate" in fallback, fallback[-350:])
                     check(f"{label}: simulated registry failure shows no invented electricity amount/source", "Estimated electricity running cost (" not in fallback and "See the Electricity tab" in fallback and "Reference:" not in fallback, fallback[-350:])
