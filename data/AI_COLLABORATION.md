@@ -2970,3 +2970,14 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Calculation contract:** quantities only from visitor-measured wall faces and visitor-entered product dimensions/coverage. No inferred building perimeter, storey height, gable geometry, openings, overlap, waste, starter strips, trims, accessories, labour or prices. If calculating packs, require exact product coverage per pack from the visitor. Any optional wall-face subtraction must be explicit user input, not assumed.
 - **Evidence plan:** hand-calculated fixtures including multiple wall faces, zero/blank/invalid boundaries, exact pack boundaries and just-over-boundary cases; run focused Node/registry suites and repository quality + Chromium visual QA gates on exact final head at 320/390/1280 px. Report only evidence actually obtained.
 - **Owner handoff:** no merge by ChatGPT. Request Calculator Owner review only after exact-head checks are green.
+
+
+### Siding / Cladding verification and owner handoff — 28 Nov 2026
+
+- **PR #496 exact head:** 7bf519725b0c23fd14c7f993f24586369b832a0a (before this documentation-only status update). Branch is 10 commits ahead of main and 0 behind; no merge conflict. The current PR contains only this one calculator task.
+- **quality:** SUCCESS on that exact head (run 46112707793). The tools-registry suite included all 11 new siding/cladding Node fixtures; all passed.
+- **chromium-visual-qa:** SUCCESS on that exact head (run 46112707734). Generated tool/search/hub/sitemap rebuild and site-wide visual/link QA passed. The dedicated siding/cladding Chromium QA passed all 24 checks across 320, 390 and 1280 px, including blank defaults, the hand-computed 30 m² → 3 packs case, missing-input validation, keyboard focus, no horizontal overflow and no browser/page errors.
+- **Registry audit:** parsed JSON comparison confirms exactly one entry added (`siding-cladding-quantity`); all 25 pre-existing entries are byte-semantically unchanged. The source-list entry in `scripts/rebuild_site_indexes.py` is present; generated outputs are rebuilt in CI, not hand-edited.
+- **Design audit:** page uses the existing `fq-` shared classes and `website/style.css`; no inline `<style>`, no colour/token changes, no designer-owned CSS edits.
+- **Limitations:** no real-device, Safari, Firefox or screen-reader testing is claimed. The tool remains quantity-only and does not calculate trims/accessories, labour, costs, exposure, waste or building geometry.
+- **Status:** ready for Calculator Owner review; not merged and not deployed. Any code change or head movement requires both gates to be rerun on the new exact head. ChatGPT does not merge.
