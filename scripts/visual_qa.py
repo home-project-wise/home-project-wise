@@ -250,15 +250,19 @@ try:
                 check(f"{label}: existing Canadian electricity reference choices load", tariff_options > 1, tariff_options)
                 if tariff_options > 1:
                     page.select_option("#energy-ref-choice", index=1)
-                page.wait_for_timeout(500)  # allow the Room-to-Ready adapter's shared registry fetch to settle too
+                page.wait_for_timeout(1500)  # allow both consumers of the same registry response to settle
+                tariff_selection = page.input_value("#energy-ref-choice")
                 page.click("#tab-project")
                 page.click("#room-plan-submit")
-                page.wait_for_timeout(500)
+                page.wait_for_timeout(300)
+                plan_rebuilt = page.evaluate("() => !!window.hpwRoomToReadyPlan")
+                plan_error = page.inner_text("#room-plan-error")
+                check(f"{label}: plan rebuild accepts the selected electricity context", plan_rebuilt, plan_error)
                 result = page.inner_text("#room-plan-result")
                 electricity_meta = page.evaluate("() => window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.electricity")
                 check(f"{label}: selected reference tariff and entered usage show a separate monthly electricity cost", "Estimated electricity running cost (month):" in result and "Reference:" in result and "never included in the one-time materials subtotal" in result, result[-500:])
                 check(f"{label}: electricity carries source/date and is explicitly outside the materials subtotal", bool(electricity_meta and electricity_meta["source"] and electricity_meta["source"]["observedAt"] and electricity_meta["excludedFromMaterialsSubtotal"] is True), electricity_meta)
-                check(f"{label}: electricity does not alter the material subtotal", page.evaluate("() => window.hpwRoomToReadyPlan.knownMaterialSubtotal.low === window.hpwRoomToReadyPlan.estimate.subtotalLow"))
+                check(f"{label}: electricity does not alter the material subtotal", page.evaluate("() => !!window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.knownMaterialSubtotal.low === window.hpwRoomToReadyPlan.estimate.subtotalLow"), tariff_selection)
                 check(f"{label}: no horizontal overflow after the expanded summary", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
                 source_meta = page.evaluate("""() => {
                   const s = (window.hpwRoomToReadyPlan.sources || []).find(x => x.item === "Wallpaper");
