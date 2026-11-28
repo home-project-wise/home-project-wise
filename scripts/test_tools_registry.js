@@ -108,3 +108,4 @@ require("./test_motion_sensor_coverage.js");
 require("./test_baseboard_skirting_trim.js");
 
 require("./test_roof_covering_quantity.js");
+require("./test_siding_cladding_quantity.js");
