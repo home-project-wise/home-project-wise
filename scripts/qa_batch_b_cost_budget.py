@@ -82,7 +82,7 @@ with sync_playwright() as p:
     add_project_item(page, "Brushes", 3, "each", "known", 4)
     result = calc_project(page)
     check("Project List normal: known lines total $37 and unknown required line stays excluded",
-          "Priced items: $37" in result and "Total: $37" in result and "This total is partial: 1 item(s) have no price and are not included." in result,
+           "Priced items: USD 37.00" in result and "Total: USD 37.00" in result and "This total is partial: 1 item(s) have no price and are not included." in result,
           result[:900])
     context.close()
 
@@ -92,7 +92,7 @@ with sync_playwright() as p:
     add_project_item(page, "Owned tool", 1, "each", "known", 0)
     result = calc_project(page)
     check("Project List boundary: fractional quantity and explicit zero price produce exactly $1",
-          "Priced items: $1" in result and "Total: $1" in result and "partial" not in result.lower(),
+          "Priced items: USD 1.00" in result and "Total: USD 1.00" in result and "partial" not in result.lower(),
           result[:700])
     context.close()
 
