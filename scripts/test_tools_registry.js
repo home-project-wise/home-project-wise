@@ -99,6 +99,38 @@ test("hooks: any element marked class tool-link in an article names a registered
   });
 });
 
+
+test("registry schema: mode flags are explicit and truthful for the current manual-only phase", () => {
+  assert.equal(registry.schemaVersion, 2);
+  registry.tools.forEach((tool) => {
+    assert.deepEqual(Object.keys(tool.modeFlags || {}).sort(), ["manual", "quickEstimate"], tool.id + " modeFlags keys");
+    assert.equal(tool.modeFlags.manual, true, tool.id + " must retain manual entry");
+    assert.equal(tool.modeFlags.quickEstimate, false, tool.id + " quickEstimate remains false until P3 is implemented");
+  });
+});
+
+test("project groups: every public tool page belongs to exactly one designer-owned group", () => {
+  const source = read("scripts/rebuild_site_indexes.py");
+  const block = source.match(/TOOL_GROUPS\s*=\s*\[([\s\S]*?)\n\]/);
+  assert.ok(block, "TOOL_GROUPS must remain the single source of project-group assignments");
+  const rows = [...block[1].matchAll(/\("([^"]+)",\s*\[([^\]]*)\]\)/g)];
+  assert.ok(rows.length > 0, "at least one project group is required");
+  const grouped = [];
+  rows.forEach((row) => {
+    assert.ok(row[1].trim(), "project group title");
+    const slugs = [...row[2].matchAll(/"([a-z0-9-]+)"/g)].map((m) => m[1]);
+    assert.ok(slugs.length > 0, row[1] + " must contain tools");
+    grouped.push(...slugs);
+  });
+  assert.equal(new Set(grouped).size, grouped.length, "a tool may belong to only one project group");
+  const listed = [...source.matchAll(/\{"slug": "([a-z0-9-]+)", "hub":/g)].map((m) => m[1]).sort();
+  assert.deepEqual(grouped.sort(), listed, "every public tool must have exactly one project group; add new tools to TOOL_GROUPS");
+});
+
+test("registry formatting: canonical two-space JSON prevents whole-file reformat diffs", () => {
+  assert.equal(read("website/tools-registry.json"), JSON.stringify(registry, null, 2) + "\n");
+});
+
 console.log(passed + " tools-registry tests passed");
 
 require("./test_decking_quantity.js");
