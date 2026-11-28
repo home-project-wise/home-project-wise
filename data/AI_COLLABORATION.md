@@ -3021,3 +3021,14 @@ No calculation logic, CSS, registry, price data, article or design changes. Exac
 - **Rule for new tools:** add the tool's slug to `TOOL_GROUPS` in the same PR that adds the tool. If it is forgotten the tool still shows, under "More tools".
 - **Not changed:** tool titles, descriptions, keywords, URLs, the registry and the "Find my calculator" finder.
 - **Evidence level:** local build and stub-DOM check; CI decides the rest; not checked on devices, Safari, Firefox or screen readers.
+
+
+## Shared calculator utilities — P2 implementation (28 Nov 2026)
+
+Calculator Owner direction: #415 comment 7235824428. This first migration slice extracts blank/positive/non-negative validation, both legacy four-ULP quantity-rounding strategies (epsilon subtraction and nearest-integer snap), en-US number formatting and safe textContent DOM element creation into `website/calculator-utils.js`. Paver, Baseboard/Skirting, Roof Covering and Siding/Cladding now consume the shared helpers; their calculation formulas and existing per-calculator fixtures remain unchanged. Browser pages load the shared utility before their calculator module. A dedicated Node suite locks validation messages, blank handling, boundary tolerance, positive-zero handling, parity fixtures for both legacy rounding strategies, formatting and textContent-only node creation. The quality workflow runs the new suite. CI caught and drove correction of two rounding edge cases: negative zero for zero accessory counts, and a large-number difference between the two former rounding strategies. The shared module now preserves both exactly. This is the first incremental migration, not a claim that every calculator has been migrated.
+
+### P2 quality review findings
+
+- P1 step 2 (#503) explicitly keeps `tools-registry.json` unchanged and owns project grouping in `TOOL_GROUPS` within `scripts/rebuild_site_indexes.py`. The registry schema test should validate this single group assignment source rather than introduce a duplicate `projectGroup` field.
+- Registry mode flags can be schema-validated independently; all current tools remain manual-entry until P3 introduces source-backed Quick estimate mode.
+- Registry-driven responsive QA should consolidate shared layout checks while retaining hand-computed calculation fixtures that protect tool-specific arithmetic.
