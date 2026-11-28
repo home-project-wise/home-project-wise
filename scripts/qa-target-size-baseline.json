@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "policy": "Known-debt baseline; the 44px check remains enforced for every target outside these exact page-scoped selectors. Remove an entry when its targets reach 44px; never add entries without Calculator Owner approval in #415.",
+  "pages": {
+    "bathroom-fan-size": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        ".calc-field input",
+        ".calc-field select"
+      ]
+    },
+    "budget-planner": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#tmpl",
+        "#budget",
+        "#rows input"
+      ]
+    },
+    "crawl-space-dehumidifier": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        ".calc-field input"
+      ]
+    },
+    "home-checkup": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#qs label"
+      ]
+    },
+    "picture-hanging-planner": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".unit"
+      ]
+    },
+    "rug-size": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        "#rtype",
+        "#border"
+      ]
+    },
+    "smart-plug-load-check": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#region",
+        "#device-rows select"
+      ]
+    }
+  }
+}
