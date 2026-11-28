@@ -51,11 +51,11 @@ test("shared ceil matches the former roof/siding nearest-integer snap", () => {
     const tolerance = Number.EPSILON * 4 * Math.max(1, whole);
     [-2, -1, -0.5, 0, 0.5, 1, 2].forEach((multiple) => {
       const value = whole + tolerance * multiple;
-      assert.equal(utils.ceilCount(value), previous(value), String(value));
+      assert.equal(utils.ceilCountNearest(value), previous(value), String(value));
     });
   });
   [0.25, 1.000001, 2.5, 9.999999, 100.00001].forEach((value) => {
-    assert.equal(utils.ceilCount(value), previous(value), String(value));
+    assert.equal(utils.ceilCountNearest(value), previous(value), String(value));
   });
 });
 
