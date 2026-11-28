@@ -163,7 +163,7 @@ def metrics(page, baseline_selectors):
       const small=[];
       document.querySelectorAll(selector).forEach(el=>{
         if(!visible(el)||el.disabled)return; const r=el.getBoundingClientRect();
-        if(r.width<44||r.height<44)small.push({tag:el.tagName,id:el.id,width:Math.round(r.width),height:Math.round(r.height),text:(el.innerText||el.getAttribute('aria-label')||'').trim().slice(0,70)});
+        if(r.width<44||r.height<44)small.push({tag:el.tagName,id:el.id,width:Math.round(r.width),height:Math.round(r.height),baseline:baselineSelectors.some(selector=>{try{return el.matches(selector);}catch(error){return false;}}),text:(el.innerText||el.getAttribute('aria-label')||'').trim().slice(0,70)});
       });
       const isSmall = el => { const r=el.getBoundingClientRect(); return r.width<44||r.height<44; };
       const baselineMatches = baselineSelectors.map(selector => {
@@ -172,11 +172,7 @@ def metrics(page, baseline_selectors):
         catch (error) { return {selector,count:-1,error:String(error)}; }
         return {selector,count};
       });
-      const outsideBaseline = small.filter(item => {
-        const el = [...document.querySelectorAll(selector)].find(node => node.id === item.id && node.tagName === item.tag);
-        if (!el) return true;
-        return !baselineSelectors.some(selector => { try { return el.matches(selector); } catch (error) { return false; } });
-      });
+      const outsideBaseline = small.filter(item => !item.baseline);
       return {pageWidth:document.documentElement.scrollWidth,clipped,small,baselineMatches,outsideBaseline};
     }""", baseline_selectors)
 
