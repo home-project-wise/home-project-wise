@@ -105,6 +105,7 @@ with sync_playwright() as p:
     rp.click('#room-form button[data-target="flooring"]')
     rp.wait_for_timeout(200)
     rp.click('#tab-energy'); rp.wait_for_timeout(500)
+    rp.locator('#energy-ref-root details').evaluate('(e)=>e.open=true')
     rp.fill('#energy-watts','1000'); rp.fill('#energy-hours','2'); rp.fill('#energy-days','30')
     rp.wait_for_function("()=>{const s=document.querySelector('#energy-ref-choice');return s&&s.options.length>1}",timeout=10000)
     rp.select_option('#energy-ref-choice',index=1)
