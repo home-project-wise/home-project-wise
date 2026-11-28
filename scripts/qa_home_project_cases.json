@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Independently hand-computed rendered-result cases for the Home Project Calculator Batch A. Expected values are calculated in this file before the browser test is run; do not derive expectations from calculator output.",
+  "tools": {
+    "home-project-calculator-area-volume": {
+      "page": "home-project-calculator.html#panel-measure",
+      "cases": [
+        {
+          "name": "normal metric area, perimeter and volume",
+          "handCalculation": "4.5 m × 3.2 m = 14.4 m²; perimeter = 2 × (4.5 + 3.2) = 15.4 m; volume = 14.4 × 0.1 = 1.44 m³.",
+          "fill": [
+            {"selector": "#measure-unit", "value": "m", "kind": "select"},
+            {"selector": "#measure-length", "value": "4.5"},
+            {"selector": "#measure-width", "value": "3.2"},
+            {"selector": "#measure-depth", "value": "0.1"}
+          ],
+          "expect": ["Floor area: 14.4 m²", "Perimeter: 15.4 m", "Volume: 1.44 m³"],
+          "expectError": ""
+        },
+        {
+          "name": "boundary zero depth keeps valid area and perimeter but warns volume is zero",
+          "handCalculation": "4 m × 3 m = 12 m²; perimeter = 2 × (4 + 3) = 14 m; 12 × 0 = 0 m³. Zero depth is allowed but must not be mistaken for a useful volume.",
+          "fill": [
+            {"selector": "#measure-unit", "value": "m", "kind": "select"},
+            {"selector": "#measure-length", "value": "4"},
+            {"selector": "#measure-width", "value": "3"},
+            {"selector": "#measure-depth", "value": "0"}
+          ],
+          "expect": ["Floor area: 12 m²", "Perimeter: 14 m", "Volume: 0 m³", "Depth is 0"],
+          "expectError": ""
+        },
+        {
+          "name": "invalid negative depth is rejected",
+          "handCalculation": "A depth of −0.1 m is physically invalid for this volume calculation. Expected behaviour: show validation and render no result; do not clamp the input to zero.",
+          "fill": [
+            {"selector": "#measure-unit", "value": "m", "kind": "select"},
+            {"selector": "#measure-length", "value": "4"},
+            {"selector": "#measure-width", "value": "3"},
+            {"selector": "#measure-depth", "value": "-0.1"}
+          ],
+          "expect": [],
+          "expectError": "Depth or height cannot be negative",
+          "resultEmpty": true
+        }
+      ]
+    },
+    "home-project-calculator-paint": {
+      "page": "home-project-calculator.html#panel-paint",
+      "cases": [
+        {
+          "name": "normal metric wall area and product-label coverage",
+          "handCalculation": "Room perimeter = 2 × (5 + 4) = 18 m; gross wall area = 18 × 2.5 = 45 m²; net paintable area = 45 − 2 = 43 m²; two coats = 86 m² of coverage; 86 ÷ 10 = 8.6 tin-equivalents; round up to 9 whole tins. No extra allowance is entered.",
+          "click": ["#paint-advanced > summary"],
+          "fill": [
+            {"selector": "#paint-unit", "value": "m", "kind": "select"},
+            {"selector": "#paint-length", "value": "5"},
+            {"selector": "#paint-width", "value": "4"},
+            {"selector": "#paint-height", "value": "2.5"},
+            {"selector": "#paint-openings", "value": "2"},
+            {"selector": "#paint-coats", "value": "2"},
+            {"selector": "#paint-coverage", "value": "10"}
+          ],
+          "expect": ["Paintable wall area: 43 m²", "8.6 tin-equivalents", "Buy at least 9 tin(s)", "No extra allowance added."],
+          "expectError": ""
+        },
+        {
+          "name": "boundary openings equal gross wall area are rejected",
+          "handCalculation": "2 × (5 + 4) × 2.5 = 45 m² gross wall area. Openings = 45 m² leaves zero paintable area, so no paint quantity or cost may be shown.",
+          "click": ["#paint-advanced > summary"],
+          "fill": [
+            {"selector": "#paint-unit", "value": "m", "kind": "select"},
+            {"selector": "#paint-length", "value": "5"},
+            {"selector": "#paint-width", "value": "4"},
+            {"selector": "#paint-height", "value": "2.5"},
+            {"selector": "#paint-openings", "value": "45"},
+            {"selector": "#paint-coats", "value": "2"},
+            {"selector": "#paint-coverage", "value": "10"}
+          ],
+          "expect": [],
+          "expectError": "The openings area must be smaller than the total wall area",
+          "resultEmpty": true
+        },
+        {
+          "name": "invalid negative opening area is rejected",
+          "handCalculation": "An opening area of −1 m² is invalid because an area cannot be negative. Expected behaviour: validation error and no result.",
+          "click": ["#paint-advanced > summary"],
+          "fill": [
+            {"selector": "#paint-unit", "value": "m", "kind": "select"},
+            {"selector": "#paint-length", "value": "5"},
+            {"selector": "#paint-width", "value": "4"},
+            {"selector": "#paint-height", "value": "2.5"},
+            {"selector": "#paint-openings", "value": "-1"},
+            {"selector": "#paint-coats", "value": "2"},
+            {"selector": "#paint-coverage", "value": "10"}
+          ],
+          "expect": [],
+          "expectError": "Check openings, coats, allowance and price",
+          "resultEmpty": true
+        }
+      ]
+    },
+    "home-project-calculator-wallpaper": {
+      "page": "home-project-calculator.html#panel-wallpaper",
+      "cases": [
+        {
+          "name": "normal two-wall free-match roll count",
+          "handCalculation": "Wall height = 2.4 m; free-match drop length = 2.4 m; each 10 m sale unit provides floor(10 ÷ 2.4) = 4 complete drops. Each 3 m wall needs ceil(3 ÷ 0.53) = 6 drops. Two walls need 12 drops; ceil(12 ÷ 4) = 3 rolls.",
+          "click": ["#wp-rooms .wp-add-wall"],
+          "fill": [
+            {"selector": "#wp-unit", "value": "m", "kind": "select"},
+            {"selector": "#wp-rooms .wp-height", "value": "2.4", "index": 0},
+            {"selector": "#wp-rooms .wp-trim", "value": "0", "index": 0},
+            {"selector": "#wp-rooms .wp-wallw", "value": "3", "index": 0},
+            {"selector": "#wp-rooms .wp-wallw", "value": "3", "index": 1},
+            {"selector": "#wp-saleunit", "value": "roll"},
+            {"selector": "#wp-rollwidth", "value": "0.53"},
+            {"selector": "#wp-length", "value": "10"},
+            {"selector": "#wp-match", "value": "free", "kind": "select"}
+          ],
+          "expect": ["Total to buy: 3 × roll", "12 strip(s) (Wall 1: 6, Wall 2: 6)", "4 strip(s) per roll"],
+          "expectError": ""
+        },
+        {
+          "name": "boundary exact drop capacity uses exactly one roll",
+          "handCalculation": "One 2.12 m wall with 0.53 m roll width needs exactly 4 drops. A 2.5 m wall height and 10 m sale-unit length provide exactly 4 drops (10 ÷ 2.5 = 4). Therefore exactly 1 roll is required; no extra roll is added at an exact boundary.",
+          "fill": [
+            {"selector": "#wp-unit", "value": "m", "kind": "select"},
+            {"selector": "#wp-rooms .wp-height", "value": "2.5", "index": 0},
+            {"selector": "#wp-rooms .wp-trim", "value": "0", "index": 0},
+            {"selector": "#wp-rooms .wp-wallw", "value": "2.12", "index": 0},
+            {"selector": "#wp-saleunit", "value": "roll"},
+            {"selector": "#wp-rollwidth", "value": "0.53"},
+            {"selector": "#wp-length", "value": "10"},
+            {"selector": "#wp-match", "value": "free", "kind": "select"}
+          ],
+          "expect": ["Total to buy: 1 × roll", "4 strip(s) (Wall 1: 4)", "4 strip(s) per roll"],
+          "expectError": ""
+        },
+        {
+          "name": "invalid zero wall width is rejected",
+          "handCalculation": "A wall width of 0 m is invalid because the calculator requires each entered wall width to be greater than zero. Expected behaviour: show the validation error and no roll count.",
+          "fill": [
+            {"selector": "#wp-unit", "value": "m", "kind": "select"},
+            {"selector": "#wp-rooms .wp-height", "value": "2.4", "index": 0},
+            {"selector": "#wp-rooms .wp-trim", "value": "0", "index": 0},
+            {"selector": "#wp-rooms .wp-wallw", "value": "0", "index": 0},
+            {"selector": "#wp-saleunit", "value": "roll"},
+            {"selector": "#wp-rollwidth", "value": "0.53"},
+            {"selector": "#wp-length", "value": "10"},
+            {"selector": "#wp-match", "value": "free", "kind": "select"}
+          ],
+          "expect": [],
+          "expectError": "Wall 1 must have a width greater than zero",
+          "resultEmpty": true
+        }
+      ]
+    }
+  }
+}
