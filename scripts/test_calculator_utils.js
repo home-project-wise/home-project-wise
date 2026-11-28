@@ -39,6 +39,24 @@ test("four-ULP ceil tolerance keeps exact and near-exact positive pack boundarie
   assert.equal(utils.ceilCount(6), 6);
 });
 
+test("shared ceil matches the former roof/siding nearest-integer snap", () => {
+  function previous(value) {
+    const nearest = Math.round(value);
+    const tolerance = Number.EPSILON * 4 * Math.max(1, Math.abs(value));
+    return Math.abs(value - nearest) <= tolerance ? nearest : Math.ceil(value);
+  }
+  [1, 2, 3, 10, 1000, 1000000].forEach((whole) => {
+    const tolerance = Number.EPSILON * 4 * Math.max(1, whole);
+    [-2, -1, -0.5, 0, 0.5, 1, 2].forEach((multiple) => {
+      const value = whole + tolerance * multiple;
+      assert.equal(utils.ceilCount(value), previous(value), String(value));
+    });
+  });
+  [0.25, 1.000001, 2.5, 9.999999, 100.00001].forEach((value) => {
+    assert.equal(utils.ceilCount(value), previous(value), String(value));
+  });
+});
+
 test("format preserves en-US grouping and three-decimal display", () => {
   assert.equal(utils.format(1234.56789), "1,234.568");
   assert.equal(utils.format(12.5), "12.5");
