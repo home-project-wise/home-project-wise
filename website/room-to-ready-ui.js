@@ -133,7 +133,7 @@
       if (!Number.isFinite(w) || w <= 0 || !Number.isFinite(h) || h < 0 || h > 24 ||
           !Number.isFinite(d) || d < 0 || d > 31) return null;
       var r = selected.record, monthlyKwh = w / 1000 * h * d;
-      var source = r.source ? { id: r.id, name: r.source.name, observedAt: r.observedAt,
+      var source = r.source ? { id: r.id, name: r.source.name, observedAt: r.source.observedAt,
         geography: r.source.geography, urls: r.source.url ? [r.source.url] : [] } : null;
       return { low: monthlyKwh * r.low, high: monthlyKwh * r.high,
         currency: r.currency, period: "month", source: source };
