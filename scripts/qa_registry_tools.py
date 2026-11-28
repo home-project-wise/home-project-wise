@@ -82,10 +82,17 @@ def fill_form(form):
             seen.add(el.name);
             const group = [...form.querySelectorAll('input[type="radio"]')].filter(x => x.name === el.name);
             if (!group.some(x => x.checked)) el.checked = true;
+            el.dispatchEvent(new Event('input', {bubbles:true}));
+            el.dispatchEvent(new Event('change', {bubbles:true}));
           }
           continue;
         }
-        if (el.type === 'checkbox') { if (el.required) el.checked = true; continue; }
+        if (el.type === 'checkbox') {
+          if (el.required) el.checked = true;
+          el.dispatchEvent(new Event('input', {bubbles:true}));
+          el.dispatchEvent(new Event('change', {bubbles:true}));
+          continue;
+        }
         if (el.tagName === 'SELECT') {
           if (!el.value || /country/i.test(el.id + ' ' + el.name)) {
             const options = [...el.options].filter(x => x.value !== '' && !x.disabled);
@@ -104,7 +111,8 @@ def fill_form(form):
             continue;
           }
           const step = el.step && el.step !== 'any' ? Number(el.step) : 1;
-          let value = Math.max(min, 1);
+          const fieldId = (el.id || '').toLowerCase();
+          let value = /shared-corners|openings|clearance|joint|border|gap/.test(fieldId) && min <= 0 ? 0 : Math.max(min, 1);
           if (Number.isFinite(max)) value = Math.min(value, max);
           if (Number.isFinite(step) && step > 0) value = Math.ceil(value / step) * step;
           if (Number.isFinite(max)) value = Math.min(value, max);
@@ -187,14 +195,14 @@ try:
                         submit = form.locator('button[type="submit"],input[type="submit"],button:not([type])').first
                         if submit.count() and submit.is_visible():
                             fill_form(form)
-                            submit.click(timeout=5000)
+                            submit.click(timeout=5000, no_wait_after=True)
                             page.wait_for_timeout(450)
                             after = result.inner_text()
                             if after.strip() and after != before:
                                 rect = result.evaluate("el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom};}")
                                 check(label + ": calculation result is brought into view", rect["top"]>=-1 and rect["top"]<height and rect["bottom"]>0, rect)
                             else:
-                                skip(label + ": result-scroll check", "generic safe inputs did not produce a changed result; calculation fixtures cover this tool")
+                                skip(label + ": result-scroll check", "generic safe inputs produced no changed result: " + after.strip()[:140])
                         else: skip(label + ": result-scroll check", "no enabled submit control")
                     else: skip(label + ": result-scroll check", "no visible form/result pair for this registry entry")
                     check(label + ": no browser page errors", not page_errors, page_errors[:3])
