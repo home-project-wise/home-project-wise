@@ -208,7 +208,7 @@ try:
                     context.close()
 
         # Room-to-Ready: current-room invalidation, one-wall-finish guard, keyboard use and screenshots.
-        for vp_name, width, height in (("mobile", 390, 844), ("desktop", 1280, 900)):
+        for vp_name, width, height in (("mobile-small", 320, 740), ("mobile", 390, 844), ("desktop", 1280, 900)):
             label = f"room-to-ready/{vp_name}"
             context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
             page = context.new_page()
@@ -231,8 +231,31 @@ try:
                 page.select_option("#plan-wall-finish", "wallpaper")
                 page.click("#room-plan-submit")
                 page.wait_for_function("window.hpwRoomToReadyPlan && Math.abs(window.hpwRoomToReadyPlan.areas.wallNetM2 - 178) < 0.001", timeout=10000)
+
+                # Evidence counts and explicit exclusions are part of the summary, not inferred from
+                # the material subtotal. Wallpaper has a source-backed reference line in this fixture.
                 result = page.inner_text("#room-plan-result")
                 check(f"{label}: canonical 15x8x4 room gives 178 m² net wall", "Net wall area: 178.00 m²" in result, result[:250])
+                check(f"{label}: evidence counts distinguish source-backed, visitor-confirmed and unknown", "1 source-backed item(s)" in result and "0 visitor-confirmed item(s)" in result and "0 unpriced / unknown item(s)" in result, result[:350])
+                check(f"{label}: labour, delivery, tools, preparation and unverified tax are explicitly not priced", all(x in result for x in ("Labour — not priced", "Delivery — not priced", "Tools — not priced", "Preparation — not priced", "Tax — not priced (not verified)")), result[-500:])
+
+                # Use the existing Electricity tab only: exact selected market tariff plus the
+                # visitor's existing appliance usage inputs. No new tariff or usage assumptions.
+                page.click("#tab-energy")
+                page.locator("#energy-ref-root details").evaluate("(e) => { e.open = true; }")
+                for field, value in (("energy-watts", "1000"), ("energy-hours", "2"), ("energy-days", "30")):
+                    page.fill("#" + field, value)
+                page.wait_for_function("() => { const s = document.querySelector('#energy-ref-choice'); return s && s.options.length > 1; }", timeout=10000)
+                page.select_option("#energy-ref-choice", index=1)
+                page.click("#tab-project")
+                page.click("#room-plan-submit")
+                page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.electricity", timeout=10000)
+                result = page.inner_text("#room-plan-result")
+                electricity_meta = page.evaluate("() => window.hpwRoomToReadyPlan.electricity")
+                check(f"{label}: selected reference tariff and entered usage show a separate monthly electricity cost", "Estimated electricity running cost (month):" in result and "Reference:" in result and "never included in the one-time materials subtotal" in result, result[-500:])
+                check(f"{label}: electricity carries source/date and is explicitly outside the materials subtotal", bool(electricity_meta and electricity_meta["source"] and electricity_meta["source"]["observedAt"] and electricity_meta["excludedFromMaterialsSubtotal"] is True), electricity_meta)
+                check(f"{label}: electricity does not alter the material subtotal", page.evaluate("() => window.hpwRoomToReadyPlan.knownMaterialSubtotal.low === window.hpwRoomToReadyPlan.estimate.subtotalLow"))
+                check(f"{label}: no horizontal overflow after the expanded summary", page.evaluate("document.documentElement.scrollWidth") <= width + 1, page.evaluate("document.documentElement.scrollWidth"))
                 source_meta = page.evaluate("""() => {
                   const s = (window.hpwRoomToReadyPlan.sources || []).find(x => x.item === "Wallpaper");
                   return s ? { observedAt: s.observedAt, geographyResolution: s.geographyResolution } : null;
@@ -289,11 +312,38 @@ try:
                     check(f"{label}: Paint-tab + wallpaper double count is blocked", "cannot be combined" in conflict and "double-counting" in conflict, conflict)
                     # Changing to another country clears the typed Paint price and the Project List's manual price.
                     page.select_option("#region-country", "Germany")
+                    check(f"{label}: country change clears the old Room-to-Ready plan and tariff choice", page.evaluate("window.hpwRoomToReadyPlan === null") and page.input_value("#energy-ref-choice") == "")
                     check(f"{label}: country change refreshes all codes to EUR", all(page.input_value("#" + field) == "EUR" for field in ("paint-currency", "material-currency", "energy-currency", "project-currency", "plist-currency")))
                     check(f"{label}: country change clears manual Paint amount and result", page.input_value("#paint-price") == "" and page.inner_text("#paint-result") == "")
                     page.click("#tab-project")
                     modes = page.locator('#plist-items select[data-field="mode"]')
                     check(f"{label}: Project List manual price is reset after country change", modes.count() > 0 and modes.last.input_value() == "unknown")
+
+                    # Simulate the reference registry being unavailable. The Room-to-Ready
+                    # workflow may still use independent approved paint assumptions, but must
+                    # not invent an electricity cost or claim a source-backed tariff.
+                    failure_context = browser.new_context(viewport={"width": width, "height": height}, color_scheme="light", reduced_motion="reduce")
+                    failure_page = failure_context.new_page()
+                    failure_errors = []
+                    failure_page.on("pageerror", lambda exc: failure_errors.append(str(exc)))
+                    failure_page.route("**/*", handle_request)
+                    failure_page.route("**/reference-prices.json", lambda route: route.fulfill(status=503, body="simulated registry outage"))
+                    failure_page.goto(base + "/home-project-calculator.html", wait_until="domcontentloaded", timeout=30000)
+                    failure_page.select_option("#region-country", "Germany")
+                    failure_page.locator("#room-root summary").click()
+                    for field, value in (("room-unit", "m"), ("room-length", "4"), ("room-width", "3"), ("room-height", "2.5"), ("room-openings", "0")):
+                        if field == "room-unit": failure_page.select_option("#" + field, value)
+                        else: failure_page.fill("#" + field, value)
+                    failure_page.click('#room-form button[data-target="flooring"]')
+                    failure_page.click("#tab-project")
+                    failure_page.select_option("#plan-wall-finish", "paint")
+                    failure_page.click("#room-plan-submit")
+                    failure_page.wait_for_function("window.hpwRoomToReadyPlan !== null", timeout=10000)
+                    fallback = failure_page.inner_text("#room-plan-result")
+                    check(f"{label}: simulated registry failure keeps an independently priced paint plan renderable", "Known material subtotal:" in fallback and "Electricity running cost is separate" in fallback, fallback[-350:])
+                    check(f"{label}: simulated registry failure shows no invented electricity amount/source", "Estimated electricity running cost (" not in fallback and "See the Electricity tab" in fallback and "Reference:" not in fallback, fallback[-350:])
+                    check(f"{label}: simulated registry failure causes no uncaught browser error", not failure_errors, failure_errors)
+                    failure_context.close()
                     check(f"{label}: no browser errors", not page_errors and not app_console, (page_errors + app_console)[:5])
             except Exception as e:
                 check(f"{label}: Room-to-Ready browser scenario", False, repr(e))
