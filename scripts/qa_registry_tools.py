@@ -30,6 +30,13 @@ RESULT_BY_FORM = {
     "msc-form": "msc-result", "pavers-form": "pavers-result", "planner": "planner-result",
     "rl-form": "rl-result", "roof-form": "roof-result", "siding-form": "siding-result",
 }
+QA_VALUES = {
+    "bathroom-fan-size": {"len":"12", "wid":"10"},
+    "crawl-space-dehumidifier": {"len":"20", "wid":"20", "rh":"55"},
+    "decking-quantity-calculator": {"deck-board-width":"5.5", "deck-board-gap":"0.25", "deck-stock-length":"12", "deck-length-1":"15", "deck-width-1":"12", "deck-edge-1":"0", "deck-waste":"0"},
+    "home-project-calculator-wallpaper": {"wp-saleunit":"double roll", "wp-rollwidth":"1.75", "wp-length":"33", "wp-repeat":"0", "wp-price":"", "wp-currency":"USD"},
+    "rug-size": {"Room width feet":"12", "Room width inches":"0", "Room length feet":"15", "Room length inches":"0", "Seating area width feet":"10", "Seating area width inches":"0", "Seating area depth feet":"8", "Seating area depth inches":"0"},
+}
 
 class QuietHandler(SimpleHTTPRequestHandler):
     def log_message(self, *_args):
@@ -72,8 +79,9 @@ def choose_supported_country(page):
       });
     }""")
 
-def fill_form(form):
-    form.evaluate("""form => {
+def fill_form(form, tool_id):
+    values = QA_VALUES.get(tool_id, {})
+    form.evaluate("""(form, values) => {
       const seen = new Set();
       for (const el of form.querySelectorAll('input,select,textarea')) {
         if (el.disabled || el.type === 'hidden' || el.offsetParent === null) continue;
@@ -93,7 +101,10 @@ def fill_form(form):
           el.dispatchEvent(new Event('change', {bubbles:true}));
           continue;
         }
-        if (el.tagName === 'SELECT') {
+        const override = values[el.id] !== undefined ? values[el.id] : values[el.getAttribute('aria-label')];
+        if (override !== undefined) {
+          el.value = String(override);
+        } else if (el.tagName === 'SELECT') {
           if (!el.value || /country/i.test(el.id + ' ' + el.name)) {
             const options = [...el.options].filter(x => x.value !== '' && !x.disabled);
             const preferred = /country/i.test(el.id + ' ' + el.name)
@@ -125,7 +136,7 @@ def fill_form(form):
         el.dispatchEvent(new Event('input', {bubbles:true}));
         el.dispatchEvent(new Event('change', {bubbles:true}));
       }
-    }""")
+    }""", values)
 
 def form_and_result(page, tool_id):
     if tool_id in HOME_FORMS:
@@ -190,11 +201,13 @@ try:
                     check(label + ": interactive targets are at least 44px", not m["small"], m["small"][:8])
                     choose_supported_country(page)
                     form, result = form_and_result(page, tool["id"])
-                    if form and result:
+                    if tool["id"] == "home-project-calculator-project-cost":
+                        skip(label + ": result-scroll check", "project-cost tab is a project list, not a calculate form; covered by Project List QA")
+                    elif form and result:
                         before = result.inner_text()
                         submit = form.locator('button[type="submit"],input[type="submit"],button:not([type])').first
                         if submit.count() and submit.is_visible():
-                            fill_form(form)
+                            fill_form(form, tool["id"])
                             submit.click(timeout=5000, no_wait_after=True)
                             page.wait_for_timeout(450)
                             after = result.inner_text()
