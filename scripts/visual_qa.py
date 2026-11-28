@@ -245,13 +245,17 @@ try:
                 page.locator("#energy-ref-root details").evaluate("(e) => { e.open = true; }")
                 for field, value in (("energy-watts", "1000"), ("energy-hours", "2"), ("energy-days", "30")):
                     page.fill("#" + field, value)
-                page.wait_for_function("() => { const s = document.querySelector('#energy-ref-choice'); return s && s.options.length > 1; }", timeout=10000)
-                page.select_option("#energy-ref-choice", index=1)
+                page.wait_for_timeout(500)
+                tariff_options = page.locator("#energy-ref-choice option").count()
+                check(f"{label}: existing Canadian electricity reference choices load", tariff_options > 1, tariff_options)
+                if tariff_options > 1:
+                    page.select_option("#energy-ref-choice", index=1)
+                page.wait_for_timeout(500)  # allow the Room-to-Ready adapter's shared registry fetch to settle too
                 page.click("#tab-project")
                 page.click("#room-plan-submit")
-                page.wait_for_function("window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.electricity", timeout=10000)
+                page.wait_for_timeout(500)
                 result = page.inner_text("#room-plan-result")
-                electricity_meta = page.evaluate("() => window.hpwRoomToReadyPlan.electricity")
+                electricity_meta = page.evaluate("() => window.hpwRoomToReadyPlan && window.hpwRoomToReadyPlan.electricity")
                 check(f"{label}: selected reference tariff and entered usage show a separate monthly electricity cost", "Estimated electricity running cost (month):" in result and "Reference:" in result and "never included in the one-time materials subtotal" in result, result[-500:])
                 check(f"{label}: electricity carries source/date and is explicitly outside the materials subtotal", bool(electricity_meta and electricity_meta["source"] and electricity_meta["source"]["observedAt"] and electricity_meta["excludedFromMaterialsSubtotal"] is True), electricity_meta)
                 check(f"{label}: electricity does not alter the material subtotal", page.evaluate("() => window.hpwRoomToReadyPlan.knownMaterialSubtotal.low === window.hpwRoomToReadyPlan.estimate.subtotalLow"))
