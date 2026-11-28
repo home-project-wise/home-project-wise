@@ -3013,3 +3013,11 @@ No calculation logic, CSS, registry, price data, article or design changes. Exac
 - **Done in this PR:** the question is a heading inside the box and the three answers are stacked 48 px tap targets. Markup and behaviour unchanged.
 - **Next in P1 (own PRs):** step 2 hub grouping and filter; step 3 global country chip and picker. Step 3 needs one owner decision, posted in #415: remembering the country across pages needs `sessionStorage` (this tab only, cleared when the tab closes, never sent), but `region.js` and the Check-up page currently say nothing is stored.
 - **Evidence level:** local plus CI on the exact head; not rendered in a browser by me; not checked on devices, Safari, Firefox or screen readers.
+
+## 2026-11-28 — Design lead (Claude) — P1 step 2: Tools hub grouping and filter (own PR)
+
+- **Step 1 delivered:** Home Check-up answers, PR #499 merged (`a1535c4`), Pages run 775 succeeded.
+- **Files claimed for step 2:** `scripts/rebuild_site_indexes.py` (the hub is generated there; only the hub function, a new group list and a filter script are touched), `website/article-overrides.css`, `data/WORK_LOG.md`, this file. No open calculator PR touches them.
+- **Rule for new tools:** add the tool's slug to `TOOL_GROUPS` in the same PR that adds the tool. If it is forgotten the tool still shows, under "More tools".
+- **Not changed:** tool titles, descriptions, keywords, URLs, the registry and the "Find my calculator" finder.
+- **Evidence level:** local build and stub-DOM check; CI decides the rest; not checked on devices, Safari, Firefox or screen readers.

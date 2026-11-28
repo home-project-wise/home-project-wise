@@ -371,3 +371,22 @@ fieldset.quiz-q.calc-checks{display:block;min-width:0;margin:14px 0 0;padding:16
 .quiz-q.calc-checks label:has(input:checked){border-color:#8db8a6;background:#1f3329}
 .quiz-q.calc-checks label:has(input:focus-visible){outline-color:#f0a07a}
 }
+
+/* Designer pass, issue #415 P1 (2026-11-28): Tools hub grouped by job with a filter box. Whole rows are tappable, descriptions are capped at two lines, the filter box only appears when JavaScript runs. */
+.tool-filter{margin:6px 0 4px}
+.tool-filter input{display:block;box-sizing:border-box;width:100%;max-width:560px;min-height:48px;padding:10px 14px;border:1.5px solid #74857f;border-radius:12px;background:#fff;color:#243238;font:inherit;font-size:17px}
+.tool-filter input::placeholder{color:#576165;opacity:1}
+.tool-filter-status{min-height:1.4em;margin:8px 0 0;font-size:15px;color:#566266}
+.tool-group{margin:28px 0 0}
+.tool-group>h3{display:flex;align-items:baseline;gap:10px;margin:0 0 4px;font-size:1.2rem}
+.tool-group .tool-count{display:inline-block;min-width:1.6em;padding:1px 8px;border-radius:999px;background:#e9f3ee;color:#243238;font-size:13px;font-weight:600;text-align:center}
+.tool-group .tool-list li{position:relative;padding:14px 0}
+.tool-group .tool-list a::after{content:"";position:absolute;inset:0}
+.tool-group .tool-list span{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.tool-group[hidden],.tool-group .tool-list li[hidden]{display:none}
+@media(prefers-color-scheme:dark){
+.tool-filter input{border-color:#6d8189;background:#182126;color:#eef1ee}
+.tool-filter input::placeholder{color:#8fa0a6}
+.tool-filter-status{color:#aeb9bc}
+.tool-group .tool-count{background:#1f3329;color:#eef1ee}
+}
