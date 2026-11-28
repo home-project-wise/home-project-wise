@@ -1,20 +1,15 @@
 "use strict";
 (function(root,factory){
-  var api=factory();
+  var utils=root&&root.HPWCalculatorUtils;
+  if(!utils&&typeof module==="object"&&module.exports) utils=require("./calculator-utils.js");
+  var api=factory(utils);
   if(typeof module==="object"&&module.exports) module.exports=api;
   if(root) root.SidingCladdingQuantity=api;
-})(typeof globalThis!=="undefined"?globalThis:this,function(){
+})(typeof globalThis!=="undefined"?globalThis:this,function(utils){
   "use strict";
-  var EPS=Number.EPSILON*4;
-  function blank(v){return v===""||v===null||v===undefined;}
-  function positive(v,label){
-    if(blank(v)||!Number.isFinite(Number(v))||Number(v)<=0) throw new Error(label+" must be greater than zero.");
-    return Number(v);
-  }
-  function ceilCount(value){
-    var nearest=Math.round(value);
-    return Math.abs(value-nearest)<=EPS*Math.max(1,Math.abs(value))?nearest:Math.ceil(value);
-  }
+  var blank=utils.blank;
+  var positive=utils.positive;
+  var ceilCount=utils.ceilCountNearest;
   function calculate(input){
     input=input||{};
     if(input.unit!=="m²"&&input.unit!=="ft²") throw new Error("Choose square metres or square feet.");
@@ -31,8 +26,8 @@
     if(!Number.isSafeInteger(packs)) throw new Error("The pack quantity is too large to calculate safely.");
     return {unit:input.unit,coveragePerPack:coverage,totalArea:totalArea,exactPacks:exactPacks,packs:packs,faces:faces};
   }
-  function format(value){return Number(value).toLocaleString("en-US",{maximumFractionDigits:3});}
-  function node(doc,tag,text){var n=doc.createElement(tag);if(text!==undefined)n.textContent=text;return n;}
+  var format=utils.format;
+  var node=utils.element;
   function init(doc){
     var form=doc.getElementById("siding-form");if(!form)return null;
     var host=doc.getElementById("siding-faces"),sequence=1;

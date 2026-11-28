@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "scope": "page",
+  "policy": "Known-debt baseline at page scope; on these seven approved legacy pages, sub-44px targets are warnings. Every other page remains blocking. Delete a page entry once it has no sub-44px targets; never add pages without Calculator Owner approval in #415.",
+  "pages": {
+    "bathroom-fan-size": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        ".calc-field input",
+        ".calc-field select"
+      ]
+    },
+    "budget-planner": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#tmpl",
+        "#budget",
+        "#rows input"
+      ]
+    },
+    "crawl-space-dehumidifier": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        ".calc-field input"
+      ]
+    },
+    "home-checkup": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#qs label"
+      ]
+    },
+    "picture-hanging-planner": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".unit"
+      ]
+    },
+    "rug-size": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        ".calc-units label",
+        "#rtype",
+        "#border"
+      ]
+    },
+    "smart-plug-load-check": {
+      "reason": "legacy layout, owner: design lead",
+      "selectors": [
+        "#region",
+        "#device-rows select"
+      ]
+    }
+  }
+}

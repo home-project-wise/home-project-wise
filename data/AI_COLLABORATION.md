@@ -3021,3 +3021,27 @@ No calculation logic, CSS, registry, price data, article or design changes. Exac
 - **Rule for new tools:** add the tool's slug to `TOOL_GROUPS` in the same PR that adds the tool. If it is forgotten the tool still shows, under "More tools".
 - **Not changed:** tool titles, descriptions, keywords, URLs, the registry and the "Find my calculator" finder.
 - **Evidence level:** local build and stub-DOM check; CI decides the rest; not checked on devices, Safari, Firefox or screen readers.
+
+
+## Shared calculator utilities — P2 implementation (28 Nov 2026)
+
+Calculator Owner direction: #415 comment 7235824428. This first migration slice extracts blank/positive/non-negative validation, both legacy four-ULP quantity-rounding strategies (epsilon subtraction and nearest-integer snap), en-US number formatting and safe textContent DOM element creation into `website/calculator-utils.js`. Paver, Baseboard/Skirting, Roof Covering and Siding/Cladding now consume the shared helpers; their calculation formulas and existing per-calculator fixtures remain unchanged. Browser pages load the shared utility before their calculator module. A dedicated Node suite locks validation messages, blank handling, boundary tolerance, positive-zero handling, parity fixtures for both legacy rounding strategies, formatting and textContent-only node creation. The quality workflow runs the new suite. CI caught and drove correction of two rounding edge cases: negative zero for zero accessory counts, and a large-number difference between the two former rounding strategies. The shared module now preserves both exactly. This is the first incremental migration, not a claim that every calculator has been migrated.
+
+### P2 quality review findings
+
+- P1 step 2 (#503) explicitly keeps `tools-registry.json` unchanged and owns project grouping in `TOOL_GROUPS` within `scripts/rebuild_site_indexes.py`. The registry schema test should validate this single group assignment source rather than introduce a duplicate `projectGroup` field.
+- Registry mode flags can be schema-validated independently; all current tools remain manual-entry until P3 introduces source-backed Quick estimate mode.
+- Registry-driven responsive QA should consolidate shared layout checks while retaining hand-computed calculation fixtures that protect tool-specific arithmetic.
+
+
+## Registry-driven quality gate — P2 (28 Nov 2026)
+
+- Replaced the 14 per-calculator responsive QA workflow calls with `scripts/qa_registry_tools.py`, which iterates all 26 registry entries at 320, 390 and 1280 px.
+- Checks page loading, placeholder overflow by scrollWidth/clientWidth, 44 px interactive targets, horizontal overflow, browser/console errors and result visibility after calculation. It uses safe sample fixtures for the calculators whose forms need nontrivial values; the Project Cost tab is explicitly treated as a project-list view, not a calculate form.
+- Removed the 14 superseded per-calculator `qa_*.py` scripts. Kept hand-computed inline-tool fixtures, the Home Project Calculator sanity check and Project List preset QA.
+- Registry schema v2 now declares manual/quickEstimate mode flags. Project group assignment remains exclusively in designer-owned `TOOL_GROUPS` in `scripts/rebuild_site_indexes.py`; the schema test enforces exactly one group per public tool and canonical two-space JSON formatting.
+- Latest completed registry baseline (run 46123340583, before cleanup-only script deletions): 26 tools, 543 checks, 522 passed, 21 failed, 3 explicit skips for the Project Cost list tab. All 21 failures are 44 px target-size violations on Bathroom Fan, Budget Planner, Crawl-space Dehumidifier, Home Checkup, Picture Hanging, Rug Size and Smart Plug. No placeholder, overflow, browser-console or tested result-scroll failures remain. These UI/CSS fixes are assigned to the designer; ChatGPT did not change designer-owned CSS.
+
+## 2026-11-28 — ChatGPT — P2 #509 known-debt baseline implementation
+
+Applied Calculator Owner decision in #415 comment 7237057164. The seven-page legacy 44px target-size debt is now an explicit, selector-scoped baseline; the registry QA continues to fail on all non-baselined small targets and emits warnings for the known debt. Runtime checks at 320/390/1280 fail if any baseline selector no longer has a matching sub-44px target, requiring the baseline to shrink as the designer fixes pages. The approved baseline is exactly Bathroom Fan, Budget Planner, Crawl-space Dehumidifier, Home Check-up, Picture Hanging and Rug Size and Smart Plug Load Check. No CSS, `.ph-*` styling, calculations, validation, fixture expectations, registry membership or group ownership changed. Exact-head CI pending; PR #509 remains draft and unmerged pending green checks and Claude's final review.
