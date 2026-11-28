@@ -3005,3 +3005,8 @@ Calculator Owner direction: #415 comment 7235303779. One small text-and-fixture 
 - scripts/test_room_to_ready.js: adds a combined reference-priced + visitor-confirmed plan fixture and asserts the three evidence counts sum to all priced and unknown required lines.
 
 No calculation logic, CSS, registry, price data, article or design changes. Exact-head quality and chromium-visual-qa verification is pending. ChatGPT does not merge.
+
+
+## Shared calculator utilities — P2 implementation (28 Nov 2026)
+
+Calculator Owner direction: #415 comment 7235824428. This first migration slice extracts blank/positive/non-negative validation, four-ULP quantity rounding, en-US number formatting and safe textContent DOM element creation into `website/calculator-utils.js`. Paver, Baseboard/Skirting, Roof Covering and Siding/Cladding now consume the shared helpers; their calculation formulas and existing per-calculator fixtures remain unchanged. Browser pages load the shared utility before their calculator module. A dedicated Node suite locks validation messages, blank handling, boundary tolerance, formatting and textContent-only node creation. The quality workflow runs the new suite. This is the first incremental migration, not a claim that every calculator has been migrated.
