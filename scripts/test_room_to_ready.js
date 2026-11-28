@@ -66,12 +66,34 @@ test("missing wall height creates an explicit unmeasured unknown", () => {
   assert.equal(p.estimate.lineItems.length, 0);
 });
 
-test("electricity remains separate from the one-time materials subtotal", () => {
+test("electricity remains separate from the one-time materials subtotal and retains tariff provenance", () => {
   const p = model.buildPlan({ market: "Germany", room, flooring: { price: ref(10, 12, "m²", "floor") },
-    electricity: { low: 20, high: 35, currency: "EUR", period: "month" } }, engine);
+    electricity: { low: 20, high: 35, currency: "EUR", period: "month",
+      source: { id: "electricity-de", name: "Published tariff range", observedAt: "2026-11-20",
+        geography: "Germany", urls: ["https://example.com/tariff"] } } }, engine);
   assert.equal(p.knownMaterialSubtotal.low, 1200);
+  assert.equal(p.knownMaterialSubtotal.high, 1440);
   assert.equal(p.electricity.low, 20);
+  assert.equal(p.electricity.high, 35);
   assert.equal(p.electricity.excludedFromMaterialsSubtotal, true);
+  assert.equal(p.electricity.source.id, "electricity-de");
+  assert.deepEqual(p.electricity.source.urls, ["https://example.com/tariff"]);
+});
+
+test("summary counts source-backed, visitor-confirmed and unpriced required items separately", () => {
+  const p = model.buildPlan({ market: "Germany", room,
+    flooring: { price: ref(10, 12, "m²", "floor") },
+    wallFinish: "wallpaper" }, engine);
+  assert.deepEqual(p.evidenceCounts, { sourceBacked: 1, visitorConfirmed: 0, unpriced: 1 });
+  assert.equal(p.unknownRequired.length, 1);
+  assert.deepEqual(p.exclusions, ["Labour — not priced", "Delivery — not priced", "Tools — not priced",
+    "Preparation — not priced", "Tax — not priced (not verified)"]);
+});
+
+test("visitor-entered price increments only the visitor-confirmed evidence count", () => {
+  const p = model.buildPlan({ market: "Germany", room,
+    flooring: { price: { kind: "user-input", currency: "EUR", unit: "m²", amount: 12 } } }, engine);
+  assert.deepEqual(p.evidenceCounts, { sourceBacked: 0, visitorConfirmed: 1, unpriced: 0 });
 });
 
 test("rejects unsupported market and mixed currency", () => {
