@@ -27,12 +27,19 @@
     return Number(value);
   }
 
-  // For positive quantities, this is equivalent to the former nearest-integer
-  // snap used by the roof and siding tools, while preserving the four-ULP
-  // tolerance used by the paver and baseboard tools.
+  // Keep both historical positive-quantity strategies: pavers/baseboard use
+  // epsilon subtraction; roof/siding use an explicit nearest-integer snap.
   function ceilCount(value) {
     if (value === 0) return 0;
     return Math.ceil(value - ROUND_EPSILON * Math.max(1, Math.abs(value)));
+  }
+
+  function ceilCountNearest(value) {
+    if (value === 0) return 0;
+    var nearest = Math.round(value);
+    return Math.abs(value - nearest) <= ROUND_EPSILON * Math.max(1, Math.abs(value))
+      ? nearest
+      : Math.ceil(value);
   }
 
   function format(value, digits) {
@@ -52,6 +59,7 @@
     positive: positive,
     nonNegative: nonNegative,
     ceilCount: ceilCount,
+    ceilCountNearest: ceilCountNearest,
     format: format,
     element: element
   };
