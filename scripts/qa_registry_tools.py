@@ -173,6 +173,8 @@ try:
         browser = p.chromium.launch(args=["--no-sandbox"])
         for tool in REGISTRY["tools"]:
             parsed = urlsplit(tool["url"])
+            baseline_entry = BASELINE["pages"].get(tool["id"])
+            baseline_debt_counts = []
             for width, height in VIEWPORTS:
                 context = browser.new_context(viewport={"width":width,"height":height}, reduced_motion="reduce")
                 page = context.new_page()
@@ -196,8 +198,9 @@ try:
                     check(label + ": page loads", bool(response and response.status==200), response.status if response else "no response")
                     activate_deep_link(page, parsed.fragment)
                     page.wait_for_timeout(80)
-                    baseline_entry = BASELINE["pages"].get(tool["id"])
                     m = metrics(page)
+                    if baseline_entry:
+                        baseline_debt_counts.append(len(m["small"]))
                     if baseline_entry:
                         print("WARN known-debt baseline: %s — %d sub-44px interactive targets; %s" %
                               (tool["id"], len(m["small"]), baseline_entry["reason"]))
@@ -206,7 +209,6 @@ try:
                     check(label + ": no sideways page scroll", m["pageWidth"]<=width+1, m["pageWidth"])
                     check(label + ": placeholders are not clipped", not m["clipped"], m["clipped"][:5])
                     if baseline_entry:
-                        check(label + ": page-level baseline still reproduces known debt", len(m["small"]) > 0, "baseline page has no sub-44px targets; remove its baseline entry")
                         check(label + ": sub-44px targets are warnings on approved legacy page", True, "%d known-debt targets" % len(m["small"]))
                     else:
                         check(label + ": all interactive targets are at least 44px", not m["small"], m["small"][:8])
@@ -235,6 +237,10 @@ try:
                     check(label + ": QA completed", False, repr(exc))
                 finally:
                     context.close()
+            if baseline_entry:
+                check(tool["id"] + ": page-level baseline still reproduces known debt across all tested viewports",
+                      sum(baseline_debt_counts) > 0,
+                      "baseline page has no sub-44px targets at 320/390/1280; remove its baseline entry")
         browser.close()
 finally:
     server.shutdown()
