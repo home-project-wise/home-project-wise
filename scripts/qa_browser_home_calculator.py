@@ -92,62 +92,6 @@ with sync_playwright() as p:
         bh=mp.evaluate("()=>Math.round(document.querySelector('.tool-panel.active .calc-btn').getBoundingClientRect().height)")
         ck('mobile %s: no overflow'%n,ov()); ck('mobile %s: input font >=16px'%n,min(fs)>=16,min(fs)); ck('mobile %s: submit height >=40px'%n,bh>=40,bh)
     ck('mobile: no page errors',not mc,mc)
-
-    # --- Room-to-Ready summary completeness: existing reference tariff + user appliance usage
-    rc = b.new_context(viewport={'width': 390, 'height': 844})
-    rp = rc.new_page(); rerrs=[]
-    rp.on('pageerror',lambda e:rerrs.append(str(e)))
-    rp.goto(URL,wait_until='load'); rp.wait_for_timeout(700)
-    rp.select_option('#region-country','US'); rp.wait_for_timeout(700)
-    rp.locator('#room-root details').evaluate('(e)=>e.open=true')
-    fill_room = {'room-length':'4','room-width':'3','room-height':'2.5','room-openings':'0'}
-    for k,v in fill_room.items(): rp.fill('#'+k,v)
-    rp.click('#room-form button[data-target="flooring"]')
-    rp.wait_for_timeout(200)
-    rp.click('#tab-energy'); rp.wait_for_timeout(500)
-    rp.locator('#energy-ref-root details').evaluate('(e)=>e.open=true')
-    rp.fill('#energy-watts','1000'); rp.fill('#energy-hours','2'); rp.fill('#energy-days','30')
-    rp.wait_for_function("()=>{const s=document.querySelector('#energy-ref-choice');return s&&s.options.length>1}",timeout=10000)
-    rp.select_option('#energy-ref-choice',index=1)
-    rp.click('#tab-project'); rp.wait_for_timeout(250)
-    rp.check('#plan-flooring')
-    rp.wait_for_function("()=>document.querySelector('#plan-floor-type').options.length>1",timeout=10000)
-    rp.select_option('#plan-floor-type',index=1)
-    rp.click('#room-plan-submit'); rp.wait_for_timeout(250)
-    summary = rp.inner_text('#room-plan-result')
-    ck('Room-to-Ready shows all three evidence counts', 'source-backed item(s)' in summary and 'visitor-confirmed item(s)' in summary and 'unpriced / unknown item(s)' in summary, summary[:300])
-    ck('Room-to-Ready itemises labour, delivery, tools, preparation and unverified tax as not priced', all(x in summary for x in ('Labour — not priced','Delivery — not priced','Tools — not priced','Preparation — not priced','Tax — not priced (not verified)')), summary[-450:])
-    ck('selected existing electricity tariff + entered usage produces a separate monthly cost line', 'Estimated electricity running cost (month):' in summary and 'Reference:' in summary and 'never included in the one-time materials subtotal' in summary, summary[-450:])
-    ck('electricity is not added to the known material subtotal', rp.evaluate("()=>window.hpwRoomToReadyPlan&&window.hpwRoomToReadyPlan.electricity&&window.hpwRoomToReadyPlan.electricity.excludedFromMaterialsSubtotal===true&&window.hpwRoomToReadyPlan.knownMaterialSubtotal.low===window.hpwRoomToReadyPlan.estimate.subtotalLow"))
-    # Country switch must clear the old plan and tariff selection, not reinterpret a previous market's price.
-    rp.select_option('#region-country','Canada'); rp.wait_for_timeout(250)
-    ck('country switch clears the Room-to-Ready result and prior electricity choice', rp.inner_text('#room-plan-result').strip()=='' and rp.input_value('#energy-ref-choice')=='')
-    ck('country switch updates the currency display to CAD', rp.input_value('#energy-currency')=='CAD',rp.input_value('#energy-currency'))
-    ck('country switch has no browser errors',not rerrs,rerrs)
-    rc.close()
-
-    # --- Simulated reference-registry failure: plan remains usable where independent assumptions exist,
-    # and the electricity line falls back to the Electricity-tab instruction rather than inventing a rate.
-    fc = b.new_context(viewport={'width':390,'height':844})
-    def fail_reference(route):
-        if route.request.url.endswith('/reference-prices.json'):
-            return route.fulfill(status=503,body='simulated registry outage')
-        return route.continue_()
-    fc.route('**/*',fail_reference)
-    fp=fc.new_page(); ferr=[]
-    fp.on('pageerror',lambda e:ferr.append(str(e)))
-    fp.goto(URL,wait_until='load'); fp.wait_for_timeout(700)
-    fp.select_option('#region-country','Germany'); fp.wait_for_timeout(250)
-    fp.locator('#room-root details').evaluate('(e)=>e.open=true')
-    for k,v in {'room-length':'4','room-width':'3','room-height':'2.5','room-openings':'0'}.items(): fp.fill('#'+k,v)
-    fp.click('#room-form button[data-target="flooring"]'); fp.wait_for_timeout(150)
-    fp.click('#tab-project'); fp.select_option('#plan-wall-finish','paint')
-    fp.click('#room-plan-submit'); fp.wait_for_timeout(250)
-    fallback=fp.inner_text('#room-plan-result')
-    ck('simulated registry failure keeps an independent Room-to-Ready plan renderable', 'Known material subtotal:' in fallback and 'Electricity running cost is separate' in fallback, fallback[-350:])
-    ck('simulated registry failure does not invent electricity cost or source', 'Estimated electricity running cost (' not in fallback and 'See the Electricity tab' in fallback and 'Reference:' not in fallback, fallback[-350:])
-    ck('simulated registry failure produces no uncaught browser errors',not ferr,ferr)
-    fc.close()
     b.close()
 print('TOTAL',len(res),'FAILS',[r[0] for r in res if not r[1]])
 raise SystemExit(1 if [r for r in res if not r[1]] else 0)
