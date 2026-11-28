@@ -2959,3 +2959,25 @@ Before changing the closed-select labels, I am adding the exact source/test file
 - **Done:** arrow for Motion Sensor Coverage; odd last action spans both columns on phones (381 to 600 px).
 - **Checked on main (`3ab9300`):** the Motion Sensor page uses `bb-` classes, no inline `<style>`, nothing to restyle. No other tool page carries an inline `<style>`.
 - **Gap audit (ChatGPT, 21:59):** no design work yet. When a build order exists, new tools should reuse `fq-` or `bb-`; I will review each new page's look after it merges.
+
+
+## 2026-11-28 — ChatGPT — Siding / Cladding Quantity Calculator claim (PR pending)
+
+- **Owner authorization:** Calculator Owner decision in #415 comment 7234702114. Build Siding / Cladding Quantity Calculator next; first confirm no existing registry entry. Heating/cooling remains deferred.
+- **Registry check:** current main registry website/tools-registry.json has no siding, cladding or exterior-wall cladding tool entry. Open PR check: only editorial PRs #449, #302 and #299; no calculator overlap.
+- **Claimed scope:** one standalone quantity calculator page/module, one new registry entry, generated discovery/index outputs only where required by the existing rebuild script, focused Node fixtures and responsive Chromium QA, data/WORK_LOG.md, and this operations-room entry. Branch: chatgpt/siding-cladding-quantity-2026-11-28, based on main 87cdee5a32b09b36dd78921ec118e59f4b463c82.
+- **Design constraints:** reuse shared fq- classes and existing website/style.css; no inline style, no new CSS tokens/colours, no edits to designer-owned CSS. Registry JSON diff must be one added entry only; preserve formatting.
+- **Calculation contract:** quantities only from visitor-measured wall faces and visitor-entered product dimensions/coverage. No inferred building perimeter, storey height, gable geometry, openings, overlap, waste, starter strips, trims, accessories, labour or prices. If calculating packs, require exact product coverage per pack from the visitor. Any optional wall-face subtraction must be explicit user input, not assumed.
+- **Evidence plan:** hand-calculated fixtures including multiple wall faces, zero/blank/invalid boundaries, exact pack boundaries and just-over-boundary cases; run focused Node/registry suites and repository quality + Chromium visual QA gates on exact final head at 320/390/1280 px. Report only evidence actually obtained.
+- **Owner handoff:** no merge by ChatGPT. Request Calculator Owner review only after exact-head checks are green.
+
+
+### Siding / Cladding verification and owner handoff — 28 Nov 2026
+
+- **PR #496 exact head:** 7bf519725b0c23fd14c7f993f24586369b832a0a (before this documentation-only status update). Branch is 10 commits ahead of main and 0 behind; no merge conflict. The current PR contains only this one calculator task.
+- **quality:** SUCCESS on that exact head (run 46112707793). The tools-registry suite included all 11 new siding/cladding Node fixtures; all passed.
+- **chromium-visual-qa:** SUCCESS on that exact head (run 46112707734). Generated tool/search/hub/sitemap rebuild and site-wide visual/link QA passed. The dedicated siding/cladding Chromium QA passed all 24 checks across 320, 390 and 1280 px, including blank defaults, the hand-computed 30 m² → 3 packs case, missing-input validation, keyboard focus, no horizontal overflow and no browser/page errors.
+- **Registry audit:** parsed JSON comparison confirms exactly one entry added (`siding-cladding-quantity`); all 25 pre-existing entries are byte-semantically unchanged. The source-list entry in `scripts/rebuild_site_indexes.py` is present; generated outputs are rebuilt in CI, not hand-edited.
+- **Design audit:** page uses the existing `fq-` shared classes and `website/style.css`; no inline `<style>`, no colour/token changes, no designer-owned CSS edits.
+- **Limitations:** no real-device, Safari, Firefox or screen-reader testing is claimed. The tool remains quantity-only and does not calculate trims/accessories, labour, costs, exposure, waste or building geometry.
+- **Status:** ready for Calculator Owner review; not merged and not deployed. Any code change or head movement requires both gates to be rerun on the new exact head. ChatGPT does not merge.

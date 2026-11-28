@@ -378,6 +378,9 @@ TOOLS = [
     {"slug": "home-project-calculator", "hub": "projects", "title": "Home Project Calculator",
      "desc": "Work out room area and volume, paint, flooring and wallpaper quantities, electricity running costs and a project cost estimate from your own measurements and prices.",
      "kw": "calculator area volume square metres feet paint flooring wallpaper materials electricity cost kwh project estimate budget tool"},
+    {"slug": "siding-cladding-quantity-calculator", "hub": "projects", "title": "Siding & Cladding Quantity Calculator",
+     "desc": "Estimate siding or cladding packs from measured net wall-face areas and the exact product coverage you enter, without assumed waste or dimensions.",
+     "kw": "siding cladding exterior wall covering facade facade cladding wall area net area coverage pack quantity calculator"},
 ]
 
 
