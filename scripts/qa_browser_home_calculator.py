@@ -94,7 +94,7 @@ with sync_playwright() as p:
     ck('mobile: no page errors',not mc,mc)
 
     # --- Room-to-Ready summary completeness: existing reference tariff + user appliance usage
-    rc = ctx(b, viewport={'width': 390, 'height': 844})
+    rc = b.new_context(viewport={'width': 390, 'height': 844})
     rp = rc.new_page(); rerrs=[]
     rp.on('pageerror',lambda e:rerrs.append(str(e)))
     rp.goto(URL,wait_until='load'); rp.wait_for_timeout(700)
