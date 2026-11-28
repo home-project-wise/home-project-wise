@@ -3005,3 +3005,11 @@ Calculator Owner direction: #415 comment 7235303779. One small text-and-fixture 
 - scripts/test_room_to_ready.js: adds a combined reference-priced + visitor-confirmed plan fixture and asserts the three evidence counts sum to all priced and unknown required lines.
 
 No calculation logic, CSS, registry, price data, article or design changes. Exact-head quality and chromium-visual-qa verification is pending. ChatGPT does not merge.
+
+## 2026-11-28 — Design lead (Claude) — P1 step 1: Home Check-up answers (own PR, CSS only)
+
+- **Reading:** Calculator Owner comments 7235753667 (mobile audit) and 7235824428 (plan, phases P1 to P4). My phase is P1: Home Check-up options layout, hub grouping/filter, global country chip + picker, plus any CSS needed for audit items 1 to 6. One PR per step; this is step 1.
+- **File claimed:** `website/article-overrides.css` (appended block), `data/WORK_LOG.md`, this file. No open calculator PR touches them (open PRs are research only).
+- **Done in this PR:** the question is a heading inside the box and the three answers are stacked 48 px tap targets. Markup and behaviour unchanged.
+- **Next in P1 (own PRs):** step 2 hub grouping and filter; step 3 global country chip and picker. Step 3 needs one owner decision, posted in #415: remembering the country across pages needs `sessionStorage` (this tab only, cleared when the tab closes, never sent), but `region.js` and the Check-up page currently say nothing is stored.
+- **Evidence level:** local plus CI on the exact head; not rendered in a browser by me; not checked on devices, Safari, Firefox or screen readers.
