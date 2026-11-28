@@ -27,9 +27,10 @@ def check(name, ok, detail=""):
 def project_page(browser):
     context = browser.new_context(viewport={"width": 1280, "height": 900}, reduced_motion="reduce")
     page = context.new_page()
-    page.add_init_script("window.hpwRegion = 'US';")
     page.route("**/*", lambda route: route.continue_() if route.request.url.startswith(BASE) else route.abort())
     page.goto(BASE + "home-project-calculator.html#panel-project", wait_until="load")
+    # The real region controller intentionally resets hpwRegion on load; choose the country through its UI.
+    page.locator("#region-country").select_option("US")
     page.get_by_role("tab", name="Project cost").click()
     page.wait_for_selector("#plist-root #plist-add-form")
     return context, page
