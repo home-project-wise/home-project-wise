@@ -1,12 +1,16 @@
 {
-  "schemaVersion": 1,
-  "updated": "2026-11-27",
+  "schemaVersion": 2,
+  "updated": "2026-11-28",
   "purpose": "Every public calculator and where it can be linked from. Contract: docs/TOOL-LINK-CONTRACT.md. Checked by scripts/test_tools_registry.js. Titles are the page's own h1.",
   "tools": [
     {
       "id": "baseboard-skirting-trim",
       "title": "Baseboard & Skirting Quantity Calculator",
       "url": "baseboard-skirting-trim-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "baseboard",
         "skirting",
@@ -25,6 +29,10 @@
       "id": "bathroom-fan-size",
       "title": "Bathroom Exhaust Fan Size Calculator",
       "url": "bathroom-fan-size-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "bathroom",
         "ventilation",
@@ -42,6 +50,10 @@
       "id": "budget-planner",
       "title": "Project Budget Planner",
       "url": "budget-planner.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "budget",
         "project cost",
@@ -60,6 +72,10 @@
       "id": "bulb-brightness-check",
       "title": "Bulb Brightness Check",
       "url": "bulb-brightness-check.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "lighting",
         "bulb brightness",
@@ -74,6 +90,10 @@
       "id": "concrete-slab-volume",
       "title": "Concrete Slab Volume Calculator",
       "url": "concrete-slab-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "concrete",
         "slab",
@@ -89,6 +109,10 @@
       "id": "crawl-space-dehumidifier",
       "title": "Crawl Space Dehumidifier Size Calculator",
       "url": "crawl-space-dehumidifier-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "crawl space",
         "moisture",
@@ -128,6 +152,10 @@
       "id": "decking-quantity-calculator",
       "title": "Decking Quantity Calculator",
       "url": "decking-quantity-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "decking",
         "deck boards",
@@ -144,6 +172,10 @@
       "id": "drywall-plaster-quantity",
       "title": "Drywall and Plaster Quantity Calculator",
       "url": "drywall-plaster-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "drywall",
         "plaster",
@@ -160,6 +192,10 @@
       "id": "fence-quantity-calculator",
       "title": "Fence Quantity Calculator",
       "url": "fence-quantity-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "fence",
         "fencing",
@@ -179,6 +215,10 @@
       "id": "home-checkup",
       "title": "Home Check-up",
       "url": "home-checkup.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "home priorities",
         "storage",
@@ -200,6 +240,10 @@
       "id": "home-project-calculator",
       "title": "Home Project Calculator",
       "url": "home-project-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "area",
         "paint",
@@ -217,6 +261,10 @@
       "id": "home-project-calculator-area-volume",
       "title": "Home Project Calculator: Area & volume",
       "url": "home-project-calculator.html#panel-measure",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "area",
         "volume",
@@ -230,6 +278,10 @@
       "id": "home-project-calculator-electricity",
       "title": "Home Project Calculator: Electricity cost",
       "url": "home-project-calculator.html#panel-energy",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "electricity",
         "running cost",
@@ -246,6 +298,10 @@
       "id": "home-project-calculator-flooring",
       "title": "Home Project Calculator: Flooring & materials",
       "url": "home-project-calculator.html#panel-material",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "flooring",
         "tile",
@@ -259,6 +315,10 @@
       "id": "home-project-calculator-paint",
       "title": "Home Project Calculator: Paint",
       "url": "home-project-calculator.html#panel-paint",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "paint",
         "walls"
@@ -271,6 +331,10 @@
       "id": "home-project-calculator-project-cost",
       "title": "Home Project Calculator: Project cost",
       "url": "home-project-calculator.html#panel-project",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "project cost",
         "budget"
@@ -283,6 +347,10 @@
       "id": "home-project-calculator-wallpaper",
       "title": "Home Project Calculator: Wallpaper",
       "url": "home-project-calculator.html#panel-wallpaper",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "wallpaper",
         "pattern repeat"
@@ -297,6 +365,10 @@
       "id": "insulation-quantity-calculator",
       "title": "Insulation Quantity Calculator",
       "url": "insulation-quantity-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "insulation",
         "insulation area",
@@ -312,6 +384,10 @@
       "id": "motion-sensor-coverage",
       "title": "Motion Sensor Coverage Calculator",
       "url": "motion-sensor-coverage-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "motion sensor",
         "sensor coverage",
@@ -326,6 +402,10 @@
       "id": "pavers-quantity-calculator",
       "title": "Paver & Patio Quantity Calculator",
       "url": "pavers-quantity-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "pavers",
         "patio",
@@ -344,6 +424,10 @@
       "id": "picture-hanging-planner",
       "title": "Picture Hanging Planner",
       "url": "picture-hanging-planner.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "picture hanging",
         "wall art",
@@ -359,6 +443,10 @@
       "id": "room-lighting-planner",
       "title": "Room Lighting Planner",
       "url": "room-lighting-planner.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "room lighting",
         "lux",
@@ -375,6 +463,10 @@
       "id": "rug-size",
       "title": "Rug Size Calculator",
       "url": "rug-size-calculator.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "rug",
         "living room",
@@ -436,6 +528,10 @@
       "id": "smart-plug-load-check",
       "title": "Smart Plug Load Check",
       "url": "smart-plug-load-check.html",
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
       "topics": [
         "smart plug",
         "electrical load",
@@ -478,17 +574,43 @@
       "id": "roof-covering-quantity",
       "title": "Roof Covering Quantity Calculator",
       "url": "roof-covering-quantity-calculator.html",
-      "topics": ["roofing", "roof covering", "roof tiles", "shingles", "metal roofing", "roof area", "coverage", "packs", "accessories", "quantity"],
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
+      "topics": [
+        "roofing",
+        "roof covering",
+        "roof tiles",
+        "shingles",
+        "metal roofing",
+        "roof area",
+        "coverage",
+        "packs",
+        "accessories",
+        "quantity"
+      ],
       "params": [],
       "linkPrefill": [],
       "articles": []
-    }
- ,
+    },
     {
       "id": "siding-cladding-quantity",
       "title": "Siding & Cladding Quantity Calculator",
       "url": "siding-cladding-quantity-calculator.html",
-      "topics": ["siding", "cladding", "exterior wall", "wall face area", "product coverage", "packs", "quantity"],
+      "modeFlags": {
+        "manual": true,
+        "quickEstimate": false
+      },
+      "topics": [
+        "siding",
+        "cladding",
+        "exterior wall",
+        "wall face area",
+        "product coverage",
+        "packs",
+        "quantity"
+      ],
       "params": [],
       "linkPrefill": [],
       "articles": []
