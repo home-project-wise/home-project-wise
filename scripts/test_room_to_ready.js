@@ -96,6 +96,16 @@ test("visitor-entered price increments only the visitor-confirmed evidence count
   assert.deepEqual(p.evidenceCounts, { sourceBacked: 0, visitorConfirmed: 1, unpriced: 0 });
 });
 
+test("evidence counts always sum to every priced and unknown required plan line", () => {
+  const p = model.buildPlan({ market: "Germany", room,
+    flooring: { price: ref(10, 12, "m²", "floor") },
+    wallFinish: "paint", paintCoats: 1,
+    paintPrice: { kind: "user-input", currency: "EUR", unit: "m²/coat", amount: 2 } }, engine);
+  assert.deepEqual(p.evidenceCounts, { sourceBacked: 1, visitorConfirmed: 1, unpriced: 0 });
+  assert.equal(p.evidenceCounts.sourceBacked + p.evidenceCounts.visitorConfirmed + p.evidenceCounts.unpriced,
+    p.estimate.lineItems.length + p.estimate.unknownRequired.length);
+});
+
 test("rejects unsupported market and mixed currency", () => {
   assert.throws(() => model.buildPlan({ market: "Tunisia", room, flooring: { price: null } }, engine), /supported market/);
   assert.throws(() => model.buildPlan({ market: "Germany", room, flooring: { price: { ...ref(1, 2, "m²"), currency: "USD" } } }, engine), /currency\/unit/);
